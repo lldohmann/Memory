@@ -10,8 +10,8 @@
 ;--------------------------------------------------------
 	.globl _main
 	.globl _init_gfx
-	.globl _set_bkg_tiles
-	.globl _set_bkg_data
+	.globl _printf
+	.globl _set_sprite_data
 	.globl _wait_vbl_done
 ;--------------------------------------------------------
 ; special function registers
@@ -44,47 +44,49 @@
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;src\main.c:7: void init_gfx() {
+;src\main.c:9: void init_gfx() {
 ;	---------------------------------
 ; Function init_gfx
 ; ---------------------------------
 _init_gfx::
-;src\main.c:9: set_bkg_data(0, 79u, dungeon_tiles);
-	ld	de, #_dungeon_tiles
+;src\main.c:15: set_sprite_data(0, 63, Cast_Tiles);
+	ld	de, #_Cast_Tiles
 	push	de
-	ld	hl, #0x4f00
+	ld	hl, #0x3f00
 	push	hl
-	call	_set_bkg_data
+	call	_set_sprite_data
 	add	sp, #4
-;src\main.c:10: set_bkg_tiles(0, 0, 32u, 32u, dungeon_mapPLN0);
-	ld	de, #_dungeon_mapPLN0
-	push	de
-	ld	hl, #0x2020
-	push	hl
-	xor	a, a
-	rrca
-	push	af
-	call	_set_bkg_tiles
-	add	sp, #6
-;src\main.c:13: SHOW_BKG;
+;src\main.c:17: SHOW_BKG;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x01
 	ldh	(_LCDC_REG + 0), a
-;src\main.c:14: }
+;src\main.c:18: SHOW_SPRITES;
+	ldh	a, (_LCDC_REG + 0)
+	or	a, #0x02
+	ldh	(_LCDC_REG + 0), a
+;src\main.c:19: }
 	ret
-;src\main.c:17: void main(void)
+;src\main.c:27: void main(void)
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-;src\main.c:19: init_gfx();
+;src\main.c:29: init_gfx();
 	call	_init_gfx
-;src\main.c:22: while(1) {
+;src\main.c:30: printf(" ");
+	ld	de, #___str_0
+	push	de
+	call	_printf
+	pop	hl
+;src\main.c:33: while(1) {
 00102$:
-;src\main.c:29: wait_vbl_done();
+;src\main.c:40: wait_vbl_done();
 	call	_wait_vbl_done
-;src\main.c:31: }
+;src\main.c:42: }
 	jr	00102$
+___str_0:
+	.ascii " "
+	.db 0x00
 	.area _CODE
 	.area _INITIALIZER
 	.area _CABS (ABS)
