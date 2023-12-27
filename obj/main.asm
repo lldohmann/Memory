@@ -49,10 +49,10 @@
 ; Function init_gfx
 ; ---------------------------------
 _init_gfx::
-;src\main.c:15: set_sprite_data(0, 63, Cast_Tiles);
+;src\main.c:15: set_sprite_data(0, 128, Cast_Tiles);
 	ld	de, #_Cast_Tiles
 	push	de
-	ld	hl, #0x3f00
+	ld	hl, #0x8000
 	push	hl
 	call	_set_sprite_data
 	add	sp, #4
@@ -66,23 +66,23 @@ _init_gfx::
 	ldh	(_LCDC_REG + 0), a
 ;src\main.c:19: }
 	ret
-;src\main.c:27: void main(void)
+;src\main.c:38: void main(void)
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-;src\main.c:29: init_gfx();
+;src\main.c:40: init_gfx();
 	call	_init_gfx
-;src\main.c:30: printf(" ");
+;src\main.c:44: printf(" ");
 	ld	de, #___str_0
 	push	de
 	call	_printf
 	pop	hl
-;src\main.c:33: while(1) {
+;src\main.c:47: while(1) {
 00102$:
-;src\main.c:40: wait_vbl_done();
+;src\main.c:54: wait_vbl_done();
 	call	_wait_vbl_done
-;src\main.c:42: }
+;src\main.c:56: }
 	jr	00102$
 ___str_0:
 	.ascii " "

@@ -1,6 +1,6 @@
 /*
 
- CAST.H
+ CAST_TILES.H
 
  Include File.
 
@@ -9,8 +9,8 @@
   Format               : Gameboy 4 color.
   Compression          : None.
   Counter              : None.
-  Tile size            : 8 x 16
-  Tiles                : 0 to 63
+  Tile size            : 8 x 8
+  Tiles                : 0 to 127
 
   Palette colors       : None.
   SGB Palette          : None.
@@ -26,6 +26,6 @@
 /* Bank of tiles. */
 #define Cast_TilesBank 0
 /* Start of tile array. */
-extern const unsigned char Cast_Tiles[];
+extern unsigned char Cast_Tiles[];
 
-/* End of CAST.H */
+/* End of CAST_TILES.H */

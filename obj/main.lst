@@ -49,10 +49,10 @@
                                      49 ; Function init_gfx
                                      50 ; ---------------------------------
       000000                         51 _init_gfx::
-                                     52 ;src\main.c:15: set_sprite_data(0, 63, Cast_Tiles);
+                                     52 ;src\main.c:15: set_sprite_data(0, 128, Cast_Tiles);
       000000 11r00r00         [12]   53 	ld	de, #_Cast_Tiles
       000003 D5               [16]   54 	push	de
-      000004 21 00 3F         [12]   55 	ld	hl, #0x3f00
+      000004 21 00 80         [12]   55 	ld	hl, #0x8000
       000007 E5               [16]   56 	push	hl
       000008 CDr00r00         [24]   57 	call	_set_sprite_data
       00000B E8 04            [16]   58 	add	sp, #4
@@ -66,23 +66,23 @@
       000017 E0r00            [12]   66 	ldh	(_LCDC_REG + 0), a
                                      67 ;src\main.c:19: }
       000019 C9               [16]   68 	ret
-                                     69 ;src\main.c:27: void main(void)
+                                     69 ;src\main.c:38: void main(void)
                                      70 ;	---------------------------------
                                      71 ; Function main
                                      72 ; ---------------------------------
       00001A                         73 _main::
-                                     74 ;src\main.c:29: init_gfx();
+                                     74 ;src\main.c:40: init_gfx();
       00001A CDr00r00         [24]   75 	call	_init_gfx
-                                     76 ;src\main.c:30: printf(" ");
+                                     76 ;src\main.c:44: printf(" ");
       00001D 11r2Ar00         [12]   77 	ld	de, #___str_0
       000020 D5               [16]   78 	push	de
       000021 CDr00r00         [24]   79 	call	_printf
       000024 E1               [12]   80 	pop	hl
-                                     81 ;src\main.c:33: while(1) {
+                                     81 ;src\main.c:47: while(1) {
       000025                         82 00102$:
-                                     83 ;src\main.c:40: wait_vbl_done();
+                                     83 ;src\main.c:54: wait_vbl_done();
       000025 CDr00r00         [24]   84 	call	_wait_vbl_done
-                                     85 ;src\main.c:42: }
+                                     85 ;src\main.c:56: }
       000028 18 FB            [12]   86 	jr	00102$
       00002A                         87 ___str_0:
       00002A 20                      88 	.ascii " "

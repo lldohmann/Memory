@@ -1,6 +1,7 @@
 #include <gb/gb.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
 #include "../res/dungeon_map.h"
 #include "../res/dungeon_tiles.h"
 #include "../res/cast_tiles.h"
@@ -12,7 +13,7 @@ void init_gfx() {
     //set_bkg_tiles(0, 0, 32u, 32u, dungeon_mapPLN0);
 
     // Load Cast tiles 
-    set_sprite_data(0, 63, Cast_Tiles);
+    set_sprite_data(0, 128, Cast_Tiles);
 	// Turn the background map on to make it visible
     SHOW_BKG;
     SHOW_SPRITES;
@@ -23,10 +24,33 @@ struct entity {
     uint8_t width, height;
 };
 
+struct hud {
+    char name[7];
+    uint8_t health, health_Max;
+    uint8_t psychic, psychic_Max;
+    uint16_t experience;
+    uint16_t money;
+    uint8_t offense, defense;
+    uint8_t luck;
+    BOOLEAN likesCheese;
+};
+
 
 void main(void)
 {
 	init_gfx();
+
+    struct hud player;
+    strcpy(player.name, "Mouse");
+    player.health = 20;
+    player.health_Max = 20;
+    player.psychic = 14;
+    player.psychic_Max = 14;
+    player.offense = 8;
+    player.defense = 5;
+    player.luck = 11;
+    player.experience = 0;
+
     printf(" ");
 
     // Loop forever
