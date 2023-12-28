@@ -5,12 +5,15 @@
 #include "../res/dungeon_map.h"
 #include "../res/dungeon_tiles.h"
 #include "../res/cast_tiles.h"
+#include "../res/indoor_tiles.h"
+#include "../res/home_living_room.h"
 
 
 void init_gfx() {
     // Load Background tiles and then map
-    //set_bkg_data(0, 79u, dungeon_tiles);
-    //set_bkg_tiles(0, 0, 32u, 32u, dungeon_mapPLN0);
+    set_bkg_data(128, 78, IndoorTiles);
+    set_bkg_based_submap(0, 0, MapWidth, MapHeight, Map, MapWidth, 128);
+    //set_bkg_based_tiles(0, 0, MapWidth, MapHeight, Map, 128);
 
     // Load Cast tiles 
     set_sprite_data(0, 128, Cast_Tiles);
@@ -51,8 +54,7 @@ void main(void)
     player.luck = 11;
     player.experience = 0;
 
-    printf(" ");
-
+    //printf(" ");
     // Loop forever
     while(1) {
 

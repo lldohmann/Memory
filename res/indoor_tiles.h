@@ -1,6 +1,6 @@
 /*
 
- CAST_TILES.H
+ INDOOR_TILES.H
 
  Include File.
 
@@ -10,7 +10,7 @@
   Compression          : None.
   Counter              : None.
   Tile size            : 8 x 8
-  Tiles                : 0 to 127
+  Tiles                : 0 to 78
 
   Palette colors       : None.
   SGB Palette          : None.
@@ -24,8 +24,8 @@
 
 
 /* Bank of tiles. */
-#define Cast_TilesBank 0
+#define IndoorTilesBank 0
 /* Start of tile array. */
-extern const unsigned char Cast_Tiles[];
+extern unsigned char IndoorTiles[];
 
-/* End of CAST_TILES.H */
+/* End of INDOOR_TILES.H */
