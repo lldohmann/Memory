@@ -20,8 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-_Cast_Tiles::
-	.ds 2048
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -43,8 +41,7 @@ _Cast_Tiles::
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
-	.area _INITIALIZER
-__xinit__Cast_Tiles:
+_Cast_Tiles:
 	.db #0x78	; 120	'x'
 	.db #0x78	; 120	'x'
 	.db #0x87	; 135
@@ -2093,4 +2090,5 @@ __xinit__Cast_Tiles:
 	.db #0xff	; 255
 	.db #0xff	; 255
 	.db #0xff	; 255
+	.area _INITIALIZER
 	.area _CABS (ABS)

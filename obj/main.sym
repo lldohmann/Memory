@@ -8,20 +8,26 @@ Symbol Table
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
     _Cast_Tiles                                                    ****** GX
+    _IndoorTiles                                                   ****** GX
     _LCDC_REG                                                      ****** GX
-  0 ___str_0                                                       00002A R
+    _Map                                                           ****** GX
+  0 ___str_0                                                       00007A R
+    __submap_tile_offset                                           ****** GX
   0 _init_gfx                                                      000000 GR
-  0 _main                                                          00001A GR
-    _printf                                                        ****** GX
+  0 _main                                                          000045 GR
+    _set_bkg_data                                                  ****** GX
+    _set_bkg_submap                                                ****** GX
     _set_sprite_data                                               ****** GX
+    _strcpy                                                        ****** GX
     _wait_vbl_done                                                 ****** GX
+
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
 Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size     2C   flags    0
+   0 _CODE                                      size     80   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size      0   flags    0
    3 _DABS                                      size      0   flags    8
