@@ -10,11 +10,13 @@
 ;--------------------------------------------------------
 	.globl _main
 	.globl _init_gfx
-	.globl _strcpy
+	.globl _DrawPlayer
+	.globl _PlayerUpdate
 	.globl _set_sprite_data
 	.globl _set_bkg_submap
 	.globl _set_bkg_data
 	.globl _wait_vbl_done
+	.globl _currentGameMode
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -22,6 +24,8 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _DATA
+_currentGameMode::
+	.ds 1
 ;--------------------------------------------------------
 ; ram data
 ;--------------------------------------------------------
@@ -46,29 +50,29 @@
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;src\main.c:12: void init_gfx() {
+;src\main.c:10: void init_gfx() {
 ;	---------------------------------
 ; Function init_gfx
 ; ---------------------------------
 _init_gfx::
-;src\main.c:14: set_bkg_data(128, 78, IndoorTiles);
+;src\main.c:11: set_bkg_data(128, 78, IndoorTiles);
 	ld	de, #_IndoorTiles
 	push	de
 	ld	hl, #0x4e80
 	push	hl
 	call	_set_bkg_data
 	add	sp, #4
-;src\main.c:15: set_bkg_based_submap(0, 0, MapWidth, MapHeight, Map, MapWidth, 128);
+;src\main.c:12: set_bkg_based_submap(0, 0, MapWidth, MapHeight, LIVING_ROOM, MapWidth, 128);
 ;C:/gbdk/include/gb/gb.h:1148: _submap_tile_offset = base_tile;
 	ld	hl, #__submap_tile_offset
 	ld	(hl), #0x80
 ;C:/gbdk/include/gb/gb.h:1149: set_bkg_submap(x, y, w, h, map, map_w);
-	ld	a, #0x1f
+	ld	a, #0x20
 	push	af
 	inc	sp
-	ld	de, #_Map
+	ld	de, #_LIVING_ROOM
 	push	de
-	ld	hl, #0x1f1f
+	ld	hl, #0x2020
 	push	hl
 	xor	a, a
 	rrca
@@ -78,76 +82,72 @@ _init_gfx::
 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
 	ld	hl, #__submap_tile_offset
 	ld	(hl), #0x00
-;src\main.c:19: set_sprite_data(0, 128, Cast_Tiles);
+;src\main.c:13: set_sprite_data(0, 128, Cast_Tiles);
 	ld	de, #_Cast_Tiles
 	push	de
 	ld	hl, #0x8000
 	push	hl
 	call	_set_sprite_data
 	add	sp, #4
-;src\main.c:21: SHOW_BKG;
+;src\main.c:14: SPRITES_8x16;
+	ldh	a, (_LCDC_REG + 0)
+	or	a, #0x04
+	ldh	(_LCDC_REG + 0), a
+;src\main.c:15: SHOW_BKG;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x01
 	ldh	(_LCDC_REG + 0), a
-;src\main.c:22: SHOW_SPRITES;
+;src\main.c:16: SHOW_SPRITES;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x02
 	ldh	(_LCDC_REG + 0), a
-;src\main.c:23: }
+;src\main.c:17: }
 	ret
-;src\main.c:42: void main(void)
+;src\main.c:41: void main(void)
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-	add	sp, #-19
-;src\main.c:44: init_gfx();
+	add	sp, #-8
+;src\main.c:43: init_gfx();
 	call	_init_gfx
-;src\main.c:47: strcpy(player.name, "Mouse");
-	ld	de, #___str_0+0
+;src\main.c:44: struct player mouse = {64, 64, 0, 0, left, idle};
 	ldhl	sp,	#0
-	ld	c, l
-	ld	b, h
-	push	de
-	push	bc
-	call	_strcpy
-	add	sp, #4
-;src\main.c:48: player.health = 20;
-	ldhl	sp,	#7
-;src\main.c:49: player.health_Max = 20;
-;src\main.c:50: player.psychic = 14;
-	ld	a,#0x14
-	ld	(hl+),a
+	ld	a, #0x40
 	ld	(hl+), a
-;src\main.c:51: player.psychic_Max = 14;
-	ld	a, #0x0e
-	ld	(hl+), a
-	ld	(hl), #0x0e
-;src\main.c:52: player.offense = 8;
-	ldhl	sp,	#15
-;src\main.c:53: player.defense = 5;
-	ld	a, #0x08
-	ld	(hl+), a
-;src\main.c:54: player.luck = 11;
-	ld	a, #0x05
-	ld	(hl+), a
-	ld	(hl), #0x0b
-;src\main.c:55: player.experience = 0;
 	xor	a, a
-	ldhl	sp,	#11
 	ld	(hl+), a
-	ld	(hl), a
-;src\main.c:59: while(1) {
+	ld	a, #0x40
+	ld	(hl+), a
+	xor	a, a
+	ld	(hl+), a
+	xor	a, a
+	ld	(hl+), a
+	xor	a, a
+	ld	(hl+), a
+	ld	a, #0x03
+	ld	(hl+), a
+	ld	(hl), #0x00
+;src\main.c:45: while(1) {
 00102$:
-;src\main.c:66: wait_vbl_done();
+;src\main.c:46: PlayerUpdate(&mouse);
+	ld	hl, #0
+	add	hl, sp
+	ld	e, l
+	ld	d, h
+	call	_PlayerUpdate
+;src\main.c:47: DrawPlayer(&mouse);
+	ld	hl, #0
+	add	hl, sp
+	ld	e, l
+	ld	d, h
+	call	_DrawPlayer
+;src\main.c:50: wait_vbl_done();
 	call	_wait_vbl_done
 	jr	00102$
-;src\main.c:68: }
-	add	sp, #19
+;src\main.c:52: }
+	add	sp, #8
 	ret
-___str_0:
-	.ascii "Mouse"
-	.db 0x00
 	.area _CODE
 	.area _INITIALIZER
 	.area _CABS (ABS)

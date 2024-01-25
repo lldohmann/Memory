@@ -7,7 +7,7 @@
  Info:
    Section       : 
    Bank          : 0
-   Map size      : 31 x 31
+   Map size      : 32 x 32
    Tile set      : C:\gbtd22\Memory_Indoors.gbr
    Plane count   : 1 plane (8 bits)
    Plane order   : Tiles are continues
@@ -18,10 +18,11 @@
 
 */
 
-#define MapWidth 31
-#define MapHeight 31
+#define MapWidth 32
+#define MapHeight 32
 #define MapBank 0
 
-extern const unsigned char Map[];
+extern const unsigned char LIVING_ROOM[];
+extern char LIVING_ROOM_COLLISION[][17];
 
 /* End of HOME_LIVING_ROOM.H */
