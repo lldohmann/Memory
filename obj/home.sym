@@ -7,15 +7,15 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
-  0 _LIVING_ROOM                                                   000000 GR
-  0 _LIVING_ROOM_COLLISION                                         000400 GR
+  0 _HOME_COLLISION                                                0008F6 GR
+  0 _Home                                                          000000 GR
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
 Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    499   flags    0
+   0 _CODE                                      size    AD2   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size      0   flags    0
    3 _DABS                                      size      0   flags    8

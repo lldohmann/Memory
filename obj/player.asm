@@ -76,7 +76,7 @@ _PlayerUpdate::
 	ld	(hl), a
 ;src\player.c:19: joypadPrevious = joypadCurrent;
 	ld	e, (hl)
-;src\player.c:23: ptr->y += 16;
+;src\player.c:23: ptr->y -= 1;
 	ld	hl, #0x0002
 	add	hl, bc
 	inc	sp
@@ -96,7 +96,7 @@ _PlayerUpdate::
 ;src\player.c:21: if (joypadCurrent & J_UP)
 	bit	2, e
 	jr	Z, 00111$
-;src\player.c:23: ptr->y += 16;
+;src\player.c:23: ptr->y -= 1;
 	pop	de
 	push	de
 	ld	a, (de)
@@ -104,10 +104,7 @@ _PlayerUpdate::
 	inc	de
 	ld	a, (de)
 	ld	b, a
-	ld	hl, #0x0010
-	add	hl, bc
-	ld	c, l
-	ld	b, h
+	dec	bc
 	pop	hl
 	push	hl
 	ld	a, c
@@ -124,7 +121,7 @@ _PlayerUpdate::
 ;src\player.c:26: else if (joypadCurrent & J_DOWN)
 	bit	3, e
 	jr	Z, 00108$
-;src\player.c:28: ptr->y -= 16;
+;src\player.c:28: ptr->y += 1;
 	pop	de
 	push	de
 	ld	a, (de)
@@ -132,12 +129,7 @@ _PlayerUpdate::
 	inc	de
 	ld	a, (de)
 	ld	b, a
-	ld	a, c
-	add	a, #0xf0
-	ld	c, a
-	ld	a, b
-	adc	a, #0xff
-	ld	b, a
+	inc	bc
 	pop	hl
 	push	hl
 	ld	a, c
@@ -154,19 +146,15 @@ _PlayerUpdate::
 ;src\player.c:31: else if (joypadCurrent & J_RIGHT)
 	bit	0, e
 	jr	Z, 00105$
-;src\player.c:33: ptr->x += 16;
+;src\player.c:33: ptr->x += 1;
 	ld	l, c
 	ld	h, b
-	ld	a,	(hl+)
-	ld	h, (hl)
+	inc	hl
+	ld	a,	(hl-)
 ;	spillPairReg hl
-	ld	l, a
-;	spillPairReg hl
-;	spillPairReg hl
-	ld	de, #0x0010
-	add	hl, de
-	ld	e, l
-	ld	d, h
+	ld	e, (hl)
+	ld	d, a
+	inc	de
 	ld	a, e
 	ld	(bc), a
 	inc	bc
@@ -183,19 +171,15 @@ _PlayerUpdate::
 ;src\player.c:36: else if (joypadCurrent & J_LEFT)
 	bit	1, e
 	jr	Z, 00115$
-;src\player.c:38: ptr->x -= 16;
+;src\player.c:38: ptr->x -= 1;
 	ld	l, c
 	ld	h, b
-	ld	a,	(hl+)
-	ld	h, (hl)
+	inc	hl
+	ld	a,	(hl-)
 ;	spillPairReg hl
-;	spillPairReg hl
-;	spillPairReg hl
-	add	a, #0xf0
-	ld	e, a
-	ld	a, h
-	adc	a, #0xff
+	ld	e, (hl)
 	ld	d, a
+	dec	de
 	ld	a, e
 	ld	(bc), a
 	inc	bc
@@ -445,7 +429,7 @@ _mouse_right0:
 	.db #0x00	; 0
 	.db #0x00	; 0
 _mouse_right1:
-	.db #0x10	;  16
+	.db #0xf0	; -16
 	.db #0xf8	; -8
 	.db #0x08	; 8
 	.db #0x00	; 0

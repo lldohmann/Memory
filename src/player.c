@@ -20,22 +20,22 @@ void PlayerUpdate(struct player *ptr)
         joypadCurrent = joypad();
         if (joypadCurrent & J_UP)
         {
-            ptr->y += 16;
+            ptr->y -= 1;
             ptr->playerDirection = up;
         }
         else if (joypadCurrent & J_DOWN)
         {
-            ptr->y -= 16;
+            ptr->y += 1;
             ptr->playerDirection = down;
         }
         else if (joypadCurrent & J_RIGHT)
         {
-            ptr->x += 16;
+            ptr->x += 1;
             ptr->playerDirection = right;
         }
         else if (joypadCurrent & J_LEFT)
         {
-            ptr->x -= 16;
+            ptr->x -= 1;
             ptr->playerDirection = left;
         }
         break;
@@ -62,7 +62,7 @@ const metasprite_t mouse_right0[] = {
     METASPR_TERM
 };
 const metasprite_t mouse_right1[] = {
-    {.dy=16, .dx = -8, .dtile=8, .props=0},
+    {.dy=-16, .dx = -8, .dtile=8, .props=0},
     {.dy=0, .dx=8, .dtile=10, .props=0},
     METASPR_TERM
 };

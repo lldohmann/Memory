@@ -1,15 +1,14 @@
 #include <gb/gb.h>
 #include <stdint.h>
 #include <stdio.h>
-//#include <gb/metasprites.h> 
 #include "../res/cast_tiles.h"
 #include "../res/indoor_tiles.h"
-#include "../res/home_living_room.h"
+#include "../res/home.h"
 #include "../src/player.h"
 
 void init_gfx() {
-    set_bkg_data(128, 78, IndoorTiles);
-    set_bkg_based_submap(0, 0, MapWidth, MapHeight, LIVING_ROOM, MapWidth, 128);
+    set_bkg_data(128, 144, IndoorTiles);
+    set_bkg_based_submap(0, 0, HomeWidth, HomeHeight, Home, HomeWidth, 128);
     set_sprite_data(0, 128, Cast_Tiles);
     SPRITES_8x16;
     SHOW_BKG;
@@ -45,7 +44,7 @@ void main(void)
     while(1) {
         PlayerUpdate(&mouse);
         DrawPlayer(&mouse);
-
+        scroll_bkg(mouse.x, mouse.y);
 		// Done processing, yield CPU and wait for start of next frame
         wait_vbl_done();
     }

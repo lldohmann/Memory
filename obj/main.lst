@@ -50,29 +50,29 @@
                                      50 ; code
                                      51 ;--------------------------------------------------------
                                      52 	.area _CODE
-                                     53 ;src\main.c:10: void init_gfx() {
+                                     53 ;src\main.c:9: void init_gfx() {
                                      54 ;	---------------------------------
                                      55 ; Function init_gfx
                                      56 ; ---------------------------------
       000000                         57 _init_gfx::
-                                     58 ;src\main.c:11: set_bkg_data(128, 78, IndoorTiles);
+                                     58 ;src\main.c:10: set_bkg_data(128, 144, IndoorTiles);
       000000 11r00r00         [12]   59 	ld	de, #_IndoorTiles
       000003 D5               [16]   60 	push	de
-      000004 21 80 4E         [12]   61 	ld	hl, #0x4e80
+      000004 21 80 90         [12]   61 	ld	hl, #0x9080
       000007 E5               [16]   62 	push	hl
       000008 CDr00r00         [24]   63 	call	_set_bkg_data
       00000B E8 04            [16]   64 	add	sp, #4
-                                     65 ;src\main.c:12: set_bkg_based_submap(0, 0, MapWidth, MapHeight, LIVING_ROOM, MapWidth, 128);
+                                     65 ;src\main.c:11: set_bkg_based_submap(0, 0, HomeWidth, HomeHeight, Home, HomeWidth, 128);
                                      66 ;C:/gbdk/include/gb/gb.h:1148: _submap_tile_offset = base_tile;
       00000D 21r00r00         [12]   67 	ld	hl, #__submap_tile_offset
       000010 36 80            [12]   68 	ld	(hl), #0x80
                                      69 ;C:/gbdk/include/gb/gb.h:1149: set_bkg_submap(x, y, w, h, map, map_w);
-      000012 3E 20            [ 8]   70 	ld	a, #0x20
+      000012 3E 25            [ 8]   70 	ld	a, #0x25
       000014 F5               [16]   71 	push	af
       000015 33               [ 8]   72 	inc	sp
-      000016 11r00r00         [12]   73 	ld	de, #_LIVING_ROOM
+      000016 11r00r00         [12]   73 	ld	de, #_Home
       000019 D5               [16]   74 	push	de
-      00001A 21 20 20         [12]   75 	ld	hl, #0x2020
+      00001A 21 25 3E         [12]   75 	ld	hl, #0x3e25
       00001D E5               [16]   76 	push	hl
       00001E AF               [ 4]   77 	xor	a, a
       00001F 0F               [ 4]   78 	rrca
@@ -82,36 +82,36 @@
                                      82 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
       000026 21r00r00         [12]   83 	ld	hl, #__submap_tile_offset
       000029 36 00            [12]   84 	ld	(hl), #0x00
-                                     85 ;src\main.c:13: set_sprite_data(0, 128, Cast_Tiles);
+                                     85 ;src\main.c:12: set_sprite_data(0, 128, Cast_Tiles);
       00002B 11r00r00         [12]   86 	ld	de, #_Cast_Tiles
       00002E D5               [16]   87 	push	de
       00002F 21 00 80         [12]   88 	ld	hl, #0x8000
       000032 E5               [16]   89 	push	hl
       000033 CDr00r00         [24]   90 	call	_set_sprite_data
       000036 E8 04            [16]   91 	add	sp, #4
-                                     92 ;src\main.c:14: SPRITES_8x16;
+                                     92 ;src\main.c:13: SPRITES_8x16;
       000038 F0r00            [12]   93 	ldh	a, (_LCDC_REG + 0)
       00003A F6 04            [ 8]   94 	or	a, #0x04
       00003C E0r00            [12]   95 	ldh	(_LCDC_REG + 0), a
-                                     96 ;src\main.c:15: SHOW_BKG;
+                                     96 ;src\main.c:14: SHOW_BKG;
       00003E F0r00            [12]   97 	ldh	a, (_LCDC_REG + 0)
       000040 F6 01            [ 8]   98 	or	a, #0x01
       000042 E0r00            [12]   99 	ldh	(_LCDC_REG + 0), a
-                                    100 ;src\main.c:16: SHOW_SPRITES;
+                                    100 ;src\main.c:15: SHOW_SPRITES;
       000044 F0r00            [12]  101 	ldh	a, (_LCDC_REG + 0)
       000046 F6 02            [ 8]  102 	or	a, #0x02
       000048 E0r00            [12]  103 	ldh	(_LCDC_REG + 0), a
-                                    104 ;src\main.c:17: }
+                                    104 ;src\main.c:16: }
       00004A C9               [16]  105 	ret
-                                    106 ;src\main.c:41: void main(void)
+                                    106 ;src\main.c:40: void main(void)
                                     107 ;	---------------------------------
                                     108 ; Function main
                                     109 ; ---------------------------------
       00004B                        110 _main::
       00004B E8 F8            [16]  111 	add	sp, #-8
-                                    112 ;src\main.c:43: init_gfx();
+                                    112 ;src\main.c:42: init_gfx();
       00004D CDr00r00         [24]  113 	call	_init_gfx
-                                    114 ;src\main.c:44: struct player mouse = {64, 64, 0, 0, left, idle};
+                                    114 ;src\main.c:43: struct player mouse = {64, 64, 0, 0, left, idle};
       000050 F8 00            [12]  115 	ldhl	sp,	#0
       000052 3E 40            [ 8]  116 	ld	a, #0x40
       000054 22               [ 8]  117 	ld	(hl+), a
@@ -128,26 +128,39 @@
       000060 3E 03            [ 8]  128 	ld	a, #0x03
       000062 22               [ 8]  129 	ld	(hl+), a
       000063 36 00            [12]  130 	ld	(hl), #0x00
-                                    131 ;src\main.c:45: while(1) {
+                                    131 ;src\main.c:44: while(1) {
       000065                        132 00102$:
-                                    133 ;src\main.c:46: PlayerUpdate(&mouse);
+                                    133 ;src\main.c:45: PlayerUpdate(&mouse);
       000065 21 00 00         [12]  134 	ld	hl, #0
       000068 39               [ 8]  135 	add	hl, sp
       000069 5D               [ 4]  136 	ld	e, l
       00006A 54               [ 4]  137 	ld	d, h
       00006B CDr00r00         [24]  138 	call	_PlayerUpdate
-                                    139 ;src\main.c:47: DrawPlayer(&mouse);
+                                    139 ;src\main.c:46: DrawPlayer(&mouse);
       00006E 21 00 00         [12]  140 	ld	hl, #0
       000071 39               [ 8]  141 	add	hl, sp
       000072 5D               [ 4]  142 	ld	e, l
       000073 54               [ 4]  143 	ld	d, h
       000074 CDr00r00         [24]  144 	call	_DrawPlayer
-                                    145 ;src\main.c:50: wait_vbl_done();
-      000077 CDr00r00         [24]  146 	call	_wait_vbl_done
-      00007A 18 E9            [12]  147 	jr	00102$
-                                    148 ;src\main.c:52: }
-      00007C E8 08            [16]  149 	add	sp, #8
-      00007E C9               [16]  150 	ret
-                                    151 	.area _CODE
-                                    152 	.area _INITIALIZER
-                                    153 	.area _CABS (ABS)
+                                    145 ;src\main.c:47: scroll_bkg(mouse.x, mouse.y);
+      000077 F8 02            [12]  146 	ldhl	sp,	#2
+      000079 3A               [ 8]  147 	ld	a, (hl-)
+      00007A 2B               [ 8]  148 	dec	hl
+      00007B 4F               [ 4]  149 	ld	c, a
+      00007C 46               [ 8]  150 	ld	b, (hl)
+                                    151 ;C:/gbdk/include/gb/gb.h:1222: SCX_REG+=x, SCY_REG+=y;
+      00007D F0r00            [12]  152 	ldh	a, (_SCX_REG + 0)
+      00007F 80               [ 4]  153 	add	a, b
+      000080 E0r00            [12]  154 	ldh	(_SCX_REG + 0), a
+      000082 F0r00            [12]  155 	ldh	a, (_SCY_REG + 0)
+      000084 81               [ 4]  156 	add	a, c
+      000085 E0r00            [12]  157 	ldh	(_SCY_REG + 0), a
+                                    158 ;src\main.c:49: wait_vbl_done();
+      000087 CDr00r00         [24]  159 	call	_wait_vbl_done
+      00008A 18 D9            [12]  160 	jr	00102$
+                                    161 ;src\main.c:51: }
+      00008C E8 08            [16]  162 	add	sp, #8
+      00008E C9               [16]  163 	ret
+                                    164 	.area _CODE
+                                    165 	.area _INITIALIZER
+                                    166 	.area _CABS (ABS)

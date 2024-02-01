@@ -10,7 +10,7 @@
   Compression          : None.
   Counter              : None.
   Tile size            : 8 x 8
-  Tiles                : 0 to 78
+  Tiles                : 0 to 127
 
   Palette colors       : None.
   SGB Palette          : None.
@@ -26,6 +26,6 @@
 /* Bank of tiles. */
 #define IndoorTilesBank 0
 /* Start of tile array. */
-extern unsigned char IndoorTiles[];
+extern const unsigned char IndoorTiles[];
 
 /* End of INDOOR_TILES.H */

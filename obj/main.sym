@@ -9,10 +9,12 @@ Symbol Table
     .__.H$L.                                                    =  000000 L
     _Cast_Tiles                                                    ****** GX
     _DrawPlayer                                                    ****** GX
+    _Home                                                          ****** GX
     _IndoorTiles                                                   ****** GX
     _LCDC_REG                                                      ****** GX
-    _LIVING_ROOM                                                   ****** GX
     _PlayerUpdate                                                  ****** GX
+    _SCX_REG                                                       ****** GX
+    _SCY_REG                                                       ****** GX
     __submap_tile_offset                                           ****** GX
   1 _currentGameMode                                               000000 GR
   0 _init_gfx                                                      000000 GR
@@ -22,12 +24,13 @@ Symbol Table
     _set_sprite_data                                               ****** GX
     _wait_vbl_done                                                 ****** GX
 
+
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
 Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size     7F   flags    0
+   0 _CODE                                      size     8F   flags    0
    1 _DATA                                      size      1   flags    0
    2 _INITIALIZED                               size      0   flags    0
    3 _DABS                                      size      0   flags    8
