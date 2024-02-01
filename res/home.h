@@ -21,6 +21,8 @@
 #define HomeWidth 37
 #define HomeHeight 62
 #define HomeBank 0
+#define HomeCameraMaxX ((HomeWidth - 20) * 8)
+#define HomeCameraMaxY ((HomeHeight - 18) * 8)
 
 extern const unsigned char Home[];
 extern const char HOME_COLLISION[][17];

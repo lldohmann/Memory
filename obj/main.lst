@@ -9,158 +9,644 @@
                                       9 ; Public variables in this module
                                      10 ;--------------------------------------------------------
                                      11 	.globl _main
-                                     12 	.globl _init_gfx
-                                     13 	.globl _DrawPlayer
-                                     14 	.globl _PlayerUpdate
-                                     15 	.globl _set_sprite_data
-                                     16 	.globl _set_bkg_submap
-                                     17 	.globl _set_bkg_data
-                                     18 	.globl _wait_vbl_done
-                                     19 	.globl _currentGameMode
-                                     20 ;--------------------------------------------------------
-                                     21 ; special function registers
-                                     22 ;--------------------------------------------------------
-                                     23 ;--------------------------------------------------------
-                                     24 ; ram data
-                                     25 ;--------------------------------------------------------
-                                     26 	.area _DATA
-      000000                         27 _currentGameMode::
-      000000                         28 	.ds 1
-                                     29 ;--------------------------------------------------------
-                                     30 ; ram data
-                                     31 ;--------------------------------------------------------
-                                     32 	.area _INITIALIZED
-                                     33 ;--------------------------------------------------------
-                                     34 ; absolute external ram data
+                                     12 	.globl _set_camera
+                                     13 	.globl _init_gfx
+                                     14 	.globl _DrawPlayer
+                                     15 	.globl _PlayerUpdate
+                                     16 	.globl _set_sprite_data
+                                     17 	.globl _set_bkg_submap
+                                     18 	.globl _set_bkg_data
+                                     19 	.globl _wait_vbl_done
+                                     20 	.globl _joypad
+                                     21 	.globl _redraw
+                                     22 	.globl _old_map_pos_y
+                                     23 	.globl _old_map_pos_x
+                                     24 	.globl _map_pos_y
+                                     25 	.globl _map_pos_x
+                                     26 	.globl _old_camera_y
+                                     27 	.globl _old_camera_x
+                                     28 	.globl _camera_y
+                                     29 	.globl _camera_x
+                                     30 	.globl _currentGameMode
+                                     31 	.globl _joy
+                                     32 ;--------------------------------------------------------
+                                     33 ; special function registers
+                                     34 ;--------------------------------------------------------
                                      35 ;--------------------------------------------------------
-                                     36 	.area _DABS (ABS)
+                                     36 ; ram data
                                      37 ;--------------------------------------------------------
-                                     38 ; global & static initialisations
-                                     39 ;--------------------------------------------------------
-                                     40 	.area _HOME
-                                     41 	.area _GSINIT
-                                     42 	.area _GSFINAL
-                                     43 	.area _GSINIT
-                                     44 ;--------------------------------------------------------
-                                     45 ; Home
-                                     46 ;--------------------------------------------------------
-                                     47 	.area _HOME
-                                     48 	.area _HOME
-                                     49 ;--------------------------------------------------------
-                                     50 ; code
-                                     51 ;--------------------------------------------------------
-                                     52 	.area _CODE
-                                     53 ;src\main.c:9: void init_gfx() {
-                                     54 ;	---------------------------------
-                                     55 ; Function init_gfx
-                                     56 ; ---------------------------------
-      000000                         57 _init_gfx::
-                                     58 ;src\main.c:10: set_bkg_data(128, 144, IndoorTiles);
-      000000 11r00r00         [12]   59 	ld	de, #_IndoorTiles
-      000003 D5               [16]   60 	push	de
-      000004 21 80 90         [12]   61 	ld	hl, #0x9080
-      000007 E5               [16]   62 	push	hl
-      000008 CDr00r00         [24]   63 	call	_set_bkg_data
-      00000B E8 04            [16]   64 	add	sp, #4
-                                     65 ;src\main.c:11: set_bkg_based_submap(0, 0, HomeWidth, HomeHeight, Home, HomeWidth, 128);
-                                     66 ;C:/gbdk/include/gb/gb.h:1148: _submap_tile_offset = base_tile;
-      00000D 21r00r00         [12]   67 	ld	hl, #__submap_tile_offset
-      000010 36 80            [12]   68 	ld	(hl), #0x80
-                                     69 ;C:/gbdk/include/gb/gb.h:1149: set_bkg_submap(x, y, w, h, map, map_w);
-      000012 3E 25            [ 8]   70 	ld	a, #0x25
-      000014 F5               [16]   71 	push	af
-      000015 33               [ 8]   72 	inc	sp
-      000016 11r00r00         [12]   73 	ld	de, #_Home
-      000019 D5               [16]   74 	push	de
-      00001A 21 25 3E         [12]   75 	ld	hl, #0x3e25
-      00001D E5               [16]   76 	push	hl
-      00001E AF               [ 4]   77 	xor	a, a
-      00001F 0F               [ 4]   78 	rrca
-      000020 F5               [16]   79 	push	af
-      000021 CDr00r00         [24]   80 	call	_set_bkg_submap
-      000024 E8 07            [16]   81 	add	sp, #7
-                                     82 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
-      000026 21r00r00         [12]   83 	ld	hl, #__submap_tile_offset
-      000029 36 00            [12]   84 	ld	(hl), #0x00
-                                     85 ;src\main.c:12: set_sprite_data(0, 128, Cast_Tiles);
-      00002B 11r00r00         [12]   86 	ld	de, #_Cast_Tiles
-      00002E D5               [16]   87 	push	de
-      00002F 21 00 80         [12]   88 	ld	hl, #0x8000
-      000032 E5               [16]   89 	push	hl
-      000033 CDr00r00         [24]   90 	call	_set_sprite_data
-      000036 E8 04            [16]   91 	add	sp, #4
-                                     92 ;src\main.c:13: SPRITES_8x16;
-      000038 F0r00            [12]   93 	ldh	a, (_LCDC_REG + 0)
-      00003A F6 04            [ 8]   94 	or	a, #0x04
-      00003C E0r00            [12]   95 	ldh	(_LCDC_REG + 0), a
-                                     96 ;src\main.c:14: SHOW_BKG;
-      00003E F0r00            [12]   97 	ldh	a, (_LCDC_REG + 0)
-      000040 F6 01            [ 8]   98 	or	a, #0x01
-      000042 E0r00            [12]   99 	ldh	(_LCDC_REG + 0), a
-                                    100 ;src\main.c:15: SHOW_SPRITES;
-      000044 F0r00            [12]  101 	ldh	a, (_LCDC_REG + 0)
-      000046 F6 02            [ 8]  102 	or	a, #0x02
-      000048 E0r00            [12]  103 	ldh	(_LCDC_REG + 0), a
-                                    104 ;src\main.c:16: }
-      00004A C9               [16]  105 	ret
-                                    106 ;src\main.c:40: void main(void)
-                                    107 ;	---------------------------------
-                                    108 ; Function main
-                                    109 ; ---------------------------------
-      00004B                        110 _main::
-      00004B E8 F8            [16]  111 	add	sp, #-8
-                                    112 ;src\main.c:42: init_gfx();
-      00004D CDr00r00         [24]  113 	call	_init_gfx
-                                    114 ;src\main.c:43: struct player mouse = {64, 64, 0, 0, left, idle};
-      000050 F8 00            [12]  115 	ldhl	sp,	#0
-      000052 3E 40            [ 8]  116 	ld	a, #0x40
-      000054 22               [ 8]  117 	ld	(hl+), a
-      000055 AF               [ 4]  118 	xor	a, a
-      000056 22               [ 8]  119 	ld	(hl+), a
-      000057 3E 40            [ 8]  120 	ld	a, #0x40
-      000059 22               [ 8]  121 	ld	(hl+), a
-      00005A AF               [ 4]  122 	xor	a, a
-      00005B 22               [ 8]  123 	ld	(hl+), a
-      00005C AF               [ 4]  124 	xor	a, a
-      00005D 22               [ 8]  125 	ld	(hl+), a
-      00005E AF               [ 4]  126 	xor	a, a
-      00005F 22               [ 8]  127 	ld	(hl+), a
-      000060 3E 03            [ 8]  128 	ld	a, #0x03
-      000062 22               [ 8]  129 	ld	(hl+), a
-      000063 36 00            [12]  130 	ld	(hl), #0x00
-                                    131 ;src\main.c:44: while(1) {
-      000065                        132 00102$:
-                                    133 ;src\main.c:45: PlayerUpdate(&mouse);
-      000065 21 00 00         [12]  134 	ld	hl, #0
-      000068 39               [ 8]  135 	add	hl, sp
-      000069 5D               [ 4]  136 	ld	e, l
-      00006A 54               [ 4]  137 	ld	d, h
-      00006B CDr00r00         [24]  138 	call	_PlayerUpdate
-                                    139 ;src\main.c:46: DrawPlayer(&mouse);
-      00006E 21 00 00         [12]  140 	ld	hl, #0
-      000071 39               [ 8]  141 	add	hl, sp
-      000072 5D               [ 4]  142 	ld	e, l
-      000073 54               [ 4]  143 	ld	d, h
-      000074 CDr00r00         [24]  144 	call	_DrawPlayer
-                                    145 ;src\main.c:47: scroll_bkg(mouse.x, mouse.y);
-      000077 F8 02            [12]  146 	ldhl	sp,	#2
-      000079 3A               [ 8]  147 	ld	a, (hl-)
-      00007A 2B               [ 8]  148 	dec	hl
-      00007B 4F               [ 4]  149 	ld	c, a
-      00007C 46               [ 8]  150 	ld	b, (hl)
-                                    151 ;C:/gbdk/include/gb/gb.h:1222: SCX_REG+=x, SCY_REG+=y;
-      00007D F0r00            [12]  152 	ldh	a, (_SCX_REG + 0)
-      00007F 80               [ 4]  153 	add	a, b
-      000080 E0r00            [12]  154 	ldh	(_SCX_REG + 0), a
-      000082 F0r00            [12]  155 	ldh	a, (_SCY_REG + 0)
-      000084 81               [ 4]  156 	add	a, c
-      000085 E0r00            [12]  157 	ldh	(_SCY_REG + 0), a
-                                    158 ;src\main.c:49: wait_vbl_done();
-      000087 CDr00r00         [24]  159 	call	_wait_vbl_done
-      00008A 18 D9            [12]  160 	jr	00102$
-                                    161 ;src\main.c:51: }
-      00008C E8 08            [16]  162 	add	sp, #8
-      00008E C9               [16]  163 	ret
-                                    164 	.area _CODE
-                                    165 	.area _INITIALIZER
-                                    166 	.area _CABS (ABS)
+                                     38 	.area _DATA
+      000000                         39 _joy::
+      000000                         40 	.ds 1
+      000001                         41 _currentGameMode::
+      000001                         42 	.ds 1
+      000002                         43 _camera_x::
+      000002                         44 	.ds 2
+      000004                         45 _camera_y::
+      000004                         46 	.ds 2
+      000006                         47 _old_camera_x::
+      000006                         48 	.ds 2
+      000008                         49 _old_camera_y::
+      000008                         50 	.ds 2
+      00000A                         51 _map_pos_x::
+      00000A                         52 	.ds 1
+      00000B                         53 _map_pos_y::
+      00000B                         54 	.ds 1
+      00000C                         55 _old_map_pos_x::
+      00000C                         56 	.ds 1
+      00000D                         57 _old_map_pos_y::
+      00000D                         58 	.ds 1
+      00000E                         59 _redraw::
+      00000E                         60 	.ds 1
+                                     61 ;--------------------------------------------------------
+                                     62 ; ram data
+                                     63 ;--------------------------------------------------------
+                                     64 	.area _INITIALIZED
+                                     65 ;--------------------------------------------------------
+                                     66 ; absolute external ram data
+                                     67 ;--------------------------------------------------------
+                                     68 	.area _DABS (ABS)
+                                     69 ;--------------------------------------------------------
+                                     70 ; global & static initialisations
+                                     71 ;--------------------------------------------------------
+                                     72 	.area _HOME
+                                     73 	.area _GSINIT
+                                     74 	.area _GSFINAL
+                                     75 	.area _GSINIT
+                                     76 ;--------------------------------------------------------
+                                     77 ; Home
+                                     78 ;--------------------------------------------------------
+                                     79 	.area _HOME
+                                     80 	.area _HOME
+                                     81 ;--------------------------------------------------------
+                                     82 ; code
+                                     83 ;--------------------------------------------------------
+                                     84 	.area _CODE
+                                     85 ;src\main.c:19: void init_gfx() {
+                                     86 ;	---------------------------------
+                                     87 ; Function init_gfx
+                                     88 ; ---------------------------------
+      000000                         89 _init_gfx::
+                                     90 ;src\main.c:21: map_pos_x = map_pos_y = 0;
+      000000 21r0Br00         [12]   91 	ld	hl, #_map_pos_y
+      000003 36 00            [12]   92 	ld	(hl), #0x00
+      000005 21r0Ar00         [12]   93 	ld	hl, #_map_pos_x
+      000008 36 00            [12]   94 	ld	(hl), #0x00
+                                     95 ;src\main.c:22: old_map_pos_x = old_camera_y = 255; 
+      00000A 21r0Cr00         [12]   96 	ld	hl, #_old_map_pos_x
+      00000D 36 FF            [12]   97 	ld	(hl), #0xff
+                                     98 ;src\main.c:23: camera_x = camera_y = 0;
+      00000F AF               [ 4]   99 	xor	a, a
+      000010 21r04r00         [12]  100 	ld	hl, #_camera_y
+      000013 22               [ 8]  101 	ld	(hl+), a
+      000014 77               [ 8]  102 	ld	(hl), a
+      000015 AF               [ 4]  103 	xor	a, a
+      000016 21r02r00         [12]  104 	ld	hl, #_camera_x
+      000019 22               [ 8]  105 	ld	(hl+), a
+      00001A 77               [ 8]  106 	ld	(hl), a
+                                    107 ;src\main.c:24: old_camera_x = camera_x; old_camera_y = camera_y;
+      00001B AF               [ 4]  108 	xor	a, a
+      00001C 21r06r00         [12]  109 	ld	hl, #_old_camera_x
+      00001F 22               [ 8]  110 	ld	(hl+), a
+      000020 77               [ 8]  111 	ld	(hl), a
+      000021 AF               [ 4]  112 	xor	a, a
+      000022 21r08r00         [12]  113 	ld	hl, #_old_camera_y
+      000025 22               [ 8]  114 	ld	(hl+), a
+      000026 77               [ 8]  115 	ld	(hl), a
+                                    116 ;src\main.c:25: redraw = FALSE;
+      000027 21r0Er00         [12]  117 	ld	hl, #_redraw
+      00002A 36 00            [12]  118 	ld	(hl), #0x00
+                                    119 ;src\main.c:27: set_bkg_data(128, 144, IndoorTiles);
+      00002C 11r00r00         [12]  120 	ld	de, #_IndoorTiles
+      00002F D5               [16]  121 	push	de
+      000030 21 80 90         [12]  122 	ld	hl, #0x9080
+      000033 E5               [16]  123 	push	hl
+      000034 CDr00r00         [24]  124 	call	_set_bkg_data
+      000037 E8 04            [16]  125 	add	sp, #4
+                                    126 ;src\main.c:28: set_bkg_based_submap(0, 0, HomeWidth, HomeHeight, Home, HomeWidth, 128);
+                                    127 ;C:/gbdk/include/gb/gb.h:1148: _submap_tile_offset = base_tile;
+      000039 21r00r00         [12]  128 	ld	hl, #__submap_tile_offset
+      00003C 36 80            [12]  129 	ld	(hl), #0x80
+                                    130 ;C:/gbdk/include/gb/gb.h:1149: set_bkg_submap(x, y, w, h, map, map_w);
+      00003E 3E 25            [ 8]  131 	ld	a, #0x25
+      000040 F5               [16]  132 	push	af
+      000041 33               [ 8]  133 	inc	sp
+      000042 11r00r00         [12]  134 	ld	de, #_Home
+      000045 D5               [16]  135 	push	de
+      000046 21 25 3E         [12]  136 	ld	hl, #0x3e25
+      000049 E5               [16]  137 	push	hl
+      00004A AF               [ 4]  138 	xor	a, a
+      00004B 0F               [ 4]  139 	rrca
+      00004C F5               [16]  140 	push	af
+      00004D CDr00r00         [24]  141 	call	_set_bkg_submap
+      000050 E8 07            [16]  142 	add	sp, #7
+                                    143 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
+      000052 21r00r00         [12]  144 	ld	hl, #__submap_tile_offset
+      000055 36 00            [12]  145 	ld	(hl), #0x00
+                                    146 ;src\main.c:29: set_sprite_data(0, 128, Cast_Tiles);
+      000057 11r00r00         [12]  147 	ld	de, #_Cast_Tiles
+      00005A D5               [16]  148 	push	de
+      00005B 21 00 80         [12]  149 	ld	hl, #0x8000
+      00005E E5               [16]  150 	push	hl
+      00005F CDr00r00         [24]  151 	call	_set_sprite_data
+      000062 E8 04            [16]  152 	add	sp, #4
+                                    153 ;src\main.c:30: SPRITES_8x16;
+      000064 F0r00            [12]  154 	ldh	a, (_LCDC_REG + 0)
+      000066 F6 04            [ 8]  155 	or	a, #0x04
+      000068 E0r00            [12]  156 	ldh	(_LCDC_REG + 0), a
+                                    157 ;src\main.c:31: SHOW_BKG;
+      00006A F0r00            [12]  158 	ldh	a, (_LCDC_REG + 0)
+      00006C F6 01            [ 8]  159 	or	a, #0x01
+      00006E E0r00            [12]  160 	ldh	(_LCDC_REG + 0), a
+                                    161 ;src\main.c:32: SHOW_SPRITES;
+      000070 F0r00            [12]  162 	ldh	a, (_LCDC_REG + 0)
+      000072 F6 02            [ 8]  163 	or	a, #0x02
+      000074 E0r00            [12]  164 	ldh	(_LCDC_REG + 0), a
+                                    165 ;src\main.c:33: }
+      000076 C9               [16]  166 	ret
+                                    167 ;src\main.c:58: void set_camera()
+                                    168 ;	---------------------------------
+                                    169 ; Function set_camera
+                                    170 ; ---------------------------------
+      000077                        171 _set_camera::
+      000077 E8 FD            [16]  172 	add	sp, #-3
+                                    173 ;src\main.c:61: SCY_REG = camera_y; SCX_REG = camera_x;
+      000079 FAr04r00         [16]  174 	ld	a, (#_camera_y)
+      00007C E0r00            [12]  175 	ldh	(_SCY_REG + 0), a
+      00007E FAr02r00         [16]  176 	ld	a, (#_camera_x)
+      000081 E0r00            [12]  177 	ldh	(_SCX_REG + 0), a
+                                    178 ;src\main.c:63: map_pos_y = (uint8_t)(camera_y >> 3u);
+      000083 21r04r00         [12]  179 	ld	hl, #_camera_y
+      000086 2A               [ 8]  180 	ld	a, (hl+)
+      000087 4F               [ 4]  181 	ld	c, a
+      000088 46               [ 8]  182 	ld	b, (hl)
+      000089 CB 38            [ 8]  183 	srl	b
+      00008B CB 19            [ 8]  184 	rr	c
+      00008D CB 38            [ 8]  185 	srl	b
+      00008F CB 19            [ 8]  186 	rr	c
+      000091 CB 38            [ 8]  187 	srl	b
+      000093 CB 19            [ 8]  188 	rr	c
+      000095 21r0Br00         [12]  189 	ld	hl, #_map_pos_y
+      000098 71               [ 8]  190 	ld	(hl), c
+                                    191 ;src\main.c:68: set_bkg_based_submap(map_pos_x, map_pos_y, MIN(21u, HomeWidth-map_pos_x), 1, Home, HomeWidth, 128);
+      000099 4E               [ 8]  192 	ld	c, (hl)
+                                    193 ;src\main.c:64: if (map_pos_y != old_map_pos_y)
+      00009A 7E               [ 8]  194 	ld	a, (hl)
+      00009B 21r0Dr00         [12]  195 	ld	hl, #_old_map_pos_y
+      00009E 96               [ 8]  196 	sub	a, (hl)
+      00009F CAr4Ar01         [16]  197 	jp	Z,00107$
+                                    198 ;src\main.c:68: set_bkg_based_submap(map_pos_x, map_pos_y, MIN(21u, HomeWidth-map_pos_x), 1, Home, HomeWidth, 128);
+      0000A2 21r0Ar00         [12]  199 	ld	hl, #_map_pos_x
+      0000A5 5E               [ 8]  200 	ld	e, (hl)
+      0000A6 16 00            [ 8]  201 	ld	d, #0x00
+      0000A8 46               [ 8]  202 	ld	b, (hl)
+      0000A9 7E               [ 8]  203 	ld	a, (hl)
+      0000AA F8 00            [12]  204 	ldhl	sp,	#0
+      0000AC 22               [ 8]  205 	ld	(hl+), a
+      0000AD 3E 25            [ 8]  206 	ld	a, #0x25
+      0000AF 93               [ 4]  207 	sub	a, e
+      0000B0 5F               [ 4]  208 	ld	e, a
+      0000B1 9F               [ 4]  209 	sbc	a, a
+      0000B2 92               [ 4]  210 	sub	a, d
+      0000B3 57               [ 4]  211 	ld	d, a
+      0000B4 3E 25            [ 8]  212 	ld	a, #0x25
+      0000B6 90               [ 4]  213 	sub	a, b
+      0000B7 22               [ 8]  214 	ld	(hl+), a
+      0000B8 07               [ 4]  215 	rlca
+      0000B9 9F               [ 4]  216 	sbc	a, a
+      0000BA 77               [ 8]  217 	ld	(hl), a
+      0000BB 3E 15            [ 8]  218 	ld	a, #0x15
+      0000BD BB               [ 4]  219 	cp	a, e
+      0000BE 3E 00            [ 8]  220 	ld	a, #0x00
+      0000C0 9A               [ 4]  221 	sbc	a, d
+      0000C1 3E 00            [ 8]  222 	ld	a, #0x00
+      0000C3 17               [ 4]  223 	rla
+      0000C4 47               [ 4]  224 	ld	b, a
+                                    225 ;src\main.c:66: if (camera_y < old_camera_y)
+      0000C5 11r04r00         [12]  226 	ld	de, #_camera_y
+      0000C8 21r08r00         [12]  227 	ld	hl, #_old_camera_y
+      0000CB 1A               [ 8]  228 	ld	a, (de)
+      0000CC 13               [ 8]  229 	inc	de
+      0000CD 96               [ 8]  230 	sub	a, (hl)
+      0000CE 23               [ 8]  231 	inc	hl
+      0000CF 1A               [ 8]  232 	ld	a, (de)
+      0000D0 9E               [ 8]  233 	sbc	a, (hl)
+      0000D1 30 30            [12]  234 	jr	NC, 00104$
+                                    235 ;src\main.c:68: set_bkg_based_submap(map_pos_x, map_pos_y, MIN(21u, HomeWidth-map_pos_x), 1, Home, HomeWidth, 128);
+      0000D3 78               [ 4]  236 	ld	a, b
+      0000D4 B7               [ 4]  237 	or	a, a
+      0000D5 28 04            [12]  238 	jr	Z, 00121$
+      0000D7 3E 15            [ 8]  239 	ld	a, #0x15
+      0000D9 18 04            [12]  240 	jr	00122$
+      0000DB                        241 00121$:
+      0000DB F8 01            [12]  242 	ldhl	sp,	#1
+      0000DD 2A               [ 8]  243 	ld	a, (hl+)
+      0000DE 46               [ 8]  244 	ld	b, (hl)
+      0000DF                        245 00122$:
+                                    246 ;C:/gbdk/include/gb/gb.h:1148: _submap_tile_offset = base_tile;
+      0000DF 21r00r00         [12]  247 	ld	hl, #__submap_tile_offset
+      0000E2 36 80            [12]  248 	ld	(hl), #0x80
+                                    249 ;C:/gbdk/include/gb/gb.h:1149: set_bkg_submap(x, y, w, h, map, map_w);
+      0000E4 26 25            [ 8]  250 	ld	h, #0x25
+                                    251 ;	spillPairReg hl
+                                    252 ;	spillPairReg hl
+      0000E6 E5               [16]  253 	push	hl
+      0000E7 33               [ 8]  254 	inc	sp
+      0000E8 11r00r00         [12]  255 	ld	de, #_Home
+      0000EB D5               [16]  256 	push	de
+      0000EC 26 01            [ 8]  257 	ld	h, #0x01
+                                    258 ;	spillPairReg hl
+                                    259 ;	spillPairReg hl
+      0000EE E5               [16]  260 	push	hl
+      0000EF 33               [ 8]  261 	inc	sp
+      0000F0 47               [ 4]  262 	ld	b, a
+      0000F1 C5               [16]  263 	push	bc
+      0000F2 F8 06            [12]  264 	ldhl	sp,	#6
+      0000F4 7E               [ 8]  265 	ld	a, (hl)
+      0000F5 F5               [16]  266 	push	af
+      0000F6 33               [ 8]  267 	inc	sp
+      0000F7 CDr00r00         [24]  268 	call	_set_bkg_submap
+      0000FA E8 07            [16]  269 	add	sp, #7
+                                    270 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
+      0000FC 21r00r00         [12]  271 	ld	hl, #__submap_tile_offset
+      0000FF 36 00            [12]  272 	ld	(hl), #0x00
+                                    273 ;src\main.c:68: set_bkg_based_submap(map_pos_x, map_pos_y, MIN(21u, HomeWidth-map_pos_x), 1, Home, HomeWidth, 128);
+      000101 18 3F            [12]  274 	jr	00105$
+      000103                        275 00104$:
+                                    276 ;src\main.c:72: if ((HomeHeight - 18u) > map_pos_y)
+      000103 FAr0Br00         [16]  277 	ld	a, (#_map_pos_y)
+      000106 D6 2C            [ 8]  278 	sub	a, #0x2c
+      000108 30 38            [12]  279 	jr	NC, 00105$
+                                    280 ;src\main.c:74: set_bkg_based_submap(map_pos_x, map_pos_y + 18u, MIN(21u, HomeWidth - map_pos_x), 1, Home, HomeWidth, 128);
+      00010A 11r00r00         [12]  281 	ld	de, #_Home
+      00010D 78               [ 4]  282 	ld	a, b
+      00010E B7               [ 4]  283 	or	a, a
+      00010F 28 05            [12]  284 	jr	Z, 00123$
+      000111 01 15 00         [12]  285 	ld	bc, #0x0015
+      000114 18 05            [12]  286 	jr	00124$
+      000116                        287 00123$:
+      000116 F8 01            [12]  288 	ldhl	sp,	#1
+      000118 2A               [ 8]  289 	ld	a, (hl+)
+      000119 4F               [ 4]  290 	ld	c, a
+      00011A 46               [ 8]  291 	ld	b, (hl)
+      00011B                        292 00124$:
+      00011B FAr0Br00         [16]  293 	ld	a, (#_map_pos_y)
+      00011E C6 12            [ 8]  294 	add	a, #0x12
+                                    295 ;C:/gbdk/include/gb/gb.h:1148: _submap_tile_offset = base_tile;
+      000120 21r00r00         [12]  296 	ld	hl, #__submap_tile_offset
+      000123 36 80            [12]  297 	ld	(hl), #0x80
+                                    298 ;C:/gbdk/include/gb/gb.h:1149: set_bkg_submap(x, y, w, h, map, map_w);
+      000125 26 25            [ 8]  299 	ld	h, #0x25
+                                    300 ;	spillPairReg hl
+                                    301 ;	spillPairReg hl
+      000127 E5               [16]  302 	push	hl
+      000128 33               [ 8]  303 	inc	sp
+      000129 D5               [16]  304 	push	de
+      00012A 26 01            [ 8]  305 	ld	h, #0x01
+                                    306 ;	spillPairReg hl
+                                    307 ;	spillPairReg hl
+      00012C E5               [16]  308 	push	hl
+      00012D 33               [ 8]  309 	inc	sp
+      00012E 61               [ 4]  310 	ld	h, c
+                                    311 ;	spillPairReg hl
+                                    312 ;	spillPairReg hl
+      00012F E5               [16]  313 	push	hl
+      000130 33               [ 8]  314 	inc	sp
+      000131 F5               [16]  315 	push	af
+      000132 33               [ 8]  316 	inc	sp
+      000133 F8 06            [12]  317 	ldhl	sp,	#6
+      000135 7E               [ 8]  318 	ld	a, (hl)
+      000136 F5               [16]  319 	push	af
+      000137 33               [ 8]  320 	inc	sp
+      000138 CDr00r00         [24]  321 	call	_set_bkg_submap
+      00013B E8 07            [16]  322 	add	sp, #7
+                                    323 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
+      00013D 21r00r00         [12]  324 	ld	hl, #__submap_tile_offset
+      000140 36 00            [12]  325 	ld	(hl), #0x00
+                                    326 ;src\main.c:74: set_bkg_based_submap(map_pos_x, map_pos_y + 18u, MIN(21u, HomeWidth - map_pos_x), 1, Home, HomeWidth, 128);
+      000142                        327 00105$:
+                                    328 ;src\main.c:68: set_bkg_based_submap(map_pos_x, map_pos_y, MIN(21u, HomeWidth-map_pos_x), 1, Home, HomeWidth, 128);
+      000142 21r0Br00         [12]  329 	ld	hl, #_map_pos_y
+      000145 4E               [ 8]  330 	ld	c, (hl)
+                                    331 ;src\main.c:77: old_map_pos_y = map_pos_y;
+      000146 21r0Dr00         [12]  332 	ld	hl, #_old_map_pos_y
+      000149 71               [ 8]  333 	ld	(hl), c
+      00014A                        334 00107$:
+                                    335 ;src\main.c:80: map_pos_x = (uint8_t)(camera_x >> 3u);
+      00014A 21r02r00         [12]  336 	ld	hl, #_camera_x
+      00014D 2A               [ 8]  337 	ld	a, (hl+)
+      00014E 47               [ 4]  338 	ld	b, a
+      00014F 5E               [ 8]  339 	ld	e, (hl)
+      000150 CB 3B            [ 8]  340 	srl	e
+      000152 CB 18            [ 8]  341 	rr	b
+      000154 CB 3B            [ 8]  342 	srl	e
+      000156 CB 18            [ 8]  343 	rr	b
+      000158 CB 3B            [ 8]  344 	srl	e
+      00015A CB 18            [ 8]  345 	rr	b
+      00015C 21r0Ar00         [12]  346 	ld	hl, #_map_pos_x
+      00015F 70               [ 8]  347 	ld	(hl), b
+                                    348 ;src\main.c:81: if (map_pos_x != old_map_pos_x)
+      000160 7E               [ 8]  349 	ld	a, (hl)
+      000161 21r0Cr00         [12]  350 	ld	hl, #_old_map_pos_x
+      000164 96               [ 8]  351 	sub	a, (hl)
+      000165 CAr02r02         [16]  352 	jp	Z,00114$
+                                    353 ;src\main.c:85: set_bkg_based_submap(map_pos_x, map_pos_y, 1, MIN(19u, HomeHeight - map_pos_y), Home, HomeWidth, 128);
+      000168 21r0Br00         [12]  354 	ld	hl, #_map_pos_y
+      00016B 5E               [ 8]  355 	ld	e, (hl)
+      00016C 06 00            [ 8]  356 	ld	b, #0x00
+      00016E 56               [ 8]  357 	ld	d, (hl)
+      00016F 3E 3E            [ 8]  358 	ld	a, #0x3e
+      000171 93               [ 4]  359 	sub	a, e
+      000172 6F               [ 4]  360 	ld	l, a
+                                    361 ;	spillPairReg hl
+                                    362 ;	spillPairReg hl
+      000173 9F               [ 4]  363 	sbc	a, a
+      000174 90               [ 4]  364 	sub	a, b
+      000175 67               [ 4]  365 	ld	h, a
+                                    366 ;	spillPairReg hl
+                                    367 ;	spillPairReg hl
+      000176 3E 3E            [ 8]  368 	ld	a, #0x3e
+      000178 92               [ 4]  369 	sub	a, d
+      000179 5F               [ 4]  370 	ld	e, a
+      00017A 07               [ 4]  371 	rlca
+      00017B 9F               [ 4]  372 	sbc	a, a
+      00017C 57               [ 4]  373 	ld	d, a
+      00017D 3E 13            [ 8]  374 	ld	a, #0x13
+      00017F BD               [ 4]  375 	cp	a, l
+      000180 3E 00            [ 8]  376 	ld	a, #0x00
+      000182 9C               [ 4]  377 	sbc	a, h
+      000183 3E 00            [ 8]  378 	ld	a, #0x00
+      000185 17               [ 4]  379 	rla
+      000186 47               [ 4]  380 	ld	b, a
+                                    381 ;src\main.c:83: if (camera_x < old_camera_x)
+      000187 D5               [16]  382 	push	de
+      000188 11r02r00         [12]  383 	ld	de, #_camera_x
+      00018B 21r06r00         [12]  384 	ld	hl, #_old_camera_x
+      00018E 1A               [ 8]  385 	ld	a, (de)
+      00018F 13               [ 8]  386 	inc	de
+      000190 96               [ 8]  387 	sub	a, (hl)
+      000191 23               [ 8]  388 	inc	hl
+      000192 1A               [ 8]  389 	ld	a, (de)
+      000193 9E               [ 8]  390 	sbc	a, (hl)
+      000194 D1               [12]  391 	pop	de
+      000195 30 2F            [12]  392 	jr	NC, 00111$
+                                    393 ;src\main.c:85: set_bkg_based_submap(map_pos_x, map_pos_y, 1, MIN(19u, HomeHeight - map_pos_y), Home, HomeWidth, 128);
+      000197 78               [ 4]  394 	ld	a, b
+      000198 B7               [ 4]  395 	or	a, a
+      000199 28 03            [12]  396 	jr	Z, 00125$
+      00019B 11 13 00         [12]  397 	ld	de, #0x0013
+      00019E                        398 00125$:
+      00019E 43               [ 4]  399 	ld	b, e
+      00019F FAr0Ar00         [16]  400 	ld	a, (#_map_pos_x)
+                                    401 ;C:/gbdk/include/gb/gb.h:1148: _submap_tile_offset = base_tile;
+      0001A2 21r00r00         [12]  402 	ld	hl, #__submap_tile_offset
+      0001A5 36 80            [12]  403 	ld	(hl), #0x80
+                                    404 ;C:/gbdk/include/gb/gb.h:1149: set_bkg_submap(x, y, w, h, map, map_w);
+      0001A7 26 25            [ 8]  405 	ld	h, #0x25
+                                    406 ;	spillPairReg hl
+                                    407 ;	spillPairReg hl
+      0001A9 E5               [16]  408 	push	hl
+      0001AA 33               [ 8]  409 	inc	sp
+      0001AB 11r00r00         [12]  410 	ld	de, #_Home
+      0001AE D5               [16]  411 	push	de
+      0001AF C5               [16]  412 	push	bc
+      0001B0 33               [ 8]  413 	inc	sp
+      0001B1 26 01            [ 8]  414 	ld	h, #0x01
+                                    415 ;	spillPairReg hl
+                                    416 ;	spillPairReg hl
+      0001B3 E5               [16]  417 	push	hl
+      0001B4 33               [ 8]  418 	inc	sp
+      0001B5 61               [ 4]  419 	ld	h, c
+                                    420 ;	spillPairReg hl
+                                    421 ;	spillPairReg hl
+      0001B6 E5               [16]  422 	push	hl
+      0001B7 33               [ 8]  423 	inc	sp
+      0001B8 F5               [16]  424 	push	af
+      0001B9 33               [ 8]  425 	inc	sp
+      0001BA CDr00r00         [24]  426 	call	_set_bkg_submap
+      0001BD E8 07            [16]  427 	add	sp, #7
+                                    428 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
+      0001BF 21r00r00         [12]  429 	ld	hl, #__submap_tile_offset
+      0001C2 36 00            [12]  430 	ld	(hl), #0x00
+                                    431 ;src\main.c:85: set_bkg_based_submap(map_pos_x, map_pos_y, 1, MIN(19u, HomeHeight - map_pos_y), Home, HomeWidth, 128);
+      0001C4 18 36            [12]  432 	jr	00112$
+      0001C6                        433 00111$:
+                                    434 ;src\main.c:89: if ((HomeWidth - 20u) > map_pos_x)
+      0001C6 FAr0Ar00         [16]  435 	ld	a, (#_map_pos_x)
+      0001C9 D6 11            [ 8]  436 	sub	a, #0x11
+      0001CB 30 2F            [12]  437 	jr	NC, 00112$
+                                    438 ;src\main.c:91: set_bkg_based_submap(map_pos_x + 20u, map_pos_y, 1, MIN(19u, HomeHeight - map_pos_y), Home, HomeWidth, 128);
+      0001CD 78               [ 4]  439 	ld	a, b
+      0001CE B7               [ 4]  440 	or	a, a
+      0001CF 28 03            [12]  441 	jr	Z, 00127$
+      0001D1 11 13 00         [12]  442 	ld	de, #0x0013
+      0001D4                        443 00127$:
+      0001D4 43               [ 4]  444 	ld	b, e
+      0001D5 FAr0Ar00         [16]  445 	ld	a, (#_map_pos_x)
+      0001D8 C6 14            [ 8]  446 	add	a, #0x14
+                                    447 ;C:/gbdk/include/gb/gb.h:1148: _submap_tile_offset = base_tile;
+      0001DA 21r00r00         [12]  448 	ld	hl, #__submap_tile_offset
+      0001DD 36 80            [12]  449 	ld	(hl), #0x80
+                                    450 ;C:/gbdk/include/gb/gb.h:1149: set_bkg_submap(x, y, w, h, map, map_w);
+      0001DF 26 25            [ 8]  451 	ld	h, #0x25
+                                    452 ;	spillPairReg hl
+                                    453 ;	spillPairReg hl
+      0001E1 E5               [16]  454 	push	hl
+      0001E2 33               [ 8]  455 	inc	sp
+      0001E3 11r00r00         [12]  456 	ld	de, #_Home
+      0001E6 D5               [16]  457 	push	de
+      0001E7 C5               [16]  458 	push	bc
+      0001E8 33               [ 8]  459 	inc	sp
+      0001E9 26 01            [ 8]  460 	ld	h, #0x01
+                                    461 ;	spillPairReg hl
+                                    462 ;	spillPairReg hl
+      0001EB E5               [16]  463 	push	hl
+      0001EC 33               [ 8]  464 	inc	sp
+      0001ED 61               [ 4]  465 	ld	h, c
+                                    466 ;	spillPairReg hl
+                                    467 ;	spillPairReg hl
+      0001EE E5               [16]  468 	push	hl
+      0001EF 33               [ 8]  469 	inc	sp
+      0001F0 F5               [16]  470 	push	af
+      0001F1 33               [ 8]  471 	inc	sp
+      0001F2 CDr00r00         [24]  472 	call	_set_bkg_submap
+      0001F5 E8 07            [16]  473 	add	sp, #7
+                                    474 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
+      0001F7 21r00r00         [12]  475 	ld	hl, #__submap_tile_offset
+      0001FA 36 00            [12]  476 	ld	(hl), #0x00
+                                    477 ;src\main.c:91: set_bkg_based_submap(map_pos_x + 20u, map_pos_y, 1, MIN(19u, HomeHeight - map_pos_y), Home, HomeWidth, 128);
+      0001FC                        478 00112$:
+                                    479 ;src\main.c:94: old_map_pos_x = map_pos_x;
+      0001FC FAr0Ar00         [16]  480 	ld	a, (#_map_pos_x)
+      0001FF EAr0Cr00         [16]  481 	ld	(#_old_map_pos_x),a
+      000202                        482 00114$:
+                                    483 ;src\main.c:97: old_camera_x = camera_x, old_camera_y = camera_y;
+      000202 FAr02r00         [16]  484 	ld	a, (#_camera_x)
+      000205 EAr06r00         [16]  485 	ld	(#_old_camera_x),a
+      000208 FAr03r00         [16]  486 	ld	a, (#_camera_x + 1)
+      00020B EAr07r00         [16]  487 	ld	(#_old_camera_x + 1),a
+      00020E FAr04r00         [16]  488 	ld	a, (#_camera_y)
+      000211 EAr08r00         [16]  489 	ld	(#_old_camera_y),a
+      000214 FAr05r00         [16]  490 	ld	a, (#_camera_y + 1)
+      000217 EAr09r00         [16]  491 	ld	(#_old_camera_y + 1),a
+                                    492 ;src\main.c:98: }
+      00021A E8 03            [16]  493 	add	sp, #3
+      00021C C9               [16]  494 	ret
+                                    495 ;src\main.c:100: void main(void)
+                                    496 ;	---------------------------------
+                                    497 ; Function main
+                                    498 ; ---------------------------------
+      00021D                        499 _main::
+      00021D E8 F8            [16]  500 	add	sp, #-8
+                                    501 ;src\main.c:102: init_gfx();
+      00021F CDr00r00         [24]  502 	call	_init_gfx
+                                    503 ;src\main.c:103: struct player mouse = {64, 64, 0, 0, left, idle};
+      000222 F8 00            [12]  504 	ldhl	sp,	#0
+      000224 3E 40            [ 8]  505 	ld	a, #0x40
+      000226 22               [ 8]  506 	ld	(hl+), a
+      000227 AF               [ 4]  507 	xor	a, a
+      000228 22               [ 8]  508 	ld	(hl+), a
+      000229 3E 40            [ 8]  509 	ld	a, #0x40
+      00022B 22               [ 8]  510 	ld	(hl+), a
+      00022C AF               [ 4]  511 	xor	a, a
+      00022D 22               [ 8]  512 	ld	(hl+), a
+      00022E AF               [ 4]  513 	xor	a, a
+      00022F 22               [ 8]  514 	ld	(hl+), a
+      000230 AF               [ 4]  515 	xor	a, a
+      000231 22               [ 8]  516 	ld	(hl+), a
+      000232 3E 03            [ 8]  517 	ld	a, #0x03
+      000234 22               [ 8]  518 	ld	(hl+), a
+      000235 36 00            [12]  519 	ld	(hl), #0x00
+                                    520 ;src\main.c:104: SCX_REG = camera_x; SCY_REG = camera_y; 
+      000237 FAr02r00         [16]  521 	ld	a, (#_camera_x)
+      00023A E0r00            [12]  522 	ldh	(_SCX_REG + 0), a
+      00023C FAr04r00         [16]  523 	ld	a, (#_camera_y)
+      00023F E0r00            [12]  524 	ldh	(_SCY_REG + 0), a
+                                    525 ;src\main.c:105: while(1) {
+      000241                        526 00123$:
+                                    527 ;src\main.c:106: PlayerUpdate(&mouse);
+      000241 21 00 00         [12]  528 	ld	hl, #0
+      000244 39               [ 8]  529 	add	hl, sp
+      000245 5D               [ 4]  530 	ld	e, l
+      000246 54               [ 4]  531 	ld	d, h
+      000247 CDr00r00         [24]  532 	call	_PlayerUpdate
+                                    533 ;src\main.c:107: DrawPlayer(&mouse);
+      00024A 21 00 00         [12]  534 	ld	hl, #0
+      00024D 39               [ 8]  535 	add	hl, sp
+      00024E 5D               [ 4]  536 	ld	e, l
+      00024F 54               [ 4]  537 	ld	d, h
+      000250 CDr00r00         [24]  538 	call	_DrawPlayer
+                                    539 ;src\main.c:108: joy = joypad();
+      000253 CDr00r00         [24]  540 	call	_joypad
+      000256 21r00r00         [12]  541 	ld	hl, #_joy
+      000259 77               [ 8]  542 	ld	(hl), a
+                                    543 ;src\main.c:109: if (joy & J_UP) {
+      00025A 4E               [ 8]  544 	ld	c, (hl)
+      00025B CB 51            [ 8]  545 	bit	2, c
+      00025D 28 16            [12]  546 	jr	Z, 00108$
+                                    547 ;src\main.c:110: if (camera_y){
+      00025F 21r05r00         [12]  548 	ld	hl, #_camera_y + 1
+      000262 3A               [ 8]  549 	ld	a, (hl-)
+      000263 B6               [ 8]  550 	or	a, (hl)
+      000264 28 2A            [12]  551 	jr	Z, 00109$
+                                    552 ;src\main.c:111: camera_y--;
+      000266 2A               [ 8]  553 	ld	a, (hl+)
+      000267 5F               [ 4]  554 	ld	e, a
+      000268 3A               [ 8]  555 	ld	a, (hl-)
+      000269 57               [ 4]  556 	ld	d, a
+      00026A 1B               [ 8]  557 	dec	de
+      00026B 7B               [ 4]  558 	ld	a, e
+      00026C 22               [ 8]  559 	ld	(hl+), a
+      00026D 72               [ 8]  560 	ld	(hl), d
+                                    561 ;src\main.c:112: redraw = TRUE;
+      00026E 21r0Er00         [12]  562 	ld	hl, #_redraw
+      000271 36 01            [12]  563 	ld	(hl), #0x01
+      000273 18 1B            [12]  564 	jr	00109$
+      000275                        565 00108$:
+                                    566 ;src\main.c:114: } else if (joy & J_DOWN) {
+      000275 CB 59            [ 8]  567 	bit	3, c
+      000277 28 17            [12]  568 	jr	Z, 00109$
+                                    569 ;src\main.c:115: if (camera_y < HomeCameraMaxY)
+      000279 21r04r00         [12]  570 	ld	hl, #_camera_y
+      00027C 2A               [ 8]  571 	ld	a, (hl+)
+      00027D 5E               [ 8]  572 	ld	e, (hl)
+      00027E D6 60            [ 8]  573 	sub	a, #0x60
+      000280 7B               [ 4]  574 	ld	a, e
+      000281 DE 01            [ 8]  575 	sbc	a, #0x01
+      000283 30 0B            [12]  576 	jr	NC, 00109$
+                                    577 ;src\main.c:117: camera_y++;
+      000285 2B               [ 8]  578 	dec	hl
+      000286 34               [12]  579 	inc	(hl)
+      000287 20 02            [12]  580 	jr	NZ, 00179$
+      000289 23               [ 8]  581 	inc	hl
+      00028A 34               [12]  582 	inc	(hl)
+      00028B                        583 00179$:
+                                    584 ;src\main.c:118: redraw = TRUE;
+      00028B 21r0Er00         [12]  585 	ld	hl, #_redraw
+      00028E 36 01            [12]  586 	ld	(hl), #0x01
+      000290                        587 00109$:
+                                    588 ;src\main.c:122: if (joy & J_LEFT) {
+      000290 CB 49            [ 8]  589 	bit	1, c
+      000292 28 16            [12]  590 	jr	Z, 00117$
+                                    591 ;src\main.c:123: if (camera_x)
+      000294 21r03r00         [12]  592 	ld	hl, #_camera_x + 1
+      000297 3A               [ 8]  593 	ld	a, (hl-)
+      000298 B6               [ 8]  594 	or	a, (hl)
+      000299 28 29            [12]  595 	jr	Z, 00118$
+                                    596 ;src\main.c:125: camera_x--;
+      00029B 2A               [ 8]  597 	ld	a, (hl+)
+      00029C 5F               [ 4]  598 	ld	e, a
+      00029D 3A               [ 8]  599 	ld	a, (hl-)
+      00029E 57               [ 4]  600 	ld	d, a
+      00029F 1B               [ 8]  601 	dec	de
+      0002A0 7B               [ 4]  602 	ld	a, e
+      0002A1 22               [ 8]  603 	ld	(hl+), a
+      0002A2 72               [ 8]  604 	ld	(hl), d
+                                    605 ;src\main.c:126: redraw = TRUE;
+      0002A3 21r0Er00         [12]  606 	ld	hl, #_redraw
+      0002A6 36 01            [12]  607 	ld	(hl), #0x01
+      0002A8 18 1A            [12]  608 	jr	00118$
+      0002AA                        609 00117$:
+                                    610 ;src\main.c:128: } else if (joy & J_RIGHT) {
+      0002AA CB 41            [ 8]  611 	bit	0, c
+      0002AC 28 16            [12]  612 	jr	Z, 00118$
+                                    613 ;src\main.c:129: if (camera_x < HomeCameraMaxX)
+      0002AE 21r02r00         [12]  614 	ld	hl, #_camera_x
+      0002B1 2A               [ 8]  615 	ld	a, (hl+)
+      0002B2 D6 88            [ 8]  616 	sub	a, #0x88
+      0002B4 7E               [ 8]  617 	ld	a, (hl)
+      0002B5 DE 00            [ 8]  618 	sbc	a, #0x00
+      0002B7 30 0B            [12]  619 	jr	NC, 00118$
+                                    620 ;src\main.c:131: camera_x++;
+      0002B9 2B               [ 8]  621 	dec	hl
+      0002BA 34               [12]  622 	inc	(hl)
+      0002BB 20 02            [12]  623 	jr	NZ, 00182$
+      0002BD 23               [ 8]  624 	inc	hl
+      0002BE 34               [12]  625 	inc	(hl)
+      0002BF                        626 00182$:
+                                    627 ;src\main.c:132: redraw = TRUE;
+      0002BF 21r0Er00         [12]  628 	ld	hl, #_redraw
+      0002C2 36 01            [12]  629 	ld	(hl), #0x01
+      0002C4                        630 00118$:
+                                    631 ;src\main.c:135: if (redraw)
+      0002C4 FAr0Er00         [16]  632 	ld	a, (#_redraw)
+      0002C7 B7               [ 4]  633 	or	a, a
+      0002C8 28 0E            [12]  634 	jr	Z, 00120$
+                                    635 ;src\main.c:137: wait_vbl_done();
+      0002CA CDr00r00         [24]  636 	call	_wait_vbl_done
+                                    637 ;src\main.c:138: set_camera();
+      0002CD CDr77r00         [24]  638 	call	_set_camera
+                                    639 ;src\main.c:139: redraw = FALSE;
+      0002D0 21r0Er00         [12]  640 	ld	hl, #_redraw
+      0002D3 36 00            [12]  641 	ld	(hl), #0x00
+      0002D5 C3r41r02         [16]  642 	jp	00123$
+      0002D8                        643 00120$:
+                                    644 ;src\main.c:144: wait_vbl_done();
+      0002D8 CDr00r00         [24]  645 	call	_wait_vbl_done
+      0002DB C3r41r02         [16]  646 	jp	00123$
+                                    647 ;src\main.c:147: }
+      0002DE E8 08            [16]  648 	add	sp, #8
+      0002E0 C9               [16]  649 	ret
+                                    650 	.area _CODE
+                                    651 	.area _INITIALIZER
+                                    652 	.area _CABS (ABS)
