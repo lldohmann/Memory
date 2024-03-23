@@ -5,8 +5,6 @@
 #include <gb/metasprites.h> 
 #include "../src/player.h"
 
-//inline player Player_Create(uint16_t x, uint16_t y, enum direction startingDirection) {player Player = {.x = x, .y = y, .playerDirection = startingDirection}; return Player;}
-
 // Input System
 uint8_t joypadCurrent = 0;
 uint8_t joypadPrevious = 0;
@@ -20,22 +18,22 @@ void PlayerUpdate(struct player *ptr)
         joypadCurrent = joypad();
         if (joypadCurrent & J_UP)
         {
-            ptr->y -= 1;
+            //ptr->y -= 1;
             ptr->playerDirection = up;
         }
         else if (joypadCurrent & J_DOWN)
         {
-            ptr->y += 1;
+            //ptr->y += 1;
             ptr->playerDirection = down;
         }
         else if (joypadCurrent & J_RIGHT)
         {
-            ptr->x += 1;
+            //ptr->x += 1;
             ptr->playerDirection = right;
         }
         else if (joypadCurrent & J_LEFT)
         {
-            ptr->x -= 1;
+            //ptr->x -= 1;
             ptr->playerDirection = left;
         }
         break;
@@ -70,8 +68,9 @@ const metasprite_t* const mouse_metasprites[4] = {
     mouse_down, mouse_up, mouse_right0, mouse_right1
 };
 
-void DrawPlayer(struct player *ptr)
+void DrawPlayer(struct player *ptr, uint8_t joy)
 {
+    uint8_t timer = 0; // constantly resets to zero when function called timer does not work
     (void) ptr;
     switch (ptr->playerDirection)
     {

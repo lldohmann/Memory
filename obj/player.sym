@@ -7,7 +7,7 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
-  0 _DrawPlayer                                                    000097 GR
+  0 _DrawPlayer                                                    000036 GR
   0 _PlayerUpdate                                                  000000 GR
     ___current_base_tile                                           ****** GX
     ___current_metasprite                                          ****** GX
@@ -18,11 +18,11 @@ Symbol Table
     _joypad                                                        ****** GX
   2 _joypadCurrent                                                 000000 GR
   2 _joypadPrevious                                                000001 GR
-  0 _mouse_down                                                    00017B GR
-  0 _mouse_metasprites                                             0001AB GR
-  0 _mouse_right0                                                  000193 GR
-  0 _mouse_right1                                                  00019F GR
-  0 _mouse_up                                                      000187 GR
+  0 _mouse_down                                                    00011A GR
+  0 _mouse_metasprites                                             00014A GR
+  0 _mouse_right0                                                  000132 GR
+  0 _mouse_right1                                                  00013E GR
+  0 _mouse_up                                                      000126 GR
 
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
@@ -30,7 +30,7 @@ Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    1B3   flags    0
+   0 _CODE                                      size    152   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size      2   flags    0
    3 _DABS                                      size      0   flags    8

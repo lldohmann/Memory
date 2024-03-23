@@ -16,23 +16,23 @@ Symbol Table
     _SCX_REG                                                       ****** GX
     _SCY_REG                                                       ****** GX
     __submap_tile_offset                                           ****** GX
-  1 _camera_x                                                      000002 GR
-  1 _camera_y                                                      000004 GR
+  1 _camera_x_pixels                                               000002 GR
+  1 _camera_y_pixels                                               000004 GR
   1 _currentGameMode                                               000001 GR
   0 _init_gfx                                                      000000 GR
   1 _joy                                                           000000 GR
     _joypad                                                        ****** GX
-  0 _main                                                          00021D GR
-  1 _map_pos_x                                                     00000A GR
-  1 _map_pos_y                                                     00000B GR
-  1 _old_camera_x                                                  000006 GR
-  1 _old_camera_y                                                  000008 GR
-  1 _old_map_pos_x                                                 00000C GR
-  1 _old_map_pos_y                                                 00000D GR
+  0 _main                                                          000207 GR
+  1 _map_pos_x_tiles                                               00000A GR
+  1 _map_pos_y_tiles                                               00000B GR
+  1 _old_camera_x_pixels                                           000006 GR
+  1 _old_camera_y_pixels                                           000008 GR
+  1 _old_map_pos_x_tiles                                           00000C GR
+  1 _old_map_pos_y_tiles                                           00000D GR
   1 _redraw                                                        00000E GR
     _set_bkg_data                                                  ****** GX
     _set_bkg_submap                                                ****** GX
-  0 _set_camera                                                    000077 GR
+  0 _set_camera                                                    000061 GR
     _set_sprite_data                                               ****** GX
     _wait_vbl_done                                                 ****** GX
 
@@ -42,7 +42,7 @@ Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    2E1   flags    0
+   0 _CODE                                      size    2C9   flags    0
    1 _DATA                                      size      F   flags    0
    2 _INITIALIZED                               size      0   flags    0
    3 _DABS                                      size      0   flags    8

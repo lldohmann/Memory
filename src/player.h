@@ -34,4 +34,4 @@ void PlayerUpdate(struct player *ptr);
  * @param ptr
  *  A pointer to the player character.
 */
-void DrawPlayer(struct player *ptr);
+void DrawPlayer(struct player *ptr, uint8_t joy);

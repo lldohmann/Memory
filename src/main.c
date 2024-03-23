@@ -9,28 +9,6 @@
 #define MIN(A,B) ((A)<(B)?(A):(B))
 
 uint8_t joy;
-// current and old positions of the camera in pixels
-uint16_t camera_x, camera_y, old_camera_x, old_camera_y;
-// current and old position of the map in tiles
-uint8_t map_pos_x, map_pos_y, old_map_pos_x, old_map_pos_y;
-// redraw flag, indicates that camera position was changed
-uint8_t redraw;
-
-void init_gfx() {
-    // Camera code
-    map_pos_x = map_pos_y = 0;
-    old_map_pos_x = old_camera_y = 255; 
-    camera_x = camera_y = 0;
-    old_camera_x = camera_x; old_camera_y = camera_y;
-    redraw = FALSE;
-    // My code
-    set_bkg_data(128, 144, IndoorTiles);
-    set_bkg_based_submap(0, 0, HomeWidth, HomeHeight, Home, HomeWidth, 128);
-    set_sprite_data(0, 128, Cast_Tiles);
-    SPRITES_8x16;
-    SHOW_BKG;
-    SHOW_SPRITES;
-}
 
 struct hud {
     char name[7];
@@ -43,92 +21,112 @@ struct hud {
     BOOLEAN likesCheese;
 };
 
-// ------------ Input System -------------------
+// ------------ Game States -------------------
 enum gameState {explore, menu, text};
 enum gameState currentGameMode;
 
 // ------------ Map System ---------------------
-// current and old positions of the camera in pixels
-uint16_t camera_x, camera_y, old_camera_x, old_camera_y;
+// current and old positions of the camera in pixels (origin top left)
+uint16_t camera_x_pixels, camera_y_pixels, old_camera_x_pixels, old_camera_y_pixels;
 // current and old position of the map in tiles
-uint8_t map_pos_x, map_pos_y, old_map_pos_x, old_map_pos_y;
+uint8_t map_pos_x_tiles, map_pos_y_tiles, old_map_pos_x_tiles, old_map_pos_y_tiles;
 // redraw flag, indicates that camera position was changed
 uint8_t redraw;
 // TO DO: make parameters to reuse code for multiple maps.
+void init_gfx() {
+    // Camera code
+    map_pos_x_tiles = map_pos_y_tiles = 0;
+    old_map_pos_x_tiles = old_camera_y_pixels = 255; 
+    camera_x_pixels = 208;
+    camera_y_pixels = 96;
+    old_camera_x_pixels = camera_x_pixels; old_camera_y_pixels = camera_y_pixels;
+    redraw = FALSE;
+    // My code
+    set_bkg_data(128, 144, IndoorTiles);
+    set_bkg_based_submap(0, 0, 20u, 18u, Home, HomeWidth, 128);
+    set_sprite_data(0, 128, Cast_Tiles);
+    SPRITES_8x16;
+    SHOW_BKG;
+    SHOW_SPRITES;
+}
 void set_camera()
 {
     // update hardware scroll position
-    SCY_REG = camera_y; SCX_REG = camera_x;
+    SCY_REG = camera_y_pixels; SCX_REG = camera_x_pixels;
     // up or down
-    map_pos_y = (uint8_t)(camera_y >> 3u);
-    if (map_pos_y != old_map_pos_y)
+    map_pos_y_tiles = (uint8_t)(camera_y_pixels >> 3u);
+    if (map_pos_y_tiles != old_map_pos_y_tiles)
     {
-        if (camera_y < old_camera_y)
+        if (camera_y_pixels < old_camera_y_pixels) // if camera is moving up
         {
-            set_bkg_based_submap(map_pos_x, map_pos_y, MIN(21u, HomeWidth-map_pos_x), 1, Home, HomeWidth, 128);
+            set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
         }
-        else 
+        else  // camera is moving down
         {
-            if ((HomeHeight - 18u) > map_pos_y)
+            if ((HomeHeight - 18u) > map_pos_y_tiles) // (have we touched the bottom of the map?) if not then...
             {
-                set_bkg_based_submap(map_pos_x, map_pos_y + 18u, MIN(21u, HomeWidth - map_pos_x), 1, Home, HomeWidth, 128);
+                set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles + 18u, MIN(21u, HomeWidth - map_pos_x_tiles), 1, Home, HomeWidth, 128);
             }
         }
-        old_map_pos_y = map_pos_y;
+        old_map_pos_y_tiles = map_pos_y_tiles;
     }
     // left or right
-    map_pos_x = (uint8_t)(camera_x >> 3u);
-    if (map_pos_x != old_map_pos_x)
+    map_pos_x_tiles = (uint8_t)(camera_x_pixels >> 3u);
+    if (map_pos_x_tiles != old_map_pos_x_tiles)
     {
-        if (camera_x < old_camera_x)
+        if (camera_x_pixels < old_camera_x_pixels)
         {
-            set_bkg_based_submap(map_pos_x, map_pos_y, 1, MIN(19u, HomeHeight - map_pos_y), Home, HomeWidth, 128);
+            set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
         }
         else
         {
-            if ((HomeWidth - 20u) > map_pos_x)
+            if ((HomeWidth - 20u) > map_pos_x_tiles)
             {
-                set_bkg_based_submap(map_pos_x + 20u, map_pos_y, 1, MIN(19u, HomeHeight - map_pos_y), Home, HomeWidth, 128);
+                set_bkg_based_submap(map_pos_x_tiles + 20u, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
             }
         }
-        old_map_pos_x = map_pos_x;
+        old_map_pos_x_tiles = map_pos_x_tiles;
     }
     // Set old camera position to current camera position
-    old_camera_x = camera_x, old_camera_y = camera_y;
+    old_camera_x_pixels = camera_x_pixels, old_camera_y_pixels = camera_y_pixels;
 }
-
+enum cameraState {idle, moving_down, moving_up, moving_left, moving_right};
+enum cameraState CameraState;
+uint8_t camera_pixel_goal_x, camera_pixel_goal_y;
 void main(void)
 {
-	init_gfx();
-    struct player mouse = {64, 64, 0, 0, left, idle};
-    SCX_REG = camera_x; SCY_REG = camera_y; 
+    struct player mouse = {88, 96, 0, 0, left, idle};
+    //SCX_REG = camera_x_pixels; SCY_REG = camera_y_pixels; 
+    init_gfx();
+    set_camera();
+    CameraState = idle;
     while(1) {
-        PlayerUpdate(&mouse);
-        DrawPlayer(&mouse);
         joy = joypad();
+        PlayerUpdate(&mouse);
+        DrawPlayer(&mouse, joy);
         if (joy & J_UP) {
-            if (camera_y){
-                camera_y--;
+            if (camera_y_pixels){
+                camera_y_pixels--;
                 redraw = TRUE;
             }
         } else if (joy & J_DOWN) {
-            if (camera_y < HomeCameraMaxY)
+            if (camera_y_pixels < HomeCameraMaxY)
             {
-                camera_y++;
+                camera_y_pixels++;
                 redraw = TRUE;
             }
         } 
         // left or right
         if (joy & J_LEFT) {
-            if (camera_x)
+            if (camera_x_pixels)
             {
-                camera_x--;
+                camera_x_pixels--;
                 redraw = TRUE;
             }
         } else if (joy & J_RIGHT) {
-            if (camera_x < HomeCameraMaxX)
+            if (camera_x_pixels < HomeCameraMaxX)
             {
-                camera_x++;
+                camera_x_pixels++;
                 redraw = TRUE;
             }
         } 
