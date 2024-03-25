@@ -7,9 +7,11 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
-    _GameTitleSetup                                                ****** GX
-    _GameTitleUpdate                                               ****** GX
-  0 _main                                                          000000 GR
+    _BGP_REG                                                       ****** GX
+    _OBP0_REG                                                      ****** GX
+  0 _fadeFromBlack                                                 000055 GR
+  0 _fadeToBlack                                                   00000C GR
+  0 _performantdelay                                               000000 GR
     _wait_vbl_done                                                 ****** GX
 
 
@@ -18,7 +20,7 @@ Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size     20   flags    0
+   0 _CODE                                      size     9E   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size      0   flags    0
    3 _DABS                                      size      0   flags    8

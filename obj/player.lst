@@ -107,7 +107,7 @@
                                     107 ;src\player.c:43: }
                                     108 ;src\player.c:44: }
       000035 C9               [16]  109 	ret
-                                    110 ;src\player.c:71: void DrawPlayer(struct player *ptr, uint8_t joy)
+                                    110 ;src\player.c:71: void DrawPlayer(struct player *ptr)
                                     111 ;	---------------------------------
                                     112 ; Function DrawPlayer
                                     113 ; ---------------------------------

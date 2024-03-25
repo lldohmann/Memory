@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <gb/metasprites.h> 
-#include "../src/player.h"
+#include "../headers/player.h"
 
 // Input System
 uint8_t joypadCurrent = 0;
@@ -68,7 +68,7 @@ const metasprite_t* const mouse_metasprites[4] = {
     mouse_down, mouse_up, mouse_right0, mouse_right1
 };
 
-void DrawPlayer(struct player *ptr, uint8_t joy)
+void DrawPlayer(struct player *ptr)
 {
     uint8_t timer = 0; // constantly resets to zero when function called timer does not work
     (void) ptr;

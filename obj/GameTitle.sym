@@ -1,0 +1,54 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+    _BGP_REG                                                       ****** GX
+  0 _GameTitleSetup                                                000000 GR
+  0 _GameTitleUpdate                                               000170 GR
+    _Globe_Tiles                                                   ****** GX
+    _LCDC_REG                                                      ****** GX
+    _OBP0_REG                                                      ****** GX
+    _TitleLabel                                                    ****** GX
+    _Title_Map                                                     ****** GX
+    ___current_base_tile                                           ****** GX
+    ___current_metasprite                                          ****** GX
+    ___move_metasprite                                             ****** GX
+  7 __xinit__frame                                                 000001 R
+  7 __xinit__timer                                                 000000 R
+    _fadeFromBlack                                                 ****** GX
+  2 _frame                                                         000001 GR
+  0 _globe1                                                        000066 GR
+  0 _globe2                                                        00008A GR
+  0 _globe3                                                        0000AE GR
+  0 _globe4                                                        0000D2 GR
+  0 _globe5                                                        0000F6 GR
+  0 _globe6                                                        00011A GR
+  0 _globe7                                                        00013E GR
+  0 _globe_metasprites                                             000162 GR
+    _set_bkg_data                                                  ****** GX
+    _set_bkg_tiles                                                 ****** GX
+    _set_sprite_data                                               ****** GX
+  2 _timer                                                         000000 GR
+    _wait_vbl_done                                                 ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size    1B5   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size      2   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _INITIALIZER                               size      2   flags    0
+   8 _CABS                                      size      0   flags    8
+

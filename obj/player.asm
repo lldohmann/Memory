@@ -107,7 +107,7 @@ _PlayerUpdate::
 ;src\player.c:43: }
 ;src\player.c:44: }
 	ret
-;src\player.c:71: void DrawPlayer(struct player *ptr, uint8_t joy)
+;src\player.c:71: void DrawPlayer(struct player *ptr)
 ;	---------------------------------
 ; Function DrawPlayer
 ; ---------------------------------
