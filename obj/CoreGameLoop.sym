@@ -1,0 +1,57 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+    _Cast_Tiles                                                    ****** GX
+  0 _CoreGameLoopSetup                                             0001A6 GR
+  0 _CoreGameLoopUpdate                                            00022C GR
+    _DrawPlayer                                                    ****** GX
+    _Home                                                          ****** GX
+    _IndoorTiles                                                   ****** GX
+    _LCDC_REG                                                      ****** GX
+    _PlayerUpdate                                                  ****** GX
+    _SCX_REG                                                       ****** GX
+    _SCY_REG                                                       ****** GX
+    __submap_tile_offset                                           ****** GX
+  7 __xinit__mouse                                                 000000 R
+  1 _camera_pixel_goal_x                                           00000D GR
+  1 _camera_pixel_goal_y                                           00000E GR
+  1 _camera_x_pixels                                               000000 GR
+  1 _camera_y_pixels                                               000002 GR
+    _fadeFromBlack                                                 ****** GX
+    _joypad                                                        ****** GX
+    _joypadCurrent                                                 ****** GX
+  1 _map_pos_x_tiles                                               000008 GR
+  1 _map_pos_y_tiles                                               000009 GR
+  2 _mouse                                                         000000 GR
+  1 _old_camera_x_pixels                                           000004 GR
+  1 _old_camera_y_pixels                                           000006 GR
+  1 _old_map_pos_x_tiles                                           00000A GR
+  1 _old_map_pos_y_tiles                                           00000B GR
+  1 _redraw                                                        00000C GR
+    _set_bkg_data                                                  ****** GX
+    _set_bkg_submap                                                ****** GX
+  0 _set_camera                                                    000000 GR
+    _set_sprite_data                                               ****** GX
+    _wait_vbl_done                                                 ****** GX
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size    2C2   flags    0
+   1 _DATA                                      size      F   flags    0
+   2 _INITIALIZED                               size      8   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _INITIALIZER                               size      8   flags    0
+   8 _CABS                                      size      0   flags    8
+

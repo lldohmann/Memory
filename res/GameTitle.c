@@ -118,7 +118,7 @@ uint8_t GameTitleUpdate()
     move_metasprite(globe_metasprites[frame], 0, 0, 88, 64);
     if (joypadCurrent & J_START)
     {
-        fadeToBlack();
+        fadeToBlack(10);
         return COREGAMELOOP;
     }
     wait_vbl_done();

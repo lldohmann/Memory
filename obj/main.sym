@@ -7,6 +7,8 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
+    _CoreGameLoopSetup                                             ****** GX
+    _CoreGameLoopUpdate                                            ****** GX
     _GameTitleSetup                                                ****** GX
     _GameTitleUpdate                                               ****** GX
   0 _main                                                          000000 GR
@@ -18,7 +20,7 @@ Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size     20   flags    0
+   0 _CODE                                      size     39   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size      0   flags    0
    3 _DABS                                      size      0   flags    8

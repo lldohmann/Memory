@@ -16,27 +16,6 @@ uint16_t camera_x_pixels, camera_y_pixels, old_camera_x_pixels, old_camera_y_pix
 uint8_t map_pos_x_tiles, map_pos_y_tiles, old_map_pos_x_tiles, old_map_pos_y_tiles;
 // redraw flag, indicates that camera position was changed
 uint8_t redraw;
-struct player mouse = {88, 96, 0, 0, left, idle};
-
-void CoreGameLoopSetup()
-{
-    // Camera code
-    map_pos_x_tiles = map_pos_y_tiles = 0;
-    old_map_pos_x_tiles = old_camera_y_pixels = 255; 
-    camera_x_pixels = 208;
-    camera_y_pixels = 96;
-    old_camera_x_pixels = camera_x_pixels; old_camera_y_pixels = camera_y_pixels;
-    redraw = FALSE;
-    // My code
-    set_bkg_data(128, 144, IndoorTiles);
-    set_bkg_based_submap(0, 0, 20u, 18u, Home, HomeWidth, 128);
-    set_sprite_data(0, 128, Cast_Tiles);
-    SPRITES_8x16;
-    SHOW_BKG;
-    SHOW_SPRITES;
-    set_camera();
-}
-
 void set_camera()
 {
     // update hardware scroll position
@@ -78,15 +57,36 @@ void set_camera()
     // Set old camera position to current camera position
     old_camera_x_pixels = camera_x_pixels, old_camera_y_pixels = camera_y_pixels;
 }
-enum cameraState {idle, moving_down, moving_up, moving_left, moving_right};
-enum cameraState CameraState;
+
+struct player mouse = {88, 96, 0, 0, left, idle};
+
+void CoreGameLoopSetup()
+{
+    // Camera code
+    map_pos_x_tiles = map_pos_y_tiles = 0;
+    old_map_pos_x_tiles = old_camera_y_pixels = 255; 
+    camera_x_pixels = 208;
+    camera_y_pixels = 96;
+    old_camera_x_pixels = camera_x_pixels; old_camera_y_pixels = camera_y_pixels;
+    redraw = FALSE;
+    // My code
+    set_bkg_data(128, 144, IndoorTiles);
+    set_bkg_based_submap(0, 0, 20u, 18u, Home, HomeWidth, 128);
+    set_sprite_data(0, 128, Cast_Tiles);
+    SPRITES_8x16;
+    SHOW_BKG;
+    SHOW_SPRITES;
+    set_camera();
+    fadeFromBlack(10);
+}
+
 uint8_t camera_pixel_goal_x, camera_pixel_goal_y;
 
 uint8_t CoreGameLoopUpdate()
 {
     joypadCurrent = joypad();
     PlayerUpdate(&mouse);
-    DrawPlayer(&mouse, joypadCurrent);
+    DrawPlayer(&mouse);
     if (joypadCurrent & J_UP) {
         if (camera_y_pixels){
             camera_y_pixels--;
@@ -119,9 +119,6 @@ uint8_t CoreGameLoopUpdate()
         set_camera();
         redraw = FALSE;
     }
-    else 
-    {
-        // Done processing, yield CPU and wait for start of next frame
-        wait_vbl_done();
-    }
+    wait_vbl_done();
+    return COREGAMELOOP;
 }

@@ -4,10 +4,8 @@
 #include <string.h>
 #include <gb/metasprites.h> 
 #include "../headers/player.h"
+#include "../headers/common.h"
 
-// Input System
-uint8_t joypadCurrent = 0;
-uint8_t joypadPrevious = 0;
 void PlayerUpdate(struct player *ptr)
 {
     (void) ptr;

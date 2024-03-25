@@ -1,7 +1,7 @@
 #include <gb/gb.h>
 #include "../headers/common.h"
 #include "../headers/GameTitle.h"
-//#include "../headers/CoreGameLoop.h"
+#include "../headers/CoreGameLoop.h"
 
 void main(void)
 {
@@ -18,10 +18,10 @@ void main(void)
             currentGameState = nextGameState;
 
             if (currentGameState == GAMETITLE) GameTitleSetup();
-            //else if (currentGameState == COREGAMELOOP) CoreGameLoopSetup();
+            else if (currentGameState == COREGAMELOOP) CoreGameLoopSetup();
         }
         if (currentGameState == GAMETITLE) nextGameState = GameTitleUpdate();
-        //else if (currentGameState == COREGAMELOOP) nextGameState = CoreGameLoopUpdate();
+        else if (currentGameState == COREGAMELOOP) nextGameState = CoreGameLoopUpdate();
         wait_vbl_done();
     }
 }

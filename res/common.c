@@ -1,5 +1,8 @@
 #include <gb/gb.h>
+#include "../headers/common.h"
 
+uint8_t joypadPrevious = 0;
+uint8_t joypadCurrent = 0;
 void performantdelay(uint8_t numloops)
 {
     for (uint8_t i = 0; i < numloops; i++)

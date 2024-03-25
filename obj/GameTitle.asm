@@ -11,10 +11,12 @@
 	.globl _GameTitleUpdate
 	.globl _GameTitleSetup
 	.globl _fadeFromBlack
+	.globl _fadeToBlack
 	.globl _set_sprite_data
 	.globl _set_bkg_tiles
 	.globl _set_bkg_data
 	.globl _wait_vbl_done
+	.globl _joypad
 	.globl _frame
 	.globl _timer
 	.globl _globe_metasprites
@@ -399,34 +401,39 @@ _globe_metasprites:
 	.dw _globe5
 	.dw _globe6
 	.dw _globe7
-;res\GameTitle.c:106: uint8_t GameTitleUpdate()
+;res\GameTitle.c:107: uint8_t GameTitleUpdate()
 ;	---------------------------------
 ; Function GameTitleUpdate
 ; ---------------------------------
 _GameTitleUpdate::
-;res\GameTitle.c:108: timer++;
+;res\GameTitle.c:109: joypadPrevious = joypadCurrent;
+	ld	a, (#_joypadCurrent)
+	ld	(#_joypadPrevious),a
+;res\GameTitle.c:110: joypadCurrent = joypad();
+	call	_joypad
+	ld	(#_joypadCurrent),a
+;res\GameTitle.c:111: timer++;
 	ld	hl, #_timer
 	inc	(hl)
-;res\GameTitle.c:109: if (timer == 10)
+;res\GameTitle.c:112: if (timer == 10)
 	ld	a, (hl)
 	sub	a, #0x0a
 	jr	NZ, 00102$
-;res\GameTitle.c:111: frame++; 
+;res\GameTitle.c:114: frame++; 
 	ld	hl, #_frame
 	inc	(hl)
-;res\GameTitle.c:112: timer = 0;
+;res\GameTitle.c:115: timer = 0;
 	ld	hl, #_timer
 	ld	(hl), #0x00
 00102$:
-;res\GameTitle.c:114: if (frame >= 7) frame = 0;
+;res\GameTitle.c:117: if (frame >= 7) frame = 0;
 	ld	hl, #_frame
 	ld	a, (hl)
 	sub	a, #0x07
 	jr	C, 00104$
 	ld	(hl), #0x00
 00104$:
-;res\GameTitle.c:115: move_metasprite(globe_metasprites[frame], 0, 0, 88, 64);
-	ld	bc, #_globe_metasprites+0
+;res\GameTitle.c:118: move_metasprite(globe_metasprites[frame], 0, 0, 88, 64);
 	ld	hl, #_frame
 	ld	l, (hl)
 ;	spillPairReg hl
@@ -435,7 +442,8 @@ _GameTitleUpdate::
 ;	spillPairReg hl
 ;	spillPairReg hl
 	add	hl, hl
-	add	hl, bc
+	ld	de, #_globe_metasprites
+	add	hl, de
 	ld	a, (hl+)
 	ld	c, (hl)
 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
@@ -453,11 +461,22 @@ _GameTitleUpdate::
 	inc	sp
 	call	___move_metasprite
 	add	sp, #3
-;res\GameTitle.c:116: wait_vbl_done();
+;res\GameTitle.c:119: if (joypadCurrent & J_START)
+	ld	a, (#_joypadCurrent)
+	rlca
+	jr	NC, 00106$
+;res\GameTitle.c:121: fadeToBlack(10);
+	ld	a, #0x0a
+	call	_fadeToBlack
+;res\GameTitle.c:122: return COREGAMELOOP;
+	ld	a, #0x02
+	ret
+00106$:
+;res\GameTitle.c:124: wait_vbl_done();
 	call	_wait_vbl_done
-;res\GameTitle.c:117: return GAMETITLE;
+;res\GameTitle.c:125: return GAMETITLE;
 	ld	a, #0x01
-;res\GameTitle.c:118: }
+;res\GameTitle.c:126: }
 	ret
 	.area _CODE
 	.area _INITIALIZER

@@ -8,207 +8,217 @@
                                       8 ;--------------------------------------------------------
                                       9 ; Public variables in this module
                                      10 ;--------------------------------------------------------
-                                     11 	.globl _fadeFromBlack
-                                     12 	.globl _fadeToBlack
-                                     13 	.globl _performantdelay
-                                     14 	.globl _wait_vbl_done
-                                     15 ;--------------------------------------------------------
-                                     16 ; special function registers
+                                     11 	.globl _wait_vbl_done
+                                     12 	.globl _joypadCurrent
+                                     13 	.globl _joypadPrevious
+                                     14 	.globl _performantdelay
+                                     15 	.globl _fadeToBlack
+                                     16 	.globl _fadeFromBlack
                                      17 ;--------------------------------------------------------
-                                     18 ;--------------------------------------------------------
-                                     19 ; ram data
+                                     18 ; special function registers
+                                     19 ;--------------------------------------------------------
                                      20 ;--------------------------------------------------------
-                                     21 	.area _DATA
+                                     21 ; ram data
                                      22 ;--------------------------------------------------------
-                                     23 ; ram data
+                                     23 	.area _DATA
                                      24 ;--------------------------------------------------------
-                                     25 	.area _INITIALIZED
+                                     25 ; ram data
                                      26 ;--------------------------------------------------------
-                                     27 ; absolute external ram data
-                                     28 ;--------------------------------------------------------
-                                     29 	.area _DABS (ABS)
-                                     30 ;--------------------------------------------------------
-                                     31 ; global & static initialisations
+                                     27 	.area _INITIALIZED
+      000000                         28 _joypadPrevious::
+      000000                         29 	.ds 1
+      000001                         30 _joypadCurrent::
+      000001                         31 	.ds 1
                                      32 ;--------------------------------------------------------
-                                     33 	.area _HOME
-                                     34 	.area _GSINIT
-                                     35 	.area _GSFINAL
-                                     36 	.area _GSINIT
-                                     37 ;--------------------------------------------------------
-                                     38 ; Home
-                                     39 ;--------------------------------------------------------
-                                     40 	.area _HOME
-                                     41 	.area _HOME
-                                     42 ;--------------------------------------------------------
-                                     43 ; code
-                                     44 ;--------------------------------------------------------
-                                     45 	.area _CODE
-                                     46 ;res\common.c:3: void performantdelay(uint8_t numloops)
-                                     47 ;	---------------------------------
-                                     48 ; Function performantdelay
-                                     49 ; ---------------------------------
-      000000                         50 _performantdelay::
-      000000 4F               [ 4]   51 	ld	c, a
-                                     52 ;res\common.c:5: for (uint8_t i = 0; i < numloops; i++)
-      000001 06 00            [ 8]   53 	ld	b, #0x00
-      000003                         54 00103$:
-      000003 78               [ 4]   55 	ld	a, b
-      000004 91               [ 4]   56 	sub	a, c
-      000005 D0               [20]   57 	ret	NC
-                                     58 ;res\common.c:7: wait_vbl_done();
-      000006 CDr00r00         [24]   59 	call	_wait_vbl_done
-                                     60 ;res\common.c:5: for (uint8_t i = 0; i < numloops; i++)
-      000009 04               [ 4]   61 	inc	b
-                                     62 ;res\common.c:9: }
-      00000A 18 F7            [12]   63 	jr	00103$
-                                     64 ;res\common.c:11: void fadeToBlack(uint8_t frames)
-                                     65 ;	---------------------------------
-                                     66 ; Function fadeToBlack
-                                     67 ; ---------------------------------
-      00000C                         68 _fadeToBlack::
-      00000C 4F               [ 4]   69 	ld	c, a
-                                     70 ;res\common.c:13: for (uint8_t i = 0; i < 4; i++)
-      00000D 06 00            [ 8]   71 	ld	b, #0x00
-      00000F                         72 00108$:
-      00000F 78               [ 4]   73 	ld	a, b
-      000010 D6 04            [ 8]   74 	sub	a, #0x04
-      000012 D0               [20]   75 	ret	NC
-                                     76 ;res\common.c:15: switch(i) 
-      000013 78               [ 4]   77 	ld	a, b
-      000014 B7               [ 4]   78 	or	a, a
-      000015 28 0F            [12]   79 	jr	Z, 00101$
-      000017 78               [ 4]   80 	ld	a, b
-      000018 3D               [ 4]   81 	dec	a
-      000019 28 15            [12]   82 	jr	Z, 00102$
-      00001B 78               [ 4]   83 	ld	a,b
-      00001C FE 02            [ 8]   84 	cp	a,#0x02
-      00001E 28 1A            [12]   85 	jr	Z, 00103$
-      000020 D6 03            [ 8]   86 	sub	a, #0x03
-      000022 28 20            [12]   87 	jr	Z, 00104$
-      000024 18 26            [12]   88 	jr	00105$
-                                     89 ;res\common.c:17: case 0: 
-      000026                         90 00101$:
-                                     91 ;res\common.c:18: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
-      000026 3E E4            [ 8]   92 	ld	a, #0xe4
-      000028 E0r00            [12]   93 	ldh	(_BGP_REG + 0), a
-                                     94 ;res\common.c:19: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
-      00002A 3E E4            [ 8]   95 	ld	a, #0xe4
-      00002C E0r00            [12]   96 	ldh	(_OBP0_REG + 0), a
-                                     97 ;res\common.c:20: break;
-      00002E 18 1C            [12]   98 	jr	00105$
-                                     99 ;res\common.c:21: case 1: 
-      000030                        100 00102$:
-                                    101 ;res\common.c:22: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
-      000030 3E F9            [ 8]  102 	ld	a, #0xf9
-      000032 E0r00            [12]  103 	ldh	(_BGP_REG + 0), a
-                                    104 ;res\common.c:23: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
-      000034 3E F9            [ 8]  105 	ld	a, #0xf9
-      000036 E0r00            [12]  106 	ldh	(_OBP0_REG + 0), a
-                                    107 ;res\common.c:24: break;
-      000038 18 12            [12]  108 	jr	00105$
-                                    109 ;res\common.c:25: case 2:
-      00003A                        110 00103$:
-                                    111 ;res\common.c:26: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
-      00003A 3E FE            [ 8]  112 	ld	a, #0xfe
-      00003C E0r00            [12]  113 	ldh	(_BGP_REG + 0), a
-                                    114 ;res\common.c:27: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
-      00003E 3E FE            [ 8]  115 	ld	a, #0xfe
-      000040 E0r00            [12]  116 	ldh	(_OBP0_REG + 0), a
-                                    117 ;res\common.c:28: break;
-      000042 18 08            [12]  118 	jr	00105$
-                                    119 ;res\common.c:29: case 3:
-      000044                        120 00104$:
-                                    121 ;res\common.c:30: BGP_REG = DMG_PALETTE(DMG_BLACK, DMG_BLACK, DMG_BLACK, DMG_BLACK);
-      000044 3E FF            [ 8]  122 	ld	a, #0xff
-      000046 E0r00            [12]  123 	ldh	(_BGP_REG + 0), a
-                                    124 ;res\common.c:31: OBP0_REG = DMG_PALETTE(DMG_BLACK, DMG_BLACK, DMG_BLACK, DMG_BLACK);
-      000048 3E FF            [ 8]  125 	ld	a, #0xff
-      00004A E0r00            [12]  126 	ldh	(_OBP0_REG + 0), a
-                                    127 ;res\common.c:33: }
-      00004C                        128 00105$:
-                                    129 ;res\common.c:34: performantdelay(frames);
-      00004C C5               [16]  130 	push	bc
-      00004D 79               [ 4]  131 	ld	a, c
-      00004E CDr00r00         [24]  132 	call	_performantdelay
-      000051 C1               [12]  133 	pop	bc
-                                    134 ;res\common.c:13: for (uint8_t i = 0; i < 4; i++)
-      000052 04               [ 4]  135 	inc	b
-                                    136 ;res\common.c:36: }
-      000053 18 BA            [12]  137 	jr	00108$
-                                    138 ;res\common.c:38: void fadeFromBlack(uint8_t frames)
-                                    139 ;	---------------------------------
-                                    140 ; Function fadeFromBlack
-                                    141 ; ---------------------------------
-      000055                        142 _fadeFromBlack::
-      000055 4F               [ 4]  143 	ld	c, a
-                                    144 ;res\common.c:40: for (uint8_t i = 0; i < 4; i++)
-      000056 06 00            [ 8]  145 	ld	b, #0x00
-      000058                        146 00108$:
-      000058 78               [ 4]  147 	ld	a, b
-      000059 D6 04            [ 8]  148 	sub	a, #0x04
-      00005B D0               [20]  149 	ret	NC
-                                    150 ;res\common.c:42: switch(i) 
-      00005C 78               [ 4]  151 	ld	a, b
-      00005D B7               [ 4]  152 	or	a, a
-      00005E 28 0F            [12]  153 	jr	Z, 00101$
-      000060 78               [ 4]  154 	ld	a, b
-      000061 3D               [ 4]  155 	dec	a
-      000062 28 15            [12]  156 	jr	Z, 00102$
-      000064 78               [ 4]  157 	ld	a,b
-      000065 FE 02            [ 8]  158 	cp	a,#0x02
-      000067 28 1A            [12]  159 	jr	Z, 00103$
-      000069 D6 03            [ 8]  160 	sub	a, #0x03
-      00006B 28 20            [12]  161 	jr	Z, 00104$
-      00006D 18 26            [12]  162 	jr	00105$
-                                    163 ;res\common.c:44: case 0: 
-      00006F                        164 00101$:
-                                    165 ;res\common.c:45: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
-      00006F 3E FE            [ 8]  166 	ld	a, #0xfe
-      000071 E0r00            [12]  167 	ldh	(_BGP_REG + 0), a
-                                    168 ;res\common.c:46: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
-      000073 3E FE            [ 8]  169 	ld	a, #0xfe
-      000075 E0r00            [12]  170 	ldh	(_OBP0_REG + 0), a
-                                    171 ;res\common.c:47: break;
-      000077 18 1C            [12]  172 	jr	00105$
-                                    173 ;res\common.c:48: case 1: 
-      000079                        174 00102$:
-                                    175 ;res\common.c:49: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
-      000079 3E F9            [ 8]  176 	ld	a, #0xf9
-      00007B E0r00            [12]  177 	ldh	(_BGP_REG + 0), a
-                                    178 ;res\common.c:50: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
-      00007D 3E F9            [ 8]  179 	ld	a, #0xf9
-      00007F E0r00            [12]  180 	ldh	(_OBP0_REG + 0), a
-                                    181 ;res\common.c:51: break;
-      000081 18 12            [12]  182 	jr	00105$
-                                    183 ;res\common.c:52: case 2:
-      000083                        184 00103$:
-                                    185 ;res\common.c:53: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
-      000083 3E E5            [ 8]  186 	ld	a, #0xe5
-      000085 E0r00            [12]  187 	ldh	(_BGP_REG + 0), a
-                                    188 ;res\common.c:54: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
-      000087 3E E5            [ 8]  189 	ld	a, #0xe5
-      000089 E0r00            [12]  190 	ldh	(_OBP0_REG + 0), a
-                                    191 ;res\common.c:55: break;
-      00008B 18 08            [12]  192 	jr	00105$
-                                    193 ;res\common.c:56: case 3:
-      00008D                        194 00104$:
-                                    195 ;res\common.c:57: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
-      00008D 3E E4            [ 8]  196 	ld	a, #0xe4
-      00008F E0r00            [12]  197 	ldh	(_BGP_REG + 0), a
-                                    198 ;res\common.c:58: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
-      000091 3E E4            [ 8]  199 	ld	a, #0xe4
-      000093 E0r00            [12]  200 	ldh	(_OBP0_REG + 0), a
-                                    201 ;res\common.c:60: }
-      000095                        202 00105$:
-                                    203 ;res\common.c:61: performantdelay(frames);
-      000095 C5               [16]  204 	push	bc
-      000096 79               [ 4]  205 	ld	a, c
-      000097 CDr00r00         [24]  206 	call	_performantdelay
-      00009A C1               [12]  207 	pop	bc
-                                    208 ;res\common.c:40: for (uint8_t i = 0; i < 4; i++)
-      00009B 04               [ 4]  209 	inc	b
-                                    210 ;res\common.c:63: }
-      00009C 18 BA            [12]  211 	jr	00108$
-                                    212 	.area _CODE
-                                    213 	.area _INITIALIZER
-                                    214 	.area _CABS (ABS)
+                                     33 ; absolute external ram data
+                                     34 ;--------------------------------------------------------
+                                     35 	.area _DABS (ABS)
+                                     36 ;--------------------------------------------------------
+                                     37 ; global & static initialisations
+                                     38 ;--------------------------------------------------------
+                                     39 	.area _HOME
+                                     40 	.area _GSINIT
+                                     41 	.area _GSFINAL
+                                     42 	.area _GSINIT
+                                     43 ;--------------------------------------------------------
+                                     44 ; Home
+                                     45 ;--------------------------------------------------------
+                                     46 	.area _HOME
+                                     47 	.area _HOME
+                                     48 ;--------------------------------------------------------
+                                     49 ; code
+                                     50 ;--------------------------------------------------------
+                                     51 	.area _CODE
+                                     52 ;res\common.c:6: void performantdelay(uint8_t numloops)
+                                     53 ;	---------------------------------
+                                     54 ; Function performantdelay
+                                     55 ; ---------------------------------
+      000000                         56 _performantdelay::
+      000000 4F               [ 4]   57 	ld	c, a
+                                     58 ;res\common.c:8: for (uint8_t i = 0; i < numloops; i++)
+      000001 06 00            [ 8]   59 	ld	b, #0x00
+      000003                         60 00103$:
+      000003 78               [ 4]   61 	ld	a, b
+      000004 91               [ 4]   62 	sub	a, c
+      000005 D0               [20]   63 	ret	NC
+                                     64 ;res\common.c:10: wait_vbl_done();
+      000006 CDr00r00         [24]   65 	call	_wait_vbl_done
+                                     66 ;res\common.c:8: for (uint8_t i = 0; i < numloops; i++)
+      000009 04               [ 4]   67 	inc	b
+                                     68 ;res\common.c:12: }
+      00000A 18 F7            [12]   69 	jr	00103$
+                                     70 ;res\common.c:14: void fadeToBlack(uint8_t frames)
+                                     71 ;	---------------------------------
+                                     72 ; Function fadeToBlack
+                                     73 ; ---------------------------------
+      00000C                         74 _fadeToBlack::
+      00000C 4F               [ 4]   75 	ld	c, a
+                                     76 ;res\common.c:16: for (uint8_t i = 0; i < 4; i++)
+      00000D 06 00            [ 8]   77 	ld	b, #0x00
+      00000F                         78 00108$:
+      00000F 78               [ 4]   79 	ld	a, b
+      000010 D6 04            [ 8]   80 	sub	a, #0x04
+      000012 D0               [20]   81 	ret	NC
+                                     82 ;res\common.c:18: switch(i) 
+      000013 78               [ 4]   83 	ld	a, b
+      000014 B7               [ 4]   84 	or	a, a
+      000015 28 0F            [12]   85 	jr	Z, 00101$
+      000017 78               [ 4]   86 	ld	a, b
+      000018 3D               [ 4]   87 	dec	a
+      000019 28 15            [12]   88 	jr	Z, 00102$
+      00001B 78               [ 4]   89 	ld	a,b
+      00001C FE 02            [ 8]   90 	cp	a,#0x02
+      00001E 28 1A            [12]   91 	jr	Z, 00103$
+      000020 D6 03            [ 8]   92 	sub	a, #0x03
+      000022 28 20            [12]   93 	jr	Z, 00104$
+      000024 18 26            [12]   94 	jr	00105$
+                                     95 ;res\common.c:20: case 0: 
+      000026                         96 00101$:
+                                     97 ;res\common.c:21: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+      000026 3E E4            [ 8]   98 	ld	a, #0xe4
+      000028 E0r00            [12]   99 	ldh	(_BGP_REG + 0), a
+                                    100 ;res\common.c:22: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+      00002A 3E E4            [ 8]  101 	ld	a, #0xe4
+      00002C E0r00            [12]  102 	ldh	(_OBP0_REG + 0), a
+                                    103 ;res\common.c:23: break;
+      00002E 18 1C            [12]  104 	jr	00105$
+                                    105 ;res\common.c:24: case 1: 
+      000030                        106 00102$:
+                                    107 ;res\common.c:25: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
+      000030 3E F9            [ 8]  108 	ld	a, #0xf9
+      000032 E0r00            [12]  109 	ldh	(_BGP_REG + 0), a
+                                    110 ;res\common.c:26: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
+      000034 3E F9            [ 8]  111 	ld	a, #0xf9
+      000036 E0r00            [12]  112 	ldh	(_OBP0_REG + 0), a
+                                    113 ;res\common.c:27: break;
+      000038 18 12            [12]  114 	jr	00105$
+                                    115 ;res\common.c:28: case 2:
+      00003A                        116 00103$:
+                                    117 ;res\common.c:29: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+      00003A 3E FE            [ 8]  118 	ld	a, #0xfe
+      00003C E0r00            [12]  119 	ldh	(_BGP_REG + 0), a
+                                    120 ;res\common.c:30: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+      00003E 3E FE            [ 8]  121 	ld	a, #0xfe
+      000040 E0r00            [12]  122 	ldh	(_OBP0_REG + 0), a
+                                    123 ;res\common.c:31: break;
+      000042 18 08            [12]  124 	jr	00105$
+                                    125 ;res\common.c:32: case 3:
+      000044                        126 00104$:
+                                    127 ;res\common.c:33: BGP_REG = DMG_PALETTE(DMG_BLACK, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+      000044 3E FF            [ 8]  128 	ld	a, #0xff
+      000046 E0r00            [12]  129 	ldh	(_BGP_REG + 0), a
+                                    130 ;res\common.c:34: OBP0_REG = DMG_PALETTE(DMG_BLACK, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+      000048 3E FF            [ 8]  131 	ld	a, #0xff
+      00004A E0r00            [12]  132 	ldh	(_OBP0_REG + 0), a
+                                    133 ;res\common.c:36: }
+      00004C                        134 00105$:
+                                    135 ;res\common.c:37: performantdelay(frames);
+      00004C C5               [16]  136 	push	bc
+      00004D 79               [ 4]  137 	ld	a, c
+      00004E CDr00r00         [24]  138 	call	_performantdelay
+      000051 C1               [12]  139 	pop	bc
+                                    140 ;res\common.c:16: for (uint8_t i = 0; i < 4; i++)
+      000052 04               [ 4]  141 	inc	b
+                                    142 ;res\common.c:39: }
+      000053 18 BA            [12]  143 	jr	00108$
+                                    144 ;res\common.c:41: void fadeFromBlack(uint8_t frames)
+                                    145 ;	---------------------------------
+                                    146 ; Function fadeFromBlack
+                                    147 ; ---------------------------------
+      000055                        148 _fadeFromBlack::
+      000055 4F               [ 4]  149 	ld	c, a
+                                    150 ;res\common.c:43: for (uint8_t i = 0; i < 4; i++)
+      000056 06 00            [ 8]  151 	ld	b, #0x00
+      000058                        152 00108$:
+      000058 78               [ 4]  153 	ld	a, b
+      000059 D6 04            [ 8]  154 	sub	a, #0x04
+      00005B D0               [20]  155 	ret	NC
+                                    156 ;res\common.c:45: switch(i) 
+      00005C 78               [ 4]  157 	ld	a, b
+      00005D B7               [ 4]  158 	or	a, a
+      00005E 28 0F            [12]  159 	jr	Z, 00101$
+      000060 78               [ 4]  160 	ld	a, b
+      000061 3D               [ 4]  161 	dec	a
+      000062 28 15            [12]  162 	jr	Z, 00102$
+      000064 78               [ 4]  163 	ld	a,b
+      000065 FE 02            [ 8]  164 	cp	a,#0x02
+      000067 28 1A            [12]  165 	jr	Z, 00103$
+      000069 D6 03            [ 8]  166 	sub	a, #0x03
+      00006B 28 20            [12]  167 	jr	Z, 00104$
+      00006D 18 26            [12]  168 	jr	00105$
+                                    169 ;res\common.c:47: case 0: 
+      00006F                        170 00101$:
+                                    171 ;res\common.c:48: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+      00006F 3E FE            [ 8]  172 	ld	a, #0xfe
+      000071 E0r00            [12]  173 	ldh	(_BGP_REG + 0), a
+                                    174 ;res\common.c:49: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+      000073 3E FE            [ 8]  175 	ld	a, #0xfe
+      000075 E0r00            [12]  176 	ldh	(_OBP0_REG + 0), a
+                                    177 ;res\common.c:50: break;
+      000077 18 1C            [12]  178 	jr	00105$
+                                    179 ;res\common.c:51: case 1: 
+      000079                        180 00102$:
+                                    181 ;res\common.c:52: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
+      000079 3E F9            [ 8]  182 	ld	a, #0xf9
+      00007B E0r00            [12]  183 	ldh	(_BGP_REG + 0), a
+                                    184 ;res\common.c:53: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
+      00007D 3E F9            [ 8]  185 	ld	a, #0xf9
+      00007F E0r00            [12]  186 	ldh	(_OBP0_REG + 0), a
+                                    187 ;res\common.c:54: break;
+      000081 18 12            [12]  188 	jr	00105$
+                                    189 ;res\common.c:55: case 2:
+      000083                        190 00103$:
+                                    191 ;res\common.c:56: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+      000083 3E E5            [ 8]  192 	ld	a, #0xe5
+      000085 E0r00            [12]  193 	ldh	(_BGP_REG + 0), a
+                                    194 ;res\common.c:57: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+      000087 3E E5            [ 8]  195 	ld	a, #0xe5
+      000089 E0r00            [12]  196 	ldh	(_OBP0_REG + 0), a
+                                    197 ;res\common.c:58: break;
+      00008B 18 08            [12]  198 	jr	00105$
+                                    199 ;res\common.c:59: case 3:
+      00008D                        200 00104$:
+                                    201 ;res\common.c:60: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+      00008D 3E E4            [ 8]  202 	ld	a, #0xe4
+      00008F E0r00            [12]  203 	ldh	(_BGP_REG + 0), a
+                                    204 ;res\common.c:61: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+      000091 3E E4            [ 8]  205 	ld	a, #0xe4
+      000093 E0r00            [12]  206 	ldh	(_OBP0_REG + 0), a
+                                    207 ;res\common.c:63: }
+      000095                        208 00105$:
+                                    209 ;res\common.c:64: performantdelay(frames);
+      000095 C5               [16]  210 	push	bc
+      000096 79               [ 4]  211 	ld	a, c
+      000097 CDr00r00         [24]  212 	call	_performantdelay
+      00009A C1               [12]  213 	pop	bc
+                                    214 ;res\common.c:43: for (uint8_t i = 0; i < 4; i++)
+      00009B 04               [ 4]  215 	inc	b
+                                    216 ;res\common.c:66: }
+      00009C 18 BA            [12]  217 	jr	00108$
+                                    218 	.area _CODE
+                                    219 	.area _INITIALIZER
+      000000                        220 __xinit__joypadPrevious:
+      000000 00                     221 	.db #0x00	; 0
+      000001                        222 __xinit__joypadCurrent:
+      000001 00                     223 	.db #0x00	; 0
+                                    224 	.area _CABS (ABS)

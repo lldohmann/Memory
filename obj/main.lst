@@ -9,77 +9,98 @@
                                       9 ; Public variables in this module
                                      10 ;--------------------------------------------------------
                                      11 	.globl _main
-                                     12 	.globl _GameTitleUpdate
-                                     13 	.globl _GameTitleSetup
-                                     14 	.globl _wait_vbl_done
-                                     15 ;--------------------------------------------------------
-                                     16 ; special function registers
+                                     12 	.globl _CoreGameLoopUpdate
+                                     13 	.globl _CoreGameLoopSetup
+                                     14 	.globl _GameTitleUpdate
+                                     15 	.globl _GameTitleSetup
+                                     16 	.globl _wait_vbl_done
                                      17 ;--------------------------------------------------------
-                                     18 ;--------------------------------------------------------
-                                     19 ; ram data
+                                     18 ; special function registers
+                                     19 ;--------------------------------------------------------
                                      20 ;--------------------------------------------------------
-                                     21 	.area _DATA
+                                     21 ; ram data
                                      22 ;--------------------------------------------------------
-                                     23 ; ram data
+                                     23 	.area _DATA
                                      24 ;--------------------------------------------------------
-                                     25 	.area _INITIALIZED
+                                     25 ; ram data
                                      26 ;--------------------------------------------------------
-                                     27 ; absolute external ram data
+                                     27 	.area _INITIALIZED
                                      28 ;--------------------------------------------------------
-                                     29 	.area _DABS (ABS)
+                                     29 ; absolute external ram data
                                      30 ;--------------------------------------------------------
-                                     31 ; global & static initialisations
+                                     31 	.area _DABS (ABS)
                                      32 ;--------------------------------------------------------
-                                     33 	.area _HOME
-                                     34 	.area _GSINIT
-                                     35 	.area _GSFINAL
+                                     33 ; global & static initialisations
+                                     34 ;--------------------------------------------------------
+                                     35 	.area _HOME
                                      36 	.area _GSINIT
-                                     37 ;--------------------------------------------------------
-                                     38 ; Home
+                                     37 	.area _GSFINAL
+                                     38 	.area _GSINIT
                                      39 ;--------------------------------------------------------
-                                     40 	.area _HOME
-                                     41 	.area _HOME
-                                     42 ;--------------------------------------------------------
-                                     43 ; code
+                                     40 ; Home
+                                     41 ;--------------------------------------------------------
+                                     42 	.area _HOME
+                                     43 	.area _HOME
                                      44 ;--------------------------------------------------------
-                                     45 	.area _CODE
-                                     46 ;src\main.c:6: void main(void)
-                                     47 ;	---------------------------------
-                                     48 ; Function main
-                                     49 ; ---------------------------------
-      000000                         50 _main::
-                                     51 ;src\main.c:8: uint8_t currentGameState = GAMEFIRSTLOAD;
-                                     52 ;src\main.c:9: uint8_t nextGameState = GAMETITLE;
-      000000 01 00 01         [12]   53 	ld	bc, #0x100
-                                     54 ;src\main.c:12: while(1) { 
-      000003                         55 00108$:
-                                     56 ;src\main.c:16: if (nextGameState != currentGameState)
-      000003 79               [ 4]   57 	ld	a, c
-      000004 90               [ 4]   58 	sub	a, b
-      000005 28 0A            [12]   59 	jr	Z, 00104$
-                                     60 ;src\main.c:18: currentGameState = nextGameState;
-      000007 48               [ 4]   61 	ld	c, b
-                                     62 ;src\main.c:20: if (currentGameState == GAMETITLE) GameTitleSetup();
-      000008 78               [ 4]   63 	ld	a, b
-      000009 3D               [ 4]   64 	dec	a
-      00000A 20 05            [12]   65 	jr	NZ, 00104$
-      00000C C5               [16]   66 	push	bc
-      00000D CDr00r00         [24]   67 	call	_GameTitleSetup
-      000010 C1               [12]   68 	pop	bc
-      000011                         69 00104$:
-                                     70 ;src\main.c:23: if (currentGameState == GAMETITLE) nextGameState = GameTitleUpdate();
-      000011 79               [ 4]   71 	ld	a, c
-      000012 3D               [ 4]   72 	dec	a
-      000013 20 06            [12]   73 	jr	NZ, 00106$
-      000015 C5               [16]   74 	push	bc
-      000016 CDr00r00         [24]   75 	call	_GameTitleUpdate
-      000019 C1               [12]   76 	pop	bc
-      00001A 47               [ 4]   77 	ld	b, a
-      00001B                         78 00106$:
-                                     79 ;src\main.c:25: wait_vbl_done();
-      00001B CDr00r00         [24]   80 	call	_wait_vbl_done
-                                     81 ;src\main.c:27: }
-      00001E 18 E3            [12]   82 	jr	00108$
-                                     83 	.area _CODE
-                                     84 	.area _INITIALIZER
-                                     85 	.area _CABS (ABS)
+                                     45 ; code
+                                     46 ;--------------------------------------------------------
+                                     47 	.area _CODE
+                                     48 ;src\main.c:6: void main(void)
+                                     49 ;	---------------------------------
+                                     50 ; Function main
+                                     51 ; ---------------------------------
+      000000                         52 _main::
+                                     53 ;src\main.c:8: uint8_t currentGameState = GAMEFIRSTLOAD;
+                                     54 ;src\main.c:9: uint8_t nextGameState = GAMETITLE;
+      000000 01 00 01         [12]   55 	ld	bc, #0x100
+                                     56 ;src\main.c:12: while(1) { 
+      000003                         57 00114$:
+                                     58 ;src\main.c:16: if (nextGameState != currentGameState)
+      000003 79               [ 4]   59 	ld	a, c
+      000004 90               [ 4]   60 	sub	a, b
+      000005 28 16            [12]   61 	jr	Z, 00107$
+                                     62 ;src\main.c:18: currentGameState = nextGameState;
+      000007 48               [ 4]   63 	ld	c, b
+                                     64 ;src\main.c:20: if (currentGameState == GAMETITLE) GameTitleSetup();
+      000008 78               [ 4]   65 	ld	a, b
+      000009 3D               [ 4]   66 	dec	a
+      00000A 20 07            [12]   67 	jr	NZ, 00104$
+      00000C C5               [16]   68 	push	bc
+      00000D CDr00r00         [24]   69 	call	_GameTitleSetup
+      000010 C1               [12]   70 	pop	bc
+      000011 18 0A            [12]   71 	jr	00107$
+      000013                         72 00104$:
+                                     73 ;src\main.c:21: else if (currentGameState == COREGAMELOOP) CoreGameLoopSetup();
+      000013 78               [ 4]   74 	ld	a, b
+      000014 D6 02            [ 8]   75 	sub	a, #0x02
+      000016 20 05            [12]   76 	jr	NZ, 00107$
+      000018 C5               [16]   77 	push	bc
+      000019 CDr00r00         [24]   78 	call	_CoreGameLoopSetup
+      00001C C1               [12]   79 	pop	bc
+      00001D                         80 00107$:
+                                     81 ;src\main.c:23: if (currentGameState == GAMETITLE) nextGameState = GameTitleUpdate();
+      00001D 79               [ 4]   82 	ld	a, c
+      00001E 3D               [ 4]   83 	dec	a
+      00001F 20 08            [12]   84 	jr	NZ, 00111$
+      000021 C5               [16]   85 	push	bc
+      000022 CDr00r00         [24]   86 	call	_GameTitleUpdate
+      000025 C1               [12]   87 	pop	bc
+      000026 47               [ 4]   88 	ld	b, a
+      000027 18 0B            [12]   89 	jr	00112$
+      000029                         90 00111$:
+                                     91 ;src\main.c:24: else if (currentGameState == COREGAMELOOP) nextGameState = CoreGameLoopUpdate();
+      000029 79               [ 4]   92 	ld	a, c
+      00002A D6 02            [ 8]   93 	sub	a, #0x02
+      00002C 20 06            [12]   94 	jr	NZ, 00112$
+      00002E C5               [16]   95 	push	bc
+      00002F CDr00r00         [24]   96 	call	_CoreGameLoopUpdate
+      000032 C1               [12]   97 	pop	bc
+      000033 47               [ 4]   98 	ld	b, a
+      000034                         99 00112$:
+                                    100 ;src\main.c:25: wait_vbl_done();
+      000034 CDr00r00         [24]  101 	call	_wait_vbl_done
+                                    102 ;src\main.c:27: }
+      000037 18 CA            [12]  103 	jr	00114$
+                                    104 	.area _CODE
+                                    105 	.area _INITIALIZER
+                                    106 	.area _CABS (ABS)

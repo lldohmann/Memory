@@ -9,8 +9,6 @@
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _joypad
-	.globl _joypadPrevious
-	.globl _joypadCurrent
 	.globl _mouse_metasprites
 	.globl _mouse_right1
 	.globl _mouse_right0
@@ -29,10 +27,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-_joypadCurrent::
-	.ds 1
-_joypadPrevious::
-	.ds 1
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -53,73 +47,73 @@ _joypadPrevious::
 ; code
 ;--------------------------------------------------------
 	.area _CODE
-;src\player.c:11: void PlayerUpdate(struct player *ptr)
+;src\player.c:9: void PlayerUpdate(struct player *ptr)
 ;	---------------------------------
 ; Function PlayerUpdate
 ; ---------------------------------
 _PlayerUpdate::
 	ld	c, e
 	ld	b, d
-;src\player.c:14: switch (ptr->playerState)
+;src\player.c:12: switch (ptr->playerState)
 	ld	hl, #0x0007
 	add	hl, bc
 	ld	a, (hl)
 	or	a, a
 	ret	NZ
-;src\player.c:17: joypadPrevious = joypadCurrent;
+;src\player.c:15: joypadPrevious = joypadCurrent;
 	ld	a, (#_joypadCurrent)
 	ld	(#_joypadPrevious),a
-;src\player.c:18: joypadCurrent = joypad();
+;src\player.c:16: joypadCurrent = joypad();
 	call	_joypad
 	ld	hl, #_joypadCurrent
 	ld	(hl), a
-;src\player.c:17: joypadPrevious = joypadCurrent;
+;src\player.c:15: joypadPrevious = joypadCurrent;
 	ld	e, (hl)
-;src\player.c:22: ptr->playerDirection = up;
+;src\player.c:20: ptr->playerDirection = up;
 	ld	hl, #0x0006
 	add	hl, bc
-;src\player.c:19: if (joypadCurrent & J_UP)
+;src\player.c:17: if (joypadCurrent & J_UP)
 	bit	2, e
 	jr	Z, 00111$
-;src\player.c:22: ptr->playerDirection = up;
+;src\player.c:20: ptr->playerDirection = up;
 	ld	(hl), #0x01
 	ret
 00111$:
-;src\player.c:24: else if (joypadCurrent & J_DOWN)
+;src\player.c:22: else if (joypadCurrent & J_DOWN)
 	bit	3, e
 	jr	Z, 00108$
-;src\player.c:27: ptr->playerDirection = down;
+;src\player.c:25: ptr->playerDirection = down;
 	ld	(hl), #0x00
 	ret
 00108$:
-;src\player.c:29: else if (joypadCurrent & J_RIGHT)
+;src\player.c:27: else if (joypadCurrent & J_RIGHT)
 	bit	0, e
 	jr	Z, 00105$
-;src\player.c:32: ptr->playerDirection = right;
+;src\player.c:30: ptr->playerDirection = right;
 	ld	(hl), #0x02
 	ret
 00105$:
-;src\player.c:34: else if (joypadCurrent & J_LEFT)
+;src\player.c:32: else if (joypadCurrent & J_LEFT)
 	bit	1, e
 	ret	Z
-;src\player.c:37: ptr->playerDirection = left;
+;src\player.c:35: ptr->playerDirection = left;
 	ld	(hl), #0x03
-;src\player.c:43: }
-;src\player.c:44: }
+;src\player.c:41: }
+;src\player.c:42: }
 	ret
-;src\player.c:71: void DrawPlayer(struct player *ptr)
+;src\player.c:69: void DrawPlayer(struct player *ptr)
 ;	---------------------------------
 ; Function DrawPlayer
 ; ---------------------------------
 _DrawPlayer::
 	add	sp, #-3
-;src\player.c:75: switch (ptr->playerDirection)
+;src\player.c:73: switch (ptr->playerDirection)
 	ld	hl, #0x0006
 	add	hl, de
 	ld	a, (hl)
 	ldhl	sp,	#0
 	ld	(hl), a
-;src\player.c:78: move_metasprite(mouse_metasprites[1], 0, 0, ptr->x, ptr->y);
+;src\player.c:76: move_metasprite(mouse_metasprites[1], 0, 0, ptr->x, ptr->y);
 	ld	c, e
 	ld	b, d
 	inc	bc
@@ -128,7 +122,7 @@ _DrawPlayer::
 	ldhl	sp,	#2
 	ld	(hl-), a
 	ld	a, (bc)
-;src\player.c:75: switch (ptr->playerDirection)
+;src\player.c:73: switch (ptr->playerDirection)
 	ld	(hl-), a
 	ld	a, (hl)
 	or	a, a
@@ -146,9 +140,9 @@ _DrawPlayer::
 	sub	a, #0x03
 	jr	Z, 00104$
 	jp	00105$
-;src\player.c:77: case up:
+;src\player.c:75: case up:
 00101$:
-;src\player.c:78: move_metasprite(mouse_metasprites[1], 0, 0, ptr->x, ptr->y);
+;src\player.c:76: move_metasprite(mouse_metasprites[1], 0, 0, ptr->x, ptr->y);
 	ldhl	sp,	#1
 	ld	a, (hl+)
 	ld	b, a
@@ -174,11 +168,11 @@ _DrawPlayer::
 	push	hl
 	call	___move_metasprite
 	add	sp, #3
-;src\player.c:79: break;
+;src\player.c:77: break;
 	jp	00112$
-;src\player.c:80: case down:
+;src\player.c:78: case down:
 00102$:
-;src\player.c:81: move_metasprite(mouse_metasprites[0], 0, 0, ptr->x, ptr->y);
+;src\player.c:79: move_metasprite(mouse_metasprites[0], 0, 0, ptr->x, ptr->y);
 	ld	hl, #_mouse_metasprites
 	ld	a, (hl+)
 	ld	c, a
@@ -201,11 +195,11 @@ _DrawPlayer::
 	push	hl
 	call	___move_metasprite
 	add	sp, #3
-;src\player.c:82: break;
+;src\player.c:80: break;
 	jr	00112$
-;src\player.c:83: case right:
+;src\player.c:81: case right:
 00103$:
-;src\player.c:84: move_metasprite(mouse_metasprites[3], 0, 0, ptr->x, ptr->y);
+;src\player.c:82: move_metasprite(mouse_metasprites[3], 0, 0, ptr->x, ptr->y);
 	ldhl	sp,	#1
 	ld	a, (hl+)
 	ld	b, a
@@ -231,11 +225,11 @@ _DrawPlayer::
 	push	hl
 	call	___move_metasprite
 	add	sp, #3
-;src\player.c:85: break;
+;src\player.c:83: break;
 	jr	00112$
-;src\player.c:86: case left:
+;src\player.c:84: case left:
 00104$:
-;src\player.c:87: move_metasprite_vflip(mouse_metasprites[2], 0, 0, ptr->x, ptr->y);
+;src\player.c:85: move_metasprite_vflip(mouse_metasprites[2], 0, 0, ptr->x, ptr->y);
 	ldhl	sp,	#1
 	ld	a, (hl+)
 	ld	b, a
@@ -263,11 +257,11 @@ _DrawPlayer::
 	push	hl
 	call	___move_metasprite_vflip
 	add	sp, #3
-;src\player.c:88: break;
+;src\player.c:86: break;
 	jr	00112$
-;src\player.c:89: default:
+;src\player.c:87: default:
 00105$:
-;src\player.c:90: move_metasprite_vflip(mouse_metasprites[2], 0, 0, ptr->x, ptr->y);
+;src\player.c:88: move_metasprite_vflip(mouse_metasprites[2], 0, 0, ptr->x, ptr->y);
 	ldhl	sp,	#1
 	ld	a, (hl+)
 	ld	b, a
@@ -295,9 +289,9 @@ _DrawPlayer::
 	push	hl
 	call	___move_metasprite_vflip
 	add	sp, #3
-;src\player.c:92: }
+;src\player.c:90: }
 00112$:
-;src\player.c:93: }
+;src\player.c:91: }
 	add	sp, #3
 	ret
 _mouse_down:
@@ -359,8 +353,4 @@ _mouse_metasprites:
 	.dw _mouse_right1
 	.area _CODE
 	.area _INITIALIZER
-__xinit__joypadCurrent:
-	.db #0x00	; 0
-__xinit__joypadPrevious:
-	.db #0x00	; 0
 	.area _CABS (ABS)

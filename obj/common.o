@@ -1,5 +1,5 @@
 XL3
-H 9 areas 7 global symbols
+H 9 areas 9 global symbols
 M common
 O -msm83
 S .__.ABS. Def000000
@@ -11,13 +11,23 @@ S _fadeToBlack Def00000C
 S _fadeFromBlack Def000055
 S _performantdelay Def000000
 A _DATA size 0 flags 0 addr 0
-A _INITIALIZED size 0 flags 0 addr 0
+A _INITIALIZED size 2 flags 0 addr 0
+S _joypadPrevious Def000000
+S _joypadCurrent Def000001
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
-A _INITIALIZER size 0 flags 0 addr 0
+A _INITIALIZER size 2 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 02 00
+T 01 00 00
+R 00 00 02 00
+T 01 00 00
+R 00 00 02 00
 T 00 00 00
 R 00 00 00 00
 T 00 00 00 4F 06 00
@@ -98,3 +108,11 @@ T 95 00 00
 R 00 00 00 00
 T 95 00 00 C5 79 CD 00 00 C1 04 18 BA
 R 00 00 00 00 00 06 00 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 00
+R 00 00 07 00
+T 01 00 00
+R 00 00 07 00
+T 01 00 00 00
+R 00 00 07 00
