@@ -1,10 +1,11 @@
 XL3
-H 9 areas 2 global symbols
+H 9 areas 3 global symbols
 M Title_Tiles
 O -msm83
 S .__.ABS. Def000000
 A _CODE size 320 flags 0 addr 0
 S _TitleLabel Def000000
+S G$TitleLabel$0_0$0 Def000000
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0

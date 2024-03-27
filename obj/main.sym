@@ -7,20 +7,71 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
+  0 A$main$101                                                     00001D GR
+  0 A$main$102                                                     00001E GR
+  0 A$main$103                                                     00001F GR
+  0 A$main$104                                                     000021 GR
+  0 A$main$105                                                     000022 GR
+  0 A$main$106                                                     000025 GR
+  0 A$main$107                                                     000026 GR
+  0 A$main$108                                                     000027 GR
+  0 A$main$113                                                     000029 GR
+  0 A$main$114                                                     00002A GR
+  0 A$main$115                                                     00002C GR
+  0 A$main$116                                                     00002E GR
+  0 A$main$117                                                     00002F GR
+  0 A$main$118                                                     000032 GR
+  0 A$main$119                                                     000033 GR
+  0 A$main$127                                                     000034 GR
+  0 A$main$62                                                      000000 GR
+  0 A$main$70                                                      000003 GR
+  0 A$main$71                                                      000004 GR
+  0 A$main$72                                                      000005 GR
+  0 A$main$76                                                      000007 GR
+  0 A$main$80                                                      000008 GR
+  0 A$main$81                                                      000009 GR
+  0 A$main$82                                                      00000A GR
+  0 A$main$83                                                      00000C GR
+  0 A$main$84                                                      00000D GR
+  0 A$main$85                                                      000010 GR
+  0 A$main$86                                                      000011 GR
+  0 A$main$91                                                      000013 GR
+  0 A$main$92                                                      000014 GR
+  0 A$main$93                                                      000016 GR
+  0 A$main$94                                                      000018 GR
+  0 A$main$95                                                      000019 GR
+  0 A$main$96                                                      00001C GR
+  0 C$main.c$12$1_0$102                                         =  000003 GR
+  0 C$main.c$16$2_0$103                                         =  000003 GR
+  0 C$main.c$18$3_0$104                                         =  000007 GR
+  0 C$main.c$20$3_0$104                                         =  000008 GR
+  0 C$main.c$21$3_0$104                                         =  000013 GR
+  0 C$main.c$23$2_0$103                                         =  00001D GR
+  0 C$main.c$24$2_0$103                                         =  000029 GR
+  0 C$main.c$27$1_0$102                                         =  000034 GR
+  0 C$main.c$6$0_0$102                                          =  000000 GR
+  0 C$main.c$8$2_0$102                                          =  000000 GR
+  0 C$main.c$9$2_0$102                                          =  000000 GR
+  0 G$main$0$0                                                  =  000000 GR
+  0 XG$main$0$0                                                 =  000034 GR
     _CoreGameLoopSetup                                             ****** GX
     _CoreGameLoopUpdate                                            ****** GX
     _GameTitleSetup                                                ****** GX
     _GameTitleUpdate                                               ****** GX
-  0 _main                                                          000000 GR
-    _wait_vbl_done                                                 ****** GX
-
-
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 _main                                                          000000 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
 Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size     39   flags    0
+   0 _CODE                                      size     36   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size      0   flags    0
    3 _DABS                                      size      0   flags    8

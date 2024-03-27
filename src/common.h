@@ -1,3 +1,6 @@
+#ifndef _COMMON
+#define _COMMON
+
 #define GAMEFIRSTLOAD 0
 #define GAMETITLE 1
 #define COREGAMELOOP 2
@@ -27,3 +30,5 @@ void fadeToBlack(uint8_t frames);
  * The time it takes to change background pallet in frames. 
 */
 void fadeFromBlack(uint8_t frames);
+
+#endif

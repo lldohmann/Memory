@@ -41,6 +41,7 @@
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
+G$IndoorTiles$0_0$0 == .
 _IndoorTiles:
 	.db #0x00	; 0
 	.db #0x00	; 0

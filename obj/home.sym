@@ -7,6 +7,29 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
+  0 A$home$60                                                      000000 GR
+  0 A$home$61                                                      000001 GR
+  0 A$home$62                                                      000003 GR
+  0 A$home$66                                                      000005 GR
+  0 A$home$67                                                      000006 GR
+  0 A$home$72                                                      000007 GR
+  0 A$home$73                                                      000008 GR
+  0 A$home$80                                                      00000A GR
+  0 A$home$81                                                      00000C GR
+  0 A$home$82                                                      00000D GR
+  0 A$home$90                                                      00000F GR
+  0 C$home.c$390$0_0$2                                          =  000000 GR
+  0 C$home.c$392$1_0$2                                          =  000000 GR
+  0 C$home.c$394$2_0$3                                          =  000005 GR
+  0 C$home.c$396$1_0$2                                          =  000007 GR
+  0 C$home.c$398$2_0$4                                          =  00000A GR
+  0 C$home.c$402$2_0$5                                          =  00000A GR
+  0 C$home.c$404$1_0$2                                          =  00000F GR
+  7 Fhome$__xinit_Home$0_0$0                                    =  000000 GR
+  0 G$HOME_COLLISION$0_0$0                                      =  000010 GR
+  2 G$Home$0_0$0                                                =  000000 GR
+  0 G$returnCollisionValue$0$0                                  =  000000 GR
+  0 XG$returnCollisionValue$0$0                                 =  00000F GR
   0 _HOME_COLLISION                                                000010 GR
   2 _Home                                                          000000 GR
   7 __xinit__Home                                                  000000 R

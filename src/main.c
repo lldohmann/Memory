@@ -1,7 +1,7 @@
 #include <gb/gb.h>
-#include "../headers/common.h"
-#include "../headers/GameTitle.h"
-#include "../headers/CoreGameLoop.h"
+#include "../src/common.h"
+#include "../src/GameTitle.h"
+#include "../src/CoreGameLoop.h"
 
 void main(void)
 {
@@ -22,6 +22,6 @@ void main(void)
         }
         if (currentGameState == GAMETITLE) nextGameState = GameTitleUpdate();
         else if (currentGameState == COREGAMELOOP) nextGameState = CoreGameLoopUpdate();
-        wait_vbl_done();
+        //wait_vbl_done();
     }
 }

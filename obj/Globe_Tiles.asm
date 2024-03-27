@@ -41,6 +41,7 @@
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
+G$Globe_Tiles$0_0$0 == .
 _Globe_Tiles:
 	.db #0xff	; 255
 	.db #0xff	; 255

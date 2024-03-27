@@ -1,5 +1,6 @@
+;!FILE obj\common.asm
 XL3
-H 9 areas 9 global symbols
+H 9 areas 9D global symbols
 M common
 O -msm83
 S .__.ABS. Def000000
@@ -7,18 +8,166 @@ S _OBP0_REG Ref000000
 S _BGP_REG Ref000000
 S _wait_vbl_done Ref000000
 A _CODE size 9E flags 0 addr 0
+S A$common$87 Def00000A
+S A$common$69 Def000003
+S A$common$97 Def00000C
+S A$common$79 Def000009
+S G$fadeToBlack$0$0 Def00000C
 S _fadeToBlack Def00000C
+S G$fadeFromBlack$0$0 Def000055
+S XG$fadeToBlack$0$0 Def000053
+S G$performantdelay$0$0 Def000000
 S _fadeFromBlack Def000055
+S A$common$110 Def000014
+S A$common$101 Def00000D
+S A$common$120 Def000024
+S A$common$111 Def000015
+S C$common.c$12$2_0$103 Def00000A
+S C$common.c$10$3_0$104 Def000006
+S A$common$211 Def000053
+S A$common$112 Def000017
+S A$common$103 Def00000F
+S A$common$320 Def000095
+S A$common$311 Def000091
+S A$common$221 Def000055
+S A$common$203 Def000052
+S A$common$113 Def000018
+S A$common$104 Def000010
+S C$common.c$41$2_0$112 Def000055
+S A$common$321 Def000096
+S A$common$312 Def000093
+S A$common$240 Def000065
+S A$common$114 Def000019
+S A$common$105 Def000012
+S A$common$322 Def000097
+S A$common$241 Def000067
+S A$common$151 Def000034
+S A$common$133 Def00002A
+S A$common$115 Def00001B
+S C$common.c$43$2_0$112 Def00009B
+S A$common$323 Def00009A
+S A$common$242 Def000069
+S A$common$233 Def00005C
+S A$common$170 Def000040
+S A$common$152 Def000036
+S A$common$134 Def00002C
+S A$common$116 Def00001C
+S A$common$306 Def00008D
+S A$common$270 Def000079
+S A$common$252 Def00006F
+S A$common$243 Def00006B
+S A$common$234 Def00005D
+S A$common$225 Def000056
+S A$common$117 Def00001E
+S C$common.c$50$4_0$114 Def000077
+S C$common.c$14$2_0$107 Def00000C
+S A$common$307 Def00008F
+S A$common$280 Def000081
+S A$common$271 Def00007B
+S A$common$262 Def000077
+S A$common$253 Def000071
+S A$common$244 Def00006D
+S A$common$235 Def00005E
+S A$common$118 Def000020
+S A$common$109 Def000013
+S XG$fadeFromBlack$0$0 Def00009C
+S C$common.c$60$4_0$114 Def00008D
+S C$common.c$51$4_0$114 Def000079
+S C$common.c$20$4_0$109 Def000026
 S _performantdelay Def000000
+S A$common$335 Def00009C
+S A$common$236 Def000060
+S A$common$227 Def000058
+S A$common$182 Def000044
+S A$common$164 Def00003A
+S A$common$146 Def000030
+S A$common$128 Def000026
+S A$common$119 Def000022
+S C$common.c$63$3_0$113 Def000095
+S C$common.c$61$4_0$114 Def000091
+S C$common.c$52$4_0$114 Def000079
+S C$common.c$45$3_0$113 Def00005C
+S C$common.c$30$4_0$109 Def00003E
+S C$common.c$21$4_0$109 Def000026
+S C$common.c$16$2_0$107 Def000052
+S A$common$327 Def00009B
+S A$common$237 Def000061
+S A$common$228 Def000059
+S A$common$183 Def000046
+S A$common$174 Def000042
+S A$common$165 Def00003C
+S A$common$156 Def000038
+S A$common$147 Def000032
+S A$common$138 Def00002E
+S A$common$129 Def000028
+S C$common.c$66$2_0$112 Def00009C
+S C$common.c$64$3_0$113 Def000095
+S C$common.c$53$4_0$114 Def00007D
+S C$common.c$31$4_0$109 Def000042
+S C$common.c$22$4_0$109 Def00002A
+S A$common$238 Def000062
+S A$common$229 Def00005B
+S C$common.c$54$4_0$114 Def000081
+S C$common.c$32$4_0$109 Def000044
+S C$common.c$23$4_0$109 Def00002E
+S A$common$293 Def000087
+S A$common$275 Def00007D
+S A$common$257 Def000073
+S A$common$239 Def000064
+S C$common.c$55$4_0$114 Def000083
+S C$common.c$33$4_0$109 Def000044
+S C$common.c$24$4_0$109 Def000030
+S A$common$294 Def000089
+S A$common$276 Def00007F
+S A$common$258 Def000075
+S C$common.c$56$4_0$114 Def000083
+S C$common.c$47$4_0$114 Def00006F
+S C$common.c$36$3_0$108 Def00004C
+S C$common.c$34$4_0$109 Def000048
+S C$common.c$25$4_0$109 Def000030
+S C$common.c$18$3_0$108 Def000013
+S A$common$196 Def00004C
+S A$common$187 Def000048
+S A$common$169 Def00003E
+S C$common.c$57$4_0$114 Def000087
+S C$common.c$48$4_0$114 Def00006F
+S C$common.c$39$2_0$107 Def000053
+S C$common.c$37$3_0$108 Def00004C
+S C$common.c$26$4_0$109 Def000034
+S A$common$197 Def00004D
+S A$common$188 Def00004A
+S C$common.c$58$4_0$114 Def00008B
+S C$common.c$49$4_0$114 Def000073
+S C$common.c$27$4_0$109 Def000038
+S A$common$288 Def000083
+S A$common$198 Def00004E
+S C$common.c$59$4_0$114 Def00008D
+S C$common.c$28$4_0$109 Def00003A
+S A$common$298 Def00008B
+S A$common$289 Def000085
+S A$common$199 Def000051
+S C$common.c$29$4_0$109 Def00003A
+S C$common.c$6$0_0$103 Def000000
+S XG$performantdelay$0$0 Def00000A
+S A$common$70 Def000004
+S A$common$71 Def000005
+S C$common.c$8$2_0$103 Def000009
+S A$common$63 Def000000
+S A$common$75 Def000006
+S A$common$67 Def000001
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 2 flags 0 addr 0
 S _joypadPrevious Def000000
+S G$joypadPrevious$0_0$0 Def000000
 S _joypadCurrent Def000001
+S G$joypadCurrent$0_0$0 Def000001
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
 A _INITIALIZER size 2 flags 0 addr 0
+S Fcommon$__xinit_joypadPrevious$0_0$0 Def000000
+S Fcommon$__xinit_joypadCurrent$0_0$0 Def000001
 A _CABS size 0 flags 8 addr 0
 T 00 00 00
 R 00 00 02 00

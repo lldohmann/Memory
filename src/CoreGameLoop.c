@@ -1,11 +1,11 @@
 #include <gb/gb.h>
 #include <stdint.h>
 #include <stdio.h>
-#include "../headers/cast_tiles.h"
-#include "../headers/indoor_tiles.h"
-#include "../headers/home.h"
-#include "../headers/player.h"
-#include "../headers/common.h"
+#include "../res/cast_tiles.h"
+#include "../res/indoor_tiles.h"
+#include "../res/home.h"
+#include "../src/player.h"
+#include "../src/common.h"
 
 #define MIN(A,B) ((A)<(B)?(A):(B))
 
@@ -119,6 +119,6 @@ uint8_t CoreGameLoopUpdate()
         set_camera();
         redraw = FALSE;
     }
-    wait_vbl_done();
+    //wait_vbl_done();
     return COREGAMELOOP;
 }

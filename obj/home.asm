@@ -22,6 +22,7 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
+G$Home$0_0$0==.
 _Home::
 	.ds 3234
 ;--------------------------------------------------------
@@ -44,29 +45,50 @@ _Home::
 ; code
 ;--------------------------------------------------------
 	.area _CODE
+	G$returnCollisionValue$0$0	= .
+	.globl	G$returnCollisionValue$0$0
+	C$home.c$390$0_0$2	= .
+	.globl	C$home.c$390$0_0$2
 ;res\home.c:390: uint8_t returnCollisionValue(char value)
 ;	---------------------------------
 ; Function returnCollisionValue
 ; ---------------------------------
 _returnCollisionValue::
+	C$home.c$392$1_0$2	= .
+	.globl	C$home.c$392$1_0$2
 ;res\home.c:392: if (value == '0')
 	ld	c, a
 	sub	a, #0x30
 	jr	NZ, 00105$
+	C$home.c$394$2_0$3	= .
+	.globl	C$home.c$394$2_0$3
 ;res\home.c:394: return 0;
 	xor	a, a
 	ret
 00105$:
+	C$home.c$396$1_0$2	= .
+	.globl	C$home.c$396$1_0$2
 ;res\home.c:396: else if (value == '1')
 	ld	a, c
 	sub	a, #0x31
+	C$home.c$398$2_0$4	= .
+	.globl	C$home.c$398$2_0$4
 ;res\home.c:398: return 1;
+	C$home.c$402$2_0$5	= .
+	.globl	C$home.c$402$2_0$5
 ;res\home.c:402: return 99;
 	ld	a, #0x01
 	ret	Z
 	ld	a, #0x63
+	C$home.c$404$1_0$2	= .
+	.globl	C$home.c$404$1_0$2
 ;res\home.c:404: }
+	C$home.c$404$1_0$2	= .
+	.globl	C$home.c$404$1_0$2
+	XG$returnCollisionValue$0$0	= .
+	.globl	XG$returnCollisionValue$0$0
 	ret
+G$HOME_COLLISION$0_0$0 == .
 _HOME_COLLISION:
 	.db #0x30	;  48	'0'
 	.db #0x30	;  48	'0'
@@ -700,6 +722,7 @@ _HOME_COLLISION:
 	.db #0x30	;  48	'0'
 	.area _CODE
 	.area _INITIALIZER
+Fhome$__xinit_Home$0_0$0 == .
 __xinit__Home:
 	.db #0x53	; 83	'S'
 	.db #0x53	; 83	'S'

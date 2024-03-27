@@ -1,5 +1,5 @@
 #include <gb/gb.h>
-#include "../headers/common.h"
+#include "../src/common.h"
 
 uint8_t joypadPrevious = 0;
 uint8_t joypadCurrent = 0;

@@ -1,19 +1,43 @@
+;!FILE obj\home.asm
 XL3
-H 9 areas 4 global symbols
+H 9 areas 1B global symbols
 M home
 O -msm83
 S .__.ABS. Def000000
 A _CODE size 286 flags 0 addr 0
 S _HOME_COLLISION Def000010
+S G$HOME_COLLISION$0_0$0 Def000010
+S C$home.c$404$1_0$2 Def00000F
+S A$home$60 Def000000
+S A$home$61 Def000001
+S C$home.c$402$2_0$5 Def00000A
+S A$home$80 Def00000A
+S A$home$62 Def000003
+S C$home.c$390$0_0$2 Def000000
+S A$home$90 Def00000F
+S A$home$81 Def00000C
+S A$home$72 Def000007
+S A$home$82 Def00000D
+S A$home$73 Def000008
+S G$returnCollisionValue$0$0 Def000000
+S C$home.c$392$1_0$2 Def000000
+S A$home$66 Def000005
+S A$home$67 Def000006
+S C$home.c$396$1_0$2 Def000007
+S C$home.c$394$2_0$3 Def000005
+S C$home.c$398$2_0$4 Def00000A
 S _returnCollisionValue Def000000
+S XG$returnCollisionValue$0$0 Def00000F
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size CA2 flags 0 addr 0
 S _Home Def000000
+S G$Home$0_0$0 Def000000
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
 A _INITIALIZER size CA2 flags 0 addr 0
+S Fhome$__xinit_Home$0_0$0 Def000000
 A _CABS size 0 flags 8 addr 0
 T 00 00 00
 R 00 00 02 00

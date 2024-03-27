@@ -15,473 +15,570 @@
                                      15 	.globl _set_sprite_data
                                      16 	.globl _set_bkg_tiles
                                      17 	.globl _set_bkg_data
-                                     18 	.globl _wait_vbl_done
-                                     19 	.globl _joypad
-                                     20 	.globl _frame
-                                     21 	.globl _timer
-                                     22 	.globl _globe_metasprites
-                                     23 	.globl _globe7
-                                     24 	.globl _globe6
-                                     25 	.globl _globe5
-                                     26 	.globl _globe4
-                                     27 	.globl _globe3
-                                     28 	.globl _globe2
-                                     29 	.globl _globe1
-                                     30 ;--------------------------------------------------------
-                                     31 ; special function registers
+                                     18 	.globl _joypad
+                                     19 	.globl _frame
+                                     20 	.globl _timer
+                                     21 	.globl _globe_metasprites
+                                     22 	.globl _globe7
+                                     23 	.globl _globe6
+                                     24 	.globl _globe5
+                                     25 	.globl _globe4
+                                     26 	.globl _globe3
+                                     27 	.globl _globe2
+                                     28 	.globl _globe1
+                                     29 ;--------------------------------------------------------
+                                     30 ; special function registers
+                                     31 ;--------------------------------------------------------
                                      32 ;--------------------------------------------------------
-                                     33 ;--------------------------------------------------------
-                                     34 ; ram data
-                                     35 ;--------------------------------------------------------
-                                     36 	.area _DATA
-                                     37 ;--------------------------------------------------------
-                                     38 ; ram data
-                                     39 ;--------------------------------------------------------
-                                     40 	.area _INITIALIZED
+                                     33 ; ram data
+                                     34 ;--------------------------------------------------------
+                                     35 	.area _DATA
+                                     36 ;--------------------------------------------------------
+                                     37 ; ram data
+                                     38 ;--------------------------------------------------------
+                                     39 	.area _INITIALIZED
+                           000000    40 G$timer$0_0$0==.
       000000                         41 _timer::
       000000                         42 	.ds 1
-      000001                         43 _frame::
-      000001                         44 	.ds 1
-                                     45 ;--------------------------------------------------------
-                                     46 ; absolute external ram data
-                                     47 ;--------------------------------------------------------
-                                     48 	.area _DABS (ABS)
-                                     49 ;--------------------------------------------------------
-                                     50 ; global & static initialisations
-                                     51 ;--------------------------------------------------------
-                                     52 	.area _HOME
-                                     53 	.area _GSINIT
-                                     54 	.area _GSFINAL
-                                     55 	.area _GSINIT
-                                     56 ;--------------------------------------------------------
-                                     57 ; Home
-                                     58 ;--------------------------------------------------------
-                                     59 	.area _HOME
+                           000001    43 G$frame$0_0$0==.
+      000001                         44 _frame::
+      000001                         45 	.ds 1
+                                     46 ;--------------------------------------------------------
+                                     47 ; absolute external ram data
+                                     48 ;--------------------------------------------------------
+                                     49 	.area _DABS (ABS)
+                                     50 ;--------------------------------------------------------
+                                     51 ; global & static initialisations
+                                     52 ;--------------------------------------------------------
+                                     53 	.area _HOME
+                                     54 	.area _GSINIT
+                                     55 	.area _GSFINAL
+                                     56 	.area _GSINIT
+                                     57 ;--------------------------------------------------------
+                                     58 ; Home
+                                     59 ;--------------------------------------------------------
                                      60 	.area _HOME
-                                     61 ;--------------------------------------------------------
-                                     62 ; code
-                                     63 ;--------------------------------------------------------
-                                     64 	.area _CODE
-                                     65 ;res\GameTitle.c:91: void GameTitleSetup()
-                                     66 ;	---------------------------------
-                                     67 ; Function GameTitleSetup
-                                     68 ; ---------------------------------
-      000000                         69 _GameTitleSetup::
-                                     70 ;res\GameTitle.c:93: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
-      000000 3E FE            [ 8]   71 	ld	a, #0xfe
-      000002 E0r00            [12]   72 	ldh	(_BGP_REG + 0), a
-                                     73 ;res\GameTitle.c:94: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
-      000004 3E FE            [ 8]   74 	ld	a, #0xfe
-      000006 E0r00            [12]   75 	ldh	(_OBP0_REG + 0), a
-                                     76 ;res\GameTitle.c:95: SPRITES_8x16;
-      000008 F0r00            [12]   77 	ldh	a, (_LCDC_REG + 0)
-      00000A F6 04            [ 8]   78 	or	a, #0x04
-      00000C E0r00            [12]   79 	ldh	(_LCDC_REG + 0), a
-                                     80 ;res\GameTitle.c:96: set_bkg_data(0, 50, TitleLabel);
-      00000E 11r00r00         [12]   81 	ld	de, #_TitleLabel
-      000011 D5               [16]   82 	push	de
-      000012 21 00 32         [12]   83 	ld	hl, #0x3200
-      000015 E5               [16]   84 	push	hl
-      000016 CDr00r00         [24]   85 	call	_set_bkg_data
-      000019 E8 04            [16]   86 	add	sp, #4
-                                     87 ;res\GameTitle.c:97: set_bkg_tiles(0, 0, Title_MapWidth, Title_MapHeight, Title_Map);
-      00001B 11r00r00         [12]   88 	ld	de, #_Title_Map
-      00001E D5               [16]   89 	push	de
-      00001F 21 14 12         [12]   90 	ld	hl, #0x1214
-      000022 E5               [16]   91 	push	hl
-      000023 AF               [ 4]   92 	xor	a, a
-      000024 0F               [ 4]   93 	rrca
-      000025 F5               [16]   94 	push	af
-      000026 CDr00r00         [24]   95 	call	_set_bkg_tiles
-      000029 E8 06            [16]   96 	add	sp, #6
-                                     97 ;res\GameTitle.c:98: set_sprite_data(0, 112, Globe_Tiles);
-      00002B 11r00r00         [12]   98 	ld	de, #_Globe_Tiles
-      00002E D5               [16]   99 	push	de
-      00002F 21 00 70         [12]  100 	ld	hl, #0x7000
-      000032 E5               [16]  101 	push	hl
-      000033 CDr00r00         [24]  102 	call	_set_sprite_data
-      000036 E8 04            [16]  103 	add	sp, #4
-                                    104 ;res\GameTitle.c:99: move_metasprite(globe_metasprites[6], 0, 0, 88, 64);
-      000038 21r6Er01         [12]  105 	ld	hl, #(_globe_metasprites + 12)
-      00003B 2A               [ 8]  106 	ld	a, (hl+)
-      00003C 4F               [ 4]  107 	ld	c, a
-      00003D 7E               [ 8]  108 	ld	a, (hl)
-                                    109 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
-      00003E 21r00r00         [12]  110 	ld	hl, #___current_metasprite
-      000041 71               [ 8]  111 	ld	(hl), c
-      000042 23               [ 8]  112 	inc	hl
-      000043 77               [ 8]  113 	ld	(hl), a
-                                    114 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
-      000044 21r00r00         [12]  115 	ld	hl, #___current_base_tile
-      000047 36 00            [12]  116 	ld	(hl), #0x00
-                                    117 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
-      000049 21 58 40         [12]  118 	ld	hl, #0x4058
-      00004C E5               [16]  119 	push	hl
-      00004D AF               [ 4]  120 	xor	a, a
-      00004E F5               [16]  121 	push	af
-      00004F 33               [ 8]  122 	inc	sp
-      000050 CDr00r00         [24]  123 	call	___move_metasprite
-      000053 E8 03            [16]  124 	add	sp, #3
-                                    125 ;res\GameTitle.c:100: SHOW_BKG;
-      000055 F0r00            [12]  126 	ldh	a, (_LCDC_REG + 0)
-      000057 F6 01            [ 8]  127 	or	a, #0x01
-      000059 E0r00            [12]  128 	ldh	(_LCDC_REG + 0), a
-                                    129 ;res\GameTitle.c:101: SHOW_SPRITES;
-      00005B F0r00            [12]  130 	ldh	a, (_LCDC_REG + 0)
-      00005D F6 02            [ 8]  131 	or	a, #0x02
-      00005F E0r00            [12]  132 	ldh	(_LCDC_REG + 0), a
-                                    133 ;res\GameTitle.c:102: fadeFromBlack(10);
-      000061 3E 0A            [ 8]  134 	ld	a, #0x0a
-                                    135 ;res\GameTitle.c:103: }
-      000063 C3r00r00         [16]  136 	jp	_fadeFromBlack
-      000066                        137 _globe1:
-      000066 00                     138 	.db #0x00	;  0
-      000067 00                     139 	.db #0x00	;  0
-      000068 00                     140 	.db #0x00	; 0
-      000069 00                     141 	.db #0x00	; 0
-      00006A 10                     142 	.db #0x10	;  16
-      00006B 00                     143 	.db #0x00	;  0
-      00006C 02                     144 	.db #0x02	; 2
-      00006D 00                     145 	.db #0x00	; 0
-      00006E F0                     146 	.db #0xf0	; -16
-      00006F 08                     147 	.db #0x08	;  8
-      000070 04                     148 	.db #0x04	; 4
-      000071 00                     149 	.db #0x00	; 0
-      000072 10                     150 	.db #0x10	;  16
-      000073 00                     151 	.db #0x00	;  0
-      000074 06                     152 	.db #0x06	; 6
-      000075 00                     153 	.db #0x00	; 0
-      000076 F0                     154 	.db #0xf0	; -16
-      000077 08                     155 	.db #0x08	;  8
-      000078 08                     156 	.db #0x08	; 8
-      000079 00                     157 	.db #0x00	; 0
-      00007A 10                     158 	.db #0x10	;  16
-      00007B 00                     159 	.db #0x00	;  0
-      00007C 0A                     160 	.db #0x0a	; 10
-      00007D 00                     161 	.db #0x00	; 0
-      00007E F0                     162 	.db #0xf0	; -16
-      00007F 08                     163 	.db #0x08	;  8
-      000080 0C                     164 	.db #0x0c	; 12
-      000081 00                     165 	.db #0x00	; 0
-      000082 10                     166 	.db #0x10	;  16
-      000083 00                     167 	.db #0x00	;  0
-      000084 0E                     168 	.db #0x0e	; 14
-      000085 00                     169 	.db #0x00	; 0
-      000086 80                     170 	.db #0x80	; -128
-      000087 00                     171 	.db #0x00	;  0
-      000088 00                     172 	.db #0x00	; 0
-      000089 00                     173 	.db #0x00	; 0
-      00008A                        174 _globe2:
-      00008A 00                     175 	.db #0x00	;  0
-      00008B 00                     176 	.db #0x00	;  0
-      00008C 10                     177 	.db #0x10	; 16
-      00008D 00                     178 	.db #0x00	; 0
-      00008E 10                     179 	.db #0x10	;  16
-      00008F 00                     180 	.db #0x00	;  0
-      000090 12                     181 	.db #0x12	; 18
-      000091 00                     182 	.db #0x00	; 0
-      000092 F0                     183 	.db #0xf0	; -16
-      000093 08                     184 	.db #0x08	;  8
-      000094 14                     185 	.db #0x14	; 20
-      000095 00                     186 	.db #0x00	; 0
-      000096 10                     187 	.db #0x10	;  16
-      000097 00                     188 	.db #0x00	;  0
-      000098 16                     189 	.db #0x16	; 22
-      000099 00                     190 	.db #0x00	; 0
-      00009A F0                     191 	.db #0xf0	; -16
-      00009B 08                     192 	.db #0x08	;  8
-      00009C 18                     193 	.db #0x18	; 24
-      00009D 00                     194 	.db #0x00	; 0
-      00009E 10                     195 	.db #0x10	;  16
-      00009F 00                     196 	.db #0x00	;  0
-      0000A0 1A                     197 	.db #0x1a	; 26
-      0000A1 00                     198 	.db #0x00	; 0
-      0000A2 F0                     199 	.db #0xf0	; -16
-      0000A3 08                     200 	.db #0x08	;  8
-      0000A4 1C                     201 	.db #0x1c	; 28
-      0000A5 00                     202 	.db #0x00	; 0
-      0000A6 10                     203 	.db #0x10	;  16
-      0000A7 00                     204 	.db #0x00	;  0
-      0000A8 1E                     205 	.db #0x1e	; 30
-      0000A9 00                     206 	.db #0x00	; 0
-      0000AA 80                     207 	.db #0x80	; -128
-      0000AB 00                     208 	.db #0x00	;  0
-      0000AC 00                     209 	.db #0x00	; 0
-      0000AD 00                     210 	.db #0x00	; 0
-      0000AE                        211 _globe3:
-      0000AE 00                     212 	.db #0x00	;  0
-      0000AF 00                     213 	.db #0x00	;  0
-      0000B0 20                     214 	.db #0x20	; 32
-      0000B1 00                     215 	.db #0x00	; 0
-      0000B2 10                     216 	.db #0x10	;  16
-      0000B3 00                     217 	.db #0x00	;  0
-      0000B4 22                     218 	.db #0x22	; 34
-      0000B5 00                     219 	.db #0x00	; 0
-      0000B6 F0                     220 	.db #0xf0	; -16
-      0000B7 08                     221 	.db #0x08	;  8
-      0000B8 24                     222 	.db #0x24	; 36
-      0000B9 00                     223 	.db #0x00	; 0
-      0000BA 10                     224 	.db #0x10	;  16
-      0000BB 00                     225 	.db #0x00	;  0
-      0000BC 26                     226 	.db #0x26	; 38
-      0000BD 00                     227 	.db #0x00	; 0
-      0000BE F0                     228 	.db #0xf0	; -16
-      0000BF 08                     229 	.db #0x08	;  8
-      0000C0 28                     230 	.db #0x28	; 40
-      0000C1 00                     231 	.db #0x00	; 0
-      0000C2 10                     232 	.db #0x10	;  16
-      0000C3 00                     233 	.db #0x00	;  0
-      0000C4 2A                     234 	.db #0x2a	; 42
-      0000C5 00                     235 	.db #0x00	; 0
-      0000C6 F0                     236 	.db #0xf0	; -16
-      0000C7 08                     237 	.db #0x08	;  8
-      0000C8 2C                     238 	.db #0x2c	; 44
-      0000C9 00                     239 	.db #0x00	; 0
-      0000CA 10                     240 	.db #0x10	;  16
-      0000CB 00                     241 	.db #0x00	;  0
-      0000CC 2E                     242 	.db #0x2e	; 46
-      0000CD 00                     243 	.db #0x00	; 0
-      0000CE 80                     244 	.db #0x80	; -128
-      0000CF 00                     245 	.db #0x00	;  0
-      0000D0 00                     246 	.db #0x00	; 0
-      0000D1 00                     247 	.db #0x00	; 0
-      0000D2                        248 _globe4:
-      0000D2 00                     249 	.db #0x00	;  0
-      0000D3 00                     250 	.db #0x00	;  0
-      0000D4 30                     251 	.db #0x30	; 48	'0'
-      0000D5 00                     252 	.db #0x00	; 0
-      0000D6 10                     253 	.db #0x10	;  16
-      0000D7 00                     254 	.db #0x00	;  0
-      0000D8 32                     255 	.db #0x32	; 50	'2'
-      0000D9 00                     256 	.db #0x00	; 0
-      0000DA F0                     257 	.db #0xf0	; -16
-      0000DB 08                     258 	.db #0x08	;  8
-      0000DC 34                     259 	.db #0x34	; 52	'4'
-      0000DD 00                     260 	.db #0x00	; 0
-      0000DE 10                     261 	.db #0x10	;  16
-      0000DF 00                     262 	.db #0x00	;  0
-      0000E0 36                     263 	.db #0x36	; 54	'6'
-      0000E1 00                     264 	.db #0x00	; 0
-      0000E2 F0                     265 	.db #0xf0	; -16
-      0000E3 08                     266 	.db #0x08	;  8
-      0000E4 38                     267 	.db #0x38	; 56	'8'
-      0000E5 00                     268 	.db #0x00	; 0
-      0000E6 10                     269 	.db #0x10	;  16
-      0000E7 00                     270 	.db #0x00	;  0
-      0000E8 3A                     271 	.db #0x3a	; 58
-      0000E9 00                     272 	.db #0x00	; 0
-      0000EA F0                     273 	.db #0xf0	; -16
-      0000EB 08                     274 	.db #0x08	;  8
-      0000EC 3C                     275 	.db #0x3c	; 60
-      0000ED 00                     276 	.db #0x00	; 0
-      0000EE 10                     277 	.db #0x10	;  16
-      0000EF 00                     278 	.db #0x00	;  0
-      0000F0 3E                     279 	.db #0x3e	; 62
-      0000F1 00                     280 	.db #0x00	; 0
-      0000F2 80                     281 	.db #0x80	; -128
-      0000F3 00                     282 	.db #0x00	;  0
-      0000F4 00                     283 	.db #0x00	; 0
-      0000F5 00                     284 	.db #0x00	; 0
-      0000F6                        285 _globe5:
-      0000F6 00                     286 	.db #0x00	;  0
-      0000F7 00                     287 	.db #0x00	;  0
-      0000F8 40                     288 	.db #0x40	; 64
-      0000F9 00                     289 	.db #0x00	; 0
-      0000FA 10                     290 	.db #0x10	;  16
-      0000FB 00                     291 	.db #0x00	;  0
-      0000FC 42                     292 	.db #0x42	; 66	'B'
-      0000FD 00                     293 	.db #0x00	; 0
-      0000FE F0                     294 	.db #0xf0	; -16
-      0000FF 08                     295 	.db #0x08	;  8
-      000100 44                     296 	.db #0x44	; 68	'D'
-      000101 00                     297 	.db #0x00	; 0
-      000102 10                     298 	.db #0x10	;  16
-      000103 00                     299 	.db #0x00	;  0
-      000104 46                     300 	.db #0x46	; 70	'F'
-      000105 00                     301 	.db #0x00	; 0
-      000106 F0                     302 	.db #0xf0	; -16
-      000107 08                     303 	.db #0x08	;  8
-      000108 48                     304 	.db #0x48	; 72	'H'
-      000109 00                     305 	.db #0x00	; 0
-      00010A 10                     306 	.db #0x10	;  16
-      00010B 00                     307 	.db #0x00	;  0
-      00010C 4A                     308 	.db #0x4a	; 74	'J'
-      00010D 00                     309 	.db #0x00	; 0
-      00010E F0                     310 	.db #0xf0	; -16
-      00010F 08                     311 	.db #0x08	;  8
-      000110 4C                     312 	.db #0x4c	; 76	'L'
-      000111 00                     313 	.db #0x00	; 0
-      000112 10                     314 	.db #0x10	;  16
-      000113 00                     315 	.db #0x00	;  0
-      000114 4E                     316 	.db #0x4e	; 78	'N'
-      000115 00                     317 	.db #0x00	; 0
-      000116 80                     318 	.db #0x80	; -128
-      000117 00                     319 	.db #0x00	;  0
-      000118 00                     320 	.db #0x00	; 0
-      000119 00                     321 	.db #0x00	; 0
-      00011A                        322 _globe6:
-      00011A 00                     323 	.db #0x00	;  0
-      00011B 00                     324 	.db #0x00	;  0
-      00011C 50                     325 	.db #0x50	; 80	'P'
-      00011D 00                     326 	.db #0x00	; 0
-      00011E 10                     327 	.db #0x10	;  16
-      00011F 00                     328 	.db #0x00	;  0
-      000120 52                     329 	.db #0x52	; 82	'R'
-      000121 00                     330 	.db #0x00	; 0
-      000122 F0                     331 	.db #0xf0	; -16
-      000123 08                     332 	.db #0x08	;  8
-      000124 54                     333 	.db #0x54	; 84	'T'
-      000125 00                     334 	.db #0x00	; 0
-      000126 10                     335 	.db #0x10	;  16
-      000127 00                     336 	.db #0x00	;  0
-      000128 56                     337 	.db #0x56	; 86	'V'
-      000129 00                     338 	.db #0x00	; 0
-      00012A F0                     339 	.db #0xf0	; -16
-      00012B 08                     340 	.db #0x08	;  8
-      00012C 58                     341 	.db #0x58	; 88	'X'
-      00012D 00                     342 	.db #0x00	; 0
-      00012E 10                     343 	.db #0x10	;  16
-      00012F 00                     344 	.db #0x00	;  0
-      000130 5A                     345 	.db #0x5a	; 90	'Z'
-      000131 00                     346 	.db #0x00	; 0
-      000132 F0                     347 	.db #0xf0	; -16
-      000133 08                     348 	.db #0x08	;  8
-      000134 5C                     349 	.db #0x5c	; 92
-      000135 00                     350 	.db #0x00	; 0
-      000136 10                     351 	.db #0x10	;  16
-      000137 00                     352 	.db #0x00	;  0
-      000138 5E                     353 	.db #0x5e	; 94
-      000139 00                     354 	.db #0x00	; 0
-      00013A 80                     355 	.db #0x80	; -128
-      00013B 00                     356 	.db #0x00	;  0
-      00013C 00                     357 	.db #0x00	; 0
-      00013D 00                     358 	.db #0x00	; 0
-      00013E                        359 _globe7:
-      00013E 00                     360 	.db #0x00	;  0
-      00013F 00                     361 	.db #0x00	;  0
-      000140 60                     362 	.db #0x60	; 96
-      000141 00                     363 	.db #0x00	; 0
-      000142 10                     364 	.db #0x10	;  16
-      000143 00                     365 	.db #0x00	;  0
-      000144 62                     366 	.db #0x62	; 98	'b'
-      000145 00                     367 	.db #0x00	; 0
-      000146 F0                     368 	.db #0xf0	; -16
-      000147 08                     369 	.db #0x08	;  8
-      000148 64                     370 	.db #0x64	; 100	'd'
-      000149 00                     371 	.db #0x00	; 0
-      00014A 10                     372 	.db #0x10	;  16
-      00014B 00                     373 	.db #0x00	;  0
-      00014C 66                     374 	.db #0x66	; 102	'f'
-      00014D 00                     375 	.db #0x00	; 0
-      00014E F0                     376 	.db #0xf0	; -16
-      00014F 08                     377 	.db #0x08	;  8
-      000150 68                     378 	.db #0x68	; 104	'h'
-      000151 00                     379 	.db #0x00	; 0
-      000152 10                     380 	.db #0x10	;  16
-      000153 00                     381 	.db #0x00	;  0
-      000154 6A                     382 	.db #0x6a	; 106	'j'
-      000155 00                     383 	.db #0x00	; 0
-      000156 F0                     384 	.db #0xf0	; -16
-      000157 08                     385 	.db #0x08	;  8
-      000158 6C                     386 	.db #0x6c	; 108	'l'
-      000159 00                     387 	.db #0x00	; 0
-      00015A 10                     388 	.db #0x10	;  16
-      00015B 00                     389 	.db #0x00	;  0
-      00015C 6E                     390 	.db #0x6e	; 110	'n'
-      00015D 00                     391 	.db #0x00	; 0
-      00015E 80                     392 	.db #0x80	; -128
-      00015F 00                     393 	.db #0x00	;  0
-      000160 00                     394 	.db #0x00	; 0
-      000161 00                     395 	.db #0x00	; 0
-      000162                        396 _globe_metasprites:
-      000162r66r00                  397 	.dw _globe1
-      000164r8Ar00                  398 	.dw _globe2
-      000166rAEr00                  399 	.dw _globe3
-      000168rD2r00                  400 	.dw _globe4
-      00016ArF6r00                  401 	.dw _globe5
-      00016Cr1Ar01                  402 	.dw _globe6
-      00016Er3Er01                  403 	.dw _globe7
-                                    404 ;res\GameTitle.c:107: uint8_t GameTitleUpdate()
-                                    405 ;	---------------------------------
-                                    406 ; Function GameTitleUpdate
-                                    407 ; ---------------------------------
-      000170                        408 _GameTitleUpdate::
-                                    409 ;res\GameTitle.c:109: joypadPrevious = joypadCurrent;
-      000170 FAr00r00         [16]  410 	ld	a, (#_joypadCurrent)
-      000173 EAr00r00         [16]  411 	ld	(#_joypadPrevious),a
-                                    412 ;res\GameTitle.c:110: joypadCurrent = joypad();
-      000176 CDr00r00         [24]  413 	call	_joypad
-      000179 EAr00r00         [16]  414 	ld	(#_joypadCurrent),a
-                                    415 ;res\GameTitle.c:111: timer++;
-      00017C 21r00r00         [12]  416 	ld	hl, #_timer
-      00017F 34               [12]  417 	inc	(hl)
-                                    418 ;res\GameTitle.c:112: if (timer == 10)
-      000180 7E               [ 8]  419 	ld	a, (hl)
-      000181 D6 0A            [ 8]  420 	sub	a, #0x0a
-      000183 20 09            [12]  421 	jr	NZ, 00102$
-                                    422 ;res\GameTitle.c:114: frame++; 
-      000185 21r01r00         [12]  423 	ld	hl, #_frame
-      000188 34               [12]  424 	inc	(hl)
-                                    425 ;res\GameTitle.c:115: timer = 0;
-      000189 21r00r00         [12]  426 	ld	hl, #_timer
-      00018C 36 00            [12]  427 	ld	(hl), #0x00
-      00018E                        428 00102$:
-                                    429 ;res\GameTitle.c:117: if (frame >= 7) frame = 0;
-      00018E 21r01r00         [12]  430 	ld	hl, #_frame
-      000191 7E               [ 8]  431 	ld	a, (hl)
-      000192 D6 07            [ 8]  432 	sub	a, #0x07
-      000194 38 02            [12]  433 	jr	C, 00104$
-      000196 36 00            [12]  434 	ld	(hl), #0x00
-      000198                        435 00104$:
-                                    436 ;res\GameTitle.c:118: move_metasprite(globe_metasprites[frame], 0, 0, 88, 64);
-      000198 21r01r00         [12]  437 	ld	hl, #_frame
-      00019B 6E               [ 8]  438 	ld	l, (hl)
-                                    439 ;	spillPairReg hl
-                                    440 ;	spillPairReg hl
-      00019C 26 00            [ 8]  441 	ld	h, #0x00
-                                    442 ;	spillPairReg hl
-                                    443 ;	spillPairReg hl
-      00019E 29               [ 8]  444 	add	hl, hl
-      00019F 11r62r01         [12]  445 	ld	de, #_globe_metasprites
-      0001A2 19               [ 8]  446 	add	hl, de
-      0001A3 2A               [ 8]  447 	ld	a, (hl+)
-      0001A4 4E               [ 8]  448 	ld	c, (hl)
-                                    449 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
-      0001A5 21r00r00         [12]  450 	ld	hl, #___current_metasprite
-      0001A8 22               [ 8]  451 	ld	(hl+), a
-      0001A9 71               [ 8]  452 	ld	(hl), c
-                                    453 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
-      0001AA 21r00r00         [12]  454 	ld	hl, #___current_base_tile
-      0001AD 36 00            [12]  455 	ld	(hl), #0x00
-                                    456 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
-      0001AF 21 58 40         [12]  457 	ld	hl, #0x4058
-      0001B2 E5               [16]  458 	push	hl
-      0001B3 AF               [ 4]  459 	xor	a, a
-      0001B4 F5               [16]  460 	push	af
-      0001B5 33               [ 8]  461 	inc	sp
-      0001B6 CDr00r00         [24]  462 	call	___move_metasprite
-      0001B9 E8 03            [16]  463 	add	sp, #3
-                                    464 ;res\GameTitle.c:119: if (joypadCurrent & J_START)
-      0001BB FAr00r00         [16]  465 	ld	a, (#_joypadCurrent)
-      0001BE 07               [ 4]  466 	rlca
-      0001BF 30 08            [12]  467 	jr	NC, 00106$
-                                    468 ;res\GameTitle.c:121: fadeToBlack(10);
-      0001C1 3E 0A            [ 8]  469 	ld	a, #0x0a
-      0001C3 CDr00r00         [24]  470 	call	_fadeToBlack
-                                    471 ;res\GameTitle.c:122: return COREGAMELOOP;
-      0001C6 3E 02            [ 8]  472 	ld	a, #0x02
-      0001C8 C9               [16]  473 	ret
-      0001C9                        474 00106$:
-                                    475 ;res\GameTitle.c:124: wait_vbl_done();
-      0001C9 CDr00r00         [24]  476 	call	_wait_vbl_done
-                                    477 ;res\GameTitle.c:125: return GAMETITLE;
-      0001CC 3E 01            [ 8]  478 	ld	a, #0x01
-                                    479 ;res\GameTitle.c:126: }
-      0001CE C9               [16]  480 	ret
-                                    481 	.area _CODE
-                                    482 	.area _INITIALIZER
-      000000                        483 __xinit__timer:
-      000000 00                     484 	.db #0x00	; 0
-      000001                        485 __xinit__frame:
-      000001 00                     486 	.db #0x00	; 0
-                                    487 	.area _CABS (ABS)
+                                     61 	.area _HOME
+                                     62 ;--------------------------------------------------------
+                                     63 ; code
+                                     64 ;--------------------------------------------------------
+                                     65 	.area _CODE
+                           000000    66 	G$GameTitleSetup$0$0	= .
+                                     67 	.globl	G$GameTitleSetup$0$0
+                           000000    68 	C$GameTitle.c$91$0_0$117	= .
+                                     69 	.globl	C$GameTitle.c$91$0_0$117
+                                     70 ;src\GameTitle.c:91: void GameTitleSetup()
+                                     71 ;	---------------------------------
+                                     72 ; Function GameTitleSetup
+                                     73 ; ---------------------------------
+      000000                         74 _GameTitleSetup::
+                           000000    75 	C$GameTitle.c$93$1_0$117	= .
+                                     76 	.globl	C$GameTitle.c$93$1_0$117
+                                     77 ;src\GameTitle.c:93: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+      000000 3E FE            [ 8]   78 	ld	a, #0xfe
+      000002 E0r00            [12]   79 	ldh	(_BGP_REG + 0), a
+                           000004    80 	C$GameTitle.c$94$1_0$117	= .
+                                     81 	.globl	C$GameTitle.c$94$1_0$117
+                                     82 ;src\GameTitle.c:94: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+      000004 3E FE            [ 8]   83 	ld	a, #0xfe
+      000006 E0r00            [12]   84 	ldh	(_OBP0_REG + 0), a
+                           000008    85 	C$GameTitle.c$95$1_0$117	= .
+                                     86 	.globl	C$GameTitle.c$95$1_0$117
+                                     87 ;src\GameTitle.c:95: SPRITES_8x16;
+      000008 F0r00            [12]   88 	ldh	a, (_LCDC_REG + 0)
+      00000A F6 04            [ 8]   89 	or	a, #0x04
+      00000C E0r00            [12]   90 	ldh	(_LCDC_REG + 0), a
+                           00000E    91 	C$GameTitle.c$96$1_0$117	= .
+                                     92 	.globl	C$GameTitle.c$96$1_0$117
+                                     93 ;src\GameTitle.c:96: set_bkg_data(0, 50, TitleLabel);
+      00000E 11r00r00         [12]   94 	ld	de, #_TitleLabel
+      000011 D5               [16]   95 	push	de
+      000012 21 00 32         [12]   96 	ld	hl, #0x3200
+      000015 E5               [16]   97 	push	hl
+      000016 CDr00r00         [24]   98 	call	_set_bkg_data
+      000019 E8 04            [16]   99 	add	sp, #4
+                           00001B   100 	C$GameTitle.c$97$1_0$117	= .
+                                    101 	.globl	C$GameTitle.c$97$1_0$117
+                                    102 ;src\GameTitle.c:97: set_bkg_tiles(0, 0, Title_MapWidth, Title_MapHeight, Title_Map);
+      00001B 11r00r00         [12]  103 	ld	de, #_Title_Map
+      00001E D5               [16]  104 	push	de
+      00001F 21 14 12         [12]  105 	ld	hl, #0x1214
+      000022 E5               [16]  106 	push	hl
+      000023 AF               [ 4]  107 	xor	a, a
+      000024 0F               [ 4]  108 	rrca
+      000025 F5               [16]  109 	push	af
+      000026 CDr00r00         [24]  110 	call	_set_bkg_tiles
+      000029 E8 06            [16]  111 	add	sp, #6
+                           00002B   112 	C$GameTitle.c$98$1_0$117	= .
+                                    113 	.globl	C$GameTitle.c$98$1_0$117
+                                    114 ;src\GameTitle.c:98: set_sprite_data(0, 112, Globe_Tiles);
+      00002B 11r00r00         [12]  115 	ld	de, #_Globe_Tiles
+      00002E D5               [16]  116 	push	de
+      00002F 21 00 70         [12]  117 	ld	hl, #0x7000
+      000032 E5               [16]  118 	push	hl
+      000033 CDr00r00         [24]  119 	call	_set_sprite_data
+      000036 E8 04            [16]  120 	add	sp, #4
+                                    121 ;src\GameTitle.c:99: move_metasprite(globe_metasprites[6], 0, 0, 88, 64);
+      000038 21r6Er01         [12]  122 	ld	hl, #(_globe_metasprites + 12)
+      00003B 2A               [ 8]  123 	ld	a, (hl+)
+      00003C 4F               [ 4]  124 	ld	c, a
+      00003D 7E               [ 8]  125 	ld	a, (hl)
+                                    126 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
+      00003E 21r00r00         [12]  127 	ld	hl, #___current_metasprite
+      000041 71               [ 8]  128 	ld	(hl), c
+      000042 23               [ 8]  129 	inc	hl
+      000043 77               [ 8]  130 	ld	(hl), a
+                                    131 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
+      000044 21r00r00         [12]  132 	ld	hl, #___current_base_tile
+      000047 36 00            [12]  133 	ld	(hl), #0x00
+                                    134 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
+      000049 21 58 40         [12]  135 	ld	hl, #0x4058
+      00004C E5               [16]  136 	push	hl
+      00004D AF               [ 4]  137 	xor	a, a
+      00004E F5               [16]  138 	push	af
+      00004F 33               [ 8]  139 	inc	sp
+      000050 CDr00r00         [24]  140 	call	___move_metasprite
+      000053 E8 03            [16]  141 	add	sp, #3
+                           000055   142 	C$GameTitle.c$100$1_0$117	= .
+                                    143 	.globl	C$GameTitle.c$100$1_0$117
+                                    144 ;src\GameTitle.c:100: SHOW_BKG;
+      000055 F0r00            [12]  145 	ldh	a, (_LCDC_REG + 0)
+      000057 F6 01            [ 8]  146 	or	a, #0x01
+      000059 E0r00            [12]  147 	ldh	(_LCDC_REG + 0), a
+                           00005B   148 	C$GameTitle.c$101$1_0$117	= .
+                                    149 	.globl	C$GameTitle.c$101$1_0$117
+                                    150 ;src\GameTitle.c:101: SHOW_SPRITES;
+      00005B F0r00            [12]  151 	ldh	a, (_LCDC_REG + 0)
+      00005D F6 02            [ 8]  152 	or	a, #0x02
+      00005F E0r00            [12]  153 	ldh	(_LCDC_REG + 0), a
+                           000061   154 	C$GameTitle.c$102$1_0$117	= .
+                                    155 	.globl	C$GameTitle.c$102$1_0$117
+                                    156 ;src\GameTitle.c:102: fadeFromBlack(10);
+      000061 3E 0A            [ 8]  157 	ld	a, #0x0a
+                           000063   158 	C$GameTitle.c$103$1_0$117	= .
+                                    159 	.globl	C$GameTitle.c$103$1_0$117
+                                    160 ;src\GameTitle.c:103: }
+                           000063   161 	C$GameTitle.c$103$1_0$117	= .
+                                    162 	.globl	C$GameTitle.c$103$1_0$117
+                           000063   163 	XG$GameTitleSetup$0$0	= .
+                                    164 	.globl	XG$GameTitleSetup$0$0
+      000063 C3r00r00         [16]  165 	jp	_fadeFromBlack
+                           000066   166 G$globe1$0_0$0 == .
+      000066                        167 _globe1:
+      000066 00                     168 	.db #0x00	;  0
+      000067 00                     169 	.db #0x00	;  0
+      000068 00                     170 	.db #0x00	; 0
+      000069 00                     171 	.db #0x00	; 0
+      00006A 10                     172 	.db #0x10	;  16
+      00006B 00                     173 	.db #0x00	;  0
+      00006C 02                     174 	.db #0x02	; 2
+      00006D 00                     175 	.db #0x00	; 0
+      00006E F0                     176 	.db #0xf0	; -16
+      00006F 08                     177 	.db #0x08	;  8
+      000070 04                     178 	.db #0x04	; 4
+      000071 00                     179 	.db #0x00	; 0
+      000072 10                     180 	.db #0x10	;  16
+      000073 00                     181 	.db #0x00	;  0
+      000074 06                     182 	.db #0x06	; 6
+      000075 00                     183 	.db #0x00	; 0
+      000076 F0                     184 	.db #0xf0	; -16
+      000077 08                     185 	.db #0x08	;  8
+      000078 08                     186 	.db #0x08	; 8
+      000079 00                     187 	.db #0x00	; 0
+      00007A 10                     188 	.db #0x10	;  16
+      00007B 00                     189 	.db #0x00	;  0
+      00007C 0A                     190 	.db #0x0a	; 10
+      00007D 00                     191 	.db #0x00	; 0
+      00007E F0                     192 	.db #0xf0	; -16
+      00007F 08                     193 	.db #0x08	;  8
+      000080 0C                     194 	.db #0x0c	; 12
+      000081 00                     195 	.db #0x00	; 0
+      000082 10                     196 	.db #0x10	;  16
+      000083 00                     197 	.db #0x00	;  0
+      000084 0E                     198 	.db #0x0e	; 14
+      000085 00                     199 	.db #0x00	; 0
+      000086 80                     200 	.db #0x80	; -128
+      000087 00                     201 	.db #0x00	;  0
+      000088 00                     202 	.db #0x00	; 0
+      000089 00                     203 	.db #0x00	; 0
+                           00008A   204 G$globe2$0_0$0 == .
+      00008A                        205 _globe2:
+      00008A 00                     206 	.db #0x00	;  0
+      00008B 00                     207 	.db #0x00	;  0
+      00008C 10                     208 	.db #0x10	; 16
+      00008D 00                     209 	.db #0x00	; 0
+      00008E 10                     210 	.db #0x10	;  16
+      00008F 00                     211 	.db #0x00	;  0
+      000090 12                     212 	.db #0x12	; 18
+      000091 00                     213 	.db #0x00	; 0
+      000092 F0                     214 	.db #0xf0	; -16
+      000093 08                     215 	.db #0x08	;  8
+      000094 14                     216 	.db #0x14	; 20
+      000095 00                     217 	.db #0x00	; 0
+      000096 10                     218 	.db #0x10	;  16
+      000097 00                     219 	.db #0x00	;  0
+      000098 16                     220 	.db #0x16	; 22
+      000099 00                     221 	.db #0x00	; 0
+      00009A F0                     222 	.db #0xf0	; -16
+      00009B 08                     223 	.db #0x08	;  8
+      00009C 18                     224 	.db #0x18	; 24
+      00009D 00                     225 	.db #0x00	; 0
+      00009E 10                     226 	.db #0x10	;  16
+      00009F 00                     227 	.db #0x00	;  0
+      0000A0 1A                     228 	.db #0x1a	; 26
+      0000A1 00                     229 	.db #0x00	; 0
+      0000A2 F0                     230 	.db #0xf0	; -16
+      0000A3 08                     231 	.db #0x08	;  8
+      0000A4 1C                     232 	.db #0x1c	; 28
+      0000A5 00                     233 	.db #0x00	; 0
+      0000A6 10                     234 	.db #0x10	;  16
+      0000A7 00                     235 	.db #0x00	;  0
+      0000A8 1E                     236 	.db #0x1e	; 30
+      0000A9 00                     237 	.db #0x00	; 0
+      0000AA 80                     238 	.db #0x80	; -128
+      0000AB 00                     239 	.db #0x00	;  0
+      0000AC 00                     240 	.db #0x00	; 0
+      0000AD 00                     241 	.db #0x00	; 0
+                           0000AE   242 G$globe3$0_0$0 == .
+      0000AE                        243 _globe3:
+      0000AE 00                     244 	.db #0x00	;  0
+      0000AF 00                     245 	.db #0x00	;  0
+      0000B0 20                     246 	.db #0x20	; 32
+      0000B1 00                     247 	.db #0x00	; 0
+      0000B2 10                     248 	.db #0x10	;  16
+      0000B3 00                     249 	.db #0x00	;  0
+      0000B4 22                     250 	.db #0x22	; 34
+      0000B5 00                     251 	.db #0x00	; 0
+      0000B6 F0                     252 	.db #0xf0	; -16
+      0000B7 08                     253 	.db #0x08	;  8
+      0000B8 24                     254 	.db #0x24	; 36
+      0000B9 00                     255 	.db #0x00	; 0
+      0000BA 10                     256 	.db #0x10	;  16
+      0000BB 00                     257 	.db #0x00	;  0
+      0000BC 26                     258 	.db #0x26	; 38
+      0000BD 00                     259 	.db #0x00	; 0
+      0000BE F0                     260 	.db #0xf0	; -16
+      0000BF 08                     261 	.db #0x08	;  8
+      0000C0 28                     262 	.db #0x28	; 40
+      0000C1 00                     263 	.db #0x00	; 0
+      0000C2 10                     264 	.db #0x10	;  16
+      0000C3 00                     265 	.db #0x00	;  0
+      0000C4 2A                     266 	.db #0x2a	; 42
+      0000C5 00                     267 	.db #0x00	; 0
+      0000C6 F0                     268 	.db #0xf0	; -16
+      0000C7 08                     269 	.db #0x08	;  8
+      0000C8 2C                     270 	.db #0x2c	; 44
+      0000C9 00                     271 	.db #0x00	; 0
+      0000CA 10                     272 	.db #0x10	;  16
+      0000CB 00                     273 	.db #0x00	;  0
+      0000CC 2E                     274 	.db #0x2e	; 46
+      0000CD 00                     275 	.db #0x00	; 0
+      0000CE 80                     276 	.db #0x80	; -128
+      0000CF 00                     277 	.db #0x00	;  0
+      0000D0 00                     278 	.db #0x00	; 0
+      0000D1 00                     279 	.db #0x00	; 0
+                           0000D2   280 G$globe4$0_0$0 == .
+      0000D2                        281 _globe4:
+      0000D2 00                     282 	.db #0x00	;  0
+      0000D3 00                     283 	.db #0x00	;  0
+      0000D4 30                     284 	.db #0x30	; 48	'0'
+      0000D5 00                     285 	.db #0x00	; 0
+      0000D6 10                     286 	.db #0x10	;  16
+      0000D7 00                     287 	.db #0x00	;  0
+      0000D8 32                     288 	.db #0x32	; 50	'2'
+      0000D9 00                     289 	.db #0x00	; 0
+      0000DA F0                     290 	.db #0xf0	; -16
+      0000DB 08                     291 	.db #0x08	;  8
+      0000DC 34                     292 	.db #0x34	; 52	'4'
+      0000DD 00                     293 	.db #0x00	; 0
+      0000DE 10                     294 	.db #0x10	;  16
+      0000DF 00                     295 	.db #0x00	;  0
+      0000E0 36                     296 	.db #0x36	; 54	'6'
+      0000E1 00                     297 	.db #0x00	; 0
+      0000E2 F0                     298 	.db #0xf0	; -16
+      0000E3 08                     299 	.db #0x08	;  8
+      0000E4 38                     300 	.db #0x38	; 56	'8'
+      0000E5 00                     301 	.db #0x00	; 0
+      0000E6 10                     302 	.db #0x10	;  16
+      0000E7 00                     303 	.db #0x00	;  0
+      0000E8 3A                     304 	.db #0x3a	; 58
+      0000E9 00                     305 	.db #0x00	; 0
+      0000EA F0                     306 	.db #0xf0	; -16
+      0000EB 08                     307 	.db #0x08	;  8
+      0000EC 3C                     308 	.db #0x3c	; 60
+      0000ED 00                     309 	.db #0x00	; 0
+      0000EE 10                     310 	.db #0x10	;  16
+      0000EF 00                     311 	.db #0x00	;  0
+      0000F0 3E                     312 	.db #0x3e	; 62
+      0000F1 00                     313 	.db #0x00	; 0
+      0000F2 80                     314 	.db #0x80	; -128
+      0000F3 00                     315 	.db #0x00	;  0
+      0000F4 00                     316 	.db #0x00	; 0
+      0000F5 00                     317 	.db #0x00	; 0
+                           0000F6   318 G$globe5$0_0$0 == .
+      0000F6                        319 _globe5:
+      0000F6 00                     320 	.db #0x00	;  0
+      0000F7 00                     321 	.db #0x00	;  0
+      0000F8 40                     322 	.db #0x40	; 64
+      0000F9 00                     323 	.db #0x00	; 0
+      0000FA 10                     324 	.db #0x10	;  16
+      0000FB 00                     325 	.db #0x00	;  0
+      0000FC 42                     326 	.db #0x42	; 66	'B'
+      0000FD 00                     327 	.db #0x00	; 0
+      0000FE F0                     328 	.db #0xf0	; -16
+      0000FF 08                     329 	.db #0x08	;  8
+      000100 44                     330 	.db #0x44	; 68	'D'
+      000101 00                     331 	.db #0x00	; 0
+      000102 10                     332 	.db #0x10	;  16
+      000103 00                     333 	.db #0x00	;  0
+      000104 46                     334 	.db #0x46	; 70	'F'
+      000105 00                     335 	.db #0x00	; 0
+      000106 F0                     336 	.db #0xf0	; -16
+      000107 08                     337 	.db #0x08	;  8
+      000108 48                     338 	.db #0x48	; 72	'H'
+      000109 00                     339 	.db #0x00	; 0
+      00010A 10                     340 	.db #0x10	;  16
+      00010B 00                     341 	.db #0x00	;  0
+      00010C 4A                     342 	.db #0x4a	; 74	'J'
+      00010D 00                     343 	.db #0x00	; 0
+      00010E F0                     344 	.db #0xf0	; -16
+      00010F 08                     345 	.db #0x08	;  8
+      000110 4C                     346 	.db #0x4c	; 76	'L'
+      000111 00                     347 	.db #0x00	; 0
+      000112 10                     348 	.db #0x10	;  16
+      000113 00                     349 	.db #0x00	;  0
+      000114 4E                     350 	.db #0x4e	; 78	'N'
+      000115 00                     351 	.db #0x00	; 0
+      000116 80                     352 	.db #0x80	; -128
+      000117 00                     353 	.db #0x00	;  0
+      000118 00                     354 	.db #0x00	; 0
+      000119 00                     355 	.db #0x00	; 0
+                           00011A   356 G$globe6$0_0$0 == .
+      00011A                        357 _globe6:
+      00011A 00                     358 	.db #0x00	;  0
+      00011B 00                     359 	.db #0x00	;  0
+      00011C 50                     360 	.db #0x50	; 80	'P'
+      00011D 00                     361 	.db #0x00	; 0
+      00011E 10                     362 	.db #0x10	;  16
+      00011F 00                     363 	.db #0x00	;  0
+      000120 52                     364 	.db #0x52	; 82	'R'
+      000121 00                     365 	.db #0x00	; 0
+      000122 F0                     366 	.db #0xf0	; -16
+      000123 08                     367 	.db #0x08	;  8
+      000124 54                     368 	.db #0x54	; 84	'T'
+      000125 00                     369 	.db #0x00	; 0
+      000126 10                     370 	.db #0x10	;  16
+      000127 00                     371 	.db #0x00	;  0
+      000128 56                     372 	.db #0x56	; 86	'V'
+      000129 00                     373 	.db #0x00	; 0
+      00012A F0                     374 	.db #0xf0	; -16
+      00012B 08                     375 	.db #0x08	;  8
+      00012C 58                     376 	.db #0x58	; 88	'X'
+      00012D 00                     377 	.db #0x00	; 0
+      00012E 10                     378 	.db #0x10	;  16
+      00012F 00                     379 	.db #0x00	;  0
+      000130 5A                     380 	.db #0x5a	; 90	'Z'
+      000131 00                     381 	.db #0x00	; 0
+      000132 F0                     382 	.db #0xf0	; -16
+      000133 08                     383 	.db #0x08	;  8
+      000134 5C                     384 	.db #0x5c	; 92
+      000135 00                     385 	.db #0x00	; 0
+      000136 10                     386 	.db #0x10	;  16
+      000137 00                     387 	.db #0x00	;  0
+      000138 5E                     388 	.db #0x5e	; 94
+      000139 00                     389 	.db #0x00	; 0
+      00013A 80                     390 	.db #0x80	; -128
+      00013B 00                     391 	.db #0x00	;  0
+      00013C 00                     392 	.db #0x00	; 0
+      00013D 00                     393 	.db #0x00	; 0
+                           00013E   394 G$globe7$0_0$0 == .
+      00013E                        395 _globe7:
+      00013E 00                     396 	.db #0x00	;  0
+      00013F 00                     397 	.db #0x00	;  0
+      000140 60                     398 	.db #0x60	; 96
+      000141 00                     399 	.db #0x00	; 0
+      000142 10                     400 	.db #0x10	;  16
+      000143 00                     401 	.db #0x00	;  0
+      000144 62                     402 	.db #0x62	; 98	'b'
+      000145 00                     403 	.db #0x00	; 0
+      000146 F0                     404 	.db #0xf0	; -16
+      000147 08                     405 	.db #0x08	;  8
+      000148 64                     406 	.db #0x64	; 100	'd'
+      000149 00                     407 	.db #0x00	; 0
+      00014A 10                     408 	.db #0x10	;  16
+      00014B 00                     409 	.db #0x00	;  0
+      00014C 66                     410 	.db #0x66	; 102	'f'
+      00014D 00                     411 	.db #0x00	; 0
+      00014E F0                     412 	.db #0xf0	; -16
+      00014F 08                     413 	.db #0x08	;  8
+      000150 68                     414 	.db #0x68	; 104	'h'
+      000151 00                     415 	.db #0x00	; 0
+      000152 10                     416 	.db #0x10	;  16
+      000153 00                     417 	.db #0x00	;  0
+      000154 6A                     418 	.db #0x6a	; 106	'j'
+      000155 00                     419 	.db #0x00	; 0
+      000156 F0                     420 	.db #0xf0	; -16
+      000157 08                     421 	.db #0x08	;  8
+      000158 6C                     422 	.db #0x6c	; 108	'l'
+      000159 00                     423 	.db #0x00	; 0
+      00015A 10                     424 	.db #0x10	;  16
+      00015B 00                     425 	.db #0x00	;  0
+      00015C 6E                     426 	.db #0x6e	; 110	'n'
+      00015D 00                     427 	.db #0x00	; 0
+      00015E 80                     428 	.db #0x80	; -128
+      00015F 00                     429 	.db #0x00	;  0
+      000160 00                     430 	.db #0x00	; 0
+      000161 00                     431 	.db #0x00	; 0
+                           000162   432 G$globe_metasprites$0_0$0 == .
+      000162                        433 _globe_metasprites:
+      000162r66r00                  434 	.dw _globe1
+      000164r8Ar00                  435 	.dw _globe2
+      000166rAEr00                  436 	.dw _globe3
+      000168rD2r00                  437 	.dw _globe4
+      00016ArF6r00                  438 	.dw _globe5
+      00016Cr1Ar01                  439 	.dw _globe6
+      00016Er3Er01                  440 	.dw _globe7
+                           000170   441 	G$GameTitleUpdate$0$0	= .
+                                    442 	.globl	G$GameTitleUpdate$0$0
+                           000170   443 	C$GameTitle.c$107$1_0$121	= .
+                                    444 	.globl	C$GameTitle.c$107$1_0$121
+                                    445 ;src\GameTitle.c:107: uint8_t GameTitleUpdate()
+                                    446 ;	---------------------------------
+                                    447 ; Function GameTitleUpdate
+                                    448 ; ---------------------------------
+      000170                        449 _GameTitleUpdate::
+                           000170   450 	C$GameTitle.c$109$1_0$121	= .
+                                    451 	.globl	C$GameTitle.c$109$1_0$121
+                                    452 ;src\GameTitle.c:109: joypadPrevious = joypadCurrent;
+      000170 FAr00r00         [16]  453 	ld	a, (#_joypadCurrent)
+      000173 EAr00r00         [16]  454 	ld	(#_joypadPrevious),a
+                           000176   455 	C$GameTitle.c$110$1_0$121	= .
+                                    456 	.globl	C$GameTitle.c$110$1_0$121
+                                    457 ;src\GameTitle.c:110: joypadCurrent = joypad();
+      000176 CDr00r00         [24]  458 	call	_joypad
+      000179 EAr00r00         [16]  459 	ld	(#_joypadCurrent),a
+                           00017C   460 	C$GameTitle.c$111$1_0$121	= .
+                                    461 	.globl	C$GameTitle.c$111$1_0$121
+                                    462 ;src\GameTitle.c:111: timer++;
+      00017C 21r00r00         [12]  463 	ld	hl, #_timer
+      00017F 34               [12]  464 	inc	(hl)
+                           000180   465 	C$GameTitle.c$112$1_0$121	= .
+                                    466 	.globl	C$GameTitle.c$112$1_0$121
+                                    467 ;src\GameTitle.c:112: if (timer == 10)
+      000180 7E               [ 8]  468 	ld	a, (hl)
+      000181 D6 0A            [ 8]  469 	sub	a, #0x0a
+      000183 20 09            [12]  470 	jr	NZ, 00102$
+                           000185   471 	C$GameTitle.c$114$2_0$122	= .
+                                    472 	.globl	C$GameTitle.c$114$2_0$122
+                                    473 ;src\GameTitle.c:114: frame++; 
+      000185 21r01r00         [12]  474 	ld	hl, #_frame
+      000188 34               [12]  475 	inc	(hl)
+                           000189   476 	C$GameTitle.c$115$2_0$122	= .
+                                    477 	.globl	C$GameTitle.c$115$2_0$122
+                                    478 ;src\GameTitle.c:115: timer = 0;
+      000189 21r00r00         [12]  479 	ld	hl, #_timer
+      00018C 36 00            [12]  480 	ld	(hl), #0x00
+      00018E                        481 00102$:
+                           00018E   482 	C$GameTitle.c$117$1_0$121	= .
+                                    483 	.globl	C$GameTitle.c$117$1_0$121
+                                    484 ;src\GameTitle.c:117: if (frame >= 7) frame = 0;
+      00018E 21r01r00         [12]  485 	ld	hl, #_frame
+      000191 7E               [ 8]  486 	ld	a, (hl)
+      000192 D6 07            [ 8]  487 	sub	a, #0x07
+      000194 38 02            [12]  488 	jr	C, 00104$
+      000196 36 00            [12]  489 	ld	(hl), #0x00
+      000198                        490 00104$:
+                                    491 ;src\GameTitle.c:118: move_metasprite(globe_metasprites[frame], 0, 0, 88, 64);
+      000198 21r01r00         [12]  492 	ld	hl, #_frame
+      00019B 6E               [ 8]  493 	ld	l, (hl)
+                                    494 ;	spillPairReg hl
+                                    495 ;	spillPairReg hl
+      00019C 26 00            [ 8]  496 	ld	h, #0x00
+                                    497 ;	spillPairReg hl
+                                    498 ;	spillPairReg hl
+      00019E 29               [ 8]  499 	add	hl, hl
+      00019F 11r62r01         [12]  500 	ld	de, #_globe_metasprites
+      0001A2 19               [ 8]  501 	add	hl, de
+      0001A3 2A               [ 8]  502 	ld	a, (hl+)
+      0001A4 4E               [ 8]  503 	ld	c, (hl)
+                                    504 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
+      0001A5 21r00r00         [12]  505 	ld	hl, #___current_metasprite
+      0001A8 22               [ 8]  506 	ld	(hl+), a
+      0001A9 71               [ 8]  507 	ld	(hl), c
+                                    508 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
+      0001AA 21r00r00         [12]  509 	ld	hl, #___current_base_tile
+      0001AD 36 00            [12]  510 	ld	(hl), #0x00
+                                    511 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
+      0001AF 21 58 40         [12]  512 	ld	hl, #0x4058
+      0001B2 E5               [16]  513 	push	hl
+      0001B3 AF               [ 4]  514 	xor	a, a
+      0001B4 F5               [16]  515 	push	af
+      0001B5 33               [ 8]  516 	inc	sp
+      0001B6 CDr00r00         [24]  517 	call	___move_metasprite
+      0001B9 E8 03            [16]  518 	add	sp, #3
+                           0001BB   519 	C$GameTitle.c$119$1_0$121	= .
+                                    520 	.globl	C$GameTitle.c$119$1_0$121
+                                    521 ;src\GameTitle.c:119: if (joypadCurrent & J_START)
+      0001BB FAr00r00         [16]  522 	ld	a, (#_joypadCurrent)
+      0001BE 07               [ 4]  523 	rlca
+      0001BF 30 2B            [12]  524 	jr	NC, 00106$
+                           0001C1   525 	C$GameTitle.c$121$2_0$123	= .
+                                    526 	.globl	C$GameTitle.c$121$2_0$123
+                                    527 ;src\GameTitle.c:121: fadeToBlack(10);
+      0001C1 3E 0A            [ 8]  528 	ld	a, #0x0a
+      0001C3 CDr00r00         [24]  529 	call	_fadeToBlack
+                                    530 ;src\GameTitle.c:122: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+      0001C6 21r01r00         [12]  531 	ld	hl, #_frame
+      0001C9 6E               [ 8]  532 	ld	l, (hl)
+                                    533 ;	spillPairReg hl
+                                    534 ;	spillPairReg hl
+      0001CA 26 00            [ 8]  535 	ld	h, #0x00
+                                    536 ;	spillPairReg hl
+                                    537 ;	spillPairReg hl
+      0001CC 29               [ 8]  538 	add	hl, hl
+      0001CD 11r62r01         [12]  539 	ld	de, #_globe_metasprites
+      0001D0 19               [ 8]  540 	add	hl, de
+      0001D1 2A               [ 8]  541 	ld	a, (hl+)
+      0001D2 4E               [ 8]  542 	ld	c, (hl)
+                                    543 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
+      0001D3 21r00r00         [12]  544 	ld	hl, #___current_metasprite
+      0001D6 22               [ 8]  545 	ld	(hl+), a
+      0001D7 71               [ 8]  546 	ld	(hl), c
+                                    547 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
+      0001D8 21r00r00         [12]  548 	ld	hl, #___current_base_tile
+      0001DB 36 00            [12]  549 	ld	(hl), #0x00
+                                    550 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
+      0001DD 21 B0 B0         [12]  551 	ld	hl, #0xb0b0
+      0001E0 E5               [16]  552 	push	hl
+      0001E1 AF               [ 4]  553 	xor	a, a
+      0001E2 F5               [16]  554 	push	af
+      0001E3 33               [ 8]  555 	inc	sp
+      0001E4 CDr00r00         [24]  556 	call	___move_metasprite
+      0001E7 E8 03            [16]  557 	add	sp, #3
+                           0001E9   558 	C$GameTitle.c$123$2_0$123	= .
+                                    559 	.globl	C$GameTitle.c$123$2_0$123
+                                    560 ;src\GameTitle.c:123: return COREGAMELOOP;
+      0001E9 3E 02            [ 8]  561 	ld	a, #0x02
+      0001EB C9               [16]  562 	ret
+      0001EC                        563 00106$:
+                           0001EC   564 	C$GameTitle.c$126$1_0$121	= .
+                                    565 	.globl	C$GameTitle.c$126$1_0$121
+                                    566 ;src\GameTitle.c:126: return GAMETITLE;
+      0001EC 3E 01            [ 8]  567 	ld	a, #0x01
+                           0001EE   568 	C$GameTitle.c$127$1_0$121	= .
+                                    569 	.globl	C$GameTitle.c$127$1_0$121
+                                    570 ;src\GameTitle.c:127: }
+                           0001EE   571 	C$GameTitle.c$127$1_0$121	= .
+                                    572 	.globl	C$GameTitle.c$127$1_0$121
+                           0001EE   573 	XG$GameTitleUpdate$0$0	= .
+                                    574 	.globl	XG$GameTitleUpdate$0$0
+      0001EE C9               [16]  575 	ret
+                                    576 	.area _CODE
+                                    577 	.area _INITIALIZER
+                           000000   578 FGameTitle$__xinit_timer$0_0$0 == .
+      000000                        579 __xinit__timer:
+      000000 00                     580 	.db #0x00	; 0
+                           000001   581 FGameTitle$__xinit_frame$0_0$0 == .
+      000001                        582 __xinit__frame:
+      000001 00                     583 	.db #0x00	; 0
+                                    584 	.area _CABS (ABS)

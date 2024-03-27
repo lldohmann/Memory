@@ -7,7 +7,182 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
+  0 A$GameTitle$103                                                00001B GR
+  0 A$GameTitle$104                                                00001E GR
+  0 A$GameTitle$105                                                00001F GR
+  0 A$GameTitle$106                                                000022 GR
+  0 A$GameTitle$107                                                000023 GR
+  0 A$GameTitle$108                                                000024 GR
+  0 A$GameTitle$109                                                000025 GR
+  0 A$GameTitle$110                                                000026 GR
+  0 A$GameTitle$111                                                000029 GR
+  0 A$GameTitle$115                                                00002B GR
+  0 A$GameTitle$116                                                00002E GR
+  0 A$GameTitle$117                                                00002F GR
+  0 A$GameTitle$118                                                000032 GR
+  0 A$GameTitle$119                                                000033 GR
+  0 A$GameTitle$120                                                000036 GR
+  0 A$GameTitle$122                                                000038 GR
+  0 A$GameTitle$123                                                00003B GR
+  0 A$GameTitle$124                                                00003C GR
+  0 A$GameTitle$125                                                00003D GR
+  0 A$GameTitle$127                                                00003E GR
+  0 A$GameTitle$128                                                000041 GR
+  0 A$GameTitle$129                                                000042 GR
+  0 A$GameTitle$130                                                000043 GR
+  0 A$GameTitle$132                                                000044 GR
+  0 A$GameTitle$133                                                000047 GR
+  0 A$GameTitle$135                                                000049 GR
+  0 A$GameTitle$136                                                00004C GR
+  0 A$GameTitle$137                                                00004D GR
+  0 A$GameTitle$138                                                00004E GR
+  0 A$GameTitle$139                                                00004F GR
+  0 A$GameTitle$140                                                000050 GR
+  0 A$GameTitle$141                                                000053 GR
+  0 A$GameTitle$145                                                000055 GR
+  0 A$GameTitle$146                                                000057 GR
+  0 A$GameTitle$147                                                000059 GR
+  0 A$GameTitle$151                                                00005B GR
+  0 A$GameTitle$152                                                00005D GR
+  0 A$GameTitle$153                                                00005F GR
+  0 A$GameTitle$157                                                000061 GR
+  0 A$GameTitle$165                                                000063 GR
+  0 A$GameTitle$453                                                000170 GR
+  0 A$GameTitle$454                                                000173 GR
+  0 A$GameTitle$458                                                000176 GR
+  0 A$GameTitle$459                                                000179 GR
+  0 A$GameTitle$463                                                00017C GR
+  0 A$GameTitle$464                                                00017F GR
+  0 A$GameTitle$468                                                000180 GR
+  0 A$GameTitle$469                                                000181 GR
+  0 A$GameTitle$470                                                000183 GR
+  0 A$GameTitle$474                                                000185 GR
+  0 A$GameTitle$475                                                000188 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$GameTitle$479                                                000189 GR
+  0 A$GameTitle$480                                                00018C GR
+  0 A$GameTitle$485                                                00018E GR
+  0 A$GameTitle$486                                                000191 GR
+  0 A$GameTitle$487                                                000192 GR
+  0 A$GameTitle$488                                                000194 GR
+  0 A$GameTitle$489                                                000196 GR
+  0 A$GameTitle$492                                                000198 GR
+  0 A$GameTitle$493                                                00019B GR
+  0 A$GameTitle$496                                                00019C GR
+  0 A$GameTitle$499                                                00019E GR
+  0 A$GameTitle$500                                                00019F GR
+  0 A$GameTitle$501                                                0001A2 GR
+  0 A$GameTitle$502                                                0001A3 GR
+  0 A$GameTitle$503                                                0001A4 GR
+  0 A$GameTitle$505                                                0001A5 GR
+  0 A$GameTitle$506                                                0001A8 GR
+  0 A$GameTitle$507                                                0001A9 GR
+  0 A$GameTitle$509                                                0001AA GR
+  0 A$GameTitle$510                                                0001AD GR
+  0 A$GameTitle$512                                                0001AF GR
+  0 A$GameTitle$513                                                0001B2 GR
+  0 A$GameTitle$514                                                0001B3 GR
+  0 A$GameTitle$515                                                0001B4 GR
+  0 A$GameTitle$516                                                0001B5 GR
+  0 A$GameTitle$517                                                0001B6 GR
+  0 A$GameTitle$518                                                0001B9 GR
+  0 A$GameTitle$522                                                0001BB GR
+  0 A$GameTitle$523                                                0001BE GR
+  0 A$GameTitle$524                                                0001BF GR
+  0 A$GameTitle$528                                                0001C1 GR
+  0 A$GameTitle$529                                                0001C3 GR
+  0 A$GameTitle$531                                                0001C6 GR
+  0 A$GameTitle$532                                                0001C9 GR
+  0 A$GameTitle$535                                                0001CA GR
+  0 A$GameTitle$538                                                0001CC GR
+  0 A$GameTitle$539                                                0001CD GR
+  0 A$GameTitle$540                                                0001D0 GR
+  0 A$GameTitle$541                                                0001D1 GR
+  0 A$GameTitle$542                                                0001D2 GR
+  0 A$GameTitle$544                                                0001D3 GR
+  0 A$GameTitle$545                                                0001D6 GR
+  0 A$GameTitle$546                                                0001D7 GR
+  0 A$GameTitle$548                                                0001D8 GR
+  0 A$GameTitle$549                                                0001DB GR
+  0 A$GameTitle$551                                                0001DD GR
+  0 A$GameTitle$552                                                0001E0 GR
+  0 A$GameTitle$553                                                0001E1 GR
+  0 A$GameTitle$554                                                0001E2 GR
+  0 A$GameTitle$555                                                0001E3 GR
+  0 A$GameTitle$556                                                0001E4 GR
+  0 A$GameTitle$557                                                0001E7 GR
+  0 A$GameTitle$561                                                0001E9 GR
+  0 A$GameTitle$562                                                0001EB GR
+  0 A$GameTitle$567                                                0001EC GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$GameTitle$575                                                0001EE GR
+  0 A$GameTitle$78                                                 000000 GR
+  0 A$GameTitle$79                                                 000002 GR
+  0 A$GameTitle$83                                                 000004 GR
+  0 A$GameTitle$84                                                 000006 GR
+  0 A$GameTitle$88                                                 000008 GR
+  0 A$GameTitle$89                                                 00000A GR
+  0 A$GameTitle$90                                                 00000C GR
+  0 A$GameTitle$94                                                 00000E GR
+  0 A$GameTitle$95                                                 000011 GR
+  0 A$GameTitle$96                                                 000012 GR
+  0 A$GameTitle$97                                                 000015 GR
+  0 A$GameTitle$98                                                 000016 GR
+  0 A$GameTitle$99                                                 000019 GR
+  0 C$GameTitle.c$100$1_0$117                                   =  000055 GR
+  0 C$GameTitle.c$101$1_0$117                                   =  00005B GR
+  0 C$GameTitle.c$102$1_0$117                                   =  000061 GR
+  0 C$GameTitle.c$103$1_0$117                                   =  000063 GR
+  0 C$GameTitle.c$107$1_0$121                                   =  000170 GR
+  0 C$GameTitle.c$109$1_0$121                                   =  000170 GR
+  0 C$GameTitle.c$110$1_0$121                                   =  000176 GR
+  0 C$GameTitle.c$111$1_0$121                                   =  00017C GR
+  0 C$GameTitle.c$112$1_0$121                                   =  000180 GR
+  0 C$GameTitle.c$114$2_0$122                                   =  000185 GR
+  0 C$GameTitle.c$115$2_0$122                                   =  000189 GR
+  0 C$GameTitle.c$117$1_0$121                                   =  00018E GR
+  0 C$GameTitle.c$119$1_0$121                                   =  0001BB GR
+  0 C$GameTitle.c$121$2_0$123                                   =  0001C1 GR
+  0 C$GameTitle.c$123$2_0$123                                   =  0001E9 GR
+  0 C$GameTitle.c$126$1_0$121                                   =  0001EC GR
+  0 C$GameTitle.c$127$1_0$121                                   =  0001EE GR
+  0 C$GameTitle.c$91$0_0$117                                    =  000000 GR
+  0 C$GameTitle.c$93$1_0$117                                    =  000000 GR
+  0 C$GameTitle.c$94$1_0$117                                    =  000004 GR
+  0 C$GameTitle.c$95$1_0$117                                    =  000008 GR
+  0 C$GameTitle.c$96$1_0$117                                    =  00000E GR
+  0 C$GameTitle.c$97$1_0$117                                    =  00001B GR
+  0 C$GameTitle.c$98$1_0$117                                    =  00002B GR
+  7 FGameTitle$__xinit_frame$0_0$0                              =  000001 GR
+  7 FGameTitle$__xinit_timer$0_0$0                              =  000000 GR
+  0 G$GameTitleSetup$0$0                                        =  000000 GR
+  0 G$GameTitleUpdate$0$0                                       =  000170 GR
+  2 G$frame$0_0$0                                               =  000001 GR
+  0 G$globe1$0_0$0                                              =  000066 GR
+  0 G$globe2$0_0$0                                              =  00008A GR
+  0 G$globe3$0_0$0                                              =  0000AE GR
+  0 G$globe4$0_0$0                                              =  0000D2 GR
+  0 G$globe5$0_0$0                                              =  0000F6 GR
+  0 G$globe6$0_0$0                                              =  00011A GR
+  0 G$globe7$0_0$0                                              =  00013E GR
+  0 G$globe_metasprites$0_0$0                                   =  000162 GR
+  2 G$timer$0_0$0                                               =  000000 GR
+  0 XG$GameTitleSetup$0$0                                       =  000063 GR
+  0 XG$GameTitleUpdate$0$0                                      =  0001EE GR
     _BGP_REG                                                       ****** GX
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 4
+Hexadecimal [24-Bits]
+
+Symbol Table
+
   0 _GameTitleSetup                                                000000 GR
   0 _GameTitleUpdate                                               000170 GR
     _Globe_Tiles                                                   ****** GX
@@ -38,14 +213,13 @@ Symbol Table
     _set_bkg_tiles                                                 ****** GX
     _set_sprite_data                                               ****** GX
   2 _timer                                                         000000 GR
-    _wait_vbl_done                                                 ****** GX
 
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 5
 Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    1CF   flags    0
+   0 _CODE                                      size    1EF   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size      2   flags    0
    3 _DABS                                      size      0   flags    8

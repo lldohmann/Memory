@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <gb/metasprites.h> 
-#include "../headers/player.h"
-#include "../headers/common.h"
+#include "../src/player.h"
+#include "../src/common.h"
 
 void PlayerUpdate(struct player *ptr)
 {

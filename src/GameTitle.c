@@ -1,9 +1,9 @@
 #include <gb/gb.h>
 #include <gb/metasprites.h>
-#include "../headers/common.h"
-#include "../headers/Title_Tiles.h"
-#include "../headers/Globe_Tiles.h"
-#include "../headers/Title_Map.h"
+#include "../src/common.h"
+#include "../res/Title_Tiles.h"
+#include "../res/Globe_Tiles.h"
+#include "../res/Title_Map.h"
 
 // Building the globe meta sprite
 const metasprite_t globe1[] = {
@@ -119,8 +119,9 @@ uint8_t GameTitleUpdate()
     if (joypadCurrent & J_START)
     {
         fadeToBlack(10);
+        move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
         return COREGAMELOOP;
     }
-    wait_vbl_done();
+    //wait_vbl_done();
     return GAMETITLE;
 }

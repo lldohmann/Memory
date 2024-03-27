@@ -41,6 +41,7 @@
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
+G$TitleLabel$0_0$0 == .
 _TitleLabel:
 	.db #0xff	; 255
 	.db #0xff	; 255
