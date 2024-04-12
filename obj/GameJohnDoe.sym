@@ -1,0 +1,106 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  0 A$GameJohnDoe$111                                              000028 GR
+  0 A$GameJohnDoe$112                                              00002B GR
+  0 A$GameJohnDoe$116                                              00002E GR
+  0 A$GameJohnDoe$117                                              000031 GR
+  0 A$GameJohnDoe$118                                              000034 GR
+  0 A$GameJohnDoe$122                                              000035 GR
+  0 A$GameJohnDoe$123                                              000037 GR
+  0 A$GameJohnDoe$127                                              000039 GR
+  0 A$GameJohnDoe$128                                              00003B GR
+  0 A$GameJohnDoe$132                                              00003E GR
+  0 A$GameJohnDoe$133                                              000040 GR
+  0 A$GameJohnDoe$138                                              000043 GR
+  0 A$GameJohnDoe$139                                              000046 GR
+  0 A$GameJohnDoe$140                                              000048 GR
+  0 A$GameJohnDoe$144                                              00004A GR
+  0 A$GameJohnDoe$145                                              00004C GR
+  0 A$GameJohnDoe$149                                              00004F GR
+  0 A$GameJohnDoe$150                                              000051 GR
+  0 A$GameJohnDoe$155                                              000054 GR
+  0 A$GameJohnDoe$163                                              000056 GR
+  0 A$GameJohnDoe$63                                               000000 GR
+  0 A$GameJohnDoe$64                                               000003 GR
+  0 A$GameJohnDoe$65                                               000004 GR
+  0 A$GameJohnDoe$66                                               000007 GR
+  0 A$GameJohnDoe$67                                               000008 GR
+  0 A$GameJohnDoe$68                                               00000B GR
+  0 A$GameJohnDoe$72                                               00000D GR
+  0 A$GameJohnDoe$73                                               000010 GR
+  0 A$GameJohnDoe$74                                               000011 GR
+  0 A$GameJohnDoe$75                                               000014 GR
+  0 A$GameJohnDoe$76                                               000015 GR
+  0 A$GameJohnDoe$77                                               000016 GR
+  0 A$GameJohnDoe$78                                               000017 GR
+  0 A$GameJohnDoe$79                                               000018 GR
+  0 A$GameJohnDoe$80                                               00001B GR
+  0 A$GameJohnDoe$84                                               00001D GR
+  0 A$GameJohnDoe$85                                               00001F GR
+  0 A$GameJohnDoe$86                                               000021 GR
+  0 A$GameJohnDoe$90                                               000023 GR
+  0 A$GameJohnDoe$98                                               000025 GR
+  0 C$GameJohnDoe.c$10$1_0$103                                  =  00000D GR
+  0 C$GameJohnDoe.c$11$1_0$103                                  =  00001D GR
+  0 C$GameJohnDoe.c$12$1_0$103                                  =  000023 GR
+  0 C$GameJohnDoe.c$13$1_0$103                                  =  000025 GR
+  0 C$GameJohnDoe.c$15$1_0$104                                  =  000028 GR
+  0 C$GameJohnDoe.c$17$1_0$104                                  =  000028 GR
+  0 C$GameJohnDoe.c$18$1_0$104                                  =  00002E GR
+  0 C$GameJohnDoe.c$20$1_0$104                                  =  000035 GR
+  0 C$GameJohnDoe.c$22$2_0$105                                  =  000039 GR
+  0 C$GameJohnDoe.c$23$2_0$105                                  =  00003E GR
+  0 C$GameJohnDoe.c$25$1_0$104                                  =  000043 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$GameJohnDoe.c$27$2_0$106                                  =  00004A GR
+  0 C$GameJohnDoe.c$28$2_0$106                                  =  00004F GR
+  0 C$GameJohnDoe.c$31$1_0$104                                  =  000054 GR
+  0 C$GameJohnDoe.c$32$1_0$104                                  =  000056 GR
+  0 C$GameJohnDoe.c$7$0_0$103                                   =  000000 GR
+  0 C$GameJohnDoe.c$9$1_0$103                                   =  000000 GR
+  0 G$GameJohnDoeSetup$0$0                                      =  000000 GR
+  0 G$GameJohnDoeUpdate$0$0                                     =  000028 GR
+  0 XG$GameJohnDoeSetup$0$0                                     =  000025 GR
+  0 XG$GameJohnDoeUpdate$0$0                                    =  000056 GR
+  0 _GameJohnDoeSetup                                              000000 GR
+  0 _GameJohnDoeUpdate                                             000028 GR
+    _JohnDoe_Map                                                   ****** GX
+    _JohnDoe_Tiles                                                 ****** GX
+    _LCDC_REG                                                      ****** GX
+    _fadeFromBlack                                                 ****** GX
+    _fadeFromWhite                                                 ****** GX
+    _fadeToBlack                                                   ****** GX
+    _fadeToWhite                                                   ****** GX
+    _joypad                                                        ****** GX
+    _joypadCurrent                                                 ****** GX
+    _joypadPrevious                                                ****** GX
+    _set_bkg_data                                                  ****** GX
+    _set_bkg_tiles                                                 ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size     57   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size      0   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _INITIALIZER                               size      0   flags    0
+   8 _CABS                                      size      0   flags    8
+

@@ -26,5 +26,5 @@
 
 extern const unsigned char Home[];
 extern const unsigned char HOME_COLLISION[][21];
-uint8_t returnCollisionValue(char value);
+uint8_t returnCollisionValue(uint8_t x_pos, uint8_t y_pos);
 /* End of HOME.H */

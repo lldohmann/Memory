@@ -49,42 +49,35 @@ _Home::
 	.globl	G$returnCollisionValue$0$0
 	C$home.c$390$0_0$2	= .
 	.globl	C$home.c$390$0_0$2
-;res\home.c:390: uint8_t returnCollisionValue(char value)
+;res\home.c:390: char returnCollisionValue(uint8_t x_pos, uint8_t y_pos)
 ;	---------------------------------
 ; Function returnCollisionValue
 ; ---------------------------------
 _returnCollisionValue::
+	ld	c, a
 	C$home.c$392$1_0$2	= .
 	.globl	C$home.c$392$1_0$2
-;res\home.c:392: if (value == '0')
-	ld	c, a
-	sub	a, #0x30
-	jr	NZ, 00105$
-	C$home.c$394$2_0$3	= .
-	.globl	C$home.c$394$2_0$3
-;res\home.c:394: return 0;
-	xor	a, a
-	ret
-00105$:
-	C$home.c$396$1_0$2	= .
-	.globl	C$home.c$396$1_0$2
-;res\home.c:396: else if (value == '1')
-	ld	a, c
-	sub	a, #0x31
-	C$home.c$398$2_0$4	= .
-	.globl	C$home.c$398$2_0$4
-;res\home.c:398: return 1;
-	C$home.c$402$2_0$5	= .
-	.globl	C$home.c$402$2_0$5
-;res\home.c:402: return 99;
-	ld	a, #0x01
-	ret	Z
-	ld	a, #0x63
-	C$home.c$404$1_0$2	= .
-	.globl	C$home.c$404$1_0$2
-;res\home.c:404: }
-	C$home.c$404$1_0$2	= .
-	.globl	C$home.c$404$1_0$2
+;res\home.c:392: return HOME_COLLISION[y_pos][x_pos];
+	ld	d, #0x00
+	ld	l, e
+	ld	h, d
+	add	hl, hl
+	add	hl, hl
+	add	hl, de
+	add	hl, hl
+	add	hl, hl
+	add	hl, de
+	ld	de, #_HOME_COLLISION
+	add	hl, de
+	ld	e, c
+	ld	d, #0x00
+	add	hl, de
+	ld	a, (hl)
+	C$home.c$393$1_0$2	= .
+	.globl	C$home.c$393$1_0$2
+;res\home.c:393: }
+	C$home.c$393$1_0$2	= .
+	.globl	C$home.c$393$1_0$2
 	XG$returnCollisionValue$0$0	= .
 	.globl	XG$returnCollisionValue$0$0
 	ret

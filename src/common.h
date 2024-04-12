@@ -4,6 +4,7 @@
 #define GAMEFIRSTLOAD 0
 #define GAMETITLE 1
 #define COREGAMELOOP 2
+#define GAMEJOHNDOE 3
 
 extern uint8_t joypadPrevious, joypadCurrent;
 
@@ -30,5 +31,21 @@ void fadeToBlack(uint8_t frames);
  * The time it takes to change background pallet in frames. 
 */
 void fadeFromBlack(uint8_t frames);
+
+/**
+ * Slowly causes the background pallet to turn white.
+ * 
+ * @param frames
+ * The time it takes to change background pallet to white in frames. 
+*/
+void fadeToWhite(uint8_t frames);
+
+/**
+ * Slowly causes the background pallet to return to normal from a white screen.
+ * 
+ * @param frames
+ * The time it takes to change background pallet in frames. 
+*/
+void fadeFromWhite(uint8_t frames);
 
 #endif

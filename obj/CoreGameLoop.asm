@@ -100,23 +100,23 @@ _mouse::
 	.area _CODE
 	G$set_camera$0$0	= .
 	.globl	G$set_camera$0$0
-	C$CoreGameLoop.c$19$0_0$109	= .
-	.globl	C$CoreGameLoop.c$19$0_0$109
+	C$CoreGameLoop.c$19$0_0$111	= .
+	.globl	C$CoreGameLoop.c$19$0_0$111
 ;src\CoreGameLoop.c:19: void set_camera()
 ;	---------------------------------
 ; Function set_camera
 ; ---------------------------------
 _set_camera::
 	add	sp, #-3
-	C$CoreGameLoop.c$22$1_0$109	= .
-	.globl	C$CoreGameLoop.c$22$1_0$109
+	C$CoreGameLoop.c$22$1_0$111	= .
+	.globl	C$CoreGameLoop.c$22$1_0$111
 ;src\CoreGameLoop.c:22: SCY_REG = camera_y_pixels; SCX_REG = camera_x_pixels;
 	ld	a, (#_camera_y_pixels)
 	ldh	(_SCY_REG + 0), a
 	ld	a, (#_camera_x_pixels)
 	ldh	(_SCX_REG + 0), a
-	C$CoreGameLoop.c$24$1_0$109	= .
-	.globl	C$CoreGameLoop.c$24$1_0$109
+	C$CoreGameLoop.c$24$1_0$111	= .
+	.globl	C$CoreGameLoop.c$24$1_0$111
 ;src\CoreGameLoop.c:24: map_pos_y_tiles = (uint8_t)(camera_y_pixels >> 3u);
 	ld	hl, #_camera_y_pixels
 	ld	a, (hl+)
@@ -130,19 +130,19 @@ _set_camera::
 	rr	c
 	ld	hl, #_map_pos_y_tiles
 	ld	(hl), c
-	C$CoreGameLoop.c$29$1_0$109	= .
-	.globl	C$CoreGameLoop.c$29$1_0$109
+	C$CoreGameLoop.c$29$1_0$111	= .
+	.globl	C$CoreGameLoop.c$29$1_0$111
 ;src\CoreGameLoop.c:29: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
 	ld	c, (hl)
-	C$CoreGameLoop.c$25$1_0$109	= .
-	.globl	C$CoreGameLoop.c$25$1_0$109
+	C$CoreGameLoop.c$25$1_0$111	= .
+	.globl	C$CoreGameLoop.c$25$1_0$111
 ;src\CoreGameLoop.c:25: if (map_pos_y_tiles != old_map_pos_y_tiles)
 	ld	a, (hl)
 	ld	hl, #_old_map_pos_y_tiles
 	sub	a, (hl)
 	jp	Z,00107$
-	C$CoreGameLoop.c$29$1_0$109	= .
-	.globl	C$CoreGameLoop.c$29$1_0$109
+	C$CoreGameLoop.c$29$1_0$111	= .
+	.globl	C$CoreGameLoop.c$29$1_0$111
 ;src\CoreGameLoop.c:29: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
 	ld	hl, #_map_pos_x_tiles
 	ld	e, (hl)
@@ -170,8 +170,8 @@ _set_camera::
 	ld	a, #0x00
 	rla
 	ld	b, a
-	C$CoreGameLoop.c$27$2_0$110	= .
-	.globl	C$CoreGameLoop.c$27$2_0$110
+	C$CoreGameLoop.c$27$2_0$112	= .
+	.globl	C$CoreGameLoop.c$27$2_0$112
 ;src\CoreGameLoop.c:27: if (camera_y_pixels < old_camera_y_pixels) // if camera is moving up
 	ld	de, #_camera_y_pixels
 	ld	hl, #_old_camera_y_pixels
@@ -220,13 +220,13 @@ _set_camera::
 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
 	ld	hl, #__submap_tile_offset
 	ld	(hl), #0x00
-	C$CoreGameLoop.c$29$2_0$110	= .
-	.globl	C$CoreGameLoop.c$29$2_0$110
+	C$CoreGameLoop.c$29$2_0$112	= .
+	.globl	C$CoreGameLoop.c$29$2_0$112
 ;src\CoreGameLoop.c:29: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
 	jr	00105$
 00104$:
-	C$CoreGameLoop.c$33$3_0$112	= .
-	.globl	C$CoreGameLoop.c$33$3_0$112
+	C$CoreGameLoop.c$33$3_0$114	= .
+	.globl	C$CoreGameLoop.c$33$3_0$114
 ;src\CoreGameLoop.c:33: if ((HomeHeight - 18u) > map_pos_y_tiles) // (have we touched the bottom of the map?) if not then...
 	ld	a, (#_map_pos_y_tiles)
 	sub	a, #0x30
@@ -277,23 +277,23 @@ _set_camera::
 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
 	ld	hl, #__submap_tile_offset
 	ld	(hl), #0x00
-	C$CoreGameLoop.c$35$2_0$110	= .
-	.globl	C$CoreGameLoop.c$35$2_0$110
+	C$CoreGameLoop.c$35$2_0$112	= .
+	.globl	C$CoreGameLoop.c$35$2_0$112
 ;src\CoreGameLoop.c:35: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles + 18u, MIN(21u, HomeWidth - map_pos_x_tiles), 1, Home, HomeWidth, 128);
 00105$:
-	C$CoreGameLoop.c$29$1_0$109	= .
-	.globl	C$CoreGameLoop.c$29$1_0$109
+	C$CoreGameLoop.c$29$1_0$111	= .
+	.globl	C$CoreGameLoop.c$29$1_0$111
 ;src\CoreGameLoop.c:29: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
 	ld	hl, #_map_pos_y_tiles
 	ld	c, (hl)
-	C$CoreGameLoop.c$38$2_0$110	= .
-	.globl	C$CoreGameLoop.c$38$2_0$110
+	C$CoreGameLoop.c$38$2_0$112	= .
+	.globl	C$CoreGameLoop.c$38$2_0$112
 ;src\CoreGameLoop.c:38: old_map_pos_y_tiles = map_pos_y_tiles;
 	ld	hl, #_old_map_pos_y_tiles
 	ld	(hl), c
 00107$:
-	C$CoreGameLoop.c$41$1_0$109	= .
-	.globl	C$CoreGameLoop.c$41$1_0$109
+	C$CoreGameLoop.c$41$1_0$111	= .
+	.globl	C$CoreGameLoop.c$41$1_0$111
 ;src\CoreGameLoop.c:41: map_pos_x_tiles = (uint8_t)(camera_x_pixels >> 3u);
 	ld	hl, #_camera_x_pixels
 	ld	a, (hl+)
@@ -307,15 +307,15 @@ _set_camera::
 	rr	b
 	ld	hl, #_map_pos_x_tiles
 	ld	(hl), b
-	C$CoreGameLoop.c$42$1_0$109	= .
-	.globl	C$CoreGameLoop.c$42$1_0$109
+	C$CoreGameLoop.c$42$1_0$111	= .
+	.globl	C$CoreGameLoop.c$42$1_0$111
 ;src\CoreGameLoop.c:42: if (map_pos_x_tiles != old_map_pos_x_tiles)
 	ld	a, (hl)
 	ld	hl, #_old_map_pos_x_tiles
 	sub	a, (hl)
 	jp	Z,00114$
-	C$CoreGameLoop.c$46$1_0$109	= .
-	.globl	C$CoreGameLoop.c$46$1_0$109
+	C$CoreGameLoop.c$46$1_0$111	= .
+	.globl	C$CoreGameLoop.c$46$1_0$111
 ;src\CoreGameLoop.c:46: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
 	ld	hl, #_map_pos_y_tiles
 	ld	e, (hl)
@@ -344,8 +344,8 @@ _set_camera::
 	ld	a, #0x00
 	rla
 	ld	b, a
-	C$CoreGameLoop.c$44$2_0$114	= .
-	.globl	C$CoreGameLoop.c$44$2_0$114
+	C$CoreGameLoop.c$44$2_0$116	= .
+	.globl	C$CoreGameLoop.c$44$2_0$116
 ;src\CoreGameLoop.c:44: if (camera_x_pixels < old_camera_x_pixels)
 	push	de
 	ld	de, #_camera_x_pixels
@@ -396,13 +396,13 @@ _set_camera::
 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
 	ld	hl, #__submap_tile_offset
 	ld	(hl), #0x00
-	C$CoreGameLoop.c$46$2_0$114	= .
-	.globl	C$CoreGameLoop.c$46$2_0$114
+	C$CoreGameLoop.c$46$2_0$116	= .
+	.globl	C$CoreGameLoop.c$46$2_0$116
 ;src\CoreGameLoop.c:46: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
 	jr	00112$
 00111$:
-	C$CoreGameLoop.c$50$3_0$116	= .
-	.globl	C$CoreGameLoop.c$50$3_0$116
+	C$CoreGameLoop.c$50$3_0$118	= .
+	.globl	C$CoreGameLoop.c$50$3_0$118
 ;src\CoreGameLoop.c:50: if ((HomeWidth - 20u) > map_pos_x_tiles)
 	ld	a, (#_map_pos_x_tiles)
 	sub	a, #0x1d
@@ -446,18 +446,18 @@ _set_camera::
 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
 	ld	hl, #__submap_tile_offset
 	ld	(hl), #0x00
-	C$CoreGameLoop.c$52$2_0$114	= .
-	.globl	C$CoreGameLoop.c$52$2_0$114
+	C$CoreGameLoop.c$52$2_0$116	= .
+	.globl	C$CoreGameLoop.c$52$2_0$116
 ;src\CoreGameLoop.c:52: set_bkg_based_submap(map_pos_x_tiles + 20u, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
 00112$:
-	C$CoreGameLoop.c$55$2_0$114	= .
-	.globl	C$CoreGameLoop.c$55$2_0$114
+	C$CoreGameLoop.c$55$2_0$116	= .
+	.globl	C$CoreGameLoop.c$55$2_0$116
 ;src\CoreGameLoop.c:55: old_map_pos_x_tiles = map_pos_x_tiles;
 	ld	a, (#_map_pos_x_tiles)
 	ld	(#_old_map_pos_x_tiles),a
 00114$:
-	C$CoreGameLoop.c$58$1_0$109	= .
-	.globl	C$CoreGameLoop.c$58$1_0$109
+	C$CoreGameLoop.c$58$1_0$111	= .
+	.globl	C$CoreGameLoop.c$58$1_0$111
 ;src\CoreGameLoop.c:58: old_camera_x_pixels = camera_x_pixels, old_camera_y_pixels = camera_y_pixels;
 	ld	a, (#_camera_x_pixels)
 	ld	(#_old_camera_x_pixels),a
@@ -467,54 +467,54 @@ _set_camera::
 	ld	(#_old_camera_y_pixels),a
 	ld	a, (#_camera_y_pixels + 1)
 	ld	(#_old_camera_y_pixels + 1),a
-	C$CoreGameLoop.c$59$1_0$109	= .
-	.globl	C$CoreGameLoop.c$59$1_0$109
+	C$CoreGameLoop.c$59$1_0$111	= .
+	.globl	C$CoreGameLoop.c$59$1_0$111
 ;src\CoreGameLoop.c:59: }
 	add	sp, #3
-	C$CoreGameLoop.c$59$1_0$109	= .
-	.globl	C$CoreGameLoop.c$59$1_0$109
+	C$CoreGameLoop.c$59$1_0$111	= .
+	.globl	C$CoreGameLoop.c$59$1_0$111
 	XG$set_camera$0$0	= .
 	.globl	XG$set_camera$0$0
 	ret
 	G$CoreGameLoopSetup$0$0	= .
 	.globl	G$CoreGameLoopSetup$0$0
-	C$CoreGameLoop.c$63$1_0$130	= .
-	.globl	C$CoreGameLoop.c$63$1_0$130
+	C$CoreGameLoop.c$63$1_0$132	= .
+	.globl	C$CoreGameLoop.c$63$1_0$132
 ;src\CoreGameLoop.c:63: void CoreGameLoopSetup()
 ;	---------------------------------
 ; Function CoreGameLoopSetup
 ; ---------------------------------
 _CoreGameLoopSetup::
-	C$CoreGameLoop.c$66$1_0$130	= .
-	.globl	C$CoreGameLoop.c$66$1_0$130
+	C$CoreGameLoop.c$66$1_0$132	= .
+	.globl	C$CoreGameLoop.c$66$1_0$132
 ;src\CoreGameLoop.c:66: map_pos_x_tiles = map_pos_y_tiles = 0;
 	ld	hl, #_map_pos_y_tiles
 	ld	(hl), #0x00
 	ld	hl, #_map_pos_x_tiles
 	ld	(hl), #0x00
-	C$CoreGameLoop.c$67$1_0$130	= .
-	.globl	C$CoreGameLoop.c$67$1_0$130
+	C$CoreGameLoop.c$67$1_0$132	= .
+	.globl	C$CoreGameLoop.c$67$1_0$132
 ;src\CoreGameLoop.c:67: old_map_pos_x_tiles = old_camera_y_pixels = 255; 
 	ld	hl, #_old_map_pos_x_tiles
 	ld	(hl), #0xff
-	C$CoreGameLoop.c$68$1_0$130	= .
-	.globl	C$CoreGameLoop.c$68$1_0$130
+	C$CoreGameLoop.c$68$1_0$132	= .
+	.globl	C$CoreGameLoop.c$68$1_0$132
 ;src\CoreGameLoop.c:68: camera_x_pixels = 208;
 	ld	hl, #_camera_x_pixels
 	ld	a, #0xd0
 	ld	(hl+), a
 	xor	a, a
 	ld	(hl), a
-	C$CoreGameLoop.c$69$1_0$130	= .
-	.globl	C$CoreGameLoop.c$69$1_0$130
+	C$CoreGameLoop.c$69$1_0$132	= .
+	.globl	C$CoreGameLoop.c$69$1_0$132
 ;src\CoreGameLoop.c:69: camera_y_pixels = 96;
 	ld	hl, #_camera_y_pixels
 	ld	a, #0x60
 	ld	(hl+), a
 	xor	a, a
 	ld	(hl), a
-	C$CoreGameLoop.c$70$1_0$130	= .
-	.globl	C$CoreGameLoop.c$70$1_0$130
+	C$CoreGameLoop.c$70$1_0$132	= .
+	.globl	C$CoreGameLoop.c$70$1_0$132
 ;src\CoreGameLoop.c:70: old_camera_x_pixels = camera_x_pixels; old_camera_y_pixels = camera_y_pixels;
 	ld	hl, #_old_camera_x_pixels
 	ld	a, #0xd0
@@ -526,13 +526,13 @@ _CoreGameLoopSetup::
 	ld	(hl+), a
 	xor	a, a
 	ld	(hl), a
-	C$CoreGameLoop.c$71$1_0$130	= .
-	.globl	C$CoreGameLoop.c$71$1_0$130
+	C$CoreGameLoop.c$71$1_0$132	= .
+	.globl	C$CoreGameLoop.c$71$1_0$132
 ;src\CoreGameLoop.c:71: redraw = FALSE;
 	ld	hl, #_redraw
 	ld	(hl), #0x00
-	C$CoreGameLoop.c$73$1_0$130	= .
-	.globl	C$CoreGameLoop.c$73$1_0$130
+	C$CoreGameLoop.c$73$1_0$132	= .
+	.globl	C$CoreGameLoop.c$73$1_0$132
 ;src\CoreGameLoop.c:73: set_bkg_data(128, 144, IndoorTiles);
 	ld	de, #_IndoorTiles
 	push	de
@@ -560,8 +560,8 @@ _CoreGameLoopSetup::
 ;C:/gbdk/include/gb/gb.h:1150: _submap_tile_offset = 0;
 	ld	hl, #__submap_tile_offset
 	ld	(hl), #0x00
-	C$CoreGameLoop.c$75$1_0$130	= .
-	.globl	C$CoreGameLoop.c$75$1_0$130
+	C$CoreGameLoop.c$75$1_0$132	= .
+	.globl	C$CoreGameLoop.c$75$1_0$132
 ;src\CoreGameLoop.c:75: set_sprite_data(0, 128, Cast_Tiles);
 	ld	de, #_Cast_Tiles
 	push	de
@@ -569,80 +569,80 @@ _CoreGameLoopSetup::
 	push	hl
 	call	_set_sprite_data
 	add	sp, #4
-	C$CoreGameLoop.c$76$1_0$130	= .
-	.globl	C$CoreGameLoop.c$76$1_0$130
+	C$CoreGameLoop.c$76$1_0$132	= .
+	.globl	C$CoreGameLoop.c$76$1_0$132
 ;src\CoreGameLoop.c:76: SPRITES_8x16;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x04
 	ldh	(_LCDC_REG + 0), a
-	C$CoreGameLoop.c$77$1_0$130	= .
-	.globl	C$CoreGameLoop.c$77$1_0$130
+	C$CoreGameLoop.c$77$1_0$132	= .
+	.globl	C$CoreGameLoop.c$77$1_0$132
 ;src\CoreGameLoop.c:77: SHOW_BKG;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x01
 	ldh	(_LCDC_REG + 0), a
-	C$CoreGameLoop.c$78$1_0$130	= .
-	.globl	C$CoreGameLoop.c$78$1_0$130
+	C$CoreGameLoop.c$78$1_0$132	= .
+	.globl	C$CoreGameLoop.c$78$1_0$132
 ;src\CoreGameLoop.c:78: SHOW_SPRITES;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x02
 	ldh	(_LCDC_REG + 0), a
-	C$CoreGameLoop.c$79$1_0$130	= .
-	.globl	C$CoreGameLoop.c$79$1_0$130
+	C$CoreGameLoop.c$79$1_0$132	= .
+	.globl	C$CoreGameLoop.c$79$1_0$132
 ;src\CoreGameLoop.c:79: set_camera();
 	call	_set_camera
-	C$CoreGameLoop.c$80$1_0$130	= .
-	.globl	C$CoreGameLoop.c$80$1_0$130
+	C$CoreGameLoop.c$80$1_0$132	= .
+	.globl	C$CoreGameLoop.c$80$1_0$132
 ;src\CoreGameLoop.c:80: fadeFromBlack(10);
 	ld	a, #0x0a
-	C$CoreGameLoop.c$81$1_0$130	= .
-	.globl	C$CoreGameLoop.c$81$1_0$130
+	C$CoreGameLoop.c$81$1_0$132	= .
+	.globl	C$CoreGameLoop.c$81$1_0$132
 ;src\CoreGameLoop.c:81: }
-	C$CoreGameLoop.c$81$1_0$130	= .
-	.globl	C$CoreGameLoop.c$81$1_0$130
+	C$CoreGameLoop.c$81$1_0$132	= .
+	.globl	C$CoreGameLoop.c$81$1_0$132
 	XG$CoreGameLoopSetup$0$0	= .
 	.globl	XG$CoreGameLoopSetup$0$0
 	jp	_fadeFromBlack
 	G$CoreGameLoopUpdate$0$0	= .
 	.globl	G$CoreGameLoopUpdate$0$0
-	C$CoreGameLoop.c$85$1_0$134	= .
-	.globl	C$CoreGameLoop.c$85$1_0$134
+	C$CoreGameLoop.c$85$1_0$136	= .
+	.globl	C$CoreGameLoop.c$85$1_0$136
 ;src\CoreGameLoop.c:85: uint8_t CoreGameLoopUpdate()
 ;	---------------------------------
 ; Function CoreGameLoopUpdate
 ; ---------------------------------
 _CoreGameLoopUpdate::
-	C$CoreGameLoop.c$87$1_0$134	= .
-	.globl	C$CoreGameLoop.c$87$1_0$134
+	C$CoreGameLoop.c$87$1_0$136	= .
+	.globl	C$CoreGameLoop.c$87$1_0$136
 ;src\CoreGameLoop.c:87: joypadCurrent = joypad();
 	call	_joypad
 	ld	(#_joypadCurrent),a
-	C$CoreGameLoop.c$88$1_0$134	= .
-	.globl	C$CoreGameLoop.c$88$1_0$134
+	C$CoreGameLoop.c$88$1_0$136	= .
+	.globl	C$CoreGameLoop.c$88$1_0$136
 ;src\CoreGameLoop.c:88: PlayerUpdate(&mouse);
 	ld	de, #_mouse
 	call	_PlayerUpdate
-	C$CoreGameLoop.c$89$1_0$134	= .
-	.globl	C$CoreGameLoop.c$89$1_0$134
+	C$CoreGameLoop.c$89$1_0$136	= .
+	.globl	C$CoreGameLoop.c$89$1_0$136
 ;src\CoreGameLoop.c:89: DrawPlayer(&mouse);
 	ld	de, #_mouse
 	call	_DrawPlayer
-	C$CoreGameLoop.c$90$1_0$134	= .
-	.globl	C$CoreGameLoop.c$90$1_0$134
+	C$CoreGameLoop.c$90$1_0$136	= .
+	.globl	C$CoreGameLoop.c$90$1_0$136
 ;src\CoreGameLoop.c:90: if (joypadCurrent & J_UP) {
 	ld	hl, #_joypadCurrent
 	ld	c, (hl)
 	bit	2, c
 	jr	Z, 00108$
-	C$CoreGameLoop.c$91$2_0$135	= .
-	.globl	C$CoreGameLoop.c$91$2_0$135
+	C$CoreGameLoop.c$91$2_0$137	= .
+	.globl	C$CoreGameLoop.c$91$2_0$137
 ;src\CoreGameLoop.c:91: if (camera_y_pixels){
 	ld	hl, #_camera_y_pixels + 1
 	ld	a, (hl-)
 	or	a, (hl)
 	jr	Z, 00109$
-	C$CoreGameLoop.c$92$3_0$136	= .
-	.globl	C$CoreGameLoop.c$92$3_0$136
+	C$CoreGameLoop.c$92$3_0$138	= .
+	.globl	C$CoreGameLoop.c$92$3_0$138
 ;src\CoreGameLoop.c:92: camera_y_pixels--;
 	ld	a, (hl+)
 	ld	e, a
@@ -652,20 +652,20 @@ _CoreGameLoopUpdate::
 	ld	a, e
 	ld	(hl+), a
 	ld	(hl), d
-	C$CoreGameLoop.c$93$3_0$136	= .
-	.globl	C$CoreGameLoop.c$93$3_0$136
+	C$CoreGameLoop.c$93$3_0$138	= .
+	.globl	C$CoreGameLoop.c$93$3_0$138
 ;src\CoreGameLoop.c:93: redraw = TRUE;
 	ld	hl, #_redraw
 	ld	(hl), #0x01
 	jr	00109$
 00108$:
-	C$CoreGameLoop.c$95$1_0$134	= .
-	.globl	C$CoreGameLoop.c$95$1_0$134
+	C$CoreGameLoop.c$95$1_0$136	= .
+	.globl	C$CoreGameLoop.c$95$1_0$136
 ;src\CoreGameLoop.c:95: } else if (joypadCurrent & J_DOWN) {
 	bit	3, c
 	jr	Z, 00109$
-	C$CoreGameLoop.c$96$2_0$137	= .
-	.globl	C$CoreGameLoop.c$96$2_0$137
+	C$CoreGameLoop.c$96$2_0$139	= .
+	.globl	C$CoreGameLoop.c$96$2_0$139
 ;src\CoreGameLoop.c:96: if (camera_y_pixels < HomeCameraMaxY)
 	ld	hl, #_camera_y_pixels
 	ld	a, (hl+)
@@ -674,8 +674,8 @@ _CoreGameLoopUpdate::
 	ld	a, e
 	sbc	a, #0x01
 	jr	NC, 00109$
-	C$CoreGameLoop.c$98$3_0$138	= .
-	.globl	C$CoreGameLoop.c$98$3_0$138
+	C$CoreGameLoop.c$98$3_0$140	= .
+	.globl	C$CoreGameLoop.c$98$3_0$140
 ;src\CoreGameLoop.c:98: camera_y_pixels++;
 	dec	hl
 	inc	(hl)
@@ -683,26 +683,26 @@ _CoreGameLoopUpdate::
 	inc	hl
 	inc	(hl)
 00170$:
-	C$CoreGameLoop.c$99$3_0$138	= .
-	.globl	C$CoreGameLoop.c$99$3_0$138
+	C$CoreGameLoop.c$99$3_0$140	= .
+	.globl	C$CoreGameLoop.c$99$3_0$140
 ;src\CoreGameLoop.c:99: redraw = TRUE;
 	ld	hl, #_redraw
 	ld	(hl), #0x01
 00109$:
-	C$CoreGameLoop.c$103$1_0$134	= .
-	.globl	C$CoreGameLoop.c$103$1_0$134
+	C$CoreGameLoop.c$103$1_0$136	= .
+	.globl	C$CoreGameLoop.c$103$1_0$136
 ;src\CoreGameLoop.c:103: if (joypadCurrent & J_LEFT) {
 	bit	1, c
 	jr	Z, 00117$
-	C$CoreGameLoop.c$104$2_0$139	= .
-	.globl	C$CoreGameLoop.c$104$2_0$139
+	C$CoreGameLoop.c$104$2_0$141	= .
+	.globl	C$CoreGameLoop.c$104$2_0$141
 ;src\CoreGameLoop.c:104: if (camera_x_pixels)
 	ld	hl, #_camera_x_pixels + 1
 	ld	a, (hl-)
 	or	a, (hl)
 	jr	Z, 00118$
-	C$CoreGameLoop.c$106$3_0$140	= .
-	.globl	C$CoreGameLoop.c$106$3_0$140
+	C$CoreGameLoop.c$106$3_0$142	= .
+	.globl	C$CoreGameLoop.c$106$3_0$142
 ;src\CoreGameLoop.c:106: camera_x_pixels--;
 	ld	a, (hl+)
 	ld	e, a
@@ -712,20 +712,20 @@ _CoreGameLoopUpdate::
 	ld	a, e
 	ld	(hl+), a
 	ld	(hl), d
-	C$CoreGameLoop.c$107$3_0$140	= .
-	.globl	C$CoreGameLoop.c$107$3_0$140
+	C$CoreGameLoop.c$107$3_0$142	= .
+	.globl	C$CoreGameLoop.c$107$3_0$142
 ;src\CoreGameLoop.c:107: redraw = TRUE;
 	ld	hl, #_redraw
 	ld	(hl), #0x01
 	jr	00118$
 00117$:
-	C$CoreGameLoop.c$109$1_0$134	= .
-	.globl	C$CoreGameLoop.c$109$1_0$134
+	C$CoreGameLoop.c$109$1_0$136	= .
+	.globl	C$CoreGameLoop.c$109$1_0$136
 ;src\CoreGameLoop.c:109: } else if (joypadCurrent & J_RIGHT) {
 	bit	0, c
 	jr	Z, 00118$
-	C$CoreGameLoop.c$110$2_0$141	= .
-	.globl	C$CoreGameLoop.c$110$2_0$141
+	C$CoreGameLoop.c$110$2_0$143	= .
+	.globl	C$CoreGameLoop.c$110$2_0$143
 ;src\CoreGameLoop.c:110: if (camera_x_pixels < HomeCameraMaxX)
 	ld	hl, #_camera_x_pixels
 	ld	a, (hl+)
@@ -733,8 +733,8 @@ _CoreGameLoopUpdate::
 	ld	a, (hl)
 	sbc	a, #0x00
 	jr	NC, 00118$
-	C$CoreGameLoop.c$112$3_0$142	= .
-	.globl	C$CoreGameLoop.c$112$3_0$142
+	C$CoreGameLoop.c$112$3_0$144	= .
+	.globl	C$CoreGameLoop.c$112$3_0$144
 ;src\CoreGameLoop.c:112: camera_x_pixels++;
 	dec	hl
 	inc	(hl)
@@ -742,41 +742,41 @@ _CoreGameLoopUpdate::
 	inc	hl
 	inc	(hl)
 00173$:
-	C$CoreGameLoop.c$113$3_0$142	= .
-	.globl	C$CoreGameLoop.c$113$3_0$142
+	C$CoreGameLoop.c$113$3_0$144	= .
+	.globl	C$CoreGameLoop.c$113$3_0$144
 ;src\CoreGameLoop.c:113: redraw = TRUE;
 	ld	hl, #_redraw
 	ld	(hl), #0x01
 00118$:
-	C$CoreGameLoop.c$116$1_0$134	= .
-	.globl	C$CoreGameLoop.c$116$1_0$134
+	C$CoreGameLoop.c$116$1_0$136	= .
+	.globl	C$CoreGameLoop.c$116$1_0$136
 ;src\CoreGameLoop.c:116: if (redraw)
 	ld	a, (#_redraw)
 	or	a, a
 	jr	Z, 00120$
-	C$CoreGameLoop.c$118$2_0$143	= .
-	.globl	C$CoreGameLoop.c$118$2_0$143
+	C$CoreGameLoop.c$118$2_0$145	= .
+	.globl	C$CoreGameLoop.c$118$2_0$145
 ;src\CoreGameLoop.c:118: wait_vbl_done();
 	call	_wait_vbl_done
-	C$CoreGameLoop.c$119$2_0$143	= .
-	.globl	C$CoreGameLoop.c$119$2_0$143
+	C$CoreGameLoop.c$119$2_0$145	= .
+	.globl	C$CoreGameLoop.c$119$2_0$145
 ;src\CoreGameLoop.c:119: set_camera();
 	call	_set_camera
-	C$CoreGameLoop.c$120$2_0$143	= .
-	.globl	C$CoreGameLoop.c$120$2_0$143
+	C$CoreGameLoop.c$120$2_0$145	= .
+	.globl	C$CoreGameLoop.c$120$2_0$145
 ;src\CoreGameLoop.c:120: redraw = FALSE;
 	ld	hl, #_redraw
 	ld	(hl), #0x00
 00120$:
-	C$CoreGameLoop.c$123$1_0$134	= .
-	.globl	C$CoreGameLoop.c$123$1_0$134
+	C$CoreGameLoop.c$123$1_0$136	= .
+	.globl	C$CoreGameLoop.c$123$1_0$136
 ;src\CoreGameLoop.c:123: return COREGAMELOOP;
 	ld	a, #0x02
-	C$CoreGameLoop.c$124$1_0$134	= .
-	.globl	C$CoreGameLoop.c$124$1_0$134
+	C$CoreGameLoop.c$124$1_0$136	= .
+	.globl	C$CoreGameLoop.c$124$1_0$136
 ;src\CoreGameLoop.c:124: }
-	C$CoreGameLoop.c$124$1_0$134	= .
-	.globl	C$CoreGameLoop.c$124$1_0$134
+	C$CoreGameLoop.c$124$1_0$136	= .
+	.globl	C$CoreGameLoop.c$124$1_0$136
 	XG$CoreGameLoopUpdate$0$0	= .
 	.globl	XG$CoreGameLoopUpdate$0$0
 	ret

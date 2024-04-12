@@ -65,31 +65,31 @@
                                      65 	.area _CODE
                            000000    66 	G$GameTitleSetup$0$0	= .
                                      67 	.globl	G$GameTitleSetup$0$0
-                           000000    68 	C$GameTitle.c$91$0_0$117	= .
-                                     69 	.globl	C$GameTitle.c$91$0_0$117
+                           000000    68 	C$GameTitle.c$91$0_0$119	= .
+                                     69 	.globl	C$GameTitle.c$91$0_0$119
                                      70 ;src\GameTitle.c:91: void GameTitleSetup()
                                      71 ;	---------------------------------
                                      72 ; Function GameTitleSetup
                                      73 ; ---------------------------------
       000000                         74 _GameTitleSetup::
-                           000000    75 	C$GameTitle.c$93$1_0$117	= .
-                                     76 	.globl	C$GameTitle.c$93$1_0$117
+                           000000    75 	C$GameTitle.c$93$1_0$119	= .
+                                     76 	.globl	C$GameTitle.c$93$1_0$119
                                      77 ;src\GameTitle.c:93: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
       000000 3E FE            [ 8]   78 	ld	a, #0xfe
       000002 E0r00            [12]   79 	ldh	(_BGP_REG + 0), a
-                           000004    80 	C$GameTitle.c$94$1_0$117	= .
-                                     81 	.globl	C$GameTitle.c$94$1_0$117
+                           000004    80 	C$GameTitle.c$94$1_0$119	= .
+                                     81 	.globl	C$GameTitle.c$94$1_0$119
                                      82 ;src\GameTitle.c:94: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
       000004 3E FE            [ 8]   83 	ld	a, #0xfe
       000006 E0r00            [12]   84 	ldh	(_OBP0_REG + 0), a
-                           000008    85 	C$GameTitle.c$95$1_0$117	= .
-                                     86 	.globl	C$GameTitle.c$95$1_0$117
+                           000008    85 	C$GameTitle.c$95$1_0$119	= .
+                                     86 	.globl	C$GameTitle.c$95$1_0$119
                                      87 ;src\GameTitle.c:95: SPRITES_8x16;
       000008 F0r00            [12]   88 	ldh	a, (_LCDC_REG + 0)
       00000A F6 04            [ 8]   89 	or	a, #0x04
       00000C E0r00            [12]   90 	ldh	(_LCDC_REG + 0), a
-                           00000E    91 	C$GameTitle.c$96$1_0$117	= .
-                                     92 	.globl	C$GameTitle.c$96$1_0$117
+                           00000E    91 	C$GameTitle.c$96$1_0$119	= .
+                                     92 	.globl	C$GameTitle.c$96$1_0$119
                                      93 ;src\GameTitle.c:96: set_bkg_data(0, 50, TitleLabel);
       00000E 11r00r00         [12]   94 	ld	de, #_TitleLabel
       000011 D5               [16]   95 	push	de
@@ -97,8 +97,8 @@
       000015 E5               [16]   97 	push	hl
       000016 CDr00r00         [24]   98 	call	_set_bkg_data
       000019 E8 04            [16]   99 	add	sp, #4
-                           00001B   100 	C$GameTitle.c$97$1_0$117	= .
-                                    101 	.globl	C$GameTitle.c$97$1_0$117
+                           00001B   100 	C$GameTitle.c$97$1_0$119	= .
+                                    101 	.globl	C$GameTitle.c$97$1_0$119
                                     102 ;src\GameTitle.c:97: set_bkg_tiles(0, 0, Title_MapWidth, Title_MapHeight, Title_Map);
       00001B 11r00r00         [12]  103 	ld	de, #_Title_Map
       00001E D5               [16]  104 	push	de
@@ -109,8 +109,8 @@
       000025 F5               [16]  109 	push	af
       000026 CDr00r00         [24]  110 	call	_set_bkg_tiles
       000029 E8 06            [16]  111 	add	sp, #6
-                           00002B   112 	C$GameTitle.c$98$1_0$117	= .
-                                    113 	.globl	C$GameTitle.c$98$1_0$117
+                           00002B   112 	C$GameTitle.c$98$1_0$119	= .
+                                    113 	.globl	C$GameTitle.c$98$1_0$119
                                     114 ;src\GameTitle.c:98: set_sprite_data(0, 112, Globe_Tiles);
       00002B 11r00r00         [12]  115 	ld	de, #_Globe_Tiles
       00002E D5               [16]  116 	push	de
@@ -139,27 +139,27 @@
       00004F 33               [ 8]  139 	inc	sp
       000050 CDr00r00         [24]  140 	call	___move_metasprite
       000053 E8 03            [16]  141 	add	sp, #3
-                           000055   142 	C$GameTitle.c$100$1_0$117	= .
-                                    143 	.globl	C$GameTitle.c$100$1_0$117
+                           000055   142 	C$GameTitle.c$100$1_0$119	= .
+                                    143 	.globl	C$GameTitle.c$100$1_0$119
                                     144 ;src\GameTitle.c:100: SHOW_BKG;
       000055 F0r00            [12]  145 	ldh	a, (_LCDC_REG + 0)
       000057 F6 01            [ 8]  146 	or	a, #0x01
       000059 E0r00            [12]  147 	ldh	(_LCDC_REG + 0), a
-                           00005B   148 	C$GameTitle.c$101$1_0$117	= .
-                                    149 	.globl	C$GameTitle.c$101$1_0$117
+                           00005B   148 	C$GameTitle.c$101$1_0$119	= .
+                                    149 	.globl	C$GameTitle.c$101$1_0$119
                                     150 ;src\GameTitle.c:101: SHOW_SPRITES;
       00005B F0r00            [12]  151 	ldh	a, (_LCDC_REG + 0)
       00005D F6 02            [ 8]  152 	or	a, #0x02
       00005F E0r00            [12]  153 	ldh	(_LCDC_REG + 0), a
-                           000061   154 	C$GameTitle.c$102$1_0$117	= .
-                                    155 	.globl	C$GameTitle.c$102$1_0$117
+                           000061   154 	C$GameTitle.c$102$1_0$119	= .
+                                    155 	.globl	C$GameTitle.c$102$1_0$119
                                     156 ;src\GameTitle.c:102: fadeFromBlack(10);
       000061 3E 0A            [ 8]  157 	ld	a, #0x0a
-                           000063   158 	C$GameTitle.c$103$1_0$117	= .
-                                    159 	.globl	C$GameTitle.c$103$1_0$117
+                           000063   158 	C$GameTitle.c$103$1_0$119	= .
+                                    159 	.globl	C$GameTitle.c$103$1_0$119
                                     160 ;src\GameTitle.c:103: }
-                           000063   161 	C$GameTitle.c$103$1_0$117	= .
-                                    162 	.globl	C$GameTitle.c$103$1_0$117
+                           000063   161 	C$GameTitle.c$103$1_0$119	= .
+                                    162 	.globl	C$GameTitle.c$103$1_0$119
                            000063   163 	XG$GameTitleSetup$0$0	= .
                                     164 	.globl	XG$GameTitleSetup$0$0
       000063 C3r00r00         [16]  165 	jp	_fadeFromBlack
@@ -440,47 +440,47 @@
       00016Er3Er01                  440 	.dw _globe7
                            000170   441 	G$GameTitleUpdate$0$0	= .
                                     442 	.globl	G$GameTitleUpdate$0$0
-                           000170   443 	C$GameTitle.c$107$1_0$121	= .
-                                    444 	.globl	C$GameTitle.c$107$1_0$121
+                           000170   443 	C$GameTitle.c$107$1_0$123	= .
+                                    444 	.globl	C$GameTitle.c$107$1_0$123
                                     445 ;src\GameTitle.c:107: uint8_t GameTitleUpdate()
                                     446 ;	---------------------------------
                                     447 ; Function GameTitleUpdate
                                     448 ; ---------------------------------
       000170                        449 _GameTitleUpdate::
-                           000170   450 	C$GameTitle.c$109$1_0$121	= .
-                                    451 	.globl	C$GameTitle.c$109$1_0$121
+                           000170   450 	C$GameTitle.c$109$1_0$123	= .
+                                    451 	.globl	C$GameTitle.c$109$1_0$123
                                     452 ;src\GameTitle.c:109: joypadPrevious = joypadCurrent;
       000170 FAr00r00         [16]  453 	ld	a, (#_joypadCurrent)
       000173 EAr00r00         [16]  454 	ld	(#_joypadPrevious),a
-                           000176   455 	C$GameTitle.c$110$1_0$121	= .
-                                    456 	.globl	C$GameTitle.c$110$1_0$121
+                           000176   455 	C$GameTitle.c$110$1_0$123	= .
+                                    456 	.globl	C$GameTitle.c$110$1_0$123
                                     457 ;src\GameTitle.c:110: joypadCurrent = joypad();
       000176 CDr00r00         [24]  458 	call	_joypad
       000179 EAr00r00         [16]  459 	ld	(#_joypadCurrent),a
-                           00017C   460 	C$GameTitle.c$111$1_0$121	= .
-                                    461 	.globl	C$GameTitle.c$111$1_0$121
+                           00017C   460 	C$GameTitle.c$111$1_0$123	= .
+                                    461 	.globl	C$GameTitle.c$111$1_0$123
                                     462 ;src\GameTitle.c:111: timer++;
       00017C 21r00r00         [12]  463 	ld	hl, #_timer
       00017F 34               [12]  464 	inc	(hl)
-                           000180   465 	C$GameTitle.c$112$1_0$121	= .
-                                    466 	.globl	C$GameTitle.c$112$1_0$121
+                           000180   465 	C$GameTitle.c$112$1_0$123	= .
+                                    466 	.globl	C$GameTitle.c$112$1_0$123
                                     467 ;src\GameTitle.c:112: if (timer == 10)
       000180 7E               [ 8]  468 	ld	a, (hl)
       000181 D6 0A            [ 8]  469 	sub	a, #0x0a
       000183 20 09            [12]  470 	jr	NZ, 00102$
-                           000185   471 	C$GameTitle.c$114$2_0$122	= .
-                                    472 	.globl	C$GameTitle.c$114$2_0$122
+                           000185   471 	C$GameTitle.c$114$2_0$124	= .
+                                    472 	.globl	C$GameTitle.c$114$2_0$124
                                     473 ;src\GameTitle.c:114: frame++; 
       000185 21r01r00         [12]  474 	ld	hl, #_frame
       000188 34               [12]  475 	inc	(hl)
-                           000189   476 	C$GameTitle.c$115$2_0$122	= .
-                                    477 	.globl	C$GameTitle.c$115$2_0$122
+                           000189   476 	C$GameTitle.c$115$2_0$124	= .
+                                    477 	.globl	C$GameTitle.c$115$2_0$124
                                     478 ;src\GameTitle.c:115: timer = 0;
       000189 21r00r00         [12]  479 	ld	hl, #_timer
       00018C 36 00            [12]  480 	ld	(hl), #0x00
       00018E                        481 00102$:
-                           00018E   482 	C$GameTitle.c$117$1_0$121	= .
-                                    483 	.globl	C$GameTitle.c$117$1_0$121
+                           00018E   482 	C$GameTitle.c$117$1_0$123	= .
+                                    483 	.globl	C$GameTitle.c$117$1_0$123
                                     484 ;src\GameTitle.c:117: if (frame >= 7) frame = 0;
       00018E 21r01r00         [12]  485 	ld	hl, #_frame
       000191 7E               [ 8]  486 	ld	a, (hl)
@@ -489,96 +489,152 @@
       000196 36 00            [12]  489 	ld	(hl), #0x00
       000198                        490 00104$:
                                     491 ;src\GameTitle.c:118: move_metasprite(globe_metasprites[frame], 0, 0, 88, 64);
-      000198 21r01r00         [12]  492 	ld	hl, #_frame
-      00019B 6E               [ 8]  493 	ld	l, (hl)
-                                    494 ;	spillPairReg hl
+      000198 01r62r01         [12]  492 	ld	bc, #_globe_metasprites+0
+      00019B 21r01r00         [12]  493 	ld	hl, #_frame
+      00019E 6E               [ 8]  494 	ld	l, (hl)
                                     495 ;	spillPairReg hl
-      00019C 26 00            [ 8]  496 	ld	h, #0x00
-                                    497 ;	spillPairReg hl
+                                    496 ;	spillPairReg hl
+      00019F 26 00            [ 8]  497 	ld	h, #0x00
                                     498 ;	spillPairReg hl
-      00019E 29               [ 8]  499 	add	hl, hl
-      00019F 11r62r01         [12]  500 	ld	de, #_globe_metasprites
-      0001A2 19               [ 8]  501 	add	hl, de
+                                    499 ;	spillPairReg hl
+      0001A1 29               [ 8]  500 	add	hl, hl
+      0001A2 09               [ 8]  501 	add	hl, bc
       0001A3 2A               [ 8]  502 	ld	a, (hl+)
-      0001A4 4E               [ 8]  503 	ld	c, (hl)
-                                    504 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
-      0001A5 21r00r00         [12]  505 	ld	hl, #___current_metasprite
-      0001A8 22               [ 8]  506 	ld	(hl+), a
-      0001A9 71               [ 8]  507 	ld	(hl), c
-                                    508 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
-      0001AA 21r00r00         [12]  509 	ld	hl, #___current_base_tile
-      0001AD 36 00            [12]  510 	ld	(hl), #0x00
-                                    511 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
-      0001AF 21 58 40         [12]  512 	ld	hl, #0x4058
-      0001B2 E5               [16]  513 	push	hl
-      0001B3 AF               [ 4]  514 	xor	a, a
-      0001B4 F5               [16]  515 	push	af
-      0001B5 33               [ 8]  516 	inc	sp
-      0001B6 CDr00r00         [24]  517 	call	___move_metasprite
-      0001B9 E8 03            [16]  518 	add	sp, #3
-                           0001BB   519 	C$GameTitle.c$119$1_0$121	= .
-                                    520 	.globl	C$GameTitle.c$119$1_0$121
-                                    521 ;src\GameTitle.c:119: if (joypadCurrent & J_START)
-      0001BB FAr00r00         [16]  522 	ld	a, (#_joypadCurrent)
-      0001BE 07               [ 4]  523 	rlca
-      0001BF 30 2B            [12]  524 	jr	NC, 00106$
-                           0001C1   525 	C$GameTitle.c$121$2_0$123	= .
-                                    526 	.globl	C$GameTitle.c$121$2_0$123
-                                    527 ;src\GameTitle.c:121: fadeToBlack(10);
-      0001C1 3E 0A            [ 8]  528 	ld	a, #0x0a
-      0001C3 CDr00r00         [24]  529 	call	_fadeToBlack
-                                    530 ;src\GameTitle.c:122: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
-      0001C6 21r01r00         [12]  531 	ld	hl, #_frame
-      0001C9 6E               [ 8]  532 	ld	l, (hl)
-                                    533 ;	spillPairReg hl
-                                    534 ;	spillPairReg hl
-      0001CA 26 00            [ 8]  535 	ld	h, #0x00
-                                    536 ;	spillPairReg hl
-                                    537 ;	spillPairReg hl
-      0001CC 29               [ 8]  538 	add	hl, hl
-      0001CD 11r62r01         [12]  539 	ld	de, #_globe_metasprites
-      0001D0 19               [ 8]  540 	add	hl, de
-      0001D1 2A               [ 8]  541 	ld	a, (hl+)
-      0001D2 4E               [ 8]  542 	ld	c, (hl)
-                                    543 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
-      0001D3 21r00r00         [12]  544 	ld	hl, #___current_metasprite
-      0001D6 22               [ 8]  545 	ld	(hl+), a
-      0001D7 71               [ 8]  546 	ld	(hl), c
-                                    547 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
-      0001D8 21r00r00         [12]  548 	ld	hl, #___current_base_tile
-      0001DB 36 00            [12]  549 	ld	(hl), #0x00
-                                    550 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
-      0001DD 21 B0 B0         [12]  551 	ld	hl, #0xb0b0
-      0001E0 E5               [16]  552 	push	hl
-      0001E1 AF               [ 4]  553 	xor	a, a
-      0001E2 F5               [16]  554 	push	af
-      0001E3 33               [ 8]  555 	inc	sp
-      0001E4 CDr00r00         [24]  556 	call	___move_metasprite
-      0001E7 E8 03            [16]  557 	add	sp, #3
-                           0001E9   558 	C$GameTitle.c$123$2_0$123	= .
-                                    559 	.globl	C$GameTitle.c$123$2_0$123
-                                    560 ;src\GameTitle.c:123: return COREGAMELOOP;
-      0001E9 3E 02            [ 8]  561 	ld	a, #0x02
-      0001EB C9               [16]  562 	ret
-      0001EC                        563 00106$:
-                           0001EC   564 	C$GameTitle.c$126$1_0$121	= .
-                                    565 	.globl	C$GameTitle.c$126$1_0$121
-                                    566 ;src\GameTitle.c:126: return GAMETITLE;
-      0001EC 3E 01            [ 8]  567 	ld	a, #0x01
-                           0001EE   568 	C$GameTitle.c$127$1_0$121	= .
-                                    569 	.globl	C$GameTitle.c$127$1_0$121
-                                    570 ;src\GameTitle.c:127: }
-                           0001EE   571 	C$GameTitle.c$127$1_0$121	= .
-                                    572 	.globl	C$GameTitle.c$127$1_0$121
-                           0001EE   573 	XG$GameTitleUpdate$0$0	= .
-                                    574 	.globl	XG$GameTitleUpdate$0$0
-      0001EE C9               [16]  575 	ret
-                                    576 	.area _CODE
-                                    577 	.area _INITIALIZER
-                           000000   578 FGameTitle$__xinit_timer$0_0$0 == .
-      000000                        579 __xinit__timer:
-      000000 00                     580 	.db #0x00	; 0
-                           000001   581 FGameTitle$__xinit_frame$0_0$0 == .
-      000001                        582 __xinit__frame:
-      000001 00                     583 	.db #0x00	; 0
-                                    584 	.area _CABS (ABS)
+      0001A4 6E               [ 8]  503 	ld	l, (hl)
+                                    504 ;	spillPairReg hl
+                                    505 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
+      0001A5 5F               [ 4]  506 	ld	e, a
+      0001A6 55               [ 4]  507 	ld	d, l
+      0001A7 21r00r00         [12]  508 	ld	hl, #___current_metasprite
+      0001AA 7B               [ 4]  509 	ld	a, e
+      0001AB 22               [ 8]  510 	ld	(hl+), a
+      0001AC 72               [ 8]  511 	ld	(hl), d
+                                    512 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
+      0001AD 21r00r00         [12]  513 	ld	hl, #___current_base_tile
+      0001B0 36 00            [12]  514 	ld	(hl), #0x00
+                                    515 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
+      0001B2 C5               [16]  516 	push	bc
+      0001B3 21 58 40         [12]  517 	ld	hl, #0x4058
+      0001B6 E5               [16]  518 	push	hl
+      0001B7 AF               [ 4]  519 	xor	a, a
+      0001B8 F5               [16]  520 	push	af
+      0001B9 33               [ 8]  521 	inc	sp
+      0001BA CDr00r00         [24]  522 	call	___move_metasprite
+      0001BD E8 03            [16]  523 	add	sp, #3
+      0001BF C1               [12]  524 	pop	bc
+                           0001C0   525 	C$GameTitle.c$109$1_0$123	= .
+                                    526 	.globl	C$GameTitle.c$109$1_0$123
+                                    527 ;src\GameTitle.c:109: joypadPrevious = joypadCurrent;
+      0001C0 21r00r00         [12]  528 	ld	hl, #_joypadCurrent
+      0001C3 5E               [ 8]  529 	ld	e, (hl)
+                           0001C4   530 	C$GameTitle.c$119$1_0$123	= .
+                                    531 	.globl	C$GameTitle.c$119$1_0$123
+                                    532 ;src\GameTitle.c:119: if (joypadCurrent & J_START)
+      0001C4 CB 7B            [ 8]  533 	bit	7, e
+      0001C6 28 2A            [12]  534 	jr	Z, 00106$
+                           0001C8   535 	C$GameTitle.c$121$2_0$125	= .
+                                    536 	.globl	C$GameTitle.c$121$2_0$125
+                                    537 ;src\GameTitle.c:121: fadeToBlack(10);
+      0001C8 C5               [16]  538 	push	bc
+      0001C9 3E 0A            [ 8]  539 	ld	a, #0x0a
+      0001CB CDr00r00         [24]  540 	call	_fadeToBlack
+      0001CE C1               [12]  541 	pop	bc
+                                    542 ;src\GameTitle.c:122: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+      0001CF 21r01r00         [12]  543 	ld	hl, #_frame
+      0001D2 6E               [ 8]  544 	ld	l, (hl)
+                                    545 ;	spillPairReg hl
+                                    546 ;	spillPairReg hl
+      0001D3 26 00            [ 8]  547 	ld	h, #0x00
+                                    548 ;	spillPairReg hl
+                                    549 ;	spillPairReg hl
+      0001D5 29               [ 8]  550 	add	hl, hl
+      0001D6 09               [ 8]  551 	add	hl, bc
+      0001D7 2A               [ 8]  552 	ld	a, (hl+)
+      0001D8 4E               [ 8]  553 	ld	c, (hl)
+                                    554 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
+      0001D9 21r00r00         [12]  555 	ld	hl, #___current_metasprite
+      0001DC 22               [ 8]  556 	ld	(hl+), a
+      0001DD 71               [ 8]  557 	ld	(hl), c
+                                    558 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
+      0001DE 21r00r00         [12]  559 	ld	hl, #___current_base_tile
+      0001E1 36 00            [12]  560 	ld	(hl), #0x00
+                                    561 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
+      0001E3 21 B0 B0         [12]  562 	ld	hl, #0xb0b0
+      0001E6 E5               [16]  563 	push	hl
+      0001E7 AF               [ 4]  564 	xor	a, a
+      0001E8 F5               [16]  565 	push	af
+      0001E9 33               [ 8]  566 	inc	sp
+      0001EA CDr00r00         [24]  567 	call	___move_metasprite
+      0001ED E8 03            [16]  568 	add	sp, #3
+                           0001EF   569 	C$GameTitle.c$123$2_0$125	= .
+                                    570 	.globl	C$GameTitle.c$123$2_0$125
+                                    571 ;src\GameTitle.c:123: return COREGAMELOOP;
+      0001EF 3E 02            [ 8]  572 	ld	a, #0x02
+      0001F1 C9               [16]  573 	ret
+      0001F2                        574 00106$:
+                           0001F2   575 	C$GameTitle.c$125$1_0$123	= .
+                                    576 	.globl	C$GameTitle.c$125$1_0$123
+                                    577 ;src\GameTitle.c:125: if (joypadCurrent & J_SELECT)
+      0001F2 CB 73            [ 8]  578 	bit	6, e
+      0001F4 28 2A            [12]  579 	jr	Z, 00108$
+                           0001F6   580 	C$GameTitle.c$127$2_0$126	= .
+                                    581 	.globl	C$GameTitle.c$127$2_0$126
+                                    582 ;src\GameTitle.c:127: fadeToBlack(10);
+      0001F6 C5               [16]  583 	push	bc
+      0001F7 3E 0A            [ 8]  584 	ld	a, #0x0a
+      0001F9 CDr00r00         [24]  585 	call	_fadeToBlack
+      0001FC C1               [12]  586 	pop	bc
+                                    587 ;src\GameTitle.c:128: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+      0001FD 21r01r00         [12]  588 	ld	hl, #_frame
+      000200 6E               [ 8]  589 	ld	l, (hl)
+                                    590 ;	spillPairReg hl
+                                    591 ;	spillPairReg hl
+      000201 26 00            [ 8]  592 	ld	h, #0x00
+                                    593 ;	spillPairReg hl
+                                    594 ;	spillPairReg hl
+      000203 29               [ 8]  595 	add	hl, hl
+      000204 09               [ 8]  596 	add	hl, bc
+      000205 2A               [ 8]  597 	ld	a, (hl+)
+      000206 4E               [ 8]  598 	ld	c, (hl)
+                                    599 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
+      000207 21r00r00         [12]  600 	ld	hl, #___current_metasprite
+      00020A 22               [ 8]  601 	ld	(hl+), a
+      00020B 71               [ 8]  602 	ld	(hl), c
+                                    603 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
+      00020C 21r00r00         [12]  604 	ld	hl, #___current_base_tile
+      00020F 36 00            [12]  605 	ld	(hl), #0x00
+                                    606 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
+      000211 21 B0 B0         [12]  607 	ld	hl, #0xb0b0
+      000214 E5               [16]  608 	push	hl
+      000215 AF               [ 4]  609 	xor	a, a
+      000216 F5               [16]  610 	push	af
+      000217 33               [ 8]  611 	inc	sp
+      000218 CDr00r00         [24]  612 	call	___move_metasprite
+      00021B E8 03            [16]  613 	add	sp, #3
+                           00021D   614 	C$GameTitle.c$129$2_0$126	= .
+                                    615 	.globl	C$GameTitle.c$129$2_0$126
+                                    616 ;src\GameTitle.c:129: return GAMEJOHNDOE;
+      00021D 3E 03            [ 8]  617 	ld	a, #0x03
+      00021F C9               [16]  618 	ret
+      000220                        619 00108$:
+                           000220   620 	C$GameTitle.c$132$1_0$123	= .
+                                    621 	.globl	C$GameTitle.c$132$1_0$123
+                                    622 ;src\GameTitle.c:132: return GAMETITLE;
+      000220 3E 01            [ 8]  623 	ld	a, #0x01
+                           000222   624 	C$GameTitle.c$133$1_0$123	= .
+                                    625 	.globl	C$GameTitle.c$133$1_0$123
+                                    626 ;src\GameTitle.c:133: }
+                           000222   627 	C$GameTitle.c$133$1_0$123	= .
+                                    628 	.globl	C$GameTitle.c$133$1_0$123
+                           000222   629 	XG$GameTitleUpdate$0$0	= .
+                                    630 	.globl	XG$GameTitleUpdate$0$0
+      000222 C9               [16]  631 	ret
+                                    632 	.area _CODE
+                                    633 	.area _INITIALIZER
+                           000000   634 FGameTitle$__xinit_timer$0_0$0 == .
+      000000                        635 __xinit__timer:
+      000000 00                     636 	.db #0x00	; 0
+                           000001   637 FGameTitle$__xinit_frame$0_0$0 == .
+      000001                        638 __xinit__frame:
+      000001 00                     639 	.db #0x00	; 0
+                                    640 	.area _CABS (ABS)

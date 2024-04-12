@@ -2,6 +2,7 @@
 #include "../src/common.h"
 #include "../src/GameTitle.h"
 #include "../src/CoreGameLoop.h"
+#include "../src/GameJohnDoe.h"
 
 void main(void)
 {
@@ -19,9 +20,11 @@ void main(void)
 
             if (currentGameState == GAMETITLE) GameTitleSetup();
             else if (currentGameState == COREGAMELOOP) CoreGameLoopSetup();
+            else if (currentGameState == GAMEJOHNDOE) GameJohnDoeSetup();
         }
         if (currentGameState == GAMETITLE) nextGameState = GameTitleUpdate();
         else if (currentGameState == COREGAMELOOP) nextGameState = CoreGameLoopUpdate();
+        else if (currentGameState == GAMEJOHNDOE) nextGameState = GameJohnDoeUpdate();
         //wait_vbl_done();
     }
 }

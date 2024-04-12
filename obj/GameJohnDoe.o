@@ -1,0 +1,118 @@
+;!FILE obj\GameJohnDoe.asm
+XL3
+H 9 areas 4C global symbols
+M GameJohnDoe
+O -msm83
+S _joypadPrevious Ref000000
+S _JohnDoe_Map Ref000000
+S _fadeFromWhite Ref000000
+S _joypadCurrent Ref000000
+S _fadeToBlack Ref000000
+S .__.ABS. Def000000
+S _fadeFromBlack Ref000000
+S _JohnDoe_Tiles Ref000000
+S _joypad Ref000000
+S _LCDC_REG Ref000000
+S _fadeToWhite Ref000000
+S _set_bkg_data Ref000000
+S _set_bkg_tiles Ref000000
+A _CODE size 57 flags 0 addr 0
+S A$GameJohnDoe$150 Def000051
+S A$GameJohnDoe$132 Def00003E
+S A$GameJohnDoe$123 Def000037
+S C$GameJohnDoe.c$22$2_0$105 Def000039
+S C$GameJohnDoe.c$15$1_0$104 Def000028
+S A$GameJohnDoe$133 Def000040
+S C$GameJohnDoe.c$25$1_0$104 Def000043
+S C$GameJohnDoe.c$23$2_0$105 Def00003E
+S A$GameJohnDoe$116 Def00002E
+S C$GameJohnDoe.c$17$1_0$104 Def000028
+S A$GameJohnDoe$144 Def00004A
+S A$GameJohnDoe$117 Def000031
+S C$GameJohnDoe.c$18$1_0$104 Def00002E
+S A$GameJohnDoe$163 Def000056
+S A$GameJohnDoe$145 Def00004C
+S A$GameJohnDoe$127 Def000039
+S A$GameJohnDoe$118 Def000034
+S A$GameJohnDoe$155 Def000054
+S A$GameJohnDoe$128 Def00003B
+S G$GameJohnDoeSetup$0$0 Def000000
+S A$GameJohnDoe$138 Def000043
+S C$GameJohnDoe.c$27$2_0$106 Def00004A
+S A$GameJohnDoe$139 Def000046
+S C$GameJohnDoe.c$28$2_0$106 Def00004F
+S A$GameJohnDoe$149 Def00004F
+S C$GameJohnDoe.c$7$0_0$103 Def000000
+S _GameJohnDoeSetup Def000000
+S A$GameJohnDoe$80 Def00001B
+S C$GameJohnDoe.c$9$1_0$103 Def000000
+S A$GameJohnDoe$90 Def000023
+S A$GameJohnDoe$72 Def00000D
+S A$GameJohnDoe$63 Def000000
+S A$GameJohnDoe$73 Def000010
+S A$GameJohnDoe$64 Def000003
+S A$GameJohnDoe$74 Def000011
+S A$GameJohnDoe$65 Def000004
+S A$GameJohnDoe$84 Def00001D
+S A$GameJohnDoe$75 Def000014
+S A$GameJohnDoe$66 Def000007
+S A$GameJohnDoe$85 Def00001F
+S A$GameJohnDoe$76 Def000015
+S A$GameJohnDoe$67 Def000008
+S G$GameJohnDoeUpdate$0$0 Def000028
+S A$GameJohnDoe$86 Def000021
+S A$GameJohnDoe$77 Def000016
+S A$GameJohnDoe$68 Def00000B
+S A$GameJohnDoe$78 Def000017
+S A$GameJohnDoe$79 Def000018
+S A$GameJohnDoe$98 Def000025
+S XG$GameJohnDoeSetup$0$0 Def000025
+S _GameJohnDoeUpdate Def000028
+S XG$GameJohnDoeUpdate$0$0 Def000056
+S C$GameJohnDoe.c$10$1_0$103 Def00000D
+S C$GameJohnDoe.c$11$1_0$103 Def00001D
+S C$GameJohnDoe.c$20$1_0$104 Def000035
+S C$GameJohnDoe.c$12$1_0$103 Def000023
+S A$GameJohnDoe$111 Def000028
+S C$GameJohnDoe.c$13$1_0$103 Def000025
+S A$GameJohnDoe$112 Def00002B
+S C$GameJohnDoe.c$31$1_0$104 Def000054
+S A$GameJohnDoe$140 Def000048
+S A$GameJohnDoe$122 Def000035
+S C$GameJohnDoe.c$32$1_0$104 Def000056
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 00 00
+T 00 00 00 11 00 00 D5 21 00 4F E5 CD 00 00 E8 04
+R 00 00 00 00 02 04 07 00 02 0C 0B 00
+T 0D 00 00 11 00 00 D5 21 14 12 E5 AF 0F F5 CD
+R 00 00 00 00 02 04 01 00
+T 19 00 00 00 00 E8 06 F0 00 00 00 F6 01 E0
+R 00 00 00 00 02 03 0C 00 0B 08 09 00
+T 22 00 00 00 00 00 3E 0A C3 00 00
+R 00 00 00 00 0B 03 09 00 02 09 06 00
+T 28 00 00
+R 00 00 00 00
+T 28 00 00 FA 00 00 EA 00 00 CD 00 00 21
+R 00 00 00 00 02 04 03 00 02 07 00 00 02 0A 08 00
+T 32 00 00 00 00 77 CB 66 28 0A 3E 0A CD 00 00 3E
+R 00 00 00 00 02 03 03 00 02 0D 04 00
+T 3F 00 00 0A CD 00 00
+R 00 00 00 00 02 05 06 00
+T 43 00 00
+R 00 00 00 00
+T 43 00 00 FA 00 00 CB 6F 28 0A 3E 0A CD 00 00 3E
+R 00 00 00 00 02 04 03 00 02 0D 0A 00
+T 50 00 00 0A CD 00 00
+R 00 00 00 00 02 05 02 00
+T 54 00 00
+R 00 00 00 00
+T 54 00 00 3E 03 C9
+R 00 00 00 00

@@ -387,19 +387,8 @@ const char HOME_COLLISION[30][21] = {
     {'0', '0', '0', '0', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '0', '0', '0', '0', '0'},// 29
 };
 
-uint8_t returnCollisionValue(char value)
+char returnCollisionValue(uint8_t x_pos, uint8_t y_pos)
 {
-  if (value == '0')
-  {
-    return 0;
-  }
-  else if (value == '1')
-  {
-    return 1;
-  }
-  else
-  {
-    return 99;
-  }
+  return HOME_COLLISION[y_pos][x_pos];
 }
 /* End of HOME.C */

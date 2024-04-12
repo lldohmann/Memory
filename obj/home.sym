@@ -7,41 +7,42 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
-  0 A$home$60                                                      000000 GR
+  0 A$home$57                                                      000000 GR
   0 A$home$61                                                      000001 GR
   0 A$home$62                                                      000003 GR
-  0 A$home$66                                                      000005 GR
-  0 A$home$67                                                      000006 GR
-  0 A$home$72                                                      000007 GR
-  0 A$home$73                                                      000008 GR
-  0 A$home$80                                                      00000A GR
-  0 A$home$81                                                      00000C GR
-  0 A$home$82                                                      00000D GR
-  0 A$home$90                                                      00000F GR
+  0 A$home$63                                                      000004 GR
+  0 A$home$64                                                      000005 GR
+  0 A$home$65                                                      000006 GR
+  0 A$home$66                                                      000007 GR
+  0 A$home$67                                                      000008 GR
+  0 A$home$68                                                      000009 GR
+  0 A$home$69                                                      00000A GR
+  0 A$home$70                                                      00000B GR
+  0 A$home$71                                                      00000E GR
+  0 A$home$72                                                      00000F GR
+  0 A$home$73                                                      000010 GR
+  0 A$home$74                                                      000012 GR
+  0 A$home$75                                                      000013 GR
+  0 A$home$83                                                      000014 GR
   0 C$home.c$390$0_0$2                                          =  000000 GR
-  0 C$home.c$392$1_0$2                                          =  000000 GR
-  0 C$home.c$394$2_0$3                                          =  000005 GR
-  0 C$home.c$396$1_0$2                                          =  000007 GR
-  0 C$home.c$398$2_0$4                                          =  00000A GR
-  0 C$home.c$402$2_0$5                                          =  00000A GR
-  0 C$home.c$404$1_0$2                                          =  00000F GR
+  0 C$home.c$392$1_0$2                                          =  000001 GR
+  0 C$home.c$393$1_0$2                                          =  000014 GR
   7 Fhome$__xinit_Home$0_0$0                                    =  000000 GR
-  0 G$HOME_COLLISION$0_0$0                                      =  000010 GR
+  0 G$HOME_COLLISION$0_0$0                                      =  000015 GR
   2 G$Home$0_0$0                                                =  000000 GR
   0 G$returnCollisionValue$0$0                                  =  000000 GR
-  0 XG$returnCollisionValue$0$0                                 =  00000F GR
-  0 _HOME_COLLISION                                                000010 GR
+  0 XG$returnCollisionValue$0$0                                 =  000014 GR
+  0 _HOME_COLLISION                                                000015 GR
   2 _Home                                                          000000 GR
   7 __xinit__Home                                                  000000 R
   0 _returnCollisionValue                                          000000 GR
-
 
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
 Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    286   flags    0
+   0 _CODE                                      size    28B   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size    CA2   flags    0
    3 _DABS                                      size      0   flags    8

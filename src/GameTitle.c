@@ -122,6 +122,12 @@ uint8_t GameTitleUpdate()
         move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
         return COREGAMELOOP;
     }
+    if (joypadCurrent & J_SELECT)
+    {
+        fadeToBlack(10);
+        move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+        return GAMEJOHNDOE;
+    }
     //wait_vbl_done();
     return GAMETITLE;
 }
