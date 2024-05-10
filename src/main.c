@@ -3,6 +3,7 @@
 #include "../src/GameTitle.h"
 #include "../src/CoreGameLoop.h"
 #include "../src/GameJohnDoe.h"
+#include "../src/Bestiary.h"
 
 void main(void)
 {
@@ -21,10 +22,12 @@ void main(void)
             if (currentGameState == GAMETITLE) GameTitleSetup();
             else if (currentGameState == COREGAMELOOP) CoreGameLoopSetup();
             else if (currentGameState == GAMEJOHNDOE) GameJohnDoeSetup();
+            else if (currentGameState == BESTIARY) BestiarySetup();
         }
         if (currentGameState == GAMETITLE) nextGameState = GameTitleUpdate();
         else if (currentGameState == COREGAMELOOP) nextGameState = CoreGameLoopUpdate();
         else if (currentGameState == GAMEJOHNDOE) nextGameState = GameJohnDoeUpdate();
+        else if (currentGameState == BESTIARY) nextGameState = BestiaryUpdate();
         //wait_vbl_done();
     }
 }

@@ -464,9 +464,9 @@ _GameTitleUpdate::
 	inc	(hl)
 	C$GameTitle.c$112$1_0$123	= .
 	.globl	C$GameTitle.c$112$1_0$123
-;src\GameTitle.c:112: if (timer == 10)
+;src\GameTitle.c:112: if (timer == 60)
 	ld	a, (hl)
-	sub	a, #0x0a
+	sub	a, #0x3c
 	jr	NZ, 00102$
 	C$GameTitle.c$114$2_0$124	= .
 	.globl	C$GameTitle.c$114$2_0$124
@@ -617,15 +617,60 @@ _GameTitleUpdate::
 	ld	a, #0x03
 	ret
 00108$:
-	C$GameTitle.c$132$1_0$123	= .
-	.globl	C$GameTitle.c$132$1_0$123
-;src\GameTitle.c:132: return GAMETITLE;
+	C$GameTitle.c$131$1_0$123	= .
+	.globl	C$GameTitle.c$131$1_0$123
+;src\GameTitle.c:131: if (joypadCurrent & J_A)
+	bit	4, e
+	jr	Z, 00110$
+	C$GameTitle.c$133$2_0$127	= .
+	.globl	C$GameTitle.c$133$2_0$127
+;src\GameTitle.c:133: fadeToBlack(10);
+	push	bc
+	ld	a, #0x0a
+	call	_fadeToBlack
+	pop	bc
+;src\GameTitle.c:134: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+	ld	hl, #_frame
+	ld	l, (hl)
+;	spillPairReg hl
+;	spillPairReg hl
+	ld	h, #0x00
+;	spillPairReg hl
+;	spillPairReg hl
+	add	hl, hl
+	add	hl, bc
+	ld	a, (hl+)
+	ld	c, (hl)
+;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
+	ld	hl, #___current_metasprite
+	ld	(hl+), a
+	ld	(hl), c
+;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
+	ld	hl, #___current_base_tile
+	ld	(hl), #0x00
+;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
+	ld	hl, #0xb0b0
+	push	hl
+	xor	a, a
+	push	af
+	inc	sp
+	call	___move_metasprite
+	add	sp, #3
+	C$GameTitle.c$135$2_0$127	= .
+	.globl	C$GameTitle.c$135$2_0$127
+;src\GameTitle.c:135: return BESTIARY;
+	ld	a, #0x04
+	ret
+00110$:
+	C$GameTitle.c$138$1_0$123	= .
+	.globl	C$GameTitle.c$138$1_0$123
+;src\GameTitle.c:138: return GAMETITLE;
 	ld	a, #0x01
-	C$GameTitle.c$133$1_0$123	= .
-	.globl	C$GameTitle.c$133$1_0$123
-;src\GameTitle.c:133: }
-	C$GameTitle.c$133$1_0$123	= .
-	.globl	C$GameTitle.c$133$1_0$123
+	C$GameTitle.c$139$1_0$123	= .
+	.globl	C$GameTitle.c$139$1_0$123
+;src\GameTitle.c:139: }
+	C$GameTitle.c$139$1_0$123	= .
+	.globl	C$GameTitle.c$139$1_0$123
 	XG$GameTitleUpdate$0$0	= .
 	.globl	XG$GameTitleUpdate$0$0
 	ret

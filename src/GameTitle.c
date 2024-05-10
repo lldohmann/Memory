@@ -109,7 +109,7 @@ uint8_t GameTitleUpdate()
     joypadPrevious = joypadCurrent;
     joypadCurrent = joypad();
     timer++;
-    if (timer == 10)
+    if (timer == 60)
     {
         frame++; 
         timer = 0;
@@ -127,6 +127,12 @@ uint8_t GameTitleUpdate()
         fadeToBlack(10);
         move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
         return GAMEJOHNDOE;
+    }
+    if (joypadCurrent & J_A)
+    {
+        fadeToBlack(10);
+        move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+        return BESTIARY;
     }
     //wait_vbl_done();
     return GAMETITLE;

@@ -12,6 +12,7 @@
 	.globl _CoreGameLoopSetup
 	.globl _set_camera
 	.globl _fadeFromBlack
+	.globl _fadeToBlack
 	.globl _DrawPlayer
 	.globl _PlayerUpdate
 	.globl _set_sprite_data
@@ -679,10 +680,10 @@ _CoreGameLoopUpdate::
 ;src\CoreGameLoop.c:98: camera_y_pixels++;
 	dec	hl
 	inc	(hl)
-	jr	NZ, 00170$
+	jr	NZ, 00178$
 	inc	hl
 	inc	(hl)
-00170$:
+00178$:
 	C$CoreGameLoop.c$99$3_0$140	= .
 	.globl	C$CoreGameLoop.c$99$3_0$140
 ;src\CoreGameLoop.c:99: redraw = TRUE;
@@ -693,14 +694,14 @@ _CoreGameLoopUpdate::
 	.globl	C$CoreGameLoop.c$103$1_0$136
 ;src\CoreGameLoop.c:103: if (joypadCurrent & J_LEFT) {
 	bit	1, c
-	jr	Z, 00117$
+	jr	Z, 00120$
 	C$CoreGameLoop.c$104$2_0$141	= .
 	.globl	C$CoreGameLoop.c$104$2_0$141
 ;src\CoreGameLoop.c:104: if (camera_x_pixels)
 	ld	hl, #_camera_x_pixels + 1
 	ld	a, (hl-)
 	or	a, (hl)
-	jr	Z, 00118$
+	jr	Z, 00121$
 	C$CoreGameLoop.c$106$3_0$142	= .
 	.globl	C$CoreGameLoop.c$106$3_0$142
 ;src\CoreGameLoop.c:106: camera_x_pixels--;
@@ -717,13 +718,13 @@ _CoreGameLoopUpdate::
 ;src\CoreGameLoop.c:107: redraw = TRUE;
 	ld	hl, #_redraw
 	ld	(hl), #0x01
-	jr	00118$
-00117$:
+	jr	00121$
+00120$:
 	C$CoreGameLoop.c$109$1_0$136	= .
 	.globl	C$CoreGameLoop.c$109$1_0$136
 ;src\CoreGameLoop.c:109: } else if (joypadCurrent & J_RIGHT) {
 	bit	0, c
-	jr	Z, 00118$
+	jr	Z, 00117$
 	C$CoreGameLoop.c$110$2_0$143	= .
 	.globl	C$CoreGameLoop.c$110$2_0$143
 ;src\CoreGameLoop.c:110: if (camera_x_pixels < HomeCameraMaxX)
@@ -732,51 +733,68 @@ _CoreGameLoopUpdate::
 	sub	a, #0xe8
 	ld	a, (hl)
 	sbc	a, #0x00
-	jr	NC, 00118$
+	jr	NC, 00121$
 	C$CoreGameLoop.c$112$3_0$144	= .
 	.globl	C$CoreGameLoop.c$112$3_0$144
 ;src\CoreGameLoop.c:112: camera_x_pixels++;
 	dec	hl
 	inc	(hl)
-	jr	NZ, 00173$
+	jr	NZ, 00181$
 	inc	hl
 	inc	(hl)
-00173$:
+00181$:
 	C$CoreGameLoop.c$113$3_0$144	= .
 	.globl	C$CoreGameLoop.c$113$3_0$144
 ;src\CoreGameLoop.c:113: redraw = TRUE;
 	ld	hl, #_redraw
 	ld	(hl), #0x01
-00118$:
-	C$CoreGameLoop.c$116$1_0$136	= .
-	.globl	C$CoreGameLoop.c$116$1_0$136
-;src\CoreGameLoop.c:116: if (redraw)
+	jr	00121$
+00117$:
+	C$CoreGameLoop.c$115$1_0$136	= .
+	.globl	C$CoreGameLoop.c$115$1_0$136
+;src\CoreGameLoop.c:115: } else if (joypadCurrent & J_SELECT) {
+	bit	6, c
+	jr	Z, 00121$
+	C$CoreGameLoop.c$116$2_0$145	= .
+	.globl	C$CoreGameLoop.c$116$2_0$145
+;src\CoreGameLoop.c:116: fadeToBlack(10);
+	ld	a, #0x0a
+	call	_fadeToBlack
+	C$CoreGameLoop.c$117$2_0$145	= .
+	.globl	C$CoreGameLoop.c$117$2_0$145
+;src\CoreGameLoop.c:117: return GAMETITLE;
+	ld	a, #0x01
+	ret
+00121$:
+	C$CoreGameLoop.c$119$1_0$136	= .
+	.globl	C$CoreGameLoop.c$119$1_0$136
+;src\CoreGameLoop.c:119: if (redraw)
 	ld	a, (#_redraw)
 	or	a, a
-	jr	Z, 00120$
-	C$CoreGameLoop.c$118$2_0$145	= .
-	.globl	C$CoreGameLoop.c$118$2_0$145
-;src\CoreGameLoop.c:118: wait_vbl_done();
+	jr	Z, 00123$
+	C$CoreGameLoop.c$121$2_0$146	= .
+	.globl	C$CoreGameLoop.c$121$2_0$146
+;src\CoreGameLoop.c:121: wait_vbl_done();
 	call	_wait_vbl_done
-	C$CoreGameLoop.c$119$2_0$145	= .
-	.globl	C$CoreGameLoop.c$119$2_0$145
-;src\CoreGameLoop.c:119: set_camera();
+	C$CoreGameLoop.c$122$2_0$146	= .
+	.globl	C$CoreGameLoop.c$122$2_0$146
+;src\CoreGameLoop.c:122: set_camera();
 	call	_set_camera
-	C$CoreGameLoop.c$120$2_0$145	= .
-	.globl	C$CoreGameLoop.c$120$2_0$145
-;src\CoreGameLoop.c:120: redraw = FALSE;
+	C$CoreGameLoop.c$123$2_0$146	= .
+	.globl	C$CoreGameLoop.c$123$2_0$146
+;src\CoreGameLoop.c:123: redraw = FALSE;
 	ld	hl, #_redraw
 	ld	(hl), #0x00
-00120$:
-	C$CoreGameLoop.c$123$1_0$136	= .
-	.globl	C$CoreGameLoop.c$123$1_0$136
-;src\CoreGameLoop.c:123: return COREGAMELOOP;
+00123$:
+	C$CoreGameLoop.c$126$1_0$136	= .
+	.globl	C$CoreGameLoop.c$126$1_0$136
+;src\CoreGameLoop.c:126: return COREGAMELOOP;
 	ld	a, #0x02
-	C$CoreGameLoop.c$124$1_0$136	= .
-	.globl	C$CoreGameLoop.c$124$1_0$136
-;src\CoreGameLoop.c:124: }
-	C$CoreGameLoop.c$124$1_0$136	= .
-	.globl	C$CoreGameLoop.c$124$1_0$136
+	C$CoreGameLoop.c$127$1_0$136	= .
+	.globl	C$CoreGameLoop.c$127$1_0$136
+;src\CoreGameLoop.c:127: }
+	C$CoreGameLoop.c$127$1_0$136	= .
+	.globl	C$CoreGameLoop.c$127$1_0$136
 	XG$CoreGameLoopUpdate$0$0	= .
 	.globl	XG$CoreGameLoopUpdate$0$0
 	ret

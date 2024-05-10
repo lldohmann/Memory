@@ -1,0 +1,167 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ISO C Compiler 
+                                      3 ; Version 4.2.2 #13350 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module Bestiary
+                                      6 	.optsdcc -msm83
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _BestiaryUpdate
+                                     12 	.globl _BestiarySetup
+                                     13 	.globl _fadeFromBlack
+                                     14 	.globl _fadeToBlack
+                                     15 	.globl _set_bkg_tiles
+                                     16 	.globl _set_bkg_data
+                                     17 	.globl _joypad
+                                     18 ;--------------------------------------------------------
+                                     19 ; special function registers
+                                     20 ;--------------------------------------------------------
+                                     21 ;--------------------------------------------------------
+                                     22 ; ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area _DATA
+                                     25 ;--------------------------------------------------------
+                                     26 ; ram data
+                                     27 ;--------------------------------------------------------
+                                     28 	.area _INITIALIZED
+                                     29 ;--------------------------------------------------------
+                                     30 ; absolute external ram data
+                                     31 ;--------------------------------------------------------
+                                     32 	.area _DABS (ABS)
+                                     33 ;--------------------------------------------------------
+                                     34 ; global & static initialisations
+                                     35 ;--------------------------------------------------------
+                                     36 	.area _HOME
+                                     37 	.area _GSINIT
+                                     38 	.area _GSFINAL
+                                     39 	.area _GSINIT
+                                     40 ;--------------------------------------------------------
+                                     41 ; Home
+                                     42 ;--------------------------------------------------------
+                                     43 	.area _HOME
+                                     44 	.area _HOME
+                                     45 ;--------------------------------------------------------
+                                     46 ; code
+                                     47 ;--------------------------------------------------------
+                                     48 	.area _CODE
+                           000000    49 	G$BestiarySetup$0$0	= .
+                                     50 	.globl	G$BestiarySetup$0$0
+                           000000    51 	C$Bestiary.c$8$0_0$103	= .
+                                     52 	.globl	C$Bestiary.c$8$0_0$103
+                                     53 ;src\Bestiary.c:8: void BestiarySetup()
+                                     54 ;	---------------------------------
+                                     55 ; Function BestiarySetup
+                                     56 ; ---------------------------------
+      000000                         57 _BestiarySetup::
+                           000000    58 	C$Bestiary.c$10$1_0$103	= .
+                                     59 	.globl	C$Bestiary.c$10$1_0$103
+                                     60 ;src\Bestiary.c:10: set_bkg_data(0, 53, FontTiles);
+      000000 11r00r00         [12]   61 	ld	de, #_FontTiles
+      000003 D5               [16]   62 	push	de
+      000004 21 00 35         [12]   63 	ld	hl, #0x3500
+      000007 E5               [16]   64 	push	hl
+      000008 CDr00r00         [24]   65 	call	_set_bkg_data
+      00000B E8 04            [16]   66 	add	sp, #4
+                           00000D    67 	C$Bestiary.c$11$1_0$103	= .
+                                     68 	.globl	C$Bestiary.c$11$1_0$103
+                                     69 ;src\Bestiary.c:11: set_bkg_data(128, 79, Crow_Tiles);
+      00000D 11r00r00         [12]   70 	ld	de, #_Crow_Tiles
+      000010 D5               [16]   71 	push	de
+      000011 21 80 4F         [12]   72 	ld	hl, #0x4f80
+      000014 E5               [16]   73 	push	hl
+      000015 CDr00r00         [24]   74 	call	_set_bkg_data
+      000018 E8 04            [16]   75 	add	sp, #4
+                           00001A    76 	C$Bestiary.c$12$1_0$103	= .
+                                     77 	.globl	C$Bestiary.c$12$1_0$103
+                                     78 ;src\Bestiary.c:12: set_bkg_tiles(0, 0, Bestiary_MapWidth, Bestiary_MapHeight, Bestiary_Map);
+      00001A 11r00r00         [12]   79 	ld	de, #_Bestiary_Map
+      00001D D5               [16]   80 	push	de
+      00001E 21 14 12         [12]   81 	ld	hl, #0x1214
+      000021 E5               [16]   82 	push	hl
+      000022 AF               [ 4]   83 	xor	a, a
+      000023 0F               [ 4]   84 	rrca
+      000024 F5               [16]   85 	push	af
+      000025 CDr00r00         [24]   86 	call	_set_bkg_tiles
+      000028 E8 06            [16]   87 	add	sp, #6
+                           00002A    88 	C$Bestiary.c$13$1_0$103	= .
+                                     89 	.globl	C$Bestiary.c$13$1_0$103
+                                     90 ;src\Bestiary.c:13: set_bkg_tiles(2, 4, Crow_MapWidth, Crow_MapHeight, Crow_Map);
+      00002A 11r00r00         [12]   91 	ld	de, #_Crow_Map
+      00002D D5               [16]   92 	push	de
+      00002E 21 05 07         [12]   93 	ld	hl, #0x705
+      000031 E5               [16]   94 	push	hl
+      000032 21 02 04         [12]   95 	ld	hl, #0x402
+      000035 E5               [16]   96 	push	hl
+      000036 CDr00r00         [24]   97 	call	_set_bkg_tiles
+      000039 E8 06            [16]   98 	add	sp, #6
+                           00003B    99 	C$Bestiary.c$14$1_0$103	= .
+                                    100 	.globl	C$Bestiary.c$14$1_0$103
+                                    101 ;src\Bestiary.c:14: SHOW_BKG;
+      00003B F0r00            [12]  102 	ldh	a, (_LCDC_REG + 0)
+      00003D F6 01            [ 8]  103 	or	a, #0x01
+      00003F E0r00            [12]  104 	ldh	(_LCDC_REG + 0), a
+                           000041   105 	C$Bestiary.c$15$1_0$103	= .
+                                    106 	.globl	C$Bestiary.c$15$1_0$103
+                                    107 ;src\Bestiary.c:15: fadeFromBlack(10);
+      000041 3E 0A            [ 8]  108 	ld	a, #0x0a
+                           000043   109 	C$Bestiary.c$16$1_0$103	= .
+                                    110 	.globl	C$Bestiary.c$16$1_0$103
+                                    111 ;src\Bestiary.c:16: }
+                           000043   112 	C$Bestiary.c$16$1_0$103	= .
+                                    113 	.globl	C$Bestiary.c$16$1_0$103
+                           000043   114 	XG$BestiarySetup$0$0	= .
+                                    115 	.globl	XG$BestiarySetup$0$0
+      000043 C3r00r00         [16]  116 	jp	_fadeFromBlack
+                           000046   117 	G$BestiaryUpdate$0$0	= .
+                                    118 	.globl	G$BestiaryUpdate$0$0
+                           000046   119 	C$Bestiary.c$18$1_0$104	= .
+                                    120 	.globl	C$Bestiary.c$18$1_0$104
+                                    121 ;src\Bestiary.c:18: uint8_t BestiaryUpdate()
+                                    122 ;	---------------------------------
+                                    123 ; Function BestiaryUpdate
+                                    124 ; ---------------------------------
+      000046                        125 _BestiaryUpdate::
+                           000046   126 	C$Bestiary.c$20$1_0$104	= .
+                                    127 	.globl	C$Bestiary.c$20$1_0$104
+                                    128 ;src\Bestiary.c:20: joypadPrevious = joypadCurrent;
+      000046 FAr00r00         [16]  129 	ld	a, (#_joypadCurrent)
+      000049 EAr00r00         [16]  130 	ld	(#_joypadPrevious),a
+                           00004C   131 	C$Bestiary.c$21$1_0$104	= .
+                                    132 	.globl	C$Bestiary.c$21$1_0$104
+                                    133 ;src\Bestiary.c:21: joypadCurrent = joypad();
+      00004C CDr00r00         [24]  134 	call	_joypad
+      00004F 21r00r00         [12]  135 	ld	hl, #_joypadCurrent
+      000052 77               [ 8]  136 	ld	(hl), a
+                           000053   137 	C$Bestiary.c$47$1_0$104	= .
+                                    138 	.globl	C$Bestiary.c$47$1_0$104
+                                    139 ;src\Bestiary.c:47: if (joypadCurrent & J_SELECT)
+      000053 CB 76            [12]  140 	bit	6, (hl)
+      000055 28 08            [12]  141 	jr	Z, 00102$
+                           000057   142 	C$Bestiary.c$49$2_0$107	= .
+                                    143 	.globl	C$Bestiary.c$49$2_0$107
+                                    144 ;src\Bestiary.c:49: fadeToBlack(10);
+      000057 3E 0A            [ 8]  145 	ld	a, #0x0a
+      000059 CDr00r00         [24]  146 	call	_fadeToBlack
+                           00005C   147 	C$Bestiary.c$50$2_0$107	= .
+                                    148 	.globl	C$Bestiary.c$50$2_0$107
+                                    149 ;src\Bestiary.c:50: return GAMETITLE;
+      00005C 3E 01            [ 8]  150 	ld	a, #0x01
+      00005E C9               [16]  151 	ret
+      00005F                        152 00102$:
+                           00005F   153 	C$Bestiary.c$53$1_0$104	= .
+                                    154 	.globl	C$Bestiary.c$53$1_0$104
+                                    155 ;src\Bestiary.c:53: return BESTIARY;
+      00005F 3E 04            [ 8]  156 	ld	a, #0x04
+                           000061   157 	C$Bestiary.c$54$1_0$104	= .
+                                    158 	.globl	C$Bestiary.c$54$1_0$104
+                                    159 ;src\Bestiary.c:54: }
+                           000061   160 	C$Bestiary.c$54$1_0$104	= .
+                                    161 	.globl	C$Bestiary.c$54$1_0$104
+                           000061   162 	XG$BestiaryUpdate$0$0	= .
+                                    163 	.globl	XG$BestiaryUpdate$0$0
+      000061 C9               [16]  164 	ret
+                                    165 	.area _CODE
+                                    166 	.area _INITIALIZER
+                                    167 	.area _CABS (ABS)

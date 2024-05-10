@@ -253,4 +253,6 @@ S:G$set_camera$0_0$0({2}DF,SV:S),C,0,0
 S:G$CoreGameLoopUpdate$0_0$0({2}DF,SC:U),C,0,0
 S:G$GameJohnDoeSetup$0_0$0({2}DF,SV:S),C,0,0
 S:G$GameJohnDoeUpdate$0_0$0({2}DF,SC:U),C,0,0
+S:G$BestiarySetup$0_0$0({2}DF,SV:S),C,0,0
+S:G$BestiaryUpdate$0_0$0({2}DF,SC:U),C,0,0
 S:G$main$0_0$0({2}DF,SV:S),C,0,0

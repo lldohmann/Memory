@@ -464,9 +464,9 @@
       00017F 34               [12]  464 	inc	(hl)
                            000180   465 	C$GameTitle.c$112$1_0$123	= .
                                     466 	.globl	C$GameTitle.c$112$1_0$123
-                                    467 ;src\GameTitle.c:112: if (timer == 10)
+                                    467 ;src\GameTitle.c:112: if (timer == 60)
       000180 7E               [ 8]  468 	ld	a, (hl)
-      000181 D6 0A            [ 8]  469 	sub	a, #0x0a
+      000181 D6 3C            [ 8]  469 	sub	a, #0x3c
       000183 20 09            [12]  470 	jr	NZ, 00102$
                            000185   471 	C$GameTitle.c$114$2_0$124	= .
                                     472 	.globl	C$GameTitle.c$114$2_0$124
@@ -617,24 +617,69 @@
       00021D 3E 03            [ 8]  617 	ld	a, #0x03
       00021F C9               [16]  618 	ret
       000220                        619 00108$:
-                           000220   620 	C$GameTitle.c$132$1_0$123	= .
-                                    621 	.globl	C$GameTitle.c$132$1_0$123
-                                    622 ;src\GameTitle.c:132: return GAMETITLE;
-      000220 3E 01            [ 8]  623 	ld	a, #0x01
-                           000222   624 	C$GameTitle.c$133$1_0$123	= .
-                                    625 	.globl	C$GameTitle.c$133$1_0$123
-                                    626 ;src\GameTitle.c:133: }
-                           000222   627 	C$GameTitle.c$133$1_0$123	= .
-                                    628 	.globl	C$GameTitle.c$133$1_0$123
-                           000222   629 	XG$GameTitleUpdate$0$0	= .
-                                    630 	.globl	XG$GameTitleUpdate$0$0
-      000222 C9               [16]  631 	ret
-                                    632 	.area _CODE
-                                    633 	.area _INITIALIZER
-                           000000   634 FGameTitle$__xinit_timer$0_0$0 == .
-      000000                        635 __xinit__timer:
-      000000 00                     636 	.db #0x00	; 0
-                           000001   637 FGameTitle$__xinit_frame$0_0$0 == .
-      000001                        638 __xinit__frame:
-      000001 00                     639 	.db #0x00	; 0
-                                    640 	.area _CABS (ABS)
+                           000220   620 	C$GameTitle.c$131$1_0$123	= .
+                                    621 	.globl	C$GameTitle.c$131$1_0$123
+                                    622 ;src\GameTitle.c:131: if (joypadCurrent & J_A)
+      000220 CB 63            [ 8]  623 	bit	4, e
+      000222 28 2A            [12]  624 	jr	Z, 00110$
+                           000224   625 	C$GameTitle.c$133$2_0$127	= .
+                                    626 	.globl	C$GameTitle.c$133$2_0$127
+                                    627 ;src\GameTitle.c:133: fadeToBlack(10);
+      000224 C5               [16]  628 	push	bc
+      000225 3E 0A            [ 8]  629 	ld	a, #0x0a
+      000227 CDr00r00         [24]  630 	call	_fadeToBlack
+      00022A C1               [12]  631 	pop	bc
+                                    632 ;src\GameTitle.c:134: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+      00022B 21r01r00         [12]  633 	ld	hl, #_frame
+      00022E 6E               [ 8]  634 	ld	l, (hl)
+                                    635 ;	spillPairReg hl
+                                    636 ;	spillPairReg hl
+      00022F 26 00            [ 8]  637 	ld	h, #0x00
+                                    638 ;	spillPairReg hl
+                                    639 ;	spillPairReg hl
+      000231 29               [ 8]  640 	add	hl, hl
+      000232 09               [ 8]  641 	add	hl, bc
+      000233 2A               [ 8]  642 	ld	a, (hl+)
+      000234 4E               [ 8]  643 	ld	c, (hl)
+                                    644 ;C:/gbdk/include/gb/metasprites.h:140: __current_metasprite = metasprite;
+      000235 21r00r00         [12]  645 	ld	hl, #___current_metasprite
+      000238 22               [ 8]  646 	ld	(hl+), a
+      000239 71               [ 8]  647 	ld	(hl), c
+                                    648 ;C:/gbdk/include/gb/metasprites.h:141: __current_base_tile = base_tile;
+      00023A 21r00r00         [12]  649 	ld	hl, #___current_base_tile
+      00023D 36 00            [12]  650 	ld	(hl), #0x00
+                                    651 ;C:/gbdk/include/gb/metasprites.h:142: return __move_metasprite(base_sprite, x, y);
+      00023F 21 B0 B0         [12]  652 	ld	hl, #0xb0b0
+      000242 E5               [16]  653 	push	hl
+      000243 AF               [ 4]  654 	xor	a, a
+      000244 F5               [16]  655 	push	af
+      000245 33               [ 8]  656 	inc	sp
+      000246 CDr00r00         [24]  657 	call	___move_metasprite
+      000249 E8 03            [16]  658 	add	sp, #3
+                           00024B   659 	C$GameTitle.c$135$2_0$127	= .
+                                    660 	.globl	C$GameTitle.c$135$2_0$127
+                                    661 ;src\GameTitle.c:135: return BESTIARY;
+      00024B 3E 04            [ 8]  662 	ld	a, #0x04
+      00024D C9               [16]  663 	ret
+      00024E                        664 00110$:
+                           00024E   665 	C$GameTitle.c$138$1_0$123	= .
+                                    666 	.globl	C$GameTitle.c$138$1_0$123
+                                    667 ;src\GameTitle.c:138: return GAMETITLE;
+      00024E 3E 01            [ 8]  668 	ld	a, #0x01
+                           000250   669 	C$GameTitle.c$139$1_0$123	= .
+                                    670 	.globl	C$GameTitle.c$139$1_0$123
+                                    671 ;src\GameTitle.c:139: }
+                           000250   672 	C$GameTitle.c$139$1_0$123	= .
+                                    673 	.globl	C$GameTitle.c$139$1_0$123
+                           000250   674 	XG$GameTitleUpdate$0$0	= .
+                                    675 	.globl	XG$GameTitleUpdate$0$0
+      000250 C9               [16]  676 	ret
+                                    677 	.area _CODE
+                                    678 	.area _INITIALIZER
+                           000000   679 FGameTitle$__xinit_timer$0_0$0 == .
+      000000                        680 __xinit__timer:
+      000000 00                     681 	.db #0x00	; 0
+                           000001   682 FGameTitle$__xinit_frame$0_0$0 == .
+      000001                        683 __xinit__frame:
+      000001 00                     684 	.db #0x00	; 0
+                                    685 	.area _CABS (ABS)

@@ -112,7 +112,10 @@ uint8_t CoreGameLoopUpdate()
             camera_x_pixels++;
             redraw = TRUE;
         }
-    } 
+    } else if (joypadCurrent & J_SELECT) {
+        fadeToBlack(10);
+        return GAMETITLE;
+    }
     if (redraw)
     {
         wait_vbl_done();

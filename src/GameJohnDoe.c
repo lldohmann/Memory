@@ -1,5 +1,4 @@
 #include <gb/gb.h>
-#include "../src/GameJohnDoe.h"
 #include "../src/common.h"
 #include "../res/JohnDoe_Tiles.h"
 #include "../res/JohnDoe_Map.h"
@@ -26,6 +25,11 @@ uint8_t GameJohnDoeUpdate()
     {
         fadeToWhite(10);
         fadeFromWhite(10);
+    }
+    if (joypadCurrent & J_SELECT)
+    {
+        fadeToBlack(10);
+        return GAMETITLE;
     }
 
     return GAMEJOHNDOE;

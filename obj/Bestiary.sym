@@ -1,0 +1,112 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  0 A$Bestiary$102                                                 00003B GR
+  0 A$Bestiary$103                                                 00003D GR
+  0 A$Bestiary$104                                                 00003F GR
+  0 A$Bestiary$108                                                 000041 GR
+  0 A$Bestiary$116                                                 000043 GR
+  0 A$Bestiary$129                                                 000046 GR
+  0 A$Bestiary$130                                                 000049 GR
+  0 A$Bestiary$134                                                 00004C GR
+  0 A$Bestiary$135                                                 00004F GR
+  0 A$Bestiary$136                                                 000052 GR
+  0 A$Bestiary$140                                                 000053 GR
+  0 A$Bestiary$141                                                 000055 GR
+  0 A$Bestiary$145                                                 000057 GR
+  0 A$Bestiary$146                                                 000059 GR
+  0 A$Bestiary$150                                                 00005C GR
+  0 A$Bestiary$151                                                 00005E GR
+  0 A$Bestiary$156                                                 00005F GR
+  0 A$Bestiary$164                                                 000061 GR
+  0 A$Bestiary$61                                                  000000 GR
+  0 A$Bestiary$62                                                  000003 GR
+  0 A$Bestiary$63                                                  000004 GR
+  0 A$Bestiary$64                                                  000007 GR
+  0 A$Bestiary$65                                                  000008 GR
+  0 A$Bestiary$66                                                  00000B GR
+  0 A$Bestiary$70                                                  00000D GR
+  0 A$Bestiary$71                                                  000010 GR
+  0 A$Bestiary$72                                                  000011 GR
+  0 A$Bestiary$73                                                  000014 GR
+  0 A$Bestiary$74                                                  000015 GR
+  0 A$Bestiary$75                                                  000018 GR
+  0 A$Bestiary$79                                                  00001A GR
+  0 A$Bestiary$80                                                  00001D GR
+  0 A$Bestiary$81                                                  00001E GR
+  0 A$Bestiary$82                                                  000021 GR
+  0 A$Bestiary$83                                                  000022 GR
+  0 A$Bestiary$84                                                  000023 GR
+  0 A$Bestiary$85                                                  000024 GR
+  0 A$Bestiary$86                                                  000025 GR
+  0 A$Bestiary$87                                                  000028 GR
+  0 A$Bestiary$91                                                  00002A GR
+  0 A$Bestiary$92                                                  00002D GR
+  0 A$Bestiary$93                                                  00002E GR
+  0 A$Bestiary$94                                                  000031 GR
+  0 A$Bestiary$95                                                  000032 GR
+  0 A$Bestiary$96                                                  000035 GR
+  0 A$Bestiary$97                                                  000036 GR
+  0 A$Bestiary$98                                                  000039 GR
+  0 C$Bestiary.c$10$1_0$103                                     =  000000 GR
+  0 C$Bestiary.c$11$1_0$103                                     =  00000D GR
+  0 C$Bestiary.c$12$1_0$103                                     =  00001A GR
+  0 C$Bestiary.c$13$1_0$103                                     =  00002A GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$Bestiary.c$14$1_0$103                                     =  00003B GR
+  0 C$Bestiary.c$15$1_0$103                                     =  000041 GR
+  0 C$Bestiary.c$16$1_0$103                                     =  000043 GR
+  0 C$Bestiary.c$18$1_0$104                                     =  000046 GR
+  0 C$Bestiary.c$20$1_0$104                                     =  000046 GR
+  0 C$Bestiary.c$21$1_0$104                                     =  00004C GR
+  0 C$Bestiary.c$47$1_0$104                                     =  000053 GR
+  0 C$Bestiary.c$49$2_0$107                                     =  000057 GR
+  0 C$Bestiary.c$50$2_0$107                                     =  00005C GR
+  0 C$Bestiary.c$53$1_0$104                                     =  00005F GR
+  0 C$Bestiary.c$54$1_0$104                                     =  000061 GR
+  0 C$Bestiary.c$8$0_0$103                                      =  000000 GR
+  0 G$BestiarySetup$0$0                                         =  000000 GR
+  0 G$BestiaryUpdate$0$0                                        =  000046 GR
+  0 XG$BestiarySetup$0$0                                        =  000043 GR
+  0 XG$BestiaryUpdate$0$0                                       =  000061 GR
+  0 _BestiarySetup                                                 000000 GR
+  0 _BestiaryUpdate                                                000046 GR
+    _Bestiary_Map                                                  ****** GX
+    _Crow_Map                                                      ****** GX
+    _Crow_Tiles                                                    ****** GX
+    _FontTiles                                                     ****** GX
+    _LCDC_REG                                                      ****** GX
+    _fadeFromBlack                                                 ****** GX
+    _fadeToBlack                                                   ****** GX
+    _joypad                                                        ****** GX
+    _joypadCurrent                                                 ****** GX
+    _joypadPrevious                                                ****** GX
+    _set_bkg_data                                                  ****** GX
+    _set_bkg_tiles                                                 ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size     62   flags    0
+   1 _DATA                                      size      0   flags    0
+   2 _INITIALIZED                               size      0   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _INITIALIZER                               size      0   flags    0
+   8 _CABS                                      size      0   flags    8
+

@@ -26,7 +26,14 @@ Symbol Table
   0 A$GameJohnDoe$149                                              00004F GR
   0 A$GameJohnDoe$150                                              000051 GR
   0 A$GameJohnDoe$155                                              000054 GR
-  0 A$GameJohnDoe$163                                              000056 GR
+  0 A$GameJohnDoe$156                                              000057 GR
+  0 A$GameJohnDoe$157                                              000059 GR
+  0 A$GameJohnDoe$161                                              00005B GR
+  0 A$GameJohnDoe$162                                              00005D GR
+  0 A$GameJohnDoe$166                                              000060 GR
+  0 A$GameJohnDoe$167                                              000062 GR
+  0 A$GameJohnDoe$172                                              000063 GR
+  0 A$GameJohnDoe$180                                              000065 GR
   0 A$GameJohnDoe$63                                               000000 GR
   0 A$GameJohnDoe$64                                               000003 GR
   0 A$GameJohnDoe$65                                               000004 GR
@@ -47,32 +54,35 @@ Symbol Table
   0 A$GameJohnDoe$86                                               000021 GR
   0 A$GameJohnDoe$90                                               000023 GR
   0 A$GameJohnDoe$98                                               000025 GR
-  0 C$GameJohnDoe.c$10$1_0$103                                  =  00000D GR
-  0 C$GameJohnDoe.c$11$1_0$103                                  =  00001D GR
-  0 C$GameJohnDoe.c$12$1_0$103                                  =  000023 GR
-  0 C$GameJohnDoe.c$13$1_0$103                                  =  000025 GR
-  0 C$GameJohnDoe.c$15$1_0$104                                  =  000028 GR
-  0 C$GameJohnDoe.c$17$1_0$104                                  =  000028 GR
-  0 C$GameJohnDoe.c$18$1_0$104                                  =  00002E GR
-  0 C$GameJohnDoe.c$20$1_0$104                                  =  000035 GR
-  0 C$GameJohnDoe.c$22$2_0$105                                  =  000039 GR
-  0 C$GameJohnDoe.c$23$2_0$105                                  =  00003E GR
-  0 C$GameJohnDoe.c$25$1_0$104                                  =  000043 GR
+  0 C$GameJohnDoe.c$10$1_0$103                                  =  00001D GR
+  0 C$GameJohnDoe.c$11$1_0$103                                  =  000023 GR
+  0 C$GameJohnDoe.c$12$1_0$103                                  =  000025 GR
+  0 C$GameJohnDoe.c$14$1_0$104                                  =  000028 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 C$GameJohnDoe.c$27$2_0$106                                  =  00004A GR
-  0 C$GameJohnDoe.c$28$2_0$106                                  =  00004F GR
-  0 C$GameJohnDoe.c$31$1_0$104                                  =  000054 GR
-  0 C$GameJohnDoe.c$32$1_0$104                                  =  000056 GR
-  0 C$GameJohnDoe.c$7$0_0$103                                   =  000000 GR
-  0 C$GameJohnDoe.c$9$1_0$103                                   =  000000 GR
+  0 C$GameJohnDoe.c$16$1_0$104                                  =  000028 GR
+  0 C$GameJohnDoe.c$17$1_0$104                                  =  00002E GR
+  0 C$GameJohnDoe.c$19$1_0$104                                  =  000035 GR
+  0 C$GameJohnDoe.c$21$2_0$105                                  =  000039 GR
+  0 C$GameJohnDoe.c$22$2_0$105                                  =  00003E GR
+  0 C$GameJohnDoe.c$24$1_0$104                                  =  000043 GR
+  0 C$GameJohnDoe.c$26$2_0$106                                  =  00004A GR
+  0 C$GameJohnDoe.c$27$2_0$106                                  =  00004F GR
+  0 C$GameJohnDoe.c$29$1_0$104                                  =  000054 GR
+  0 C$GameJohnDoe.c$31$2_0$107                                  =  00005B GR
+  0 C$GameJohnDoe.c$32$2_0$107                                  =  000060 GR
+  0 C$GameJohnDoe.c$35$1_0$104                                  =  000063 GR
+  0 C$GameJohnDoe.c$36$1_0$104                                  =  000065 GR
+  0 C$GameJohnDoe.c$6$0_0$103                                   =  000000 GR
+  0 C$GameJohnDoe.c$8$1_0$103                                   =  000000 GR
+  0 C$GameJohnDoe.c$9$1_0$103                                   =  00000D GR
   0 G$GameJohnDoeSetup$0$0                                      =  000000 GR
   0 G$GameJohnDoeUpdate$0$0                                     =  000028 GR
   0 XG$GameJohnDoeSetup$0$0                                     =  000025 GR
-  0 XG$GameJohnDoeUpdate$0$0                                    =  000056 GR
+  0 XG$GameJohnDoeUpdate$0$0                                    =  000065 GR
   0 _GameJohnDoeSetup                                              000000 GR
   0 _GameJohnDoeUpdate                                             000028 GR
     _JohnDoe_Map                                                   ****** GX
@@ -94,7 +104,7 @@ Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size     57   flags    0
+   0 _CODE                                      size     66   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size      0   flags    0
    3 _DABS                                      size      0   flags    8
