@@ -65,31 +65,31 @@
                                      65 	.area _CODE
                            000000    66 	G$GameTitleSetup$0$0	= .
                                      67 	.globl	G$GameTitleSetup$0$0
-                           000000    68 	C$GameTitle.c$91$0_0$119	= .
-                                     69 	.globl	C$GameTitle.c$91$0_0$119
+                           000000    68 	C$GameTitle.c$91$0_0$120	= .
+                                     69 	.globl	C$GameTitle.c$91$0_0$120
                                      70 ;src\GameTitle.c:91: void GameTitleSetup()
                                      71 ;	---------------------------------
                                      72 ; Function GameTitleSetup
                                      73 ; ---------------------------------
       000000                         74 _GameTitleSetup::
-                           000000    75 	C$GameTitle.c$93$1_0$119	= .
-                                     76 	.globl	C$GameTitle.c$93$1_0$119
+                           000000    75 	C$GameTitle.c$93$1_0$120	= .
+                                     76 	.globl	C$GameTitle.c$93$1_0$120
                                      77 ;src\GameTitle.c:93: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
       000000 3E FE            [ 8]   78 	ld	a, #0xfe
       000002 E0r00            [12]   79 	ldh	(_BGP_REG + 0), a
-                           000004    80 	C$GameTitle.c$94$1_0$119	= .
-                                     81 	.globl	C$GameTitle.c$94$1_0$119
+                           000004    80 	C$GameTitle.c$94$1_0$120	= .
+                                     81 	.globl	C$GameTitle.c$94$1_0$120
                                      82 ;src\GameTitle.c:94: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
       000004 3E FE            [ 8]   83 	ld	a, #0xfe
       000006 E0r00            [12]   84 	ldh	(_OBP0_REG + 0), a
-                           000008    85 	C$GameTitle.c$95$1_0$119	= .
-                                     86 	.globl	C$GameTitle.c$95$1_0$119
+                           000008    85 	C$GameTitle.c$95$1_0$120	= .
+                                     86 	.globl	C$GameTitle.c$95$1_0$120
                                      87 ;src\GameTitle.c:95: SPRITES_8x16;
       000008 F0r00            [12]   88 	ldh	a, (_LCDC_REG + 0)
       00000A F6 04            [ 8]   89 	or	a, #0x04
       00000C E0r00            [12]   90 	ldh	(_LCDC_REG + 0), a
-                           00000E    91 	C$GameTitle.c$96$1_0$119	= .
-                                     92 	.globl	C$GameTitle.c$96$1_0$119
+                           00000E    91 	C$GameTitle.c$96$1_0$120	= .
+                                     92 	.globl	C$GameTitle.c$96$1_0$120
                                      93 ;src\GameTitle.c:96: set_bkg_data(0, 50, TitleLabel);
       00000E 11r00r00         [12]   94 	ld	de, #_TitleLabel
       000011 D5               [16]   95 	push	de
@@ -97,8 +97,8 @@
       000015 E5               [16]   97 	push	hl
       000016 CDr00r00         [24]   98 	call	_set_bkg_data
       000019 E8 04            [16]   99 	add	sp, #4
-                           00001B   100 	C$GameTitle.c$97$1_0$119	= .
-                                    101 	.globl	C$GameTitle.c$97$1_0$119
+                           00001B   100 	C$GameTitle.c$97$1_0$120	= .
+                                    101 	.globl	C$GameTitle.c$97$1_0$120
                                     102 ;src\GameTitle.c:97: set_bkg_tiles(0, 0, Title_MapWidth, Title_MapHeight, Title_Map);
       00001B 11r00r00         [12]  103 	ld	de, #_Title_Map
       00001E D5               [16]  104 	push	de
@@ -109,8 +109,8 @@
       000025 F5               [16]  109 	push	af
       000026 CDr00r00         [24]  110 	call	_set_bkg_tiles
       000029 E8 06            [16]  111 	add	sp, #6
-                           00002B   112 	C$GameTitle.c$98$1_0$119	= .
-                                    113 	.globl	C$GameTitle.c$98$1_0$119
+                           00002B   112 	C$GameTitle.c$98$1_0$120	= .
+                                    113 	.globl	C$GameTitle.c$98$1_0$120
                                     114 ;src\GameTitle.c:98: set_sprite_data(0, 112, Globe_Tiles);
       00002B 11r00r00         [12]  115 	ld	de, #_Globe_Tiles
       00002E D5               [16]  116 	push	de
@@ -139,27 +139,27 @@
       00004F 33               [ 8]  139 	inc	sp
       000050 CDr00r00         [24]  140 	call	___move_metasprite
       000053 E8 03            [16]  141 	add	sp, #3
-                           000055   142 	C$GameTitle.c$100$1_0$119	= .
-                                    143 	.globl	C$GameTitle.c$100$1_0$119
+                           000055   142 	C$GameTitle.c$100$1_0$120	= .
+                                    143 	.globl	C$GameTitle.c$100$1_0$120
                                     144 ;src\GameTitle.c:100: SHOW_BKG;
       000055 F0r00            [12]  145 	ldh	a, (_LCDC_REG + 0)
       000057 F6 01            [ 8]  146 	or	a, #0x01
       000059 E0r00            [12]  147 	ldh	(_LCDC_REG + 0), a
-                           00005B   148 	C$GameTitle.c$101$1_0$119	= .
-                                    149 	.globl	C$GameTitle.c$101$1_0$119
+                           00005B   148 	C$GameTitle.c$101$1_0$120	= .
+                                    149 	.globl	C$GameTitle.c$101$1_0$120
                                     150 ;src\GameTitle.c:101: SHOW_SPRITES;
       00005B F0r00            [12]  151 	ldh	a, (_LCDC_REG + 0)
       00005D F6 02            [ 8]  152 	or	a, #0x02
       00005F E0r00            [12]  153 	ldh	(_LCDC_REG + 0), a
-                           000061   154 	C$GameTitle.c$102$1_0$119	= .
-                                    155 	.globl	C$GameTitle.c$102$1_0$119
+                           000061   154 	C$GameTitle.c$102$1_0$120	= .
+                                    155 	.globl	C$GameTitle.c$102$1_0$120
                                     156 ;src\GameTitle.c:102: fadeFromBlack(10);
       000061 3E 0A            [ 8]  157 	ld	a, #0x0a
-                           000063   158 	C$GameTitle.c$103$1_0$119	= .
-                                    159 	.globl	C$GameTitle.c$103$1_0$119
+                           000063   158 	C$GameTitle.c$103$1_0$120	= .
+                                    159 	.globl	C$GameTitle.c$103$1_0$120
                                     160 ;src\GameTitle.c:103: }
-                           000063   161 	C$GameTitle.c$103$1_0$119	= .
-                                    162 	.globl	C$GameTitle.c$103$1_0$119
+                           000063   161 	C$GameTitle.c$103$1_0$120	= .
+                                    162 	.globl	C$GameTitle.c$103$1_0$120
                            000063   163 	XG$GameTitleSetup$0$0	= .
                                     164 	.globl	XG$GameTitleSetup$0$0
       000063 C3r00r00         [16]  165 	jp	_fadeFromBlack
@@ -440,47 +440,47 @@
       00016Er3Er01                  440 	.dw _globe7
                            000170   441 	G$GameTitleUpdate$0$0	= .
                                     442 	.globl	G$GameTitleUpdate$0$0
-                           000170   443 	C$GameTitle.c$107$1_0$123	= .
-                                    444 	.globl	C$GameTitle.c$107$1_0$123
+                           000170   443 	C$GameTitle.c$107$1_0$124	= .
+                                    444 	.globl	C$GameTitle.c$107$1_0$124
                                     445 ;src\GameTitle.c:107: uint8_t GameTitleUpdate()
                                     446 ;	---------------------------------
                                     447 ; Function GameTitleUpdate
                                     448 ; ---------------------------------
       000170                        449 _GameTitleUpdate::
-                           000170   450 	C$GameTitle.c$109$1_0$123	= .
-                                    451 	.globl	C$GameTitle.c$109$1_0$123
+                           000170   450 	C$GameTitle.c$109$1_0$124	= .
+                                    451 	.globl	C$GameTitle.c$109$1_0$124
                                     452 ;src\GameTitle.c:109: joypadPrevious = joypadCurrent;
       000170 FAr00r00         [16]  453 	ld	a, (#_joypadCurrent)
       000173 EAr00r00         [16]  454 	ld	(#_joypadPrevious),a
-                           000176   455 	C$GameTitle.c$110$1_0$123	= .
-                                    456 	.globl	C$GameTitle.c$110$1_0$123
+                           000176   455 	C$GameTitle.c$110$1_0$124	= .
+                                    456 	.globl	C$GameTitle.c$110$1_0$124
                                     457 ;src\GameTitle.c:110: joypadCurrent = joypad();
       000176 CDr00r00         [24]  458 	call	_joypad
       000179 EAr00r00         [16]  459 	ld	(#_joypadCurrent),a
-                           00017C   460 	C$GameTitle.c$111$1_0$123	= .
-                                    461 	.globl	C$GameTitle.c$111$1_0$123
+                           00017C   460 	C$GameTitle.c$111$1_0$124	= .
+                                    461 	.globl	C$GameTitle.c$111$1_0$124
                                     462 ;src\GameTitle.c:111: timer++;
       00017C 21r00r00         [12]  463 	ld	hl, #_timer
       00017F 34               [12]  464 	inc	(hl)
-                           000180   465 	C$GameTitle.c$112$1_0$123	= .
-                                    466 	.globl	C$GameTitle.c$112$1_0$123
+                           000180   465 	C$GameTitle.c$112$1_0$124	= .
+                                    466 	.globl	C$GameTitle.c$112$1_0$124
                                     467 ;src\GameTitle.c:112: if (timer == 60)
       000180 7E               [ 8]  468 	ld	a, (hl)
       000181 D6 3C            [ 8]  469 	sub	a, #0x3c
       000183 20 09            [12]  470 	jr	NZ, 00102$
-                           000185   471 	C$GameTitle.c$114$2_0$124	= .
-                                    472 	.globl	C$GameTitle.c$114$2_0$124
+                           000185   471 	C$GameTitle.c$114$2_0$125	= .
+                                    472 	.globl	C$GameTitle.c$114$2_0$125
                                     473 ;src\GameTitle.c:114: frame++; 
       000185 21r01r00         [12]  474 	ld	hl, #_frame
       000188 34               [12]  475 	inc	(hl)
-                           000189   476 	C$GameTitle.c$115$2_0$124	= .
-                                    477 	.globl	C$GameTitle.c$115$2_0$124
+                           000189   476 	C$GameTitle.c$115$2_0$125	= .
+                                    477 	.globl	C$GameTitle.c$115$2_0$125
                                     478 ;src\GameTitle.c:115: timer = 0;
       000189 21r00r00         [12]  479 	ld	hl, #_timer
       00018C 36 00            [12]  480 	ld	(hl), #0x00
       00018E                        481 00102$:
-                           00018E   482 	C$GameTitle.c$117$1_0$123	= .
-                                    483 	.globl	C$GameTitle.c$117$1_0$123
+                           00018E   482 	C$GameTitle.c$117$1_0$124	= .
+                                    483 	.globl	C$GameTitle.c$117$1_0$124
                                     484 ;src\GameTitle.c:117: if (frame >= 7) frame = 0;
       00018E 21r01r00         [12]  485 	ld	hl, #_frame
       000191 7E               [ 8]  486 	ld	a, (hl)
@@ -522,18 +522,18 @@
       0001BA CDr00r00         [24]  522 	call	___move_metasprite
       0001BD E8 03            [16]  523 	add	sp, #3
       0001BF C1               [12]  524 	pop	bc
-                           0001C0   525 	C$GameTitle.c$109$1_0$123	= .
-                                    526 	.globl	C$GameTitle.c$109$1_0$123
+                           0001C0   525 	C$GameTitle.c$109$1_0$124	= .
+                                    526 	.globl	C$GameTitle.c$109$1_0$124
                                     527 ;src\GameTitle.c:109: joypadPrevious = joypadCurrent;
       0001C0 21r00r00         [12]  528 	ld	hl, #_joypadCurrent
       0001C3 5E               [ 8]  529 	ld	e, (hl)
-                           0001C4   530 	C$GameTitle.c$119$1_0$123	= .
-                                    531 	.globl	C$GameTitle.c$119$1_0$123
+                           0001C4   530 	C$GameTitle.c$119$1_0$124	= .
+                                    531 	.globl	C$GameTitle.c$119$1_0$124
                                     532 ;src\GameTitle.c:119: if (joypadCurrent & J_START)
       0001C4 CB 7B            [ 8]  533 	bit	7, e
       0001C6 28 2A            [12]  534 	jr	Z, 00106$
-                           0001C8   535 	C$GameTitle.c$121$2_0$125	= .
-                                    536 	.globl	C$GameTitle.c$121$2_0$125
+                           0001C8   535 	C$GameTitle.c$121$2_0$126	= .
+                                    536 	.globl	C$GameTitle.c$121$2_0$126
                                     537 ;src\GameTitle.c:121: fadeToBlack(10);
       0001C8 C5               [16]  538 	push	bc
       0001C9 3E 0A            [ 8]  539 	ld	a, #0x0a
@@ -566,19 +566,19 @@
       0001E9 33               [ 8]  566 	inc	sp
       0001EA CDr00r00         [24]  567 	call	___move_metasprite
       0001ED E8 03            [16]  568 	add	sp, #3
-                           0001EF   569 	C$GameTitle.c$123$2_0$125	= .
-                                    570 	.globl	C$GameTitle.c$123$2_0$125
+                           0001EF   569 	C$GameTitle.c$123$2_0$126	= .
+                                    570 	.globl	C$GameTitle.c$123$2_0$126
                                     571 ;src\GameTitle.c:123: return COREGAMELOOP;
       0001EF 3E 02            [ 8]  572 	ld	a, #0x02
       0001F1 C9               [16]  573 	ret
       0001F2                        574 00106$:
-                           0001F2   575 	C$GameTitle.c$125$1_0$123	= .
-                                    576 	.globl	C$GameTitle.c$125$1_0$123
+                           0001F2   575 	C$GameTitle.c$125$1_0$124	= .
+                                    576 	.globl	C$GameTitle.c$125$1_0$124
                                     577 ;src\GameTitle.c:125: if (joypadCurrent & J_SELECT)
       0001F2 CB 73            [ 8]  578 	bit	6, e
       0001F4 28 2A            [12]  579 	jr	Z, 00108$
-                           0001F6   580 	C$GameTitle.c$127$2_0$126	= .
-                                    581 	.globl	C$GameTitle.c$127$2_0$126
+                           0001F6   580 	C$GameTitle.c$127$2_0$127	= .
+                                    581 	.globl	C$GameTitle.c$127$2_0$127
                                     582 ;src\GameTitle.c:127: fadeToBlack(10);
       0001F6 C5               [16]  583 	push	bc
       0001F7 3E 0A            [ 8]  584 	ld	a, #0x0a
@@ -611,19 +611,19 @@
       000217 33               [ 8]  611 	inc	sp
       000218 CDr00r00         [24]  612 	call	___move_metasprite
       00021B E8 03            [16]  613 	add	sp, #3
-                           00021D   614 	C$GameTitle.c$129$2_0$126	= .
-                                    615 	.globl	C$GameTitle.c$129$2_0$126
+                           00021D   614 	C$GameTitle.c$129$2_0$127	= .
+                                    615 	.globl	C$GameTitle.c$129$2_0$127
                                     616 ;src\GameTitle.c:129: return GAMEJOHNDOE;
       00021D 3E 03            [ 8]  617 	ld	a, #0x03
       00021F C9               [16]  618 	ret
       000220                        619 00108$:
-                           000220   620 	C$GameTitle.c$131$1_0$123	= .
-                                    621 	.globl	C$GameTitle.c$131$1_0$123
+                           000220   620 	C$GameTitle.c$131$1_0$124	= .
+                                    621 	.globl	C$GameTitle.c$131$1_0$124
                                     622 ;src\GameTitle.c:131: if (joypadCurrent & J_A)
       000220 CB 63            [ 8]  623 	bit	4, e
       000222 28 2A            [12]  624 	jr	Z, 00110$
-                           000224   625 	C$GameTitle.c$133$2_0$127	= .
-                                    626 	.globl	C$GameTitle.c$133$2_0$127
+                           000224   625 	C$GameTitle.c$133$2_0$128	= .
+                                    626 	.globl	C$GameTitle.c$133$2_0$128
                                     627 ;src\GameTitle.c:133: fadeToBlack(10);
       000224 C5               [16]  628 	push	bc
       000225 3E 0A            [ 8]  629 	ld	a, #0x0a
@@ -656,21 +656,21 @@
       000245 33               [ 8]  656 	inc	sp
       000246 CDr00r00         [24]  657 	call	___move_metasprite
       000249 E8 03            [16]  658 	add	sp, #3
-                           00024B   659 	C$GameTitle.c$135$2_0$127	= .
-                                    660 	.globl	C$GameTitle.c$135$2_0$127
+                           00024B   659 	C$GameTitle.c$135$2_0$128	= .
+                                    660 	.globl	C$GameTitle.c$135$2_0$128
                                     661 ;src\GameTitle.c:135: return BESTIARY;
       00024B 3E 04            [ 8]  662 	ld	a, #0x04
       00024D C9               [16]  663 	ret
       00024E                        664 00110$:
-                           00024E   665 	C$GameTitle.c$138$1_0$123	= .
-                                    666 	.globl	C$GameTitle.c$138$1_0$123
+                           00024E   665 	C$GameTitle.c$138$1_0$124	= .
+                                    666 	.globl	C$GameTitle.c$138$1_0$124
                                     667 ;src\GameTitle.c:138: return GAMETITLE;
       00024E 3E 01            [ 8]  668 	ld	a, #0x01
-                           000250   669 	C$GameTitle.c$139$1_0$123	= .
-                                    670 	.globl	C$GameTitle.c$139$1_0$123
+                           000250   669 	C$GameTitle.c$139$1_0$124	= .
+                                    670 	.globl	C$GameTitle.c$139$1_0$124
                                     671 ;src\GameTitle.c:139: }
-                           000250   672 	C$GameTitle.c$139$1_0$123	= .
-                                    673 	.globl	C$GameTitle.c$139$1_0$123
+                           000250   672 	C$GameTitle.c$139$1_0$124	= .
+                                    673 	.globl	C$GameTitle.c$139$1_0$124
                            000250   674 	XG$GameTitleUpdate$0$0	= .
                                     675 	.globl	XG$GameTitleUpdate$0$0
       000250 C9               [16]  676 	ret

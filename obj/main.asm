@@ -50,36 +50,36 @@
 	.area _CODE
 	G$main$0$0	= .
 	.globl	G$main$0$0
-	C$main.c$8$0_0$104	= .
-	.globl	C$main.c$8$0_0$104
+	C$main.c$8$0_0$105	= .
+	.globl	C$main.c$8$0_0$105
 ;src\main.c:8: void main(void)
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main::
-	C$main.c$10$2_0$104	= .
-	.globl	C$main.c$10$2_0$104
+	C$main.c$10$2_0$105	= .
+	.globl	C$main.c$10$2_0$105
 ;src\main.c:10: uint8_t currentGameState = GAMEFIRSTLOAD;
-	C$main.c$11$2_0$104	= .
-	.globl	C$main.c$11$2_0$104
+	C$main.c$11$2_0$105	= .
+	.globl	C$main.c$11$2_0$105
 ;src\main.c:11: uint8_t nextGameState = GAMETITLE;
 	ld	bc, #0x100
-	C$main.c$14$1_0$104	= .
-	.globl	C$main.c$14$1_0$104
+	C$main.c$14$1_0$105	= .
+	.globl	C$main.c$14$1_0$105
 ;src\main.c:14: while(1) { 
 00126$:
-	C$main.c$18$2_0$105	= .
-	.globl	C$main.c$18$2_0$105
+	C$main.c$18$2_0$106	= .
+	.globl	C$main.c$18$2_0$106
 ;src\main.c:18: if (nextGameState != currentGameState)
 	ld	a, c
 	sub	a, b
 	jr	Z, 00113$
-	C$main.c$20$3_0$106	= .
-	.globl	C$main.c$20$3_0$106
+	C$main.c$20$3_0$107	= .
+	.globl	C$main.c$20$3_0$107
 ;src\main.c:20: currentGameState = nextGameState;
 	ld	c, b
-	C$main.c$22$3_0$106	= .
-	.globl	C$main.c$22$3_0$106
+	C$main.c$22$3_0$107	= .
+	.globl	C$main.c$22$3_0$107
 ;src\main.c:22: if (currentGameState == GAMETITLE) GameTitleSetup();
 	ld	a, b
 	dec	a
@@ -89,8 +89,8 @@ _main::
 	pop	bc
 	jr	00113$
 00110$:
-	C$main.c$23$3_0$106	= .
-	.globl	C$main.c$23$3_0$106
+	C$main.c$23$3_0$107	= .
+	.globl	C$main.c$23$3_0$107
 ;src\main.c:23: else if (currentGameState == COREGAMELOOP) CoreGameLoopSetup();
 	ld	a, b
 	sub	a, #0x02
@@ -100,8 +100,8 @@ _main::
 	pop	bc
 	jr	00113$
 00107$:
-	C$main.c$24$3_0$106	= .
-	.globl	C$main.c$24$3_0$106
+	C$main.c$24$3_0$107	= .
+	.globl	C$main.c$24$3_0$107
 ;src\main.c:24: else if (currentGameState == GAMEJOHNDOE) GameJohnDoeSetup();
 	ld	a, b
 	sub	a, #0x03
@@ -111,8 +111,8 @@ _main::
 	pop	bc
 	jr	00113$
 00104$:
-	C$main.c$25$3_0$106	= .
-	.globl	C$main.c$25$3_0$106
+	C$main.c$25$3_0$107	= .
+	.globl	C$main.c$25$3_0$107
 ;src\main.c:25: else if (currentGameState == BESTIARY) BestiarySetup();
 	ld	a, b
 	sub	a, #0x04
@@ -121,8 +121,8 @@ _main::
 	call	_BestiarySetup
 	pop	bc
 00113$:
-	C$main.c$27$2_0$105	= .
-	.globl	C$main.c$27$2_0$105
+	C$main.c$27$2_0$106	= .
+	.globl	C$main.c$27$2_0$106
 ;src\main.c:27: if (currentGameState == GAMETITLE) nextGameState = GameTitleUpdate();
 	ld	a, c
 	dec	a
@@ -133,8 +133,8 @@ _main::
 	ld	b, a
 	jr	00126$
 00123$:
-	C$main.c$28$2_0$105	= .
-	.globl	C$main.c$28$2_0$105
+	C$main.c$28$2_0$106	= .
+	.globl	C$main.c$28$2_0$106
 ;src\main.c:28: else if (currentGameState == COREGAMELOOP) nextGameState = CoreGameLoopUpdate();
 	ld	a, c
 	sub	a, #0x02
@@ -145,8 +145,8 @@ _main::
 	ld	b, a
 	jr	00126$
 00120$:
-	C$main.c$29$2_0$105	= .
-	.globl	C$main.c$29$2_0$105
+	C$main.c$29$2_0$106	= .
+	.globl	C$main.c$29$2_0$106
 ;src\main.c:29: else if (currentGameState == GAMEJOHNDOE) nextGameState = GameJohnDoeUpdate();
 	ld	a, c
 	sub	a, #0x03
@@ -157,8 +157,8 @@ _main::
 	ld	b, a
 	jr	00126$
 00117$:
-	C$main.c$30$2_0$105	= .
-	.globl	C$main.c$30$2_0$105
+	C$main.c$30$2_0$106	= .
+	.globl	C$main.c$30$2_0$106
 ;src\main.c:30: else if (currentGameState == BESTIARY) nextGameState = BestiaryUpdate();
 	ld	a, c
 	sub	a, #0x04
@@ -167,11 +167,11 @@ _main::
 	call	_BestiaryUpdate
 	pop	bc
 	ld	b, a
-	C$main.c$33$1_0$104	= .
-	.globl	C$main.c$33$1_0$104
+	C$main.c$33$1_0$105	= .
+	.globl	C$main.c$33$1_0$105
 ;src\main.c:33: }
-	C$main.c$33$1_0$104	= .
-	.globl	C$main.c$33$1_0$104
+	C$main.c$33$1_0$105	= .
+	.globl	C$main.c$33$1_0$105
 	XG$main$0$0	= .
 	.globl	XG$main$0$0
 	jr	00126$

@@ -6,6 +6,7 @@
 #include "../res/home.h"
 #include "../src/player.h"
 #include "../src/common.h"
+#include "../res/Skateboard_Tiles.h"
 
 #define MIN(A,B) ((A)<(B)?(A):(B))
 
@@ -115,6 +116,10 @@ uint8_t CoreGameLoopUpdate()
     } else if (joypadCurrent & J_SELECT) {
         fadeToBlack(10);
         return GAMETITLE;
+    }
+    else if (joypadCurrent & J_A)
+    {
+        set_sprite_data(0, 16, Skateboard_Tiles);
     }
     if (redraw)
     {

@@ -26,16 +26,16 @@ Area                       Addr        Size        Decimal Bytes (Attributes)
      00000005  l__HEADER |    00000006  l__HEADER |    00000007  l__HEADER
      00000008  l__HEADER |    0000000C  l__GSINIT |    00000024  l__DATA  
      00000030  l__HEADER |    0000004C  l__HEADER |    00000084  l__HEADER
-     00000200  s__CODE   |    00000222  l__HOME   |    00001994  l__INITIA
-     00001994  l__INITIA |    00002000  _rROMB0   |    000027FA  l__CODE  
-     000029FA  s__HOME   |    00002C1C  s__BASE   |    00002C1C  s__CODE_0
-     00002C1C  s__INITIA |    00002C1C  s__LIT    |    00003000  _rROMB1  
-     00004000  _rRAMB    |    000045B0  s__GSINIT |    000045BC  s__GSFINA
+     00000200  s__CODE   |    000002D6  l__HOME   |    00001E9E  l__INITIA
+     00001E9E  l__INITIA |    00002000  _rROMB0   |    00002B41  l__CODE  
+     00002D41  s__HOME   |    00003000  _rROMB1   |    00003017  s__BASE  
+     00003017  s__CODE_0 |    00003017  s__INITIA |    00003017  s__LIT   
+     00004000  _rRAMB    |    00004EB5  s__GSINIT |    00004EC1  s__GSFINA
      00008000  __VRAM    |    00008000  __VRAM800 |    00008800  __VRAM880
      00009000  __VRAM900 |    00009800  __SCRN0   |    00009C00  __SCRN1  
      0000A000  __SRAM    |    0000C000  __RAM     |    0000C000  _shadow_O
      0000C0A0  s__DATA   |    0000C0C4  s__BSS    |    0000C0C4  s__INITIA
-     0000D000  __RAMBANK |    0000DA58  s__HEAP   |    0000DA58  s__HEAP_E
+     0000D000  __RAMBANK |    0000DF62  s__HEAP   |    0000DF62  s__HEAP_E
      0000E000  .STACK    |    0000FE00  __OAMRAM  |    0000FF00  _P1_REG  
      0000FF00  __IO      |    0000FF01  _SB_REG   |    0000FF02  _SC_REG  
      0000FF04  _DIV_REG  |    0000FF05  _TIMA_REG |    0000FF06  _TMA_REG 
@@ -72,7 +72,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    000027FA =       10234. bytes (REL,CON)
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -131,7 +131,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    000027FA =       10234. bytes (REL,CON)
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -191,7 +191,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    000027FA =       10234. bytes (REL,CON)
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -251,7 +251,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    000027FA =       10234. bytes (REL,CON)
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -299,360 +299,564 @@ _CODE                  00000200    000027FA =       10234. bytes (REL,CON)
      00002424  A$common$ |    00002424  C$common. |    00002427  A$common$
      00002427  C$common. |    00002428  A$common$ |    00002428  C$common.
      00002428  XG$perfor |    0000242A  A$common$ |    0000242A  C$common.
-     0000242A  G$fadeToB |    0000242A  _fadeToBl |    0000242B  A$common$
-     0000242D  A$common$ |    0000242E  A$common$ |    00002430  A$common$
-     00002431  A$common$ |    00002431  C$common. |    00002432  A$common$
-     00002433  A$common$ |    00002435  A$common$ |    00002436  A$common$
-     00002437  A$common$ |    00002439  A$common$ |    0000243A  A$common$
-     0000243C  A$common$ |    0000243E  A$common$ |    00002440  A$common$
-     00002442  A$common$ |    00002444  A$common$ |    00002444  C$common.
+     0000242A  G$DrawNum |    0000242A  _DrawNumb |    0000242C  A$common$
+     0000242E  A$common$ |    0000242F  A$common$ |    00002430  A$common$
+     00002430  C$common. |    00002432  A$common$ |    00002434  A$common$
+     00002435  A$common$ |    00002436  A$common$ |    00002438  A$common$
+     00002439  A$common$ |    0000243A  A$common$ |    0000243C  A$common$
+     0000243D  A$common$ |    0000243E  A$common$ |    00002440  A$common$
+     00002441  A$common$ |    00002443  A$common$ |    00002443  C$common.
 ASxxxx Linker V03.00 + NoICE + sdld,  page 7.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    000027FA =       10234. bytes (REL,CON)
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-     00002444  C$common. |    00002446  A$common$ |    00002448  A$common$
-     00002448  C$common. |    0000244A  A$common$ |    0000244C  A$common$
-     0000244C  C$common. |    0000244E  A$common$ |    0000244E  C$common.
-     0000244E  C$common. |    00002450  A$common$ |    00002452  A$common$
-     00002452  C$common. |    00002454  A$common$ |    00002456  A$common$
-     00002456  C$common. |    00002458  A$common$ |    00002458  C$common.
-     00002458  C$common. |    0000245A  A$common$ |    0000245C  A$common$
-     0000245C  C$common. |    0000245E  A$common$ |    00002460  A$common$
-     00002460  C$common. |    00002462  A$common$ |    00002462  C$common.
-     00002462  C$common. |    00002464  A$common$ |    00002466  A$common$
-     00002466  C$common. |    00002468  A$common$ |    0000246A  A$common$
-     0000246A  C$common. |    0000246A  C$common. |    0000246B  A$common$
-     0000246C  A$common$ |    0000246F  A$common$ |    00002470  A$common$
-     00002470  C$common. |    00002471  A$common$ |    00002471  C$common.
-     00002471  XG$fadeTo |    00002473  A$common$ |    00002473  C$common.
-     00002473  G$fadeFro |    00002473  _fadeFrom |    00002474  A$common$
-     00002476  A$common$ |    00002477  A$common$ |    00002479  A$common$
-     0000247A  A$common$ |    0000247A  C$common. |    0000247B  A$common$
-     0000247C  A$common$ |    0000247E  A$common$ |    0000247F  A$common$
-     00002480  A$common$ |    00002482  A$common$ |    00002483  A$common$
-     00002485  A$common$ |    00002487  A$common$ |    00002489  A$common$
-     0000248B  A$common$ |    0000248D  A$common$ |    0000248D  C$common.
-     0000248D  C$common. |    0000248F  A$common$ |    00002491  A$common$
-     00002491  C$common. |    00002493  A$common$ |    00002495  A$common$
-     00002495  C$common. |    00002497  A$common$ |    00002497  C$common.
-     00002497  C$common. |    00002499  A$common$ |    0000249B  A$common$
-     0000249B  C$common. |    0000249D  A$common$ |    0000249F  A$common$
-     0000249F  C$common. |    000024A1  A$common$ |    000024A1  C$common.
-     000024A1  C$common. |    000024A3  A$common$ |    000024A5  A$common$
-     000024A5  C$common. |    000024A7  A$common$ |    000024A9  A$common$
-     000024A9  C$common. |    000024AB  A$common$ |    000024AB  C$common.
-     000024AB  C$common. |    000024AD  A$common$ |    000024AF  A$common$
-     000024AF  C$common. |    000024B1  A$common$ |    000024B3  A$common$
-     000024B3  C$common. |    000024B3  C$common. |    000024B4  A$common$
-     000024B5  A$common$ |    000024B8  A$common$ |    000024B9  A$common$
-     000024B9  C$common. |    000024BA  A$common$ |    000024BA  C$common.
-     000024BA  XG$fadeFr |    000024BC  A$common$ |    000024BC  C$common.
-     000024BC  G$fadeToW |    000024BC  _fadeToWh |    000024BD  A$common$
-     000024BF  A$common$ |    000024C0  A$common$ |    000024C2  A$common$
-     000024C3  A$common$ |    000024C3  C$common. |    000024C5  A$common$
+     00002445  A$common$ |    00002446  A$common$ |    00002448  A$common$
+     00002449  A$common$ |    0000244B  A$common$ |    0000244C  A$common$
+     0000244E  A$common$ |    0000244F  A$common$ |    00002451  A$common$
+     00002452  A$common$ |    00002453  A$common$ |    00002456  A$common$
+     00002457  A$common$ |    00002458  A$common$ |    0000245A  A$common$
+     0000245B  A$common$ |    0000245C  A$common$ |    0000245D  A$common$
+     0000245E  A$common$ |    00002461  A$common$ |    00002463  A$common$
+     00002463  C$common. |    00002465  A$common$ |    00002466  A$common$
+     00002467  A$common$ |    00002468  A$common$ |    00002469  A$common$
+     0000246C  A$common$ |    0000246D  A$common$ |    0000246F  A$common$
+     00002470  A$common$ |    00002471  A$common$ |    00002472  A$common$
+     00002474  A$common$ |    00002475  A$common$ |    00002477  A$common$
+     00002478  A$common$ |    0000247A  A$common$ |    0000247B  A$common$
+     0000247D  A$common$ |    0000247E  A$common$ |    0000247E  C$common.
+     00002481  A$common$ |    00002482  A$common$ |    00002483  A$common$
+     00002486  A$common$ |    00002487  A$common$ |    00002489  A$common$
+     0000248A  A$common$ |    0000248B  A$common$ |    0000248C  A$common$
+     0000248E  A$common$ |    0000248F  A$common$ |    00002491  A$common$
+     00002492  A$common$ |    00002492  C$common. |    00002494  A$common$
+     00002495  A$common$ |    00002497  A$common$ |    00002498  A$common$
+     0000249A  A$common$ |    0000249B  A$common$ |    0000249D  A$common$
+     0000249E  A$common$ |    000024A0  A$common$ |    000024A2  A$common$
+     000024A3  A$common$ |    000024A5  A$common$ |    000024A6  A$common$
+     000024A7  A$common$ |    000024A8  A$common$ |    000024A9  A$common$
+     000024AA  A$common$ |    000024AC  A$common$ |    000024AD  A$common$
+     000024AE  A$common$ |    000024AF  A$common$ |    000024B0  A$common$
+     000024B1  A$common$ |    000024B2  A$common$ |    000024B3  A$common$
+     000024B4  A$common$ |    000024B5  A$common$ |    000024B6  A$common$
+     000024B7  A$common$ |    000024B8  A$common$ |    000024B9  A$common$
+     000024BA  A$common$ |    000024BB  A$common$ |    000024BC  A$common$
+     000024BD  A$common$ |    000024BF  A$common$ |    000024C0  A$common$
+     000024C1  A$common$ |    000024C3  A$common$ |    000024C4  A$common$
      000024C6  A$common$ |    000024C8  A$common$ |    000024C9  A$common$
-     000024CB  A$common$ |    000024CE  A$common$ |    000024CF  A$common$
-     000024D0  A$common$ |    000024D0  C$common. |    000024D1  A$common$
-     000024D3  A$common$ |    000024D5  A$common$ |    000024D7  A$common$
-     000024D9  A$common$ |    000024DB  A$common$ |    000024DB  C$common.
-     000024DD  A$common$ |    000024DF  A$common$ |    000024DF  C$common.
-     000024E1  A$common$ |    000024E3  A$common$ |    000024E3  C$common.
-     000024E5  A$common$ |    000024E5  C$common. |    000024E5  C$common.
-     000024E7  A$common$ |    000024E9  A$common$ |    000024E9  C$common.
-     000024EB  A$common$ |    000024ED  A$common$ |    000024ED  C$common.
-     000024EF  A$common$ |    000024EF  C$common. |    000024EF  C$common.
+     000024CA  A$common$ |    000024CB  A$common$ |    000024CC  A$common$
+     000024CD  A$common$ |    000024CE  A$common$ |    000024CF  A$common$
+     000024D1  A$common$ |    000024D3  A$common$ |    000024D5  A$common$
+     000024D7  A$common$ |    000024D8  A$common$ |    000024DA  A$common$
+     000024DC  A$common$ |    000024DE  A$common$ |    000024DF  A$common$
+     000024E1  A$common$ |    000024E1  C$common. |    000024E3  A$common$
+     000024E4  A$common$ |    000024E6  A$common$ |    000024E7  A$common$
+     000024E9  A$common$ |    000024EA  A$common$ |    000024EC  A$common$
+     000024ED  A$common$ |    000024EF  A$common$ |    000024F0  A$common$
+     000024F2  A$common$ |    000024F3  A$common$ |    000024F4  A$common$
+     000024F6  A$common$ |    000024F7  A$common$ |    000024F8  A$common$
+     000024FA  A$common$ |    000024FB  A$common$ |    000024FC  A$common$
+     000024FD  A$common$ |    000024FE  A$common$ |    00002501  A$common$
+     00002503  A$common$ |    00002503  C$common. |    00002505  A$common$
+     00002506  A$common$ |    00002508  A$common$ |    00002508  C$common.
+     0000250A  A$common$ |    0000250B  A$common$ |    0000250C  A$common$
+     0000250D  A$common$ |    0000250F  A$common$ |    00002510  A$common$
+     00002512  A$common$ |    00002513  A$common$ |    00002515  A$common$
 ASxxxx Linker V03.00 + NoICE + sdld,  page 8.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    000027FA =       10234. bytes (REL,CON)
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-     000024F1  A$common$ |    000024F3  A$common$ |    000024F3  C$common.
-     000024F5  A$common$ |    000024F7  A$common$ |    000024F7  C$common.
-     000024F9  A$common$ |    000024F9  C$common. |    000024F9  C$common.
-     000024FB  A$common$ |    000024FD  A$common$ |    000024FD  C$common.
-     000024FF  A$common$ |    00002501  A$common$ |    00002501  C$common.
-     00002503  A$common$ |    00002503  C$common. |    00002503  C$common.
-     00002504  A$common$ |    00002506  A$common$ |    00002506  C$common.
-     00002507  A$common$ |    00002509  A$common$ |    00002509  C$common.
-     00002509  C$common. |    0000250A  A$common$ |    0000250B  A$common$
-     0000250E  A$common$ |    0000250F  A$common$ |    0000250F  C$common.
-     00002510  A$common$ |    00002510  C$common. |    00002510  XG$fadeTo
-     00002512  A$common$ |    00002512  C$common. |    00002512  G$fadeFro
-     00002512  _fadeFrom |    00002513  A$common$ |    00002515  A$common$
-     00002516  A$common$ |    00002518  A$common$ |    00002519  A$common$
-     00002519  C$common. |    0000251A  A$common$ |    0000251B  A$common$
-     0000251D  A$common$ |    0000251E  A$common$ |    0000251F  A$common$
-     00002521  A$common$ |    00002522  A$common$ |    00002524  A$common$
-     00002526  A$common$ |    00002528  A$common$ |    0000252A  A$common$
-     0000252C  A$common$ |    0000252C  C$common. |    0000252C  C$common.
-     0000252E  A$common$ |    00002530  A$common$ |    00002530  C$common.
-     00002532  A$common$ |    00002534  A$common$ |    00002534  C$common.
-     00002536  A$common$ |    00002536  C$common. |    00002536  C$common.
-     00002538  A$common$ |    0000253A  A$common$ |    0000253A  C$common.
-     0000253C  A$common$ |    0000253E  A$common$ |    0000253E  C$common.
-     00002540  A$common$ |    00002540  C$common. |    00002540  C$common.
-     00002542  A$common$ |    00002544  A$common$ |    00002544  C$common.
-     00002546  A$common$ |    00002548  A$common$ |    00002548  C$common.
-     0000254A  A$common$ |    0000254A  C$common. |    0000254A  C$common.
-     0000254C  A$common$ |    0000254E  A$common$ |    0000254E  C$common.
-     00002550  A$common$ |    00002552  A$common$ |    00002552  C$common.
-     00002552  C$common. |    00002553  A$common$ |    00002554  A$common$
-     00002557  A$common$ |    00002558  A$common$ |    00002558  C$common.
-     00002559  A$common$ |    00002559  C$common. |    00002559  XG$fadeFr
-     0000255B  A$CoreGam |    0000255B  C$CoreGam |    0000255B  G$set_cam
-     0000255B  _set_came |    0000255D  A$CoreGam |    0000255D  C$CoreGam
-     00002560  A$CoreGam |    00002562  A$CoreGam |    00002565  A$CoreGam
-     00002567  A$CoreGam |    00002567  C$CoreGam |    0000256A  A$CoreGam
-     0000256B  A$CoreGam |    0000256C  A$CoreGam |    0000256D  A$CoreGam
-     0000256F  A$CoreGam |    00002571  A$CoreGam |    00002573  A$CoreGam
-     00002575  A$CoreGam |    00002577  A$CoreGam |    00002579  A$CoreGam
-     0000257C  A$CoreGam |    0000257D  A$CoreGam |    0000257E  A$CoreGam
-     0000257E  C$CoreGam |    0000257F  A$CoreGam |    00002582  A$CoreGam
-     00002583  A$CoreGam |    00002586  A$CoreGam |    00002589  A$CoreGam
-     0000258A  A$CoreGam |    0000258C  A$CoreGam |    0000258D  A$CoreGam
-     0000258E  A$CoreGam |    00002590  A$CoreGam |    00002591  A$CoreGam
-     00002593  A$CoreGam |    00002594  A$CoreGam |    00002595  A$CoreGam
-     00002596  A$CoreGam |    00002597  A$CoreGam |    00002598  A$CoreGam
-     0000259A  A$CoreGam |    0000259B  A$CoreGam |    0000259C  A$CoreGam
-     0000259D  A$CoreGam |    0000259E  A$CoreGam |    0000259F  A$CoreGam
-     000025A1  A$CoreGam |    000025A2  A$CoreGam |    000025A4  A$CoreGam
-     000025A5  A$CoreGam |    000025A7  A$CoreGam |    000025A8  A$CoreGam
+     00002515  C$common. |    00002516  A$common$ |    00002518  A$common$
+     0000251B  A$common$ |    0000251C  A$common$ |    0000251D  A$common$
+     0000251E  A$common$ |    0000251F  A$common$ |    00002521  A$common$
+     00002522  A$common$ |    00002523  A$common$ |    00002524  A$common$
+     00002525  A$common$ |    00002526  A$common$ |    00002527  A$common$
+     00002528  A$common$ |    0000252B  A$common$ |    0000252D  A$common$
+     0000252E  A$common$ |    0000252E  C$common. |    0000252F  A$common$
+     00002531  A$common$ |    00002531  C$common. |    00002533  A$common$
+     00002534  A$common$ |    00002536  A$common$ |    00002537  A$common$
+     00002537  C$common. |    00002537  G$fadeToB |    00002537  _fadeToBl
+     00002538  A$common$ |    0000253A  A$common$ |    0000253B  A$common$
+     0000253D  A$common$ |    0000253E  A$common$ |    0000253E  C$common.
+     0000253F  A$common$ |    00002540  A$common$ |    00002542  A$common$
+     00002543  A$common$ |    00002544  A$common$ |    00002546  A$common$
+     00002547  A$common$ |    00002549  A$common$ |    0000254B  A$common$
+     0000254D  A$common$ |    0000254F  A$common$ |    00002551  A$common$
+     00002551  C$common. |    00002551  C$common. |    00002553  A$common$
+     00002555  A$common$ |    00002555  C$common. |    00002557  A$common$
+     00002559  A$common$ |    00002559  C$common. |    0000255B  A$common$
+     0000255B  C$common. |    0000255B  C$common. |    0000255D  A$common$
+     0000255F  A$common$ |    0000255F  C$common. |    00002561  A$common$
+     00002563  A$common$ |    00002563  C$common. |    00002565  A$common$
+     00002565  C$common. |    00002565  C$common. |    00002567  A$common$
+     00002569  A$common$ |    00002569  C$common. |    0000256B  A$common$
+     0000256D  A$common$ |    0000256D  C$common. |    0000256F  A$common$
+     0000256F  C$common. |    0000256F  C$common. |    00002571  A$common$
+     00002573  A$common$ |    00002573  C$common. |    00002575  A$common$
+     00002577  A$common$ |    00002577  C$common. |    00002577  C$common.
+     00002578  A$common$ |    00002579  A$common$ |    0000257C  A$common$
+     0000257D  A$common$ |    0000257D  C$common. |    0000257E  A$common$
+     0000257E  C$common. |    0000257E  XG$fadeTo |    00002580  A$common$
+     00002580  C$common. |    00002580  G$fadeFro |    00002580  _fadeFrom
+     00002581  A$common$ |    00002583  A$common$ |    00002584  A$common$
+     00002586  A$common$ |    00002587  A$common$ |    00002587  C$common.
+     00002588  A$common$ |    00002589  A$common$ |    0000258B  A$common$
+     0000258C  A$common$ |    0000258D  A$common$ |    0000258F  A$common$
+     00002590  A$common$ |    00002592  A$common$ |    00002594  A$common$
+     00002596  A$common$ |    00002598  A$common$ |    0000259A  A$common$
+     0000259A  C$common. |    0000259A  C$common. |    0000259C  A$common$
+     0000259E  A$common$ |    0000259E  C$common. |    000025A0  A$common$
+     000025A2  A$common$ |    000025A2  C$common. |    000025A4  A$common$
+     000025A4  C$common. |    000025A4  C$common. |    000025A6  A$common$
+     000025A8  A$common$ |    000025A8  C$common. |    000025AA  A$common$
+     000025AC  A$common$ |    000025AC  C$common. |    000025AE  A$common$
+     000025AE  C$common. |    000025AE  C$common. |    000025B0  A$common$
+     000025B2  A$common$ |    000025B2  C$common. |    000025B4  A$common$
+     000025B6  A$common$ |    000025B6  C$common. |    000025B8  A$common$
+     000025B8  C$common. |    000025B8  C$common. |    000025BA  A$common$
+     000025BC  A$common$ |    000025BC  C$common. |    000025BE  A$common$
+     000025C0  A$common$ |    000025C0  C$common. |    000025C0  C$common.
+     000025C1  A$common$ |    000025C2  A$common$ |    000025C5  A$common$
 ASxxxx Linker V03.00 + NoICE + sdld,  page 9.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    000027FA =       10234. bytes (REL,CON)
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-     000025A9  A$CoreGam |    000025A9  C$CoreGam |    000025AC  A$CoreGam
-     000025AF  A$CoreGam |    000025B0  A$CoreGam |    000025B1  A$CoreGam
-     000025B2  A$CoreGam |    000025B3  A$CoreGam |    000025B4  A$CoreGam
-     000025B5  A$CoreGam |    000025B7  A$CoreGam |    000025B8  A$CoreGam
-     000025B9  A$CoreGam |    000025BB  A$CoreGam |    000025BD  A$CoreGam
-     000025BF  A$CoreGam |    000025C1  A$CoreGam |    000025C2  A$CoreGam
-     000025C3  A$CoreGam |    000025C6  A$CoreGam |    000025C8  A$CoreGam
-     000025CA  A$CoreGam |    000025CB  A$CoreGam |    000025CC  A$CoreGam
-     000025CF  A$CoreGam |    000025D0  A$CoreGam |    000025D2  A$CoreGam
-     000025D3  A$CoreGam |    000025D4  A$CoreGam |    000025D5  A$CoreGam
-     000025D6  A$CoreGam |    000025D8  A$CoreGam |    000025D9  A$CoreGam
-     000025DA  A$CoreGam |    000025DB  A$CoreGam |    000025DE  A$CoreGam
-     000025E0  A$CoreGam |    000025E3  A$CoreGam |    000025E5  A$CoreGam
-     000025E5  C$CoreGam |    000025E7  A$CoreGam |    000025E7  C$CoreGam
-     000025EA  A$CoreGam |    000025EC  A$CoreGam |    000025EE  A$CoreGam
-     000025F1  A$CoreGam |    000025F2  A$CoreGam |    000025F3  A$CoreGam
-     000025F5  A$CoreGam |    000025F8  A$CoreGam |    000025FA  A$CoreGam
-     000025FC  A$CoreGam |    000025FD  A$CoreGam |    000025FE  A$CoreGam
-     000025FF  A$CoreGam |    00002602  A$CoreGam |    00002604  A$CoreGam
-     00002607  A$CoreGam |    00002609  A$CoreGam |    0000260B  A$CoreGam
-     0000260C  A$CoreGam |    0000260D  A$CoreGam |    0000260E  A$CoreGam
-     00002610  A$CoreGam |    00002611  A$CoreGam |    00002612  A$CoreGam
-     00002613  A$CoreGam |    00002614  A$CoreGam |    00002615  A$CoreGam
-     00002616  A$CoreGam |    00002617  A$CoreGam |    00002619  A$CoreGam
-     0000261A  A$CoreGam |    0000261B  A$CoreGam |    0000261C  A$CoreGam
-     0000261F  A$CoreGam |    00002621  A$CoreGam |    00002624  A$CoreGam
-     00002626  A$CoreGam |    00002626  C$CoreGam |    00002626  C$CoreGam
-     00002629  A$CoreGam |    0000262A  A$CoreGam |    0000262A  C$CoreGam
-     0000262D  A$CoreGam |    0000262E  A$CoreGam |    0000262E  C$CoreGam
-     00002631  A$CoreGam |    00002632  A$CoreGam |    00002633  A$CoreGam
-     00002634  A$CoreGam |    00002636  A$CoreGam |    00002638  A$CoreGam
-     0000263A  A$CoreGam |    0000263C  A$CoreGam |    0000263E  A$CoreGam
-     00002640  A$CoreGam |    00002643  A$CoreGam |    00002644  A$CoreGam
-     00002644  C$CoreGam |    00002645  A$CoreGam |    00002648  A$CoreGam
-     00002649  A$CoreGam |    0000264C  A$CoreGam |    0000264C  C$CoreGam
-     0000264F  A$CoreGam |    00002650  A$CoreGam |    00002652  A$CoreGam
-     00002653  A$CoreGam |    00002655  A$CoreGam |    00002656  A$CoreGam
-     00002657  A$CoreGam |    00002658  A$CoreGam |    00002659  A$CoreGam
-     0000265A  A$CoreGam |    0000265C  A$CoreGam |    0000265D  A$CoreGam
-     0000265E  A$CoreGam |    0000265F  A$CoreGam |    00002660  A$CoreGam
-     00002661  A$CoreGam |    00002663  A$CoreGam |    00002664  A$CoreGam
-     00002666  A$CoreGam |    00002667  A$CoreGam |    00002669  A$CoreGam
-     0000266A  A$CoreGam |    0000266B  A$CoreGam |    0000266B  C$CoreGam
-     0000266C  A$CoreGam |    0000266F  A$CoreGam |    00002672  A$CoreGam
-     00002673  A$CoreGam |    00002674  A$CoreGam |    00002675  A$CoreGam
-     00002676  A$CoreGam |    00002677  A$CoreGam |    00002678  A$CoreGam
-     00002679  A$CoreGam |    0000267B  A$CoreGam |    0000267C  A$CoreGam
-     0000267D  A$CoreGam |    0000267F  A$CoreGam |    00002682  A$CoreGam
-     00002683  A$CoreGam |    00002686  A$CoreGam |    00002689  A$CoreGam
-     0000268B  A$CoreGam |    0000268D  A$CoreGam |    0000268E  A$CoreGam
-     0000268F  A$CoreGam |    00002692  A$CoreGam |    00002693  A$CoreGam
+     000025C6  A$common$ |    000025C6  C$common. |    000025C7  A$common$
+     000025C7  C$common. |    000025C7  XG$fadeFr |    000025C9  A$common$
+     000025C9  C$common. |    000025C9  G$fadeToW |    000025C9  _fadeToWh
+     000025CA  A$common$ |    000025CC  A$common$ |    000025CD  A$common$
+     000025CF  A$common$ |    000025D0  A$common$ |    000025D0  C$common.
+     000025D2  A$common$ |    000025D3  A$common$ |    000025D5  A$common$
+     000025D6  A$common$ |    000025D8  A$common$ |    000025DB  A$common$
+     000025DC  A$common$ |    000025DD  A$common$ |    000025DD  C$common.
+     000025DE  A$common$ |    000025E0  A$common$ |    000025E2  A$common$
+     000025E4  A$common$ |    000025E6  A$common$ |    000025E8  A$common$
+     000025E8  C$common. |    000025EA  A$common$ |    000025EC  A$common$
+     000025EC  C$common. |    000025EE  A$common$ |    000025F0  A$common$
+     000025F0  C$common. |    000025F2  A$common$ |    000025F2  C$common.
+     000025F2  C$common. |    000025F4  A$common$ |    000025F6  A$common$
+     000025F6  C$common. |    000025F8  A$common$ |    000025FA  A$common$
+     000025FA  C$common. |    000025FC  A$common$ |    000025FC  C$common.
+     000025FC  C$common. |    000025FE  A$common$ |    00002600  A$common$
+     00002600  C$common. |    00002602  A$common$ |    00002604  A$common$
+     00002604  C$common. |    00002606  A$common$ |    00002606  C$common.
+     00002606  C$common. |    00002608  A$common$ |    0000260A  A$common$
+     0000260A  C$common. |    0000260C  A$common$ |    0000260E  A$common$
+     0000260E  C$common. |    00002610  A$common$ |    00002610  C$common.
+     00002610  C$common. |    00002611  A$common$ |    00002613  A$common$
+     00002613  C$common. |    00002614  A$common$ |    00002616  A$common$
+     00002616  C$common. |    00002616  C$common. |    00002617  A$common$
+     00002618  A$common$ |    0000261B  A$common$ |    0000261C  A$common$
+     0000261C  C$common. |    0000261D  A$common$ |    0000261D  C$common.
+     0000261D  XG$fadeTo |    0000261F  A$common$ |    0000261F  C$common.
+     0000261F  G$fadeFro |    0000261F  _fadeFrom |    00002620  A$common$
+     00002622  A$common$ |    00002623  A$common$ |    00002625  A$common$
+     00002626  A$common$ |    00002626  C$common. |    00002627  A$common$
+     00002628  A$common$ |    0000262A  A$common$ |    0000262B  A$common$
+     0000262C  A$common$ |    0000262E  A$common$ |    0000262F  A$common$
+     00002631  A$common$ |    00002633  A$common$ |    00002635  A$common$
+     00002637  A$common$ |    00002639  A$common$ |    00002639  C$common.
+     00002639  C$common. |    0000263B  A$common$ |    0000263D  A$common$
+     0000263D  C$common. |    0000263F  A$common$ |    00002641  A$common$
+     00002641  C$common. |    00002643  A$common$ |    00002643  C$common.
+     00002643  C$common. |    00002645  A$common$ |    00002647  A$common$
+     00002647  C$common. |    00002649  A$common$ |    0000264B  A$common$
+     0000264B  C$common. |    0000264D  A$common$ |    0000264D  C$common.
+     0000264D  C$common. |    0000264F  A$common$ |    00002651  A$common$
+     00002651  C$common. |    00002653  A$common$ |    00002655  A$common$
+     00002655  C$common. |    00002657  A$common$ |    00002657  C$common.
+     00002657  C$common. |    00002659  A$common$ |    0000265B  A$common$
+     0000265B  C$common. |    0000265D  A$common$ |    0000265F  A$common$
+     0000265F  C$common. |    0000265F  C$common. |    00002660  A$common$
+     00002661  A$common$ |    00002664  A$common$ |    00002665  A$common$
+     00002665  C$common. |    00002666  A$common$ |    00002666  C$common.
+     00002666  XG$fadeFr |    00002668  A$common$ |    00002668  C$common.
+     00002668  C$common. |    00002668  G$InvertC |    00002668  _InvertCo
 ASxxxx Linker V03.00 + NoICE + sdld,  page 10.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    000027FA =       10234. bytes (REL,CON)
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-     00002694  A$CoreGam |    00002695  A$CoreGam |    00002697  A$CoreGam
-     00002698  A$CoreGam |    00002699  A$CoreGam |    0000269A  A$CoreGam
-     0000269B  A$CoreGam |    0000269C  A$CoreGam |    0000269D  A$CoreGam
-     0000269E  A$CoreGam |    000026A1  A$CoreGam |    000026A3  A$CoreGam
-     000026A6  A$CoreGam |    000026A8  A$CoreGam |    000026A8  C$CoreGam
-     000026AA  A$CoreGam |    000026AA  C$CoreGam |    000026AD  A$CoreGam
-     000026AF  A$CoreGam |    000026B1  A$CoreGam |    000026B2  A$CoreGam
-     000026B3  A$CoreGam |    000026B5  A$CoreGam |    000026B8  A$CoreGam
-     000026B9  A$CoreGam |    000026BC  A$CoreGam |    000026BE  A$CoreGam
-     000026C1  A$CoreGam |    000026C3  A$CoreGam |    000026C5  A$CoreGam
-     000026C6  A$CoreGam |    000026C7  A$CoreGam |    000026CA  A$CoreGam
-     000026CB  A$CoreGam |    000026CC  A$CoreGam |    000026CD  A$CoreGam
-     000026CF  A$CoreGam |    000026D0  A$CoreGam |    000026D1  A$CoreGam
-     000026D2  A$CoreGam |    000026D3  A$CoreGam |    000026D4  A$CoreGam
-     000026D5  A$CoreGam |    000026D6  A$CoreGam |    000026D9  A$CoreGam
-     000026DB  A$CoreGam |    000026DE  A$CoreGam |    000026E0  A$CoreGam
-     000026E0  C$CoreGam |    000026E0  C$CoreGam |    000026E3  A$CoreGam
-     000026E6  A$CoreGam |    000026E6  C$CoreGam |    000026E9  A$CoreGam
-     000026EC  A$CoreGam |    000026EF  A$CoreGam |    000026F2  A$CoreGam
-     000026F5  A$CoreGam |    000026F8  A$CoreGam |    000026FB  A$CoreGam
-     000026FE  A$CoreGam |    00002700  A$CoreGam |    00002700  C$CoreGam
-     00002700  XG$set_ca |    00002701  A$CoreGam |    00002701  C$CoreGam
-     00002701  C$CoreGam |    00002701  G$CoreGam |    00002701  _CoreGame
-     00002704  A$CoreGam |    00002706  A$CoreGam |    00002709  A$CoreGam
-     0000270B  A$CoreGam |    0000270B  C$CoreGam |    0000270E  A$CoreGam
-     00002710  A$CoreGam |    00002710  C$CoreGam |    00002713  A$CoreGam
-     00002715  A$CoreGam |    00002716  A$CoreGam |    00002717  A$CoreGam
-     00002718  A$CoreGam |    00002718  C$CoreGam |    0000271B  A$CoreGam
-     0000271D  A$CoreGam |    0000271E  A$CoreGam |    0000271F  A$CoreGam
-     00002720  A$CoreGam |    00002720  C$CoreGam |    00002723  A$CoreGam
-     00002725  A$CoreGam |    00002726  A$CoreGam |    00002727  A$CoreGam
-     00002728  A$CoreGam |    0000272B  A$CoreGam |    0000272D  A$CoreGam
-     0000272E  A$CoreGam |    0000272F  A$CoreGam |    00002730  A$CoreGam
-     00002730  C$CoreGam |    00002733  A$CoreGam |    00002735  A$CoreGam
-     00002735  C$CoreGam |    00002738  A$CoreGam |    00002739  A$CoreGam
-     0000273C  A$CoreGam |    0000273D  A$CoreGam |    00002740  A$CoreGam
-     00002742  A$CoreGam |    00002745  A$CoreGam |    00002747  A$CoreGam
-     00002749  A$CoreGam |    0000274A  A$CoreGam |    0000274B  A$CoreGam
-     0000274E  A$CoreGam |    0000274F  A$CoreGam |    00002752  A$CoreGam
-     00002753  A$CoreGam |    00002754  A$CoreGam |    00002755  A$CoreGam
-     00002756  A$CoreGam |    00002759  A$CoreGam |    0000275B  A$CoreGam
-     0000275E  A$CoreGam |    00002760  A$CoreGam |    00002760  C$CoreGam
-     00002763  A$CoreGam |    00002764  A$CoreGam |    00002767  A$CoreGam
-     00002768  A$CoreGam |    0000276B  A$CoreGam |    0000276D  A$CoreGam
-     0000276D  C$CoreGam |    0000276F  A$CoreGam |    00002771  A$CoreGam
-     00002773  A$CoreGam |    00002773  C$CoreGam |    00002775  A$CoreGam
-     00002777  A$CoreGam |    00002779  A$CoreGam |    00002779  C$CoreGam
-     0000277B  A$CoreGam |    0000277D  A$CoreGam |    0000277F  A$CoreGam
-     0000277F  C$CoreGam |    00002782  A$CoreGam |    00002782  C$CoreGam
-     00002784  A$CoreGam |    00002784  C$CoreGam |    00002784  XG$CoreGa
-     00002787  A$CoreGam |    00002787  C$CoreGam |    00002787  C$CoreGam
+     0000266A  A$common$ |    0000266C  A$common$ |    0000266C  C$common.
+     0000266E  A$common$ |    00002670  A$common$ |    00002670  C$common.
+     00002670  XG$Invert |    00002671  A$common$ |    00002671  C$common.
+     00002671  C$common. |    00002671  G$ResetCo |    00002671  _ResetCol
+     00002673  A$common$ |    00002675  A$common$ |    00002675  C$common.
+     00002677  A$common$ |    00002679  A$common$ |    00002679  C$common.
+     00002679  XG$ResetC |    0000267A  A$CoreGam |    0000267A  C$CoreGam
+     0000267A  G$set_cam |    0000267A  _set_came |    0000267C  A$CoreGam
+     0000267C  C$CoreGam |    0000267F  A$CoreGam |    00002681  A$CoreGam
+     00002684  A$CoreGam |    00002686  A$CoreGam |    00002686  C$CoreGam
+     00002689  A$CoreGam |    0000268A  A$CoreGam |    0000268B  A$CoreGam
+     0000268C  A$CoreGam |    0000268E  A$CoreGam |    00002690  A$CoreGam
+     00002692  A$CoreGam |    00002694  A$CoreGam |    00002696  A$CoreGam
+     00002698  A$CoreGam |    0000269B  A$CoreGam |    0000269C  A$CoreGam
+     0000269D  A$CoreGam |    0000269D  C$CoreGam |    0000269E  A$CoreGam
+     000026A1  A$CoreGam |    000026A2  A$CoreGam |    000026A5  A$CoreGam
+     000026A8  A$CoreGam |    000026A9  A$CoreGam |    000026AB  A$CoreGam
+     000026AC  A$CoreGam |    000026AD  A$CoreGam |    000026AF  A$CoreGam
+     000026B0  A$CoreGam |    000026B2  A$CoreGam |    000026B3  A$CoreGam
+     000026B4  A$CoreGam |    000026B5  A$CoreGam |    000026B6  A$CoreGam
+     000026B7  A$CoreGam |    000026B9  A$CoreGam |    000026BA  A$CoreGam
+     000026BB  A$CoreGam |    000026BC  A$CoreGam |    000026BD  A$CoreGam
+     000026BE  A$CoreGam |    000026C0  A$CoreGam |    000026C1  A$CoreGam
+     000026C3  A$CoreGam |    000026C4  A$CoreGam |    000026C6  A$CoreGam
+     000026C7  A$CoreGam |    000026C8  A$CoreGam |    000026C8  C$CoreGam
+     000026CB  A$CoreGam |    000026CE  A$CoreGam |    000026CF  A$CoreGam
+     000026D0  A$CoreGam |    000026D1  A$CoreGam |    000026D2  A$CoreGam
+     000026D3  A$CoreGam |    000026D4  A$CoreGam |    000026D6  A$CoreGam
+     000026D7  A$CoreGam |    000026D8  A$CoreGam |    000026DA  A$CoreGam
+     000026DC  A$CoreGam |    000026DE  A$CoreGam |    000026E0  A$CoreGam
+     000026E1  A$CoreGam |    000026E2  A$CoreGam |    000026E5  A$CoreGam
+     000026E7  A$CoreGam |    000026E9  A$CoreGam |    000026EA  A$CoreGam
+     000026EB  A$CoreGam |    000026EE  A$CoreGam |    000026EF  A$CoreGam
+     000026F1  A$CoreGam |    000026F2  A$CoreGam |    000026F3  A$CoreGam
+     000026F4  A$CoreGam |    000026F5  A$CoreGam |    000026F7  A$CoreGam
+     000026F8  A$CoreGam |    000026F9  A$CoreGam |    000026FA  A$CoreGam
+     000026FD  A$CoreGam |    000026FF  A$CoreGam |    00002702  A$CoreGam
+     00002704  A$CoreGam |    00002704  C$CoreGam |    00002706  A$CoreGam
+     00002706  C$CoreGam |    00002709  A$CoreGam |    0000270B  A$CoreGam
+     0000270D  A$CoreGam |    00002710  A$CoreGam |    00002711  A$CoreGam
+     00002712  A$CoreGam |    00002714  A$CoreGam |    00002717  A$CoreGam
+     00002719  A$CoreGam |    0000271B  A$CoreGam |    0000271C  A$CoreGam
+     0000271D  A$CoreGam |    0000271E  A$CoreGam |    00002721  A$CoreGam
+     00002723  A$CoreGam |    00002726  A$CoreGam |    00002728  A$CoreGam
+     0000272A  A$CoreGam |    0000272B  A$CoreGam |    0000272C  A$CoreGam
+     0000272D  A$CoreGam |    0000272F  A$CoreGam |    00002730  A$CoreGam
+     00002731  A$CoreGam |    00002732  A$CoreGam |    00002733  A$CoreGam
+     00002734  A$CoreGam |    00002735  A$CoreGam |    00002736  A$CoreGam
+     00002738  A$CoreGam |    00002739  A$CoreGam |    0000273A  A$CoreGam
+     0000273B  A$CoreGam |    0000273E  A$CoreGam |    00002740  A$CoreGam
+     00002743  A$CoreGam |    00002745  A$CoreGam |    00002745  C$CoreGam
 ASxxxx Linker V03.00 + NoICE + sdld,  page 11.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    000027FA =       10234. bytes (REL,CON)
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-     00002787  G$CoreGam |    00002787  _CoreGame |    0000278A  A$CoreGam
-     0000278D  A$CoreGam |    0000278D  C$CoreGam |    00002790  A$CoreGam
-     00002793  A$CoreGam |    00002793  C$CoreGam |    00002796  A$CoreGam
-     00002799  A$CoreGam |    00002799  C$CoreGam |    0000279C  A$CoreGam
-     0000279D  A$CoreGam |    0000279F  A$CoreGam |    000027A1  A$CoreGam
-     000027A1  C$CoreGam |    000027A4  A$CoreGam |    000027A5  A$CoreGam
-     000027A6  A$CoreGam |    000027A8  A$CoreGam |    000027A8  C$CoreGam
-     000027A9  A$CoreGam |    000027AA  A$CoreGam |    000027AB  A$CoreGam
-     000027AC  A$CoreGam |    000027AD  A$CoreGam |    000027AE  A$CoreGam
-     000027AF  A$CoreGam |    000027B0  A$CoreGam |    000027B0  C$CoreGam
-     000027B3  A$CoreGam |    000027B5  A$CoreGam |    000027B7  A$CoreGam
-     000027B7  C$CoreGam |    000027B9  A$CoreGam |    000027BB  A$CoreGam
-     000027BB  C$CoreGam |    000027BE  A$CoreGam |    000027BF  A$CoreGam
-     000027C0  A$CoreGam |    000027C2  A$CoreGam |    000027C3  A$CoreGam
-     000027C5  A$CoreGam |    000027C7  A$CoreGam |    000027C7  C$CoreGam
-     000027C8  A$CoreGam |    000027C9  A$CoreGam |    000027CB  A$CoreGam
-     000027CC  A$CoreGam |    000027CD  A$CoreGam |    000027CD  C$CoreGam
-     000027D0  A$CoreGam |    000027D2  A$CoreGam |    000027D2  C$CoreGam
-     000027D4  A$CoreGam |    000027D6  A$CoreGam |    000027D6  C$CoreGam
-     000027D9  A$CoreGam |    000027DA  A$CoreGam |    000027DB  A$CoreGam
-     000027DD  A$CoreGam |    000027DD  C$CoreGam |    000027DE  A$CoreGam
-     000027DF  A$CoreGam |    000027E0  A$CoreGam |    000027E1  A$CoreGam
-     000027E2  A$CoreGam |    000027E3  A$CoreGam |    000027E4  A$CoreGam
-     000027E5  A$CoreGam |    000027E5  C$CoreGam |    000027E8  A$CoreGam
-     000027EA  A$CoreGam |    000027EC  A$CoreGam |    000027EC  C$CoreGam
-     000027EE  A$CoreGam |    000027F0  A$CoreGam |    000027F0  C$CoreGam
-     000027F3  A$CoreGam |    000027F4  A$CoreGam |    000027F6  A$CoreGam
-     000027F7  A$CoreGam |    000027F9  A$CoreGam |    000027FB  A$CoreGam
-     000027FB  C$CoreGam |    000027FC  A$CoreGam |    000027FD  A$CoreGam
-     000027FF  A$CoreGam |    00002800  A$CoreGam |    00002801  A$CoreGam
-     00002801  C$CoreGam |    00002804  A$CoreGam |    00002806  A$CoreGam
-     00002808  A$CoreGam |    00002808  C$CoreGam |    0000280A  A$CoreGam
-     0000280C  A$CoreGam |    0000280C  C$CoreGam |    0000280E  A$CoreGam
-     00002811  A$CoreGam |    00002811  C$CoreGam |    00002813  A$CoreGam
-     00002814  A$CoreGam |    00002814  C$CoreGam |    00002817  A$CoreGam
-     00002818  A$CoreGam |    0000281A  A$CoreGam |    0000281A  C$CoreGam
-     0000281D  A$CoreGam |    0000281D  C$CoreGam |    00002820  A$CoreGam
-     00002820  C$CoreGam |    00002823  A$CoreGam |    00002825  A$CoreGam
-     00002825  C$CoreGam |    00002827  A$CoreGam |    00002827  C$CoreGam
-     00002827  XG$CoreGa |    00002828  A$GameJoh |    00002828  C$GameJoh
-     00002828  C$GameJoh |    00002828  G$GameJoh |    00002828  _GameJohn
-     0000282B  A$GameJoh |    0000282C  A$GameJoh |    0000282F  A$GameJoh
-     00002830  A$GameJoh |    00002833  A$GameJoh |    00002835  A$GameJoh
-     00002835  C$GameJoh |    00002838  A$GameJoh |    00002839  A$GameJoh
-     0000283C  A$GameJoh |    0000283D  A$GameJoh |    0000283E  A$GameJoh
-     0000283F  A$GameJoh |    00002840  A$GameJoh |    00002843  A$GameJoh
-     00002845  A$GameJoh |    00002845  C$GameJoh |    00002847  A$GameJoh
-     00002849  A$GameJoh |    0000284B  A$GameJoh |    0000284B  C$GameJoh
-     0000284D  A$GameJoh |    0000284D  C$GameJoh |    0000284D  XG$GameJo
-     00002850  A$GameJoh |    00002850  C$GameJoh |    00002850  C$GameJoh
-     00002850  G$GameJoh |    00002850  _GameJohn |    00002853  A$GameJoh
+     00002745  C$CoreGam |    00002748  A$CoreGam |    00002749  A$CoreGam
+     00002749  C$CoreGam |    0000274C  A$CoreGam |    0000274D  A$CoreGam
+     0000274D  C$CoreGam |    00002750  A$CoreGam |    00002751  A$CoreGam
+     00002752  A$CoreGam |    00002753  A$CoreGam |    00002755  A$CoreGam
+     00002757  A$CoreGam |    00002759  A$CoreGam |    0000275B  A$CoreGam
+     0000275D  A$CoreGam |    0000275F  A$CoreGam |    00002762  A$CoreGam
+     00002763  A$CoreGam |    00002763  C$CoreGam |    00002764  A$CoreGam
+     00002767  A$CoreGam |    00002768  A$CoreGam |    0000276B  A$CoreGam
+     0000276B  C$CoreGam |    0000276E  A$CoreGam |    0000276F  A$CoreGam
+     00002771  A$CoreGam |    00002772  A$CoreGam |    00002774  A$CoreGam
+     00002775  A$CoreGam |    00002776  A$CoreGam |    00002777  A$CoreGam
+     00002778  A$CoreGam |    00002779  A$CoreGam |    0000277B  A$CoreGam
+     0000277C  A$CoreGam |    0000277D  A$CoreGam |    0000277E  A$CoreGam
+     0000277F  A$CoreGam |    00002780  A$CoreGam |    00002782  A$CoreGam
+     00002783  A$CoreGam |    00002785  A$CoreGam |    00002786  A$CoreGam
+     00002788  A$CoreGam |    00002789  A$CoreGam |    0000278A  A$CoreGam
+     0000278A  C$CoreGam |    0000278B  A$CoreGam |    0000278E  A$CoreGam
+     00002791  A$CoreGam |    00002792  A$CoreGam |    00002793  A$CoreGam
+     00002794  A$CoreGam |    00002795  A$CoreGam |    00002796  A$CoreGam
+     00002797  A$CoreGam |    00002798  A$CoreGam |    0000279A  A$CoreGam
+     0000279B  A$CoreGam |    0000279C  A$CoreGam |    0000279E  A$CoreGam
+     000027A1  A$CoreGam |    000027A2  A$CoreGam |    000027A5  A$CoreGam
+     000027A8  A$CoreGam |    000027AA  A$CoreGam |    000027AC  A$CoreGam
+     000027AD  A$CoreGam |    000027AE  A$CoreGam |    000027B1  A$CoreGam
+     000027B2  A$CoreGam |    000027B3  A$CoreGam |    000027B4  A$CoreGam
+     000027B6  A$CoreGam |    000027B7  A$CoreGam |    000027B8  A$CoreGam
+     000027B9  A$CoreGam |    000027BA  A$CoreGam |    000027BB  A$CoreGam
+     000027BC  A$CoreGam |    000027BD  A$CoreGam |    000027C0  A$CoreGam
+     000027C2  A$CoreGam |    000027C5  A$CoreGam |    000027C7  A$CoreGam
+     000027C7  C$CoreGam |    000027C9  A$CoreGam |    000027C9  C$CoreGam
+     000027CC  A$CoreGam |    000027CE  A$CoreGam |    000027D0  A$CoreGam
+     000027D1  A$CoreGam |    000027D2  A$CoreGam |    000027D4  A$CoreGam
+     000027D7  A$CoreGam |    000027D8  A$CoreGam |    000027DB  A$CoreGam
+     000027DD  A$CoreGam |    000027E0  A$CoreGam |    000027E2  A$CoreGam
+     000027E4  A$CoreGam |    000027E5  A$CoreGam |    000027E6  A$CoreGam
+     000027E9  A$CoreGam |    000027EA  A$CoreGam |    000027EB  A$CoreGam
+     000027EC  A$CoreGam |    000027EE  A$CoreGam |    000027EF  A$CoreGam
+     000027F0  A$CoreGam |    000027F1  A$CoreGam |    000027F2  A$CoreGam
+     000027F3  A$CoreGam |    000027F4  A$CoreGam |    000027F5  A$CoreGam
+     000027F8  A$CoreGam |    000027FA  A$CoreGam |    000027FD  A$CoreGam
+     000027FF  A$CoreGam |    000027FF  C$CoreGam |    000027FF  C$CoreGam
+     00002802  A$CoreGam |    00002805  A$CoreGam |    00002805  C$CoreGam
+     00002808  A$CoreGam |    0000280B  A$CoreGam |    0000280E  A$CoreGam
+     00002811  A$CoreGam |    00002814  A$CoreGam |    00002817  A$CoreGam
+     0000281A  A$CoreGam |    0000281D  A$CoreGam |    0000281F  A$CoreGam
+     0000281F  C$CoreGam |    0000281F  XG$set_ca |    00002820  A$CoreGam
+     00002820  C$CoreGam |    00002820  C$CoreGam |    00002820  G$CoreGam
+     00002820  _CoreGame |    00002823  A$CoreGam |    00002825  A$CoreGam
+     00002828  A$CoreGam |    0000282A  A$CoreGam |    0000282A  C$CoreGam
+     0000282D  A$CoreGam |    0000282F  A$CoreGam |    0000282F  C$CoreGam
+     00002832  A$CoreGam |    00002834  A$CoreGam |    00002835  A$CoreGam
 ASxxxx Linker V03.00 + NoICE + sdld,  page 12.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    000027FA =       10234. bytes (REL,CON)
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-     00002856  A$GameJoh |    00002856  C$GameJoh |    00002859  A$GameJoh
-     0000285C  A$GameJoh |    0000285D  A$GameJoh |    0000285D  C$GameJoh
-     0000285F  A$GameJoh |    00002861  A$GameJoh |    00002861  C$GameJoh
-     00002863  A$GameJoh |    00002866  A$GameJoh |    00002866  C$GameJoh
-     00002868  A$GameJoh |    0000286B  A$GameJoh |    0000286B  C$GameJoh
-     0000286E  A$GameJoh |    00002870  A$GameJoh |    00002872  A$GameJoh
-     00002872  C$GameJoh |    00002874  A$GameJoh |    00002877  A$GameJoh
-     00002877  C$GameJoh |    00002879  A$GameJoh |    0000287C  A$GameJoh
-     0000287C  C$GameJoh |    0000287F  A$GameJoh |    00002881  A$GameJoh
-     00002883  A$GameJoh |    00002883  C$GameJoh |    00002885  A$GameJoh
-     00002888  A$GameJoh |    00002888  C$GameJoh |    0000288A  A$GameJoh
-     0000288B  A$GameJoh |    0000288B  C$GameJoh |    0000288D  A$GameJoh
-     0000288D  C$GameJoh |    0000288D  XG$GameJo |    0000288E  A$Bestiar
-     0000288E  C$Bestiar |    0000288E  C$Bestiar |    0000288E  G$Bestiar
-     0000288E  _Bestiary |    00002891  A$Bestiar |    00002892  A$Bestiar
-     00002895  A$Bestiar |    00002896  A$Bestiar |    00002899  A$Bestiar
-     0000289B  A$Bestiar |    0000289B  C$Bestiar |    0000289E  A$Bestiar
-     0000289F  A$Bestiar |    000028A2  A$Bestiar |    000028A3  A$Bestiar
-     000028A6  A$Bestiar |    000028A8  A$Bestiar |    000028A8  C$Bestiar
-     000028AB  A$Bestiar |    000028AC  A$Bestiar |    000028AF  A$Bestiar
-     000028B0  A$Bestiar |    000028B1  A$Bestiar |    000028B2  A$Bestiar
-     000028B3  A$Bestiar |    000028B6  A$Bestiar |    000028B8  A$Bestiar
-     000028B8  C$Bestiar |    000028BB  A$Bestiar |    000028BC  A$Bestiar
-     000028BF  A$Bestiar |    000028C0  A$Bestiar |    000028C3  A$Bestiar
-     000028C4  A$Bestiar |    000028C7  A$Bestiar |    000028C9  A$Bestiar
-     000028C9  C$Bestiar |    000028CB  A$Bestiar |    000028CD  A$Bestiar
-     000028CF  A$Bestiar |    000028CF  C$Bestiar |    000028D1  A$Bestiar
-     000028D1  C$Bestiar |    000028D1  XG$Bestia |    000028D4  A$Bestiar
-     000028D4  C$Bestiar |    000028D4  C$Bestiar |    000028D4  G$Bestiar
-     000028D4  _Bestiary |    000028D7  A$Bestiar |    000028DA  A$Bestiar
-     000028DA  C$Bestiar |    000028DD  A$Bestiar |    000028E0  A$Bestiar
-     000028E1  A$Bestiar |    000028E1  C$Bestiar |    000028E3  A$Bestiar
-     000028E5  A$Bestiar |    000028E5  C$Bestiar |    000028E7  A$Bestiar
-     000028EA  A$Bestiar |    000028EA  C$Bestiar |    000028EC  A$Bestiar
-     000028ED  A$Bestiar |    000028ED  C$Bestiar |    000028EF  A$Bestiar
-     000028EF  C$Bestiar |    000028EF  XG$Bestia |    000028F0  ___move_m
-     0000292F  ___move_m |    00002972  ___move_m |    000029B5  ___move_m
+     00002836  A$CoreGam |    00002837  A$CoreGam |    00002837  C$CoreGam
+     0000283A  A$CoreGam |    0000283C  A$CoreGam |    0000283D  A$CoreGam
+     0000283E  A$CoreGam |    0000283F  A$CoreGam |    0000283F  C$CoreGam
+     00002842  A$CoreGam |    00002844  A$CoreGam |    00002845  A$CoreGam
+     00002846  A$CoreGam |    00002847  A$CoreGam |    0000284A  A$CoreGam
+     0000284C  A$CoreGam |    0000284D  A$CoreGam |    0000284E  A$CoreGam
+     0000284F  A$CoreGam |    0000284F  C$CoreGam |    00002852  A$CoreGam
+     00002854  A$CoreGam |    00002854  C$CoreGam |    00002857  A$CoreGam
+     00002858  A$CoreGam |    0000285B  A$CoreGam |    0000285C  A$CoreGam
+     0000285F  A$CoreGam |    00002861  A$CoreGam |    00002864  A$CoreGam
+     00002866  A$CoreGam |    00002868  A$CoreGam |    00002869  A$CoreGam
+     0000286A  A$CoreGam |    0000286D  A$CoreGam |    0000286E  A$CoreGam
+     00002871  A$CoreGam |    00002872  A$CoreGam |    00002873  A$CoreGam
+     00002874  A$CoreGam |    00002875  A$CoreGam |    00002878  A$CoreGam
+     0000287A  A$CoreGam |    0000287D  A$CoreGam |    0000287F  A$CoreGam
+     0000287F  C$CoreGam |    00002882  A$CoreGam |    00002883  A$CoreGam
+     00002886  A$CoreGam |    00002887  A$CoreGam |    0000288A  A$CoreGam
+     0000288C  A$CoreGam |    0000288C  C$CoreGam |    0000288E  A$CoreGam
+     00002890  A$CoreGam |    00002892  A$CoreGam |    00002892  C$CoreGam
+     00002894  A$CoreGam |    00002896  A$CoreGam |    00002898  A$CoreGam
+     00002898  C$CoreGam |    0000289A  A$CoreGam |    0000289C  A$CoreGam
+     0000289E  A$CoreGam |    0000289E  C$CoreGam |    000028A1  A$CoreGam
+     000028A1  C$CoreGam |    000028A3  A$CoreGam |    000028A3  C$CoreGam
+     000028A3  XG$CoreGa |    000028A6  A$CoreGam |    000028A6  C$CoreGam
+     000028A6  C$CoreGam |    000028A6  G$CoreGam |    000028A6  _CoreGame
+     000028A9  A$CoreGam |    000028AC  A$CoreGam |    000028AC  C$CoreGam
+     000028AF  A$CoreGam |    000028B2  A$CoreGam |    000028B2  C$CoreGam
+     000028B5  A$CoreGam |    000028B8  A$CoreGam |    000028B8  C$CoreGam
+     000028BB  A$CoreGam |    000028BC  A$CoreGam |    000028BE  A$CoreGam
+     000028C0  A$CoreGam |    000028C0  C$CoreGam |    000028C3  A$CoreGam
+     000028C4  A$CoreGam |    000028C5  A$CoreGam |    000028C7  A$CoreGam
+     000028C7  C$CoreGam |    000028C8  A$CoreGam |    000028C9  A$CoreGam
+     000028CA  A$CoreGam |    000028CB  A$CoreGam |    000028CC  A$CoreGam
+     000028CD  A$CoreGam |    000028CE  A$CoreGam |    000028CF  A$CoreGam
+     000028CF  C$CoreGam |    000028D2  A$CoreGam |    000028D4  A$CoreGam
+     000028D6  A$CoreGam |    000028D6  C$CoreGam |    000028D8  A$CoreGam
+     000028DA  A$CoreGam |    000028DA  C$CoreGam |    000028DD  A$CoreGam
+     000028DE  A$CoreGam |    000028DF  A$CoreGam |    000028E1  A$CoreGam
+     000028E2  A$CoreGam |    000028E4  A$CoreGam |    000028E6  A$CoreGam
+     000028E6  C$CoreGam |    000028E7  A$CoreGam |    000028E8  A$CoreGam
+     000028EA  A$CoreGam |    000028EB  A$CoreGam |    000028EC  A$CoreGam
+     000028EC  C$CoreGam |    000028EF  A$CoreGam |    000028F1  A$CoreGam
+     000028F1  C$CoreGam |    000028F3  A$CoreGam |    000028F5  A$CoreGam
+     000028F5  C$CoreGam |    000028F8  A$CoreGam |    000028F9  A$CoreGam
+     000028FA  A$CoreGam |    000028FC  A$CoreGam |    000028FC  C$CoreGam
+     000028FD  A$CoreGam |    000028FE  A$CoreGam |    000028FF  A$CoreGam
+     00002900  A$CoreGam |    00002901  A$CoreGam |    00002902  A$CoreGam
+     00002903  A$CoreGam |    00002904  A$CoreGam |    00002904  C$CoreGam
+     00002907  A$CoreGam |    00002909  A$CoreGam |    0000290B  A$CoreGam
+     0000290B  C$CoreGam |    0000290D  A$CoreGam |    0000290F  A$CoreGam
+     0000290F  C$CoreGam |    00002912  A$CoreGam |    00002913  A$CoreGam
 ASxxxx Linker V03.00 + NoICE + sdld,  page 13.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00002915  A$CoreGam |    00002916  A$CoreGam |    00002918  A$CoreGam
+     0000291A  A$CoreGam |    0000291A  C$CoreGam |    0000291B  A$CoreGam
+     0000291C  A$CoreGam |    0000291E  A$CoreGam |    0000291F  A$CoreGam
+     00002920  A$CoreGam |    00002920  C$CoreGam |    00002923  A$CoreGam
+     00002925  A$CoreGam |    00002927  A$CoreGam |    00002927  C$CoreGam
+     00002929  A$CoreGam |    0000292B  A$CoreGam |    0000292B  C$CoreGam
+     0000292D  A$CoreGam |    00002930  A$CoreGam |    00002930  C$CoreGam
+     00002932  A$CoreGam |    00002933  A$CoreGam |    00002933  C$CoreGam
+     00002935  A$CoreGam |    00002937  A$CoreGam |    00002937  C$CoreGam
+     0000293A  A$CoreGam |    0000293B  A$CoreGam |    0000293E  A$CoreGam
+     0000293F  A$CoreGam |    00002942  A$CoreGam |    00002944  A$CoreGam
+     00002944  C$CoreGam |    00002947  A$CoreGam |    00002948  A$CoreGam
+     0000294A  A$CoreGam |    0000294A  C$CoreGam |    0000294D  A$CoreGam
+     0000294D  C$CoreGam |    00002950  A$CoreGam |    00002950  C$CoreGam
+     00002953  A$CoreGam |    00002955  A$CoreGam |    00002955  C$CoreGam
+     00002957  A$CoreGam |    00002957  C$CoreGam |    00002957  XG$CoreGa
+     00002958  A$GameJoh |    00002958  C$GameJoh |    00002958  C$GameJoh
+     00002958  G$GameJoh |    00002958  _GameJohn |    0000295B  A$GameJoh
+     0000295C  A$GameJoh |    0000295F  A$GameJoh |    00002960  A$GameJoh
+     00002963  A$GameJoh |    00002965  A$GameJoh |    00002965  C$GameJoh
+     00002968  A$GameJoh |    00002969  A$GameJoh |    0000296C  A$GameJoh
+     0000296D  A$GameJoh |    0000296E  A$GameJoh |    0000296F  A$GameJoh
+     00002970  A$GameJoh |    00002973  A$GameJoh |    00002975  A$GameJoh
+     00002975  C$GameJoh |    00002977  A$GameJoh |    00002979  A$GameJoh
+     0000297B  A$GameJoh |    0000297B  C$GameJoh |    0000297D  A$GameJoh
+     0000297D  C$GameJoh |    0000297D  XG$GameJo |    00002980  A$GameJoh
+     00002980  C$GameJoh |    00002980  C$GameJoh |    00002980  G$GameJoh
+     00002980  _GameJohn |    00002983  A$GameJoh |    00002986  A$GameJoh
+     00002986  C$GameJoh |    00002989  A$GameJoh |    0000298C  A$GameJoh
+     0000298D  A$GameJoh |    0000298D  C$GameJoh |    0000298F  A$GameJoh
+     00002991  A$GameJoh |    00002991  C$GameJoh |    00002993  A$GameJoh
+     00002996  A$GameJoh |    00002996  C$GameJoh |    00002998  A$GameJoh
+     0000299B  A$GameJoh |    0000299B  C$GameJoh |    0000299E  A$GameJoh
+     000029A0  A$GameJoh |    000029A2  A$GameJoh |    000029A2  C$GameJoh
+     000029A4  A$GameJoh |    000029A7  A$GameJoh |    000029A7  C$GameJoh
+     000029A9  A$GameJoh |    000029AC  A$GameJoh |    000029AC  C$GameJoh
+     000029AF  A$GameJoh |    000029B1  A$GameJoh |    000029B3  A$GameJoh
+     000029B3  C$GameJoh |    000029B5  A$GameJoh |    000029B8  A$GameJoh
+     000029B8  C$GameJoh |    000029BA  A$GameJoh |    000029BB  A$GameJoh
+     000029BB  C$GameJoh |    000029BD  A$GameJoh |    000029BD  C$GameJoh
+     000029BD  XG$GameJo |    000029BE  A$Bestiar |    000029BE  C$Bestiar
+     000029BE  C$Bestiar |    000029BE  G$Bestiar |    000029BE  _Bestiary
+     000029C1  A$Bestiar |    000029C2  A$Bestiar |    000029C5  A$Bestiar
+     000029C6  A$Bestiar |    000029C9  A$Bestiar |    000029CB  A$Bestiar
+     000029CB  C$Bestiar |    000029CE  A$Bestiar |    000029CF  A$Bestiar
+     000029D2  A$Bestiar |    000029D3  A$Bestiar |    000029D4  A$Bestiar
+     000029D5  A$Bestiar |    000029D6  A$Bestiar |    000029D9  A$Bestiar
+     000029DB  A$Bestiar |    000029DB  C$Bestiar |    000029DD  A$Bestiar
+     000029DF  A$Bestiar |    000029E1  A$Bestiar |    000029E1  C$Bestiar
+     000029E3  A$Bestiar |    000029E3  C$Bestiar |    000029E3  XG$Bestia
+     000029E6  A$Bestiar |    000029E6  C$Bestiar |    000029E6  G$Bestiar
+ASxxxx Linker V03.00 + NoICE + sdld,  page 14.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     000029E6  _Bestiary |    000029E9  A$Bestiar |    000029EC  A$Bestiar
+     000029EC  C$Bestiar |    000029EF  A$Bestiar |    000029F2  A$Bestiar
+     000029F3  A$Bestiar |    000029F3  C$Bestiar |    000029F4  A$Bestiar
+     000029F4  C$Bestiar |    000029F6  A$Bestiar |    000029F8  A$Bestiar
+     000029F8  C$Bestiar |    000029FB  A$Bestiar |    000029FC  A$Bestiar
+     000029FD  A$Bestiar |    000029FE  A$Bestiar |    000029FF  A$Bestiar
+     00002A00  A$Bestiar |    00002A01  A$Bestiar |    00002A03  A$Bestiar
+     00002A05  A$Bestiar |    00002A05  C$Bestiar |    00002A08  A$Bestiar
+     00002A09  A$Bestiar |    00002A09  C$Bestiar |    00002A0B  A$Bestiar
+     00002A0D  A$Bestiar |    00002A0D  C$Bestiar |    00002A10  A$Bestiar
+     00002A11  A$Bestiar |    00002A12  A$Bestiar |    00002A13  A$Bestiar
+     00002A14  A$Bestiar |    00002A15  A$Bestiar |    00002A16  A$Bestiar
+     00002A17  A$Bestiar |    00002A19  A$Bestiar |    00002A1B  A$Bestiar
+     00002A1C  A$Bestiar |    00002A1E  A$Bestiar |    00002A1F  A$Bestiar
+     00002A21  A$Bestiar |    00002A23  A$Bestiar |    00002A25  A$Bestiar
+     00002A27  A$Bestiar |    00002A28  A$Bestiar |    00002A2A  A$Bestiar
+     00002A2C  A$Bestiar |    00002A2E  A$Bestiar |    00002A2F  A$Bestiar
+     00002A31  A$Bestiar |    00002A31  C$Bestiar |    00002A34  A$Bestiar
+     00002A35  A$Bestiar |    00002A35  C$Bestiar |    00002A37  A$Bestiar
+     00002A39  A$Bestiar |    00002A39  C$Bestiar |    00002A3C  A$Bestiar
+     00002A3C  C$Bestiar |    00002A3F  A$Bestiar |    00002A41  A$Bestiar
+     00002A43  A$Bestiar |    00002A43  C$Bestiar |    00002A45  A$Bestiar
+     00002A48  A$Bestiar |    00002A48  C$Bestiar |    00002A4A  A$Bestiar
+     00002A4B  A$Bestiar |    00002A4B  C$Bestiar |    00002A4E  A$Bestiar
+     00002A4F  A$Bestiar |    00002A51  A$Bestiar |    00002A51  C$Bestiar
+     00002A54  A$Bestiar |    00002A55  A$Bestiar |    00002A58  A$Bestiar
+     00002A59  A$Bestiar |    00002A5C  A$Bestiar |    00002A5E  A$Bestiar
+     00002A5E  C$Bestiar |    00002A61  A$Bestiar |    00002A62  A$Bestiar
+     00002A65  A$Bestiar |    00002A66  A$Bestiar |    00002A69  A$Bestiar
+     00002A6A  A$Bestiar |    00002A6D  A$Bestiar |    00002A6F  A$Bestiar
+     00002A6F  C$Bestiar |    00002A71  A$Bestiar |    00002A72  A$Bestiar
+     00002A73  A$Bestiar |    00002A76  A$Bestiar |    00002A77  A$Bestiar
+     00002A79  A$Bestiar |    00002A7B  A$Bestiar |    00002A7E  A$Bestiar
+     00002A7E  C$Bestiar |    00002A80  A$Bestiar |    00002A81  A$Bestiar
+     00002A82  A$Bestiar |    00002A85  A$Bestiar |    00002A86  A$Bestiar
+     00002A88  A$Bestiar |    00002A8A  A$Bestiar |    00002A8D  A$Bestiar
+     00002A8D  C$Bestiar |    00002A8F  A$Bestiar |    00002A90  A$Bestiar
+     00002A91  A$Bestiar |    00002A94  A$Bestiar |    00002A95  A$Bestiar
+     00002A97  A$Bestiar |    00002A99  A$Bestiar |    00002A9C  A$Bestiar
+     00002A9C  C$Bestiar |    00002A9E  A$Bestiar |    00002A9F  A$Bestiar
+     00002AA0  A$Bestiar |    00002AA3  A$Bestiar |    00002AA4  A$Bestiar
+     00002AA6  A$Bestiar |    00002AA8  A$Bestiar |    00002AAB  A$Bestiar
+     00002AAB  C$Bestiar |    00002AAD  A$Bestiar |    00002AAE  A$Bestiar
+     00002AAF  A$Bestiar |    00002AB2  A$Bestiar |    00002AB3  A$Bestiar
+     00002AB5  A$Bestiar |    00002AB7  A$Bestiar |    00002ABA  A$Bestiar
+     00002ABA  C$Bestiar |    00002ABC  A$Bestiar |    00002ABD  A$Bestiar
+     00002ABE  A$Bestiar |    00002AC1  A$Bestiar |    00002AC2  A$Bestiar
+     00002AC4  A$Bestiar |    00002AC6  A$Bestiar |    00002AC9  A$Bestiar
+     00002ACC  A$Bestiar |    00002ACC  C$Bestiar |    00002ACF  A$Bestiar
+     00002AD0  A$Bestiar |    00002AD2  A$Bestiar |    00002AD2  C$Bestiar
+     00002AD5  A$Bestiar |    00002AD6  A$Bestiar |    00002AD9  A$Bestiar
+ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00002ADA  A$Bestiar |    00002ADD  A$Bestiar |    00002ADF  A$Bestiar
+     00002ADF  C$Bestiar |    00002AE2  A$Bestiar |    00002AE3  A$Bestiar
+     00002AE6  A$Bestiar |    00002AE7  A$Bestiar |    00002AEA  A$Bestiar
+     00002AEB  A$Bestiar |    00002AEE  A$Bestiar |    00002AF0  A$Bestiar
+     00002AF0  C$Bestiar |    00002AF2  A$Bestiar |    00002AF3  A$Bestiar
+     00002AF4  A$Bestiar |    00002AF7  A$Bestiar |    00002AF8  A$Bestiar
+     00002AFA  A$Bestiar |    00002AFC  A$Bestiar |    00002AFF  A$Bestiar
+     00002AFF  C$Bestiar |    00002B01  A$Bestiar |    00002B02  A$Bestiar
+     00002B03  A$Bestiar |    00002B06  A$Bestiar |    00002B07  A$Bestiar
+     00002B09  A$Bestiar |    00002B0B  A$Bestiar |    00002B0E  A$Bestiar
+     00002B0E  C$Bestiar |    00002B10  A$Bestiar |    00002B11  A$Bestiar
+     00002B12  A$Bestiar |    00002B15  A$Bestiar |    00002B16  A$Bestiar
+     00002B18  A$Bestiar |    00002B1A  A$Bestiar |    00002B1D  A$Bestiar
+     00002B1D  C$Bestiar |    00002B1F  A$Bestiar |    00002B20  A$Bestiar
+     00002B21  A$Bestiar |    00002B24  A$Bestiar |    00002B25  A$Bestiar
+     00002B27  A$Bestiar |    00002B29  A$Bestiar |    00002B2C  A$Bestiar
+     00002B2C  C$Bestiar |    00002B2E  A$Bestiar |    00002B2F  A$Bestiar
+     00002B30  A$Bestiar |    00002B33  A$Bestiar |    00002B34  A$Bestiar
+     00002B36  A$Bestiar |    00002B38  A$Bestiar |    00002B3B  A$Bestiar
+     00002B3B  C$Bestiar |    00002B3D  A$Bestiar |    00002B3E  A$Bestiar
+     00002B3F  A$Bestiar |    00002B42  A$Bestiar |    00002B43  A$Bestiar
+     00002B45  A$Bestiar |    00002B47  A$Bestiar |    00002B4A  A$Bestiar
+     00002B4D  A$Bestiar |    00002B4D  C$Bestiar |    00002B50  A$Bestiar
+     00002B52  A$Bestiar |    00002B54  A$Bestiar |    00002B54  C$Bestiar
+     00002B57  A$Bestiar |    00002B58  A$Bestiar |    00002B5B  A$Bestiar
+     00002B5C  A$Bestiar |    00002B5F  A$Bestiar |    00002B61  A$Bestiar
+     00002B61  C$Bestiar |    00002B64  A$Bestiar |    00002B65  A$Bestiar
+     00002B68  A$Bestiar |    00002B69  A$Bestiar |    00002B6C  A$Bestiar
+     00002B6D  A$Bestiar |    00002B70  A$Bestiar |    00002B72  A$Bestiar
+     00002B72  C$Bestiar |    00002B74  A$Bestiar |    00002B75  A$Bestiar
+     00002B76  A$Bestiar |    00002B79  A$Bestiar |    00002B7A  A$Bestiar
+     00002B7C  A$Bestiar |    00002B7E  A$Bestiar |    00002B81  A$Bestiar
+     00002B81  C$Bestiar |    00002B83  A$Bestiar |    00002B84  A$Bestiar
+     00002B85  A$Bestiar |    00002B88  A$Bestiar |    00002B89  A$Bestiar
+     00002B8B  A$Bestiar |    00002B8D  A$Bestiar |    00002B90  A$Bestiar
+     00002B90  C$Bestiar |    00002B92  A$Bestiar |    00002B93  A$Bestiar
+     00002B94  A$Bestiar |    00002B97  A$Bestiar |    00002B98  A$Bestiar
+     00002B9A  A$Bestiar |    00002B9C  A$Bestiar |    00002B9F  A$Bestiar
+     00002B9F  C$Bestiar |    00002BA1  A$Bestiar |    00002BA2  A$Bestiar
+     00002BA3  A$Bestiar |    00002BA6  A$Bestiar |    00002BA7  A$Bestiar
+     00002BA9  A$Bestiar |    00002BAB  A$Bestiar |    00002BAE  A$Bestiar
+     00002BAE  C$Bestiar |    00002BB0  A$Bestiar |    00002BB1  A$Bestiar
+     00002BB2  A$Bestiar |    00002BB5  A$Bestiar |    00002BB6  A$Bestiar
+     00002BB8  A$Bestiar |    00002BBA  A$Bestiar |    00002BBD  A$Bestiar
+     00002BBD  C$Bestiar |    00002BBF  A$Bestiar |    00002BC0  A$Bestiar
+     00002BC1  A$Bestiar |    00002BC4  A$Bestiar |    00002BC5  A$Bestiar
+     00002BC7  A$Bestiar |    00002BC9  A$Bestiar |    00002BCC  A$Bestiar
+     00002BCC  C$Bestiar |    00002BCE  A$Bestiar |    00002BCE  C$Bestiar
+     00002BCE  XG$Bestia |    00002BCF  _set_vram |    00002BDE  _set_win_
+     00002BE6  _set_bkg_ |    00002C10  ___move_m |    00002C4F  ___move_m
+     00002C92  ___move_m |    00002CD5  ___move_m |    00002D1A  _get_win_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 16.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00002D22  _get_bkg_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -662,7 +866,7 @@ _HEADER0               00000000    00000001 =           1. bytes (ABS,CON)
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
      00000020  .call_hl 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 14.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -672,7 +876,7 @@ _HEADER1               00000000    00000005 =           5. bytes (ABS,CON)
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
      00000028  .MemsetSm
-ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -682,7 +886,7 @@ _HEADER2               00000000    00000007 =           7. bytes (ABS,CON)
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
      00000030  .MemcpySm
-ASxxxx Linker V03.00 + NoICE + sdld,  page 16.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -691,7 +895,7 @@ _HEADER3               00000000    00000008 =           8. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -702,7 +906,7 @@ _HEADER4               00000000    0000004C =          76. bytes (ABS,CON)
         -----  ------            -----  ------            -----  ------    
      00000080  .int      |    0000008F  _wait_int |    0000009C  __standar
      000000AC  _refresh_
-ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -711,7 +915,7 @@ _HEADER5               00000000    00000002 =           2. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -720,7 +924,7 @@ _HEADER6               00000000    00000030 =          48. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 24.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -729,7 +933,7 @@ _HEADER7               00000000    00000006 =           6. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -738,7 +942,7 @@ _HEADER8               00000000    00000003 =           3. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -747,7 +951,7 @@ _HEADER9               00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 27.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -756,7 +960,7 @@ _HEADERa               00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 24.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 28.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -765,7 +969,7 @@ _HEADERb               00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -774,7 +978,7 @@ _HEADERc               00000000    00000002 =           2. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -783,7 +987,7 @@ _HEADERd               00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 27.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -792,7 +996,7 @@ _HEADERe               00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 28.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -801,7 +1005,7 @@ _HEADERf               00000000    00000002 =           2. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -812,7 +1016,7 @@ _HEADER10              00000000    00000084 =         132. bytes (ABS,CON)
         -----  ------            -----  ------            -----  ------    
      00000150  .reset    |    00000150  _reset    |    00000157  .code_sta
      000001B9  _exit     |    000001BD  _set_inte
-ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 34.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -821,58 +1025,63 @@ _HEADER11              00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
-Hexadecimal  [32-Bits]
-
-Area                       Addr        Size        Decimal Bytes (Attributes)
---------------------       ----        ----        ------- ----- ------------
-_HOME                  000029FA    00000222 =         546. bytes (REL,CON)
-
-        Value  Global            Value  Global            Value  Global    
-        -----  ------            -----  ------            -----  ------    
-     000029FA  .memset_s |    00002A03  .memcpy_s |    00002A20  .remove_V
-     00002A23  .remove_i |    00002A40  .add_VBL  |    00002A43  .add_int 
-     00002A4E  .wait_vbl |    00002A4E  _wait_vbl |    00002A5E  .display_
-     00002A5E  _display_ |    00002A76  _remove_V |    00002A81  _add_VBL 
-     00002A8C  _set_tile |    00002A91  _set_bkg_ |    00002A91  _set_win_
-     00002A99  _set_spri |    00002AC9  _set_bkg_ |    00002B0C  .set_xy_w
-     00002B15  .set_xy_b |    00002B24  .set_xy_s |    00002B6E  .padup   
-     00002B6E  _waitpadu |    00002B7E  .jpad     |    00002B7E  _joypad  
-     00002BA6  _waitpad  |    00002BA7  .wait_pad |    00002BAE  _set_bkg_
-     00002BC2  .set_xy_w |    00002BCB  .set_xy_b |    00002BDA  .set_xy_t
-ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
-Hexadecimal  [32-Bits]
-
-Area                       Addr        Size        Decimal Bytes (Attributes)
---------------------       ----        ----        ------- ----- ------------
-_INITIALIZER           00002C1C    00001994 =        6548. bytes (REL,CON)
-
-        Value  Global            Value  Global            Value  Global    
-        -----  ------            -----  ------            -----  ------    
-     00002C1C  Fhome$__x |    000038BE  FGameTitl |    000038BF  FGameTitl
-     000038C0  Fcommon$_ |    000038C1  Fcommon$_ |    000038C2  FCoreGame
-     000038CA  FJohnDoe_ |    00003A32  FJohnDoe_ |    00003F32  FBestiary
-     0000409A  FCrow_Til |    0000422A  FCrow_Map |    0000424D  FFont$__x
-ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
-Hexadecimal  [32-Bits]
-
-Area                       Addr        Size        Decimal Bytes (Attributes)
---------------------       ----        ----        ------- ----- ------------
-_GSINIT                000045B0    0000000C =          12. bytes (REL,CON)
-
-        Value  Global            Value  Global            Value  Global    
-        -----  ------            -----  ------            -----  ------    
-     000045B0  gsinit   
-ASxxxx Linker V03.00 + NoICE + sdld,  page 34.
-Hexadecimal  [32-Bits]
-
-Area                       Addr        Size        Decimal Bytes (Attributes)
---------------------       ----        ----        ------- ----- ------------
-_GSFINAL               000045BC    00000001 =           1. bytes (REL,CON)
-
-        Value  Global            Value  Global            Value  Global    
-        -----  ------            -----  ------            -----  ------    
 ASxxxx Linker V03.00 + NoICE + sdld,  page 35.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_HOME                  00002D41    000002D6 =         726. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00002D41  .memset_s |    00002D4A  .memcpy_s |    00002D67  .remove_V
+     00002D6A  .remove_i |    00002D87  .add_VBL  |    00002D8A  .add_int 
+     00002D95  .wait_vbl |    00002D95  _wait_vbl |    00002DA5  .display_
+     00002DA5  _display_ |    00002DBD  _remove_V |    00002DC8  _add_VBL 
+     00002DD3  _uitoa    |    00002DE2  _itoa     |    00002DF1  .itoa    
+     00002E05  .utoa     |    00002E79  _set_tile |    00002E7E  _set_bkg_
+     00002E7E  _set_win_ |    00002E86  _set_spri |    00002EB6  _set_bkg_
+     00002EF9  .set_xy_w |    00002F02  .set_xy_b |    00002F11  .set_xy_s
+     00002F5B  .padup    |    00002F5B  _waitpadu |    00002F6B  .jpad    
+     00002F6B  _joypad   |    00002F93  _waitpad  |    00002F94  .wait_pad
+     00002F9B  _strlen   |    00002FA0  .strlen   |    00002FA9  _set_bkg_
+     00002FBD  .set_xy_w |    00002FC6  .set_xy_b |    00002FD5  .set_xy_t
+ASxxxx Linker V03.00 + NoICE + sdld,  page 36.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_INITIALIZER           00003017    00001E9E =        7838. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00003017  Fhome$__x |    00003CB9  FGameTitl |    00003CBA  FGameTitl
+     00003CBB  Fcommon$_ |    00003CBC  Fcommon$_ |    00003CBD  FCoreGame
+     00003CC5  FJohnDoe_ |    00003E2D  FJohnDoe_ |    0000432D  FBestiary
+     00004495  FCrow_Til |    00004625  FCrow_Map |    00004648  FBestiary
+     00004649  FBestiary |    0000464A  FFont$__x |    000049AA  FGypsy_Ti
+     00004B9A  FGypsy_Ma |    00004BC4  FWally_Ti |    00004D84  FWally_Ma
+     00004DA2  FSkateboa
+ASxxxx Linker V03.00 + NoICE + sdld,  page 37.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_GSINIT                00004EB5    0000000C =          12. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00004EB5  gsinit   
+ASxxxx Linker V03.00 + NoICE + sdld,  page 38.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_GSFINAL               00004EC1    00000001 =           1. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 39.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -892,12 +1101,12 @@ _DATA                  0000C0A0    00000024 =          36. bytes (REL,CON)
      0000C0BE  G$camera_ |    0000C0BE  _camera_p |    0000C0BF  G$camera_
      0000C0BF  _camera_p |    0000C0C0  .image_ti |    0000C0C1  ___curren
      0000C0C3  ___curren
-ASxxxx Linker V03.00 + NoICE + sdld,  page 36.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 40.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_INITIALIZED           0000C0C4    00001994 =        6548. bytes (REL,CON)
+_INITIALIZED           0000C0C4    00001E9E =        7838. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -908,9 +1117,14 @@ _INITIALIZED           0000C0C4    00001994 =        6548. bytes (REL,CON)
      0000CD72  G$JohnDoe |    0000CD72  _JohnDoe_ |    0000CEDA  G$JohnDoe
      0000CEDA  _JohnDoe_ |    0000D3DA  G$Bestiar |    0000D3DA  _Bestiary
      0000D542  G$Crow_Ti |    0000D542  _Crow_Til |    0000D6D2  G$Crow_Ma
-     0000D6D2  _Crow_Map |    0000D6F5  G$FontTil |    0000D6F5  _FontTile
-     0000DA55  __submap_ |    0000DA56  ___render |    0000DA57  __map_til
-ASxxxx Linker V03.00 + NoICE + sdld,  page 37.
+     0000D6D2  _Crow_Map |    0000D6F5  G$index$0 |    0000D6F5  _index   
+     0000D6F6  G$invert$ |    0000D6F6  _invert   |    0000D6F7  G$FontTil
+     0000D6F7  _FontTile |    0000DA57  G$GypsyTi |    0000DA57  _GypsyTil
+     0000DC47  G$Gypsy_M |    0000DC47  _Gypsy_Ma |    0000DC71  G$WallyTi
+     0000DC71  _WallyTil |    0000DE31  G$Wally_M |    0000DE31  _Wally_Ma
+     0000DE4F  G$Skatebo |    0000DE4F  _Skateboa |    0000DF5F  __submap_
+     0000DF60  ___render |    0000DF61  __map_til
+ASxxxx Linker V03.00 + NoICE + sdld,  page 41.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -920,7 +1134,7 @@ _HRAM12                00000000    00000003 =           3. bytes (ABS,CON)
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
      0000FF90  __current |    0000FF92  __shadow_
-ASxxxx Linker V03.00 + NoICE + sdld,  page 38.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 42.
 
 Files Linked                              [ module(s) ]
 
@@ -944,26 +1158,35 @@ obj\Crow_Tiles.o                          [ Crow_Tiles ]
 obj\Crow_Map.o                            [ Crow_Map ]
 obj\Bestiary.o                            [ Bestiary ]
 obj\Font.o                                [ Font ]
+obj\Gypsy_Tiles.o                         [ Gypsy_Tiles ]
+obj\Gypsy_Map.o                           [ Gypsy_Map ]
+obj\Wally_Tiles.o                         [ Wally_Tiles ]
+obj\Wally_Map.o                           [ Wally_Map ]
+obj\Skateboard_Tiles.o                    [ Skateboard_Tiles ]
 
 
 Libraries Linked                          [ object file ]
 
+C:\gbdk\lib/sm83/sm83.lib                 [ itoa.o ]
 C:\gbdk\lib/gb/gb.lib                     [ sfr.o ]
+C:\gbdk\lib/gb/gb.lib                     [ set_tile.o ]
 C:\gbdk\lib/gb/gb.lib                     [ set_data.o ]
 C:\gbdk\lib/gb/gb.lib                     [ set_tile_submap.o ]
 C:\gbdk\lib/gb/gb.lib                     [ pad.o ]
 C:\gbdk\lib/gb/gb.lib                     [ metasprites.o ]
 C:\gbdk\lib/gb/gb.lib                     [ metasprites_flip.o ]
+C:\gbdk\lib/sm83/sm83.lib                 [ strlen.o ]
+C:\gbdk\lib/gb/gb.lib                     [ get_addr.o ]
 C:\gbdk\lib/gb/gb.lib                     [ set_bk_t.o ]
 C:\gbdk\lib/gb/gb.lib                     [ set_xy_t.o ]
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 39.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 43.
 
 User Base Address Definitions
 
 _DATA=0xC0A0
 _CODE=0x0200
-ASxxxx Linker V03.00 + NoICE + sdld,  page 40.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 44.
 
 User Global Definitions
 

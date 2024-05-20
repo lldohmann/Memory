@@ -56,8 +56,8 @@ S:Lmain.set_native_tile_data$data$1_0$89({2}DG,SC:U),B,1,2
 S:Lmain.set_native_tile_data$nb_tiles$1_0$89({1}SC:U),B,1,-1
 S:Lmain.set_native_tile_data$first_tile$1_0$89({2}SI:U),B,1,-3
 F:G$main$0_0$0({2}DF,SV:S),C,0,0,0,0,0
-S:Lmain.main$currentGameState$1_0$104({1}SC:U),R,0,0,[c]
-S:Lmain.main$nextGameState$1_0$104({1}SC:U),R,0,0,[b]
+S:Lmain.main$currentGameState$1_0$105({1}SC:U),R,0,0,[c]
+S:Lmain.main$nextGameState$1_0$105({1}SC:U),R,0,0,[b]
 T:Fmain$__00000000[({0}S:S$l$0_0$0({1}SC:U),Z,0,0)({1}S:S$h$0_0$0({1}SC:U),Z,0,0)]
 T:Fmain$__00000001[({0}S:S$l$0_0$0({1}SC:U),Z,0,0)({1}S:S$h$0_0$0({1}SC:U),Z,0,0)]
 T:Fmain$__00000002[({0}S:S$npads$0_0$0({1}SC:U),Z,0,0)({1}S:S$joy0$0_0$0({1}SC:U),Z,0,0)({2}S:S$joy1$0_0$0({1}SC:U),Z,0,0)({3}S:S$joy2$0_0$0({1}SC:U),Z,0,0)({4}S:S$joy3$0_0$0({1}SC:U),Z,0,0)({1}S:S$joypads$0_0$0({4}DA4d,SC:U),Z,0,0)]
@@ -65,6 +65,7 @@ T:Fmain$__00000003[({0}S:S$joy0$0_0$0({1}SC:U),Z,0,0)({1}S:S$joy1$0_0$0({1}SC:U)
 T:Fmain$__00000004[({0}S:S$joy0$0_0$0({1}SC:U),Z,0,0)({1}S:S$joy1$0_0$0({1}SC:U),Z,0,0)({2}S:S$joy2$0_0$0({1}SC:U),Z,0,0)({3}S:S$joy3$0_0$0({1}SC:U),Z,0,0)]
 T:Fmain$_fixed[({0}S:S$l$0_0$0({1}SC:U),Z,0,0)({1}S:S$h$0_0$0({1}SC:U),Z,0,0)({0}S:S$b$0_0$0({2}ST__00000001:S),Z,0,0)({0}S:S$w$0_0$0({2}SI:U),Z,0,0)]
 T:Fmain$OAM_item_t[({0}S:S$y$0_0$0({1}SC:U),Z,0,0)({1}S:S$x$0_0$0({1}SC:U),Z,0,0)({2}S:S$tile$0_0$0({1}SC:U),Z,0,0)({3}S:S$prop$0_0$0({1}SC:U),Z,0,0)]
+T:Fmain$Enemy[({0}S:S$name$0_0$0({7}DA7d,SC:S),Z,0,0)({7}S:S$id$0_0$0({2}SI:U),Z,0,0)({9}S:S$attack$0_0$0({2}SI:U),Z,0,0)({11}S:S$defense$0_0$0({2}SI:U),Z,0,0)({13}S:S$special$0_0$0({2}SI:U),Z,0,0)({15}S:S$speed$0_0$0({2}SI:U),Z,0,0)({17}S:S$exp$0_0$0({2}SI:U),Z,0,0)]
 S:G$_VRAM$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$_VRAM8000$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$_VRAM8800$0_0$0({0}DA0d,SC:U),E,0,0
@@ -242,10 +243,13 @@ S:G$vmemset$0_0$0({2}DF,SV:S),C,0,0
 S:G$fill_bkg_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$fill_win_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$performantdelay$0_0$0({2}DF,SV:S),C,0,0
+S:G$DrawNumber$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeFromBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToWhite$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeFromWhite$0_0$0({2}DF,SV:S),C,0,0
+S:G$InvertColor$0_0$0({2}DF,SV:S),C,0,0
+S:G$ResetColor$0_0$0({2}DF,SV:S),C,0,0
 S:G$GameTitleSetup$0_0$0({2}DF,SV:S),C,0,0
 S:G$GameTitleUpdate$0_0$0({2}DF,SC:U),C,0,0
 S:G$CoreGameLoopSetup$0_0$0({2}DF,SV:S),C,0,0

@@ -29,7 +29,7 @@ void performantdelay(uint8_t numloops);
  * @param digits
  * The number of digits to be printed.
 */
-//void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits);
+void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits);
 
 /**
  * Custom function to print text onto the background layer.
@@ -74,5 +74,15 @@ void fadeToWhite(uint8_t frames);
  * The time it takes to change background pallet in frames. 
 */
 void fadeFromWhite(uint8_t frames);
+
+/**
+ * Inverts the colors on the screen (Good for dark/night fights.)
+*/
+void InvertColor();
+
+/**
+ * Returns color sceme to normal.
+*/
+void ResetColor();
 
 #endif

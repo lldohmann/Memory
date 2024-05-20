@@ -50,36 +50,36 @@
                                      50 	.area _CODE
                            000000    51 	G$main$0$0	= .
                                      52 	.globl	G$main$0$0
-                           000000    53 	C$main.c$8$0_0$104	= .
-                                     54 	.globl	C$main.c$8$0_0$104
+                           000000    53 	C$main.c$8$0_0$105	= .
+                                     54 	.globl	C$main.c$8$0_0$105
                                      55 ;src\main.c:8: void main(void)
                                      56 ;	---------------------------------
                                      57 ; Function main
                                      58 ; ---------------------------------
       000000                         59 _main::
-                           000000    60 	C$main.c$10$2_0$104	= .
-                                     61 	.globl	C$main.c$10$2_0$104
+                           000000    60 	C$main.c$10$2_0$105	= .
+                                     61 	.globl	C$main.c$10$2_0$105
                                      62 ;src\main.c:10: uint8_t currentGameState = GAMEFIRSTLOAD;
-                           000000    63 	C$main.c$11$2_0$104	= .
-                                     64 	.globl	C$main.c$11$2_0$104
+                           000000    63 	C$main.c$11$2_0$105	= .
+                                     64 	.globl	C$main.c$11$2_0$105
                                      65 ;src\main.c:11: uint8_t nextGameState = GAMETITLE;
       000000 01 00 01         [12]   66 	ld	bc, #0x100
-                           000003    67 	C$main.c$14$1_0$104	= .
-                                     68 	.globl	C$main.c$14$1_0$104
+                           000003    67 	C$main.c$14$1_0$105	= .
+                                     68 	.globl	C$main.c$14$1_0$105
                                      69 ;src\main.c:14: while(1) { 
       000003                         70 00126$:
-                           000003    71 	C$main.c$18$2_0$105	= .
-                                     72 	.globl	C$main.c$18$2_0$105
+                           000003    71 	C$main.c$18$2_0$106	= .
+                                     72 	.globl	C$main.c$18$2_0$106
                                      73 ;src\main.c:18: if (nextGameState != currentGameState)
       000003 79               [ 4]   74 	ld	a, c
       000004 90               [ 4]   75 	sub	a, b
       000005 28 2E            [12]   76 	jr	Z, 00113$
-                           000007    77 	C$main.c$20$3_0$106	= .
-                                     78 	.globl	C$main.c$20$3_0$106
+                           000007    77 	C$main.c$20$3_0$107	= .
+                                     78 	.globl	C$main.c$20$3_0$107
                                      79 ;src\main.c:20: currentGameState = nextGameState;
       000007 48               [ 4]   80 	ld	c, b
-                           000008    81 	C$main.c$22$3_0$106	= .
-                                     82 	.globl	C$main.c$22$3_0$106
+                           000008    81 	C$main.c$22$3_0$107	= .
+                                     82 	.globl	C$main.c$22$3_0$107
                                      83 ;src\main.c:22: if (currentGameState == GAMETITLE) GameTitleSetup();
       000008 78               [ 4]   84 	ld	a, b
       000009 3D               [ 4]   85 	dec	a
@@ -89,8 +89,8 @@
       000010 C1               [12]   89 	pop	bc
       000011 18 22            [12]   90 	jr	00113$
       000013                         91 00110$:
-                           000013    92 	C$main.c$23$3_0$106	= .
-                                     93 	.globl	C$main.c$23$3_0$106
+                           000013    92 	C$main.c$23$3_0$107	= .
+                                     93 	.globl	C$main.c$23$3_0$107
                                      94 ;src\main.c:23: else if (currentGameState == COREGAMELOOP) CoreGameLoopSetup();
       000013 78               [ 4]   95 	ld	a, b
       000014 D6 02            [ 8]   96 	sub	a, #0x02
@@ -100,8 +100,8 @@
       00001C C1               [12]  100 	pop	bc
       00001D 18 16            [12]  101 	jr	00113$
       00001F                        102 00107$:
-                           00001F   103 	C$main.c$24$3_0$106	= .
-                                    104 	.globl	C$main.c$24$3_0$106
+                           00001F   103 	C$main.c$24$3_0$107	= .
+                                    104 	.globl	C$main.c$24$3_0$107
                                     105 ;src\main.c:24: else if (currentGameState == GAMEJOHNDOE) GameJohnDoeSetup();
       00001F 78               [ 4]  106 	ld	a, b
       000020 D6 03            [ 8]  107 	sub	a, #0x03
@@ -111,8 +111,8 @@
       000028 C1               [12]  111 	pop	bc
       000029 18 0A            [12]  112 	jr	00113$
       00002B                        113 00104$:
-                           00002B   114 	C$main.c$25$3_0$106	= .
-                                    115 	.globl	C$main.c$25$3_0$106
+                           00002B   114 	C$main.c$25$3_0$107	= .
+                                    115 	.globl	C$main.c$25$3_0$107
                                     116 ;src\main.c:25: else if (currentGameState == BESTIARY) BestiarySetup();
       00002B 78               [ 4]  117 	ld	a, b
       00002C D6 04            [ 8]  118 	sub	a, #0x04
@@ -121,8 +121,8 @@
       000031 CDr00r00         [24]  121 	call	_BestiarySetup
       000034 C1               [12]  122 	pop	bc
       000035                        123 00113$:
-                           000035   124 	C$main.c$27$2_0$105	= .
-                                    125 	.globl	C$main.c$27$2_0$105
+                           000035   124 	C$main.c$27$2_0$106	= .
+                                    125 	.globl	C$main.c$27$2_0$106
                                     126 ;src\main.c:27: if (currentGameState == GAMETITLE) nextGameState = GameTitleUpdate();
       000035 79               [ 4]  127 	ld	a, c
       000036 3D               [ 4]  128 	dec	a
@@ -133,8 +133,8 @@
       00003E 47               [ 4]  133 	ld	b, a
       00003F 18 C2            [12]  134 	jr	00126$
       000041                        135 00123$:
-                           000041   136 	C$main.c$28$2_0$105	= .
-                                    137 	.globl	C$main.c$28$2_0$105
+                           000041   136 	C$main.c$28$2_0$106	= .
+                                    137 	.globl	C$main.c$28$2_0$106
                                     138 ;src\main.c:28: else if (currentGameState == COREGAMELOOP) nextGameState = CoreGameLoopUpdate();
       000041 79               [ 4]  139 	ld	a, c
       000042 D6 02            [ 8]  140 	sub	a, #0x02
@@ -145,8 +145,8 @@
       00004B 47               [ 4]  145 	ld	b, a
       00004C 18 B5            [12]  146 	jr	00126$
       00004E                        147 00120$:
-                           00004E   148 	C$main.c$29$2_0$105	= .
-                                    149 	.globl	C$main.c$29$2_0$105
+                           00004E   148 	C$main.c$29$2_0$106	= .
+                                    149 	.globl	C$main.c$29$2_0$106
                                     150 ;src\main.c:29: else if (currentGameState == GAMEJOHNDOE) nextGameState = GameJohnDoeUpdate();
       00004E 79               [ 4]  151 	ld	a, c
       00004F D6 03            [ 8]  152 	sub	a, #0x03
@@ -157,8 +157,8 @@
       000058 47               [ 4]  157 	ld	b, a
       000059 18 A8            [12]  158 	jr	00126$
       00005B                        159 00117$:
-                           00005B   160 	C$main.c$30$2_0$105	= .
-                                    161 	.globl	C$main.c$30$2_0$105
+                           00005B   160 	C$main.c$30$2_0$106	= .
+                                    161 	.globl	C$main.c$30$2_0$106
                                     162 ;src\main.c:30: else if (currentGameState == BESTIARY) nextGameState = BestiaryUpdate();
       00005B 79               [ 4]  163 	ld	a, c
       00005C D6 04            [ 8]  164 	sub	a, #0x04
@@ -167,11 +167,11 @@
       000061 CDr00r00         [24]  167 	call	_BestiaryUpdate
       000064 C1               [12]  168 	pop	bc
       000065 47               [ 4]  169 	ld	b, a
-                           000066   170 	C$main.c$33$1_0$104	= .
-                                    171 	.globl	C$main.c$33$1_0$104
+                           000066   170 	C$main.c$33$1_0$105	= .
+                                    171 	.globl	C$main.c$33$1_0$105
                                     172 ;src\main.c:33: }
-                           000066   173 	C$main.c$33$1_0$104	= .
-                                    174 	.globl	C$main.c$33$1_0$104
+                           000066   173 	C$main.c$33$1_0$105	= .
+                                    174 	.globl	C$main.c$33$1_0$105
                            000066   175 	XG$main$0$0	= .
                                     176 	.globl	XG$main$0$0
       000066 18 9B            [12]  177 	jr	00126$

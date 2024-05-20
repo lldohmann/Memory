@@ -18,4 +18,9 @@ REM Automatically generated from Makefile
 ..\..\..\bin\lcc   -debug -c -o obj\Crow_Map.o res\Crow_Map.c
 ..\..\..\bin\lcc   -debug -c -o obj\Bestiary.o src\Bestiary.c
 ..\..\..\bin\lcc   -debug -c -o obj\Font.o res\Font.c
-..\..\..\bin\lcc   -debug -o bin\Memory.gb obj\main.o obj\cast_tiles.o obj\indoor_tiles.o obj\home.o obj\player.o obj\GameTitle.o obj\GameTitle.o obj\Globe_Tiles.o obj\Title_Map.o obj\Title_Tiles.o obj\common.o obj\CoreGameLoop.o obj\JohnDoe_Map.o obj\JohnDoe_Tiles.o obj\GameJohnDoe.o obj\Bestiary_Map.o obj\Crow_Tiles.o obj\Crow_Map.o obj\Bestiary.o obj\Font.o
+..\..\..\bin\lcc   -debug -c -o obj\Wally_Tiles.o res\Wally_Tiles.c
+..\..\..\bin\lcc   -debug -c -o obj\Wally_Map.o res\Wally_Map.c
+..\..\..\bin\lcc   -debug -c -o obj\Gypsy_Tiles.o res\Gypsy_Tiles.c
+..\..\..\bin\lcc   -debug -c -o obj\Gypsy_Map.o res\Gypsy_Map.c
+..\..\..\bin\lcc   -debug -c -o obj\Skateboard_Tiles.o res\Skateboard_Tiles.c
+..\..\..\bin\lcc   -debug -o bin\Memory.gb obj\main.o obj\cast_tiles.o obj\indoor_tiles.o obj\home.o obj\player.o obj\GameTitle.o obj\GameTitle.o obj\Globe_Tiles.o obj\Title_Map.o obj\Title_Tiles.o obj\common.o obj\CoreGameLoop.o obj\JohnDoe_Map.o obj\JohnDoe_Tiles.o obj\GameJohnDoe.o obj\Bestiary_Map.o obj\Crow_Tiles.o obj\Crow_Map.o obj\Bestiary.o obj\Font.o obj\Gypsy_Tiles.o obj\Gypsy_Map.o obj\Wally_Tiles.o obj\Wally_Map.o obj\Skateboard_Tiles.o

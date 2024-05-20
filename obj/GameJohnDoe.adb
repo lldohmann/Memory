@@ -243,9 +243,12 @@ S:G$vmemset$0_0$0({2}DF,SV:S),C,0,0
 S:G$fill_bkg_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$fill_win_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$performantdelay$0_0$0({2}DF,SV:S),C,0,0
+S:G$DrawNumber$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeFromBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToWhite$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeFromWhite$0_0$0({2}DF,SV:S),C,0,0
+S:G$InvertColor$0_0$0({2}DF,SV:S),C,0,0
+S:G$ResetColor$0_0$0({2}DF,SV:S),C,0,0
 S:G$GameJohnDoeSetup$0_0$0({2}DF,SV:S),C,0,0
 S:G$GameJohnDoeUpdate$0_0$0({2}DF,SC:U),C,0,0
