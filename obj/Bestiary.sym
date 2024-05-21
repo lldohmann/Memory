@@ -7,7 +7,64 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
+  0 A$Bestiary$1000                                                0004BB GR
+  0 A$Bestiary$1001                                                0004BE GR
+  0 A$Bestiary$1005                                                0004C0 GR
+  0 A$Bestiary$1006                                                0004C2 GR
+  0 A$Bestiary$1007                                                0004C3 GR
+  0 A$Bestiary$1008                                                0004C4 GR
+  0 A$Bestiary$1009                                                0004C7 GR
+  0 A$Bestiary$1010                                                0004C8 GR
+  0 A$Bestiary$1011                                                0004CA GR
+  0 A$Bestiary$1012                                                0004CC GR
+  0 A$Bestiary$1016                                                0004CF GR
+  0 A$Bestiary$1017                                                0004D1 GR
+  0 A$Bestiary$1018                                                0004D2 GR
+  0 A$Bestiary$1019                                                0004D3 GR
+  0 A$Bestiary$1020                                                0004D6 GR
+  0 A$Bestiary$1021                                                0004D7 GR
+  0 A$Bestiary$1022                                                0004D9 GR
+  0 A$Bestiary$1023                                                0004DB GR
+  0 A$Bestiary$1027                                                0004DE GR
+  0 A$Bestiary$1028                                                0004E0 GR
+  0 A$Bestiary$1029                                                0004E1 GR
+  0 A$Bestiary$1030                                                0004E2 GR
+  0 A$Bestiary$1031                                                0004E5 GR
+  0 A$Bestiary$1032                                                0004E6 GR
+  0 A$Bestiary$1033                                                0004E8 GR
+  0 A$Bestiary$1034                                                0004EA GR
+  0 A$Bestiary$1038                                                0004ED GR
+  0 A$Bestiary$1039                                                0004EF GR
+  0 A$Bestiary$1040                                                0004F0 GR
+  0 A$Bestiary$1041                                                0004F1 GR
+  0 A$Bestiary$1042                                                0004F4 GR
+  0 A$Bestiary$1043                                                0004F5 GR
+  0 A$Bestiary$1044                                                0004F7 GR
+  0 A$Bestiary$1045                                                0004F9 GR
+  0 A$Bestiary$1049                                                0004FC GR
+  0 A$Bestiary$1050                                                0004FE GR
+  0 A$Bestiary$1051                                                0004FF GR
+  0 A$Bestiary$1052                                                000500 GR
+  0 A$Bestiary$1053                                                000503 GR
+  0 A$Bestiary$1054                                                000504 GR
+  0 A$Bestiary$1055                                                000506 GR
+  0 A$Bestiary$1056                                                000508 GR
   0 A$Bestiary$106                                                 000025 GR
+  0 A$Bestiary$1060                                                00050B GR
+  0 A$Bestiary$1061                                                00050D GR
+  0 A$Bestiary$1062                                                00050E GR
+  0 A$Bestiary$1063                                                00050F GR
+  0 A$Bestiary$1064                                                000512 GR
+  0 A$Bestiary$1065                                                000513 GR
+  0 A$Bestiary$1066                                                000515 GR
+  0 A$Bestiary$1067                                                000517 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Bestiary$1072                                                00051A GR
+  0 A$Bestiary$1080                                                00051C GR
   0 A$Bestiary$119                                                 000028 GR
   0 A$Bestiary$120                                                 00002B GR
   0 A$Bestiary$124                                                 00002E GR
@@ -58,14 +115,14 @@ Symbol Table
   0 A$Bestiary$201                                                 000079 GR
   0 A$Bestiary$205                                                 00007B GR
   0 A$Bestiary$210                                                 00007E GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+  0 A$Bestiary$211                                                 000081 GR
+  0 A$Bestiary$212                                                 000083 GR
+  0 A$Bestiary$216                                                 000085 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$Bestiary$211                                                 000081 GR
-  0 A$Bestiary$212                                                 000083 GR
-  0 A$Bestiary$216                                                 000085 GR
   0 A$Bestiary$217                                                 000087 GR
   0 A$Bestiary$221                                                 00008A GR
   0 A$Bestiary$222                                                 00008C GR
@@ -118,14 +175,14 @@ Symbol Table
   0 A$Bestiary$291                                                 0000E6 GR
   0 A$Bestiary$292                                                 0000E8 GR
   0 A$Bestiary$293                                                 0000EA GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
+  0 A$Bestiary$297                                                 0000ED GR
+  0 A$Bestiary$298                                                 0000EF GR
+  0 A$Bestiary$299                                                 0000F0 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 4
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$Bestiary$297                                                 0000ED GR
-  0 A$Bestiary$298                                                 0000EF GR
-  0 A$Bestiary$299                                                 0000F0 GR
   0 A$Bestiary$300                                                 0000F1 GR
   0 A$Bestiary$301                                                 0000F4 GR
   0 A$Bestiary$302                                                 0000F5 GR
@@ -178,14 +235,14 @@ Symbol Table
   0 A$Bestiary$371                                                 000153 GR
   0 A$Bestiary$372                                                 000154 GR
   0 A$Bestiary$373                                                 000157 GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 4
+  0 A$Bestiary$374                                                 000158 GR
+  0 A$Bestiary$375                                                 00015A GR
+  0 A$Bestiary$376                                                 00015C GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 5
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$Bestiary$374                                                 000158 GR
-  0 A$Bestiary$375                                                 00015A GR
-  0 A$Bestiary$376                                                 00015C GR
   0 A$Bestiary$380                                                 00015F GR
   0 A$Bestiary$381                                                 000161 GR
   0 A$Bestiary$382                                                 000162 GR
@@ -238,14 +295,14 @@ Symbol Table
   0 A$Bestiary$448                                                 0001C0 GR
   0 A$Bestiary$452                                                 0001C3 GR
   0 A$Bestiary$453                                                 0001C5 GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 5
+  0 A$Bestiary$454                                                 0001C6 GR
+  0 A$Bestiary$455                                                 0001C7 GR
+  0 A$Bestiary$456                                                 0001CA GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 6
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$Bestiary$454                                                 0001C6 GR
-  0 A$Bestiary$455                                                 0001C7 GR
-  0 A$Bestiary$456                                                 0001CA GR
   0 A$Bestiary$457                                                 0001CB GR
   0 A$Bestiary$458                                                 0001CD GR
   0 A$Bestiary$459                                                 0001CF GR
@@ -281,97 +338,532 @@ Symbol Table
   0 A$Bestiary$501                                                 000207 GR
   0 A$Bestiary$502                                                 000209 GR
   0 A$Bestiary$503                                                 00020B GR
-  0 A$Bestiary$508                                                 00020E GR
-  0 A$Bestiary$516                                                 000210 GR
-  0 A$Bestiary$71                                                  000000 GR
-  0 A$Bestiary$72                                                  000003 GR
-  0 A$Bestiary$73                                                  000004 GR
-  0 A$Bestiary$74                                                  000007 GR
-  0 A$Bestiary$75                                                  000008 GR
-  0 A$Bestiary$76                                                  00000B GR
-  0 A$Bestiary$80                                                  00000D GR
-  0 A$Bestiary$81                                                  000010 GR
-  0 A$Bestiary$82                                                  000011 GR
-  0 A$Bestiary$83                                                  000014 GR
-  0 A$Bestiary$84                                                  000015 GR
-  0 A$Bestiary$85                                                  000016 GR
-  0 A$Bestiary$86                                                  000017 GR
-  0 A$Bestiary$87                                                  000018 GR
-  0 A$Bestiary$88                                                  00001B GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 6
-Hexadecimal [24-Bits]
-
-Symbol Table
-
-  0 A$Bestiary$92                                                  00001D GR
-  0 A$Bestiary$93                                                  00001F GR
-  0 A$Bestiary$94                                                  000021 GR
-  0 A$Bestiary$98                                                  000023 GR
-  0 C$Bestiary.c$100$2_0$114                                    =  0001D2 GR
-  0 C$Bestiary.c$101$2_0$114                                    =  0001E1 GR
-  0 C$Bestiary.c$102$2_0$114                                    =  0001F0 GR
-  0 C$Bestiary.c$103$2_0$114                                    =  0001FF GR
-  0 C$Bestiary.c$105$1_0$105                                    =  00020E GR
-  0 C$Bestiary.c$106$1_0$105                                    =  000210 GR
-  0 C$Bestiary.c$21$0_0$104                                     =  000000 GR
-  0 C$Bestiary.c$23$1_0$104                                     =  000000 GR
-  0 C$Bestiary.c$24$1_0$104                                     =  00000D GR
-  0 C$Bestiary.c$25$1_0$104                                     =  00001D GR
-  0 C$Bestiary.c$26$1_0$104                                     =  000023 GR
-  0 C$Bestiary.c$27$1_0$104                                     =  000025 GR
-  0 C$Bestiary.c$29$1_0$105                                     =  000028 GR
-  0 C$Bestiary.c$31$1_0$105                                     =  000035 GR
-  0 C$Bestiary.c$32$1_0$105                                     =  00002E GR
-  0 C$Bestiary.c$34$1_0$105                                     =  000036 GR
-  0 C$Bestiary.c$36$2_0$106                                     =  00003A GR
-  0 C$Bestiary.c$38$3_0$107                                     =  000047 GR
-  0 C$Bestiary.c$41$1_0$105                                     =  00004B GR
-  0 C$Bestiary.c$43$2_0$108                                     =  00004F GR
-  0 C$Bestiary.c$45$3_0$109                                     =  000073 GR
-  0 C$Bestiary.c$48$1_0$105                                     =  000077 GR
-  0 C$Bestiary.c$50$2_0$110                                     =  00007B GR
-  0 C$Bestiary.c$64$1_0$105                                     =  00007E GR
-  0 C$Bestiary.c$66$2_0$111                                     =  000085 GR
-  0 C$Bestiary.c$67$2_0$111                                     =  00008A GR
-  0 C$Bestiary.c$69$1_0$105                                     =  00008D GR
-  0 C$Bestiary.c$71$2_0$112                                     =  000093 GR
-  0 C$Bestiary.c$72$2_0$112                                     =  0000A0 GR
-  0 C$Bestiary.c$73$2_0$112                                     =  0000B1 GR
-  0 C$Bestiary.c$75$2_0$112                                     =  0000C0 GR
-  0 C$Bestiary.c$76$2_0$112                                     =  0000CF GR
-  0 C$Bestiary.c$77$2_0$112                                     =  0000DE GR
-  0 C$Bestiary.c$78$2_0$112                                     =  0000ED GR
-  0 C$Bestiary.c$79$2_0$112                                     =  0000FC GR
-  0 C$Bestiary.c$81$1_0$105                                     =  00010E GR
-  0 C$Bestiary.c$83$2_0$113                                     =  000114 GR
-  0 C$Bestiary.c$84$2_0$113                                     =  000121 GR
-  0 C$Bestiary.c$85$2_0$113                                     =  000132 GR
-  0 C$Bestiary.c$87$2_0$113                                     =  000141 GR
-  0 C$Bestiary.c$88$2_0$113                                     =  000150 GR
-  0 C$Bestiary.c$89$2_0$113                                     =  00015F GR
-  0 C$Bestiary.c$90$2_0$113                                     =  00016E GR
-  0 C$Bestiary.c$91$2_0$113                                     =  00017D GR
-  0 C$Bestiary.c$93$1_0$105                                     =  00018F GR
-  0 C$Bestiary.c$95$2_0$114                                     =  000196 GR
-  0 C$Bestiary.c$96$2_0$114                                     =  0001A3 GR
-  0 C$Bestiary.c$97$2_0$114                                     =  0001B4 GR
-  0 C$Bestiary.c$99$2_0$114                                     =  0001C3 GR
-  7 FBestiary$__xinit_index$0_0$0                               =  000000 GR
-  7 FBestiary$__xinit_invert$0_0$0                              =  000001 GR
+  0 A$Bestiary$504                                                 00020E GR
+  0 A$Bestiary$509                                                 000211 GR
+  0 A$Bestiary$510                                                 000214 GR
+  0 A$Bestiary$511                                                 000216 GR
+  0 A$Bestiary$515                                                 000218 GR
+  0 A$Bestiary$516                                                 00021B GR
+  0 A$Bestiary$517                                                 00021C GR
+  0 A$Bestiary$518                                                 00021F GR
+  0 A$Bestiary$519                                                 000220 GR
+  0 A$Bestiary$520                                                 000223 GR
+  0 A$Bestiary$524                                                 000225 GR
+  0 A$Bestiary$525                                                 000228 GR
+  0 A$Bestiary$526                                                 000229 GR
+  0 A$Bestiary$527                                                 00022C GR
+  0 A$Bestiary$528                                                 00022D GR
+  0 A$Bestiary$529                                                 000230 GR
+  0 A$Bestiary$530                                                 000231 GR
+  0 A$Bestiary$531                                                 000234 GR
+  0 A$Bestiary$535                                                 000236 GR
+  0 A$Bestiary$536                                                 000238 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 7
 Hexadecimal [24-Bits]
 
 Symbol Table
 
+  0 A$Bestiary$537                                                 000239 GR
+  0 A$Bestiary$538                                                 00023A GR
+  0 A$Bestiary$539                                                 00023D GR
+  0 A$Bestiary$540                                                 00023E GR
+  0 A$Bestiary$541                                                 000240 GR
+  0 A$Bestiary$542                                                 000242 GR
+  0 A$Bestiary$546                                                 000245 GR
+  0 A$Bestiary$547                                                 000247 GR
+  0 A$Bestiary$548                                                 000248 GR
+  0 A$Bestiary$549                                                 000249 GR
+  0 A$Bestiary$550                                                 00024C GR
+  0 A$Bestiary$551                                                 00024D GR
+  0 A$Bestiary$552                                                 00024F GR
+  0 A$Bestiary$553                                                 000251 GR
+  0 A$Bestiary$557                                                 000254 GR
+  0 A$Bestiary$558                                                 000256 GR
+  0 A$Bestiary$559                                                 000257 GR
+  0 A$Bestiary$560                                                 000258 GR
+  0 A$Bestiary$561                                                 00025B GR
+  0 A$Bestiary$562                                                 00025C GR
+  0 A$Bestiary$563                                                 00025E GR
+  0 A$Bestiary$564                                                 000260 GR
+  0 A$Bestiary$568                                                 000263 GR
+  0 A$Bestiary$569                                                 000265 GR
+  0 A$Bestiary$570                                                 000266 GR
+  0 A$Bestiary$571                                                 000267 GR
+  0 A$Bestiary$572                                                 00026A GR
+  0 A$Bestiary$573                                                 00026B GR
+  0 A$Bestiary$574                                                 00026D GR
+  0 A$Bestiary$575                                                 00026F GR
+  0 A$Bestiary$579                                                 000272 GR
+  0 A$Bestiary$580                                                 000274 GR
+  0 A$Bestiary$581                                                 000275 GR
+  0 A$Bestiary$582                                                 000276 GR
+  0 A$Bestiary$583                                                 000279 GR
+  0 A$Bestiary$584                                                 00027A GR
+  0 A$Bestiary$585                                                 00027C GR
+  0 A$Bestiary$586                                                 00027E GR
+  0 A$Bestiary$590                                                 000281 GR
+  0 A$Bestiary$591                                                 000283 GR
+  0 A$Bestiary$592                                                 000284 GR
+  0 A$Bestiary$593                                                 000285 GR
+  0 A$Bestiary$594                                                 000288 GR
+  0 A$Bestiary$595                                                 000289 GR
+  0 A$Bestiary$596                                                 00028B GR
+  0 A$Bestiary$597                                                 00028D GR
+  0 A$Bestiary$598                                                 000290 GR
+  0 A$Bestiary$603                                                 000293 GR
+  0 A$Bestiary$604                                                 000296 GR
+  0 A$Bestiary$605                                                 000298 GR
+  0 A$Bestiary$609                                                 00029A GR
+  0 A$Bestiary$610                                                 00029D GR
+  0 A$Bestiary$611                                                 00029E GR
+  0 A$Bestiary$612                                                 0002A1 GR
+  0 A$Bestiary$613                                                 0002A2 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 8
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Bestiary$614                                                 0002A5 GR
+  0 A$Bestiary$618                                                 0002A7 GR
+  0 A$Bestiary$619                                                 0002AA GR
+  0 A$Bestiary$620                                                 0002AB GR
+  0 A$Bestiary$621                                                 0002AE GR
+  0 A$Bestiary$622                                                 0002AF GR
+  0 A$Bestiary$623                                                 0002B2 GR
+  0 A$Bestiary$624                                                 0002B3 GR
+  0 A$Bestiary$625                                                 0002B6 GR
+  0 A$Bestiary$629                                                 0002B8 GR
+  0 A$Bestiary$630                                                 0002BA GR
+  0 A$Bestiary$631                                                 0002BB GR
+  0 A$Bestiary$632                                                 0002BC GR
+  0 A$Bestiary$633                                                 0002BF GR
+  0 A$Bestiary$634                                                 0002C0 GR
+  0 A$Bestiary$635                                                 0002C2 GR
+  0 A$Bestiary$636                                                 0002C4 GR
+  0 A$Bestiary$640                                                 0002C7 GR
+  0 A$Bestiary$641                                                 0002C9 GR
+  0 A$Bestiary$642                                                 0002CA GR
+  0 A$Bestiary$643                                                 0002CB GR
+  0 A$Bestiary$644                                                 0002CE GR
+  0 A$Bestiary$645                                                 0002CF GR
+  0 A$Bestiary$646                                                 0002D1 GR
+  0 A$Bestiary$647                                                 0002D3 GR
+  0 A$Bestiary$651                                                 0002D6 GR
+  0 A$Bestiary$652                                                 0002D8 GR
+  0 A$Bestiary$653                                                 0002D9 GR
+  0 A$Bestiary$654                                                 0002DA GR
+  0 A$Bestiary$655                                                 0002DD GR
+  0 A$Bestiary$656                                                 0002DE GR
+  0 A$Bestiary$657                                                 0002E0 GR
+  0 A$Bestiary$658                                                 0002E2 GR
+  0 A$Bestiary$662                                                 0002E5 GR
+  0 A$Bestiary$663                                                 0002E7 GR
+  0 A$Bestiary$664                                                 0002E8 GR
+  0 A$Bestiary$665                                                 0002E9 GR
+  0 A$Bestiary$666                                                 0002EC GR
+  0 A$Bestiary$667                                                 0002ED GR
+  0 A$Bestiary$668                                                 0002EF GR
+  0 A$Bestiary$669                                                 0002F1 GR
+  0 A$Bestiary$673                                                 0002F4 GR
+  0 A$Bestiary$674                                                 0002F6 GR
+  0 A$Bestiary$675                                                 0002F7 GR
+  0 A$Bestiary$676                                                 0002F8 GR
+  0 A$Bestiary$677                                                 0002FB GR
+  0 A$Bestiary$678                                                 0002FC GR
+  0 A$Bestiary$679                                                 0002FE GR
+  0 A$Bestiary$680                                                 000300 GR
+  0 A$Bestiary$684                                                 000303 GR
+  0 A$Bestiary$685                                                 000305 GR
+  0 A$Bestiary$686                                                 000306 GR
+  0 A$Bestiary$687                                                 000307 GR
+  0 A$Bestiary$688                                                 00030A GR
+  0 A$Bestiary$689                                                 00030B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 9
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Bestiary$690                                                 00030D GR
+  0 A$Bestiary$691                                                 00030F GR
+  0 A$Bestiary$692                                                 000312 GR
+  0 A$Bestiary$697                                                 000315 GR
+  0 A$Bestiary$698                                                 000318 GR
+  0 A$Bestiary$699                                                 00031A GR
+  0 A$Bestiary$703                                                 00031C GR
+  0 A$Bestiary$704                                                 00031F GR
+  0 A$Bestiary$705                                                 000320 GR
+  0 A$Bestiary$706                                                 000323 GR
+  0 A$Bestiary$707                                                 000324 GR
+  0 A$Bestiary$708                                                 000327 GR
+  0 A$Bestiary$71                                                  000000 GR
+  0 A$Bestiary$712                                                 000329 GR
+  0 A$Bestiary$713                                                 00032C GR
+  0 A$Bestiary$714                                                 00032D GR
+  0 A$Bestiary$715                                                 000330 GR
+  0 A$Bestiary$716                                                 000331 GR
+  0 A$Bestiary$717                                                 000334 GR
+  0 A$Bestiary$718                                                 000335 GR
+  0 A$Bestiary$719                                                 000338 GR
+  0 A$Bestiary$72                                                  000003 GR
+  0 A$Bestiary$723                                                 00033A GR
+  0 A$Bestiary$724                                                 00033C GR
+  0 A$Bestiary$725                                                 00033D GR
+  0 A$Bestiary$726                                                 00033E GR
+  0 A$Bestiary$727                                                 000341 GR
+  0 A$Bestiary$728                                                 000342 GR
+  0 A$Bestiary$729                                                 000344 GR
+  0 A$Bestiary$73                                                  000004 GR
+  0 A$Bestiary$730                                                 000346 GR
+  0 A$Bestiary$734                                                 000349 GR
+  0 A$Bestiary$735                                                 00034B GR
+  0 A$Bestiary$736                                                 00034C GR
+  0 A$Bestiary$737                                                 00034D GR
+  0 A$Bestiary$738                                                 000350 GR
+  0 A$Bestiary$739                                                 000351 GR
+  0 A$Bestiary$74                                                  000007 GR
+  0 A$Bestiary$740                                                 000353 GR
+  0 A$Bestiary$741                                                 000355 GR
+  0 A$Bestiary$745                                                 000358 GR
+  0 A$Bestiary$746                                                 00035A GR
+  0 A$Bestiary$747                                                 00035B GR
+  0 A$Bestiary$748                                                 00035C GR
+  0 A$Bestiary$749                                                 00035F GR
+  0 A$Bestiary$75                                                  000008 GR
+  0 A$Bestiary$750                                                 000360 GR
+  0 A$Bestiary$751                                                 000362 GR
+  0 A$Bestiary$752                                                 000364 GR
+  0 A$Bestiary$756                                                 000367 GR
+  0 A$Bestiary$757                                                 000369 GR
+  0 A$Bestiary$758                                                 00036A GR
+  0 A$Bestiary$759                                                 00036B GR
+  0 A$Bestiary$76                                                  00000B GR
+  0 A$Bestiary$760                                                 00036E GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 10
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Bestiary$761                                                 00036F GR
+  0 A$Bestiary$762                                                 000371 GR
+  0 A$Bestiary$763                                                 000373 GR
+  0 A$Bestiary$767                                                 000376 GR
+  0 A$Bestiary$768                                                 000378 GR
+  0 A$Bestiary$769                                                 000379 GR
+  0 A$Bestiary$770                                                 00037A GR
+  0 A$Bestiary$771                                                 00037D GR
+  0 A$Bestiary$772                                                 00037E GR
+  0 A$Bestiary$773                                                 000380 GR
+  0 A$Bestiary$774                                                 000382 GR
+  0 A$Bestiary$778                                                 000385 GR
+  0 A$Bestiary$779                                                 000387 GR
+  0 A$Bestiary$780                                                 000388 GR
+  0 A$Bestiary$781                                                 000389 GR
+  0 A$Bestiary$782                                                 00038C GR
+  0 A$Bestiary$783                                                 00038D GR
+  0 A$Bestiary$784                                                 00038F GR
+  0 A$Bestiary$785                                                 000391 GR
+  0 A$Bestiary$786                                                 000394 GR
+  0 A$Bestiary$791                                                 000397 GR
+  0 A$Bestiary$792                                                 00039A GR
+  0 A$Bestiary$793                                                 00039C GR
+  0 A$Bestiary$797                                                 00039E GR
+  0 A$Bestiary$798                                                 0003A1 GR
+  0 A$Bestiary$799                                                 0003A2 GR
+  0 A$Bestiary$80                                                  00000D GR
+  0 A$Bestiary$800                                                 0003A5 GR
+  0 A$Bestiary$801                                                 0003A6 GR
+  0 A$Bestiary$802                                                 0003A9 GR
+  0 A$Bestiary$806                                                 0003AB GR
+  0 A$Bestiary$807                                                 0003AE GR
+  0 A$Bestiary$808                                                 0003AF GR
+  0 A$Bestiary$809                                                 0003B2 GR
+  0 A$Bestiary$81                                                  000010 GR
+  0 A$Bestiary$810                                                 0003B3 GR
+  0 A$Bestiary$811                                                 0003B6 GR
+  0 A$Bestiary$812                                                 0003B7 GR
+  0 A$Bestiary$813                                                 0003BA GR
+  0 A$Bestiary$817                                                 0003BC GR
+  0 A$Bestiary$818                                                 0003BE GR
+  0 A$Bestiary$819                                                 0003BF GR
+  0 A$Bestiary$82                                                  000011 GR
+  0 A$Bestiary$820                                                 0003C0 GR
+  0 A$Bestiary$821                                                 0003C3 GR
+  0 A$Bestiary$822                                                 0003C4 GR
+  0 A$Bestiary$823                                                 0003C6 GR
+  0 A$Bestiary$824                                                 0003C8 GR
+  0 A$Bestiary$828                                                 0003CB GR
+  0 A$Bestiary$829                                                 0003CD GR
+  0 A$Bestiary$83                                                  000014 GR
+  0 A$Bestiary$830                                                 0003CE GR
+  0 A$Bestiary$831                                                 0003CF GR
+  0 A$Bestiary$832                                                 0003D2 GR
+  0 A$Bestiary$833                                                 0003D3 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 11
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Bestiary$834                                                 0003D5 GR
+  0 A$Bestiary$835                                                 0003D7 GR
+  0 A$Bestiary$839                                                 0003DA GR
+  0 A$Bestiary$84                                                  000015 GR
+  0 A$Bestiary$840                                                 0003DC GR
+  0 A$Bestiary$841                                                 0003DD GR
+  0 A$Bestiary$842                                                 0003DE GR
+  0 A$Bestiary$843                                                 0003E1 GR
+  0 A$Bestiary$844                                                 0003E2 GR
+  0 A$Bestiary$845                                                 0003E4 GR
+  0 A$Bestiary$846                                                 0003E6 GR
+  0 A$Bestiary$85                                                  000016 GR
+  0 A$Bestiary$850                                                 0003E9 GR
+  0 A$Bestiary$851                                                 0003EB GR
+  0 A$Bestiary$852                                                 0003EC GR
+  0 A$Bestiary$853                                                 0003ED GR
+  0 A$Bestiary$854                                                 0003F0 GR
+  0 A$Bestiary$855                                                 0003F1 GR
+  0 A$Bestiary$856                                                 0003F3 GR
+  0 A$Bestiary$857                                                 0003F5 GR
+  0 A$Bestiary$86                                                  000017 GR
+  0 A$Bestiary$861                                                 0003F8 GR
+  0 A$Bestiary$862                                                 0003FA GR
+  0 A$Bestiary$863                                                 0003FB GR
+  0 A$Bestiary$864                                                 0003FC GR
+  0 A$Bestiary$865                                                 0003FF GR
+  0 A$Bestiary$866                                                 000400 GR
+  0 A$Bestiary$867                                                 000402 GR
+  0 A$Bestiary$868                                                 000404 GR
+  0 A$Bestiary$87                                                  000018 GR
+  0 A$Bestiary$872                                                 000407 GR
+  0 A$Bestiary$873                                                 000409 GR
+  0 A$Bestiary$874                                                 00040A GR
+  0 A$Bestiary$875                                                 00040B GR
+  0 A$Bestiary$876                                                 00040E GR
+  0 A$Bestiary$877                                                 00040F GR
+  0 A$Bestiary$878                                                 000411 GR
+  0 A$Bestiary$879                                                 000413 GR
+  0 A$Bestiary$88                                                  00001B GR
+  0 A$Bestiary$880                                                 000416 GR
+  0 A$Bestiary$885                                                 000419 GR
+  0 A$Bestiary$886                                                 00041C GR
+  0 A$Bestiary$887                                                 00041E GR
+  0 A$Bestiary$891                                                 000420 GR
+  0 A$Bestiary$892                                                 000423 GR
+  0 A$Bestiary$893                                                 000424 GR
+  0 A$Bestiary$894                                                 000427 GR
+  0 A$Bestiary$895                                                 000428 GR
+  0 A$Bestiary$896                                                 00042B GR
+  0 A$Bestiary$900                                                 00042D GR
+  0 A$Bestiary$901                                                 000430 GR
+  0 A$Bestiary$902                                                 000431 GR
+  0 A$Bestiary$903                                                 000434 GR
+  0 A$Bestiary$904                                                 000435 GR
+  0 A$Bestiary$905                                                 000438 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 12
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Bestiary$906                                                 000439 GR
+  0 A$Bestiary$907                                                 00043C GR
+  0 A$Bestiary$911                                                 00043E GR
+  0 A$Bestiary$912                                                 000440 GR
+  0 A$Bestiary$913                                                 000441 GR
+  0 A$Bestiary$914                                                 000442 GR
+  0 A$Bestiary$915                                                 000445 GR
+  0 A$Bestiary$916                                                 000446 GR
+  0 A$Bestiary$917                                                 000448 GR
+  0 A$Bestiary$918                                                 00044A GR
+  0 A$Bestiary$92                                                  00001D GR
+  0 A$Bestiary$922                                                 00044D GR
+  0 A$Bestiary$923                                                 00044F GR
+  0 A$Bestiary$924                                                 000450 GR
+  0 A$Bestiary$925                                                 000451 GR
+  0 A$Bestiary$926                                                 000454 GR
+  0 A$Bestiary$927                                                 000455 GR
+  0 A$Bestiary$928                                                 000457 GR
+  0 A$Bestiary$929                                                 000459 GR
+  0 A$Bestiary$93                                                  00001F GR
+  0 A$Bestiary$933                                                 00045C GR
+  0 A$Bestiary$934                                                 00045E GR
+  0 A$Bestiary$935                                                 00045F GR
+  0 A$Bestiary$936                                                 000460 GR
+  0 A$Bestiary$937                                                 000463 GR
+  0 A$Bestiary$938                                                 000464 GR
+  0 A$Bestiary$939                                                 000466 GR
+  0 A$Bestiary$94                                                  000021 GR
+  0 A$Bestiary$940                                                 000468 GR
+  0 A$Bestiary$944                                                 00046B GR
+  0 A$Bestiary$945                                                 00046D GR
+  0 A$Bestiary$946                                                 00046E GR
+  0 A$Bestiary$947                                                 00046F GR
+  0 A$Bestiary$948                                                 000472 GR
+  0 A$Bestiary$949                                                 000473 GR
+  0 A$Bestiary$950                                                 000475 GR
+  0 A$Bestiary$951                                                 000477 GR
+  0 A$Bestiary$955                                                 00047A GR
+  0 A$Bestiary$956                                                 00047C GR
+  0 A$Bestiary$957                                                 00047D GR
+  0 A$Bestiary$958                                                 00047E GR
+  0 A$Bestiary$959                                                 000481 GR
+  0 A$Bestiary$960                                                 000482 GR
+  0 A$Bestiary$961                                                 000484 GR
+  0 A$Bestiary$962                                                 000486 GR
+  0 A$Bestiary$966                                                 000489 GR
+  0 A$Bestiary$967                                                 00048B GR
+  0 A$Bestiary$968                                                 00048C GR
+  0 A$Bestiary$969                                                 00048D GR
+  0 A$Bestiary$970                                                 000490 GR
+  0 A$Bestiary$971                                                 000491 GR
+  0 A$Bestiary$972                                                 000493 GR
+  0 A$Bestiary$973                                                 000495 GR
+  0 A$Bestiary$974                                                 000498 GR
+  0 A$Bestiary$979                                                 00049B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 13
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Bestiary$98                                                  000023 GR
+  0 A$Bestiary$980                                                 00049E GR
+  0 A$Bestiary$981                                                 0004A0 GR
+  0 A$Bestiary$985                                                 0004A2 GR
+  0 A$Bestiary$986                                                 0004A5 GR
+  0 A$Bestiary$987                                                 0004A6 GR
+  0 A$Bestiary$988                                                 0004A9 GR
+  0 A$Bestiary$989                                                 0004AA GR
+  0 A$Bestiary$990                                                 0004AD GR
+  0 A$Bestiary$994                                                 0004AF GR
+  0 A$Bestiary$995                                                 0004B2 GR
+  0 A$Bestiary$996                                                 0004B3 GR
+  0 A$Bestiary$997                                                 0004B6 GR
+  0 A$Bestiary$998                                                 0004B7 GR
+  0 A$Bestiary$999                                                 0004BA GR
+  0 C$Bestiary.c$100$2_0$113                                    =  00017D GR
+  0 C$Bestiary.c$102$1_0$105                                    =  00018F GR
+  0 C$Bestiary.c$104$2_0$114                                    =  000196 GR
+  0 C$Bestiary.c$105$2_0$114                                    =  0001A3 GR
+  0 C$Bestiary.c$106$2_0$114                                    =  0001B4 GR
+  0 C$Bestiary.c$108$2_0$114                                    =  0001C3 GR
+  0 C$Bestiary.c$109$2_0$114                                    =  0001D2 GR
+  0 C$Bestiary.c$110$2_0$114                                    =  0001E1 GR
+  0 C$Bestiary.c$111$2_0$114                                    =  0001F0 GR
+  0 C$Bestiary.c$112$2_0$114                                    =  0001FF GR
+  0 C$Bestiary.c$114$1_0$105                                    =  000211 GR
+  0 C$Bestiary.c$116$2_0$115                                    =  000218 GR
+  0 C$Bestiary.c$117$2_0$115                                    =  000225 GR
+  0 C$Bestiary.c$118$2_0$115                                    =  000236 GR
+  0 C$Bestiary.c$120$2_0$115                                    =  000245 GR
+  0 C$Bestiary.c$121$2_0$115                                    =  000254 GR
+  0 C$Bestiary.c$122$2_0$115                                    =  000263 GR
+  0 C$Bestiary.c$123$2_0$115                                    =  000272 GR
+  0 C$Bestiary.c$124$2_0$115                                    =  000281 GR
+  0 C$Bestiary.c$126$1_0$105                                    =  000293 GR
+  0 C$Bestiary.c$128$2_0$116                                    =  00029A GR
+  0 C$Bestiary.c$129$2_0$116                                    =  0002A7 GR
+  0 C$Bestiary.c$130$2_0$116                                    =  0002B8 GR
+  0 C$Bestiary.c$132$2_0$116                                    =  0002C7 GR
+  0 C$Bestiary.c$133$2_0$116                                    =  0002D6 GR
+  0 C$Bestiary.c$134$2_0$116                                    =  0002E5 GR
+  0 C$Bestiary.c$135$2_0$116                                    =  0002F4 GR
+  0 C$Bestiary.c$136$2_0$116                                    =  000303 GR
+  0 C$Bestiary.c$138$1_0$105                                    =  000315 GR
+  0 C$Bestiary.c$140$2_0$117                                    =  00031C GR
+  0 C$Bestiary.c$141$2_0$117                                    =  000329 GR
+  0 C$Bestiary.c$142$2_0$117                                    =  00033A GR
+  0 C$Bestiary.c$144$2_0$117                                    =  000349 GR
+  0 C$Bestiary.c$145$2_0$117                                    =  000358 GR
+  0 C$Bestiary.c$146$2_0$117                                    =  000367 GR
+  0 C$Bestiary.c$147$2_0$117                                    =  000376 GR
+  0 C$Bestiary.c$148$2_0$117                                    =  000385 GR
+  0 C$Bestiary.c$150$1_0$105                                    =  000397 GR
+  0 C$Bestiary.c$152$2_0$118                                    =  00039E GR
+  0 C$Bestiary.c$153$2_0$118                                    =  0003AB GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 14
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$Bestiary.c$154$2_0$118                                    =  0003BC GR
+  0 C$Bestiary.c$156$2_0$118                                    =  0003CB GR
+  0 C$Bestiary.c$157$2_0$118                                    =  0003DA GR
+  0 C$Bestiary.c$158$2_0$118                                    =  0003E9 GR
+  0 C$Bestiary.c$159$2_0$118                                    =  0003F8 GR
+  0 C$Bestiary.c$160$2_0$118                                    =  000407 GR
+  0 C$Bestiary.c$162$1_0$105                                    =  000419 GR
+  0 C$Bestiary.c$164$2_0$119                                    =  000420 GR
+  0 C$Bestiary.c$165$2_0$119                                    =  00042D GR
+  0 C$Bestiary.c$166$2_0$119                                    =  00043E GR
+  0 C$Bestiary.c$168$2_0$119                                    =  00044D GR
+  0 C$Bestiary.c$169$2_0$119                                    =  00045C GR
+  0 C$Bestiary.c$170$2_0$119                                    =  00046B GR
+  0 C$Bestiary.c$171$2_0$119                                    =  00047A GR
+  0 C$Bestiary.c$172$2_0$119                                    =  000489 GR
+  0 C$Bestiary.c$174$1_0$105                                    =  00049B GR
+  0 C$Bestiary.c$176$2_0$120                                    =  0004A2 GR
+  0 C$Bestiary.c$177$2_0$120                                    =  0004AF GR
+  0 C$Bestiary.c$178$2_0$120                                    =  0004C0 GR
+  0 C$Bestiary.c$180$2_0$120                                    =  0004CF GR
+  0 C$Bestiary.c$181$2_0$120                                    =  0004DE GR
+  0 C$Bestiary.c$182$2_0$120                                    =  0004ED GR
+  0 C$Bestiary.c$183$2_0$120                                    =  0004FC GR
+  0 C$Bestiary.c$184$2_0$120                                    =  00050B GR
+  0 C$Bestiary.c$186$1_0$105                                    =  00051A GR
+  0 C$Bestiary.c$187$1_0$105                                    =  00051C GR
+  0 C$Bestiary.c$30$0_0$104                                     =  000000 GR
+  0 C$Bestiary.c$32$1_0$104                                     =  000000 GR
+  0 C$Bestiary.c$33$1_0$104                                     =  00000D GR
+  0 C$Bestiary.c$34$1_0$104                                     =  00001D GR
+  0 C$Bestiary.c$35$1_0$104                                     =  000023 GR
+  0 C$Bestiary.c$36$1_0$104                                     =  000025 GR
+  0 C$Bestiary.c$38$1_0$105                                     =  000028 GR
+  0 C$Bestiary.c$40$1_0$105                                     =  000035 GR
+  0 C$Bestiary.c$41$1_0$105                                     =  00002E GR
+  0 C$Bestiary.c$43$1_0$105                                     =  000036 GR
+  0 C$Bestiary.c$45$2_0$106                                     =  00003A GR
+  0 C$Bestiary.c$47$3_0$107                                     =  000047 GR
+  0 C$Bestiary.c$50$1_0$105                                     =  00004B GR
+  0 C$Bestiary.c$52$2_0$108                                     =  00004F GR
+  0 C$Bestiary.c$54$3_0$109                                     =  000073 GR
+  0 C$Bestiary.c$57$1_0$105                                     =  000077 GR
+  0 C$Bestiary.c$59$2_0$110                                     =  00007B GR
+  0 C$Bestiary.c$73$1_0$105                                     =  00007E GR
+  0 C$Bestiary.c$75$2_0$111                                     =  000085 GR
+  0 C$Bestiary.c$76$2_0$111                                     =  00008A GR
+  0 C$Bestiary.c$78$1_0$105                                     =  00008D GR
+  0 C$Bestiary.c$80$2_0$112                                     =  000093 GR
+  0 C$Bestiary.c$81$2_0$112                                     =  0000A0 GR
+  0 C$Bestiary.c$82$2_0$112                                     =  0000B1 GR
+  0 C$Bestiary.c$84$2_0$112                                     =  0000C0 GR
+  0 C$Bestiary.c$85$2_0$112                                     =  0000CF GR
+  0 C$Bestiary.c$86$2_0$112                                     =  0000DE GR
+  0 C$Bestiary.c$87$2_0$112                                     =  0000ED GR
+  0 C$Bestiary.c$88$2_0$112                                     =  0000FC GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 15
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$Bestiary.c$90$1_0$105                                     =  00010E GR
+  0 C$Bestiary.c$92$2_0$113                                     =  000114 GR
+  0 C$Bestiary.c$93$2_0$113                                     =  000121 GR
+  0 C$Bestiary.c$94$2_0$113                                     =  000132 GR
+  0 C$Bestiary.c$96$2_0$113                                     =  000141 GR
+  0 C$Bestiary.c$97$2_0$113                                     =  000150 GR
+  0 C$Bestiary.c$98$2_0$113                                     =  00015F GR
+  0 C$Bestiary.c$99$2_0$113                                     =  00016E GR
+  7 FBestiary$__xinit_index$0_0$0                               =  000000 GR
+  7 FBestiary$__xinit_invert$0_0$0                              =  000001 GR
   0 G$BestiarySetup$0$0                                         =  000000 GR
   0 G$BestiaryUpdate$0$0                                        =  000028 GR
   2 G$index$0_0$0                                               =  000000 GR
   2 G$invert$0_0$0                                              =  000001 GR
   0 XG$BestiarySetup$0$0                                        =  000025 GR
-  0 XG$BestiaryUpdate$0$0                                       =  000210 GR
+  0 XG$BestiaryUpdate$0$0                                       =  00051C GR
   0 _BestiarySetup                                                 000000 GR
   0 _BestiaryUpdate                                                000028 GR
     _Bestiary_Map                                                  ****** GX
+    _Chief_Map                                                     ****** GX
+    _Cop_Tiles                                                     ****** GX
     _Crow_Map                                                      ****** GX
     _Crow_Tiles                                                    ****** GX
     _DrawNumber                                                    ****** GX
@@ -380,6 +872,13 @@ Symbol Table
     _Gypsy_Map                                                     ****** GX
     _InvertColor                                                   ****** GX
     _LCDC_REG                                                      ****** GX
+    _Man_Map                                                       ****** GX
+    _Man_Tiles                                                     ****** GX
+    _Officer_Map                                                   ****** GX
+    _Police_Map                                                    ****** GX
+    _Sheriff_Map                                                   ****** GX
+    _Tick_Map                                                      ****** GX
+    _Tick_Tiles                                                    ****** GX
     _WallyTiles                                                    ****** GX
     _Wally_Map                                                     ****** GX
   7 __xinit__index                                                 000000 R
@@ -394,12 +893,12 @@ Symbol Table
     _set_bkg_data                                                  ****** GX
     _set_bkg_tiles                                                 ****** GX
 
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 8
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 16
 Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    211   flags    0
+   0 _CODE                                      size    51D   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size      2   flags    0
    3 _DABS                                      size      0   flags    8

@@ -11,4 +11,6 @@ void GameJohnDoeSetup();
 */
 uint8_t GameJohnDoeUpdate();
 
+void scanline_isr() CRITICAL INTERRUPT;
+
 #endif

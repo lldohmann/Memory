@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$JohnDoe_Tiles$0_0$0==.
-_JohnDoe_Tiles::
-	.ds 1280
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -44,9 +41,8 @@ _JohnDoe_Tiles::
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
-	.area _INITIALIZER
-FJohnDoe_Tiles$__xinit_JohnDoe_Tiles$0_0$0 == .
-__xinit__JohnDoe_Tiles:
+G$JohnDoe_Tiles$0_0$0 == .
+_JohnDoe_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -1327,4 +1323,5 @@ __xinit__JohnDoe_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
+	.area _INITIALIZER
 	.area _CABS (ABS)

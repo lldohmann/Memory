@@ -26,6 +26,6 @@
 /* Bank of tiles. */
 #define GypsyTilesBank 0
 /* Start of tile array. */
-extern unsigned char GypsyTiles[];
+const extern unsigned char GypsyTiles[];
 
 /* End of GYPSY_TILES.H */

@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Skateboard_Tiles$0_0$0==.
-_Skateboard_Tiles::
-	.ds 272
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -44,9 +41,8 @@ _Skateboard_Tiles::
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
-	.area _INITIALIZER
-FSkateboard_Tiles$__xinit_Skateboard_Tiles$0_0$0 == .
-__xinit__Skateboard_Tiles:
+G$Skateboard_Tiles$0_0$0 == .
+_Skateboard_Tiles:
 	.db #0x78	; 120	'x'
 	.db #0x78	; 120	'x'
 	.db #0x87	; 135
@@ -319,4 +315,5 @@ __xinit__Skateboard_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
+	.area _INITIALIZER
 	.area _CABS (ABS)

@@ -1,134 +1,280 @@
 ;!FILE obj\GameJohnDoe.asm
 XL3
-H 9 areas 56 global symbols
+H A areas AD global symbols
 M GameJohnDoe
 O -msm83
+S _LY_REG Ref000000
 S _joypadPrevious Ref000000
 S _JohnDoe_Map Ref000000
 S _fadeFromWhite Ref000000
 S _joypadCurrent Ref000000
+S _SCX_REG Ref000000
+S _sys_time Ref000000
 S _fadeToBlack Ref000000
+S _STAT_REG Ref000000
 S .__.ABS. Def000000
 S _fadeFromBlack Ref000000
 S _JohnDoe_Tiles Ref000000
 S _joypad Ref000000
+S _set_interrupts Ref000000
 S _LCDC_REG Ref000000
 S _fadeToWhite Ref000000
 S _set_bkg_data Ref000000
 S _set_bkg_tiles Ref000000
-A _CODE size 66 flags 0 addr 0
-S A$GameJohnDoe$150 Def000051
-S A$GameJohnDoe$132 Def00003E
-S A$GameJohnDoe$123 Def000037
-S C$GameJohnDoe.c$21$2_0$106 Def000039
-S C$GameJohnDoe.c$14$1_0$105 Def000028
-S A$GameJohnDoe$133 Def000040
-S C$GameJohnDoe.c$24$1_0$105 Def000043
-S C$GameJohnDoe.c$22$2_0$106 Def00003E
-S A$GameJohnDoe$161 Def00005B
-S A$GameJohnDoe$116 Def00002E
-S C$GameJohnDoe.c$16$1_0$105 Def000028
-S A$GameJohnDoe$180 Def000065
-S A$GameJohnDoe$162 Def00005D
-S A$GameJohnDoe$144 Def00004A
-S A$GameJohnDoe$117 Def000031
-S C$GameJohnDoe.c$35$1_0$105 Def000063
-S C$GameJohnDoe.c$31$2_0$108 Def00005B
-S C$GameJohnDoe.c$17$1_0$105 Def00002E
-S A$GameJohnDoe$172 Def000063
-S A$GameJohnDoe$145 Def00004C
-S A$GameJohnDoe$127 Def000039
-S A$GameJohnDoe$118 Def000034
-S C$GameJohnDoe.c$36$1_0$105 Def000065
-S C$GameJohnDoe.c$32$2_0$108 Def000060
-S A$GameJohnDoe$155 Def000054
-S A$GameJohnDoe$128 Def00003B
-S C$GameJohnDoe.c$19$1_0$105 Def000035
-S G$GameJohnDoeSetup$0$0 Def000000
-S A$GameJohnDoe$156 Def000057
-S A$GameJohnDoe$138 Def000043
-S C$GameJohnDoe.c$29$1_0$105 Def000054
-S C$GameJohnDoe.c$26$2_0$107 Def00004A
-S A$GameJohnDoe$166 Def000060
-S A$GameJohnDoe$157 Def000059
-S A$GameJohnDoe$139 Def000046
-S C$GameJohnDoe.c$27$2_0$107 Def00004F
-S A$GameJohnDoe$167 Def000062
-S A$GameJohnDoe$149 Def00004F
-S C$GameJohnDoe.c$6$0_0$104 Def000000
-S _GameJohnDoeSetup Def000000
-S A$GameJohnDoe$80 Def00001B
-S C$GameJohnDoe.c$8$1_0$104 Def000000
-S A$GameJohnDoe$90 Def000023
-S A$GameJohnDoe$72 Def00000D
-S A$GameJohnDoe$63 Def000000
-S C$GameJohnDoe.c$9$1_0$104 Def00000D
-S A$GameJohnDoe$73 Def000010
-S A$GameJohnDoe$64 Def000003
-S A$GameJohnDoe$74 Def000011
-S A$GameJohnDoe$65 Def000004
-S A$GameJohnDoe$84 Def00001D
-S A$GameJohnDoe$75 Def000014
-S A$GameJohnDoe$66 Def000007
-S A$GameJohnDoe$85 Def00001F
-S A$GameJohnDoe$76 Def000015
-S A$GameJohnDoe$67 Def000008
-S G$GameJohnDoeUpdate$0$0 Def000028
-S A$GameJohnDoe$86 Def000021
-S A$GameJohnDoe$77 Def000016
-S A$GameJohnDoe$68 Def00000B
-S A$GameJohnDoe$78 Def000017
-S A$GameJohnDoe$79 Def000018
-S A$GameJohnDoe$98 Def000025
-S XG$GameJohnDoeSetup$0$0 Def000025
-S _GameJohnDoeUpdate Def000028
-S XG$GameJohnDoeUpdate$0$0 Def000065
-S C$GameJohnDoe.c$10$1_0$104 Def00001D
-S C$GameJohnDoe.c$11$1_0$104 Def000023
-S A$GameJohnDoe$111 Def000028
-S C$GameJohnDoe.c$12$1_0$104 Def000025
-S A$GameJohnDoe$112 Def00002B
-S A$GameJohnDoe$140 Def000048
-S A$GameJohnDoe$122 Def000035
+A _CODE size E4 flags 0 addr 0
+S A$GameJohnDoe$312 Def0000D9
+S A$GameJohnDoe$303 Def0000CA
+S A$GameJohnDoe$204 Def000069
+S C$GameJohnDoe.c$40$1_0$106 Def000070
+S C$GameJohnDoe.c$32$1_0$105 Def00005E
+S A$GameJohnDoe$313 Def0000DB
+S A$GameJohnDoe$304 Def0000CC
+S A$GameJohnDoe$250 Def000098
+S A$GameJohnDoe$232 Def000085
+S A$GameJohnDoe$205 Def00006C
+S A$GameJohnDoe$160 Def000048
+S A$GameJohnDoe$151 Def00003B
+S C$GameJohnDoe.c$50$1_0$106 Def00008F
+S C$GameJohnDoe.c$33$1_0$105 Def000060
+S C$GameJohnDoe.c$16$1_0$104 Def000004
+S A$GameJohnDoe$314 Def0000DE
+S A$GameJohnDoe$305 Def0000CE
+S A$GameJohnDoe$260 Def00009F
+S A$GameJohnDoe$251 Def000099
+S A$GameJohnDoe$233 Def000087
+S A$GameJohnDoe$215 Def000074
+S A$GameJohnDoe$206 Def00006F
+S A$GameJohnDoe$161 Def00004B
+S A$GameJohnDoe$152 Def00003E
+S C$GameJohnDoe.c$62$3_0$111 Def0000AE
+S C$GameJohnDoe.c$17$1_0$104 Def00001A
+S A$GameJohnDoe$315 Def0000DF
+S A$GameJohnDoe$306 Def0000D0
+S A$GameJohnDoe$270 Def0000AC
+S A$GameJohnDoe$261 Def0000A1
+S A$GameJohnDoe$243 Def00008F
+S A$GameJohnDoe$216 Def000076
+S A$GameJohnDoe$162 Def00004C
+S A$GameJohnDoe$153 Def00003F
+S C$GameJohnDoe.c$55$3_0$110 Def00009B
+S A$GameJohnDoe$316 Def0000E0
+S A$GameJohnDoe$307 Def0000D1
+S A$GameJohnDoe$262 Def0000A2
+S A$GameJohnDoe$244 Def000092
+S A$GameJohnDoe$226 Def00007E
+S A$GameJohnDoe$172 Def000058
+S A$GameJohnDoe$163 Def00004F
+S A$GameJohnDoe$154 Def000042
+S C$GameJohnDoe.c$56$3_0$110 Def00009F
+S C$GameJohnDoe.c$42$2_0$107 Def000074
+S C$GameJohnDoe.c$35$1_0$106 Def000063
+S C$GameJohnDoe.c$27$1_0$105 Def00003B
+S A$GameJohnDoe$308 Def0000D3
+S A$GameJohnDoe$281 Def0000B3
+S A$GameJohnDoe$263 Def0000A3
+S A$GameJohnDoe$245 Def000093
+S A$GameJohnDoe$227 Def000081
+S A$GameJohnDoe$173 Def00005A
+S A$GameJohnDoe$164 Def000050
+S A$GameJohnDoe$155 Def000043
+S C$GameJohnDoe.c$72$1_0$106 Def0000C2
+S C$GameJohnDoe.c$45$1_0$106 Def00007E
+S C$GameJohnDoe.c$43$2_0$107 Def000079
+S G$GameJohnDoeSetup$0$0 Def00003B
+S A$GameJohnDoe$309 Def0000D5
+S A$GameJohnDoe$282 Def0000B6
+S A$GameJohnDoe$264 Def0000A6
+S A$GameJohnDoe$255 Def00009B
+S A$GameJohnDoe$237 Def00008A
+S A$GameJohnDoe$228 Def000083
+S A$GameJohnDoe$174 Def00005C
+S A$GameJohnDoe$165 Def000051
+S A$GameJohnDoe$156 Def000046
+S C$GameJohnDoe.c$58$3_0$110 Def0000A7
+S C$GameJohnDoe.c$37$1_0$106 Def000063
+S C$GameJohnDoe.c$29$1_0$105 Def00003B
+S A$GameJohnDoe$328 Def0000E3
+S A$GameJohnDoe$292 Def0000BF
+S A$GameJohnDoe$283 Def0000B8
+S A$GameJohnDoe$256 Def00009D
+S A$GameJohnDoe$238 Def00008C
+S A$GameJohnDoe$166 Def000052
+S C$GameJohnDoe.c$74$1_0$106 Def0000E1
+S C$GameJohnDoe.c$67$2_0$112 Def0000BA
+S C$GameJohnDoe.c$65$1_0$106 Def0000B3
+S C$GameJohnDoe.c$52$2_0$109 Def000095
+S C$GameJohnDoe.c$38$1_0$106 Def000069
+S A$GameJohnDoe$293 Def0000C1
+S A$GameJohnDoe$275 Def0000AE
+S A$GameJohnDoe$167 Def000053
+S C$GameJohnDoe.c$75$1_0$106 Def0000E3
+S C$GameJohnDoe.c$68$2_0$112 Def0000BF
+S A$GameJohnDoe$276 Def0000B1
+S A$GameJohnDoe$249 Def000095
+S A$GameJohnDoe$186 Def000060
+S A$GameJohnDoe$168 Def000056
+S A$GameJohnDoe$268 Def0000A7
+S A$GameJohnDoe$178 Def00005E
+S C$GameJohnDoe.c$47$2_0$108 Def000085
+S A$GameJohnDoe$287 Def0000BA
+S A$GameJohnDoe$269 Def0000AA
+S C$GameJohnDoe.c$48$2_0$108 Def00008A
+S A$GameJohnDoe$288 Def0000BC
+S A$GameJohnDoe$298 Def0000C2
+S A$GameJohnDoe$199 Def000063
+S G$scanline_isr$0$0 Def000000
+S A$GameJohnDoe$299 Def0000C5
+S _GameJohnDoeSetup Def00003B
+S A$GameJohnDoe$80 Def000006
+S A$GameJohnDoe$90 Def000014
+S A$GameJohnDoe$81 Def000008
+S A$GameJohnDoe$72 Def000000
+S A$GameJohnDoe$82 Def000009
+S A$GameJohnDoe$73 Def000001
+S A$GameJohnDoe$83 Def00000C
+S A$GameJohnDoe$74 Def000002
+S A$GameJohnDoe$84 Def00000D
+S A$GameJohnDoe$75 Def000003
+S A$GameJohnDoe$94 Def000016
+S A$GameJohnDoe$85 Def00000E
+S G$GameJohnDoeUpdate$0$0 Def000063
+S A$GameJohnDoe$95 Def000017
+S A$GameJohnDoe$86 Def00000F
+S A$GameJohnDoe$96 Def000018
+S A$GameJohnDoe$87 Def000010
+S _scanline_isr Def000000
+S A$GameJohnDoe$97 Def000019
+S A$GameJohnDoe$88 Def000012
+S A$GameJohnDoe$79 Def000004
+S A$GameJohnDoe$89 Def000013
+S XG$GameJohnDoeSetup$0$0 Def000060
+S _GameJohnDoeUpdate Def000063
+S XG$scanline_isr$0$0 Def00001A
+S _scanline_offsets_tbl Def00001B
+S G$scanline_offsets_tbl$0_0$0 Def00001B
+S XG$GameJohnDoeUpdate$0$0 Def0000E3
+S _scanline_normal_tbl Def00002B
+S G$scanline_normal_tbl$0_0$0 Def00002B
+S A$GameJohnDoe$200 Def000066
+S A$GameJohnDoe$300 Def0000C6
+S A$GameJohnDoe$210 Def000070
+S A$GameJohnDoe$102 Def00001A
+S A$GameJohnDoe$310 Def0000D7
+S A$GameJohnDoe$301 Def0000C7
+S A$GameJohnDoe$220 Def000079
+S A$GameJohnDoe$211 Def000072
+S C$GameJohnDoe.c$30$1_0$105 Def000048
+S A$GameJohnDoe$320 Def0000E1
+S A$GameJohnDoe$311 Def0000D8
+S A$GameJohnDoe$302 Def0000C8
+S A$GameJohnDoe$221 Def00007B
+S C$GameJohnDoe.c$31$1_0$105 Def000058
+S C$GameJohnDoe.c$15$0_0$104 Def000000
 A _DATA size 0 flags 0 addr 0
-A _INITIALIZED size 0 flags 0 addr 0
+A _INITIALIZED size 3 flags 0 addr 0
+S _scanline_offsets Def000001
+S G$scanline_offsets$0_0$0 Def000001
+S _wabble Def000000
+S G$wabble$0_0$0 Def000000
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
-A _INITIALIZER size 0 flags 0 addr 0
+A _INITIALIZER size 3 flags 0 addr 0
+S FGameJohnDoe$__xinit_scanline_offsets$0_0$0 Def000001
+S FGameJohnDoe$__xinit_wabble$0_0$0 Def000000
 A _CABS size 0 flags 8 addr 0
+A _CABS0 size 3 flags 8 addr 48
+S FGameJohnDoe$__ISR_VECTOR_STAT$0_0$0 Def000048
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 02 00
+T 01 00 00
+R 00 00 02 00
+T 01 00 00
+R 00 00 02 00
 T 00 00 00
 R 00 00 00 00
-T 00 00 00 11 00 00 D5 21 00 4F E5 CD 00 00 E8 04
-R 00 00 00 00 02 04 07 00 02 0C 0B 00
-T 0D 00 00 11 00 00 D5 21 14 12 E5 AF 0F F5 CD
-R 00 00 00 00 02 04 01 00
-T 19 00 00 00 00 E8 06 F0 00 00 00 F6 01 E0
-R 00 00 00 00 02 03 0C 00 0B 08 09 00
-T 22 00 00 00 00 00 3E 0A C3 00 00
-R 00 00 00 00 0B 03 09 00 02 09 06 00
-T 28 00 00
+T 00 00 00 F5 C5 D5 E5 F0 00 00 00 E6 07 4F 21
+R 00 00 00 00 0B 08 00 00
+T 0A 00 00 01 00 2A 81 4F 7E CE 00 47 0A E0
+R 00 00 00 00 00 03 02 00
+T 15 00 00 00 00 00 E1 D1 C1 F1 D9
+R 00 00 00 00 0B 03 05 00
+T 1B 00 00
 R 00 00 00 00
-T 28 00 00 FA 00 00 EA 00 00 CD 00 00 21
-R 00 00 00 00 02 04 03 00 02 07 00 00 02 0A 08 00
-T 32 00 00 00 00 77 CB 66 28 0A 3E 0A CD 00 00 3E
-R 00 00 00 00 02 03 03 00 02 0D 04 00
-T 3F 00 00 0A CD 00 00
-R 00 00 00 00 02 05 06 00
-T 43 00 00
+T 1B 00 00 00 01 02 03 03 02 01 00 00 01 02 03 03
 R 00 00 00 00
-T 43 00 00 FA 00 00 CB 6F 28 0A 3E 0A CD 00 00 3E
-R 00 00 00 00 02 04 03 00 02 0D 0A 00
-T 50 00 00 0A CD 00 00
-R 00 00 00 00 02 05 02 00
-T 54 00 00
+T 28 00 00 02 01 00
 R 00 00 00 00
-T 54 00 00 FA 00 00 CB 77 28 08 3E 0A CD 00 00 3E
-R 00 00 00 00 02 04 03 00 02 0D 04 00
-T 61 00 00 01 C9
+T 2B 00 00
 R 00 00 00 00
+T 2B 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+R 00 00 00 00
+T 38 00 00 00 00 00
+R 00 00 00 00
+T 3B 00 00
+R 00 00 00 00
+T 3B 00 00 11 00 00 D5 21 00 4F E5 CD 00 00 E8 04
+R 00 00 00 00 02 04 0B 00 02 0C 10 00
+T 48 00 00 11 00 00 D5 21 14 12 E5 AF 0F F5 CD
+R 00 00 00 00 02 04 02 00
+T 54 00 00 00 00 E8 06 F0 00 00 00 F6 01 E0
+R 00 00 00 00 02 03 11 00 0B 08 0E 00
+T 5D 00 00 00 00 00 3E 0A C3 00 00
+R 00 00 00 00 0B 03 0E 00 02 09 0A 00
 T 63 00 00
 R 00 00 00 00
-T 63 00 00 3E 03 C9
+T 63 00 00 FA 00 00 EA 00 00 CD 00 00 21
+R 00 00 00 00 02 04 04 00 02 07 01 00 02 0A 0C 00
+T 6D 00 00 00 00 77 CB 66 28 0A 3E 0A CD 00 00 3E
+R 00 00 00 00 02 03 04 00 02 0D 07 00
+T 7A 00 00 0A CD 00 00
+R 00 00 00 00 02 05 0A 00
+T 7E 00 00
 R 00 00 00 00
+T 7E 00 00 FA 00 00 CB 6F 28 0A 3E 0A CD 00 00 3E
+R 00 00 00 00 02 04 04 00 02 0D 0F 00
+T 8B 00 00 0A CD 00 00
+R 00 00 00 00 02 05 03 00
+T 8F 00 00
+R 00 00 00 00
+T 8F 00 00 FA 00 00 07 30 1E FA 00 00 B7 20 13 3E
+R 00 00 00 00 02 04 04 00 00 0A 02 00
+T 9C 00 00 08 E0 00 00 00 3E 03 F5 33 CD 00 00 33
+R 00 00 00 00 0B 05 08 00 02 0D 0D 00
+T A7 00 00 21 00 00 36 01 18 05
+R 00 00 00 00 00 04 02 00
+T AE 00 00
+R 00 00 00 00
+T AE 00 00 21 00 00 36 00
+R 00 00 00 00 00 04 02 00
+T B3 00 00
+R 00 00 00 00
+T B3 00 00 FA 00 00 CB 77 28 08 3E 0A CD 00 00 3E
+R 00 00 00 00 02 04 04 00 02 0D 07 00
+T C0 00 00 01 C9
+R 00 00 00 00
+T C2 00 00
+R 00 00 00 00
+T C2 00 00 21 00 00 2A 4F 46 CB 38 CB 19 CB 38 CB
+R 00 00 00 00 02 04 06 00
+T CF 00 00 19 79 E6 07 06 00 C6 1B 00 00 4F 78 CE
+R 00 00 00 00 09 0A 00 00
+T DA 00 00 1B 00 00 21 01 00 71 23 77 3E 03 C9
+R 00 00 00 00 89 03 00 00 00 07 02 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 00
+R 00 00 07 00
+T 01 00 00
+R 00 00 07 00
+T 01 00 00 1B 00
+R 00 00 07 00 00 03 00 00
+T 48 00 00
+R 00 00 09 00
+T 48 00 00
+R 00 00 09 00
+T 48 00 00 C3 00 00
+R 00 00 09 00 00 04 00 00

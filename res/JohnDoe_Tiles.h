@@ -26,6 +26,6 @@
 /* Bank of tiles. */
 #define JohnDoe_TilesBank 0
 /* Start of tile array. */
-extern unsigned char JohnDoe_Tiles[];
+const extern unsigned char JohnDoe_Tiles[];
 
 /* End of JOHNDOE_TILES.H */

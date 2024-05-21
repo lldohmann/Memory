@@ -1,0 +1,27 @@
+XL3
+H 9 areas 4 global symbols
+M Tick_Map
+O -msm83
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 19 flags 0 addr 0
+S _Tick_Map Def000000
+S G$Tick_Map$0_0$0 Def000000
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 19 flags 0 addr 0
+S FTick_Map$__xinit_Tick_Map$0_0$0 Def000000
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 80 83 88 8C 91 80 84 89 8D 91 81 85 8A
+R 00 00 07 00
+T 0D 00 00 8E 92 82 86 8B 8F 93 94 87 94 90 94
+R 00 00 07 00

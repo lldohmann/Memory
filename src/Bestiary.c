@@ -8,6 +8,15 @@
 #include "../res/Wally_Map.h"
 #include "../res/Gypsy_Tiles.h"
 #include "../res/Gypsy_Map.h"
+#include "../res/Tick_Tiles.h"
+#include "../res/Tick_Map.h"
+#include "../res/Cop_Tiles.h"
+#include "../res/Officer_Map.h"
+#include "../res/Police_Map.h"
+#include "../res/Sheriff_Map.h"
+#include "../res/Chief_Map.h"
+#include "../res/Man_Tiles.h"
+#include "../res/Man_Map.h"
 
 // SET UP ENEMIES
 //struct Enemy enemy_JIM = {"JIM", 0, 3, 2, 1, 4, 5};
@@ -40,7 +49,7 @@ uint8_t BestiaryUpdate()
     }
     if (joypadCurrent & J_RIGHT)
     {
-        if (index + 1 <= 3)
+        if (index + 1 <= 9)
         {
             index++;
         }
@@ -100,7 +109,79 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 4, 4, 1);    // DEFENSE
         DrawNumber(17, 6, 4, 1);    // SPECIAL
         DrawNumber(17, 8, 4, 1);    // SPEED
-        DrawNumber(16, 10, 12, 1);   // EXP.
+        DrawNumber(16, 10, 12, 2);   // EXP.
+    }
+    else if (index == 3)
+    {
+        set_bkg_data(128, 20, Tick_Tiles);
+        set_bkg_tiles(2, 4, Tick_MapWidth, Tick_MapHeight, Tick_Map);
+        DrawNumber(4, 0, 3, 3);     // ID
+        //DrawText(2, 2, "GYPSY");    // NAME
+        DrawNumber(17, 2, 4, 1);    // ATTACK
+        DrawNumber(17, 4, 7, 1);    // DEFENSE
+        DrawNumber(17, 6, 3, 1);    // SPECIAL
+        DrawNumber(17, 8, 2, 1);    // SPEED
+        DrawNumber(16, 10, 16, 2);   // EXP.
+    }
+    else if (index == 4)
+    {
+        set_bkg_data(128, 39, Cop_Tiles);
+        set_bkg_tiles(2, 4, Officer_MapWidth, Officer_MapHeight, Officer_Map);
+        DrawNumber(4, 0, 4, 3);     // ID
+        //DrawText(2, 2, "GYPSY");    // NAME
+        DrawNumber(17, 2, 9, 1);    // ATTACK
+        DrawNumber(17, 4, 5, 1);    // DEFENSE
+        DrawNumber(17, 6, 2, 1);    // SPECIAL
+        DrawNumber(17, 8, 4, 1);    // SPEED
+        DrawNumber(16, 10, 12, 2);   // EXP.
+    }
+    else if (index == 5)
+    {
+        set_bkg_data(128, 39, Cop_Tiles);
+        set_bkg_tiles(2, 4, Police_MapWidth, Police_MapHeight, Police_Map);
+        DrawNumber(4, 0, 5, 3);     // ID
+        //DrawText(2, 2, "GYPSY");    // NAME
+        DrawNumber(16, 2, 10, 2);    // ATTACK
+        DrawNumber(16, 4, 15, 2);    // DEFENSE
+        DrawNumber(17, 6, 5, 1);    // SPECIAL
+        DrawNumber(17, 8, 6, 1);    // SPEED
+        DrawNumber(16, 10, 22, 2);   // EXP.
+    }
+    else if (index == 6)
+    {
+        set_bkg_data(128, 39, Cop_Tiles);
+        set_bkg_tiles(2, 4, Sheriff_MapWidth, Sheriff_MapHeight, Sheriff_Map);
+        DrawNumber(4, 0, 6, 3);     // ID
+        //DrawText(2, 2, "GYPSY");    // NAME
+        DrawNumber(16, 2, 16, 2);    // ATTACK
+        DrawNumber(16, 4, 10, 2);    // DEFENSE
+        DrawNumber(17, 6, 6, 1);    // SPECIAL
+        DrawNumber(17, 8, 8, 1);    // SPEED
+        DrawNumber(16, 10, 22, 2);   // EXP.
+    }
+    else if (index == 7)
+    {
+        set_bkg_data(128, 39, Cop_Tiles);
+        set_bkg_tiles(2, 4, Chief_MapWidth, Chief_MapHeight, Chief_Map);
+        DrawNumber(4, 0, 7, 3);     // ID
+        //DrawText(2, 2, "GYPSY");    // NAME
+        DrawNumber(16, 2, 30, 2);    // ATTACK
+        DrawNumber(16, 4, 20, 2);    // DEFENSE
+        DrawNumber(17, 6, 10, 1);    // SPECIAL
+        DrawNumber(17, 8, 10, 1);    // SPEED
+        DrawNumber(16, 10, 55, 2);   // EXP.
+    }
+    else if (index == 8)
+    {
+        set_bkg_data(128, 30, Man_Tiles);
+        set_bkg_tiles(2, 4, Man_MapWidth, Man_MapHeight, Man_Map);
+        DrawNumber(4, 0, 8, 3);     // ID
+        //DrawText(2, 2, "GYPSY");    // NAME
+        DrawNumber(17, 2, 0, 1);    // ATTACK
+        DrawNumber(15, 4, 255, 3);    // DEFENSE
+        DrawNumber(17, 6, 1, 1);    // SPECIAL
+        DrawNumber(17, 8, 1, 1);    // SPEED
+        DrawNumber(16, 10, 1, 1);   // EXP.
     }
     return BESTIARY;
 }

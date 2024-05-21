@@ -22,6 +22,6 @@
 #define Gypsy_MapHeight 7
 #define Gypsy_MapBank 0
 
-extern unsigned char Gypsy_Map[];
+const extern unsigned char Gypsy_Map[];
 
 /* End of GYPSY_MAP.H */

@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$GypsyTiles$0_0$0==.
-_GypsyTiles::
-	.ds 496
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -44,9 +41,8 @@ _GypsyTiles::
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
-	.area _INITIALIZER
-FGypsy_Tiles$__xinit_GypsyTiles$0_0$0 == .
-__xinit__GypsyTiles:
+G$GypsyTiles$0_0$0 == .
+_GypsyTiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -543,4 +539,5 @@ __xinit__GypsyTiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
+	.area _INITIALIZER
 	.area _CABS (ABS)

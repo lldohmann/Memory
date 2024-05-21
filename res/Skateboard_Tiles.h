@@ -26,6 +26,6 @@
 /* Bank of tiles. */
 #define Skateboard_TilesBank 0
 /* Start of tile array. */
-extern unsigned char Skateboard_Tiles[];
+const extern unsigned char Skateboard_Tiles[];
 
 /* End of SKATEBOARD_TILES.H */

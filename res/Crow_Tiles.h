@@ -26,6 +26,6 @@
 /* Bank of tiles. */
 #define Crow_TilesBank 0
 /* Start of tile array. */
-extern unsigned char Crow_Tiles[];
+const extern unsigned char Crow_Tiles[];
 
 /* End of CROW_TILES.H */

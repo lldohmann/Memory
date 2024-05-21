@@ -170,7 +170,6 @@ S:G$_submap_tile_offset$0_0$0({1}SC:U),E,0,0
 S:G$shadow_OAM$0_0$0({0}DA0d,STOAM_item_t:S),E,0,0
 S:G$joypadPrevious$0_0$0({1}SC:U),E,0,0
 S:G$joypadCurrent$0_0$0({1}SC:U),E,0,0
-S:G$Skateboard_Tiles$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$camera_x_pixels$0_0$0({2}SI:U),E,0,0
 S:G$camera_y_pixels$0_0$0({2}SI:U),E,0,0
 S:G$old_camera_x_pixels$0_0$0({2}SI:U),E,0,0

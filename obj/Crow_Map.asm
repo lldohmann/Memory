@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Crow_Map$0_0$0==.
-_Crow_Map::
-	.ds 35
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -44,9 +41,8 @@ _Crow_Map::
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
-	.area _INITIALIZER
-FCrow_Map$__xinit_Crow_Map$0_0$0 == .
-__xinit__Crow_Map:
+G$Crow_Map$0_0$0 == .
+_Crow_Map:
 	.db #0x80	; 128
 	.db #0x85	; 133
 	.db #0x98	; 152
@@ -82,4 +78,5 @@ __xinit__Crow_Map:
 	.db #0x8f	; 143
 	.db #0x95	; 149
 	.db #0x98	; 152
+	.area _INITIALIZER
 	.area _CABS (ABS)

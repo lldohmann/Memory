@@ -22,6 +22,6 @@
 #define JohnDoe_MapHeight 18
 #define JohnDoe_MapBank 0
 
-extern unsigned char JohnDoe_Map[];
+const extern unsigned char JohnDoe_Map[];
 
 /* End of JOHNDOE_MAP.H */

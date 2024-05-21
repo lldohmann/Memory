@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Crow_Tiles$0_0$0==.
-_Crow_Tiles::
-	.ds 400
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -44,9 +41,8 @@ _Crow_Tiles::
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
-	.area _INITIALIZER
-FCrow_Tiles$__xinit_Crow_Tiles$0_0$0 == .
-__xinit__Crow_Tiles:
+G$Crow_Tiles$0_0$0 == .
+_Crow_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -447,4 +443,5 @@ __xinit__Crow_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
+	.area _INITIALIZER
 	.area _CABS (ABS)

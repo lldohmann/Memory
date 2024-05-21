@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$JohnDoe_Map$0_0$0==.
-_JohnDoe_Map::
-	.ds 360
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -44,9 +41,8 @@ _JohnDoe_Map::
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
-	.area _INITIALIZER
-FJohnDoe_Map$__xinit_JohnDoe_Map$0_0$0 == .
-__xinit__JohnDoe_Map:
+G$JohnDoe_Map$0_0$0 == .
+_JohnDoe_Map:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -407,4 +403,5 @@ __xinit__JohnDoe_Map:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
+	.area _INITIALIZER
 	.area _CABS (ABS)

@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Gypsy_Map$0_0$0==.
-_Gypsy_Map::
-	.ds 42
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -44,9 +41,8 @@ _Gypsy_Map::
 ;--------------------------------------------------------
 	.area _CODE
 	.area _CODE
-	.area _INITIALIZER
-FGypsy_Map$__xinit_Gypsy_Map$0_0$0 == .
-__xinit__Gypsy_Map:
+G$Gypsy_Map$0_0$0 == .
+_Gypsy_Map:
 	.db #0x9e	; 158
 	.db #0x85	; 133
 	.db #0x8a	; 138
@@ -89,4 +85,5 @@ __xinit__Gypsy_Map:
 	.db #0x95	; 149
 	.db #0x9a	; 154
 	.db #0x9e	; 158
+	.area _INITIALIZER
 	.area _CABS (ABS)

@@ -98,13 +98,11 @@ S:G$shadow_OAM$0_0$0({0}DA0d,STOAM_item_t:S),E,0,0
 S:G$joypadPrevious$0_0$0({1}SC:U),E,0,0
 S:G$joypadCurrent$0_0$0({1}SC:U),E,0,0
 S:G$Bestiary_Map$0_0$0({0}DA0d,SC:U),E,0,0
-S:G$FontTiles$0_0$0({0}DA0d,SC:U),E,0,0
-S:G$Crow_Map$0_0$0({0}DA0d,SC:U),E,0,0
-S:G$Crow_Tiles$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$WallyTiles$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$Wally_Map$0_0$0({0}DA0d,SC:U),E,0,0
-S:G$GypsyTiles$0_0$0({0}DA0d,SC:U),E,0,0
-S:G$Gypsy_Map$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Tick_Map$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Sheriff_Map$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Man_Map$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$P1_REG$0_0$0({1}SC:U),I,0,0
 S:G$SB_REG$0_0$0({1}SC:U),I,0,0
 S:G$SC_REG$0_0$0({1}SC:U),I,0,0

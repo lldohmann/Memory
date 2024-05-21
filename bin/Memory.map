@@ -11,52 +11,52 @@ Area                       Addr        Size        Decimal Bytes (Attributes)
      00000000  l__BSS    |    00000000  l__CABS   |    00000000  l__CODE_0
      00000000  l__DABS   |    00000000  l__HEADER |    00000000  l__HEAP  
      00000000  l__HEAP_E |    00000000  l__HRAM   |    00000000  l__LIT   
-     00000000  s__CABS   |    00000000  s__DABS   |    00000000  s__HEADER
+     00000000  s__CABS   |    00000000  s__CABS0  |    00000000  s__DABS  
      00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
      00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
      00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
      00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
      00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
      00000000  s__HEADER |    00000000  s__HEADER |    00000000  s__HEADER
-     00000000  s__HRAM   |    00000000  s__HRAM12 |    00000001  l__GSFINA
+     00000000  s__HEADER |    00000000  s__HRAM   |    00000000  s__HRAM12
+     00000001  l__GSFINA |    00000001  l__HEADER |    00000001  l__HEADER
      00000001  l__HEADER |    00000001  l__HEADER |    00000001  l__HEADER
-     00000001  l__HEADER |    00000001  l__HEADER |    00000001  l__HEADER
-     00000001  l__HEADER |    00000002  l__HEADER |    00000002  l__HEADER
-     00000002  l__HEADER |    00000003  l__HEADER |    00000003  l__HRAM12
-     00000005  l__HEADER |    00000006  l__HEADER |    00000007  l__HEADER
-     00000008  l__HEADER |    0000000C  l__GSINIT |    00000024  l__DATA  
-     00000030  l__HEADER |    0000004C  l__HEADER |    00000084  l__HEADER
-     00000200  s__CODE   |    000002D6  l__HOME   |    00001E9E  l__INITIA
-     00001E9E  l__INITIA |    00002000  _rROMB0   |    00002B41  l__CODE  
-     00002D41  s__HOME   |    00003000  _rROMB1   |    00003017  s__BASE  
-     00003017  s__CODE_0 |    00003017  s__INITIA |    00003017  s__LIT   
-     00004000  _rRAMB    |    00004EB5  s__GSINIT |    00004EC1  s__GSFINA
-     00008000  __VRAM    |    00008000  __VRAM800 |    00008800  __VRAM880
-     00009000  __VRAM900 |    00009800  __SCRN0   |    00009C00  __SCRN1  
-     0000A000  __SRAM    |    0000C000  __RAM     |    0000C000  _shadow_O
-     0000C0A0  s__DATA   |    0000C0C4  s__BSS    |    0000C0C4  s__INITIA
-     0000D000  __RAMBANK |    0000DF62  s__HEAP   |    0000DF62  s__HEAP_E
-     0000E000  .STACK    |    0000FE00  __OAMRAM  |    0000FF00  _P1_REG  
-     0000FF00  __IO      |    0000FF01  _SB_REG   |    0000FF02  _SC_REG  
-     0000FF04  _DIV_REG  |    0000FF05  _TIMA_REG |    0000FF06  _TMA_REG 
-     0000FF07  _TAC_REG  |    0000FF0F  _IF_REG   |    0000FF10  _NR10_REG
-     0000FF11  _NR11_REG |    0000FF12  _NR12_REG |    0000FF13  _NR13_REG
-     0000FF14  _NR14_REG |    0000FF16  _NR21_REG |    0000FF17  _NR22_REG
-     0000FF18  _NR23_REG |    0000FF19  _NR24_REG |    0000FF1A  _NR30_REG
-     0000FF1B  _NR31_REG |    0000FF1C  _NR32_REG |    0000FF1D  _NR33_REG
-     0000FF1E  _NR34_REG |    0000FF20  _NR41_REG |    0000FF21  _NR42_REG
-     0000FF22  _NR43_REG |    0000FF23  _NR44_REG |    0000FF24  _NR50_REG
-     0000FF25  _NR51_REG |    0000FF26  _NR52_REG |    0000FF30  _AUD3WAVE
-     0000FF30  _PCM_SAMP |    0000FF30  __AUD3WAV |    0000FF40  _LCDC_REG
-     0000FF41  _STAT_REG |    0000FF42  _SCY_REG  |    0000FF43  _SCX_REG 
-     0000FF44  _LY_REG   |    0000FF45  _LYC_REG  |    0000FF46  _DMA_REG 
-     0000FF47  _BGP_REG  |    0000FF48  _OBP0_REG |    0000FF49  _OBP1_REG
-     0000FF4A  _WY_REG   |    0000FF4B  _WX_REG   |    0000FF4D  _KEY1_REG
-     0000FF4F  _VBK_REG  |    0000FF51  _HDMA1_RE |    0000FF52  _HDMA2_RE
-     0000FF53  _HDMA3_RE |    0000FF54  _HDMA4_RE |    0000FF55  _HDMA5_RE
-     0000FF56  _RP_REG   |    0000FF68  _BCPS_REG |    0000FF69  _BCPD_REG
-     0000FF6A  _OCPS_REG |    0000FF6B  _OCPD_REG |    0000FF70  _SVBK_REG
-     0000FF76  _PCM12_RE |    0000FF77  _PCM34_RE |    0000FF80  .refresh_
+     00000001  l__HEADER |    00000001  l__HEADER |    00000002  l__HEADER
+     00000002  l__HEADER |    00000002  l__HEADER |    00000003  l__CABS0 
+     00000003  l__HEADER |    00000003  l__HRAM12 |    00000005  l__HEADER
+     00000006  l__HEADER |    00000007  l__HEADER |    00000008  l__HEADER
+     0000000C  l__GSINIT |    00000024  l__DATA   |    00000030  l__HEADER
+     0000004C  l__HEADER |    00000084  l__HEADER |    00000200  s__CODE  
+     000002D6  l__HOME   |    00001063  l__INITIA |    00001063  l__INITIA
+     00002000  _rROMB0   |    00003000  _rROMB1   |    00004000  _rRAMB   
+     000043BE  l__CODE   |    000045BE  s__HOME   |    00004894  s__BASE  
+     00004894  s__CODE_0 |    00004894  s__INITIA |    00004894  s__LIT   
+     000058F7  s__GSINIT |    00005903  s__GSFINA |    00008000  __VRAM   
+     00008000  __VRAM800 |    00008800  __VRAM880 |    00009000  __VRAM900
+     00009800  __SCRN0   |    00009C00  __SCRN1   |    0000A000  __SRAM   
+     0000C000  __RAM     |    0000C000  _shadow_O |    0000C0A0  s__DATA  
+     0000C0C4  s__BSS    |    0000C0C4  s__INITIA |    0000D000  __RAMBANK
+     0000D127  s__HEAP   |    0000D127  s__HEAP_E |    0000E000  .STACK   
+     0000FE00  __OAMRAM  |    0000FF00  _P1_REG   |    0000FF00  __IO     
+     0000FF01  _SB_REG   |    0000FF02  _SC_REG   |    0000FF04  _DIV_REG 
+     0000FF05  _TIMA_REG |    0000FF06  _TMA_REG  |    0000FF07  _TAC_REG 
+     0000FF0F  _IF_REG   |    0000FF10  _NR10_REG |    0000FF11  _NR11_REG
+     0000FF12  _NR12_REG |    0000FF13  _NR13_REG |    0000FF14  _NR14_REG
+     0000FF16  _NR21_REG |    0000FF17  _NR22_REG |    0000FF18  _NR23_REG
+     0000FF19  _NR24_REG |    0000FF1A  _NR30_REG |    0000FF1B  _NR31_REG
+     0000FF1C  _NR32_REG |    0000FF1D  _NR33_REG |    0000FF1E  _NR34_REG
+     0000FF20  _NR41_REG |    0000FF21  _NR42_REG |    0000FF22  _NR43_REG
+     0000FF23  _NR44_REG |    0000FF24  _NR50_REG |    0000FF25  _NR51_REG
+     0000FF26  _NR52_REG |    0000FF30  _AUD3WAVE |    0000FF30  _PCM_SAMP
+     0000FF30  __AUD3WAV |    0000FF40  _LCDC_REG |    0000FF41  _STAT_REG
+     0000FF42  _SCY_REG  |    0000FF43  _SCX_REG  |    0000FF44  _LY_REG  
+     0000FF45  _LYC_REG  |    0000FF46  _DMA_REG  |    0000FF47  _BGP_REG 
+     0000FF48  _OBP0_REG |    0000FF49  _OBP1_REG |    0000FF4A  _WY_REG  
+     0000FF4B  _WX_REG   |    0000FF4D  _KEY1_REG |    0000FF4F  _VBK_REG 
+     0000FF51  _HDMA1_RE |    0000FF52  _HDMA2_RE |    0000FF53  _HDMA3_RE
+     0000FF54  _HDMA4_RE |    0000FF55  _HDMA5_RE |    0000FF56  _RP_REG  
+     0000FF68  _BCPS_REG |    0000FF69  _BCPD_REG |    0000FF6A  _OCPS_REG
+     0000FF6B  _OCPD_REG |    0000FF70  _SVBK_REG |    0000FF76  _PCM12_RE
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
@@ -66,13 +66,14 @@ Area                       Addr        Size        Decimal Bytes (Attributes)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-     0000FF80  __HRAM    |    0000FFFF  _IE_REG  
+     0000FF77  _PCM34_RE |    0000FF80  .refresh_ |    0000FF80  __HRAM   
+     0000FFFF  _IE_REG  
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -131,7 +132,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -191,7 +192,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -251,7 +252,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -311,7 +312,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -371,7 +372,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -431,7 +432,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -491,7 +492,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -551,7 +552,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -611,7 +612,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -671,7 +672,7 @@ Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -691,172 +692,383 @@ _CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
      0000294D  C$CoreGam |    00002950  A$CoreGam |    00002950  C$CoreGam
      00002953  A$CoreGam |    00002955  A$CoreGam |    00002955  C$CoreGam
      00002957  A$CoreGam |    00002957  C$CoreGam |    00002957  XG$CoreGa
-     00002958  A$GameJoh |    00002958  C$GameJoh |    00002958  C$GameJoh
-     00002958  G$GameJoh |    00002958  _GameJohn |    0000295B  A$GameJoh
-     0000295C  A$GameJoh |    0000295F  A$GameJoh |    00002960  A$GameJoh
-     00002963  A$GameJoh |    00002965  A$GameJoh |    00002965  C$GameJoh
-     00002968  A$GameJoh |    00002969  A$GameJoh |    0000296C  A$GameJoh
-     0000296D  A$GameJoh |    0000296E  A$GameJoh |    0000296F  A$GameJoh
-     00002970  A$GameJoh |    00002973  A$GameJoh |    00002975  A$GameJoh
-     00002975  C$GameJoh |    00002977  A$GameJoh |    00002979  A$GameJoh
-     0000297B  A$GameJoh |    0000297B  C$GameJoh |    0000297D  A$GameJoh
-     0000297D  C$GameJoh |    0000297D  XG$GameJo |    00002980  A$GameJoh
-     00002980  C$GameJoh |    00002980  C$GameJoh |    00002980  G$GameJoh
-     00002980  _GameJohn |    00002983  A$GameJoh |    00002986  A$GameJoh
-     00002986  C$GameJoh |    00002989  A$GameJoh |    0000298C  A$GameJoh
-     0000298D  A$GameJoh |    0000298D  C$GameJoh |    0000298F  A$GameJoh
-     00002991  A$GameJoh |    00002991  C$GameJoh |    00002993  A$GameJoh
-     00002996  A$GameJoh |    00002996  C$GameJoh |    00002998  A$GameJoh
-     0000299B  A$GameJoh |    0000299B  C$GameJoh |    0000299E  A$GameJoh
-     000029A0  A$GameJoh |    000029A2  A$GameJoh |    000029A2  C$GameJoh
-     000029A4  A$GameJoh |    000029A7  A$GameJoh |    000029A7  C$GameJoh
-     000029A9  A$GameJoh |    000029AC  A$GameJoh |    000029AC  C$GameJoh
-     000029AF  A$GameJoh |    000029B1  A$GameJoh |    000029B3  A$GameJoh
-     000029B3  C$GameJoh |    000029B5  A$GameJoh |    000029B8  A$GameJoh
-     000029B8  C$GameJoh |    000029BA  A$GameJoh |    000029BB  A$GameJoh
-     000029BB  C$GameJoh |    000029BD  A$GameJoh |    000029BD  C$GameJoh
-     000029BD  XG$GameJo |    000029BE  A$Bestiar |    000029BE  C$Bestiar
-     000029BE  C$Bestiar |    000029BE  G$Bestiar |    000029BE  _Bestiary
-     000029C1  A$Bestiar |    000029C2  A$Bestiar |    000029C5  A$Bestiar
-     000029C6  A$Bestiar |    000029C9  A$Bestiar |    000029CB  A$Bestiar
-     000029CB  C$Bestiar |    000029CE  A$Bestiar |    000029CF  A$Bestiar
-     000029D2  A$Bestiar |    000029D3  A$Bestiar |    000029D4  A$Bestiar
-     000029D5  A$Bestiar |    000029D6  A$Bestiar |    000029D9  A$Bestiar
-     000029DB  A$Bestiar |    000029DB  C$Bestiar |    000029DD  A$Bestiar
-     000029DF  A$Bestiar |    000029E1  A$Bestiar |    000029E1  C$Bestiar
-     000029E3  A$Bestiar |    000029E3  C$Bestiar |    000029E3  XG$Bestia
-     000029E6  A$Bestiar |    000029E6  C$Bestiar |    000029E6  G$Bestiar
+     00002958  G$JohnDoe |    00002958  _JohnDoe_ |    00002AC0  G$JohnDoe
+     00002AC0  _JohnDoe_ |    00002FC0  A$GameJoh |    00002FC0  C$GameJoh
+     00002FC0  G$scanlin |    00002FC0  _scanline |    00002FC1  A$GameJoh
+     00002FC2  A$GameJoh |    00002FC3  A$GameJoh |    00002FC4  A$GameJoh
+     00002FC4  C$GameJoh |    00002FC6  A$GameJoh |    00002FC8  A$GameJoh
+     00002FC9  A$GameJoh |    00002FCC  A$GameJoh |    00002FCD  A$GameJoh
+     00002FCE  A$GameJoh |    00002FCF  A$GameJoh |    00002FD0  A$GameJoh
+     00002FD2  A$GameJoh |    00002FD3  A$GameJoh |    00002FD4  A$GameJoh
+     00002FD6  A$GameJoh |    00002FD7  A$GameJoh |    00002FD8  A$GameJoh
+     00002FD9  A$GameJoh |    00002FDA  A$GameJoh |    00002FDA  C$GameJoh
+     00002FDA  XG$scanli |    00002FDB  G$scanlin |    00002FDB  _scanline
+     00002FEB  G$scanlin |    00002FEB  _scanline |    00002FFB  A$GameJoh
+     00002FFB  C$GameJoh |    00002FFB  C$GameJoh |    00002FFB  G$GameJoh
+     00002FFB  _GameJohn |    00002FFE  A$GameJoh |    00002FFF  A$GameJoh
+     00003002  A$GameJoh |    00003003  A$GameJoh |    00003006  A$GameJoh
+     00003008  A$GameJoh |    00003008  C$GameJoh |    0000300B  A$GameJoh
+     0000300C  A$GameJoh |    0000300F  A$GameJoh |    00003010  A$GameJoh
+     00003011  A$GameJoh |    00003012  A$GameJoh |    00003013  A$GameJoh
+     00003016  A$GameJoh |    00003018  A$GameJoh |    00003018  C$GameJoh
+     0000301A  A$GameJoh |    0000301C  A$GameJoh |    0000301E  A$GameJoh
+     0000301E  C$GameJoh |    00003020  A$GameJoh |    00003020  C$GameJoh
+     00003020  XG$GameJo |    00003023  A$GameJoh |    00003023  C$GameJoh
+     00003023  C$GameJoh |    00003023  G$GameJoh |    00003023  _GameJohn
+     00003026  A$GameJoh |    00003029  A$GameJoh |    00003029  C$GameJoh
+     0000302C  A$GameJoh |    0000302F  A$GameJoh |    00003030  A$GameJoh
+     00003030  C$GameJoh |    00003032  A$GameJoh |    00003034  A$GameJoh
+     00003034  C$GameJoh |    00003036  A$GameJoh |    00003039  A$GameJoh
+     00003039  C$GameJoh |    0000303B  A$GameJoh |    0000303E  A$GameJoh
+     0000303E  C$GameJoh |    00003041  A$GameJoh |    00003043  A$GameJoh
+     00003045  A$GameJoh |    00003045  C$GameJoh |    00003047  A$GameJoh
+     0000304A  A$GameJoh |    0000304A  C$GameJoh |    0000304C  A$GameJoh
+     0000304F  A$GameJoh |    0000304F  C$GameJoh |    00003052  A$GameJoh
+     00003053  A$GameJoh |    00003055  A$GameJoh |    00003055  C$GameJoh
+     00003058  A$GameJoh |    00003059  A$GameJoh |    0000305B  A$GameJoh
+     0000305B  C$GameJoh |    0000305D  A$GameJoh |    0000305F  A$GameJoh
 ASxxxx Linker V03.00 + NoICE + sdld,  page 14.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-     000029E6  _Bestiary |    000029E9  A$Bestiar |    000029EC  A$Bestiar
-     000029EC  C$Bestiar |    000029EF  A$Bestiar |    000029F2  A$Bestiar
-     000029F3  A$Bestiar |    000029F3  C$Bestiar |    000029F4  A$Bestiar
-     000029F4  C$Bestiar |    000029F6  A$Bestiar |    000029F8  A$Bestiar
-     000029F8  C$Bestiar |    000029FB  A$Bestiar |    000029FC  A$Bestiar
-     000029FD  A$Bestiar |    000029FE  A$Bestiar |    000029FF  A$Bestiar
-     00002A00  A$Bestiar |    00002A01  A$Bestiar |    00002A03  A$Bestiar
-     00002A05  A$Bestiar |    00002A05  C$Bestiar |    00002A08  A$Bestiar
-     00002A09  A$Bestiar |    00002A09  C$Bestiar |    00002A0B  A$Bestiar
-     00002A0D  A$Bestiar |    00002A0D  C$Bestiar |    00002A10  A$Bestiar
-     00002A11  A$Bestiar |    00002A12  A$Bestiar |    00002A13  A$Bestiar
-     00002A14  A$Bestiar |    00002A15  A$Bestiar |    00002A16  A$Bestiar
-     00002A17  A$Bestiar |    00002A19  A$Bestiar |    00002A1B  A$Bestiar
-     00002A1C  A$Bestiar |    00002A1E  A$Bestiar |    00002A1F  A$Bestiar
-     00002A21  A$Bestiar |    00002A23  A$Bestiar |    00002A25  A$Bestiar
-     00002A27  A$Bestiar |    00002A28  A$Bestiar |    00002A2A  A$Bestiar
-     00002A2C  A$Bestiar |    00002A2E  A$Bestiar |    00002A2F  A$Bestiar
-     00002A31  A$Bestiar |    00002A31  C$Bestiar |    00002A34  A$Bestiar
-     00002A35  A$Bestiar |    00002A35  C$Bestiar |    00002A37  A$Bestiar
-     00002A39  A$Bestiar |    00002A39  C$Bestiar |    00002A3C  A$Bestiar
-     00002A3C  C$Bestiar |    00002A3F  A$Bestiar |    00002A41  A$Bestiar
-     00002A43  A$Bestiar |    00002A43  C$Bestiar |    00002A45  A$Bestiar
-     00002A48  A$Bestiar |    00002A48  C$Bestiar |    00002A4A  A$Bestiar
-     00002A4B  A$Bestiar |    00002A4B  C$Bestiar |    00002A4E  A$Bestiar
-     00002A4F  A$Bestiar |    00002A51  A$Bestiar |    00002A51  C$Bestiar
-     00002A54  A$Bestiar |    00002A55  A$Bestiar |    00002A58  A$Bestiar
-     00002A59  A$Bestiar |    00002A5C  A$Bestiar |    00002A5E  A$Bestiar
-     00002A5E  C$Bestiar |    00002A61  A$Bestiar |    00002A62  A$Bestiar
-     00002A65  A$Bestiar |    00002A66  A$Bestiar |    00002A69  A$Bestiar
-     00002A6A  A$Bestiar |    00002A6D  A$Bestiar |    00002A6F  A$Bestiar
-     00002A6F  C$Bestiar |    00002A71  A$Bestiar |    00002A72  A$Bestiar
-     00002A73  A$Bestiar |    00002A76  A$Bestiar |    00002A77  A$Bestiar
-     00002A79  A$Bestiar |    00002A7B  A$Bestiar |    00002A7E  A$Bestiar
-     00002A7E  C$Bestiar |    00002A80  A$Bestiar |    00002A81  A$Bestiar
-     00002A82  A$Bestiar |    00002A85  A$Bestiar |    00002A86  A$Bestiar
-     00002A88  A$Bestiar |    00002A8A  A$Bestiar |    00002A8D  A$Bestiar
-     00002A8D  C$Bestiar |    00002A8F  A$Bestiar |    00002A90  A$Bestiar
-     00002A91  A$Bestiar |    00002A94  A$Bestiar |    00002A95  A$Bestiar
-     00002A97  A$Bestiar |    00002A99  A$Bestiar |    00002A9C  A$Bestiar
-     00002A9C  C$Bestiar |    00002A9E  A$Bestiar |    00002A9F  A$Bestiar
-     00002AA0  A$Bestiar |    00002AA3  A$Bestiar |    00002AA4  A$Bestiar
-     00002AA6  A$Bestiar |    00002AA8  A$Bestiar |    00002AAB  A$Bestiar
-     00002AAB  C$Bestiar |    00002AAD  A$Bestiar |    00002AAE  A$Bestiar
-     00002AAF  A$Bestiar |    00002AB2  A$Bestiar |    00002AB3  A$Bestiar
-     00002AB5  A$Bestiar |    00002AB7  A$Bestiar |    00002ABA  A$Bestiar
-     00002ABA  C$Bestiar |    00002ABC  A$Bestiar |    00002ABD  A$Bestiar
-     00002ABE  A$Bestiar |    00002AC1  A$Bestiar |    00002AC2  A$Bestiar
-     00002AC4  A$Bestiar |    00002AC6  A$Bestiar |    00002AC9  A$Bestiar
-     00002ACC  A$Bestiar |    00002ACC  C$Bestiar |    00002ACF  A$Bestiar
-     00002AD0  A$Bestiar |    00002AD2  A$Bestiar |    00002AD2  C$Bestiar
-     00002AD5  A$Bestiar |    00002AD6  A$Bestiar |    00002AD9  A$Bestiar
+     0000305F  C$GameJoh |    00003061  A$GameJoh |    00003062  A$GameJoh
+     00003063  A$GameJoh |    00003066  A$GameJoh |    00003067  A$GameJoh
+     00003067  C$GameJoh |    0000306A  A$GameJoh |    0000306C  A$GameJoh
+     0000306E  A$GameJoh |    0000306E  C$GameJoh |    00003071  A$GameJoh
+     00003073  A$GameJoh |    00003073  C$GameJoh |    00003076  A$GameJoh
+     00003078  A$GameJoh |    0000307A  A$GameJoh |    0000307A  C$GameJoh
+     0000307C  A$GameJoh |    0000307F  A$GameJoh |    0000307F  C$GameJoh
+     00003081  A$GameJoh |    00003082  A$GameJoh |    00003082  C$GameJoh
+     00003085  A$GameJoh |    00003086  A$GameJoh |    00003087  A$GameJoh
+     00003088  A$GameJoh |    0000308A  A$GameJoh |    0000308C  A$GameJoh
+     0000308E  A$GameJoh |    00003090  A$GameJoh |    00003091  A$GameJoh
+     00003093  A$GameJoh |    00003095  A$GameJoh |    00003097  A$GameJoh
+     00003098  A$GameJoh |    00003099  A$GameJoh |    0000309B  A$GameJoh
+     0000309E  A$GameJoh |    0000309F  A$GameJoh |    000030A0  A$GameJoh
+     000030A1  A$GameJoh |    000030A1  C$GameJoh |    000030A3  A$GameJoh
+     000030A3  C$GameJoh |    000030A3  XG$GameJo |    000030A4  G$Crow_Ti
+     000030A4  _Crow_Til |    00003234  G$Crow_Ma |    00003234  _Crow_Map
+     00003257  A$Bestiar |    00003257  C$Bestiar |    00003257  C$Bestiar
+     00003257  G$Bestiar |    00003257  _Bestiary |    0000325A  A$Bestiar
+     0000325B  A$Bestiar |    0000325E  A$Bestiar |    0000325F  A$Bestiar
+     00003262  A$Bestiar |    00003264  A$Bestiar |    00003264  C$Bestiar
+     00003267  A$Bestiar |    00003268  A$Bestiar |    0000326B  A$Bestiar
+     0000326C  A$Bestiar |    0000326D  A$Bestiar |    0000326E  A$Bestiar
+     0000326F  A$Bestiar |    00003272  A$Bestiar |    00003274  A$Bestiar
+     00003274  C$Bestiar |    00003276  A$Bestiar |    00003278  A$Bestiar
+     0000327A  A$Bestiar |    0000327A  C$Bestiar |    0000327C  A$Bestiar
+     0000327C  C$Bestiar |    0000327C  XG$Bestia |    0000327F  A$Bestiar
+     0000327F  C$Bestiar |    0000327F  G$Bestiar |    0000327F  _Bestiary
+     00003282  A$Bestiar |    00003285  A$Bestiar |    00003285  C$Bestiar
+     00003288  A$Bestiar |    0000328B  A$Bestiar |    0000328C  A$Bestiar
+     0000328C  C$Bestiar |    0000328D  A$Bestiar |    0000328D  C$Bestiar
+     0000328F  A$Bestiar |    00003291  A$Bestiar |    00003291  C$Bestiar
+     00003294  A$Bestiar |    00003295  A$Bestiar |    00003296  A$Bestiar
+     00003297  A$Bestiar |    00003298  A$Bestiar |    00003299  A$Bestiar
+     0000329A  A$Bestiar |    0000329C  A$Bestiar |    0000329E  A$Bestiar
+     0000329E  C$Bestiar |    000032A1  A$Bestiar |    000032A2  A$Bestiar
+     000032A2  C$Bestiar |    000032A4  A$Bestiar |    000032A6  A$Bestiar
+     000032A6  C$Bestiar |    000032A9  A$Bestiar |    000032AA  A$Bestiar
+     000032AB  A$Bestiar |    000032AC  A$Bestiar |    000032AD  A$Bestiar
+     000032AE  A$Bestiar |    000032AF  A$Bestiar |    000032B0  A$Bestiar
+     000032B2  A$Bestiar |    000032B4  A$Bestiar |    000032B5  A$Bestiar
+     000032B7  A$Bestiar |    000032B8  A$Bestiar |    000032BA  A$Bestiar
+     000032BC  A$Bestiar |    000032BE  A$Bestiar |    000032C0  A$Bestiar
+     000032C1  A$Bestiar |    000032C3  A$Bestiar |    000032C5  A$Bestiar
+     000032C7  A$Bestiar |    000032C8  A$Bestiar |    000032CA  A$Bestiar
+     000032CA  C$Bestiar |    000032CD  A$Bestiar |    000032CE  A$Bestiar
+     000032CE  C$Bestiar |    000032D0  A$Bestiar |    000032D2  A$Bestiar
+     000032D2  C$Bestiar |    000032D5  A$Bestiar |    000032D5  C$Bestiar
+     000032D8  A$Bestiar |    000032DA  A$Bestiar |    000032DC  A$Bestiar
+     000032DC  C$Bestiar |    000032DE  A$Bestiar |    000032E1  A$Bestiar
+     000032E1  C$Bestiar |    000032E3  A$Bestiar |    000032E4  A$Bestiar
 ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-     00002ADA  A$Bestiar |    00002ADD  A$Bestiar |    00002ADF  A$Bestiar
-     00002ADF  C$Bestiar |    00002AE2  A$Bestiar |    00002AE3  A$Bestiar
-     00002AE6  A$Bestiar |    00002AE7  A$Bestiar |    00002AEA  A$Bestiar
-     00002AEB  A$Bestiar |    00002AEE  A$Bestiar |    00002AF0  A$Bestiar
-     00002AF0  C$Bestiar |    00002AF2  A$Bestiar |    00002AF3  A$Bestiar
-     00002AF4  A$Bestiar |    00002AF7  A$Bestiar |    00002AF8  A$Bestiar
-     00002AFA  A$Bestiar |    00002AFC  A$Bestiar |    00002AFF  A$Bestiar
-     00002AFF  C$Bestiar |    00002B01  A$Bestiar |    00002B02  A$Bestiar
-     00002B03  A$Bestiar |    00002B06  A$Bestiar |    00002B07  A$Bestiar
-     00002B09  A$Bestiar |    00002B0B  A$Bestiar |    00002B0E  A$Bestiar
-     00002B0E  C$Bestiar |    00002B10  A$Bestiar |    00002B11  A$Bestiar
-     00002B12  A$Bestiar |    00002B15  A$Bestiar |    00002B16  A$Bestiar
-     00002B18  A$Bestiar |    00002B1A  A$Bestiar |    00002B1D  A$Bestiar
-     00002B1D  C$Bestiar |    00002B1F  A$Bestiar |    00002B20  A$Bestiar
-     00002B21  A$Bestiar |    00002B24  A$Bestiar |    00002B25  A$Bestiar
-     00002B27  A$Bestiar |    00002B29  A$Bestiar |    00002B2C  A$Bestiar
-     00002B2C  C$Bestiar |    00002B2E  A$Bestiar |    00002B2F  A$Bestiar
-     00002B30  A$Bestiar |    00002B33  A$Bestiar |    00002B34  A$Bestiar
-     00002B36  A$Bestiar |    00002B38  A$Bestiar |    00002B3B  A$Bestiar
-     00002B3B  C$Bestiar |    00002B3D  A$Bestiar |    00002B3E  A$Bestiar
-     00002B3F  A$Bestiar |    00002B42  A$Bestiar |    00002B43  A$Bestiar
-     00002B45  A$Bestiar |    00002B47  A$Bestiar |    00002B4A  A$Bestiar
-     00002B4D  A$Bestiar |    00002B4D  C$Bestiar |    00002B50  A$Bestiar
-     00002B52  A$Bestiar |    00002B54  A$Bestiar |    00002B54  C$Bestiar
-     00002B57  A$Bestiar |    00002B58  A$Bestiar |    00002B5B  A$Bestiar
-     00002B5C  A$Bestiar |    00002B5F  A$Bestiar |    00002B61  A$Bestiar
-     00002B61  C$Bestiar |    00002B64  A$Bestiar |    00002B65  A$Bestiar
-     00002B68  A$Bestiar |    00002B69  A$Bestiar |    00002B6C  A$Bestiar
-     00002B6D  A$Bestiar |    00002B70  A$Bestiar |    00002B72  A$Bestiar
-     00002B72  C$Bestiar |    00002B74  A$Bestiar |    00002B75  A$Bestiar
-     00002B76  A$Bestiar |    00002B79  A$Bestiar |    00002B7A  A$Bestiar
-     00002B7C  A$Bestiar |    00002B7E  A$Bestiar |    00002B81  A$Bestiar
-     00002B81  C$Bestiar |    00002B83  A$Bestiar |    00002B84  A$Bestiar
-     00002B85  A$Bestiar |    00002B88  A$Bestiar |    00002B89  A$Bestiar
-     00002B8B  A$Bestiar |    00002B8D  A$Bestiar |    00002B90  A$Bestiar
-     00002B90  C$Bestiar |    00002B92  A$Bestiar |    00002B93  A$Bestiar
-     00002B94  A$Bestiar |    00002B97  A$Bestiar |    00002B98  A$Bestiar
-     00002B9A  A$Bestiar |    00002B9C  A$Bestiar |    00002B9F  A$Bestiar
-     00002B9F  C$Bestiar |    00002BA1  A$Bestiar |    00002BA2  A$Bestiar
-     00002BA3  A$Bestiar |    00002BA6  A$Bestiar |    00002BA7  A$Bestiar
-     00002BA9  A$Bestiar |    00002BAB  A$Bestiar |    00002BAE  A$Bestiar
-     00002BAE  C$Bestiar |    00002BB0  A$Bestiar |    00002BB1  A$Bestiar
-     00002BB2  A$Bestiar |    00002BB5  A$Bestiar |    00002BB6  A$Bestiar
-     00002BB8  A$Bestiar |    00002BBA  A$Bestiar |    00002BBD  A$Bestiar
-     00002BBD  C$Bestiar |    00002BBF  A$Bestiar |    00002BC0  A$Bestiar
-     00002BC1  A$Bestiar |    00002BC4  A$Bestiar |    00002BC5  A$Bestiar
-     00002BC7  A$Bestiar |    00002BC9  A$Bestiar |    00002BCC  A$Bestiar
-     00002BCC  C$Bestiar |    00002BCE  A$Bestiar |    00002BCE  C$Bestiar
-     00002BCE  XG$Bestia |    00002BCF  _set_vram |    00002BDE  _set_win_
-     00002BE6  _set_bkg_ |    00002C10  ___move_m |    00002C4F  ___move_m
-     00002C92  ___move_m |    00002CD5  ___move_m |    00002D1A  _get_win_
+     000032E4  C$Bestiar |    000032E7  A$Bestiar |    000032E8  A$Bestiar
+     000032EA  A$Bestiar |    000032EA  C$Bestiar |    000032ED  A$Bestiar
+     000032EE  A$Bestiar |    000032F1  A$Bestiar |    000032F2  A$Bestiar
+     000032F5  A$Bestiar |    000032F7  A$Bestiar |    000032F7  C$Bestiar
+     000032FA  A$Bestiar |    000032FB  A$Bestiar |    000032FE  A$Bestiar
+     000032FF  A$Bestiar |    00003302  A$Bestiar |    00003303  A$Bestiar
+     00003306  A$Bestiar |    00003308  A$Bestiar |    00003308  C$Bestiar
+     0000330A  A$Bestiar |    0000330B  A$Bestiar |    0000330C  A$Bestiar
+     0000330F  A$Bestiar |    00003310  A$Bestiar |    00003312  A$Bestiar
+     00003314  A$Bestiar |    00003317  A$Bestiar |    00003317  C$Bestiar
+     00003319  A$Bestiar |    0000331A  A$Bestiar |    0000331B  A$Bestiar
+     0000331E  A$Bestiar |    0000331F  A$Bestiar |    00003321  A$Bestiar
+     00003323  A$Bestiar |    00003326  A$Bestiar |    00003326  C$Bestiar
+     00003328  A$Bestiar |    00003329  A$Bestiar |    0000332A  A$Bestiar
+     0000332D  A$Bestiar |    0000332E  A$Bestiar |    00003330  A$Bestiar
+     00003332  A$Bestiar |    00003335  A$Bestiar |    00003335  C$Bestiar
+     00003337  A$Bestiar |    00003338  A$Bestiar |    00003339  A$Bestiar
+     0000333C  A$Bestiar |    0000333D  A$Bestiar |    0000333F  A$Bestiar
+     00003341  A$Bestiar |    00003344  A$Bestiar |    00003344  C$Bestiar
+     00003346  A$Bestiar |    00003347  A$Bestiar |    00003348  A$Bestiar
+     0000334B  A$Bestiar |    0000334C  A$Bestiar |    0000334E  A$Bestiar
+     00003350  A$Bestiar |    00003353  A$Bestiar |    00003353  C$Bestiar
+     00003355  A$Bestiar |    00003356  A$Bestiar |    00003357  A$Bestiar
+     0000335A  A$Bestiar |    0000335B  A$Bestiar |    0000335D  A$Bestiar
+     0000335F  A$Bestiar |    00003362  A$Bestiar |    00003365  A$Bestiar
+     00003365  C$Bestiar |    00003368  A$Bestiar |    00003369  A$Bestiar
+     0000336B  A$Bestiar |    0000336B  C$Bestiar |    0000336E  A$Bestiar
+     0000336F  A$Bestiar |    00003372  A$Bestiar |    00003373  A$Bestiar
+     00003376  A$Bestiar |    00003378  A$Bestiar |    00003378  C$Bestiar
+     0000337B  A$Bestiar |    0000337C  A$Bestiar |    0000337F  A$Bestiar
+     00003380  A$Bestiar |    00003383  A$Bestiar |    00003384  A$Bestiar
+     00003387  A$Bestiar |    00003389  A$Bestiar |    00003389  C$Bestiar
+     0000338B  A$Bestiar |    0000338C  A$Bestiar |    0000338D  A$Bestiar
+     00003390  A$Bestiar |    00003391  A$Bestiar |    00003393  A$Bestiar
+     00003395  A$Bestiar |    00003398  A$Bestiar |    00003398  C$Bestiar
+     0000339A  A$Bestiar |    0000339B  A$Bestiar |    0000339C  A$Bestiar
+     0000339F  A$Bestiar |    000033A0  A$Bestiar |    000033A2  A$Bestiar
+     000033A4  A$Bestiar |    000033A7  A$Bestiar |    000033A7  C$Bestiar
+     000033A9  A$Bestiar |    000033AA  A$Bestiar |    000033AB  A$Bestiar
+     000033AE  A$Bestiar |    000033AF  A$Bestiar |    000033B1  A$Bestiar
+     000033B3  A$Bestiar |    000033B6  A$Bestiar |    000033B6  C$Bestiar
+     000033B8  A$Bestiar |    000033B9  A$Bestiar |    000033BA  A$Bestiar
+     000033BD  A$Bestiar |    000033BE  A$Bestiar |    000033C0  A$Bestiar
+     000033C2  A$Bestiar |    000033C5  A$Bestiar |    000033C5  C$Bestiar
+     000033C7  A$Bestiar |    000033C8  A$Bestiar |    000033C9  A$Bestiar
+     000033CC  A$Bestiar |    000033CD  A$Bestiar |    000033CF  A$Bestiar
+     000033D1  A$Bestiar |    000033D4  A$Bestiar |    000033D4  C$Bestiar
+     000033D6  A$Bestiar |    000033D7  A$Bestiar |    000033D8  A$Bestiar
+     000033DB  A$Bestiar |    000033DC  A$Bestiar |    000033DE  A$Bestiar
+     000033E0  A$Bestiar |    000033E3  A$Bestiar |    000033E6  A$Bestiar
+     000033E6  C$Bestiar |    000033E9  A$Bestiar |    000033EB  A$Bestiar
 ASxxxx Linker V03.00 + NoICE + sdld,  page 16.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_CODE                  00000200    00002B41 =       11073. bytes (REL,CON)
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-     00002D22  _get_bkg_
+     000033ED  A$Bestiar |    000033ED  C$Bestiar |    000033F0  A$Bestiar
+     000033F1  A$Bestiar |    000033F4  A$Bestiar |    000033F5  A$Bestiar
+     000033F8  A$Bestiar |    000033FA  A$Bestiar |    000033FA  C$Bestiar
+     000033FD  A$Bestiar |    000033FE  A$Bestiar |    00003401  A$Bestiar
+     00003402  A$Bestiar |    00003405  A$Bestiar |    00003406  A$Bestiar
+     00003409  A$Bestiar |    0000340B  A$Bestiar |    0000340B  C$Bestiar
+     0000340D  A$Bestiar |    0000340E  A$Bestiar |    0000340F  A$Bestiar
+     00003412  A$Bestiar |    00003413  A$Bestiar |    00003415  A$Bestiar
+     00003417  A$Bestiar |    0000341A  A$Bestiar |    0000341A  C$Bestiar
+     0000341C  A$Bestiar |    0000341D  A$Bestiar |    0000341E  A$Bestiar
+     00003421  A$Bestiar |    00003422  A$Bestiar |    00003424  A$Bestiar
+     00003426  A$Bestiar |    00003429  A$Bestiar |    00003429  C$Bestiar
+     0000342B  A$Bestiar |    0000342C  A$Bestiar |    0000342D  A$Bestiar
+     00003430  A$Bestiar |    00003431  A$Bestiar |    00003433  A$Bestiar
+     00003435  A$Bestiar |    00003438  A$Bestiar |    00003438  C$Bestiar
+     0000343A  A$Bestiar |    0000343B  A$Bestiar |    0000343C  A$Bestiar
+     0000343F  A$Bestiar |    00003440  A$Bestiar |    00003442  A$Bestiar
+     00003444  A$Bestiar |    00003447  A$Bestiar |    00003447  C$Bestiar
+     00003449  A$Bestiar |    0000344A  A$Bestiar |    0000344B  A$Bestiar
+     0000344E  A$Bestiar |    0000344F  A$Bestiar |    00003451  A$Bestiar
+     00003453  A$Bestiar |    00003456  A$Bestiar |    00003456  C$Bestiar
+     00003458  A$Bestiar |    00003459  A$Bestiar |    0000345A  A$Bestiar
+     0000345D  A$Bestiar |    0000345E  A$Bestiar |    00003460  A$Bestiar
+     00003462  A$Bestiar |    00003465  A$Bestiar |    00003468  A$Bestiar
+     00003468  C$Bestiar |    0000346B  A$Bestiar |    0000346D  A$Bestiar
+     0000346F  A$Bestiar |    0000346F  C$Bestiar |    00003472  A$Bestiar
+     00003473  A$Bestiar |    00003476  A$Bestiar |    00003477  A$Bestiar
+     0000347A  A$Bestiar |    0000347C  A$Bestiar |    0000347C  C$Bestiar
+     0000347F  A$Bestiar |    00003480  A$Bestiar |    00003483  A$Bestiar
+     00003484  A$Bestiar |    00003487  A$Bestiar |    00003488  A$Bestiar
+     0000348B  A$Bestiar |    0000348D  A$Bestiar |    0000348D  C$Bestiar
+     0000348F  A$Bestiar |    00003490  A$Bestiar |    00003491  A$Bestiar
+     00003494  A$Bestiar |    00003495  A$Bestiar |    00003497  A$Bestiar
+     00003499  A$Bestiar |    0000349C  A$Bestiar |    0000349C  C$Bestiar
+     0000349E  A$Bestiar |    0000349F  A$Bestiar |    000034A0  A$Bestiar
+     000034A3  A$Bestiar |    000034A4  A$Bestiar |    000034A6  A$Bestiar
+     000034A8  A$Bestiar |    000034AB  A$Bestiar |    000034AB  C$Bestiar
+     000034AD  A$Bestiar |    000034AE  A$Bestiar |    000034AF  A$Bestiar
+     000034B2  A$Bestiar |    000034B3  A$Bestiar |    000034B5  A$Bestiar
+     000034B7  A$Bestiar |    000034BA  A$Bestiar |    000034BA  C$Bestiar
+     000034BC  A$Bestiar |    000034BD  A$Bestiar |    000034BE  A$Bestiar
+     000034C1  A$Bestiar |    000034C2  A$Bestiar |    000034C4  A$Bestiar
+     000034C6  A$Bestiar |    000034C9  A$Bestiar |    000034C9  C$Bestiar
+     000034CB  A$Bestiar |    000034CC  A$Bestiar |    000034CD  A$Bestiar
+     000034D0  A$Bestiar |    000034D1  A$Bestiar |    000034D3  A$Bestiar
+     000034D5  A$Bestiar |    000034D8  A$Bestiar |    000034D8  C$Bestiar
+     000034DA  A$Bestiar |    000034DB  A$Bestiar |    000034DC  A$Bestiar
+     000034DF  A$Bestiar |    000034E0  A$Bestiar |    000034E2  A$Bestiar
+     000034E4  A$Bestiar |    000034E7  A$Bestiar |    000034EA  A$Bestiar
+     000034EA  C$Bestiar |    000034ED  A$Bestiar |    000034EF  A$Bestiar
+     000034F1  A$Bestiar |    000034F1  C$Bestiar |    000034F4  A$Bestiar
 ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     000034F5  A$Bestiar |    000034F8  A$Bestiar |    000034F9  A$Bestiar
+     000034FC  A$Bestiar |    000034FE  A$Bestiar |    000034FE  C$Bestiar
+     00003501  A$Bestiar |    00003502  A$Bestiar |    00003505  A$Bestiar
+     00003506  A$Bestiar |    00003509  A$Bestiar |    0000350A  A$Bestiar
+     0000350D  A$Bestiar |    0000350F  A$Bestiar |    0000350F  C$Bestiar
+     00003511  A$Bestiar |    00003512  A$Bestiar |    00003513  A$Bestiar
+     00003516  A$Bestiar |    00003517  A$Bestiar |    00003519  A$Bestiar
+     0000351B  A$Bestiar |    0000351E  A$Bestiar |    0000351E  C$Bestiar
+     00003520  A$Bestiar |    00003521  A$Bestiar |    00003522  A$Bestiar
+     00003525  A$Bestiar |    00003526  A$Bestiar |    00003528  A$Bestiar
+     0000352A  A$Bestiar |    0000352D  A$Bestiar |    0000352D  C$Bestiar
+     0000352F  A$Bestiar |    00003530  A$Bestiar |    00003531  A$Bestiar
+     00003534  A$Bestiar |    00003535  A$Bestiar |    00003537  A$Bestiar
+     00003539  A$Bestiar |    0000353C  A$Bestiar |    0000353C  C$Bestiar
+     0000353E  A$Bestiar |    0000353F  A$Bestiar |    00003540  A$Bestiar
+     00003543  A$Bestiar |    00003544  A$Bestiar |    00003546  A$Bestiar
+     00003548  A$Bestiar |    0000354B  A$Bestiar |    0000354B  C$Bestiar
+     0000354D  A$Bestiar |    0000354E  A$Bestiar |    0000354F  A$Bestiar
+     00003552  A$Bestiar |    00003553  A$Bestiar |    00003555  A$Bestiar
+     00003557  A$Bestiar |    0000355A  A$Bestiar |    0000355A  C$Bestiar
+     0000355C  A$Bestiar |    0000355D  A$Bestiar |    0000355E  A$Bestiar
+     00003561  A$Bestiar |    00003562  A$Bestiar |    00003564  A$Bestiar
+     00003566  A$Bestiar |    00003569  A$Bestiar |    0000356C  A$Bestiar
+     0000356C  C$Bestiar |    0000356F  A$Bestiar |    00003571  A$Bestiar
+     00003573  A$Bestiar |    00003573  C$Bestiar |    00003576  A$Bestiar
+     00003577  A$Bestiar |    0000357A  A$Bestiar |    0000357B  A$Bestiar
+     0000357E  A$Bestiar |    00003580  A$Bestiar |    00003580  C$Bestiar
+     00003583  A$Bestiar |    00003584  A$Bestiar |    00003587  A$Bestiar
+     00003588  A$Bestiar |    0000358B  A$Bestiar |    0000358C  A$Bestiar
+     0000358F  A$Bestiar |    00003591  A$Bestiar |    00003591  C$Bestiar
+     00003593  A$Bestiar |    00003594  A$Bestiar |    00003595  A$Bestiar
+     00003598  A$Bestiar |    00003599  A$Bestiar |    0000359B  A$Bestiar
+     0000359D  A$Bestiar |    000035A0  A$Bestiar |    000035A0  C$Bestiar
+     000035A2  A$Bestiar |    000035A3  A$Bestiar |    000035A4  A$Bestiar
+     000035A7  A$Bestiar |    000035A8  A$Bestiar |    000035AA  A$Bestiar
+     000035AC  A$Bestiar |    000035AF  A$Bestiar |    000035AF  C$Bestiar
+     000035B1  A$Bestiar |    000035B2  A$Bestiar |    000035B3  A$Bestiar
+     000035B6  A$Bestiar |    000035B7  A$Bestiar |    000035B9  A$Bestiar
+     000035BB  A$Bestiar |    000035BE  A$Bestiar |    000035BE  C$Bestiar
+     000035C0  A$Bestiar |    000035C1  A$Bestiar |    000035C2  A$Bestiar
+     000035C5  A$Bestiar |    000035C6  A$Bestiar |    000035C8  A$Bestiar
+     000035CA  A$Bestiar |    000035CD  A$Bestiar |    000035CD  C$Bestiar
+     000035CF  A$Bestiar |    000035D0  A$Bestiar |    000035D1  A$Bestiar
+     000035D4  A$Bestiar |    000035D5  A$Bestiar |    000035D7  A$Bestiar
+     000035D9  A$Bestiar |    000035DC  A$Bestiar |    000035DC  C$Bestiar
+     000035DE  A$Bestiar |    000035DF  A$Bestiar |    000035E0  A$Bestiar
+     000035E3  A$Bestiar |    000035E4  A$Bestiar |    000035E6  A$Bestiar
+     000035E8  A$Bestiar |    000035EB  A$Bestiar |    000035EE  A$Bestiar
+     000035EE  C$Bestiar |    000035F1  A$Bestiar |    000035F3  A$Bestiar
+     000035F5  A$Bestiar |    000035F5  C$Bestiar |    000035F8  A$Bestiar
+     000035F9  A$Bestiar |    000035FC  A$Bestiar |    000035FD  A$Bestiar
+ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00003600  A$Bestiar |    00003602  A$Bestiar |    00003602  C$Bestiar
+     00003605  A$Bestiar |    00003606  A$Bestiar |    00003609  A$Bestiar
+     0000360A  A$Bestiar |    0000360D  A$Bestiar |    0000360E  A$Bestiar
+     00003611  A$Bestiar |    00003613  A$Bestiar |    00003613  C$Bestiar
+     00003615  A$Bestiar |    00003616  A$Bestiar |    00003617  A$Bestiar
+     0000361A  A$Bestiar |    0000361B  A$Bestiar |    0000361D  A$Bestiar
+     0000361F  A$Bestiar |    00003622  A$Bestiar |    00003622  C$Bestiar
+     00003624  A$Bestiar |    00003625  A$Bestiar |    00003626  A$Bestiar
+     00003629  A$Bestiar |    0000362A  A$Bestiar |    0000362C  A$Bestiar
+     0000362E  A$Bestiar |    00003631  A$Bestiar |    00003631  C$Bestiar
+     00003633  A$Bestiar |    00003634  A$Bestiar |    00003635  A$Bestiar
+     00003638  A$Bestiar |    00003639  A$Bestiar |    0000363B  A$Bestiar
+     0000363D  A$Bestiar |    00003640  A$Bestiar |    00003640  C$Bestiar
+     00003642  A$Bestiar |    00003643  A$Bestiar |    00003644  A$Bestiar
+     00003647  A$Bestiar |    00003648  A$Bestiar |    0000364A  A$Bestiar
+     0000364C  A$Bestiar |    0000364F  A$Bestiar |    0000364F  C$Bestiar
+     00003651  A$Bestiar |    00003652  A$Bestiar |    00003653  A$Bestiar
+     00003656  A$Bestiar |    00003657  A$Bestiar |    00003659  A$Bestiar
+     0000365B  A$Bestiar |    0000365E  A$Bestiar |    0000365E  C$Bestiar
+     00003660  A$Bestiar |    00003661  A$Bestiar |    00003662  A$Bestiar
+     00003665  A$Bestiar |    00003666  A$Bestiar |    00003668  A$Bestiar
+     0000366A  A$Bestiar |    0000366D  A$Bestiar |    00003670  A$Bestiar
+     00003670  C$Bestiar |    00003673  A$Bestiar |    00003675  A$Bestiar
+     00003677  A$Bestiar |    00003677  C$Bestiar |    0000367A  A$Bestiar
+     0000367B  A$Bestiar |    0000367E  A$Bestiar |    0000367F  A$Bestiar
+     00003682  A$Bestiar |    00003684  A$Bestiar |    00003684  C$Bestiar
+     00003687  A$Bestiar |    00003688  A$Bestiar |    0000368B  A$Bestiar
+     0000368C  A$Bestiar |    0000368F  A$Bestiar |    00003690  A$Bestiar
+     00003693  A$Bestiar |    00003695  A$Bestiar |    00003695  C$Bestiar
+     00003697  A$Bestiar |    00003698  A$Bestiar |    00003699  A$Bestiar
+     0000369C  A$Bestiar |    0000369D  A$Bestiar |    0000369F  A$Bestiar
+     000036A1  A$Bestiar |    000036A4  A$Bestiar |    000036A4  C$Bestiar
+     000036A6  A$Bestiar |    000036A7  A$Bestiar |    000036A8  A$Bestiar
+     000036AB  A$Bestiar |    000036AC  A$Bestiar |    000036AE  A$Bestiar
+     000036B0  A$Bestiar |    000036B3  A$Bestiar |    000036B3  C$Bestiar
+     000036B5  A$Bestiar |    000036B6  A$Bestiar |    000036B7  A$Bestiar
+     000036BA  A$Bestiar |    000036BB  A$Bestiar |    000036BD  A$Bestiar
+     000036BF  A$Bestiar |    000036C2  A$Bestiar |    000036C2  C$Bestiar
+     000036C4  A$Bestiar |    000036C5  A$Bestiar |    000036C6  A$Bestiar
+     000036C9  A$Bestiar |    000036CA  A$Bestiar |    000036CC  A$Bestiar
+     000036CE  A$Bestiar |    000036D1  A$Bestiar |    000036D1  C$Bestiar
+     000036D3  A$Bestiar |    000036D4  A$Bestiar |    000036D5  A$Bestiar
+     000036D8  A$Bestiar |    000036D9  A$Bestiar |    000036DB  A$Bestiar
+     000036DD  A$Bestiar |    000036E0  A$Bestiar |    000036E0  C$Bestiar
+     000036E2  A$Bestiar |    000036E3  A$Bestiar |    000036E4  A$Bestiar
+     000036E7  A$Bestiar |    000036E8  A$Bestiar |    000036EA  A$Bestiar
+     000036EC  A$Bestiar |    000036EF  A$Bestiar |    000036F2  A$Bestiar
+     000036F2  C$Bestiar |    000036F5  A$Bestiar |    000036F7  A$Bestiar
+     000036F9  A$Bestiar |    000036F9  C$Bestiar |    000036FC  A$Bestiar
+     000036FD  A$Bestiar |    00003700  A$Bestiar |    00003701  A$Bestiar
+     00003704  A$Bestiar |    00003706  A$Bestiar |    00003706  C$Bestiar
+ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CODE                  00000200    000043BE =       17342. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00003709  A$Bestiar |    0000370A  A$Bestiar |    0000370D  A$Bestiar
+     0000370E  A$Bestiar |    00003711  A$Bestiar |    00003712  A$Bestiar
+     00003715  A$Bestiar |    00003717  A$Bestiar |    00003717  C$Bestiar
+     00003719  A$Bestiar |    0000371A  A$Bestiar |    0000371B  A$Bestiar
+     0000371E  A$Bestiar |    0000371F  A$Bestiar |    00003721  A$Bestiar
+     00003723  A$Bestiar |    00003726  A$Bestiar |    00003726  C$Bestiar
+     00003728  A$Bestiar |    00003729  A$Bestiar |    0000372A  A$Bestiar
+     0000372D  A$Bestiar |    0000372E  A$Bestiar |    00003730  A$Bestiar
+     00003732  A$Bestiar |    00003735  A$Bestiar |    00003735  C$Bestiar
+     00003737  A$Bestiar |    00003738  A$Bestiar |    00003739  A$Bestiar
+     0000373C  A$Bestiar |    0000373D  A$Bestiar |    0000373F  A$Bestiar
+     00003741  A$Bestiar |    00003744  A$Bestiar |    00003744  C$Bestiar
+     00003746  A$Bestiar |    00003747  A$Bestiar |    00003748  A$Bestiar
+     0000374B  A$Bestiar |    0000374C  A$Bestiar |    0000374E  A$Bestiar
+     00003750  A$Bestiar |    00003753  A$Bestiar |    00003753  C$Bestiar
+     00003755  A$Bestiar |    00003756  A$Bestiar |    00003757  A$Bestiar
+     0000375A  A$Bestiar |    0000375B  A$Bestiar |    0000375D  A$Bestiar
+     0000375F  A$Bestiar |    00003762  A$Bestiar |    00003762  C$Bestiar
+     00003764  A$Bestiar |    00003765  A$Bestiar |    00003766  A$Bestiar
+     00003769  A$Bestiar |    0000376A  A$Bestiar |    0000376C  A$Bestiar
+     0000376E  A$Bestiar |    00003771  A$Bestiar |    00003771  C$Bestiar
+     00003773  A$Bestiar |    00003773  C$Bestiar |    00003773  XG$Bestia
+     00003774  G$FontTil |    00003774  _FontTile |    00003AD4  G$GypsyTi
+     00003AD4  _GypsyTil |    00003CC4  G$Gypsy_M |    00003CC4  _Gypsy_Ma
+     00003CEE  G$Skatebo |    00003CEE  _Skateboa |    00003DFE  G$Cop_Til
+     00003DFE  _Cop_Tile |    0000408E  G$Officer |    0000408E  _Officer_
+     000040B8  G$Police_ |    000040B8  _Police_M |    000040E2  G$Chief_M
+     000040E2  _Chief_Ma |    0000410C  G$Tick_Ti |    0000410C  _Tick_Til
+     0000425C  G$Man_Til |    0000425C  _Man_Tile |    0000444C  _set_vram
+     0000445B  _set_win_ |    00004463  _set_bkg_ |    0000448D  ___move_m
+     000044CC  ___move_m |    0000450F  ___move_m |    00004552  ___move_m
+     00004597  _get_win_ |    0000459F  _get_bkg_
+ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -866,7 +1078,7 @@ _HEADER0               00000000    00000001 =           1. bytes (ABS,CON)
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
      00000020  .call_hl 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 18.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -876,7 +1088,7 @@ _HEADER1               00000000    00000005 =           5. bytes (ABS,CON)
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
      00000028  .MemsetSm
-ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -886,7 +1098,7 @@ _HEADER2               00000000    00000007 =           7. bytes (ABS,CON)
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
      00000030  .MemcpySm
-ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -895,7 +1107,7 @@ _HEADER3               00000000    00000008 =           8. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 21.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 24.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -906,7 +1118,7 @@ _HEADER4               00000000    0000004C =          76. bytes (ABS,CON)
         -----  ------            -----  ------            -----  ------    
      00000080  .int      |    0000008F  _wait_int |    0000009C  __standar
      000000AC  _refresh_
-ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -915,7 +1127,7 @@ _HEADER5               00000000    00000002 =           2. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -924,7 +1136,7 @@ _HEADER6               00000000    00000030 =          48. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 24.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 27.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -933,7 +1145,7 @@ _HEADER7               00000000    00000006 =           6. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 25.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 28.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -942,7 +1154,7 @@ _HEADER8               00000000    00000003 =           3. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 26.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -951,7 +1163,7 @@ _HEADER9               00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 27.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -960,7 +1172,7 @@ _HEADERa               00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 28.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -969,7 +1181,7 @@ _HEADERb               00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 29.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -978,7 +1190,7 @@ _HEADERc               00000000    00000002 =           2. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 30.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -987,7 +1199,7 @@ _HEADERd               00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 31.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 34.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -996,7 +1208,7 @@ _HEADERe               00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 32.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 35.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -1005,7 +1217,7 @@ _HEADERf               00000000    00000002 =           2. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 33.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 36.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -1016,7 +1228,7 @@ _HEADER10              00000000    00000084 =         132. bytes (ABS,CON)
         -----  ------            -----  ------            -----  ------    
      00000150  .reset    |    00000150  _reset    |    00000157  .code_sta
      000001B9  _exit     |    000001BD  _set_inte
-ASxxxx Linker V03.00 + NoICE + sdld,  page 34.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 37.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -1025,63 +1237,62 @@ _HEADER11              00000000    00000001 =           1. bytes (ABS,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
-ASxxxx Linker V03.00 + NoICE + sdld,  page 35.
-Hexadecimal  [32-Bits]
-
-Area                       Addr        Size        Decimal Bytes (Attributes)
---------------------       ----        ----        ------- ----- ------------
-_HOME                  00002D41    000002D6 =         726. bytes (REL,CON)
-
-        Value  Global            Value  Global            Value  Global    
-        -----  ------            -----  ------            -----  ------    
-     00002D41  .memset_s |    00002D4A  .memcpy_s |    00002D67  .remove_V
-     00002D6A  .remove_i |    00002D87  .add_VBL  |    00002D8A  .add_int 
-     00002D95  .wait_vbl |    00002D95  _wait_vbl |    00002DA5  .display_
-     00002DA5  _display_ |    00002DBD  _remove_V |    00002DC8  _add_VBL 
-     00002DD3  _uitoa    |    00002DE2  _itoa     |    00002DF1  .itoa    
-     00002E05  .utoa     |    00002E79  _set_tile |    00002E7E  _set_bkg_
-     00002E7E  _set_win_ |    00002E86  _set_spri |    00002EB6  _set_bkg_
-     00002EF9  .set_xy_w |    00002F02  .set_xy_b |    00002F11  .set_xy_s
-     00002F5B  .padup    |    00002F5B  _waitpadu |    00002F6B  .jpad    
-     00002F6B  _joypad   |    00002F93  _waitpad  |    00002F94  .wait_pad
-     00002F9B  _strlen   |    00002FA0  .strlen   |    00002FA9  _set_bkg_
-     00002FBD  .set_xy_w |    00002FC6  .set_xy_b |    00002FD5  .set_xy_t
-ASxxxx Linker V03.00 + NoICE + sdld,  page 36.
-Hexadecimal  [32-Bits]
-
-Area                       Addr        Size        Decimal Bytes (Attributes)
---------------------       ----        ----        ------- ----- ------------
-_INITIALIZER           00003017    00001E9E =        7838. bytes (REL,CON)
-
-        Value  Global            Value  Global            Value  Global    
-        -----  ------            -----  ------            -----  ------    
-     00003017  Fhome$__x |    00003CB9  FGameTitl |    00003CBA  FGameTitl
-     00003CBB  Fcommon$_ |    00003CBC  Fcommon$_ |    00003CBD  FCoreGame
-     00003CC5  FJohnDoe_ |    00003E2D  FJohnDoe_ |    0000432D  FBestiary
-     00004495  FCrow_Til |    00004625  FCrow_Map |    00004648  FBestiary
-     00004649  FBestiary |    0000464A  FFont$__x |    000049AA  FGypsy_Ti
-     00004B9A  FGypsy_Ma |    00004BC4  FWally_Ti |    00004D84  FWally_Ma
-     00004DA2  FSkateboa
-ASxxxx Linker V03.00 + NoICE + sdld,  page 37.
-Hexadecimal  [32-Bits]
-
-Area                       Addr        Size        Decimal Bytes (Attributes)
---------------------       ----        ----        ------- ----- ------------
-_GSINIT                00004EB5    0000000C =          12. bytes (REL,CON)
-
-        Value  Global            Value  Global            Value  Global    
-        -----  ------            -----  ------            -----  ------    
-     00004EB5  gsinit   
 ASxxxx Linker V03.00 + NoICE + sdld,  page 38.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_GSFINAL               00004EC1    00000001 =           1. bytes (REL,CON)
+_HOME                  000045BE    000002D6 =         726. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
+     000045BE  .memset_s |    000045C7  .memcpy_s |    000045E4  .remove_V
+     000045E7  .remove_i |    00004604  .add_VBL  |    00004607  .add_int 
+     00004612  .wait_vbl |    00004612  _wait_vbl |    00004622  .display_
+     00004622  _display_ |    0000463A  _remove_V |    00004645  _add_VBL 
+     00004650  _uitoa    |    0000465F  _itoa     |    0000466E  .itoa    
+     00004682  .utoa     |    000046F6  _set_tile |    000046FB  _set_bkg_
+     000046FB  _set_win_ |    00004703  _set_spri |    00004733  _set_bkg_
+     00004776  .set_xy_w |    0000477F  .set_xy_b |    0000478E  .set_xy_s
+     000047D8  .padup    |    000047D8  _waitpadu |    000047E8  .jpad    
+     000047E8  _joypad   |    00004810  _waitpad  |    00004811  .wait_pad
+     00004818  _strlen   |    0000481D  .strlen   |    00004826  _set_bkg_
+     0000483A  .set_xy_w |    00004843  .set_xy_b |    00004852  .set_xy_t
 ASxxxx Linker V03.00 + NoICE + sdld,  page 39.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_INITIALIZER           00004894    00001063 =        4195. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00004894  Fhome$__x |    00005536  FGameTitl |    00005537  FGameTitl
+     00005538  Fcommon$_ |    00005539  Fcommon$_ |    0000553A  FCoreGame
+     00005542  FGameJohn |    00005543  FGameJohn |    00005545  FBestiary
+     000056AD  FBestiary |    000056AE  FBestiary |    000056AF  FWally_Ti
+     0000586F  FWally_Ma |    0000588D  FSheriff_ |    000058B7  FTick_Map
+     000058D0  FMan_Map$
+ASxxxx Linker V03.00 + NoICE + sdld,  page 40.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_GSINIT                000058F7    0000000C =          12. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     000058F7  gsinit   
+ASxxxx Linker V03.00 + NoICE + sdld,  page 41.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_GSFINAL               00005903    00000001 =           1. bytes (REL,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+ASxxxx Linker V03.00 + NoICE + sdld,  page 42.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -1101,12 +1312,12 @@ _DATA                  0000C0A0    00000024 =          36. bytes (REL,CON)
      0000C0BE  G$camera_ |    0000C0BE  _camera_p |    0000C0BF  G$camera_
      0000C0BF  _camera_p |    0000C0C0  .image_ti |    0000C0C1  ___curren
      0000C0C3  ___curren
-ASxxxx Linker V03.00 + NoICE + sdld,  page 40.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 43.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
 --------------------       ----        ----        ------- ----- ------------
-_INITIALIZED           0000C0C4    00001E9E =        7838. bytes (REL,CON)
+_INITIALIZED           0000C0C4    00001063 =        4195. bytes (REL,CON)
 
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
@@ -1114,17 +1325,15 @@ _INITIALIZED           0000C0C4    00001E9E =        7838. bytes (REL,CON)
      0000CD66  _timer    |    0000CD67  G$frame$0 |    0000CD67  _frame   
      0000CD68  G$joypadP |    0000CD68  _joypadPr |    0000CD69  G$joypadC
      0000CD69  _joypadCu |    0000CD6A  G$mouse$0 |    0000CD6A  _mouse   
-     0000CD72  G$JohnDoe |    0000CD72  _JohnDoe_ |    0000CEDA  G$JohnDoe
-     0000CEDA  _JohnDoe_ |    0000D3DA  G$Bestiar |    0000D3DA  _Bestiary
-     0000D542  G$Crow_Ti |    0000D542  _Crow_Til |    0000D6D2  G$Crow_Ma
-     0000D6D2  _Crow_Map |    0000D6F5  G$index$0 |    0000D6F5  _index   
-     0000D6F6  G$invert$ |    0000D6F6  _invert   |    0000D6F7  G$FontTil
-     0000D6F7  _FontTile |    0000DA57  G$GypsyTi |    0000DA57  _GypsyTil
-     0000DC47  G$Gypsy_M |    0000DC47  _Gypsy_Ma |    0000DC71  G$WallyTi
-     0000DC71  _WallyTil |    0000DE31  G$Wally_M |    0000DE31  _Wally_Ma
-     0000DE4F  G$Skatebo |    0000DE4F  _Skateboa |    0000DF5F  __submap_
-     0000DF60  ___render |    0000DF61  __map_til
-ASxxxx Linker V03.00 + NoICE + sdld,  page 41.
+     0000CD72  G$wabble$ |    0000CD72  _wabble   |    0000CD73  G$scanlin
+     0000CD73  _scanline |    0000CD75  G$Bestiar |    0000CD75  _Bestiary
+     0000CEDD  G$index$0 |    0000CEDD  _index    |    0000CEDE  G$invert$
+     0000CEDE  _invert   |    0000CEDF  G$WallyTi |    0000CEDF  _WallyTil
+     0000D09F  G$Wally_M |    0000D09F  _Wally_Ma |    0000D0BD  G$Sheriff
+     0000D0BD  _Sheriff_ |    0000D0E7  G$Tick_Ma |    0000D0E7  _Tick_Map
+     0000D100  G$Man_Map |    0000D100  _Man_Map  |    0000D124  __submap_
+     0000D125  ___render |    0000D126  __map_til
+ASxxxx Linker V03.00 + NoICE + sdld,  page 44.
 Hexadecimal  [32-Bits]
 
 Area                       Addr        Size        Decimal Bytes (Attributes)
@@ -1134,7 +1343,17 @@ _HRAM12                00000000    00000003 =           3. bytes (ABS,CON)
         Value  Global            Value  Global            Value  Global    
         -----  ------            -----  ------            -----  ------    
      0000FF90  __current |    0000FF92  __shadow_
-ASxxxx Linker V03.00 + NoICE + sdld,  page 42.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 45.
+Hexadecimal  [32-Bits]
+
+Area                       Addr        Size        Decimal Bytes (Attributes)
+--------------------       ----        ----        ------- ----- ------------
+_CABS0                 00000000    00000003 =           3. bytes (ABS,CON)
+
+        Value  Global            Value  Global            Value  Global    
+        -----  ------            -----  ------            -----  ------    
+     00000048  FGameJohn
+ASxxxx Linker V03.00 + NoICE + sdld,  page 46.
 
 Files Linked                              [ module(s) ]
 
@@ -1163,12 +1382,21 @@ obj\Gypsy_Map.o                           [ Gypsy_Map ]
 obj\Wally_Tiles.o                         [ Wally_Tiles ]
 obj\Wally_Map.o                           [ Wally_Map ]
 obj\Skateboard_Tiles.o                    [ Skateboard_Tiles ]
+obj\Cop_Tiles.o                           [ Cop_Tiles ]
+obj\Officer_Map.o                         [ Officer_Map ]
+obj\Police_Map.o                          [ Police_Map ]
+obj\Sheriff_Map.o                         [ Sheriff_Map ]
+obj\Chief_Map.o                           [ Chief_Map ]
+obj\Tick_Tiles.o                          [ Tick_Tiles ]
+obj\Tick_Map.o                            [ Tick_Map ]
+obj\Man_Tiles.o                           [ Man_Tiles ]
+obj\Man_Map.o                             [ Man_Map ]
 
 
 Libraries Linked                          [ object file ]
 
-C:\gbdk\lib/sm83/sm83.lib                 [ itoa.o ]
 C:\gbdk\lib/gb/gb.lib                     [ sfr.o ]
+C:\gbdk\lib/sm83/sm83.lib                 [ itoa.o ]
 C:\gbdk\lib/gb/gb.lib                     [ set_tile.o ]
 C:\gbdk\lib/gb/gb.lib                     [ set_data.o ]
 C:\gbdk\lib/gb/gb.lib                     [ set_tile_submap.o ]
@@ -1180,13 +1408,13 @@ C:\gbdk\lib/gb/gb.lib                     [ get_addr.o ]
 C:\gbdk\lib/gb/gb.lib                     [ set_bk_t.o ]
 C:\gbdk\lib/gb/gb.lib                     [ set_xy_t.o ]
 
-ASxxxx Linker V03.00 + NoICE + sdld,  page 43.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 47.
 
 User Base Address Definitions
 
 _DATA=0xC0A0
 _CODE=0x0200
-ASxxxx Linker V03.00 + NoICE + sdld,  page 44.
+ASxxxx Linker V03.00 + NoICE + sdld,  page 48.
 
 User Global Definitions
 

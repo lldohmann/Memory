@@ -22,6 +22,6 @@
 #define Crow_MapHeight 7
 #define Crow_MapBank 0
 
-extern unsigned char Crow_Map[];
+const extern unsigned char Crow_Map[];
 
 /* End of CROW_MAP.H */
