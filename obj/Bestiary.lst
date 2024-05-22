@@ -58,25 +58,25 @@
                                      58 	.area _CODE
                            000000    59 	G$BestiarySetup$0$0	= .
                                      60 	.globl	G$BestiarySetup$0$0
-                           000000    61 	C$Bestiary.c$30$0_0$104	= .
-                                     62 	.globl	C$Bestiary.c$30$0_0$104
-                                     63 ;src\Bestiary.c:30: void BestiarySetup()
+                           000000    61 	C$Bestiary.c$36$0_0$104	= .
+                                     62 	.globl	C$Bestiary.c$36$0_0$104
+                                     63 ;src\Bestiary.c:36: void BestiarySetup()
                                      64 ;	---------------------------------
                                      65 ; Function BestiarySetup
                                      66 ; ---------------------------------
       000000                         67 _BestiarySetup::
-                           000000    68 	C$Bestiary.c$32$1_0$104	= .
-                                     69 	.globl	C$Bestiary.c$32$1_0$104
-                                     70 ;src\Bestiary.c:32: set_bkg_data(0, 53, FontTiles); // Load font and window tiles
+                           000000    68 	C$Bestiary.c$38$1_0$104	= .
+                                     69 	.globl	C$Bestiary.c$38$1_0$104
+                                     70 ;src\Bestiary.c:38: set_bkg_data(0, 53, FontTiles); // Load font and window tiles
       000000 11r00r00         [12]   71 	ld	de, #_FontTiles
       000003 D5               [16]   72 	push	de
       000004 21 00 35         [12]   73 	ld	hl, #0x3500
       000007 E5               [16]   74 	push	hl
       000008 CDr00r00         [24]   75 	call	_set_bkg_data
       00000B E8 04            [16]   76 	add	sp, #4
-                           00000D    77 	C$Bestiary.c$33$1_0$104	= .
-                                     78 	.globl	C$Bestiary.c$33$1_0$104
-                                     79 ;src\Bestiary.c:33: set_bkg_tiles(0, 0, Bestiary_MapWidth, Bestiary_MapHeight, Bestiary_Map); // draw background window & text
+                           00000D    77 	C$Bestiary.c$39$1_0$104	= .
+                                     78 	.globl	C$Bestiary.c$39$1_0$104
+                                     79 ;src\Bestiary.c:39: set_bkg_tiles(0, 0, Bestiary_MapWidth, Bestiary_MapHeight, Bestiary_Map); // draw background window & text
       00000D 11r00r00         [12]   80 	ld	de, #_Bestiary_Map
       000010 D5               [16]   81 	push	de
       000011 21 14 12         [12]   82 	ld	hl, #0x1214
@@ -86,56 +86,56 @@
       000017 F5               [16]   86 	push	af
       000018 CDr00r00         [24]   87 	call	_set_bkg_tiles
       00001B E8 06            [16]   88 	add	sp, #6
-                           00001D    89 	C$Bestiary.c$34$1_0$104	= .
-                                     90 	.globl	C$Bestiary.c$34$1_0$104
-                                     91 ;src\Bestiary.c:34: SHOW_BKG; 
+                           00001D    89 	C$Bestiary.c$40$1_0$104	= .
+                                     90 	.globl	C$Bestiary.c$40$1_0$104
+                                     91 ;src\Bestiary.c:40: SHOW_BKG; 
       00001D F0r00            [12]   92 	ldh	a, (_LCDC_REG + 0)
       00001F F6 01            [ 8]   93 	or	a, #0x01
       000021 E0r00            [12]   94 	ldh	(_LCDC_REG + 0), a
-                           000023    95 	C$Bestiary.c$35$1_0$104	= .
-                                     96 	.globl	C$Bestiary.c$35$1_0$104
-                                     97 ;src\Bestiary.c:35: fadeFromBlack(10);
+                           000023    95 	C$Bestiary.c$41$1_0$104	= .
+                                     96 	.globl	C$Bestiary.c$41$1_0$104
+                                     97 ;src\Bestiary.c:41: fadeFromBlack(10);
       000023 3E 0A            [ 8]   98 	ld	a, #0x0a
-                           000025    99 	C$Bestiary.c$36$1_0$104	= .
-                                    100 	.globl	C$Bestiary.c$36$1_0$104
-                                    101 ;src\Bestiary.c:36: }
-                           000025   102 	C$Bestiary.c$36$1_0$104	= .
-                                    103 	.globl	C$Bestiary.c$36$1_0$104
+                           000025    99 	C$Bestiary.c$42$1_0$104	= .
+                                    100 	.globl	C$Bestiary.c$42$1_0$104
+                                    101 ;src\Bestiary.c:42: }
+                           000025   102 	C$Bestiary.c$42$1_0$104	= .
+                                    103 	.globl	C$Bestiary.c$42$1_0$104
                            000025   104 	XG$BestiarySetup$0$0	= .
                                     105 	.globl	XG$BestiarySetup$0$0
       000025 C3r00r00         [16]  106 	jp	_fadeFromBlack
                            000028   107 	G$BestiaryUpdate$0$0	= .
                                     108 	.globl	G$BestiaryUpdate$0$0
-                           000028   109 	C$Bestiary.c$38$1_0$105	= .
-                                    110 	.globl	C$Bestiary.c$38$1_0$105
-                                    111 ;src\Bestiary.c:38: uint8_t BestiaryUpdate()
+                           000028   109 	C$Bestiary.c$44$1_0$105	= .
+                                    110 	.globl	C$Bestiary.c$44$1_0$105
+                                    111 ;src\Bestiary.c:44: uint8_t BestiaryUpdate()
                                     112 ;	---------------------------------
                                     113 ; Function BestiaryUpdate
                                     114 ; ---------------------------------
       000028                        115 _BestiaryUpdate::
-                           000028   116 	C$Bestiary.c$40$1_0$105	= .
-                                    117 	.globl	C$Bestiary.c$40$1_0$105
-                                    118 ;src\Bestiary.c:40: joypadPrevious = joypadCurrent;
+                           000028   116 	C$Bestiary.c$46$1_0$105	= .
+                                    117 	.globl	C$Bestiary.c$46$1_0$105
+                                    118 ;src\Bestiary.c:46: joypadPrevious = joypadCurrent;
       000028 FAr00r00         [16]  119 	ld	a, (#_joypadCurrent)
       00002B EAr00r00         [16]  120 	ld	(#_joypadPrevious),a
-                           00002E   121 	C$Bestiary.c$41$1_0$105	= .
-                                    122 	.globl	C$Bestiary.c$41$1_0$105
-                                    123 ;src\Bestiary.c:41: joypadCurrent = joypad();
+                           00002E   121 	C$Bestiary.c$47$1_0$105	= .
+                                    122 	.globl	C$Bestiary.c$47$1_0$105
+                                    123 ;src\Bestiary.c:47: joypadCurrent = joypad();
       00002E CDr00r00         [24]  124 	call	_joypad
       000031 21r00r00         [12]  125 	ld	hl, #_joypadCurrent
       000034 77               [ 8]  126 	ld	(hl), a
-                           000035   127 	C$Bestiary.c$40$1_0$105	= .
-                                    128 	.globl	C$Bestiary.c$40$1_0$105
-                                    129 ;src\Bestiary.c:40: joypadPrevious = joypadCurrent;
+                           000035   127 	C$Bestiary.c$46$1_0$105	= .
+                                    128 	.globl	C$Bestiary.c$46$1_0$105
+                                    129 ;src\Bestiary.c:46: joypadPrevious = joypadCurrent;
       000035 4E               [ 8]  130 	ld	c, (hl)
-                           000036   131 	C$Bestiary.c$43$1_0$105	= .
-                                    132 	.globl	C$Bestiary.c$43$1_0$105
-                                    133 ;src\Bestiary.c:43: if (joypadCurrent & J_LEFT)
+                           000036   131 	C$Bestiary.c$49$1_0$105	= .
+                                    132 	.globl	C$Bestiary.c$49$1_0$105
+                                    133 ;src\Bestiary.c:49: if (joypadCurrent & J_LEFT)
       000036 CB 49            [ 8]  134 	bit	1, c
       000038 28 11            [12]  135 	jr	Z, 00104$
-                           00003A   136 	C$Bestiary.c$45$2_0$106	= .
-                                    137 	.globl	C$Bestiary.c$45$2_0$106
-                                    138 ;src\Bestiary.c:45: if (index - 1 >= 0)
+                           00003A   136 	C$Bestiary.c$51$2_0$106	= .
+                                    137 	.globl	C$Bestiary.c$51$2_0$106
+                                    138 ;src\Bestiary.c:51: if (index - 1 >= 0)
       00003A FAr00r00         [16]  139 	ld	a, (#_index)
       00003D 47               [ 4]  140 	ld	b, a
       00003E 07               [ 4]  141 	rlca
@@ -145,20 +145,20 @@
       000042 2B               [ 8]  145 	dec	hl
       000043 CB 7C            [ 8]  146 	bit	7, h
       000045 20 04            [12]  147 	jr	NZ, 00104$
-                           000047   148 	C$Bestiary.c$47$3_0$107	= .
-                                    149 	.globl	C$Bestiary.c$47$3_0$107
-                                    150 ;src\Bestiary.c:47: index--;
+                           000047   148 	C$Bestiary.c$53$3_0$107	= .
+                                    149 	.globl	C$Bestiary.c$53$3_0$107
+                                    150 ;src\Bestiary.c:53: index--;
       000047 21r00r00         [12]  151 	ld	hl, #_index
       00004A 35               [12]  152 	dec	(hl)
       00004B                        153 00104$:
-                           00004B   154 	C$Bestiary.c$50$1_0$105	= .
-                                    155 	.globl	C$Bestiary.c$50$1_0$105
-                                    156 ;src\Bestiary.c:50: if (joypadCurrent & J_RIGHT)
+                           00004B   154 	C$Bestiary.c$56$1_0$105	= .
+                                    155 	.globl	C$Bestiary.c$56$1_0$105
+                                    156 ;src\Bestiary.c:56: if (joypadCurrent & J_RIGHT)
       00004B CB 41            [ 8]  157 	bit	0, c
       00004D 28 28            [12]  158 	jr	Z, 00108$
-                           00004F   159 	C$Bestiary.c$52$2_0$108	= .
-                                    160 	.globl	C$Bestiary.c$52$2_0$108
-                                    161 ;src\Bestiary.c:52: if (index + 1 <= 9)
+                           00004F   159 	C$Bestiary.c$58$2_0$108	= .
+                                    160 	.globl	C$Bestiary.c$58$2_0$108
+                                    161 ;src\Bestiary.c:58: if (index + 1 <= 12)
       00004F FAr00r00         [16]  162 	ld	a, (#_index)
       000052 47               [ 4]  163 	ld	b, a
       000053 07               [ 4]  164 	rlca
@@ -172,73 +172,73 @@
       000057 23               [ 8]  172 	inc	hl
       000058 5C               [ 4]  173 	ld	e, h
       000059 16 00            [ 8]  174 	ld	d, #0x00
-      00005B 3E 09            [ 8]  175 	ld	a, #0x09
+      00005B 3E 0C            [ 8]  175 	ld	a, #0x0c
       00005D BD               [ 4]  176 	cp	a, l
       00005E 3E 00            [ 8]  177 	ld	a, #0x00
       000060 9C               [ 4]  178 	sbc	a, h
       000061 CB 7B            [ 8]  179 	bit	7, e
-      000063 28 07            [12]  180 	jr	Z, 00218$
+      000063 28 07            [12]  180 	jr	Z, 00250$
       000065 CB 7A            [ 8]  181 	bit	7, d
-      000067 20 08            [12]  182 	jr	NZ, 00219$
+      000067 20 08            [12]  182 	jr	NZ, 00251$
       000069 BF               [ 4]  183 	cp	a, a
-      00006A 18 05            [12]  184 	jr	00219$
-      00006C                        185 00218$:
+      00006A 18 05            [12]  184 	jr	00251$
+      00006C                        185 00250$:
       00006C CB 7A            [ 8]  186 	bit	7, d
-      00006E 28 01            [12]  187 	jr	Z, 00219$
+      00006E 28 01            [12]  187 	jr	Z, 00251$
       000070 37               [ 4]  188 	scf
-      000071                        189 00219$:
+      000071                        189 00251$:
       000071 38 04            [12]  190 	jr	C, 00108$
-                           000073   191 	C$Bestiary.c$54$3_0$109	= .
-                                    192 	.globl	C$Bestiary.c$54$3_0$109
-                                    193 ;src\Bestiary.c:54: index++;
+                           000073   191 	C$Bestiary.c$60$3_0$109	= .
+                                    192 	.globl	C$Bestiary.c$60$3_0$109
+                                    193 ;src\Bestiary.c:60: index++;
       000073 21r00r00         [12]  194 	ld	hl, #_index
       000076 34               [12]  195 	inc	(hl)
       000077                        196 00108$:
-                           000077   197 	C$Bestiary.c$57$1_0$105	= .
-                                    198 	.globl	C$Bestiary.c$57$1_0$105
-                                    199 ;src\Bestiary.c:57: if (joypadCurrent & J_START)
+                           000077   197 	C$Bestiary.c$63$1_0$105	= .
+                                    198 	.globl	C$Bestiary.c$63$1_0$105
+                                    199 ;src\Bestiary.c:63: if (joypadCurrent & J_START)
       000077 CB 79            [ 8]  200 	bit	7, c
       000079 28 03            [12]  201 	jr	Z, 00110$
-                           00007B   202 	C$Bestiary.c$59$2_0$110	= .
-                                    203 	.globl	C$Bestiary.c$59$2_0$110
-                                    204 ;src\Bestiary.c:59: InvertColor();
+                           00007B   202 	C$Bestiary.c$65$2_0$110	= .
+                                    203 	.globl	C$Bestiary.c$65$2_0$110
+                                    204 ;src\Bestiary.c:65: InvertColor();
       00007B CDr00r00         [24]  205 	call	_InvertColor
       00007E                        206 00110$:
-                           00007E   207 	C$Bestiary.c$73$1_0$105	= .
-                                    208 	.globl	C$Bestiary.c$73$1_0$105
-                                    209 ;src\Bestiary.c:73: if (joypadCurrent & J_SELECT)
+                           00007E   207 	C$Bestiary.c$79$1_0$105	= .
+                                    208 	.globl	C$Bestiary.c$79$1_0$105
+                                    209 ;src\Bestiary.c:79: if (joypadCurrent & J_SELECT)
       00007E FAr00r00         [16]  210 	ld	a, (#_joypadCurrent)
       000081 CB 77            [ 8]  211 	bit	6, a
       000083 28 08            [12]  212 	jr	Z, 00112$
-                           000085   213 	C$Bestiary.c$75$2_0$111	= .
-                                    214 	.globl	C$Bestiary.c$75$2_0$111
-                                    215 ;src\Bestiary.c:75: fadeToBlack(10);
+                           000085   213 	C$Bestiary.c$81$2_0$111	= .
+                                    214 	.globl	C$Bestiary.c$81$2_0$111
+                                    215 ;src\Bestiary.c:81: fadeToBlack(10);
       000085 3E 0A            [ 8]  216 	ld	a, #0x0a
       000087 CDr00r00         [24]  217 	call	_fadeToBlack
-                           00008A   218 	C$Bestiary.c$76$2_0$111	= .
-                                    219 	.globl	C$Bestiary.c$76$2_0$111
-                                    220 ;src\Bestiary.c:76: return GAMETITLE;
+                           00008A   218 	C$Bestiary.c$82$2_0$111	= .
+                                    219 	.globl	C$Bestiary.c$82$2_0$111
+                                    220 ;src\Bestiary.c:82: return GAMETITLE;
       00008A 3E 01            [ 8]  221 	ld	a, #0x01
       00008C C9               [16]  222 	ret
       00008D                        223 00112$:
-                           00008D   224 	C$Bestiary.c$78$1_0$105	= .
-                                    225 	.globl	C$Bestiary.c$78$1_0$105
-                                    226 ;src\Bestiary.c:78: if (index == 0) // JIM
+                           00008D   224 	C$Bestiary.c$84$1_0$105	= .
+                                    225 	.globl	C$Bestiary.c$84$1_0$105
+                                    226 ;src\Bestiary.c:84: if (index == 0) // JIM
       00008D FAr00r00         [16]  227 	ld	a, (#_index)
       000090 B7               [ 4]  228 	or	a, a
-      000091 20 7B            [12]  229 	jr	NZ, 00137$
-                           000093   230 	C$Bestiary.c$80$2_0$112	= .
-                                    231 	.globl	C$Bestiary.c$80$2_0$112
-                                    232 ;src\Bestiary.c:80: set_bkg_data(128, 79, Crow_Tiles); // init with crow monster
+      000091 20 7B            [12]  229 	jr	NZ, 00149$
+                           000093   230 	C$Bestiary.c$86$2_0$112	= .
+                                    231 	.globl	C$Bestiary.c$86$2_0$112
+                                    232 ;src\Bestiary.c:86: set_bkg_data(128, 79, Crow_Tiles); // init with crow monster
       000093 11r00r00         [12]  233 	ld	de, #_Crow_Tiles
       000096 D5               [16]  234 	push	de
       000097 21 80 4F         [12]  235 	ld	hl, #0x4f80
       00009A E5               [16]  236 	push	hl
       00009B CDr00r00         [24]  237 	call	_set_bkg_data
       00009E E8 04            [16]  238 	add	sp, #4
-                           0000A0   239 	C$Bestiary.c$81$2_0$112	= .
-                                    240 	.globl	C$Bestiary.c$81$2_0$112
-                                    241 ;src\Bestiary.c:81: set_bkg_tiles(2, 4, Crow_MapWidth, Crow_MapHeight, Crow_Map); // draw Crow monster
+                           0000A0   239 	C$Bestiary.c$87$2_0$112	= .
+                                    240 	.globl	C$Bestiary.c$87$2_0$112
+                                    241 ;src\Bestiary.c:87: set_bkg_tiles(2, 4, Crow_MapWidth, Crow_MapHeight, Crow_Map); // draw Crow monster
       0000A0 11r00r00         [12]  242 	ld	de, #_Crow_Map
       0000A3 D5               [16]  243 	push	de
       0000A4 21 05 07         [12]  244 	ld	hl, #0x705
@@ -247,9 +247,9 @@
       0000AB E5               [16]  247 	push	hl
       0000AC CDr00r00         [24]  248 	call	_set_bkg_tiles
       0000AF E8 06            [16]  249 	add	sp, #6
-                           0000B1   250 	C$Bestiary.c$82$2_0$112	= .
-                                    251 	.globl	C$Bestiary.c$82$2_0$112
-                                    252 ;src\Bestiary.c:82: DrawNumber(4, 0, 0, 3);     // ID
+                           0000B1   250 	C$Bestiary.c$88$2_0$112	= .
+                                    251 	.globl	C$Bestiary.c$88$2_0$112
+                                    252 ;src\Bestiary.c:88: DrawNumber(4, 0, 0, 3);     // ID
       0000B1 3E 03            [ 8]  253 	ld	a, #0x03
       0000B3 F5               [16]  254 	push	af
       0000B4 33               [ 8]  255 	inc	sp
@@ -258,9 +258,9 @@
       0000B9 1E 00            [ 8]  258 	ld	e, #0x00
       0000BB 3E 04            [ 8]  259 	ld	a, #0x04
       0000BD CDr00r00         [24]  260 	call	_DrawNumber
-                           0000C0   261 	C$Bestiary.c$84$2_0$112	= .
-                                    262 	.globl	C$Bestiary.c$84$2_0$112
-                                    263 ;src\Bestiary.c:84: DrawNumber(17, 2, 3, 1);    // ATTACK
+                           0000C0   261 	C$Bestiary.c$90$2_0$112	= .
+                                    262 	.globl	C$Bestiary.c$90$2_0$112
+                                    263 ;src\Bestiary.c:90: DrawNumber(17, 2, 3, 1);    // ATTACK
       0000C0 3E 01            [ 8]  264 	ld	a, #0x01
       0000C2 F5               [16]  265 	push	af
       0000C3 33               [ 8]  266 	inc	sp
@@ -269,9 +269,9 @@
       0000C8 1E 02            [ 8]  269 	ld	e, #0x02
       0000CA 3E 11            [ 8]  270 	ld	a, #0x11
       0000CC CDr00r00         [24]  271 	call	_DrawNumber
-                           0000CF   272 	C$Bestiary.c$85$2_0$112	= .
-                                    273 	.globl	C$Bestiary.c$85$2_0$112
-                                    274 ;src\Bestiary.c:85: DrawNumber(17, 4, 2, 1);    // DEFENSE
+                           0000CF   272 	C$Bestiary.c$91$2_0$112	= .
+                                    273 	.globl	C$Bestiary.c$91$2_0$112
+                                    274 ;src\Bestiary.c:91: DrawNumber(17, 4, 2, 1);    // DEFENSE
       0000CF 3E 01            [ 8]  275 	ld	a, #0x01
       0000D1 F5               [16]  276 	push	af
       0000D2 33               [ 8]  277 	inc	sp
@@ -280,9 +280,9 @@
       0000D7 1E 04            [ 8]  280 	ld	e, #0x04
       0000D9 3E 11            [ 8]  281 	ld	a, #0x11
       0000DB CDr00r00         [24]  282 	call	_DrawNumber
-                           0000DE   283 	C$Bestiary.c$86$2_0$112	= .
-                                    284 	.globl	C$Bestiary.c$86$2_0$112
-                                    285 ;src\Bestiary.c:86: DrawNumber(17, 6, 1, 1);    // SPECIAL
+                           0000DE   283 	C$Bestiary.c$92$2_0$112	= .
+                                    284 	.globl	C$Bestiary.c$92$2_0$112
+                                    285 ;src\Bestiary.c:92: DrawNumber(17, 6, 1, 1);    // SPECIAL
       0000DE 3E 01            [ 8]  286 	ld	a, #0x01
       0000E0 F5               [16]  287 	push	af
       0000E1 33               [ 8]  288 	inc	sp
@@ -291,9 +291,9 @@
       0000E6 1E 06            [ 8]  291 	ld	e, #0x06
       0000E8 3E 11            [ 8]  292 	ld	a, #0x11
       0000EA CDr00r00         [24]  293 	call	_DrawNumber
-                           0000ED   294 	C$Bestiary.c$87$2_0$112	= .
-                                    295 	.globl	C$Bestiary.c$87$2_0$112
-                                    296 ;src\Bestiary.c:87: DrawNumber(17, 8, 4, 1);    // SPEED
+                           0000ED   294 	C$Bestiary.c$93$2_0$112	= .
+                                    295 	.globl	C$Bestiary.c$93$2_0$112
+                                    296 ;src\Bestiary.c:93: DrawNumber(17, 8, 4, 1);    // SPEED
       0000ED 3E 01            [ 8]  297 	ld	a, #0x01
       0000EF F5               [16]  298 	push	af
       0000F0 33               [ 8]  299 	inc	sp
@@ -302,9 +302,9 @@
       0000F5 1E 08            [ 8]  302 	ld	e, #0x08
       0000F7 3E 11            [ 8]  303 	ld	a, #0x11
       0000F9 CDr00r00         [24]  304 	call	_DrawNumber
-                           0000FC   305 	C$Bestiary.c$88$2_0$112	= .
-                                    306 	.globl	C$Bestiary.c$88$2_0$112
-                                    307 ;src\Bestiary.c:88: DrawNumber(17, 10, 5, 1);   // EXP.
+                           0000FC   305 	C$Bestiary.c$94$2_0$112	= .
+                                    306 	.globl	C$Bestiary.c$94$2_0$112
+                                    307 ;src\Bestiary.c:94: DrawNumber(17, 10, 5, 1);   // EXP.
       0000FC 3E 01            [ 8]  308 	ld	a, #0x01
       0000FE F5               [16]  309 	push	af
       0000FF 33               [ 8]  310 	inc	sp
@@ -313,26 +313,26 @@
       000104 1E 0A            [ 8]  313 	ld	e, #0x0a
       000106 3E 11            [ 8]  314 	ld	a, #0x11
       000108 CDr00r00         [24]  315 	call	_DrawNumber
-      00010B C3r1Ar05         [16]  316 	jp	00138$
-      00010E                        317 00137$:
-                           00010E   318 	C$Bestiary.c$90$1_0$105	= .
-                                    319 	.globl	C$Bestiary.c$90$1_0$105
-                                    320 ;src\Bestiary.c:90: else if (index == 1) // Gypsy
+      00010B C3r22r07         [16]  316 	jp	00150$
+      00010E                        317 00149$:
+                           00010E   318 	C$Bestiary.c$96$1_0$105	= .
+                                    319 	.globl	C$Bestiary.c$96$1_0$105
+                                    320 ;src\Bestiary.c:96: else if (index == 1) // Gypsy
       00010E FAr00r00         [16]  321 	ld	a, (#_index)
       000111 3D               [ 4]  322 	dec	a
-      000112 20 7B            [12]  323 	jr	NZ, 00134$
-                           000114   324 	C$Bestiary.c$92$2_0$113	= .
-                                    325 	.globl	C$Bestiary.c$92$2_0$113
-                                    326 ;src\Bestiary.c:92: set_bkg_data(128, 79, GypsyTiles); 
+      000112 20 7B            [12]  323 	jr	NZ, 00146$
+                           000114   324 	C$Bestiary.c$98$2_0$113	= .
+                                    325 	.globl	C$Bestiary.c$98$2_0$113
+                                    326 ;src\Bestiary.c:98: set_bkg_data(128, 79, GypsyTiles); 
       000114 11r00r00         [12]  327 	ld	de, #_GypsyTiles
       000117 D5               [16]  328 	push	de
       000118 21 80 4F         [12]  329 	ld	hl, #0x4f80
       00011B E5               [16]  330 	push	hl
       00011C CDr00r00         [24]  331 	call	_set_bkg_data
       00011F E8 04            [16]  332 	add	sp, #4
-                           000121   333 	C$Bestiary.c$93$2_0$113	= .
-                                    334 	.globl	C$Bestiary.c$93$2_0$113
-                                    335 ;src\Bestiary.c:93: set_bkg_tiles(2, 4, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
+                           000121   333 	C$Bestiary.c$99$2_0$113	= .
+                                    334 	.globl	C$Bestiary.c$99$2_0$113
+                                    335 ;src\Bestiary.c:99: set_bkg_tiles(2, 4, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
       000121 11r00r00         [12]  336 	ld	de, #_Gypsy_Map
       000124 D5               [16]  337 	push	de
       000125 21 06 07         [12]  338 	ld	hl, #0x706
@@ -341,9 +341,9 @@
       00012C E5               [16]  341 	push	hl
       00012D CDr00r00         [24]  342 	call	_set_bkg_tiles
       000130 E8 06            [16]  343 	add	sp, #6
-                           000132   344 	C$Bestiary.c$94$2_0$113	= .
-                                    345 	.globl	C$Bestiary.c$94$2_0$113
-                                    346 ;src\Bestiary.c:94: DrawNumber(4, 0, 1, 3);     // ID
+                           000132   344 	C$Bestiary.c$100$2_0$113	= .
+                                    345 	.globl	C$Bestiary.c$100$2_0$113
+                                    346 ;src\Bestiary.c:100: DrawNumber(4, 0, 1, 3);     // ID
       000132 3E 03            [ 8]  347 	ld	a, #0x03
       000134 F5               [16]  348 	push	af
       000135 33               [ 8]  349 	inc	sp
@@ -352,9 +352,9 @@
       00013A 1E 00            [ 8]  352 	ld	e, #0x00
       00013C 3E 04            [ 8]  353 	ld	a, #0x04
       00013E CDr00r00         [24]  354 	call	_DrawNumber
-                           000141   355 	C$Bestiary.c$96$2_0$113	= .
-                                    356 	.globl	C$Bestiary.c$96$2_0$113
-                                    357 ;src\Bestiary.c:96: DrawNumber(17, 2, 2, 1);    // ATTACK
+                           000141   355 	C$Bestiary.c$102$2_0$113	= .
+                                    356 	.globl	C$Bestiary.c$102$2_0$113
+                                    357 ;src\Bestiary.c:102: DrawNumber(17, 2, 2, 1);    // ATTACK
       000141 3E 01            [ 8]  358 	ld	a, #0x01
       000143 F5               [16]  359 	push	af
       000144 33               [ 8]  360 	inc	sp
@@ -363,9 +363,9 @@
       000149 1E 02            [ 8]  363 	ld	e, #0x02
       00014B 3E 11            [ 8]  364 	ld	a, #0x11
       00014D CDr00r00         [24]  365 	call	_DrawNumber
-                           000150   366 	C$Bestiary.c$97$2_0$113	= .
-                                    367 	.globl	C$Bestiary.c$97$2_0$113
-                                    368 ;src\Bestiary.c:97: DrawNumber(17, 4, 2, 1);    // DEFENSE
+                           000150   366 	C$Bestiary.c$103$2_0$113	= .
+                                    367 	.globl	C$Bestiary.c$103$2_0$113
+                                    368 ;src\Bestiary.c:103: DrawNumber(17, 4, 2, 1);    // DEFENSE
       000150 3E 01            [ 8]  369 	ld	a, #0x01
       000152 F5               [16]  370 	push	af
       000153 33               [ 8]  371 	inc	sp
@@ -374,9 +374,9 @@
       000158 1E 04            [ 8]  374 	ld	e, #0x04
       00015A 3E 11            [ 8]  375 	ld	a, #0x11
       00015C CDr00r00         [24]  376 	call	_DrawNumber
-                           00015F   377 	C$Bestiary.c$98$2_0$113	= .
-                                    378 	.globl	C$Bestiary.c$98$2_0$113
-                                    379 ;src\Bestiary.c:98: DrawNumber(17, 6, 3, 1);    // SPECIAL
+                           00015F   377 	C$Bestiary.c$104$2_0$113	= .
+                                    378 	.globl	C$Bestiary.c$104$2_0$113
+                                    379 ;src\Bestiary.c:104: DrawNumber(17, 6, 3, 1);    // SPECIAL
       00015F 3E 01            [ 8]  380 	ld	a, #0x01
       000161 F5               [16]  381 	push	af
       000162 33               [ 8]  382 	inc	sp
@@ -385,9 +385,9 @@
       000167 1E 06            [ 8]  385 	ld	e, #0x06
       000169 3E 11            [ 8]  386 	ld	a, #0x11
       00016B CDr00r00         [24]  387 	call	_DrawNumber
-                           00016E   388 	C$Bestiary.c$99$2_0$113	= .
-                                    389 	.globl	C$Bestiary.c$99$2_0$113
-                                    390 ;src\Bestiary.c:99: DrawNumber(17, 8, 2, 1);    // SPEED
+                           00016E   388 	C$Bestiary.c$105$2_0$113	= .
+                                    389 	.globl	C$Bestiary.c$105$2_0$113
+                                    390 ;src\Bestiary.c:105: DrawNumber(17, 8, 2, 1);    // SPEED
       00016E 3E 01            [ 8]  391 	ld	a, #0x01
       000170 F5               [16]  392 	push	af
       000171 33               [ 8]  393 	inc	sp
@@ -396,9 +396,9 @@
       000176 1E 08            [ 8]  396 	ld	e, #0x08
       000178 3E 11            [ 8]  397 	ld	a, #0x11
       00017A CDr00r00         [24]  398 	call	_DrawNumber
-                           00017D   399 	C$Bestiary.c$100$2_0$113	= .
-                                    400 	.globl	C$Bestiary.c$100$2_0$113
-                                    401 ;src\Bestiary.c:100: DrawNumber(17, 10, 7, 1);   // EXP.
+                           00017D   399 	C$Bestiary.c$106$2_0$113	= .
+                                    400 	.globl	C$Bestiary.c$106$2_0$113
+                                    401 ;src\Bestiary.c:106: DrawNumber(17, 10, 7, 1);   // EXP.
       00017D 3E 01            [ 8]  402 	ld	a, #0x01
       00017F F5               [16]  403 	push	af
       000180 33               [ 8]  404 	inc	sp
@@ -407,26 +407,26 @@
       000185 1E 0A            [ 8]  407 	ld	e, #0x0a
       000187 3E 11            [ 8]  408 	ld	a, #0x11
       000189 CDr00r00         [24]  409 	call	_DrawNumber
-      00018C C3r1Ar05         [16]  410 	jp	00138$
-      00018F                        411 00134$:
-                           00018F   412 	C$Bestiary.c$102$1_0$105	= .
-                                    413 	.globl	C$Bestiary.c$102$1_0$105
-                                    414 ;src\Bestiary.c:102: else if (index == 2) // Wally
+      00018C C3r22r07         [16]  410 	jp	00150$
+      00018F                        411 00146$:
+                           00018F   412 	C$Bestiary.c$108$1_0$105	= .
+                                    413 	.globl	C$Bestiary.c$108$1_0$105
+                                    414 ;src\Bestiary.c:108: else if (index == 2) // Wally
       00018F FAr00r00         [16]  415 	ld	a, (#_index)
       000192 D6 02            [ 8]  416 	sub	a, #0x02
-      000194 20 7B            [12]  417 	jr	NZ, 00131$
-                           000196   418 	C$Bestiary.c$104$2_0$114	= .
-                                    419 	.globl	C$Bestiary.c$104$2_0$114
-                                    420 ;src\Bestiary.c:104: set_bkg_data(128, 79, WallyTiles); 
+      000194 20 7B            [12]  417 	jr	NZ, 00143$
+                           000196   418 	C$Bestiary.c$110$2_0$114	= .
+                                    419 	.globl	C$Bestiary.c$110$2_0$114
+                                    420 ;src\Bestiary.c:110: set_bkg_data(128, 79, WallyTiles); 
       000196 11r00r00         [12]  421 	ld	de, #_WallyTiles
       000199 D5               [16]  422 	push	de
       00019A 21 80 4F         [12]  423 	ld	hl, #0x4f80
       00019D E5               [16]  424 	push	hl
       00019E CDr00r00         [24]  425 	call	_set_bkg_data
       0001A1 E8 04            [16]  426 	add	sp, #4
-                           0001A3   427 	C$Bestiary.c$105$2_0$114	= .
-                                    428 	.globl	C$Bestiary.c$105$2_0$114
-                                    429 ;src\Bestiary.c:105: set_bkg_tiles(2, 4, Wally_MapWidth, Wally_MapHeight, Wally_Map); 
+                           0001A3   427 	C$Bestiary.c$111$2_0$114	= .
+                                    428 	.globl	C$Bestiary.c$111$2_0$114
+                                    429 ;src\Bestiary.c:111: set_bkg_tiles(2, 4, Wally_MapWidth, Wally_MapHeight, Wally_Map); 
       0001A3 11r00r00         [12]  430 	ld	de, #_Wally_Map
       0001A6 D5               [16]  431 	push	de
       0001A7 21 05 06         [12]  432 	ld	hl, #0x605
@@ -435,9 +435,9 @@
       0001AE E5               [16]  435 	push	hl
       0001AF CDr00r00         [24]  436 	call	_set_bkg_tiles
       0001B2 E8 06            [16]  437 	add	sp, #6
-                           0001B4   438 	C$Bestiary.c$106$2_0$114	= .
-                                    439 	.globl	C$Bestiary.c$106$2_0$114
-                                    440 ;src\Bestiary.c:106: DrawNumber(4, 0, 2, 3);     // ID
+                           0001B4   438 	C$Bestiary.c$112$2_0$114	= .
+                                    439 	.globl	C$Bestiary.c$112$2_0$114
+                                    440 ;src\Bestiary.c:112: DrawNumber(4, 0, 2, 3);     // ID
       0001B4 3E 03            [ 8]  441 	ld	a, #0x03
       0001B6 F5               [16]  442 	push	af
       0001B7 33               [ 8]  443 	inc	sp
@@ -446,9 +446,9 @@
       0001BC 1E 00            [ 8]  446 	ld	e, #0x00
       0001BE 3E 04            [ 8]  447 	ld	a, #0x04
       0001C0 CDr00r00         [24]  448 	call	_DrawNumber
-                           0001C3   449 	C$Bestiary.c$108$2_0$114	= .
-                                    450 	.globl	C$Bestiary.c$108$2_0$114
-                                    451 ;src\Bestiary.c:108: DrawNumber(17, 2, 4, 1);    // ATTACK
+                           0001C3   449 	C$Bestiary.c$114$2_0$114	= .
+                                    450 	.globl	C$Bestiary.c$114$2_0$114
+                                    451 ;src\Bestiary.c:114: DrawNumber(17, 2, 4, 1);    // ATTACK
       0001C3 3E 01            [ 8]  452 	ld	a, #0x01
       0001C5 F5               [16]  453 	push	af
       0001C6 33               [ 8]  454 	inc	sp
@@ -457,9 +457,9 @@
       0001CB 1E 02            [ 8]  457 	ld	e, #0x02
       0001CD 3E 11            [ 8]  458 	ld	a, #0x11
       0001CF CDr00r00         [24]  459 	call	_DrawNumber
-                           0001D2   460 	C$Bestiary.c$109$2_0$114	= .
-                                    461 	.globl	C$Bestiary.c$109$2_0$114
-                                    462 ;src\Bestiary.c:109: DrawNumber(17, 4, 4, 1);    // DEFENSE
+                           0001D2   460 	C$Bestiary.c$115$2_0$114	= .
+                                    461 	.globl	C$Bestiary.c$115$2_0$114
+                                    462 ;src\Bestiary.c:115: DrawNumber(17, 4, 4, 1);    // DEFENSE
       0001D2 3E 01            [ 8]  463 	ld	a, #0x01
       0001D4 F5               [16]  464 	push	af
       0001D5 33               [ 8]  465 	inc	sp
@@ -468,9 +468,9 @@
       0001DA 1E 04            [ 8]  468 	ld	e, #0x04
       0001DC 3E 11            [ 8]  469 	ld	a, #0x11
       0001DE CDr00r00         [24]  470 	call	_DrawNumber
-                           0001E1   471 	C$Bestiary.c$110$2_0$114	= .
-                                    472 	.globl	C$Bestiary.c$110$2_0$114
-                                    473 ;src\Bestiary.c:110: DrawNumber(17, 6, 4, 1);    // SPECIAL
+                           0001E1   471 	C$Bestiary.c$116$2_0$114	= .
+                                    472 	.globl	C$Bestiary.c$116$2_0$114
+                                    473 ;src\Bestiary.c:116: DrawNumber(17, 6, 4, 1);    // SPECIAL
       0001E1 3E 01            [ 8]  474 	ld	a, #0x01
       0001E3 F5               [16]  475 	push	af
       0001E4 33               [ 8]  476 	inc	sp
@@ -479,9 +479,9 @@
       0001E9 1E 06            [ 8]  479 	ld	e, #0x06
       0001EB 3E 11            [ 8]  480 	ld	a, #0x11
       0001ED CDr00r00         [24]  481 	call	_DrawNumber
-                           0001F0   482 	C$Bestiary.c$111$2_0$114	= .
-                                    483 	.globl	C$Bestiary.c$111$2_0$114
-                                    484 ;src\Bestiary.c:111: DrawNumber(17, 8, 4, 1);    // SPEED
+                           0001F0   482 	C$Bestiary.c$117$2_0$114	= .
+                                    483 	.globl	C$Bestiary.c$117$2_0$114
+                                    484 ;src\Bestiary.c:117: DrawNumber(17, 8, 4, 1);    // SPEED
       0001F0 3E 01            [ 8]  485 	ld	a, #0x01
       0001F2 F5               [16]  486 	push	af
       0001F3 33               [ 8]  487 	inc	sp
@@ -490,9 +490,9 @@
       0001F8 1E 08            [ 8]  490 	ld	e, #0x08
       0001FA 3E 11            [ 8]  491 	ld	a, #0x11
       0001FC CDr00r00         [24]  492 	call	_DrawNumber
-                           0001FF   493 	C$Bestiary.c$112$2_0$114	= .
-                                    494 	.globl	C$Bestiary.c$112$2_0$114
-                                    495 ;src\Bestiary.c:112: DrawNumber(16, 10, 12, 2);   // EXP.
+                           0001FF   493 	C$Bestiary.c$118$2_0$114	= .
+                                    494 	.globl	C$Bestiary.c$118$2_0$114
+                                    495 ;src\Bestiary.c:118: DrawNumber(16, 10, 12, 2);   // EXP.
       0001FF 3E 02            [ 8]  496 	ld	a, #0x02
       000201 F5               [16]  497 	push	af
       000202 33               [ 8]  498 	inc	sp
@@ -501,26 +501,26 @@
       000207 1E 0A            [ 8]  501 	ld	e, #0x0a
       000209 3E 10            [ 8]  502 	ld	a, #0x10
       00020B CDr00r00         [24]  503 	call	_DrawNumber
-      00020E C3r1Ar05         [16]  504 	jp	00138$
-      000211                        505 00131$:
-                           000211   506 	C$Bestiary.c$114$1_0$105	= .
-                                    507 	.globl	C$Bestiary.c$114$1_0$105
-                                    508 ;src\Bestiary.c:114: else if (index == 3)
+      00020E C3r22r07         [16]  504 	jp	00150$
+      000211                        505 00143$:
+                           000211   506 	C$Bestiary.c$120$1_0$105	= .
+                                    507 	.globl	C$Bestiary.c$120$1_0$105
+                                    508 ;src\Bestiary.c:120: else if (index == 3)
       000211 FAr00r00         [16]  509 	ld	a, (#_index)
       000214 D6 03            [ 8]  510 	sub	a, #0x03
-      000216 20 7B            [12]  511 	jr	NZ, 00128$
-                           000218   512 	C$Bestiary.c$116$2_0$115	= .
-                                    513 	.globl	C$Bestiary.c$116$2_0$115
-                                    514 ;src\Bestiary.c:116: set_bkg_data(128, 20, Tick_Tiles);
+      000216 20 7B            [12]  511 	jr	NZ, 00140$
+                           000218   512 	C$Bestiary.c$122$2_0$115	= .
+                                    513 	.globl	C$Bestiary.c$122$2_0$115
+                                    514 ;src\Bestiary.c:122: set_bkg_data(128, 20, Tick_Tiles);
       000218 11r00r00         [12]  515 	ld	de, #_Tick_Tiles
       00021B D5               [16]  516 	push	de
       00021C 21 80 14         [12]  517 	ld	hl, #0x1480
       00021F E5               [16]  518 	push	hl
       000220 CDr00r00         [24]  519 	call	_set_bkg_data
       000223 E8 04            [16]  520 	add	sp, #4
-                           000225   521 	C$Bestiary.c$117$2_0$115	= .
-                                    522 	.globl	C$Bestiary.c$117$2_0$115
-                                    523 ;src\Bestiary.c:117: set_bkg_tiles(2, 4, Tick_MapWidth, Tick_MapHeight, Tick_Map);
+                           000225   521 	C$Bestiary.c$123$2_0$115	= .
+                                    522 	.globl	C$Bestiary.c$123$2_0$115
+                                    523 ;src\Bestiary.c:123: set_bkg_tiles(2, 4, Tick_MapWidth, Tick_MapHeight, Tick_Map);
       000225 11r00r00         [12]  524 	ld	de, #_Tick_Map
       000228 D5               [16]  525 	push	de
       000229 21 05 05         [12]  526 	ld	hl, #0x505
@@ -529,9 +529,9 @@
       000230 E5               [16]  529 	push	hl
       000231 CDr00r00         [24]  530 	call	_set_bkg_tiles
       000234 E8 06            [16]  531 	add	sp, #6
-                           000236   532 	C$Bestiary.c$118$2_0$115	= .
-                                    533 	.globl	C$Bestiary.c$118$2_0$115
-                                    534 ;src\Bestiary.c:118: DrawNumber(4, 0, 3, 3);     // ID
+                           000236   532 	C$Bestiary.c$124$2_0$115	= .
+                                    533 	.globl	C$Bestiary.c$124$2_0$115
+                                    534 ;src\Bestiary.c:124: DrawNumber(4, 0, 3, 3);     // ID
       000236 3E 03            [ 8]  535 	ld	a, #0x03
       000238 F5               [16]  536 	push	af
       000239 33               [ 8]  537 	inc	sp
@@ -540,9 +540,9 @@
       00023E 1E 00            [ 8]  540 	ld	e, #0x00
       000240 3E 04            [ 8]  541 	ld	a, #0x04
       000242 CDr00r00         [24]  542 	call	_DrawNumber
-                           000245   543 	C$Bestiary.c$120$2_0$115	= .
-                                    544 	.globl	C$Bestiary.c$120$2_0$115
-                                    545 ;src\Bestiary.c:120: DrawNumber(17, 2, 4, 1);    // ATTACK
+                           000245   543 	C$Bestiary.c$126$2_0$115	= .
+                                    544 	.globl	C$Bestiary.c$126$2_0$115
+                                    545 ;src\Bestiary.c:126: DrawNumber(17, 2, 4, 1);    // ATTACK
       000245 3E 01            [ 8]  546 	ld	a, #0x01
       000247 F5               [16]  547 	push	af
       000248 33               [ 8]  548 	inc	sp
@@ -551,9 +551,9 @@
       00024D 1E 02            [ 8]  551 	ld	e, #0x02
       00024F 3E 11            [ 8]  552 	ld	a, #0x11
       000251 CDr00r00         [24]  553 	call	_DrawNumber
-                           000254   554 	C$Bestiary.c$121$2_0$115	= .
-                                    555 	.globl	C$Bestiary.c$121$2_0$115
-                                    556 ;src\Bestiary.c:121: DrawNumber(17, 4, 7, 1);    // DEFENSE
+                           000254   554 	C$Bestiary.c$127$2_0$115	= .
+                                    555 	.globl	C$Bestiary.c$127$2_0$115
+                                    556 ;src\Bestiary.c:127: DrawNumber(17, 4, 7, 1);    // DEFENSE
       000254 3E 01            [ 8]  557 	ld	a, #0x01
       000256 F5               [16]  558 	push	af
       000257 33               [ 8]  559 	inc	sp
@@ -562,9 +562,9 @@
       00025C 1E 04            [ 8]  562 	ld	e, #0x04
       00025E 3E 11            [ 8]  563 	ld	a, #0x11
       000260 CDr00r00         [24]  564 	call	_DrawNumber
-                           000263   565 	C$Bestiary.c$122$2_0$115	= .
-                                    566 	.globl	C$Bestiary.c$122$2_0$115
-                                    567 ;src\Bestiary.c:122: DrawNumber(17, 6, 3, 1);    // SPECIAL
+                           000263   565 	C$Bestiary.c$128$2_0$115	= .
+                                    566 	.globl	C$Bestiary.c$128$2_0$115
+                                    567 ;src\Bestiary.c:128: DrawNumber(17, 6, 3, 1);    // SPECIAL
       000263 3E 01            [ 8]  568 	ld	a, #0x01
       000265 F5               [16]  569 	push	af
       000266 33               [ 8]  570 	inc	sp
@@ -573,9 +573,9 @@
       00026B 1E 06            [ 8]  573 	ld	e, #0x06
       00026D 3E 11            [ 8]  574 	ld	a, #0x11
       00026F CDr00r00         [24]  575 	call	_DrawNumber
-                           000272   576 	C$Bestiary.c$123$2_0$115	= .
-                                    577 	.globl	C$Bestiary.c$123$2_0$115
-                                    578 ;src\Bestiary.c:123: DrawNumber(17, 8, 2, 1);    // SPEED
+                           000272   576 	C$Bestiary.c$129$2_0$115	= .
+                                    577 	.globl	C$Bestiary.c$129$2_0$115
+                                    578 ;src\Bestiary.c:129: DrawNumber(17, 8, 2, 1);    // SPEED
       000272 3E 01            [ 8]  579 	ld	a, #0x01
       000274 F5               [16]  580 	push	af
       000275 33               [ 8]  581 	inc	sp
@@ -584,9 +584,9 @@
       00027A 1E 08            [ 8]  584 	ld	e, #0x08
       00027C 3E 11            [ 8]  585 	ld	a, #0x11
       00027E CDr00r00         [24]  586 	call	_DrawNumber
-                           000281   587 	C$Bestiary.c$124$2_0$115	= .
-                                    588 	.globl	C$Bestiary.c$124$2_0$115
-                                    589 ;src\Bestiary.c:124: DrawNumber(16, 10, 16, 2);   // EXP.
+                           000281   587 	C$Bestiary.c$130$2_0$115	= .
+                                    588 	.globl	C$Bestiary.c$130$2_0$115
+                                    589 ;src\Bestiary.c:130: DrawNumber(16, 10, 16, 2);   // EXP.
       000281 3E 02            [ 8]  590 	ld	a, #0x02
       000283 F5               [16]  591 	push	af
       000284 33               [ 8]  592 	inc	sp
@@ -595,26 +595,26 @@
       000289 1E 0A            [ 8]  595 	ld	e, #0x0a
       00028B 3E 10            [ 8]  596 	ld	a, #0x10
       00028D CDr00r00         [24]  597 	call	_DrawNumber
-      000290 C3r1Ar05         [16]  598 	jp	00138$
-      000293                        599 00128$:
-                           000293   600 	C$Bestiary.c$126$1_0$105	= .
-                                    601 	.globl	C$Bestiary.c$126$1_0$105
-                                    602 ;src\Bestiary.c:126: else if (index == 4)
+      000290 C3r22r07         [16]  598 	jp	00150$
+      000293                        599 00140$:
+                           000293   600 	C$Bestiary.c$132$1_0$105	= .
+                                    601 	.globl	C$Bestiary.c$132$1_0$105
+                                    602 ;src\Bestiary.c:132: else if (index == 4)
       000293 FAr00r00         [16]  603 	ld	a, (#_index)
       000296 D6 04            [ 8]  604 	sub	a, #0x04
-      000298 20 7B            [12]  605 	jr	NZ, 00125$
-                           00029A   606 	C$Bestiary.c$128$2_0$116	= .
-                                    607 	.globl	C$Bestiary.c$128$2_0$116
-                                    608 ;src\Bestiary.c:128: set_bkg_data(128, 39, Cop_Tiles);
+      000298 20 7B            [12]  605 	jr	NZ, 00137$
+                           00029A   606 	C$Bestiary.c$134$2_0$116	= .
+                                    607 	.globl	C$Bestiary.c$134$2_0$116
+                                    608 ;src\Bestiary.c:134: set_bkg_data(128, 39, Cop_Tiles);
       00029A 11r00r00         [12]  609 	ld	de, #_Cop_Tiles
       00029D D5               [16]  610 	push	de
       00029E 21 80 27         [12]  611 	ld	hl, #0x2780
       0002A1 E5               [16]  612 	push	hl
       0002A2 CDr00r00         [24]  613 	call	_set_bkg_data
       0002A5 E8 04            [16]  614 	add	sp, #4
-                           0002A7   615 	C$Bestiary.c$129$2_0$116	= .
-                                    616 	.globl	C$Bestiary.c$129$2_0$116
-                                    617 ;src\Bestiary.c:129: set_bkg_tiles(2, 4, Officer_MapWidth, Officer_MapHeight, Officer_Map);
+                           0002A7   615 	C$Bestiary.c$135$2_0$116	= .
+                                    616 	.globl	C$Bestiary.c$135$2_0$116
+                                    617 ;src\Bestiary.c:135: set_bkg_tiles(2, 4, Officer_MapWidth, Officer_MapHeight, Officer_Map);
       0002A7 11r00r00         [12]  618 	ld	de, #_Officer_Map
       0002AA D5               [16]  619 	push	de
       0002AB 21 06 07         [12]  620 	ld	hl, #0x706
@@ -623,9 +623,9 @@
       0002B2 E5               [16]  623 	push	hl
       0002B3 CDr00r00         [24]  624 	call	_set_bkg_tiles
       0002B6 E8 06            [16]  625 	add	sp, #6
-                           0002B8   626 	C$Bestiary.c$130$2_0$116	= .
-                                    627 	.globl	C$Bestiary.c$130$2_0$116
-                                    628 ;src\Bestiary.c:130: DrawNumber(4, 0, 4, 3);     // ID
+                           0002B8   626 	C$Bestiary.c$136$2_0$116	= .
+                                    627 	.globl	C$Bestiary.c$136$2_0$116
+                                    628 ;src\Bestiary.c:136: DrawNumber(4, 0, 4, 3);     // ID
       0002B8 3E 03            [ 8]  629 	ld	a, #0x03
       0002BA F5               [16]  630 	push	af
       0002BB 33               [ 8]  631 	inc	sp
@@ -634,9 +634,9 @@
       0002C0 1E 00            [ 8]  634 	ld	e, #0x00
       0002C2 3E 04            [ 8]  635 	ld	a, #0x04
       0002C4 CDr00r00         [24]  636 	call	_DrawNumber
-                           0002C7   637 	C$Bestiary.c$132$2_0$116	= .
-                                    638 	.globl	C$Bestiary.c$132$2_0$116
-                                    639 ;src\Bestiary.c:132: DrawNumber(17, 2, 9, 1);    // ATTACK
+                           0002C7   637 	C$Bestiary.c$138$2_0$116	= .
+                                    638 	.globl	C$Bestiary.c$138$2_0$116
+                                    639 ;src\Bestiary.c:138: DrawNumber(17, 2, 9, 1);    // ATTACK
       0002C7 3E 01            [ 8]  640 	ld	a, #0x01
       0002C9 F5               [16]  641 	push	af
       0002CA 33               [ 8]  642 	inc	sp
@@ -645,9 +645,9 @@
       0002CF 1E 02            [ 8]  645 	ld	e, #0x02
       0002D1 3E 11            [ 8]  646 	ld	a, #0x11
       0002D3 CDr00r00         [24]  647 	call	_DrawNumber
-                           0002D6   648 	C$Bestiary.c$133$2_0$116	= .
-                                    649 	.globl	C$Bestiary.c$133$2_0$116
-                                    650 ;src\Bestiary.c:133: DrawNumber(17, 4, 5, 1);    // DEFENSE
+                           0002D6   648 	C$Bestiary.c$139$2_0$116	= .
+                                    649 	.globl	C$Bestiary.c$139$2_0$116
+                                    650 ;src\Bestiary.c:139: DrawNumber(17, 4, 5, 1);    // DEFENSE
       0002D6 3E 01            [ 8]  651 	ld	a, #0x01
       0002D8 F5               [16]  652 	push	af
       0002D9 33               [ 8]  653 	inc	sp
@@ -656,9 +656,9 @@
       0002DE 1E 04            [ 8]  656 	ld	e, #0x04
       0002E0 3E 11            [ 8]  657 	ld	a, #0x11
       0002E2 CDr00r00         [24]  658 	call	_DrawNumber
-                           0002E5   659 	C$Bestiary.c$134$2_0$116	= .
-                                    660 	.globl	C$Bestiary.c$134$2_0$116
-                                    661 ;src\Bestiary.c:134: DrawNumber(17, 6, 2, 1);    // SPECIAL
+                           0002E5   659 	C$Bestiary.c$140$2_0$116	= .
+                                    660 	.globl	C$Bestiary.c$140$2_0$116
+                                    661 ;src\Bestiary.c:140: DrawNumber(17, 6, 2, 1);    // SPECIAL
       0002E5 3E 01            [ 8]  662 	ld	a, #0x01
       0002E7 F5               [16]  663 	push	af
       0002E8 33               [ 8]  664 	inc	sp
@@ -667,9 +667,9 @@
       0002ED 1E 06            [ 8]  667 	ld	e, #0x06
       0002EF 3E 11            [ 8]  668 	ld	a, #0x11
       0002F1 CDr00r00         [24]  669 	call	_DrawNumber
-                           0002F4   670 	C$Bestiary.c$135$2_0$116	= .
-                                    671 	.globl	C$Bestiary.c$135$2_0$116
-                                    672 ;src\Bestiary.c:135: DrawNumber(17, 8, 4, 1);    // SPEED
+                           0002F4   670 	C$Bestiary.c$141$2_0$116	= .
+                                    671 	.globl	C$Bestiary.c$141$2_0$116
+                                    672 ;src\Bestiary.c:141: DrawNumber(17, 8, 4, 1);    // SPEED
       0002F4 3E 01            [ 8]  673 	ld	a, #0x01
       0002F6 F5               [16]  674 	push	af
       0002F7 33               [ 8]  675 	inc	sp
@@ -678,9 +678,9 @@
       0002FC 1E 08            [ 8]  678 	ld	e, #0x08
       0002FE 3E 11            [ 8]  679 	ld	a, #0x11
       000300 CDr00r00         [24]  680 	call	_DrawNumber
-                           000303   681 	C$Bestiary.c$136$2_0$116	= .
-                                    682 	.globl	C$Bestiary.c$136$2_0$116
-                                    683 ;src\Bestiary.c:136: DrawNumber(16, 10, 12, 2);   // EXP.
+                           000303   681 	C$Bestiary.c$142$2_0$116	= .
+                                    682 	.globl	C$Bestiary.c$142$2_0$116
+                                    683 ;src\Bestiary.c:142: DrawNumber(16, 10, 12, 2);   // EXP.
       000303 3E 02            [ 8]  684 	ld	a, #0x02
       000305 F5               [16]  685 	push	af
       000306 33               [ 8]  686 	inc	sp
@@ -689,26 +689,26 @@
       00030B 1E 0A            [ 8]  689 	ld	e, #0x0a
       00030D 3E 10            [ 8]  690 	ld	a, #0x10
       00030F CDr00r00         [24]  691 	call	_DrawNumber
-      000312 C3r1Ar05         [16]  692 	jp	00138$
-      000315                        693 00125$:
-                           000315   694 	C$Bestiary.c$138$1_0$105	= .
-                                    695 	.globl	C$Bestiary.c$138$1_0$105
-                                    696 ;src\Bestiary.c:138: else if (index == 5)
+      000312 C3r22r07         [16]  692 	jp	00150$
+      000315                        693 00137$:
+                           000315   694 	C$Bestiary.c$144$1_0$105	= .
+                                    695 	.globl	C$Bestiary.c$144$1_0$105
+                                    696 ;src\Bestiary.c:144: else if (index == 5)
       000315 FAr00r00         [16]  697 	ld	a, (#_index)
       000318 D6 05            [ 8]  698 	sub	a, #0x05
-      00031A 20 7B            [12]  699 	jr	NZ, 00122$
-                           00031C   700 	C$Bestiary.c$140$2_0$117	= .
-                                    701 	.globl	C$Bestiary.c$140$2_0$117
-                                    702 ;src\Bestiary.c:140: set_bkg_data(128, 39, Cop_Tiles);
+      00031A 20 7B            [12]  699 	jr	NZ, 00134$
+                           00031C   700 	C$Bestiary.c$146$2_0$117	= .
+                                    701 	.globl	C$Bestiary.c$146$2_0$117
+                                    702 ;src\Bestiary.c:146: set_bkg_data(128, 39, Cop_Tiles);
       00031C 11r00r00         [12]  703 	ld	de, #_Cop_Tiles
       00031F D5               [16]  704 	push	de
       000320 21 80 27         [12]  705 	ld	hl, #0x2780
       000323 E5               [16]  706 	push	hl
       000324 CDr00r00         [24]  707 	call	_set_bkg_data
       000327 E8 04            [16]  708 	add	sp, #4
-                           000329   709 	C$Bestiary.c$141$2_0$117	= .
-                                    710 	.globl	C$Bestiary.c$141$2_0$117
-                                    711 ;src\Bestiary.c:141: set_bkg_tiles(2, 4, Police_MapWidth, Police_MapHeight, Police_Map);
+                           000329   709 	C$Bestiary.c$147$2_0$117	= .
+                                    710 	.globl	C$Bestiary.c$147$2_0$117
+                                    711 ;src\Bestiary.c:147: set_bkg_tiles(2, 4, Police_MapWidth, Police_MapHeight, Police_Map);
       000329 11r00r00         [12]  712 	ld	de, #_Police_Map
       00032C D5               [16]  713 	push	de
       00032D 21 06 07         [12]  714 	ld	hl, #0x706
@@ -717,9 +717,9 @@
       000334 E5               [16]  717 	push	hl
       000335 CDr00r00         [24]  718 	call	_set_bkg_tiles
       000338 E8 06            [16]  719 	add	sp, #6
-                           00033A   720 	C$Bestiary.c$142$2_0$117	= .
-                                    721 	.globl	C$Bestiary.c$142$2_0$117
-                                    722 ;src\Bestiary.c:142: DrawNumber(4, 0, 5, 3);     // ID
+                           00033A   720 	C$Bestiary.c$148$2_0$117	= .
+                                    721 	.globl	C$Bestiary.c$148$2_0$117
+                                    722 ;src\Bestiary.c:148: DrawNumber(4, 0, 5, 3);     // ID
       00033A 3E 03            [ 8]  723 	ld	a, #0x03
       00033C F5               [16]  724 	push	af
       00033D 33               [ 8]  725 	inc	sp
@@ -728,9 +728,9 @@
       000342 1E 00            [ 8]  728 	ld	e, #0x00
       000344 3E 04            [ 8]  729 	ld	a, #0x04
       000346 CDr00r00         [24]  730 	call	_DrawNumber
-                           000349   731 	C$Bestiary.c$144$2_0$117	= .
-                                    732 	.globl	C$Bestiary.c$144$2_0$117
-                                    733 ;src\Bestiary.c:144: DrawNumber(16, 2, 10, 2);    // ATTACK
+                           000349   731 	C$Bestiary.c$150$2_0$117	= .
+                                    732 	.globl	C$Bestiary.c$150$2_0$117
+                                    733 ;src\Bestiary.c:150: DrawNumber(16, 2, 10, 2);    // ATTACK
       000349 3E 02            [ 8]  734 	ld	a, #0x02
       00034B F5               [16]  735 	push	af
       00034C 33               [ 8]  736 	inc	sp
@@ -739,9 +739,9 @@
       000351 1E 02            [ 8]  739 	ld	e, #0x02
       000353 3E 10            [ 8]  740 	ld	a, #0x10
       000355 CDr00r00         [24]  741 	call	_DrawNumber
-                           000358   742 	C$Bestiary.c$145$2_0$117	= .
-                                    743 	.globl	C$Bestiary.c$145$2_0$117
-                                    744 ;src\Bestiary.c:145: DrawNumber(16, 4, 15, 2);    // DEFENSE
+                           000358   742 	C$Bestiary.c$151$2_0$117	= .
+                                    743 	.globl	C$Bestiary.c$151$2_0$117
+                                    744 ;src\Bestiary.c:151: DrawNumber(16, 4, 15, 2);    // DEFENSE
       000358 3E 02            [ 8]  745 	ld	a, #0x02
       00035A F5               [16]  746 	push	af
       00035B 33               [ 8]  747 	inc	sp
@@ -750,9 +750,9 @@
       000360 1E 04            [ 8]  750 	ld	e, #0x04
       000362 3E 10            [ 8]  751 	ld	a, #0x10
       000364 CDr00r00         [24]  752 	call	_DrawNumber
-                           000367   753 	C$Bestiary.c$146$2_0$117	= .
-                                    754 	.globl	C$Bestiary.c$146$2_0$117
-                                    755 ;src\Bestiary.c:146: DrawNumber(17, 6, 5, 1);    // SPECIAL
+                           000367   753 	C$Bestiary.c$152$2_0$117	= .
+                                    754 	.globl	C$Bestiary.c$152$2_0$117
+                                    755 ;src\Bestiary.c:152: DrawNumber(17, 6, 5, 1);    // SPECIAL
       000367 3E 01            [ 8]  756 	ld	a, #0x01
       000369 F5               [16]  757 	push	af
       00036A 33               [ 8]  758 	inc	sp
@@ -761,9 +761,9 @@
       00036F 1E 06            [ 8]  761 	ld	e, #0x06
       000371 3E 11            [ 8]  762 	ld	a, #0x11
       000373 CDr00r00         [24]  763 	call	_DrawNumber
-                           000376   764 	C$Bestiary.c$147$2_0$117	= .
-                                    765 	.globl	C$Bestiary.c$147$2_0$117
-                                    766 ;src\Bestiary.c:147: DrawNumber(17, 8, 6, 1);    // SPEED
+                           000376   764 	C$Bestiary.c$153$2_0$117	= .
+                                    765 	.globl	C$Bestiary.c$153$2_0$117
+                                    766 ;src\Bestiary.c:153: DrawNumber(17, 8, 6, 1);    // SPEED
       000376 3E 01            [ 8]  767 	ld	a, #0x01
       000378 F5               [16]  768 	push	af
       000379 33               [ 8]  769 	inc	sp
@@ -772,9 +772,9 @@
       00037E 1E 08            [ 8]  772 	ld	e, #0x08
       000380 3E 11            [ 8]  773 	ld	a, #0x11
       000382 CDr00r00         [24]  774 	call	_DrawNumber
-                           000385   775 	C$Bestiary.c$148$2_0$117	= .
-                                    776 	.globl	C$Bestiary.c$148$2_0$117
-                                    777 ;src\Bestiary.c:148: DrawNumber(16, 10, 22, 2);   // EXP.
+                           000385   775 	C$Bestiary.c$154$2_0$117	= .
+                                    776 	.globl	C$Bestiary.c$154$2_0$117
+                                    777 ;src\Bestiary.c:154: DrawNumber(16, 10, 22, 2);   // EXP.
       000385 3E 02            [ 8]  778 	ld	a, #0x02
       000387 F5               [16]  779 	push	af
       000388 33               [ 8]  780 	inc	sp
@@ -783,26 +783,26 @@
       00038D 1E 0A            [ 8]  783 	ld	e, #0x0a
       00038F 3E 10            [ 8]  784 	ld	a, #0x10
       000391 CDr00r00         [24]  785 	call	_DrawNumber
-      000394 C3r1Ar05         [16]  786 	jp	00138$
-      000397                        787 00122$:
-                           000397   788 	C$Bestiary.c$150$1_0$105	= .
-                                    789 	.globl	C$Bestiary.c$150$1_0$105
-                                    790 ;src\Bestiary.c:150: else if (index == 6)
+      000394 C3r22r07         [16]  786 	jp	00150$
+      000397                        787 00134$:
+                           000397   788 	C$Bestiary.c$156$1_0$105	= .
+                                    789 	.globl	C$Bestiary.c$156$1_0$105
+                                    790 ;src\Bestiary.c:156: else if (index == 6)
       000397 FAr00r00         [16]  791 	ld	a, (#_index)
       00039A D6 06            [ 8]  792 	sub	a, #0x06
-      00039C 20 7B            [12]  793 	jr	NZ, 00119$
-                           00039E   794 	C$Bestiary.c$152$2_0$118	= .
-                                    795 	.globl	C$Bestiary.c$152$2_0$118
-                                    796 ;src\Bestiary.c:152: set_bkg_data(128, 39, Cop_Tiles);
+      00039C 20 7B            [12]  793 	jr	NZ, 00131$
+                           00039E   794 	C$Bestiary.c$158$2_0$118	= .
+                                    795 	.globl	C$Bestiary.c$158$2_0$118
+                                    796 ;src\Bestiary.c:158: set_bkg_data(128, 39, Cop_Tiles);
       00039E 11r00r00         [12]  797 	ld	de, #_Cop_Tiles
       0003A1 D5               [16]  798 	push	de
       0003A2 21 80 27         [12]  799 	ld	hl, #0x2780
       0003A5 E5               [16]  800 	push	hl
       0003A6 CDr00r00         [24]  801 	call	_set_bkg_data
       0003A9 E8 04            [16]  802 	add	sp, #4
-                           0003AB   803 	C$Bestiary.c$153$2_0$118	= .
-                                    804 	.globl	C$Bestiary.c$153$2_0$118
-                                    805 ;src\Bestiary.c:153: set_bkg_tiles(2, 4, Sheriff_MapWidth, Sheriff_MapHeight, Sheriff_Map);
+                           0003AB   803 	C$Bestiary.c$159$2_0$118	= .
+                                    804 	.globl	C$Bestiary.c$159$2_0$118
+                                    805 ;src\Bestiary.c:159: set_bkg_tiles(2, 4, Sheriff_MapWidth, Sheriff_MapHeight, Sheriff_Map);
       0003AB 11r00r00         [12]  806 	ld	de, #_Sheriff_Map
       0003AE D5               [16]  807 	push	de
       0003AF 21 06 07         [12]  808 	ld	hl, #0x706
@@ -811,9 +811,9 @@
       0003B6 E5               [16]  811 	push	hl
       0003B7 CDr00r00         [24]  812 	call	_set_bkg_tiles
       0003BA E8 06            [16]  813 	add	sp, #6
-                           0003BC   814 	C$Bestiary.c$154$2_0$118	= .
-                                    815 	.globl	C$Bestiary.c$154$2_0$118
-                                    816 ;src\Bestiary.c:154: DrawNumber(4, 0, 6, 3);     // ID
+                           0003BC   814 	C$Bestiary.c$160$2_0$118	= .
+                                    815 	.globl	C$Bestiary.c$160$2_0$118
+                                    816 ;src\Bestiary.c:160: DrawNumber(4, 0, 6, 3);     // ID
       0003BC 3E 03            [ 8]  817 	ld	a, #0x03
       0003BE F5               [16]  818 	push	af
       0003BF 33               [ 8]  819 	inc	sp
@@ -822,9 +822,9 @@
       0003C4 1E 00            [ 8]  822 	ld	e, #0x00
       0003C6 3E 04            [ 8]  823 	ld	a, #0x04
       0003C8 CDr00r00         [24]  824 	call	_DrawNumber
-                           0003CB   825 	C$Bestiary.c$156$2_0$118	= .
-                                    826 	.globl	C$Bestiary.c$156$2_0$118
-                                    827 ;src\Bestiary.c:156: DrawNumber(16, 2, 16, 2);    // ATTACK
+                           0003CB   825 	C$Bestiary.c$162$2_0$118	= .
+                                    826 	.globl	C$Bestiary.c$162$2_0$118
+                                    827 ;src\Bestiary.c:162: DrawNumber(16, 2, 16, 2);    // ATTACK
       0003CB 3E 02            [ 8]  828 	ld	a, #0x02
       0003CD F5               [16]  829 	push	af
       0003CE 33               [ 8]  830 	inc	sp
@@ -833,9 +833,9 @@
       0003D3 1E 02            [ 8]  833 	ld	e, #0x02
       0003D5 3E 10            [ 8]  834 	ld	a, #0x10
       0003D7 CDr00r00         [24]  835 	call	_DrawNumber
-                           0003DA   836 	C$Bestiary.c$157$2_0$118	= .
-                                    837 	.globl	C$Bestiary.c$157$2_0$118
-                                    838 ;src\Bestiary.c:157: DrawNumber(16, 4, 10, 2);    // DEFENSE
+                           0003DA   836 	C$Bestiary.c$163$2_0$118	= .
+                                    837 	.globl	C$Bestiary.c$163$2_0$118
+                                    838 ;src\Bestiary.c:163: DrawNumber(16, 4, 10, 2);    // DEFENSE
       0003DA 3E 02            [ 8]  839 	ld	a, #0x02
       0003DC F5               [16]  840 	push	af
       0003DD 33               [ 8]  841 	inc	sp
@@ -844,9 +844,9 @@
       0003E2 1E 04            [ 8]  844 	ld	e, #0x04
       0003E4 3E 10            [ 8]  845 	ld	a, #0x10
       0003E6 CDr00r00         [24]  846 	call	_DrawNumber
-                           0003E9   847 	C$Bestiary.c$158$2_0$118	= .
-                                    848 	.globl	C$Bestiary.c$158$2_0$118
-                                    849 ;src\Bestiary.c:158: DrawNumber(17, 6, 6, 1);    // SPECIAL
+                           0003E9   847 	C$Bestiary.c$164$2_0$118	= .
+                                    848 	.globl	C$Bestiary.c$164$2_0$118
+                                    849 ;src\Bestiary.c:164: DrawNumber(17, 6, 6, 1);    // SPECIAL
       0003E9 3E 01            [ 8]  850 	ld	a, #0x01
       0003EB F5               [16]  851 	push	af
       0003EC 33               [ 8]  852 	inc	sp
@@ -855,9 +855,9 @@
       0003F1 1E 06            [ 8]  855 	ld	e, #0x06
       0003F3 3E 11            [ 8]  856 	ld	a, #0x11
       0003F5 CDr00r00         [24]  857 	call	_DrawNumber
-                           0003F8   858 	C$Bestiary.c$159$2_0$118	= .
-                                    859 	.globl	C$Bestiary.c$159$2_0$118
-                                    860 ;src\Bestiary.c:159: DrawNumber(17, 8, 8, 1);    // SPEED
+                           0003F8   858 	C$Bestiary.c$165$2_0$118	= .
+                                    859 	.globl	C$Bestiary.c$165$2_0$118
+                                    860 ;src\Bestiary.c:165: DrawNumber(17, 8, 8, 1);    // SPEED
       0003F8 3E 01            [ 8]  861 	ld	a, #0x01
       0003FA F5               [16]  862 	push	af
       0003FB 33               [ 8]  863 	inc	sp
@@ -866,9 +866,9 @@
       000400 1E 08            [ 8]  866 	ld	e, #0x08
       000402 3E 11            [ 8]  867 	ld	a, #0x11
       000404 CDr00r00         [24]  868 	call	_DrawNumber
-                           000407   869 	C$Bestiary.c$160$2_0$118	= .
-                                    870 	.globl	C$Bestiary.c$160$2_0$118
-                                    871 ;src\Bestiary.c:160: DrawNumber(16, 10, 22, 2);   // EXP.
+                           000407   869 	C$Bestiary.c$166$2_0$118	= .
+                                    870 	.globl	C$Bestiary.c$166$2_0$118
+                                    871 ;src\Bestiary.c:166: DrawNumber(16, 10, 22, 2);   // EXP.
       000407 3E 02            [ 8]  872 	ld	a, #0x02
       000409 F5               [16]  873 	push	af
       00040A 33               [ 8]  874 	inc	sp
@@ -877,26 +877,26 @@
       00040F 1E 0A            [ 8]  877 	ld	e, #0x0a
       000411 3E 10            [ 8]  878 	ld	a, #0x10
       000413 CDr00r00         [24]  879 	call	_DrawNumber
-      000416 C3r1Ar05         [16]  880 	jp	00138$
-      000419                        881 00119$:
-                           000419   882 	C$Bestiary.c$162$1_0$105	= .
-                                    883 	.globl	C$Bestiary.c$162$1_0$105
-                                    884 ;src\Bestiary.c:162: else if (index == 7)
+      000416 C3r22r07         [16]  880 	jp	00150$
+      000419                        881 00131$:
+                           000419   882 	C$Bestiary.c$168$1_0$105	= .
+                                    883 	.globl	C$Bestiary.c$168$1_0$105
+                                    884 ;src\Bestiary.c:168: else if (index == 7)
       000419 FAr00r00         [16]  885 	ld	a, (#_index)
       00041C D6 07            [ 8]  886 	sub	a, #0x07
-      00041E 20 7B            [12]  887 	jr	NZ, 00116$
-                           000420   888 	C$Bestiary.c$164$2_0$119	= .
-                                    889 	.globl	C$Bestiary.c$164$2_0$119
-                                    890 ;src\Bestiary.c:164: set_bkg_data(128, 39, Cop_Tiles);
+      00041E 20 7B            [12]  887 	jr	NZ, 00128$
+                           000420   888 	C$Bestiary.c$170$2_0$119	= .
+                                    889 	.globl	C$Bestiary.c$170$2_0$119
+                                    890 ;src\Bestiary.c:170: set_bkg_data(128, 39, Cop_Tiles);
       000420 11r00r00         [12]  891 	ld	de, #_Cop_Tiles
       000423 D5               [16]  892 	push	de
       000424 21 80 27         [12]  893 	ld	hl, #0x2780
       000427 E5               [16]  894 	push	hl
       000428 CDr00r00         [24]  895 	call	_set_bkg_data
       00042B E8 04            [16]  896 	add	sp, #4
-                           00042D   897 	C$Bestiary.c$165$2_0$119	= .
-                                    898 	.globl	C$Bestiary.c$165$2_0$119
-                                    899 ;src\Bestiary.c:165: set_bkg_tiles(2, 4, Chief_MapWidth, Chief_MapHeight, Chief_Map);
+                           00042D   897 	C$Bestiary.c$171$2_0$119	= .
+                                    898 	.globl	C$Bestiary.c$171$2_0$119
+                                    899 ;src\Bestiary.c:171: set_bkg_tiles(2, 4, Chief_MapWidth, Chief_MapHeight, Chief_Map);
       00042D 11r00r00         [12]  900 	ld	de, #_Chief_Map
       000430 D5               [16]  901 	push	de
       000431 21 06 07         [12]  902 	ld	hl, #0x706
@@ -905,9 +905,9 @@
       000438 E5               [16]  905 	push	hl
       000439 CDr00r00         [24]  906 	call	_set_bkg_tiles
       00043C E8 06            [16]  907 	add	sp, #6
-                           00043E   908 	C$Bestiary.c$166$2_0$119	= .
-                                    909 	.globl	C$Bestiary.c$166$2_0$119
-                                    910 ;src\Bestiary.c:166: DrawNumber(4, 0, 7, 3);     // ID
+                           00043E   908 	C$Bestiary.c$172$2_0$119	= .
+                                    909 	.globl	C$Bestiary.c$172$2_0$119
+                                    910 ;src\Bestiary.c:172: DrawNumber(4, 0, 7, 3);     // ID
       00043E 3E 03            [ 8]  911 	ld	a, #0x03
       000440 F5               [16]  912 	push	af
       000441 33               [ 8]  913 	inc	sp
@@ -916,9 +916,9 @@
       000446 1E 00            [ 8]  916 	ld	e, #0x00
       000448 3E 04            [ 8]  917 	ld	a, #0x04
       00044A CDr00r00         [24]  918 	call	_DrawNumber
-                           00044D   919 	C$Bestiary.c$168$2_0$119	= .
-                                    920 	.globl	C$Bestiary.c$168$2_0$119
-                                    921 ;src\Bestiary.c:168: DrawNumber(16, 2, 30, 2);    // ATTACK
+                           00044D   919 	C$Bestiary.c$174$2_0$119	= .
+                                    920 	.globl	C$Bestiary.c$174$2_0$119
+                                    921 ;src\Bestiary.c:174: DrawNumber(16, 2, 30, 2);    // ATTACK
       00044D 3E 02            [ 8]  922 	ld	a, #0x02
       00044F F5               [16]  923 	push	af
       000450 33               [ 8]  924 	inc	sp
@@ -927,9 +927,9 @@
       000455 1E 02            [ 8]  927 	ld	e, #0x02
       000457 3E 10            [ 8]  928 	ld	a, #0x10
       000459 CDr00r00         [24]  929 	call	_DrawNumber
-                           00045C   930 	C$Bestiary.c$169$2_0$119	= .
-                                    931 	.globl	C$Bestiary.c$169$2_0$119
-                                    932 ;src\Bestiary.c:169: DrawNumber(16, 4, 20, 2);    // DEFENSE
+                           00045C   930 	C$Bestiary.c$175$2_0$119	= .
+                                    931 	.globl	C$Bestiary.c$175$2_0$119
+                                    932 ;src\Bestiary.c:175: DrawNumber(16, 4, 20, 2);    // DEFENSE
       00045C 3E 02            [ 8]  933 	ld	a, #0x02
       00045E F5               [16]  934 	push	af
       00045F 33               [ 8]  935 	inc	sp
@@ -938,9 +938,9 @@
       000464 1E 04            [ 8]  938 	ld	e, #0x04
       000466 3E 10            [ 8]  939 	ld	a, #0x10
       000468 CDr00r00         [24]  940 	call	_DrawNumber
-                           00046B   941 	C$Bestiary.c$170$2_0$119	= .
-                                    942 	.globl	C$Bestiary.c$170$2_0$119
-                                    943 ;src\Bestiary.c:170: DrawNumber(17, 6, 10, 1);    // SPECIAL
+                           00046B   941 	C$Bestiary.c$176$2_0$119	= .
+                                    942 	.globl	C$Bestiary.c$176$2_0$119
+                                    943 ;src\Bestiary.c:176: DrawNumber(17, 6, 10, 1);    // SPECIAL
       00046B 3E 01            [ 8]  944 	ld	a, #0x01
       00046D F5               [16]  945 	push	af
       00046E 33               [ 8]  946 	inc	sp
@@ -949,9 +949,9 @@
       000473 1E 06            [ 8]  949 	ld	e, #0x06
       000475 3E 11            [ 8]  950 	ld	a, #0x11
       000477 CDr00r00         [24]  951 	call	_DrawNumber
-                           00047A   952 	C$Bestiary.c$171$2_0$119	= .
-                                    953 	.globl	C$Bestiary.c$171$2_0$119
-                                    954 ;src\Bestiary.c:171: DrawNumber(17, 8, 10, 1);    // SPEED
+                           00047A   952 	C$Bestiary.c$177$2_0$119	= .
+                                    953 	.globl	C$Bestiary.c$177$2_0$119
+                                    954 ;src\Bestiary.c:177: DrawNumber(17, 8, 10, 1);    // SPEED
       00047A 3E 01            [ 8]  955 	ld	a, #0x01
       00047C F5               [16]  956 	push	af
       00047D 33               [ 8]  957 	inc	sp
@@ -960,9 +960,9 @@
       000482 1E 08            [ 8]  960 	ld	e, #0x08
       000484 3E 11            [ 8]  961 	ld	a, #0x11
       000486 CDr00r00         [24]  962 	call	_DrawNumber
-                           000489   963 	C$Bestiary.c$172$2_0$119	= .
-                                    964 	.globl	C$Bestiary.c$172$2_0$119
-                                    965 ;src\Bestiary.c:172: DrawNumber(16, 10, 55, 2);   // EXP.
+                           000489   963 	C$Bestiary.c$178$2_0$119	= .
+                                    964 	.globl	C$Bestiary.c$178$2_0$119
+                                    965 ;src\Bestiary.c:178: DrawNumber(16, 10, 55, 2);   // EXP.
       000489 3E 02            [ 8]  966 	ld	a, #0x02
       00048B F5               [16]  967 	push	af
       00048C 33               [ 8]  968 	inc	sp
@@ -971,26 +971,26 @@
       000491 1E 0A            [ 8]  971 	ld	e, #0x0a
       000493 3E 10            [ 8]  972 	ld	a, #0x10
       000495 CDr00r00         [24]  973 	call	_DrawNumber
-      000498 C3r1Ar05         [16]  974 	jp	00138$
-      00049B                        975 00116$:
-                           00049B   976 	C$Bestiary.c$174$1_0$105	= .
-                                    977 	.globl	C$Bestiary.c$174$1_0$105
-                                    978 ;src\Bestiary.c:174: else if (index == 8)
+      000498 C3r22r07         [16]  974 	jp	00150$
+      00049B                        975 00128$:
+                           00049B   976 	C$Bestiary.c$180$1_0$105	= .
+                                    977 	.globl	C$Bestiary.c$180$1_0$105
+                                    978 ;src\Bestiary.c:180: else if (index == 8)
       00049B FAr00r00         [16]  979 	ld	a, (#_index)
       00049E D6 08            [ 8]  980 	sub	a, #0x08
-      0004A0 20 78            [12]  981 	jr	NZ, 00138$
-                           0004A2   982 	C$Bestiary.c$176$2_0$120	= .
-                                    983 	.globl	C$Bestiary.c$176$2_0$120
-                                    984 ;src\Bestiary.c:176: set_bkg_data(128, 30, Man_Tiles);
+      0004A0 20 7B            [12]  981 	jr	NZ, 00125$
+                           0004A2   982 	C$Bestiary.c$182$2_0$120	= .
+                                    983 	.globl	C$Bestiary.c$182$2_0$120
+                                    984 ;src\Bestiary.c:182: set_bkg_data(128, 30, Man_Tiles);
       0004A2 11r00r00         [12]  985 	ld	de, #_Man_Tiles
       0004A5 D5               [16]  986 	push	de
       0004A6 21 80 1E         [12]  987 	ld	hl, #0x1e80
       0004A9 E5               [16]  988 	push	hl
       0004AA CDr00r00         [24]  989 	call	_set_bkg_data
       0004AD E8 04            [16]  990 	add	sp, #4
-                           0004AF   991 	C$Bestiary.c$177$2_0$120	= .
-                                    992 	.globl	C$Bestiary.c$177$2_0$120
-                                    993 ;src\Bestiary.c:177: set_bkg_tiles(2, 4, Man_MapWidth, Man_MapHeight, Man_Map);
+                           0004AF   991 	C$Bestiary.c$183$2_0$120	= .
+                                    992 	.globl	C$Bestiary.c$183$2_0$120
+                                    993 ;src\Bestiary.c:183: set_bkg_tiles(2, 4, Man_MapWidth, Man_MapHeight, Man_Map);
       0004AF 11r00r00         [12]  994 	ld	de, #_Man_Map
       0004B2 D5               [16]  995 	push	de
       0004B3 21 06 06         [12]  996 	ld	hl, #0x606
@@ -999,9 +999,9 @@
       0004BA E5               [16]  999 	push	hl
       0004BB CDr00r00         [24] 1000 	call	_set_bkg_tiles
       0004BE E8 06            [16] 1001 	add	sp, #6
-                           0004C0  1002 	C$Bestiary.c$178$2_0$120	= .
-                                   1003 	.globl	C$Bestiary.c$178$2_0$120
-                                   1004 ;src\Bestiary.c:178: DrawNumber(4, 0, 8, 3);     // ID
+                           0004C0  1002 	C$Bestiary.c$184$2_0$120	= .
+                                   1003 	.globl	C$Bestiary.c$184$2_0$120
+                                   1004 ;src\Bestiary.c:184: DrawNumber(4, 0, 8, 3);     // ID
       0004C0 3E 03            [ 8] 1005 	ld	a, #0x03
       0004C2 F5               [16] 1006 	push	af
       0004C3 33               [ 8] 1007 	inc	sp
@@ -1010,9 +1010,9 @@
       0004C8 1E 00            [ 8] 1010 	ld	e, #0x00
       0004CA 3E 04            [ 8] 1011 	ld	a, #0x04
       0004CC CDr00r00         [24] 1012 	call	_DrawNumber
-                           0004CF  1013 	C$Bestiary.c$180$2_0$120	= .
-                                   1014 	.globl	C$Bestiary.c$180$2_0$120
-                                   1015 ;src\Bestiary.c:180: DrawNumber(17, 2, 0, 1);    // ATTACK
+                           0004CF  1013 	C$Bestiary.c$186$2_0$120	= .
+                                   1014 	.globl	C$Bestiary.c$186$2_0$120
+                                   1015 ;src\Bestiary.c:186: DrawNumber(17, 2, 0, 1);    // ATTACK
       0004CF 3E 01            [ 8] 1016 	ld	a, #0x01
       0004D1 F5               [16] 1017 	push	af
       0004D2 33               [ 8] 1018 	inc	sp
@@ -1021,9 +1021,9 @@
       0004D7 1E 02            [ 8] 1021 	ld	e, #0x02
       0004D9 3E 11            [ 8] 1022 	ld	a, #0x11
       0004DB CDr00r00         [24] 1023 	call	_DrawNumber
-                           0004DE  1024 	C$Bestiary.c$181$2_0$120	= .
-                                   1025 	.globl	C$Bestiary.c$181$2_0$120
-                                   1026 ;src\Bestiary.c:181: DrawNumber(15, 4, 255, 3);    // DEFENSE
+                           0004DE  1024 	C$Bestiary.c$187$2_0$120	= .
+                                   1025 	.globl	C$Bestiary.c$187$2_0$120
+                                   1026 ;src\Bestiary.c:187: DrawNumber(15, 4, 255, 3);    // DEFENSE
       0004DE 3E 03            [ 8] 1027 	ld	a, #0x03
       0004E0 F5               [16] 1028 	push	af
       0004E1 33               [ 8] 1029 	inc	sp
@@ -1032,9 +1032,9 @@
       0004E6 1E 04            [ 8] 1032 	ld	e, #0x04
       0004E8 3E 0F            [ 8] 1033 	ld	a, #0x0f
       0004EA CDr00r00         [24] 1034 	call	_DrawNumber
-                           0004ED  1035 	C$Bestiary.c$182$2_0$120	= .
-                                   1036 	.globl	C$Bestiary.c$182$2_0$120
-                                   1037 ;src\Bestiary.c:182: DrawNumber(17, 6, 1, 1);    // SPECIAL
+                           0004ED  1035 	C$Bestiary.c$188$2_0$120	= .
+                                   1036 	.globl	C$Bestiary.c$188$2_0$120
+                                   1037 ;src\Bestiary.c:188: DrawNumber(17, 6, 1, 1);    // SPECIAL
       0004ED 3E 01            [ 8] 1038 	ld	a, #0x01
       0004EF F5               [16] 1039 	push	af
       0004F0 33               [ 8] 1040 	inc	sp
@@ -1043,9 +1043,9 @@
       0004F5 1E 06            [ 8] 1043 	ld	e, #0x06
       0004F7 3E 11            [ 8] 1044 	ld	a, #0x11
       0004F9 CDr00r00         [24] 1045 	call	_DrawNumber
-                           0004FC  1046 	C$Bestiary.c$183$2_0$120	= .
-                                   1047 	.globl	C$Bestiary.c$183$2_0$120
-                                   1048 ;src\Bestiary.c:183: DrawNumber(17, 8, 1, 1);    // SPEED
+                           0004FC  1046 	C$Bestiary.c$189$2_0$120	= .
+                                   1047 	.globl	C$Bestiary.c$189$2_0$120
+                                   1048 ;src\Bestiary.c:189: DrawNumber(17, 8, 1, 1);    // SPEED
       0004FC 3E 01            [ 8] 1049 	ld	a, #0x01
       0004FE F5               [16] 1050 	push	af
       0004FF 33               [ 8] 1051 	inc	sp
@@ -1054,9 +1054,9 @@
       000504 1E 08            [ 8] 1054 	ld	e, #0x08
       000506 3E 11            [ 8] 1055 	ld	a, #0x11
       000508 CDr00r00         [24] 1056 	call	_DrawNumber
-                           00050B  1057 	C$Bestiary.c$184$2_0$120	= .
-                                   1058 	.globl	C$Bestiary.c$184$2_0$120
-                                   1059 ;src\Bestiary.c:184: DrawNumber(16, 10, 1, 1);   // EXP.
+                           00050B  1057 	C$Bestiary.c$190$2_0$120	= .
+                                   1058 	.globl	C$Bestiary.c$190$2_0$120
+                                   1059 ;src\Bestiary.c:190: DrawNumber(16, 10, 1, 1);   // EXP.
       00050B 3E 01            [ 8] 1060 	ld	a, #0x01
       00050D F5               [16] 1061 	push	af
       00050E 33               [ 8] 1062 	inc	sp
@@ -1065,25 +1065,401 @@
       000513 1E 0A            [ 8] 1065 	ld	e, #0x0a
       000515 3E 10            [ 8] 1066 	ld	a, #0x10
       000517 CDr00r00         [24] 1067 	call	_DrawNumber
-      00051A                       1068 00138$:
-                           00051A  1069 	C$Bestiary.c$186$1_0$105	= .
-                                   1070 	.globl	C$Bestiary.c$186$1_0$105
-                                   1071 ;src\Bestiary.c:186: return BESTIARY;
-      00051A 3E 04            [ 8] 1072 	ld	a, #0x04
-                           00051C  1073 	C$Bestiary.c$187$1_0$105	= .
-                                   1074 	.globl	C$Bestiary.c$187$1_0$105
-                                   1075 ;src\Bestiary.c:187: }
-                           00051C  1076 	C$Bestiary.c$187$1_0$105	= .
-                                   1077 	.globl	C$Bestiary.c$187$1_0$105
-                           00051C  1078 	XG$BestiaryUpdate$0$0	= .
-                                   1079 	.globl	XG$BestiaryUpdate$0$0
-      00051C C9               [16] 1080 	ret
-                                   1081 	.area _CODE
-                                   1082 	.area _INITIALIZER
-                           000000  1083 FBestiary$__xinit_index$0_0$0 == .
-      000000                       1084 __xinit__index:
-      000000 00                    1085 	.db #0x00	;  0
-                           000001  1086 FBestiary$__xinit_invert$0_0$0 == .
-      000001                       1087 __xinit__invert:
-      000001 00                    1088 	.db #0x00	; 0
-                                   1089 	.area _CABS (ABS)
+      00051A C3r22r07         [16] 1068 	jp	00150$
+      00051D                       1069 00125$:
+                           00051D  1070 	C$Bestiary.c$192$1_0$105	= .
+                                   1071 	.globl	C$Bestiary.c$192$1_0$105
+                                   1072 ;src\Bestiary.c:192: else if (index == 9)
+      00051D FAr00r00         [16] 1073 	ld	a, (#_index)
+      000520 D6 09            [ 8] 1074 	sub	a, #0x09
+      000522 20 7B            [12] 1075 	jr	NZ, 00122$
+                           000524  1076 	C$Bestiary.c$194$2_0$121	= .
+                                   1077 	.globl	C$Bestiary.c$194$2_0$121
+                                   1078 ;src\Bestiary.c:194: set_bkg_data(128, 26, Car_Tiles);
+      000524 11r00r00         [12] 1079 	ld	de, #_Car_Tiles
+      000527 D5               [16] 1080 	push	de
+      000528 21 80 1A         [12] 1081 	ld	hl, #0x1a80
+      00052B E5               [16] 1082 	push	hl
+      00052C CDr00r00         [24] 1083 	call	_set_bkg_data
+      00052F E8 04            [16] 1084 	add	sp, #4
+                           000531  1085 	C$Bestiary.c$195$2_0$121	= .
+                                   1086 	.globl	C$Bestiary.c$195$2_0$121
+                                   1087 ;src\Bestiary.c:195: set_bkg_tiles(2, 4, Car_MapWidth, Car_MapHeight, Car_Map);
+      000531 11r00r00         [12] 1088 	ld	de, #_Car_Map
+      000534 D5               [16] 1089 	push	de
+      000535 21 06 05         [12] 1090 	ld	hl, #0x506
+      000538 E5               [16] 1091 	push	hl
+      000539 21 02 04         [12] 1092 	ld	hl, #0x402
+      00053C E5               [16] 1093 	push	hl
+      00053D CDr00r00         [24] 1094 	call	_set_bkg_tiles
+      000540 E8 06            [16] 1095 	add	sp, #6
+                           000542  1096 	C$Bestiary.c$196$2_0$121	= .
+                                   1097 	.globl	C$Bestiary.c$196$2_0$121
+                                   1098 ;src\Bestiary.c:196: DrawNumber(4, 0, 9, 3);     // ID
+      000542 3E 03            [ 8] 1099 	ld	a, #0x03
+      000544 F5               [16] 1100 	push	af
+      000545 33               [ 8] 1101 	inc	sp
+      000546 11 09 00         [12] 1102 	ld	de, #0x0009
+      000549 D5               [16] 1103 	push	de
+      00054A 1E 00            [ 8] 1104 	ld	e, #0x00
+      00054C 3E 04            [ 8] 1105 	ld	a, #0x04
+      00054E CDr00r00         [24] 1106 	call	_DrawNumber
+                           000551  1107 	C$Bestiary.c$198$2_0$121	= .
+                                   1108 	.globl	C$Bestiary.c$198$2_0$121
+                                   1109 ;src\Bestiary.c:198: DrawNumber(16, 2, 30, 2);    // ATTACK
+      000551 3E 02            [ 8] 1110 	ld	a, #0x02
+      000553 F5               [16] 1111 	push	af
+      000554 33               [ 8] 1112 	inc	sp
+      000555 11 1E 00         [12] 1113 	ld	de, #0x001e
+      000558 D5               [16] 1114 	push	de
+      000559 1E 02            [ 8] 1115 	ld	e, #0x02
+      00055B 3E 10            [ 8] 1116 	ld	a, #0x10
+      00055D CDr00r00         [24] 1117 	call	_DrawNumber
+                           000560  1118 	C$Bestiary.c$199$2_0$121	= .
+                                   1119 	.globl	C$Bestiary.c$199$2_0$121
+                                   1120 ;src\Bestiary.c:199: DrawNumber(16, 4, 25, 3);    // DEFENSE
+      000560 3E 03            [ 8] 1121 	ld	a, #0x03
+      000562 F5               [16] 1122 	push	af
+      000563 33               [ 8] 1123 	inc	sp
+      000564 11 19 00         [12] 1124 	ld	de, #0x0019
+      000567 D5               [16] 1125 	push	de
+      000568 1E 04            [ 8] 1126 	ld	e, #0x04
+      00056A 3E 10            [ 8] 1127 	ld	a, #0x10
+      00056C CDr00r00         [24] 1128 	call	_DrawNumber
+                           00056F  1129 	C$Bestiary.c$200$2_0$121	= .
+                                   1130 	.globl	C$Bestiary.c$200$2_0$121
+                                   1131 ;src\Bestiary.c:200: DrawNumber(16, 6, 15, 2);    // SPECIAL
+      00056F 3E 02            [ 8] 1132 	ld	a, #0x02
+      000571 F5               [16] 1133 	push	af
+      000572 33               [ 8] 1134 	inc	sp
+      000573 11 0F 00         [12] 1135 	ld	de, #0x000f
+      000576 D5               [16] 1136 	push	de
+      000577 1E 06            [ 8] 1137 	ld	e, #0x06
+      000579 3E 10            [ 8] 1138 	ld	a, #0x10
+      00057B CDr00r00         [24] 1139 	call	_DrawNumber
+                           00057E  1140 	C$Bestiary.c$201$2_0$121	= .
+                                   1141 	.globl	C$Bestiary.c$201$2_0$121
+                                   1142 ;src\Bestiary.c:201: DrawNumber(16, 8, 40, 2);    // SPEED
+      00057E 3E 02            [ 8] 1143 	ld	a, #0x02
+      000580 F5               [16] 1144 	push	af
+      000581 33               [ 8] 1145 	inc	sp
+      000582 11 28 00         [12] 1146 	ld	de, #0x0028
+      000585 D5               [16] 1147 	push	de
+      000586 1E 08            [ 8] 1148 	ld	e, #0x08
+      000588 3E 10            [ 8] 1149 	ld	a, #0x10
+      00058A CDr00r00         [24] 1150 	call	_DrawNumber
+                           00058D  1151 	C$Bestiary.c$202$2_0$121	= .
+                                   1152 	.globl	C$Bestiary.c$202$2_0$121
+                                   1153 ;src\Bestiary.c:202: DrawNumber(16, 10, 66, 2);   // EXP.
+      00058D 3E 02            [ 8] 1154 	ld	a, #0x02
+      00058F F5               [16] 1155 	push	af
+      000590 33               [ 8] 1156 	inc	sp
+      000591 11 42 00         [12] 1157 	ld	de, #0x0042
+      000594 D5               [16] 1158 	push	de
+      000595 1E 0A            [ 8] 1159 	ld	e, #0x0a
+      000597 3E 10            [ 8] 1160 	ld	a, #0x10
+      000599 CDr00r00         [24] 1161 	call	_DrawNumber
+      00059C C3r22r07         [16] 1162 	jp	00150$
+      00059F                       1163 00122$:
+                           00059F  1164 	C$Bestiary.c$204$1_0$105	= .
+                                   1165 	.globl	C$Bestiary.c$204$1_0$105
+                                   1166 ;src\Bestiary.c:204: else if (index == 10)
+      00059F FAr00r00         [16] 1167 	ld	a, (#_index)
+      0005A2 D6 0A            [ 8] 1168 	sub	a, #0x0a
+      0005A4 20 7B            [12] 1169 	jr	NZ, 00119$
+                           0005A6  1170 	C$Bestiary.c$206$2_0$122	= .
+                                   1171 	.globl	C$Bestiary.c$206$2_0$122
+                                   1172 ;src\Bestiary.c:206: set_bkg_data(128, 46, Semi_Tiles);
+      0005A6 11r00r00         [12] 1173 	ld	de, #_Semi_Tiles
+      0005A9 D5               [16] 1174 	push	de
+      0005AA 21 80 2E         [12] 1175 	ld	hl, #0x2e80
+      0005AD E5               [16] 1176 	push	hl
+      0005AE CDr00r00         [24] 1177 	call	_set_bkg_data
+      0005B1 E8 04            [16] 1178 	add	sp, #4
+                           0005B3  1179 	C$Bestiary.c$207$2_0$122	= .
+                                   1180 	.globl	C$Bestiary.c$207$2_0$122
+                                   1181 ;src\Bestiary.c:207: set_bkg_tiles(2, 4, Semi_MapWidth, Semi_MapHeight, Semi_Map);
+      0005B3 11r00r00         [12] 1182 	ld	de, #_Semi_Map
+      0005B6 D5               [16] 1183 	push	de
+      0005B7 21 06 08         [12] 1184 	ld	hl, #0x806
+      0005BA E5               [16] 1185 	push	hl
+      0005BB 21 02 04         [12] 1186 	ld	hl, #0x402
+      0005BE E5               [16] 1187 	push	hl
+      0005BF CDr00r00         [24] 1188 	call	_set_bkg_tiles
+      0005C2 E8 06            [16] 1189 	add	sp, #6
+                           0005C4  1190 	C$Bestiary.c$208$2_0$122	= .
+                                   1191 	.globl	C$Bestiary.c$208$2_0$122
+                                   1192 ;src\Bestiary.c:208: DrawNumber(4, 0, 10, 3);     // ID
+      0005C4 3E 03            [ 8] 1193 	ld	a, #0x03
+      0005C6 F5               [16] 1194 	push	af
+      0005C7 33               [ 8] 1195 	inc	sp
+      0005C8 11 0A 00         [12] 1196 	ld	de, #0x000a
+      0005CB D5               [16] 1197 	push	de
+      0005CC 1E 00            [ 8] 1198 	ld	e, #0x00
+      0005CE 3E 04            [ 8] 1199 	ld	a, #0x04
+      0005D0 CDr00r00         [24] 1200 	call	_DrawNumber
+                           0005D3  1201 	C$Bestiary.c$210$2_0$122	= .
+                                   1202 	.globl	C$Bestiary.c$210$2_0$122
+                                   1203 ;src\Bestiary.c:210: DrawNumber(16, 2, 66, 2);    // ATTACK
+      0005D3 3E 02            [ 8] 1204 	ld	a, #0x02
+      0005D5 F5               [16] 1205 	push	af
+      0005D6 33               [ 8] 1206 	inc	sp
+      0005D7 11 42 00         [12] 1207 	ld	de, #0x0042
+      0005DA D5               [16] 1208 	push	de
+      0005DB 1E 02            [ 8] 1209 	ld	e, #0x02
+      0005DD 3E 10            [ 8] 1210 	ld	a, #0x10
+      0005DF CDr00r00         [24] 1211 	call	_DrawNumber
+                           0005E2  1212 	C$Bestiary.c$211$2_0$122	= .
+                                   1213 	.globl	C$Bestiary.c$211$2_0$122
+                                   1214 ;src\Bestiary.c:211: DrawNumber(16, 4, 66, 2);    // DEFENSE
+      0005E2 3E 02            [ 8] 1215 	ld	a, #0x02
+      0005E4 F5               [16] 1216 	push	af
+      0005E5 33               [ 8] 1217 	inc	sp
+      0005E6 11 42 00         [12] 1218 	ld	de, #0x0042
+      0005E9 D5               [16] 1219 	push	de
+      0005EA 1E 04            [ 8] 1220 	ld	e, #0x04
+      0005EC 3E 10            [ 8] 1221 	ld	a, #0x10
+      0005EE CDr00r00         [24] 1222 	call	_DrawNumber
+                           0005F1  1223 	C$Bestiary.c$212$2_0$122	= .
+                                   1224 	.globl	C$Bestiary.c$212$2_0$122
+                                   1225 ;src\Bestiary.c:212: DrawNumber(16, 6, 15, 2);    // SPECIAL
+      0005F1 3E 02            [ 8] 1226 	ld	a, #0x02
+      0005F3 F5               [16] 1227 	push	af
+      0005F4 33               [ 8] 1228 	inc	sp
+      0005F5 11 0F 00         [12] 1229 	ld	de, #0x000f
+      0005F8 D5               [16] 1230 	push	de
+      0005F9 1E 06            [ 8] 1231 	ld	e, #0x06
+      0005FB 3E 10            [ 8] 1232 	ld	a, #0x10
+      0005FD CDr00r00         [24] 1233 	call	_DrawNumber
+                           000600  1234 	C$Bestiary.c$213$2_0$122	= .
+                                   1235 	.globl	C$Bestiary.c$213$2_0$122
+                                   1236 ;src\Bestiary.c:213: DrawNumber(16, 8, 35, 2);    // SPEED
+      000600 3E 02            [ 8] 1237 	ld	a, #0x02
+      000602 F5               [16] 1238 	push	af
+      000603 33               [ 8] 1239 	inc	sp
+      000604 11 23 00         [12] 1240 	ld	de, #0x0023
+      000607 D5               [16] 1241 	push	de
+      000608 1E 08            [ 8] 1242 	ld	e, #0x08
+      00060A 3E 10            [ 8] 1243 	ld	a, #0x10
+      00060C CDr00r00         [24] 1244 	call	_DrawNumber
+                           00060F  1245 	C$Bestiary.c$214$2_0$122	= .
+                                   1246 	.globl	C$Bestiary.c$214$2_0$122
+                                   1247 ;src\Bestiary.c:214: DrawNumber(15, 10, 100, 3);   // EXP.
+      00060F 3E 03            [ 8] 1248 	ld	a, #0x03
+      000611 F5               [16] 1249 	push	af
+      000612 33               [ 8] 1250 	inc	sp
+      000613 11 64 00         [12] 1251 	ld	de, #0x0064
+      000616 D5               [16] 1252 	push	de
+      000617 1E 0A            [ 8] 1253 	ld	e, #0x0a
+      000619 3E 0F            [ 8] 1254 	ld	a, #0x0f
+      00061B CDr00r00         [24] 1255 	call	_DrawNumber
+      00061E C3r22r07         [16] 1256 	jp	00150$
+      000621                       1257 00119$:
+                           000621  1258 	C$Bestiary.c$216$1_0$105	= .
+                                   1259 	.globl	C$Bestiary.c$216$1_0$105
+                                   1260 ;src\Bestiary.c:216: else if (index == 11)
+      000621 FAr00r00         [16] 1261 	ld	a, (#_index)
+      000624 D6 0B            [ 8] 1262 	sub	a, #0x0b
+      000626 20 7B            [12] 1263 	jr	NZ, 00116$
+                           000628  1264 	C$Bestiary.c$218$2_0$123	= .
+                                   1265 	.globl	C$Bestiary.c$218$2_0$123
+                                   1266 ;src\Bestiary.c:218: set_bkg_data(128, 31, Sis_Tiles);
+      000628 11r00r00         [12] 1267 	ld	de, #_Sis_Tiles
+      00062B D5               [16] 1268 	push	de
+      00062C 21 80 1F         [12] 1269 	ld	hl, #0x1f80
+      00062F E5               [16] 1270 	push	hl
+      000630 CDr00r00         [24] 1271 	call	_set_bkg_data
+      000633 E8 04            [16] 1272 	add	sp, #4
+                           000635  1273 	C$Bestiary.c$219$2_0$123	= .
+                                   1274 	.globl	C$Bestiary.c$219$2_0$123
+                                   1275 ;src\Bestiary.c:219: set_bkg_tiles(2, 4, BigSis_MapWidth, BigSis_MapHeight, BigSis_Map);
+      000635 11r00r00         [12] 1276 	ld	de, #_BigSis_Map
+      000638 D5               [16] 1277 	push	de
+      000639 21 05 07         [12] 1278 	ld	hl, #0x705
+      00063C E5               [16] 1279 	push	hl
+      00063D 21 02 04         [12] 1280 	ld	hl, #0x402
+      000640 E5               [16] 1281 	push	hl
+      000641 CDr00r00         [24] 1282 	call	_set_bkg_tiles
+      000644 E8 06            [16] 1283 	add	sp, #6
+                           000646  1284 	C$Bestiary.c$220$2_0$123	= .
+                                   1285 	.globl	C$Bestiary.c$220$2_0$123
+                                   1286 ;src\Bestiary.c:220: DrawNumber(4, 0, 11, 3);     // ID
+      000646 3E 03            [ 8] 1287 	ld	a, #0x03
+      000648 F5               [16] 1288 	push	af
+      000649 33               [ 8] 1289 	inc	sp
+      00064A 11 0B 00         [12] 1290 	ld	de, #0x000b
+      00064D D5               [16] 1291 	push	de
+      00064E 1E 00            [ 8] 1292 	ld	e, #0x00
+      000650 3E 04            [ 8] 1293 	ld	a, #0x04
+      000652 CDr00r00         [24] 1294 	call	_DrawNumber
+                           000655  1295 	C$Bestiary.c$222$2_0$123	= .
+                                   1296 	.globl	C$Bestiary.c$222$2_0$123
+                                   1297 ;src\Bestiary.c:222: DrawNumber(16, 2, 26, 2);    // ATTACK
+      000655 3E 02            [ 8] 1298 	ld	a, #0x02
+      000657 F5               [16] 1299 	push	af
+      000658 33               [ 8] 1300 	inc	sp
+      000659 11 1A 00         [12] 1301 	ld	de, #0x001a
+      00065C D5               [16] 1302 	push	de
+      00065D 1E 02            [ 8] 1303 	ld	e, #0x02
+      00065F 3E 10            [ 8] 1304 	ld	a, #0x10
+      000661 CDr00r00         [24] 1305 	call	_DrawNumber
+                           000664  1306 	C$Bestiary.c$223$2_0$123	= .
+                                   1307 	.globl	C$Bestiary.c$223$2_0$123
+                                   1308 ;src\Bestiary.c:223: DrawNumber(16, 4, 14, 2);    // DEFENSE
+      000664 3E 02            [ 8] 1309 	ld	a, #0x02
+      000666 F5               [16] 1310 	push	af
+      000667 33               [ 8] 1311 	inc	sp
+      000668 11 0E 00         [12] 1312 	ld	de, #0x000e
+      00066B D5               [16] 1313 	push	de
+      00066C 1E 04            [ 8] 1314 	ld	e, #0x04
+      00066E 3E 10            [ 8] 1315 	ld	a, #0x10
+      000670 CDr00r00         [24] 1316 	call	_DrawNumber
+                           000673  1317 	C$Bestiary.c$224$2_0$123	= .
+                                   1318 	.globl	C$Bestiary.c$224$2_0$123
+                                   1319 ;src\Bestiary.c:224: DrawNumber(16, 6, 20, 2);    // SPECIAL
+      000673 3E 02            [ 8] 1320 	ld	a, #0x02
+      000675 F5               [16] 1321 	push	af
+      000676 33               [ 8] 1322 	inc	sp
+      000677 11 14 00         [12] 1323 	ld	de, #0x0014
+      00067A D5               [16] 1324 	push	de
+      00067B 1E 06            [ 8] 1325 	ld	e, #0x06
+      00067D 3E 10            [ 8] 1326 	ld	a, #0x10
+      00067F CDr00r00         [24] 1327 	call	_DrawNumber
+                           000682  1328 	C$Bestiary.c$225$2_0$123	= .
+                                   1329 	.globl	C$Bestiary.c$225$2_0$123
+                                   1330 ;src\Bestiary.c:225: DrawNumber(16, 8, 20, 2);    // SPEED
+      000682 3E 02            [ 8] 1331 	ld	a, #0x02
+      000684 F5               [16] 1332 	push	af
+      000685 33               [ 8] 1333 	inc	sp
+      000686 11 14 00         [12] 1334 	ld	de, #0x0014
+      000689 D5               [16] 1335 	push	de
+      00068A 1E 08            [ 8] 1336 	ld	e, #0x08
+      00068C 3E 10            [ 8] 1337 	ld	a, #0x10
+      00068E CDr00r00         [24] 1338 	call	_DrawNumber
+                           000691  1339 	C$Bestiary.c$226$2_0$123	= .
+                                   1340 	.globl	C$Bestiary.c$226$2_0$123
+                                   1341 ;src\Bestiary.c:226: DrawNumber(16, 10, 38, 2);   // EXP.
+      000691 3E 02            [ 8] 1342 	ld	a, #0x02
+      000693 F5               [16] 1343 	push	af
+      000694 33               [ 8] 1344 	inc	sp
+      000695 11 26 00         [12] 1345 	ld	de, #0x0026
+      000698 D5               [16] 1346 	push	de
+      000699 1E 0A            [ 8] 1347 	ld	e, #0x0a
+      00069B 3E 10            [ 8] 1348 	ld	a, #0x10
+      00069D CDr00r00         [24] 1349 	call	_DrawNumber
+      0006A0 C3r22r07         [16] 1350 	jp	00150$
+      0006A3                       1351 00116$:
+                           0006A3  1352 	C$Bestiary.c$228$1_0$105	= .
+                                   1353 	.globl	C$Bestiary.c$228$1_0$105
+                                   1354 ;src\Bestiary.c:228: else if (index == 12)
+      0006A3 FAr00r00         [16] 1355 	ld	a, (#_index)
+      0006A6 D6 0C            [ 8] 1356 	sub	a, #0x0c
+      0006A8 20 78            [12] 1357 	jr	NZ, 00150$
+                           0006AA  1358 	C$Bestiary.c$230$2_0$124	= .
+                                   1359 	.globl	C$Bestiary.c$230$2_0$124
+                                   1360 ;src\Bestiary.c:230: set_bkg_data(128, 31, Sis_Tiles);
+      0006AA 11r00r00         [12] 1361 	ld	de, #_Sis_Tiles
+      0006AD D5               [16] 1362 	push	de
+      0006AE 21 80 1F         [12] 1363 	ld	hl, #0x1f80
+      0006B1 E5               [16] 1364 	push	hl
+      0006B2 CDr00r00         [24] 1365 	call	_set_bkg_data
+      0006B5 E8 04            [16] 1366 	add	sp, #4
+                           0006B7  1367 	C$Bestiary.c$231$2_0$124	= .
+                                   1368 	.globl	C$Bestiary.c$231$2_0$124
+                                   1369 ;src\Bestiary.c:231: set_bkg_tiles(2, 4, MadSis_MapWidth, MadSis_MapHeight, MadSis_Map);
+      0006B7 11r00r00         [12] 1370 	ld	de, #_MadSis_Map
+      0006BA D5               [16] 1371 	push	de
+      0006BB 21 05 07         [12] 1372 	ld	hl, #0x705
+      0006BE E5               [16] 1373 	push	hl
+      0006BF 21 02 04         [12] 1374 	ld	hl, #0x402
+      0006C2 E5               [16] 1375 	push	hl
+      0006C3 CDr00r00         [24] 1376 	call	_set_bkg_tiles
+      0006C6 E8 06            [16] 1377 	add	sp, #6
+                           0006C8  1378 	C$Bestiary.c$232$2_0$124	= .
+                                   1379 	.globl	C$Bestiary.c$232$2_0$124
+                                   1380 ;src\Bestiary.c:232: DrawNumber(4, 0, 12, 3);     // ID
+      0006C8 3E 03            [ 8] 1381 	ld	a, #0x03
+      0006CA F5               [16] 1382 	push	af
+      0006CB 33               [ 8] 1383 	inc	sp
+      0006CC 11 0C 00         [12] 1384 	ld	de, #0x000c
+      0006CF D5               [16] 1385 	push	de
+      0006D0 1E 00            [ 8] 1386 	ld	e, #0x00
+      0006D2 3E 04            [ 8] 1387 	ld	a, #0x04
+      0006D4 CDr00r00         [24] 1388 	call	_DrawNumber
+                           0006D7  1389 	C$Bestiary.c$234$2_0$124	= .
+                                   1390 	.globl	C$Bestiary.c$234$2_0$124
+                                   1391 ;src\Bestiary.c:234: DrawNumber(16, 2, 36, 2);    // ATTACK
+      0006D7 3E 02            [ 8] 1392 	ld	a, #0x02
+      0006D9 F5               [16] 1393 	push	af
+      0006DA 33               [ 8] 1394 	inc	sp
+      0006DB 11 24 00         [12] 1395 	ld	de, #0x0024
+      0006DE D5               [16] 1396 	push	de
+      0006DF 1E 02            [ 8] 1397 	ld	e, #0x02
+      0006E1 3E 10            [ 8] 1398 	ld	a, #0x10
+      0006E3 CDr00r00         [24] 1399 	call	_DrawNumber
+                           0006E6  1400 	C$Bestiary.c$235$2_0$124	= .
+                                   1401 	.globl	C$Bestiary.c$235$2_0$124
+                                   1402 ;src\Bestiary.c:235: DrawNumber(16, 4, 24, 2);    // DEFENSE
+      0006E6 3E 02            [ 8] 1403 	ld	a, #0x02
+      0006E8 F5               [16] 1404 	push	af
+      0006E9 33               [ 8] 1405 	inc	sp
+      0006EA 11 18 00         [12] 1406 	ld	de, #0x0018
+      0006ED D5               [16] 1407 	push	de
+      0006EE 1E 04            [ 8] 1408 	ld	e, #0x04
+      0006F0 3E 10            [ 8] 1409 	ld	a, #0x10
+      0006F2 CDr00r00         [24] 1410 	call	_DrawNumber
+                           0006F5  1411 	C$Bestiary.c$236$2_0$124	= .
+                                   1412 	.globl	C$Bestiary.c$236$2_0$124
+                                   1413 ;src\Bestiary.c:236: DrawNumber(16, 6, 30, 2);    // SPECIAL
+      0006F5 3E 02            [ 8] 1414 	ld	a, #0x02
+      0006F7 F5               [16] 1415 	push	af
+      0006F8 33               [ 8] 1416 	inc	sp
+      0006F9 11 1E 00         [12] 1417 	ld	de, #0x001e
+      0006FC D5               [16] 1418 	push	de
+      0006FD 1E 06            [ 8] 1419 	ld	e, #0x06
+      0006FF 3E 10            [ 8] 1420 	ld	a, #0x10
+      000701 CDr00r00         [24] 1421 	call	_DrawNumber
+                           000704  1422 	C$Bestiary.c$237$2_0$124	= .
+                                   1423 	.globl	C$Bestiary.c$237$2_0$124
+                                   1424 ;src\Bestiary.c:237: DrawNumber(16, 8, 30, 2);    // SPEED
+      000704 3E 02            [ 8] 1425 	ld	a, #0x02
+      000706 F5               [16] 1426 	push	af
+      000707 33               [ 8] 1427 	inc	sp
+      000708 11 1E 00         [12] 1428 	ld	de, #0x001e
+      00070B D5               [16] 1429 	push	de
+      00070C 1E 08            [ 8] 1430 	ld	e, #0x08
+      00070E 3E 10            [ 8] 1431 	ld	a, #0x10
+      000710 CDr00r00         [24] 1432 	call	_DrawNumber
+                           000713  1433 	C$Bestiary.c$238$2_0$124	= .
+                                   1434 	.globl	C$Bestiary.c$238$2_0$124
+                                   1435 ;src\Bestiary.c:238: DrawNumber(16, 10, 58, 2);   // EXP.
+      000713 3E 02            [ 8] 1436 	ld	a, #0x02
+      000715 F5               [16] 1437 	push	af
+      000716 33               [ 8] 1438 	inc	sp
+      000717 11 3A 00         [12] 1439 	ld	de, #0x003a
+      00071A D5               [16] 1440 	push	de
+      00071B 1E 0A            [ 8] 1441 	ld	e, #0x0a
+      00071D 3E 10            [ 8] 1442 	ld	a, #0x10
+      00071F CDr00r00         [24] 1443 	call	_DrawNumber
+      000722                       1444 00150$:
+                           000722  1445 	C$Bestiary.c$240$1_0$105	= .
+                                   1446 	.globl	C$Bestiary.c$240$1_0$105
+                                   1447 ;src\Bestiary.c:240: return BESTIARY;
+      000722 3E 04            [ 8] 1448 	ld	a, #0x04
+                           000724  1449 	C$Bestiary.c$241$1_0$105	= .
+                                   1450 	.globl	C$Bestiary.c$241$1_0$105
+                                   1451 ;src\Bestiary.c:241: }
+                           000724  1452 	C$Bestiary.c$241$1_0$105	= .
+                                   1453 	.globl	C$Bestiary.c$241$1_0$105
+                           000724  1454 	XG$BestiaryUpdate$0$0	= .
+                                   1455 	.globl	XG$BestiaryUpdate$0$0
+      000724 C9               [16] 1456 	ret
+                                   1457 	.area _CODE
+                                   1458 	.area _INITIALIZER
+                           000000  1459 FBestiary$__xinit_index$0_0$0 == .
+      000000                       1460 __xinit__index:
+      000000 00                    1461 	.db #0x00	;  0
+                           000001  1462 FBestiary$__xinit_invert$0_0$0 == .
+      000001                       1463 __xinit__invert:
+      000001 00                    1464 	.db #0x00	; 0
+                                   1465 	.area _CABS (ABS)

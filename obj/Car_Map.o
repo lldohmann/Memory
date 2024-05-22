@@ -1,11 +1,11 @@
 XL3
 H 9 areas 3 global symbols
-M Sheriff_Map
+M Car_Map
 O -msm83
 S .__.ABS. Def000000
-A _CODE size 2A flags 0 addr 0
-S _Sheriff_Map Def000000
-S G$Sheriff_Map$0_0$0 Def000000
+A _CODE size 1E flags 0 addr 0
+S _Car_Map Def000000
+S G$Car_Map$0_0$0 Def000000
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0
@@ -16,11 +16,9 @@ A _INITIALIZER size 0 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
 T 00 00 00
 R 00 00 00 00
-T 00 00 00 A8 A8 A8 8F A4 A6 A8 83 89 90 A5 A7 80
+T 00 00 00 9B 84 89 8E 9B 9B 80 85 8A 8F 93 97 81
 R 00 00 00 00
-T 0D 00 00 84 8A 91 97 9D 81 85 8B 92 98 9E 82 86
+T 0D 00 00 86 8B 90 94 98 82 87 8C 91 95 99 83 88
 R 00 00 00 00
-T 1A 00 00 8C 93 99 A8 A8 87 8D 94 9A A8 A8 88 8E
-R 00 00 00 00
-T 27 00 00 95 9B A8
+T 1A 00 00 8D 92 96 9A
 R 00 00 00 00

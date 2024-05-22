@@ -17,7 +17,13 @@
 #include "../res/Chief_Map.h"
 #include "../res/Man_Tiles.h"
 #include "../res/Man_Map.h"
-
+#include "../res/Car_Tiles.h"
+#include "../res/Car_Map.h"
+#include "../res/Semi_Tiles.h"
+#include "../res/Semi_Map.h"
+#include "../res/Sis_Tiles.h"
+#include "../res/BigSis_Map.h"
+#include "../res/MadSis_Map.h"
 // SET UP ENEMIES
 //struct Enemy enemy_JIM = {"JIM", 0, 3, 2, 1, 4, 5};
 //struct Enemy enemy_GYPSY = {"GYPSY", 1, 2, 2, 3, 2, 7};
@@ -49,7 +55,7 @@ uint8_t BestiaryUpdate()
     }
     if (joypadCurrent & J_RIGHT)
     {
-        if (index + 1 <= 9)
+        if (index + 1 <= 12)
         {
             index++;
         }
@@ -182,6 +188,54 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 6, 1, 1);    // SPECIAL
         DrawNumber(17, 8, 1, 1);    // SPEED
         DrawNumber(16, 10, 1, 1);   // EXP.
+    }
+    else if (index == 9)
+    {
+        set_bkg_data(128, 26, Car_Tiles);
+        set_bkg_tiles(2, 4, Car_MapWidth, Car_MapHeight, Car_Map);
+        DrawNumber(4, 0, 9, 3);     // ID
+        //DrawText(2, 2, "GYPSY");    // NAME
+        DrawNumber(16, 2, 30, 2);    // ATTACK
+        DrawNumber(16, 4, 25, 3);    // DEFENSE
+        DrawNumber(16, 6, 15, 2);    // SPECIAL
+        DrawNumber(16, 8, 40, 2);    // SPEED
+        DrawNumber(16, 10, 66, 2);   // EXP.
+    }
+    else if (index == 10)
+    {
+        set_bkg_data(128, 46, Semi_Tiles);
+        set_bkg_tiles(2, 4, Semi_MapWidth, Semi_MapHeight, Semi_Map);
+        DrawNumber(4, 0, 10, 3);     // ID
+        //DrawText(2, 2, "GYPSY");    // NAME
+        DrawNumber(16, 2, 66, 2);    // ATTACK
+        DrawNumber(16, 4, 66, 2);    // DEFENSE
+        DrawNumber(16, 6, 15, 2);    // SPECIAL
+        DrawNumber(16, 8, 35, 2);    // SPEED
+        DrawNumber(15, 10, 100, 3);   // EXP.
+    }
+    else if (index == 11)
+    {
+        set_bkg_data(128, 31, Sis_Tiles);
+        set_bkg_tiles(2, 4, BigSis_MapWidth, BigSis_MapHeight, BigSis_Map);
+        DrawNumber(4, 0, 11, 3);     // ID
+        //DrawText(2, 2, "GYPSY");    // NAME
+        DrawNumber(16, 2, 26, 2);    // ATTACK
+        DrawNumber(16, 4, 14, 2);    // DEFENSE
+        DrawNumber(16, 6, 20, 2);    // SPECIAL
+        DrawNumber(16, 8, 20, 2);    // SPEED
+        DrawNumber(16, 10, 38, 2);   // EXP.
+    }
+    else if (index == 12)
+    {
+        set_bkg_data(128, 31, Sis_Tiles);
+        set_bkg_tiles(2, 4, MadSis_MapWidth, MadSis_MapHeight, MadSis_Map);
+        DrawNumber(4, 0, 12, 3);     // ID
+        //DrawText(2, 2, "GYPSY");    // NAME
+        DrawNumber(16, 2, 36, 2);    // ATTACK
+        DrawNumber(16, 4, 24, 2);    // DEFENSE
+        DrawNumber(16, 6, 30, 2);    // SPECIAL
+        DrawNumber(16, 8, 30, 2);    // SPEED
+        DrawNumber(16, 10, 58, 2);   // EXP.
     }
     return BESTIARY;
 }

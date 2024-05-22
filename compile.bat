@@ -32,4 +32,11 @@ REM Automatically generated from Makefile
 ..\..\..\bin\lcc   -debug -c -o obj\Tick_Map.o res\Tick_Map.c
 ..\..\..\bin\lcc   -debug -c -o obj\Man_Tiles.o res\Man_Tiles.c
 ..\..\..\bin\lcc   -debug -c -o obj\Man_Map.o res\Man_Map.c
-..\..\..\bin\lcc   -debug -o bin\Memory.gb obj\main.o obj\cast_tiles.o obj\indoor_tiles.o obj\home.o obj\player.o obj\GameTitle.o obj\GameTitle.o obj\Globe_Tiles.o obj\Title_Map.o obj\Title_Tiles.o obj\common.o obj\CoreGameLoop.o obj\JohnDoe_Map.o obj\JohnDoe_Tiles.o obj\GameJohnDoe.o obj\Bestiary_Map.o obj\Crow_Tiles.o obj\Crow_Map.o obj\Bestiary.o obj\Font.o obj\Gypsy_Tiles.o obj\Gypsy_Map.o obj\Wally_Tiles.o obj\Wally_Map.o obj\Skateboard_Tiles.o obj\Cop_Tiles.o obj\Officer_Map.o obj\Police_Map.o obj\Sheriff_Map.o obj\Chief_Map.o obj\Tick_Tiles.o obj\Tick_Map.o obj\Man_Tiles.o obj\Man_Map.o
+..\..\..\bin\lcc   -debug -c -o obj\Sis_Tiles.o res\Sis_Tiles.c
+..\..\..\bin\lcc   -debug -c -o obj\BigSis_Map.o res\BigSis_Map.c
+..\..\..\bin\lcc   -debug -c -o obj\MadSis_Map.o res\MadSis_Map.c
+..\..\..\bin\lcc   -debug -c -o obj\Car_Tiles.o res\Car_Tiles.c
+..\..\..\bin\lcc   -debug -c -o obj\Car_Map.o res\Car_Map.c
+..\..\..\bin\lcc   -debug -c -o obj\Semi_Tiles.o res\Semi_Tiles.c
+..\..\..\bin\lcc   -debug -c -o obj\Semi_Map.o res\Semi_Map.c
+..\..\..\bin\lcc   -debug -o bin\Memory.gb obj\main.o obj\cast_tiles.o obj\indoor_tiles.o obj\home.o obj\player.o obj\GameTitle.o obj\GameTitle.o obj\Globe_Tiles.o obj\Title_Map.o obj\Title_Tiles.o obj\common.o obj\CoreGameLoop.o obj\JohnDoe_Map.o obj\JohnDoe_Tiles.o obj\GameJohnDoe.o obj\Bestiary_Map.o obj\Crow_Tiles.o obj\Crow_Map.o obj\Bestiary.o obj\Font.o obj\Gypsy_Tiles.o obj\Gypsy_Map.o obj\Wally_Tiles.o obj\Wally_Map.o obj\Skateboard_Tiles.o obj\Cop_Tiles.o obj\Officer_Map.o obj\Police_Map.o obj\Sheriff_Map.o obj\Chief_Map.o obj\Tick_Tiles.o obj\Tick_Map.o obj\Man_Tiles.o obj\Man_Map.o obj\Sis_Tiles.o obj\BigSis_Map.o obj\MadSis_Map.o obj\Car_Tiles.o obj\Car_Map.o obj\Semi_Tiles.o obj\Semi_Map.o

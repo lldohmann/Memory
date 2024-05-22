@@ -1,14 +1,14 @@
 /*
 
- SHERIFF_MAP.H
+ MADSIS_MAP.H
 
  Map Include File.
 
  Info:
    Section       : 
    Bank          : 0
-   Map size      : 6 x 7
-   Tile set      : C:\gbtd22\Memory\Cop.gbr
+   Map size      : 5 x 7
+   Tile set      : C:\gbtd22\Memory\BigSis.gbr
    Plane count   : 1 plane (8 bits)
    Plane order   : Tiles are continues
    Tile offset   : 128
@@ -18,10 +18,10 @@
 
 */
 
-#define Sheriff_MapWidth 6
-#define Sheriff_MapHeight 7
-#define Sheriff_MapBank 0
+#define MadSis_MapWidth 5
+#define MadSis_MapHeight 7
+#define MadSis_MapBank 0
 
-const extern unsigned char Sheriff_Map[];
+const extern unsigned char MadSis_Map[];
 
-/* End of SHERIFF_MAP.H */
+/* End of MADSIS_MAP.H */
