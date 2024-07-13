@@ -128,6 +128,16 @@ uint8_t GameTitleUpdate()
         move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
         return GAMEJOHNDOE;
     }
+    if (joypadCurrent & J_B)
+    {
+        fadeToBlack(3);
+        fadeFromBlack(3);
+        fadeToBlack(3);
+        fadeFromBlack(3);
+        fadeToBlack(3);
+        move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+        return BATTLE;
+    }
     if (joypadCurrent & J_A)
     {
         fadeToBlack(10);

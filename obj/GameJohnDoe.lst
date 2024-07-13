@@ -11,332 +11,403 @@
                                      11 	.globl _GameJohnDoeUpdate
                                      12 	.globl _GameJohnDoeSetup
                                      13 	.globl _scanline_isr
-                                     14 	.globl _fadeFromWhite
-                                     15 	.globl _fadeToWhite
-                                     16 	.globl _fadeFromBlack
-                                     17 	.globl _fadeToBlack
-                                     18 	.globl _set_bkg_tiles
-                                     19 	.globl _set_bkg_data
-                                     20 	.globl _set_interrupts
-                                     21 	.globl _joypad
-                                     22 	.globl _scanline_offsets
-                                     23 	.globl _wabble
-                                     24 	.globl _scanline_normal_tbl
-                                     25 	.globl _scanline_offsets_tbl
-                                     26 ;--------------------------------------------------------
-                                     27 ; special function registers
-                                     28 ;--------------------------------------------------------
+                                     14 	.globl _ResetColor
+                                     15 	.globl _InvertColor
+                                     16 	.globl _fadeFromWhite
+                                     17 	.globl _fadeToWhite
+                                     18 	.globl _fadeFromBlack
+                                     19 	.globl _fadeToBlack
+                                     20 	.globl _set_bkg_tiles
+                                     21 	.globl _set_bkg_data
+                                     22 	.globl _set_interrupts
+                                     23 	.globl _joypad
+                                     24 	.globl _scanline_offsets
+                                     25 	.globl _invert_b
+                                     26 	.globl _wabble
+                                     27 	.globl _scanline_normal_tbl
+                                     28 	.globl _scanline_offsets_tbl
                                      29 ;--------------------------------------------------------
-                                     30 ; ram data
+                                     30 ; special function registers
                                      31 ;--------------------------------------------------------
-                                     32 	.area _DATA
-                                     33 ;--------------------------------------------------------
-                                     34 ; ram data
-                                     35 ;--------------------------------------------------------
-                                     36 	.area _INITIALIZED
-                           000000    37 G$wabble$0_0$0==.
-      000000                         38 _wabble::
-      000000                         39 	.ds 1
-                           000001    40 G$scanline_offsets$0_0$0==.
-      000001                         41 _scanline_offsets::
-      000001                         42 	.ds 2
-                                     43 ;--------------------------------------------------------
-                                     44 ; absolute external ram data
-                                     45 ;--------------------------------------------------------
-                                     46 	.area _DABS (ABS)
-                                     47 ;--------------------------------------------------------
-                                     48 ; global & static initialisations
+                                     32 ;--------------------------------------------------------
+                                     33 ; ram data
+                                     34 ;--------------------------------------------------------
+                                     35 	.area _DATA
+                                     36 ;--------------------------------------------------------
+                                     37 ; ram data
+                                     38 ;--------------------------------------------------------
+                                     39 	.area _INITIALIZED
+                           000000    40 G$wabble$0_0$0==.
+      000000                         41 _wabble::
+      000000                         42 	.ds 1
+                           000001    43 G$invert_b$0_0$0==.
+      000001                         44 _invert_b::
+      000001                         45 	.ds 1
+                           000002    46 G$scanline_offsets$0_0$0==.
+      000002                         47 _scanline_offsets::
+      000002                         48 	.ds 2
                                      49 ;--------------------------------------------------------
-                                     50 	.area _HOME
-                                     51 	.area _GSINIT
-                                     52 	.area _GSFINAL
-                                     53 	.area _GSINIT
-                                     54 ;--------------------------------------------------------
-                                     55 ; Home
-                                     56 ;--------------------------------------------------------
-                                     57 	.area _HOME
-                                     58 	.area _HOME
-                                     59 ;--------------------------------------------------------
-                                     60 ; code
-                                     61 ;--------------------------------------------------------
-                                     62 	.area _CODE
-                           000000    63 	G$scanline_isr$0$0	= .
-                                     64 	.globl	G$scanline_isr$0$0
-                           000000    65 	C$GameJohnDoe.c$15$0_0$104	= .
-                                     66 	.globl	C$GameJohnDoe.c$15$0_0$104
-                                     67 ;src\GameJohnDoe.c:15: void scanline_isr() CRITICAL INTERRUPT {
-                                     68 ;	---------------------------------
-                                     69 ; Function scanline_isr
-                                     70 ; ---------------------------------
-      000000                         71 _scanline_isr::
-      000000 F5               [16]   72 	push	af
-      000001 C5               [16]   73 	push bc
-      000002 D5               [16]   74 	push de
-      000003 E5               [16]   75 	push hl
-                           000004    76 	C$GameJohnDoe.c$16$1_0$104	= .
-                                     77 	.globl	C$GameJohnDoe.c$16$1_0$104
-                                     78 ;src\GameJohnDoe.c:16: SCX_REG = scanline_offsets[LY_REG & (uint8_t)7];
-      000004 F0r00            [12]   79 	ldh	a, (_LY_REG + 0)
-      000006 E6 07            [ 8]   80 	and	a, #0x07
-      000008 4F               [ 4]   81 	ld	c, a
-      000009 21r01r00         [12]   82 	ld	hl, #_scanline_offsets
-      00000C 2A               [ 8]   83 	ld	a, (hl+)
-      00000D 81               [ 4]   84 	add	a, c
-      00000E 4F               [ 4]   85 	ld	c, a
-      00000F 7E               [ 8]   86 	ld	a, (hl)
-      000010 CE 00            [ 8]   87 	adc	a, #0x00
-      000012 47               [ 4]   88 	ld	b, a
-      000013 0A               [ 8]   89 	ld	a, (bc)
-      000014 E0r00            [12]   90 	ldh	(_SCX_REG + 0), a
-                           000016    91 	C$GameJohnDoe.c$17$1_0$104	= .
-                                     92 	.globl	C$GameJohnDoe.c$17$1_0$104
-                                     93 ;src\GameJohnDoe.c:17: }
-      000016 E1               [12]   94 	pop	hl
-      000017 D1               [12]   95 	pop de
-      000018 C1               [12]   96 	pop bc
-      000019 F1               [12]   97 	pop af
-                           00001A    98 	C$GameJohnDoe.c$17$1_0$104	= .
-                                     99 	.globl	C$GameJohnDoe.c$17$1_0$104
-                           00001A   100 	XG$scanline_isr$0$0	= .
-                                    101 	.globl	XG$scanline_isr$0$0
-      00001A D9               [16]  102 	reti
-                           00001B   103 G$scanline_offsets_tbl$0_0$0 == .
-      00001B                        104 _scanline_offsets_tbl:
-      00001B 00                     105 	.db #0x00	; 0
-      00001C 01                     106 	.db #0x01	; 1
-      00001D 02                     107 	.db #0x02	; 2
-      00001E 03                     108 	.db #0x03	; 3
-      00001F 03                     109 	.db #0x03	; 3
-      000020 02                     110 	.db #0x02	; 2
-      000021 01                     111 	.db #0x01	; 1
-      000022 00                     112 	.db #0x00	; 0
-      000023 00                     113 	.db #0x00	; 0
-      000024 01                     114 	.db #0x01	; 1
-      000025 02                     115 	.db #0x02	; 2
-      000026 03                     116 	.db #0x03	; 3
-      000027 03                     117 	.db #0x03	; 3
-      000028 02                     118 	.db #0x02	; 2
-      000029 01                     119 	.db #0x01	; 1
-      00002A 00                     120 	.db #0x00	; 0
-                           00002B   121 G$scanline_normal_tbl$0_0$0 == .
-      00002B                        122 _scanline_normal_tbl:
-      00002B 00                     123 	.db #0x00	; 0
-      00002C 00                     124 	.db #0x00	; 0
-      00002D 00                     125 	.db #0x00	; 0
-      00002E 00                     126 	.db #0x00	; 0
-      00002F 00                     127 	.db #0x00	; 0
-      000030 00                     128 	.db #0x00	; 0
-      000031 00                     129 	.db #0x00	; 0
-      000032 00                     130 	.db #0x00	; 0
-      000033 00                     131 	.db #0x00	; 0
-      000034 00                     132 	.db #0x00	; 0
-      000035 00                     133 	.db #0x00	; 0
-      000036 00                     134 	.db #0x00	; 0
-      000037 00                     135 	.db #0x00	; 0
-      000038 00                     136 	.db #0x00	; 0
-      000039 00                     137 	.db #0x00	; 0
-      00003A 00                     138 	.db #0x00	; 0
-                           00003B   139 	G$GameJohnDoeSetup$0$0	= .
-                                    140 	.globl	G$GameJohnDoeSetup$0$0
-                           00003B   141 	C$GameJohnDoe.c$27$1_0$105	= .
-                                    142 	.globl	C$GameJohnDoe.c$27$1_0$105
-                                    143 ;src\GameJohnDoe.c:27: void GameJohnDoeSetup()
-                                    144 ;	---------------------------------
-                                    145 ; Function GameJohnDoeSetup
-                                    146 ; ---------------------------------
-      00003B                        147 _GameJohnDoeSetup::
-                           00003B   148 	C$GameJohnDoe.c$29$1_0$105	= .
-                                    149 	.globl	C$GameJohnDoe.c$29$1_0$105
-                                    150 ;src\GameJohnDoe.c:29: set_bkg_data(0, 79, JohnDoe_Tiles);
-      00003B 11r00r00         [12]  151 	ld	de, #_JohnDoe_Tiles
-      00003E D5               [16]  152 	push	de
-      00003F 21 00 4F         [12]  153 	ld	hl, #0x4f00
-      000042 E5               [16]  154 	push	hl
-      000043 CDr00r00         [24]  155 	call	_set_bkg_data
-      000046 E8 04            [16]  156 	add	sp, #4
-                           000048   157 	C$GameJohnDoe.c$30$1_0$105	= .
-                                    158 	.globl	C$GameJohnDoe.c$30$1_0$105
-                                    159 ;src\GameJohnDoe.c:30: set_bkg_tiles(0, 0, JohnDoe_MapWidth, JohnDoe_MapHeight, JohnDoe_Map);
-      000048 11r00r00         [12]  160 	ld	de, #_JohnDoe_Map
-      00004B D5               [16]  161 	push	de
-      00004C 21 14 12         [12]  162 	ld	hl, #0x1214
-      00004F E5               [16]  163 	push	hl
-      000050 AF               [ 4]  164 	xor	a, a
-      000051 0F               [ 4]  165 	rrca
-      000052 F5               [16]  166 	push	af
-      000053 CDr00r00         [24]  167 	call	_set_bkg_tiles
-      000056 E8 06            [16]  168 	add	sp, #6
-                           000058   169 	C$GameJohnDoe.c$31$1_0$105	= .
-                                    170 	.globl	C$GameJohnDoe.c$31$1_0$105
-                                    171 ;src\GameJohnDoe.c:31: SHOW_BKG;
-      000058 F0r00            [12]  172 	ldh	a, (_LCDC_REG + 0)
-      00005A F6 01            [ 8]  173 	or	a, #0x01
-      00005C E0r00            [12]  174 	ldh	(_LCDC_REG + 0), a
-                           00005E   175 	C$GameJohnDoe.c$32$1_0$105	= .
-                                    176 	.globl	C$GameJohnDoe.c$32$1_0$105
-                                    177 ;src\GameJohnDoe.c:32: fadeFromBlack(10);
-      00005E 3E 0A            [ 8]  178 	ld	a, #0x0a
-                           000060   179 	C$GameJohnDoe.c$33$1_0$105	= .
-                                    180 	.globl	C$GameJohnDoe.c$33$1_0$105
-                                    181 ;src\GameJohnDoe.c:33: }
-                           000060   182 	C$GameJohnDoe.c$33$1_0$105	= .
-                                    183 	.globl	C$GameJohnDoe.c$33$1_0$105
-                           000060   184 	XG$GameJohnDoeSetup$0$0	= .
-                                    185 	.globl	XG$GameJohnDoeSetup$0$0
-      000060 C3r00r00         [16]  186 	jp	_fadeFromBlack
-                           000063   187 	G$GameJohnDoeUpdate$0$0	= .
-                                    188 	.globl	G$GameJohnDoeUpdate$0$0
-                           000063   189 	C$GameJohnDoe.c$35$1_0$106	= .
-                                    190 	.globl	C$GameJohnDoe.c$35$1_0$106
-                                    191 ;src\GameJohnDoe.c:35: uint8_t GameJohnDoeUpdate()
-                                    192 ;	---------------------------------
-                                    193 ; Function GameJohnDoeUpdate
-                                    194 ; ---------------------------------
-      000063                        195 _GameJohnDoeUpdate::
-                           000063   196 	C$GameJohnDoe.c$37$1_0$106	= .
-                                    197 	.globl	C$GameJohnDoe.c$37$1_0$106
-                                    198 ;src\GameJohnDoe.c:37: joypadPrevious = joypadCurrent;
-      000063 FAr00r00         [16]  199 	ld	a, (#_joypadCurrent)
-      000066 EAr00r00         [16]  200 	ld	(#_joypadPrevious),a
-                           000069   201 	C$GameJohnDoe.c$38$1_0$106	= .
-                                    202 	.globl	C$GameJohnDoe.c$38$1_0$106
-                                    203 ;src\GameJohnDoe.c:38: joypadCurrent = joypad();
-      000069 CDr00r00         [24]  204 	call	_joypad
-      00006C 21r00r00         [12]  205 	ld	hl, #_joypadCurrent
-      00006F 77               [ 8]  206 	ld	(hl), a
-                           000070   207 	C$GameJohnDoe.c$40$1_0$106	= .
-                                    208 	.globl	C$GameJohnDoe.c$40$1_0$106
-                                    209 ;src\GameJohnDoe.c:40: if (joypadCurrent & J_A)
-      000070 CB 66            [12]  210 	bit	4, (hl)
-      000072 28 0A            [12]  211 	jr	Z, 00102$
-                           000074   212 	C$GameJohnDoe.c$42$2_0$107	= .
-                                    213 	.globl	C$GameJohnDoe.c$42$2_0$107
-                                    214 ;src\GameJohnDoe.c:42: fadeToBlack(10);
-      000074 3E 0A            [ 8]  215 	ld	a, #0x0a
-      000076 CDr00r00         [24]  216 	call	_fadeToBlack
-                           000079   217 	C$GameJohnDoe.c$43$2_0$107	= .
-                                    218 	.globl	C$GameJohnDoe.c$43$2_0$107
-                                    219 ;src\GameJohnDoe.c:43: fadeFromBlack(10);
-      000079 3E 0A            [ 8]  220 	ld	a, #0x0a
-      00007B CDr00r00         [24]  221 	call	_fadeFromBlack
-      00007E                        222 00102$:
-                           00007E   223 	C$GameJohnDoe.c$45$1_0$106	= .
-                                    224 	.globl	C$GameJohnDoe.c$45$1_0$106
-                                    225 ;src\GameJohnDoe.c:45: if (joypadCurrent & J_B)
-      00007E FAr00r00         [16]  226 	ld	a, (#_joypadCurrent)
-      000081 CB 6F            [ 8]  227 	bit	5, a
-      000083 28 0A            [12]  228 	jr	Z, 00104$
-                           000085   229 	C$GameJohnDoe.c$47$2_0$108	= .
-                                    230 	.globl	C$GameJohnDoe.c$47$2_0$108
-                                    231 ;src\GameJohnDoe.c:47: fadeToWhite(10);
-      000085 3E 0A            [ 8]  232 	ld	a, #0x0a
-      000087 CDr00r00         [24]  233 	call	_fadeToWhite
-                           00008A   234 	C$GameJohnDoe.c$48$2_0$108	= .
-                                    235 	.globl	C$GameJohnDoe.c$48$2_0$108
-                                    236 ;src\GameJohnDoe.c:48: fadeFromWhite(10);
-      00008A 3E 0A            [ 8]  237 	ld	a, #0x0a
-      00008C CDr00r00         [24]  238 	call	_fadeFromWhite
-      00008F                        239 00104$:
-                           00008F   240 	C$GameJohnDoe.c$50$1_0$106	= .
-                                    241 	.globl	C$GameJohnDoe.c$50$1_0$106
-                                    242 ;src\GameJohnDoe.c:50: if (joypadCurrent & J_START)
-      00008F FAr00r00         [16]  243 	ld	a, (#_joypadCurrent)
-      000092 07               [ 4]  244 	rlca
-      000093 30 1E            [12]  245 	jr	NC, 00109$
-                           000095   246 	C$GameJohnDoe.c$52$2_0$109	= .
-                                    247 	.globl	C$GameJohnDoe.c$52$2_0$109
-                                    248 ;src\GameJohnDoe.c:52: if (wabble == FALSE)
-      000095 FAr00r00         [16]  249 	ld	a, (#_wabble)
-      000098 B7               [ 4]  250 	or	a, a
-      000099 20 13            [12]  251 	jr	NZ, 00106$
-                           00009B   252 	C$GameJohnDoe.c$55$3_0$110	= .
-                                    253 	.globl	C$GameJohnDoe.c$55$3_0$110
-                                    254 ;src\GameJohnDoe.c:55: STAT_REG = STATF_MODE00;
-      00009B 3E 08            [ 8]  255 	ld	a, #0x08
-      00009D E0r00            [12]  256 	ldh	(_STAT_REG + 0), a
-                           00009F   257 	C$GameJohnDoe.c$56$3_0$110	= .
-                                    258 	.globl	C$GameJohnDoe.c$56$3_0$110
-                                    259 ;src\GameJohnDoe.c:56: set_interrupts(VBL_IFLAG | LCD_IFLAG);
-      00009F 3E 03            [ 8]  260 	ld	a, #0x03
-      0000A1 F5               [16]  261 	push	af
-      0000A2 33               [ 8]  262 	inc	sp
-      0000A3 CDr00r00         [24]  263 	call	_set_interrupts
-      0000A6 33               [ 8]  264 	inc	sp
-                           0000A7   265 	C$GameJohnDoe.c$58$3_0$110	= .
-                                    266 	.globl	C$GameJohnDoe.c$58$3_0$110
-                                    267 ;src\GameJohnDoe.c:58: wabble = TRUE;
-      0000A7 21r00r00         [12]  268 	ld	hl, #_wabble
-      0000AA 36 01            [12]  269 	ld	(hl), #0x01
-      0000AC 18 05            [12]  270 	jr	00109$
-      0000AE                        271 00106$:
-                           0000AE   272 	C$GameJohnDoe.c$62$3_0$111	= .
-                                    273 	.globl	C$GameJohnDoe.c$62$3_0$111
-                                    274 ;src\GameJohnDoe.c:62: wabble = FALSE;
-      0000AE 21r00r00         [12]  275 	ld	hl, #_wabble
-      0000B1 36 00            [12]  276 	ld	(hl), #0x00
-      0000B3                        277 00109$:
-                           0000B3   278 	C$GameJohnDoe.c$65$1_0$106	= .
-                                    279 	.globl	C$GameJohnDoe.c$65$1_0$106
-                                    280 ;src\GameJohnDoe.c:65: if (joypadCurrent & J_SELECT)
-      0000B3 FAr00r00         [16]  281 	ld	a, (#_joypadCurrent)
-      0000B6 CB 77            [ 8]  282 	bit	6, a
-      0000B8 28 08            [12]  283 	jr	Z, 00111$
-                           0000BA   284 	C$GameJohnDoe.c$67$2_0$112	= .
-                                    285 	.globl	C$GameJohnDoe.c$67$2_0$112
-                                    286 ;src\GameJohnDoe.c:67: fadeToBlack(10);
-      0000BA 3E 0A            [ 8]  287 	ld	a, #0x0a
-      0000BC CDr00r00         [24]  288 	call	_fadeToBlack
-                           0000BF   289 	C$GameJohnDoe.c$68$2_0$112	= .
-                                    290 	.globl	C$GameJohnDoe.c$68$2_0$112
-                                    291 ;src\GameJohnDoe.c:68: return GAMETITLE;
-      0000BF 3E 01            [ 8]  292 	ld	a, #0x01
-      0000C1 C9               [16]  293 	ret
-      0000C2                        294 00111$:
-                           0000C2   295 	C$GameJohnDoe.c$72$1_0$106	= .
-                                    296 	.globl	C$GameJohnDoe.c$72$1_0$106
-                                    297 ;src\GameJohnDoe.c:72: scanline_offsets = &scanline_offsets_tbl[(uint8_t)(sys_time >> 2) & 0x07u];
-      0000C2 21r00r00         [12]  298 	ld	hl, #_sys_time
-      0000C5 2A               [ 8]  299 	ld	a, (hl+)
-      0000C6 4F               [ 4]  300 	ld	c, a
-      0000C7 46               [ 8]  301 	ld	b, (hl)
-      0000C8 CB 38            [ 8]  302 	srl	b
-      0000CA CB 19            [ 8]  303 	rr	c
-      0000CC CB 38            [ 8]  304 	srl	b
-      0000CE CB 19            [ 8]  305 	rr	c
-      0000D0 79               [ 4]  306 	ld	a, c
-      0000D1 E6 07            [ 8]  307 	and	a, #0x07
-      0000D3 06 00            [ 8]  308 	ld	b, #0x00
-      0000D5 C6r1B            [ 8]  309 	add	a, #<(_scanline_offsets_tbl)
-      0000D7 4F               [ 4]  310 	ld	c, a
-      0000D8 78               [ 4]  311 	ld	a, b
-      0000D9 CEs00            [ 8]  312 	adc	a, #>(_scanline_offsets_tbl)
-      0000DB 21r01r00         [12]  313 	ld	hl, #_scanline_offsets
-      0000DE 71               [ 8]  314 	ld	(hl), c
-      0000DF 23               [ 8]  315 	inc	hl
-      0000E0 77               [ 8]  316 	ld	(hl), a
-                           0000E1   317 	C$GameJohnDoe.c$74$1_0$106	= .
-                                    318 	.globl	C$GameJohnDoe.c$74$1_0$106
-                                    319 ;src\GameJohnDoe.c:74: return GAMEJOHNDOE;
-      0000E1 3E 03            [ 8]  320 	ld	a, #0x03
-                           0000E3   321 	C$GameJohnDoe.c$75$1_0$106	= .
-                                    322 	.globl	C$GameJohnDoe.c$75$1_0$106
-                                    323 ;src\GameJohnDoe.c:75: }
-                           0000E3   324 	C$GameJohnDoe.c$75$1_0$106	= .
-                                    325 	.globl	C$GameJohnDoe.c$75$1_0$106
-                           0000E3   326 	XG$GameJohnDoeUpdate$0$0	= .
-                                    327 	.globl	XG$GameJohnDoeUpdate$0$0
-      0000E3 C9               [16]  328 	ret
-                                    329 	.area _CODE
-                                    330 	.area _INITIALIZER
-                           000000   331 FGameJohnDoe$__xinit_wabble$0_0$0 == .
-      000000                        332 __xinit__wabble:
-      000000 00                     333 	.db #0x00	;  0
-                           000001   334 FGameJohnDoe$__xinit_scanline_offsets$0_0$0 == .
-      000001                        335 __xinit__scanline_offsets:
-      000001r1Br00                  336 	.dw _scanline_offsets_tbl
-                                    337 	.area _CABS (ABS)
-      000048                        338 	.org 0x0048
-                           000048   339 FGameJohnDoe$__ISR_VECTOR_STAT$0_0$0 == .
-      000048                        340 ___ISR_VECTOR_STAT:
-      000048 C3                     341 	.db #0xc3	; 195
-      000049r00r00                  342 	.dw _scanline_isr
+                                     50 ; absolute external ram data
+                                     51 ;--------------------------------------------------------
+                                     52 	.area _DABS (ABS)
+                                     53 ;--------------------------------------------------------
+                                     54 ; global & static initialisations
+                                     55 ;--------------------------------------------------------
+                                     56 	.area _HOME
+                                     57 	.area _GSINIT
+                                     58 	.area _GSFINAL
+                                     59 	.area _GSINIT
+                                     60 ;--------------------------------------------------------
+                                     61 ; Home
+                                     62 ;--------------------------------------------------------
+                                     63 	.area _HOME
+                                     64 	.area _HOME
+                                     65 ;--------------------------------------------------------
+                                     66 ; code
+                                     67 ;--------------------------------------------------------
+                                     68 	.area _CODE
+                           000000    69 	G$scanline_isr$0$0	= .
+                                     70 	.globl	G$scanline_isr$0$0
+                           000000    71 	C$GameJohnDoe.c$16$0_0$105	= .
+                                     72 	.globl	C$GameJohnDoe.c$16$0_0$105
+                                     73 ;src\GameJohnDoe.c:16: void scanline_isr() CRITICAL INTERRUPT {
+                                     74 ;	---------------------------------
+                                     75 ; Function scanline_isr
+                                     76 ; ---------------------------------
+      000000                         77 _scanline_isr::
+      000000 F5               [16]   78 	push	af
+      000001 C5               [16]   79 	push bc
+      000002 D5               [16]   80 	push de
+      000003 E5               [16]   81 	push hl
+                           000004    82 	C$GameJohnDoe.c$17$1_0$105	= .
+                                     83 	.globl	C$GameJohnDoe.c$17$1_0$105
+                                     84 ;src\GameJohnDoe.c:17: SCX_REG = scanline_offsets[LY_REG & (uint8_t)7];
+      000004 F0r00            [12]   85 	ldh	a, (_LY_REG + 0)
+      000006 E6 07            [ 8]   86 	and	a, #0x07
+      000008 4F               [ 4]   87 	ld	c, a
+      000009 21r02r00         [12]   88 	ld	hl, #_scanline_offsets
+      00000C 2A               [ 8]   89 	ld	a, (hl+)
+      00000D 81               [ 4]   90 	add	a, c
+      00000E 4F               [ 4]   91 	ld	c, a
+      00000F 7E               [ 8]   92 	ld	a, (hl)
+      000010 CE 00            [ 8]   93 	adc	a, #0x00
+      000012 47               [ 4]   94 	ld	b, a
+      000013 0A               [ 8]   95 	ld	a, (bc)
+      000014 E0r00            [12]   96 	ldh	(_SCX_REG + 0), a
+                           000016    97 	C$GameJohnDoe.c$18$1_0$105	= .
+                                     98 	.globl	C$GameJohnDoe.c$18$1_0$105
+                                     99 ;src\GameJohnDoe.c:18: }
+      000016 E1               [12]  100 	pop	hl
+      000017 D1               [12]  101 	pop de
+      000018 C1               [12]  102 	pop bc
+      000019 F1               [12]  103 	pop af
+                           00001A   104 	C$GameJohnDoe.c$18$1_0$105	= .
+                                    105 	.globl	C$GameJohnDoe.c$18$1_0$105
+                           00001A   106 	XG$scanline_isr$0$0	= .
+                                    107 	.globl	XG$scanline_isr$0$0
+      00001A D9               [16]  108 	reti
+                           00001B   109 G$scanline_offsets_tbl$0_0$0 == .
+      00001B                        110 _scanline_offsets_tbl:
+      00001B 00                     111 	.db #0x00	; 0
+      00001C 01                     112 	.db #0x01	; 1
+      00001D 02                     113 	.db #0x02	; 2
+      00001E 03                     114 	.db #0x03	; 3
+      00001F 03                     115 	.db #0x03	; 3
+      000020 02                     116 	.db #0x02	; 2
+      000021 01                     117 	.db #0x01	; 1
+      000022 00                     118 	.db #0x00	; 0
+      000023 00                     119 	.db #0x00	; 0
+      000024 01                     120 	.db #0x01	; 1
+      000025 02                     121 	.db #0x02	; 2
+      000026 03                     122 	.db #0x03	; 3
+      000027 03                     123 	.db #0x03	; 3
+      000028 02                     124 	.db #0x02	; 2
+      000029 01                     125 	.db #0x01	; 1
+      00002A 00                     126 	.db #0x00	; 0
+                           00002B   127 G$scanline_normal_tbl$0_0$0 == .
+      00002B                        128 _scanline_normal_tbl:
+      00002B 00                     129 	.db #0x00	; 0
+      00002C 00                     130 	.db #0x00	; 0
+      00002D 00                     131 	.db #0x00	; 0
+      00002E 00                     132 	.db #0x00	; 0
+      00002F 00                     133 	.db #0x00	; 0
+      000030 00                     134 	.db #0x00	; 0
+      000031 00                     135 	.db #0x00	; 0
+      000032 00                     136 	.db #0x00	; 0
+      000033 00                     137 	.db #0x00	; 0
+      000034 00                     138 	.db #0x00	; 0
+      000035 00                     139 	.db #0x00	; 0
+      000036 00                     140 	.db #0x00	; 0
+      000037 00                     141 	.db #0x00	; 0
+      000038 00                     142 	.db #0x00	; 0
+      000039 00                     143 	.db #0x00	; 0
+      00003A 00                     144 	.db #0x00	; 0
+                           00003B   145 	G$GameJohnDoeSetup$0$0	= .
+                                    146 	.globl	G$GameJohnDoeSetup$0$0
+                           00003B   147 	C$GameJohnDoe.c$28$1_0$106	= .
+                                    148 	.globl	C$GameJohnDoe.c$28$1_0$106
+                                    149 ;src\GameJohnDoe.c:28: void GameJohnDoeSetup()
+                                    150 ;	---------------------------------
+                                    151 ; Function GameJohnDoeSetup
+                                    152 ; ---------------------------------
+      00003B                        153 _GameJohnDoeSetup::
+                           00003B   154 	C$GameJohnDoe.c$30$1_0$106	= .
+                                    155 	.globl	C$GameJohnDoe.c$30$1_0$106
+                                    156 ;src\GameJohnDoe.c:30: set_bkg_data(0, 79, JohnDoe_Tiles);
+      00003B 11r00r00         [12]  157 	ld	de, #_JohnDoe_Tiles
+      00003E D5               [16]  158 	push	de
+      00003F 21 00 4F         [12]  159 	ld	hl, #0x4f00
+      000042 E5               [16]  160 	push	hl
+      000043 CDr00r00         [24]  161 	call	_set_bkg_data
+      000046 E8 04            [16]  162 	add	sp, #4
+                           000048   163 	C$GameJohnDoe.c$31$1_0$106	= .
+                                    164 	.globl	C$GameJohnDoe.c$31$1_0$106
+                                    165 ;src\GameJohnDoe.c:31: set_bkg_tiles(0, 0, JohnDoe_MapWidth, JohnDoe_MapHeight, JohnDoe_Map);
+      000048 11r00r00         [12]  166 	ld	de, #_JohnDoe_Map
+      00004B D5               [16]  167 	push	de
+      00004C 21 14 12         [12]  168 	ld	hl, #0x1214
+      00004F E5               [16]  169 	push	hl
+      000050 AF               [ 4]  170 	xor	a, a
+      000051 0F               [ 4]  171 	rrca
+      000052 F5               [16]  172 	push	af
+      000053 CDr00r00         [24]  173 	call	_set_bkg_tiles
+      000056 E8 06            [16]  174 	add	sp, #6
+                           000058   175 	C$GameJohnDoe.c$32$1_0$106	= .
+                                    176 	.globl	C$GameJohnDoe.c$32$1_0$106
+                                    177 ;src\GameJohnDoe.c:32: SHOW_BKG;
+      000058 F0r00            [12]  178 	ldh	a, (_LCDC_REG + 0)
+      00005A F6 01            [ 8]  179 	or	a, #0x01
+      00005C E0r00            [12]  180 	ldh	(_LCDC_REG + 0), a
+                           00005E   181 	C$GameJohnDoe.c$33$1_0$106	= .
+                                    182 	.globl	C$GameJohnDoe.c$33$1_0$106
+                                    183 ;src\GameJohnDoe.c:33: fadeFromBlack(10);
+      00005E 3E 0A            [ 8]  184 	ld	a, #0x0a
+                           000060   185 	C$GameJohnDoe.c$34$1_0$106	= .
+                                    186 	.globl	C$GameJohnDoe.c$34$1_0$106
+                                    187 ;src\GameJohnDoe.c:34: }
+                           000060   188 	C$GameJohnDoe.c$34$1_0$106	= .
+                                    189 	.globl	C$GameJohnDoe.c$34$1_0$106
+                           000060   190 	XG$GameJohnDoeSetup$0$0	= .
+                                    191 	.globl	XG$GameJohnDoeSetup$0$0
+      000060 C3r00r00         [16]  192 	jp	_fadeFromBlack
+                           000063   193 	G$GameJohnDoeUpdate$0$0	= .
+                                    194 	.globl	G$GameJohnDoeUpdate$0$0
+                           000063   195 	C$GameJohnDoe.c$36$1_0$107	= .
+                                    196 	.globl	C$GameJohnDoe.c$36$1_0$107
+                                    197 ;src\GameJohnDoe.c:36: uint8_t GameJohnDoeUpdate()
+                                    198 ;	---------------------------------
+                                    199 ; Function GameJohnDoeUpdate
+                                    200 ; ---------------------------------
+      000063                        201 _GameJohnDoeUpdate::
+                           000063   202 	C$GameJohnDoe.c$38$1_0$107	= .
+                                    203 	.globl	C$GameJohnDoe.c$38$1_0$107
+                                    204 ;src\GameJohnDoe.c:38: joypadPrevious = joypadCurrent;
+      000063 FAr00r00         [16]  205 	ld	a, (#_joypadCurrent)
+      000066 EAr00r00         [16]  206 	ld	(#_joypadPrevious),a
+                           000069   207 	C$GameJohnDoe.c$39$1_0$107	= .
+                                    208 	.globl	C$GameJohnDoe.c$39$1_0$107
+                                    209 ;src\GameJohnDoe.c:39: joypadCurrent = joypad();
+      000069 CDr00r00         [24]  210 	call	_joypad
+      00006C 21r00r00         [12]  211 	ld	hl, #_joypadCurrent
+      00006F 77               [ 8]  212 	ld	(hl), a
+                           000070   213 	C$GameJohnDoe.c$41$1_0$107	= .
+                                    214 	.globl	C$GameJohnDoe.c$41$1_0$107
+                                    215 ;src\GameJohnDoe.c:41: switch (joypadCurrent){
+      000070 7E               [ 8]  216 	ld	a, (hl)
+      000071 D6 10            [ 8]  217 	sub	a, #0x10
+      000073 28 38            [12]  218 	jr	Z, 00105$
+      000075 FAr00r00         [16]  219 	ld	a, (#_joypadCurrent)
+      000078 D6 18            [ 8]  220 	sub	a, #0x18
+      00007A 28 17            [12]  221 	jr	Z, 00101$
+      00007C FAr00r00         [16]  222 	ld	a, (#_joypadCurrent)
+      00007F D6 20            [ 8]  223 	sub	a, #0x20
+      000081 28 36            [12]  224 	jr	Z, 00106$
+      000083 FAr00r00         [16]  225 	ld	a, (#_joypadCurrent)
+      000086 D6 40            [ 8]  226 	sub	a, #0x40
+      000088 28 5B            [12]  227 	jr	Z, 00111$
+      00008A FAr00r00         [16]  228 	ld	a, (#_joypadCurrent)
+      00008D D6 80            [ 8]  229 	sub	a, #0x80
+      00008F 28 34            [12]  230 	jr	Z, 00107$
+      000091 18 5A            [12]  231 	jr	00112$
+                           000093   232 	C$GameJohnDoe.c$42$2_0$108	= .
+                                    233 	.globl	C$GameJohnDoe.c$42$2_0$108
+                                    234 ;src\GameJohnDoe.c:42: case J_DOWN|J_A:
+      000093                        235 00101$:
+                           000093   236 	C$GameJohnDoe.c$43$2_0$108	= .
+                                    237 	.globl	C$GameJohnDoe.c$43$2_0$108
+                                    238 ;src\GameJohnDoe.c:43: if (invert_b == FALSE)
+      000093 FAr01r00         [16]  239 	ld	a, (#_invert_b)
+      000096 B7               [ 4]  240 	or	a, a
+      000097 20 0A            [12]  241 	jr	NZ, 00103$
+                           000099   242 	C$GameJohnDoe.c$45$3_0$109	= .
+                                    243 	.globl	C$GameJohnDoe.c$45$3_0$109
+                                    244 ;src\GameJohnDoe.c:45: InvertColor();
+      000099 CDr00r00         [24]  245 	call	_InvertColor
+                           00009C   246 	C$GameJohnDoe.c$46$3_0$109	= .
+                                    247 	.globl	C$GameJohnDoe.c$46$3_0$109
+                                    248 ;src\GameJohnDoe.c:46: invert_b = TRUE;
+      00009C 21r01r00         [12]  249 	ld	hl, #_invert_b
+      00009F 36 01            [12]  250 	ld	(hl), #0x01
+      0000A1 18 69            [12]  251 	jr	00113$
+      0000A3                        252 00103$:
+                           0000A3   253 	C$GameJohnDoe.c$49$3_0$110	= .
+                                    254 	.globl	C$GameJohnDoe.c$49$3_0$110
+                                    255 ;src\GameJohnDoe.c:49: ResetColor();
+      0000A3 CDr00r00         [24]  256 	call	_ResetColor
+                           0000A6   257 	C$GameJohnDoe.c$50$3_0$110	= .
+                                    258 	.globl	C$GameJohnDoe.c$50$3_0$110
+                                    259 ;src\GameJohnDoe.c:50: invert_b = FALSE;
+      0000A6 21r01r00         [12]  260 	ld	hl, #_invert_b
+      0000A9 36 00            [12]  261 	ld	(hl), #0x00
+                           0000AB   262 	C$GameJohnDoe.c$52$2_0$108	= .
+                                    263 	.globl	C$GameJohnDoe.c$52$2_0$108
+                                    264 ;src\GameJohnDoe.c:52: break;
+      0000AB 18 5F            [12]  265 	jr	00113$
+                           0000AD   266 	C$GameJohnDoe.c$53$2_0$108	= .
+                                    267 	.globl	C$GameJohnDoe.c$53$2_0$108
+                                    268 ;src\GameJohnDoe.c:53: case J_A:
+      0000AD                        269 00105$:
+                           0000AD   270 	C$GameJohnDoe.c$54$2_0$108	= .
+                                    271 	.globl	C$GameJohnDoe.c$54$2_0$108
+                                    272 ;src\GameJohnDoe.c:54: fadeToBlack(10);
+      0000AD 3E 0A            [ 8]  273 	ld	a, #0x0a
+      0000AF CDr00r00         [24]  274 	call	_fadeToBlack
+                           0000B2   275 	C$GameJohnDoe.c$55$2_0$108	= .
+                                    276 	.globl	C$GameJohnDoe.c$55$2_0$108
+                                    277 ;src\GameJohnDoe.c:55: fadeFromBlack(10);
+      0000B2 3E 0A            [ 8]  278 	ld	a, #0x0a
+      0000B4 CDr00r00         [24]  279 	call	_fadeFromBlack
+                           0000B7   280 	C$GameJohnDoe.c$56$2_0$108	= .
+                                    281 	.globl	C$GameJohnDoe.c$56$2_0$108
+                                    282 ;src\GameJohnDoe.c:56: break;
+      0000B7 18 53            [12]  283 	jr	00113$
+                           0000B9   284 	C$GameJohnDoe.c$57$2_0$108	= .
+                                    285 	.globl	C$GameJohnDoe.c$57$2_0$108
+                                    286 ;src\GameJohnDoe.c:57: case J_B:
+      0000B9                        287 00106$:
+                           0000B9   288 	C$GameJohnDoe.c$58$2_0$108	= .
+                                    289 	.globl	C$GameJohnDoe.c$58$2_0$108
+                                    290 ;src\GameJohnDoe.c:58: fadeToWhite(10);
+      0000B9 3E 0A            [ 8]  291 	ld	a, #0x0a
+      0000BB CDr00r00         [24]  292 	call	_fadeToWhite
+                           0000BE   293 	C$GameJohnDoe.c$59$2_0$108	= .
+                                    294 	.globl	C$GameJohnDoe.c$59$2_0$108
+                                    295 ;src\GameJohnDoe.c:59: fadeFromWhite(10);
+      0000BE 3E 0A            [ 8]  296 	ld	a, #0x0a
+      0000C0 CDr00r00         [24]  297 	call	_fadeFromWhite
+                           0000C3   298 	C$GameJohnDoe.c$60$2_0$108	= .
+                                    299 	.globl	C$GameJohnDoe.c$60$2_0$108
+                                    300 ;src\GameJohnDoe.c:60: break;
+      0000C3 18 47            [12]  301 	jr	00113$
+                           0000C5   302 	C$GameJohnDoe.c$61$2_0$108	= .
+                                    303 	.globl	C$GameJohnDoe.c$61$2_0$108
+                                    304 ;src\GameJohnDoe.c:61: case J_START:
+      0000C5                        305 00107$:
+                           0000C5   306 	C$GameJohnDoe.c$62$2_0$108	= .
+                                    307 	.globl	C$GameJohnDoe.c$62$2_0$108
+                                    308 ;src\GameJohnDoe.c:62: if (wabble == FALSE)
+      0000C5 FAr00r00         [16]  309 	ld	a, (#_wabble)
+      0000C8 B7               [ 4]  310 	or	a, a
+      0000C9 20 13            [12]  311 	jr	NZ, 00109$
+                           0000CB   312 	C$GameJohnDoe.c$65$3_0$111	= .
+                                    313 	.globl	C$GameJohnDoe.c$65$3_0$111
+                                    314 ;src\GameJohnDoe.c:65: STAT_REG = STATF_MODE00;
+      0000CB 3E 08            [ 8]  315 	ld	a, #0x08
+      0000CD E0r00            [12]  316 	ldh	(_STAT_REG + 0), a
+                           0000CF   317 	C$GameJohnDoe.c$66$3_0$111	= .
+                                    318 	.globl	C$GameJohnDoe.c$66$3_0$111
+                                    319 ;src\GameJohnDoe.c:66: set_interrupts(VBL_IFLAG | LCD_IFLAG);
+      0000CF 3E 03            [ 8]  320 	ld	a, #0x03
+      0000D1 F5               [16]  321 	push	af
+      0000D2 33               [ 8]  322 	inc	sp
+      0000D3 CDr00r00         [24]  323 	call	_set_interrupts
+      0000D6 33               [ 8]  324 	inc	sp
+                           0000D7   325 	C$GameJohnDoe.c$68$3_0$111	= .
+                                    326 	.globl	C$GameJohnDoe.c$68$3_0$111
+                                    327 ;src\GameJohnDoe.c:68: wabble = TRUE;
+      0000D7 21r00r00         [12]  328 	ld	hl, #_wabble
+      0000DA 36 01            [12]  329 	ld	(hl), #0x01
+      0000DC 18 2E            [12]  330 	jr	00113$
+      0000DE                        331 00109$:
+                           0000DE   332 	C$GameJohnDoe.c$72$3_0$112	= .
+                                    333 	.globl	C$GameJohnDoe.c$72$3_0$112
+                                    334 ;src\GameJohnDoe.c:72: wabble = FALSE;
+      0000DE 21r00r00         [12]  335 	ld	hl, #_wabble
+      0000E1 36 00            [12]  336 	ld	(hl), #0x00
+                           0000E3   337 	C$GameJohnDoe.c$74$2_0$108	= .
+                                    338 	.globl	C$GameJohnDoe.c$74$2_0$108
+                                    339 ;src\GameJohnDoe.c:74: break;
+      0000E3 18 27            [12]  340 	jr	00113$
+                           0000E5   341 	C$GameJohnDoe.c$75$2_0$108	= .
+                                    342 	.globl	C$GameJohnDoe.c$75$2_0$108
+                                    343 ;src\GameJohnDoe.c:75: case J_SELECT:
+      0000E5                        344 00111$:
+                           0000E5   345 	C$GameJohnDoe.c$76$2_0$108	= .
+                                    346 	.globl	C$GameJohnDoe.c$76$2_0$108
+                                    347 ;src\GameJohnDoe.c:76: fadeToBlack(10);
+      0000E5 3E 0A            [ 8]  348 	ld	a, #0x0a
+      0000E7 CDr00r00         [24]  349 	call	_fadeToBlack
+                           0000EA   350 	C$GameJohnDoe.c$77$2_0$108	= .
+                                    351 	.globl	C$GameJohnDoe.c$77$2_0$108
+                                    352 ;src\GameJohnDoe.c:77: return GAMETITLE;
+      0000EA 3E 01            [ 8]  353 	ld	a, #0x01
+      0000EC C9               [16]  354 	ret
+                           0000ED   355 	C$GameJohnDoe.c$78$2_0$108	= .
+                                    356 	.globl	C$GameJohnDoe.c$78$2_0$108
+                                    357 ;src\GameJohnDoe.c:78: default:
+      0000ED                        358 00112$:
+                           0000ED   359 	C$GameJohnDoe.c$79$2_0$108	= .
+                                    360 	.globl	C$GameJohnDoe.c$79$2_0$108
+                                    361 ;src\GameJohnDoe.c:79: scanline_offsets = &scanline_offsets_tbl[(uint8_t)(sys_time >> 2) & 0x07u];
+      0000ED 21r00r00         [12]  362 	ld	hl, #_sys_time
+      0000F0 2A               [ 8]  363 	ld	a, (hl+)
+      0000F1 4F               [ 4]  364 	ld	c, a
+      0000F2 46               [ 8]  365 	ld	b, (hl)
+      0000F3 CB 38            [ 8]  366 	srl	b
+      0000F5 CB 19            [ 8]  367 	rr	c
+      0000F7 CB 38            [ 8]  368 	srl	b
+      0000F9 CB 19            [ 8]  369 	rr	c
+      0000FB 79               [ 4]  370 	ld	a, c
+      0000FC E6 07            [ 8]  371 	and	a, #0x07
+      0000FE 06 00            [ 8]  372 	ld	b, #0x00
+      000100 C6r1B            [ 8]  373 	add	a, #<(_scanline_offsets_tbl)
+      000102 4F               [ 4]  374 	ld	c, a
+      000103 78               [ 4]  375 	ld	a, b
+      000104 CEs00            [ 8]  376 	adc	a, #>(_scanline_offsets_tbl)
+      000106 21r02r00         [12]  377 	ld	hl, #_scanline_offsets
+      000109 71               [ 8]  378 	ld	(hl), c
+      00010A 23               [ 8]  379 	inc	hl
+      00010B 77               [ 8]  380 	ld	(hl), a
+                           00010C   381 	C$GameJohnDoe.c$80$1_0$107	= .
+                                    382 	.globl	C$GameJohnDoe.c$80$1_0$107
+                                    383 ;src\GameJohnDoe.c:80: }
+      00010C                        384 00113$:
+                           00010C   385 	C$GameJohnDoe.c$82$1_0$107	= .
+                                    386 	.globl	C$GameJohnDoe.c$82$1_0$107
+                                    387 ;src\GameJohnDoe.c:82: return GAMEJOHNDOE;
+      00010C 3E 03            [ 8]  388 	ld	a, #0x03
+                           00010E   389 	C$GameJohnDoe.c$83$1_0$107	= .
+                                    390 	.globl	C$GameJohnDoe.c$83$1_0$107
+                                    391 ;src\GameJohnDoe.c:83: }
+                           00010E   392 	C$GameJohnDoe.c$83$1_0$107	= .
+                                    393 	.globl	C$GameJohnDoe.c$83$1_0$107
+                           00010E   394 	XG$GameJohnDoeUpdate$0$0	= .
+                                    395 	.globl	XG$GameJohnDoeUpdate$0$0
+      00010E C9               [16]  396 	ret
+                                    397 	.area _CODE
+                                    398 	.area _INITIALIZER
+                           000000   399 FGameJohnDoe$__xinit_wabble$0_0$0 == .
+      000000                        400 __xinit__wabble:
+      000000 00                     401 	.db #0x00	;  0
+                           000001   402 FGameJohnDoe$__xinit_invert_b$0_0$0 == .
+      000001                        403 __xinit__invert_b:
+      000001 00                     404 	.db #0x00	;  0
+                           000002   405 FGameJohnDoe$__xinit_scanline_offsets$0_0$0 == .
+      000002                        406 __xinit__scanline_offsets:
+      000002r1Br00                  407 	.dw _scanline_offsets_tbl
+                                    408 	.area _CABS (ABS)
+      000048                        409 	.org 0x0048
+                           000048   410 FGameJohnDoe$__ISR_VECTOR_STAT$0_0$0 == .
+      000048                        411 ___ISR_VECTOR_STAT:
+      000048 C3                     412 	.db #0xc3	; 195
+      000049r00r00                  413 	.dw _scanline_isr

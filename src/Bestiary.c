@@ -24,13 +24,25 @@
 #include "../res/Sis_Tiles.h"
 #include "../res/BigSis_Map.h"
 #include "../res/MadSis_Map.h"
+#include "../res/Drunk_Tiles.h"
+#include "../res/Drunk_Map.h"
+#include "../res/Experiment_Tiles.h"
+#include "../res/Experiment_Map.h"
+#include "../res/Ghost_Tiles.h"
+#include "../res/Ghost_Map.h"
+#include "../res/Saucer_Tiles.h"
+#include "../res/Saucer_Map.h"
+#include "../res/SockHead_Tiles.h"
+#include "../res/SockHead_Map.h"
+#include "../res/Toby_Tiles.h"
+#include "../res/Toby_Map.h"
+
 // SET UP ENEMIES
 //struct Enemy enemy_JIM = {"JIM", 0, 3, 2, 1, 4, 5};
 //struct Enemy enemy_GYPSY = {"GYPSY", 1, 2, 2, 3, 2, 7};
 //struct Enemy enemy_WALLY = {"WALLY", 2, 4, 4, 4, 4, 12};
 
 //const struct  Enemy* const bestiary[3] = {enemy_JIM, enemy_GYPSY, enemy_WALLY};
-int8_t index = 0;
 uint8_t invert = 0;
 
 void BestiarySetup()
@@ -55,7 +67,7 @@ uint8_t BestiaryUpdate()
     }
     if (joypadCurrent & J_RIGHT)
     {
-        if (index + 1 <= 12)
+        if (index + 1 <= 18)
         {
             index++;
         }
@@ -81,6 +93,15 @@ uint8_t BestiaryUpdate()
         fadeToBlack(10);
         return GAMETITLE;
     }
+    if (joypadCurrent & J_A)
+    {
+        fadeToBlack(3);
+        fadeFromBlack(3);
+        fadeToBlack(3);
+        fadeFromBlack(3);
+        fadeToBlack(3);
+        return BATTLE;
+    }
     if (index == 0) // JIM
     {
         set_bkg_data(128, 79, Crow_Tiles); // init with crow monster
@@ -92,6 +113,9 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 6, 1, 1);    // SPECIAL
         DrawNumber(17, 8, 4, 1);    // SPEED
         DrawNumber(17, 10, 5, 1);   // EXP.
+        DrawText(1, 13, "JIM IS A ");
+        DrawText(1, 14, "GAMBLER. HE LIKES");
+        DrawText(1, 15, "SHOOTING DICE.");
     }
     else if (index == 1) // Gypsy
     {
@@ -104,6 +128,9 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 6, 3, 1);    // SPECIAL
         DrawNumber(17, 8, 2, 1);    // SPEED
         DrawNumber(17, 10, 7, 1);   // EXP.
+        DrawText(1, 13, "GYPSY MOTHS ARE");
+        DrawText(1, 14, "TAKING ALL FROM");
+        DrawText(1, 15, "EVERYWHERE!");
     }
     else if (index == 2) // Wally
     {
@@ -116,6 +143,10 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 6, 4, 1);    // SPECIAL
         DrawNumber(17, 8, 4, 1);    // SPEED
         DrawNumber(16, 10, 12, 2);   // EXP.
+        DrawText(1, 13, "WALLY IS IN A");
+        DrawText(1, 14, "GANG. HE SAYS");
+        DrawText(1, 15, "NO TO DRUGS!");
+        DrawText(1, 16, "HOW COOL!");
     }
     else if (index == 3)
     {
@@ -128,6 +159,10 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 6, 3, 1);    // SPECIAL
         DrawNumber(17, 8, 2, 1);    // SPEED
         DrawNumber(16, 10, 16, 2);   // EXP.
+        DrawText(1, 13, "BLOOD SUCKING");
+        DrawText(1, 14, "PARASITE!");
+        DrawText(1, 15, "THEY HIDE IN");
+        DrawText(1, 16, "TALL GRASS!");
     }
     else if (index == 4)
     {
@@ -140,6 +175,10 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 6, 2, 1);    // SPECIAL
         DrawNumber(17, 8, 4, 1);    // SPEED
         DrawNumber(16, 10, 12, 2);   // EXP.
+        DrawText(1, 13, "OH NO! THE COPS!");
+        DrawText(1, 14, "SOMEONE HAS BEEN");
+        DrawText(1, 15, "BEING NAUGHTY!");
+        DrawText(1, 16, "CAN'T BE YOU?");
     }
     else if (index == 5)
     {
@@ -152,6 +191,10 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 6, 5, 1);    // SPECIAL
         DrawNumber(17, 8, 6, 1);    // SPEED
         DrawNumber(16, 10, 22, 2);   // EXP.
+        DrawText(1, 13, "LOOKS LIKE THE ");
+        DrawText(1, 14, "POLICE HAS COME");
+        DrawText(1, 15, "TO TAKE YOU AWAY!");
+        DrawText(1, 16, "STOP RESISTING!");
     }
     else if (index == 6)
     {
@@ -164,6 +207,9 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 6, 6, 1);    // SPECIAL
         DrawNumber(17, 8, 8, 1);    // SPEED
         DrawNumber(16, 10, 22, 2);   // EXP.
+        DrawText(1, 13, "THE SHERIFF IS");
+        DrawText(1, 14, "CALLED IN DUE");
+        DrawText(1, 15, "POLICE NEGLIGENCE");
     }
     else if (index == 7)
     {
@@ -176,6 +222,10 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 6, 10, 1);    // SPECIAL
         DrawNumber(17, 8, 10, 1);    // SPEED
         DrawNumber(16, 10, 55, 2);   // EXP.
+        DrawText(1, 13, "CHIEF! CHIEF!");
+        DrawText(1, 14, "YOU GOT TO HELP!");
+        DrawText(1, 15, "WHY MUST I DO");
+        DrawText(1, 16, "EVERYTHING HERE?");
     }
     else if (index == 8)
     {
@@ -188,6 +238,9 @@ uint8_t BestiaryUpdate()
         DrawNumber(17, 6, 1, 1);    // SPECIAL
         DrawNumber(17, 8, 1, 1);    // SPEED
         DrawNumber(16, 10, 1, 1);   // EXP.
+        DrawText(1, 13, "HE'S BUILT");
+        DrawText(1, 14, "LIKE A BRICK");
+        DrawText(1, 15, "HOUSE!");
     }
     else if (index == 9)
     {
@@ -224,6 +277,9 @@ uint8_t BestiaryUpdate()
         DrawNumber(16, 6, 20, 2);    // SPECIAL
         DrawNumber(16, 8, 20, 2);    // SPEED
         DrawNumber(16, 10, 38, 2);   // EXP.
+        DrawText(1, 13, "AROUND HERE,");
+        DrawText(1, 14, "SHE'S KNOWN ");
+        DrawText(1, 15, "AS BIG SIS!");
     }
     else if (index == 12)
     {
@@ -236,6 +292,67 @@ uint8_t BestiaryUpdate()
         DrawNumber(16, 6, 30, 2);    // SPECIAL
         DrawNumber(16, 8, 30, 2);    // SPEED
         DrawNumber(16, 10, 58, 2);   // EXP.
+        DrawText(1, 13, "SHE REMEMBERS");
+        DrawText(1, 14, "YOUR LAST ");
+        DrawText(1, 15, "FIGHT.    ");
+    }
+    else if (index == 13)
+    {
+        set_bkg_data(128, 29, Experiment_Tiles);
+        set_bkg_tiles(2, 4, Experiment_MapWidth, Experiment_MapHeight, Experiment_Map );
+        DrawNumber(4, 0, 13, 3);
+        DrawText(1, 13, "ONE OF YAKUB'S");
+        DrawText(1, 14, "EXPERIMENTS!");
+        DrawText(1, 15, "MAKES YOU ");
+        DrawText(1, 16, "THINK, HUH? ");
+    }
+    else if (index == 14)
+    {
+        set_bkg_data(128, 19, Ghost_Tiles);
+        set_bkg_tiles(2, 4, Ghost_MapWidth, Ghost_MapHeight, Ghost_Map);
+        DrawNumber(4, 0, 14, 3);
+        DrawText(1, 13, "AHH! A GHOST!");
+        DrawText(1, 14, "WHO IS UNDER");
+        DrawText(1, 15, "THAT SHEET? ");
+    }
+    else if (index == 15)
+    {
+        set_bkg_data(128, 14, Saucer_Tiles);
+        set_bkg_tiles(2, 4, Saucer_MapWidth, Saucer_MapHeight, Ghost_Map);
+        DrawNumber(4, 0, 15, 3);
+        DrawText(1, 13, "LOOK! A UFO!");
+        DrawText(1, 14, "A FLYING");
+        DrawText(1, 15, "SAUCER?!");
+    }
+    else if (index == 16)
+    {
+        set_bkg_data(128, 20, SockHead_Tiles);
+        set_bkg_tiles(2, 4, SockHead_MapWidth, SockHead_MapHeight, SockHead_Map);
+        DrawNumber(4, 0, 16, 3);
+        DrawText(1, 13, "SOCK HEADS");
+        DrawText(1, 14, "DON'T THINK");
+        DrawText(1, 15, "ABOUT THE");
+        DrawText(1, 16, "FUTURE.");
+    }
+    else if (index == 17)
+    {
+        set_bkg_data(128, 26, Toby_Tiles);
+        set_bkg_tiles(2, 4, Toby_MapWidth, Toby_MapHeight, Toby_Map);
+        DrawNumber(4, 0, 17, 3);
+        DrawText(1, 13, "FOX LOVES TO SAY");
+        DrawText(1, 14, "FLOAT LIKE A ");
+        DrawText(1, 15, "BUTTERFLY, STING");
+        DrawText(1, 16, "LIKE A BEE!");
+    }
+    else if (index == 18)
+    {
+        set_bkg_data(128, 24, Drunk_Tiles);
+        set_bkg_tiles(2, 4, Drunk_MapWidth, Drunk_MapHeight, Drunk_Map);
+        DrawNumber(4, 0, 18, 3);
+        DrawText(1, 13, "DRUNK STUMBLES.");
+        DrawText(1, 14, "HE HITS HARD.");
+        DrawText(1, 15, "AND YELLS A LOT.");
+        DrawText(1, 16, "NOT FUN TO BE NEAR.");
     }
     return BESTIARY;
 }

@@ -68,6 +68,7 @@ T:FGameJohnDoe$_fixed[({0}S:S$l$0_0$0({1}SC:U),Z,0,0)({1}S:S$h$0_0$0({1}SC:U),Z,
 T:FGameJohnDoe$OAM_item_t[({0}S:S$y$0_0$0({1}SC:U),Z,0,0)({1}S:S$x$0_0$0({1}SC:U),Z,0,0)({2}S:S$tile$0_0$0({1}SC:U),Z,0,0)({3}S:S$prop$0_0$0({1}SC:U),Z,0,0)]
 T:FGameJohnDoe$isr_nested_vector_t[({0}S:S$opcode$0_0$0({2}DA2d,SC:U),Z,0,0)({2}S:S$func$0_0$0({2}DG,SV:S),Z,0,0)]
 S:G$wabble$0_0$0({1}SC:S),E,0,0
+S:G$invert_b$0_0$0({1}SC:S),E,0,0
 S:G$scanline_offsets$0_0$0({2}DG,SC:U),E,0,0
 S:G$_VRAM$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$_VRAM8000$0_0$0({0}DA0d,SC:U),E,0,0
@@ -98,6 +99,7 @@ S:G$_current_1bpp_colors$0_0$0({2}SI:U),E,0,0
 S:G$_map_tile_offset$0_0$0({1}SC:U),E,0,0
 S:G$_submap_tile_offset$0_0$0({1}SC:U),E,0,0
 S:G$shadow_OAM$0_0$0({0}DA0d,STOAM_item_t:S),E,0,0
+S:G$index$0_0$0({1}SC:U),E,0,0
 S:G$joypadPrevious$0_0$0({1}SC:U),E,0,0
 S:G$joypadCurrent$0_0$0({1}SC:U),E,0,0
 S:G$P1_REG$0_0$0({1}SC:U),I,0,0
@@ -247,6 +249,7 @@ S:G$fill_bkg_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$fill_win_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$performantdelay$0_0$0({2}DF,SV:S),C,0,0
 S:G$DrawNumber$0_0$0({2}DF,SV:S),C,0,0
+S:G$DrawText$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeFromBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToWhite$0_0$0({2}DF,SV:S),C,0,0

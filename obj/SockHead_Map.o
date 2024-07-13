@@ -1,0 +1,29 @@
+XL3
+H 9 areas 4 global symbols
+M SockHead_Map
+O -msm83
+S .__.ABS. Def000000
+A _CODE size 0 flags 0 addr 0
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 1C flags 0 addr 0
+S _SockHead_Map Def000000
+S G$SockHead_Map$0_0$0 Def000000
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 1C flags 0 addr 0
+S FSockHead_Map$__xinit_SockHead_Map$0_0$0 Def000000
+A _CABS size 0 flags 8 addr 0
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 02 00
+T 00 00 00
+R 00 00 07 00
+T 00 00 00 80 80 8C 80 80 86 8D 80 81 87 8E 80 82
+R 00 00 07 00
+T 0D 00 00 88 8F 80 83 89 90 80 84 8A 91 80 85 8B
+R 00 00 07 00
+T 1A 00 00 92 93
+R 00 00 07 00

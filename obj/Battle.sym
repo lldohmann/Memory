@@ -1,0 +1,653 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 1
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000000 L
+  0 A$Battle$102                                                   00002C GR
+  0 A$Battle$103                                                   00002E GR
+  0 A$Battle$104                                                   00002F GR
+  0 A$Battle$105                                                   000030 GR
+  0 A$Battle$106                                                   000033 GR
+  0 A$Battle$107                                                   000034 GR
+  0 A$Battle$108                                                   000036 GR
+  0 A$Battle$109                                                   000038 GR
+  0 A$Battle$113                                                   00003B GR
+  0 A$Battle$114                                                   00003D GR
+  0 A$Battle$115                                                   00003E GR
+  0 A$Battle$116                                                   00003F GR
+  0 A$Battle$117                                                   000042 GR
+  0 A$Battle$118                                                   000043 GR
+  0 A$Battle$119                                                   000045 GR
+  0 A$Battle$120                                                   000047 GR
+  0 A$Battle$124                                                   00004A GR
+  0 A$Battle$125                                                   00004C GR
+  0 A$Battle$126                                                   00004D GR
+  0 A$Battle$127                                                   00004E GR
+  0 A$Battle$128                                                   000051 GR
+  0 A$Battle$129                                                   000052 GR
+  0 A$Battle$130                                                   000054 GR
+  0 A$Battle$131                                                   000056 GR
+  0 A$Battle$135                                                   000059 GR
+  0 A$Battle$136                                                   00005B GR
+  0 A$Battle$137                                                   00005C GR
+  0 A$Battle$138                                                   00005D GR
+  0 A$Battle$139                                                   000060 GR
+  0 A$Battle$140                                                   000061 GR
+  0 A$Battle$141                                                   000063 GR
+  0 A$Battle$142                                                   000065 GR
+  0 A$Battle$146                                                   000068 GR
+  0 A$Battle$147                                                   00006A GR
+  0 A$Battle$148                                                   00006B GR
+  0 A$Battle$149                                                   00006C GR
+  0 A$Battle$150                                                   00006F GR
+  0 A$Battle$151                                                   000070 GR
+  0 A$Battle$152                                                   000072 GR
+  0 A$Battle$153                                                   000074 GR
+  0 A$Battle$157                                                   000077 GR
+  0 A$Battle$158                                                   000079 GR
+  0 A$Battle$159                                                   00007A GR
+  0 A$Battle$160                                                   00007B GR
+  0 A$Battle$161                                                   00007E GR
+  0 A$Battle$162                                                   00007F GR
+  0 A$Battle$163                                                   000081 GR
+  0 A$Battle$164                                                   000083 GR
+  0 A$Battle$168                                                   000086 GR
+  0 A$Battle$169                                                   000088 GR
+  0 A$Battle$170                                                   000089 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Battle$171                                                   00008A GR
+  0 A$Battle$172                                                   00008D GR
+  0 A$Battle$173                                                   00008E GR
+  0 A$Battle$174                                                   000090 GR
+  0 A$Battle$175                                                   000092 GR
+  0 A$Battle$179                                                   000095 GR
+  0 A$Battle$180                                                   000098 GR
+  0 A$Battle$184                                                   00009A GR
+  0 A$Battle$185                                                   00009D GR
+  0 A$Battle$189                                                   00009F GR
+  0 A$Battle$190                                                   0000A1 GR
+  0 A$Battle$191                                                   0000A3 GR
+  0 A$Battle$195                                                   0000A5 GR
+  0 A$Battle$196                                                   0000A7 GR
+  0 A$Battle$200                                                   0000AA GR
+  0 A$Battle$201                                                   0000AD GR
+  0 A$Battle$202                                                   0000AE GR
+  0 A$Battle$206                                                   0000B0 GR
+  0 A$Battle$207                                                   0000B3 GR
+  0 A$Battle$208                                                   0000B4 GR
+  0 A$Battle$209                                                   0000B7 GR
+  0 A$Battle$210                                                   0000B8 GR
+  0 A$Battle$211                                                   0000BB GR
+  0 A$Battle$215                                                   0000BD GR
+  0 A$Battle$216                                                   0000C0 GR
+  0 A$Battle$217                                                   0000C1 GR
+  0 A$Battle$218                                                   0000C4 GR
+  0 A$Battle$219                                                   0000C5 GR
+  0 A$Battle$220                                                   0000C8 GR
+  0 A$Battle$221                                                   0000C9 GR
+  0 A$Battle$222                                                   0000CC GR
+  0 A$Battle$223                                                   0000CE GR
+  0 A$Battle$228                                                   0000D1 GR
+  0 A$Battle$229                                                   0000D4 GR
+  0 A$Battle$230                                                   0000D5 GR
+  0 A$Battle$234                                                   0000D7 GR
+  0 A$Battle$235                                                   0000DA GR
+  0 A$Battle$236                                                   0000DB GR
+  0 A$Battle$237                                                   0000DE GR
+  0 A$Battle$238                                                   0000DF GR
+  0 A$Battle$239                                                   0000E2 GR
+  0 A$Battle$243                                                   0000E4 GR
+  0 A$Battle$244                                                   0000E7 GR
+  0 A$Battle$245                                                   0000E8 GR
+  0 A$Battle$246                                                   0000EB GR
+  0 A$Battle$247                                                   0000EC GR
+  0 A$Battle$248                                                   0000EF GR
+  0 A$Battle$249                                                   0000F0 GR
+  0 A$Battle$250                                                   0000F3 GR
+  0 A$Battle$251                                                   0000F5 GR
+  0 A$Battle$256                                                   0000F8 GR
+  0 A$Battle$257                                                   0000FB GR
+  0 A$Battle$258                                                   0000FD GR
+  0 A$Battle$262                                                   0000FF GR
+  0 A$Battle$263                                                   000102 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Battle$264                                                   000103 GR
+  0 A$Battle$265                                                   000106 GR
+  0 A$Battle$266                                                   000107 GR
+  0 A$Battle$267                                                   00010A GR
+  0 A$Battle$271                                                   00010C GR
+  0 A$Battle$272                                                   00010F GR
+  0 A$Battle$273                                                   000110 GR
+  0 A$Battle$274                                                   000113 GR
+  0 A$Battle$275                                                   000114 GR
+  0 A$Battle$276                                                   000117 GR
+  0 A$Battle$277                                                   000118 GR
+  0 A$Battle$278                                                   00011B GR
+  0 A$Battle$279                                                   00011D GR
+  0 A$Battle$284                                                   000120 GR
+  0 A$Battle$285                                                   000123 GR
+  0 A$Battle$286                                                   000125 GR
+  0 A$Battle$290                                                   000127 GR
+  0 A$Battle$291                                                   00012A GR
+  0 A$Battle$292                                                   00012B GR
+  0 A$Battle$293                                                   00012E GR
+  0 A$Battle$294                                                   00012F GR
+  0 A$Battle$295                                                   000132 GR
+  0 A$Battle$299                                                   000134 GR
+  0 A$Battle$300                                                   000137 GR
+  0 A$Battle$301                                                   000138 GR
+  0 A$Battle$302                                                   00013B GR
+  0 A$Battle$303                                                   00013C GR
+  0 A$Battle$304                                                   00013F GR
+  0 A$Battle$305                                                   000140 GR
+  0 A$Battle$306                                                   000143 GR
+  0 A$Battle$307                                                   000145 GR
+  0 A$Battle$312                                                   000148 GR
+  0 A$Battle$313                                                   00014B GR
+  0 A$Battle$314                                                   00014D GR
+  0 A$Battle$318                                                   00014F GR
+  0 A$Battle$319                                                   000152 GR
+  0 A$Battle$320                                                   000153 GR
+  0 A$Battle$321                                                   000156 GR
+  0 A$Battle$322                                                   000157 GR
+  0 A$Battle$323                                                   00015A GR
+  0 A$Battle$327                                                   00015C GR
+  0 A$Battle$328                                                   00015F GR
+  0 A$Battle$329                                                   000160 GR
+  0 A$Battle$330                                                   000163 GR
+  0 A$Battle$331                                                   000164 GR
+  0 A$Battle$332                                                   000167 GR
+  0 A$Battle$333                                                   000168 GR
+  0 A$Battle$334                                                   00016B GR
+  0 A$Battle$335                                                   00016D GR
+  0 A$Battle$340                                                   000170 GR
+  0 A$Battle$341                                                   000173 GR
+  0 A$Battle$342                                                   000175 GR
+  0 A$Battle$346                                                   000177 GR
+  0 A$Battle$347                                                   00017A GR
+  0 A$Battle$348                                                   00017B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 4
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Battle$349                                                   00017E GR
+  0 A$Battle$350                                                   00017F GR
+  0 A$Battle$351                                                   000182 GR
+  0 A$Battle$355                                                   000184 GR
+  0 A$Battle$356                                                   000187 GR
+  0 A$Battle$357                                                   000188 GR
+  0 A$Battle$358                                                   00018B GR
+  0 A$Battle$359                                                   00018C GR
+  0 A$Battle$360                                                   00018F GR
+  0 A$Battle$361                                                   000190 GR
+  0 A$Battle$362                                                   000193 GR
+  0 A$Battle$363                                                   000195 GR
+  0 A$Battle$368                                                   000198 GR
+  0 A$Battle$369                                                   00019B GR
+  0 A$Battle$370                                                   00019D GR
+  0 A$Battle$374                                                   00019F GR
+  0 A$Battle$375                                                   0001A2 GR
+  0 A$Battle$376                                                   0001A3 GR
+  0 A$Battle$377                                                   0001A6 GR
+  0 A$Battle$378                                                   0001A7 GR
+  0 A$Battle$379                                                   0001AA GR
+  0 A$Battle$383                                                   0001AC GR
+  0 A$Battle$384                                                   0001AF GR
+  0 A$Battle$385                                                   0001B0 GR
+  0 A$Battle$386                                                   0001B3 GR
+  0 A$Battle$387                                                   0001B4 GR
+  0 A$Battle$388                                                   0001B7 GR
+  0 A$Battle$389                                                   0001B8 GR
+  0 A$Battle$390                                                   0001BB GR
+  0 A$Battle$391                                                   0001BD GR
+  0 A$Battle$396                                                   0001C0 GR
+  0 A$Battle$397                                                   0001C3 GR
+  0 A$Battle$398                                                   0001C5 GR
+  0 A$Battle$402                                                   0001C7 GR
+  0 A$Battle$403                                                   0001CA GR
+  0 A$Battle$404                                                   0001CB GR
+  0 A$Battle$405                                                   0001CE GR
+  0 A$Battle$406                                                   0001CF GR
+  0 A$Battle$407                                                   0001D2 GR
+  0 A$Battle$411                                                   0001D4 GR
+  0 A$Battle$412                                                   0001D7 GR
+  0 A$Battle$413                                                   0001D8 GR
+  0 A$Battle$414                                                   0001DB GR
+  0 A$Battle$415                                                   0001DC GR
+  0 A$Battle$416                                                   0001DF GR
+  0 A$Battle$417                                                   0001E0 GR
+  0 A$Battle$418                                                   0001E3 GR
+  0 A$Battle$419                                                   0001E5 GR
+  0 A$Battle$424                                                   0001E8 GR
+  0 A$Battle$425                                                   0001EB GR
+  0 A$Battle$426                                                   0001ED GR
+  0 A$Battle$430                                                   0001EF GR
+  0 A$Battle$434                                                   0001F2 GR
+  0 A$Battle$435                                                   0001F5 GR
+  0 A$Battle$436                                                   0001F6 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 5
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Battle$437                                                   0001F9 GR
+  0 A$Battle$438                                                   0001FA GR
+  0 A$Battle$439                                                   0001FD GR
+  0 A$Battle$443                                                   0001FF GR
+  0 A$Battle$444                                                   000202 GR
+  0 A$Battle$445                                                   000203 GR
+  0 A$Battle$446                                                   000206 GR
+  0 A$Battle$447                                                   000207 GR
+  0 A$Battle$448                                                   00020A GR
+  0 A$Battle$449                                                   00020B GR
+  0 A$Battle$450                                                   00020E GR
+  0 A$Battle$451                                                   000210 GR
+  0 A$Battle$456                                                   000213 GR
+  0 A$Battle$457                                                   000216 GR
+  0 A$Battle$458                                                   000218 GR
+  0 A$Battle$462                                                   00021A GR
+  0 A$Battle$463                                                   00021D GR
+  0 A$Battle$464                                                   00021E GR
+  0 A$Battle$465                                                   000221 GR
+  0 A$Battle$466                                                   000222 GR
+  0 A$Battle$467                                                   000225 GR
+  0 A$Battle$471                                                   000227 GR
+  0 A$Battle$472                                                   00022A GR
+  0 A$Battle$473                                                   00022B GR
+  0 A$Battle$474                                                   00022E GR
+  0 A$Battle$475                                                   00022F GR
+  0 A$Battle$476                                                   000232 GR
+  0 A$Battle$477                                                   000233 GR
+  0 A$Battle$478                                                   000236 GR
+  0 A$Battle$479                                                   000238 GR
+  0 A$Battle$484                                                   00023B GR
+  0 A$Battle$485                                                   00023E GR
+  0 A$Battle$486                                                   000240 GR
+  0 A$Battle$490                                                   000242 GR
+  0 A$Battle$491                                                   000245 GR
+  0 A$Battle$492                                                   000246 GR
+  0 A$Battle$493                                                   000249 GR
+  0 A$Battle$494                                                   00024A GR
+  0 A$Battle$495                                                   00024D GR
+  0 A$Battle$499                                                   00024F GR
+  0 A$Battle$500                                                   000252 GR
+  0 A$Battle$501                                                   000253 GR
+  0 A$Battle$502                                                   000256 GR
+  0 A$Battle$503                                                   000257 GR
+  0 A$Battle$504                                                   00025A GR
+  0 A$Battle$505                                                   00025B GR
+  0 A$Battle$506                                                   00025E GR
+  0 A$Battle$507                                                   000260 GR
+  0 A$Battle$512                                                   000263 GR
+  0 A$Battle$513                                                   000266 GR
+  0 A$Battle$514                                                   000268 GR
+  0 A$Battle$518                                                   00026A GR
+  0 A$Battle$519                                                   00026D GR
+  0 A$Battle$520                                                   00026E GR
+  0 A$Battle$521                                                   000271 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 6
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Battle$522                                                   000272 GR
+  0 A$Battle$523                                                   000275 GR
+  0 A$Battle$527                                                   000277 GR
+  0 A$Battle$528                                                   00027A GR
+  0 A$Battle$529                                                   00027B GR
+  0 A$Battle$530                                                   00027E GR
+  0 A$Battle$531                                                   00027F GR
+  0 A$Battle$532                                                   000282 GR
+  0 A$Battle$533                                                   000283 GR
+  0 A$Battle$534                                                   000286 GR
+  0 A$Battle$535                                                   000288 GR
+  0 A$Battle$540                                                   00028B GR
+  0 A$Battle$541                                                   00028E GR
+  0 A$Battle$542                                                   000290 GR
+  0 A$Battle$546                                                   000292 GR
+  0 A$Battle$547                                                   000295 GR
+  0 A$Battle$548                                                   000296 GR
+  0 A$Battle$549                                                   000299 GR
+  0 A$Battle$550                                                   00029A GR
+  0 A$Battle$551                                                   00029D GR
+  0 A$Battle$555                                                   00029F GR
+  0 A$Battle$556                                                   0002A2 GR
+  0 A$Battle$557                                                   0002A3 GR
+  0 A$Battle$558                                                   0002A6 GR
+  0 A$Battle$559                                                   0002A7 GR
+  0 A$Battle$560                                                   0002AA GR
+  0 A$Battle$561                                                   0002AB GR
+  0 A$Battle$562                                                   0002AE GR
+  0 A$Battle$563                                                   0002B0 GR
+  0 A$Battle$568                                                   0002B3 GR
+  0 A$Battle$569                                                   0002B6 GR
+  0 A$Battle$570                                                   0002B8 GR
+  0 A$Battle$574                                                   0002BA GR
+  0 A$Battle$575                                                   0002BD GR
+  0 A$Battle$576                                                   0002BE GR
+  0 A$Battle$577                                                   0002C1 GR
+  0 A$Battle$578                                                   0002C2 GR
+  0 A$Battle$579                                                   0002C5 GR
+  0 A$Battle$583                                                   0002C7 GR
+  0 A$Battle$584                                                   0002CA GR
+  0 A$Battle$585                                                   0002CB GR
+  0 A$Battle$586                                                   0002CE GR
+  0 A$Battle$587                                                   0002CF GR
+  0 A$Battle$588                                                   0002D2 GR
+  0 A$Battle$589                                                   0002D3 GR
+  0 A$Battle$590                                                   0002D6 GR
+  0 A$Battle$591                                                   0002D8 GR
+  0 A$Battle$596                                                   0002DB GR
+  0 A$Battle$597                                                   0002DE GR
+  0 A$Battle$598                                                   0002E0 GR
+  0 A$Battle$602                                                   0002E2 GR
+  0 A$Battle$603                                                   0002E5 GR
+  0 A$Battle$604                                                   0002E6 GR
+  0 A$Battle$605                                                   0002E9 GR
+  0 A$Battle$606                                                   0002EA GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 7
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Battle$607                                                   0002ED GR
+  0 A$Battle$611                                                   0002EF GR
+  0 A$Battle$612                                                   0002F2 GR
+  0 A$Battle$613                                                   0002F3 GR
+  0 A$Battle$614                                                   0002F6 GR
+  0 A$Battle$615                                                   0002F7 GR
+  0 A$Battle$616                                                   0002FA GR
+  0 A$Battle$617                                                   0002FB GR
+  0 A$Battle$618                                                   0002FE GR
+  0 A$Battle$619                                                   000300 GR
+  0 A$Battle$624                                                   000303 GR
+  0 A$Battle$625                                                   000306 GR
+  0 A$Battle$626                                                   000308 GR
+  0 A$Battle$630                                                   00030A GR
+  0 A$Battle$631                                                   00030D GR
+  0 A$Battle$632                                                   00030E GR
+  0 A$Battle$633                                                   000311 GR
+  0 A$Battle$634                                                   000312 GR
+  0 A$Battle$635                                                   000315 GR
+  0 A$Battle$639                                                   000317 GR
+  0 A$Battle$640                                                   00031A GR
+  0 A$Battle$641                                                   00031B GR
+  0 A$Battle$642                                                   00031E GR
+  0 A$Battle$643                                                   00031F GR
+  0 A$Battle$644                                                   000322 GR
+  0 A$Battle$645                                                   000323 GR
+  0 A$Battle$646                                                   000326 GR
+  0 A$Battle$647                                                   000328 GR
+  0 A$Battle$652                                                   00032A GR
+  0 A$Battle$653                                                   00032D GR
+  0 A$Battle$654                                                   00032F GR
+  0 A$Battle$658                                                   000331 GR
+  0 A$Battle$659                                                   000334 GR
+  0 A$Battle$660                                                   000335 GR
+  0 A$Battle$661                                                   000338 GR
+  0 A$Battle$662                                                   000339 GR
+  0 A$Battle$663                                                   00033C GR
+  0 A$Battle$667                                                   00033E GR
+  0 A$Battle$668                                                   000341 GR
+  0 A$Battle$669                                                   000342 GR
+  0 A$Battle$670                                                   000345 GR
+  0 A$Battle$671                                                   000346 GR
+  0 A$Battle$672                                                   000349 GR
+  0 A$Battle$673                                                   00034A GR
+  0 A$Battle$674                                                   00034D GR
+  0 A$Battle$675                                                   00034F GR
+  0 A$Battle$680                                                   000351 GR
+  0 A$Battle$681                                                   000354 GR
+  0 A$Battle$682                                                   000356 GR
+  0 A$Battle$686                                                   000358 GR
+  0 A$Battle$687                                                   00035B GR
+  0 A$Battle$688                                                   00035C GR
+  0 A$Battle$689                                                   00035F GR
+  0 A$Battle$690                                                   000360 GR
+  0 A$Battle$691                                                   000363 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 8
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Battle$695                                                   000365 GR
+  0 A$Battle$696                                                   000368 GR
+  0 A$Battle$697                                                   000369 GR
+  0 A$Battle$698                                                   00036C GR
+  0 A$Battle$699                                                   00036D GR
+  0 A$Battle$70                                                    000000 GR
+  0 A$Battle$700                                                   000370 GR
+  0 A$Battle$701                                                   000371 GR
+  0 A$Battle$702                                                   000374 GR
+  0 A$Battle$703                                                   000376 GR
+  0 A$Battle$708                                                   000378 GR
+  0 A$Battle$709                                                   00037B GR
+  0 A$Battle$71                                                    000003 GR
+  0 A$Battle$710                                                   00037D GR
+  0 A$Battle$714                                                   00037F GR
+  0 A$Battle$715                                                   000382 GR
+  0 A$Battle$716                                                   000383 GR
+  0 A$Battle$717                                                   000386 GR
+  0 A$Battle$718                                                   000387 GR
+  0 A$Battle$719                                                   00038A GR
+  0 A$Battle$72                                                    000004 GR
+  0 A$Battle$723                                                   00038C GR
+  0 A$Battle$724                                                   00038F GR
+  0 A$Battle$725                                                   000390 GR
+  0 A$Battle$726                                                   000393 GR
+  0 A$Battle$727                                                   000394 GR
+  0 A$Battle$728                                                   000397 GR
+  0 A$Battle$729                                                   000398 GR
+  0 A$Battle$73                                                    000007 GR
+  0 A$Battle$730                                                   00039B GR
+  0 A$Battle$735                                                   00039D GR
+  0 A$Battle$736                                                   00039F GR
+  0 A$Battle$738                                                   0003A2 GR
+  0 A$Battle$739                                                   0003A4 GR
+  0 A$Battle$74                                                    000008 GR
+  0 A$Battle$740                                                   0003A6 GR
+  0 A$Battle$75                                                    00000B GR
+  0 A$Battle$751                                                   0003A8 GR
+  0 A$Battle$764                                                   0003A9 GR
+  0 A$Battle$765                                                   0003AC GR
+  0 A$Battle$772                                                   0003AE GR
+  0 A$Battle$773                                                   0003B0 GR
+  0 A$Battle$774                                                   0003B1 GR
+  0 A$Battle$782                                                   0003B3 GR
+  0 A$Battle$79                                                    00000D GR
+  0 A$Battle$80                                                    000010 GR
+  0 A$Battle$81                                                    000011 GR
+  0 A$Battle$82                                                    000014 GR
+  0 A$Battle$83                                                    000015 GR
+  0 A$Battle$84                                                    000016 GR
+  0 A$Battle$85                                                    000017 GR
+  0 A$Battle$86                                                    000018 GR
+  0 A$Battle$87                                                    00001B GR
+  0 A$Battle$91                                                    00001D GR
+  0 A$Battle$92                                                    00001F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 9
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$Battle$93                                                    000020 GR
+  0 A$Battle$94                                                    000021 GR
+  0 A$Battle$95                                                    000024 GR
+  0 A$Battle$96                                                    000025 GR
+  0 A$Battle$97                                                    000027 GR
+  0 A$Battle$98                                                    000029 GR
+  0 C$Battle.c$101$2_0$113                                      =  0001C7 GR
+  0 C$Battle.c$102$2_0$113                                      =  0001D4 GR
+  0 C$Battle.c$104$1_0$105                                      =  0001E8 GR
+  0 C$Battle.c$106$2_0$114                                      =  0001EF GR
+  0 C$Battle.c$107$2_0$114                                      =  0001F2 GR
+  0 C$Battle.c$108$2_0$114                                      =  0001FF GR
+  0 C$Battle.c$110$1_0$105                                      =  000213 GR
+  0 C$Battle.c$112$2_0$115                                      =  00021A GR
+  0 C$Battle.c$113$2_0$115                                      =  000227 GR
+  0 C$Battle.c$115$1_0$105                                      =  00023B GR
+  0 C$Battle.c$117$2_0$116                                      =  000242 GR
+  0 C$Battle.c$118$2_0$116                                      =  00024F GR
+  0 C$Battle.c$120$1_0$105                                      =  000263 GR
+  0 C$Battle.c$122$2_0$117                                      =  00026A GR
+  0 C$Battle.c$123$2_0$117                                      =  000277 GR
+  0 C$Battle.c$125$1_0$105                                      =  00028B GR
+  0 C$Battle.c$127$2_0$118                                      =  000292 GR
+  0 C$Battle.c$128$2_0$118                                      =  00029F GR
+  0 C$Battle.c$130$1_0$105                                      =  0002B3 GR
+  0 C$Battle.c$132$2_0$119                                      =  0002BA GR
+  0 C$Battle.c$133$2_0$119                                      =  0002C7 GR
+  0 C$Battle.c$135$1_0$105                                      =  0002DB GR
+  0 C$Battle.c$137$2_0$120                                      =  0002E2 GR
+  0 C$Battle.c$138$2_0$120                                      =  0002EF GR
+  0 C$Battle.c$140$1_0$105                                      =  000303 GR
+  0 C$Battle.c$142$2_0$121                                      =  00030A GR
+  0 C$Battle.c$143$2_0$121                                      =  000317 GR
+  0 C$Battle.c$145$1_0$105                                      =  00032A GR
+  0 C$Battle.c$147$2_0$122                                      =  000331 GR
+  0 C$Battle.c$148$2_0$122                                      =  00033E GR
+  0 C$Battle.c$150$1_0$105                                      =  000351 GR
+  0 C$Battle.c$152$2_0$123                                      =  000358 GR
+  0 C$Battle.c$153$2_0$123                                      =  000365 GR
+  0 C$Battle.c$155$1_0$105                                      =  000378 GR
+  0 C$Battle.c$157$2_0$124                                      =  00037F GR
+  0 C$Battle.c$158$2_0$124                                      =  00038C GR
+  0 C$Battle.c$160$1_0$105                                      =  00039D GR
+  0 C$Battle.c$161$3_0$105                                      =  0003A8 GR
+  0 C$Battle.c$162$3_0$105                                      =  0003A8 GR
+  0 C$Battle.c$164$3_0$128                                      =  0003A9 GR
+  0 C$Battle.c$166$1_0$128                                      =  0003A9 GR
+  0 C$Battle.c$168$2_0$129                                      =  0003AE GR
+  0 C$Battle.c$171$2_0$130                                      =  0003AE GR
+  0 C$Battle.c$173$1_0$128                                      =  0003B3 GR
+  0 C$Battle.c$42$0_0$105                                       =  000000 GR
+  0 C$Battle.c$44$1_0$105                                       =  000000 GR
+  0 C$Battle.c$45$1_0$105                                       =  00000D GR
+  0 C$Battle.c$47$1_0$105                                       =  00001D GR
+  0 C$Battle.c$48$1_0$105                                       =  00002C GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 10
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$Battle.c$49$1_0$105                                       =  00003B GR
+  0 C$Battle.c$50$1_0$105                                       =  00004A GR
+  0 C$Battle.c$52$1_0$105                                       =  000059 GR
+  0 C$Battle.c$53$1_0$105                                       =  000068 GR
+  0 C$Battle.c$54$1_0$105                                       =  000077 GR
+  0 C$Battle.c$55$1_0$105                                       =  000086 GR
+  0 C$Battle.c$58$1_0$105                                       =  000095 GR
+  0 C$Battle.c$59$1_0$105                                       =  00009A GR
+  0 C$Battle.c$62$1_0$105                                       =  00009F GR
+  0 C$Battle.c$63$1_0$105                                       =  0000A5 GR
+  0 C$Battle.c$64$1_0$105                                       =  0000AA GR
+  0 C$Battle.c$66$2_0$106                                       =  0000B0 GR
+  0 C$Battle.c$67$2_0$106                                       =  0000BD GR
+  0 C$Battle.c$69$1_0$105                                       =  0000D1 GR
+  0 C$Battle.c$71$2_0$107                                       =  0000D7 GR
+  0 C$Battle.c$72$2_0$107                                       =  0000E4 GR
+  0 C$Battle.c$74$1_0$105                                       =  0000F8 GR
+  0 C$Battle.c$76$2_0$108                                       =  0000FF GR
+  0 C$Battle.c$77$2_0$108                                       =  00010C GR
+  0 C$Battle.c$79$1_0$105                                       =  000120 GR
+  0 C$Battle.c$81$2_0$109                                       =  000127 GR
+  0 C$Battle.c$82$2_0$109                                       =  000134 GR
+  0 C$Battle.c$84$1_0$105                                       =  000148 GR
+  0 C$Battle.c$86$2_0$110                                       =  00014F GR
+  0 C$Battle.c$87$2_0$110                                       =  00015C GR
+  0 C$Battle.c$89$1_0$105                                       =  000170 GR
+  0 C$Battle.c$91$2_0$111                                       =  000177 GR
+  0 C$Battle.c$92$2_0$111                                       =  000184 GR
+  0 C$Battle.c$94$1_0$105                                       =  000198 GR
+  0 C$Battle.c$96$2_0$112                                       =  00019F GR
+  0 C$Battle.c$97$2_0$112                                       =  0001AC GR
+  0 C$Battle.c$99$1_0$105                                       =  0001C0 GR
+  0 G$BattleSetup$0$0                                           =  000000 GR
+  0 G$BattleUpdate$0$0                                          =  0003A9 GR
+  1 G$cursor_x$0_0$0                                            =  000000 GR
+  1 G$cursor_y$0_0$0                                            =  000001 GR
+  0 XG$BattleSetup$0$0                                          =  0003A8 GR
+  0 XG$BattleUpdate$0$0                                         =  0003B3 GR
+  0 _BattleSetup                                                   000000 GR
+  0 _BattleUpdate                                                  0003A9 GR
+    _Battle_Map                                                    ****** GX
+    _BigSis_Map                                                    ****** GX
+    _Car_Map                                                       ****** GX
+    _Car_Tiles                                                     ****** GX
+    _Chief_Map                                                     ****** GX
+    _Cop_Tiles                                                     ****** GX
+    _Crow_Map                                                      ****** GX
+    _Crow_Tiles                                                    ****** GX
+    _DrawNumber                                                    ****** GX
+    _Drunk_Map                                                     ****** GX
+    _Drunk_Tiles                                                   ****** GX
+    _Experiment_Map                                                ****** GX
+    _Experiment_Tiles                                              ****** GX
+    _FontTiles                                                     ****** GX
+    _Ghost_Map                                                     ****** GX
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 11
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    _Ghost_Tiles                                                   ****** GX
+    _GypsyTiles                                                    ****** GX
+    _Gypsy_Map                                                     ****** GX
+    _InvertColor                                                   ****** GX
+    _LCDC_REG                                                      ****** GX
+    _MadSis_Map                                                    ****** GX
+    _Man_Map                                                       ****** GX
+    _Man_Tiles                                                     ****** GX
+    _Officer_Map                                                   ****** GX
+    _Police_Map                                                    ****** GX
+    _SCY_REG                                                       ****** GX
+    _Saucer_Tiles                                                  ****** GX
+    _Semi_Map                                                      ****** GX
+    _Semi_Tiles                                                    ****** GX
+    _Sheriff_Map                                                   ****** GX
+    _Sis_Tiles                                                     ****** GX
+    _SockHead_Map                                                  ****** GX
+    _SockHead_Tiles                                                ****** GX
+    _Tick_Map                                                      ****** GX
+    _Tick_Tiles                                                    ****** GX
+    _Toby_Map                                                      ****** GX
+    _Toby_Tiles                                                    ****** GX
+    _WallyTiles                                                    ****** GX
+  1 _cursor_x                                                      000000 GR
+  1 _cursor_y                                                      000001 GR
+    _fadeFromBlack                                                 ****** GX
+    _index                                                         ****** GX
+    _joypadCurrent                                                 ****** GX
+    _performantdelay                                               ****** GX
+    _set_bkg_data                                                  ****** GX
+    _set_bkg_tiles                                                 ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 12
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size    3B4   flags    0
+   1 _DATA                                      size      2   flags    0
+   2 _INITIALIZED                               size      0   flags    0
+   3 _DABS                                      size      0   flags    8
+   4 _HOME                                      size      0   flags    0
+   5 _GSINIT                                    size      0   flags    0
+   6 _GSFINAL                                   size      0   flags    0
+   7 _INITIALIZER                               size      0   flags    0
+   8 _CABS                                      size      0   flags    8
+

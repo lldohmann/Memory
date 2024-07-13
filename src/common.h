@@ -6,7 +6,9 @@
 #define COREGAMELOOP 2
 #define GAMEJOHNDOE 3
 #define BESTIARY 4
+#define BATTLE 5
 
+extern uint8_t index;
 extern uint8_t joypadPrevious, joypadCurrent;
 
 /**
@@ -35,13 +37,13 @@ void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits);
  * Custom function to print text onto the background layer.
  * 
  * @param x
- * The X position of the background tile map.
+ * The X position of the background tile map (IN TILES).
  * @param y 
- * The Y position of the background tile map.
+ * The Y position of the background tile map (IN TILES).
  * @param text
  * The string text to print out horizontally.
 */
-//void DrawText(uint8_t x, uint8_t y, unsigned char *text );
+void DrawText(uint8_t x, uint8_t y, unsigned char *text );
 
 /**
  * Slowly causes the background pallet to turn black.

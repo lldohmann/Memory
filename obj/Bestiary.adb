@@ -64,7 +64,6 @@ T:FBestiary$__00000003[({0}S:S$joy0$0_0$0({1}SC:U),Z,0,0)({1}S:S$joy1$0_0$0({1}S
 T:FBestiary$__00000004[({0}S:S$joy0$0_0$0({1}SC:U),Z,0,0)({1}S:S$joy1$0_0$0({1}SC:U),Z,0,0)({2}S:S$joy2$0_0$0({1}SC:U),Z,0,0)({3}S:S$joy3$0_0$0({1}SC:U),Z,0,0)]
 T:FBestiary$_fixed[({0}S:S$l$0_0$0({1}SC:U),Z,0,0)({1}S:S$h$0_0$0({1}SC:U),Z,0,0)({0}S:S$b$0_0$0({2}ST__00000001:S),Z,0,0)({0}S:S$w$0_0$0({2}SI:U),Z,0,0)]
 T:FBestiary$OAM_item_t[({0}S:S$y$0_0$0({1}SC:U),Z,0,0)({1}S:S$x$0_0$0({1}SC:U),Z,0,0)({2}S:S$tile$0_0$0({1}SC:U),Z,0,0)({3}S:S$prop$0_0$0({1}SC:U),Z,0,0)]
-S:G$index$0_0$0({1}SC:S),E,0,0
 S:G$invert$0_0$0({1}SC:U),E,0,0
 S:G$_VRAM$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$_VRAM8000$0_0$0({0}DA0d,SC:U),E,0,0
@@ -95,6 +94,7 @@ S:G$_current_1bpp_colors$0_0$0({2}SI:U),E,0,0
 S:G$_map_tile_offset$0_0$0({1}SC:U),E,0,0
 S:G$_submap_tile_offset$0_0$0({1}SC:U),E,0,0
 S:G$shadow_OAM$0_0$0({0}DA0d,STOAM_item_t:S),E,0,0
+S:G$index$0_0$0({1}SC:U),E,0,0
 S:G$joypadPrevious$0_0$0({1}SC:U),E,0,0
 S:G$joypadCurrent$0_0$0({1}SC:U),E,0,0
 S:G$Bestiary_Map$0_0$0({0}DA0d,SC:U),E,0,0
@@ -102,6 +102,18 @@ S:G$WallyTiles$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$Wally_Map$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$Tick_Map$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$Man_Map$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Drunk_Tiles$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Drunk_Map$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Experiment_Tiles$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Experiment_Map$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Ghost_Tiles$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Ghost_Map$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Saucer_Tiles$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Saucer_Map$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$SockHead_Tiles$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$SockHead_Map$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Toby_Tiles$0_0$0({0}DA0d,SC:U),E,0,0
+S:G$Toby_Map$0_0$0({0}DA0d,SC:U),E,0,0
 S:G$P1_REG$0_0$0({1}SC:U),I,0,0
 S:G$SB_REG$0_0$0({1}SC:U),I,0,0
 S:G$SC_REG$0_0$0({1}SC:U),I,0,0
@@ -249,6 +261,7 @@ S:G$fill_bkg_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$fill_win_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$performantdelay$0_0$0({2}DF,SV:S),C,0,0
 S:G$DrawNumber$0_0$0({2}DF,SV:S),C,0,0
+S:G$DrawText$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeFromBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToWhite$0_0$0({2}DF,SV:S),C,0,0

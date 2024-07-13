@@ -6,6 +6,7 @@
 #include "../res/JohnDoe_Map.h"
 
 BOOLEAN wabble = FALSE;
+BOOLEAN invert_b = FALSE;
 // Wobble Look up Table
 const uint8_t scanline_offsets_tbl[] = {0, 1, 2, 3, 3, 2, 1, 0, 0, 1, 2, 3, 3, 2, 1, 0};
 const uint8_t scanline_normal_tbl[]  = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -37,39 +38,46 @@ uint8_t GameJohnDoeUpdate()
     joypadPrevious = joypadCurrent;
     joypadCurrent = joypad();
 
-    if (joypadCurrent & J_A)
-    {
-        fadeToBlack(10);
-        fadeFromBlack(10);
+    switch (joypadCurrent){
+        case J_DOWN|J_A:
+            if (invert_b == FALSE)
+            {
+                InvertColor();
+                invert_b = TRUE;
+            }
+            else {
+                ResetColor();
+                invert_b = FALSE;
+            }
+            break;
+        case J_A:
+            fadeToBlack(10);
+            fadeFromBlack(10);
+            break;
+        case J_B:
+            fadeToWhite(10);
+            fadeFromWhite(10);
+            break;
+        case J_START:
+            if (wabble == FALSE)
+            {
+                // Set up the interrupt and enable it
+                STAT_REG = STATF_MODE00;
+                set_interrupts(VBL_IFLAG | LCD_IFLAG);
+                //*scanline_offsets = scanline_offsets_tbl;
+                wabble = TRUE;
+            }
+            else {
+                //*scanline_offsets = scanline_normal_tbl;
+                wabble = FALSE;
+            }
+            break;
+        case J_SELECT:
+            fadeToBlack(10);
+            return GAMETITLE;
+        default:
+            scanline_offsets = &scanline_offsets_tbl[(uint8_t)(sys_time >> 2) & 0x07u];
     }
-    if (joypadCurrent & J_B)
-    {
-        fadeToWhite(10);
-        fadeFromWhite(10);
-    }
-    if (joypadCurrent & J_START)
-    {
-        if (wabble == FALSE)
-        {
-            // Set up the interrupt and enable it
-            STAT_REG = STATF_MODE00;
-            set_interrupts(VBL_IFLAG | LCD_IFLAG);
-            //*scanline_offsets = scanline_offsets_tbl;
-            wabble = TRUE;
-        }
-        else {
-            //*scanline_offsets = scanline_normal_tbl;
-            wabble = FALSE;
-        }
-    }
-    if (joypadCurrent & J_SELECT)
-    {
-        fadeToBlack(10);
-        return GAMETITLE;
-    }
-    //while (wabble)
-    //{
-        scanline_offsets = &scanline_offsets_tbl[(uint8_t)(sys_time >> 2) & 0x07u];
-    //}
+    
     return GAMEJOHNDOE;
 }

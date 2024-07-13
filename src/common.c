@@ -5,6 +5,7 @@
 
 uint8_t joypadPrevious = 0;
 uint8_t joypadCurrent = 0;
+int8_t index = 0;
 void performantdelay(uint8_t numloops)
 {
     for (uint8_t i = 0; i < numloops; i++)
@@ -43,7 +44,6 @@ void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits)
     }
 }
 
-/**
 void DrawText(uint8_t x, uint8_t y, unsigned char *text ){
 
     uint8_t i=0;
@@ -78,7 +78,6 @@ void DrawText(uint8_t x, uint8_t y, unsigned char *text ){
     VBK_REG=0;
 
 }
-*/
 
 void fadeToBlack(uint8_t frames)
 {
