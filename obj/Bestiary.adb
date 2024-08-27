@@ -56,10 +56,10 @@ S:LBestiary.set_native_tile_data$data$1_0$89({2}DG,SC:U),B,1,2
 S:LBestiary.set_native_tile_data$nb_tiles$1_0$89({1}SC:U),B,1,-1
 S:LBestiary.set_native_tile_data$first_tile$1_0$89({2}SI:U),B,1,-3
 F:G$BestiarySetup$0_0$0({2}DF,SV:S),C,0,0,0,0,0
-S:LBestiary.BestiarySetup$__1310720006$2_0$106({1}SC:U),R,0,0,[]
-S:LBestiary.BestiarySetup$__1310720007$2_0$106({1}SC:U),R,0,0,[]
-S:LBestiary.BestiarySetup$x$3_0$107({1}SC:U),R,0,0,[]
-S:LBestiary.BestiarySetup$y$3_0$107({1}SC:U),R,0,0,[]
+S:LBestiary.BestiarySetup$__1310720006$2_0$108({1}SC:U),R,0,0,[]
+S:LBestiary.BestiarySetup$__1310720007$2_0$108({1}SC:U),R,0,0,[]
+S:LBestiary.BestiarySetup$x$3_0$109({1}SC:U),R,0,0,[]
+S:LBestiary.BestiarySetup$y$3_0$109({1}SC:U),R,0,0,[]
 F:G$BestiaryUpdate$0_0$0({2}DF,SC:U),C,0,0,0,0,0
 T:FBestiary$__00000000[({0}S:S$l$0_0$0({1}SC:U),Z,0,0)({1}S:S$h$0_0$0({1}SC:U),Z,0,0)]
 T:FBestiary$__00000001[({0}S:S$l$0_0$0({1}SC:U),Z,0,0)({1}S:S$h$0_0$0({1}SC:U),Z,0,0)]
@@ -265,7 +265,9 @@ S:G$fill_bkg_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$fill_win_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$performantdelay$0_0$0({2}DF,SV:S),C,0,0
 S:G$DrawNumber$0_0$0({2}DF,SV:S),C,0,0
+S:G$DrawNumberWindow$0_0$0({2}DF,SV:S),C,0,0
 S:G$DrawText$0_0$0({2}DF,SV:S),C,0,0
+S:G$DrawTextWindow$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeFromBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToWhite$0_0$0({2}DF,SV:S),C,0,0

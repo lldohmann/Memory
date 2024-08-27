@@ -7,687 +7,1098 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
-  0 A$common$1000                                                  0002F8 GR
-  0 A$common$1001                                                  0002FA GR
-  0 A$common$1005                                                  0002FC GR
-  0 A$common$101                                                   00000A GR
-  0 A$common$1013                                                  0002FE GR
-  0 A$common$1014                                                  000300 GR
-  0 A$common$1018                                                  000302 GR
-  0 A$common$1019                                                  000304 GR
-  0 A$common$1023                                                  000306 GR
-  0 A$common$1031                                                  000308 GR
-  0 A$common$1032                                                  00030A GR
-  0 A$common$1036                                                  00030C GR
-  0 A$common$1037                                                  00030E GR
-  0 A$common$1041                                                  000310 GR
-  0 A$common$1049                                                  000312 GR
-  0 A$common$1050                                                  000314 GR
-  0 A$common$1054                                                  000316 GR
-  0 A$common$1055                                                  000318 GR
-  0 A$common$1063                                                  00031A GR
-  0 A$common$1064                                                  00031B GR
-  0 A$common$1065                                                  00031C GR
-  0 A$common$1066                                                  00031F GR
-  0 A$common$1070                                                  000320 GR
-  0 A$common$1078                                                  000321 GR
-  0 A$common$1091                                                  000323 GR
-  0 A$common$1092                                                  000325 GR
-  0 A$common$1096                                                  000327 GR
-  0 A$common$1097                                                  000329 GR
-  0 A$common$1105                                                  00032B GR
-  0 A$common$111                                                   00000C GR
-  0 A$common$1118                                                  00032C GR
-  0 A$common$1119                                                  00032E GR
-  0 A$common$112                                                   00000E GR
-  0 A$common$1123                                                  000330 GR
-  0 A$common$1124                                                  000332 GR
-  0 A$common$113                                                   000010 GR
-  0 A$common$1132                                                  000334 GR
-  0 A$common$114                                                   000011 GR
-  0 A$common$118                                                   000012 GR
-  0 A$common$119                                                   000014 GR
-  0 A$common$120                                                   000016 GR
-  0 A$common$121                                                   000017 GR
-  0 A$common$122                                                   000018 GR
-  0 A$common$123                                                   00001A GR
-  0 A$common$124                                                   00001B GR
-  0 A$common$125                                                   00001C GR
-  0 A$common$126                                                   00001E GR
-  0 A$common$127                                                   00001F GR
-  0 A$common$128                                                   000020 GR
-  0 A$common$129                                                   000022 GR
-  0 A$common$130                                                   000023 GR
+  0 A$common$1000                                                  0003C8 GR
+  0 A$common$1001                                                  0003C9 GR
+  0 A$common$1009                                                  0003CA GR
+  0 A$common$1010                                                  0003CC GR
+  0 A$common$1011                                                  0003CD GR
+  0 A$common$1016                                                  0003D0 GR
+  0 A$common$1017                                                  0003D1 GR
+  0 A$common$1021                                                  0003D3 GR
+  0 A$common$1022                                                  0003D5 GR
+  0 A$common$1023                                                  0003D6 GR
+  0 A$common$1024                                                  0003D7 GR
+  0 A$common$1034                                                  0003D8 GR
+  0 A$common$1038                                                  0003D9 GR
+  0 A$common$104                                                   00000A GR
+  0 A$common$1040                                                  0003DB GR
+  0 A$common$1041                                                  0003DC GR
+  0 A$common$1042                                                  0003DE GR
+  0 A$common$1046                                                  0003DF GR
+  0 A$common$1047                                                  0003E0 GR
+  0 A$common$1048                                                  0003E1 GR
+  0 A$common$1049                                                  0003E3 GR
+  0 A$common$1050                                                  0003E4 GR
+  0 A$common$1051                                                  0003E5 GR
+  0 A$common$1052                                                  0003E7 GR
+  0 A$common$1053                                                  0003E8 GR
+  0 A$common$1054                                                  0003EA GR
+  0 A$common$1055                                                  0003EC GR
+  0 A$common$1056                                                  0003EE GR
+  0 A$common$1057                                                  0003F0 GR
+  0 A$common$1065                                                  0003F2 GR
+  0 A$common$1066                                                  0003F4 GR
+  0 A$common$1070                                                  0003F6 GR
+  0 A$common$1071                                                  0003F8 GR
+  0 A$common$1075                                                  0003FA GR
+  0 A$common$1083                                                  0003FC GR
+  0 A$common$1084                                                  0003FE GR
+  0 A$common$1088                                                  000400 GR
+  0 A$common$1089                                                  000402 GR
+  0 A$common$1093                                                  000404 GR
+  0 A$common$1101                                                  000406 GR
+  0 A$common$1102                                                  000408 GR
+  0 A$common$1106                                                  00040A GR
+  0 A$common$1107                                                  00040C GR
+  0 A$common$1111                                                  00040E GR
+  0 A$common$1119                                                  000410 GR
+  0 A$common$1120                                                  000412 GR
+  0 A$common$1124                                                  000414 GR
+  0 A$common$1125                                                  000416 GR
+  0 A$common$1133                                                  000418 GR
+  0 A$common$1134                                                  000419 GR
+  0 A$common$1135                                                  00041A GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$common$134                                                   000025 GR
-  0 A$common$135                                                   000027 GR
-  0 A$common$136                                                   000028 GR
-  0 A$common$137                                                   00002A GR
-  0 A$common$138                                                   00002B GR
-  0 A$common$139                                                   00002D GR
-  0 A$common$140                                                   00002E GR
-  0 A$common$141                                                   000030 GR
-  0 A$common$142                                                   000031 GR
-  0 A$common$143                                                   000033 GR
-  0 A$common$144                                                   000034 GR
-  0 A$common$145                                                   000035 GR
-  0 A$common$146                                                   000038 GR
-  0 A$common$147                                                   000039 GR
-  0 A$common$148                                                   00003A GR
-  0 A$common$149                                                   00003C GR
-  0 A$common$150                                                   00003D GR
-  0 A$common$151                                                   00003E GR
-  0 A$common$152                                                   00003F GR
-  0 A$common$153                                                   000040 GR
-  0 A$common$154                                                   000043 GR
-  0 A$common$158                                                   000045 GR
-  0 A$common$159                                                   000047 GR
-  0 A$common$160                                                   000048 GR
-  0 A$common$161                                                   000049 GR
-  0 A$common$162                                                   00004A GR
-  0 A$common$163                                                   00004B GR
-  0 A$common$164                                                   00004E GR
-  0 A$common$165                                                   00004F GR
-  0 A$common$166                                                   000051 GR
-  0 A$common$167                                                   000052 GR
-  0 A$common$168                                                   000053 GR
-  0 A$common$169                                                   000054 GR
-  0 A$common$170                                                   000056 GR
-  0 A$common$171                                                   000057 GR
-  0 A$common$172                                                   000059 GR
-  0 A$common$173                                                   00005A GR
-  0 A$common$174                                                   00005C GR
-  0 A$common$175                                                   00005D GR
-  0 A$common$176                                                   00005F GR
-  0 A$common$180                                                   000060 GR
-  0 A$common$181                                                   000063 GR
-  0 A$common$182                                                   000064 GR
-  0 A$common$183                                                   000065 GR
-  0 A$common$184                                                   000068 GR
-  0 A$common$185                                                   000069 GR
-  0 A$common$186                                                   00006B GR
-  0 A$common$187                                                   00006C GR
-  0 A$common$188                                                   00006D GR
-  0 A$common$189                                                   00006E GR
-  0 A$common$190                                                   000070 GR
-  0 A$common$191                                                   000071 GR
-  0 A$common$192                                                   000073 GR
-  0 A$common$196                                                   000074 GR
-  0 A$common$197                                                   000076 GR
+  0 A$common$1136                                                  00041D GR
+  0 A$common$114                                                   00000C GR
+  0 A$common$1140                                                  00041E GR
+  0 A$common$1148                                                  00041F GR
+  0 A$common$115                                                   00000E GR
+  0 A$common$1158                                                  000421 GR
+  0 A$common$116                                                   000010 GR
+  0 A$common$1162                                                  000422 GR
+  0 A$common$1164                                                  000424 GR
+  0 A$common$1165                                                  000425 GR
+  0 A$common$1166                                                  000427 GR
+  0 A$common$117                                                   000011 GR
+  0 A$common$1170                                                  000428 GR
+  0 A$common$1171                                                  000429 GR
+  0 A$common$1172                                                  00042A GR
+  0 A$common$1173                                                  00042C GR
+  0 A$common$1174                                                  00042D GR
+  0 A$common$1175                                                  00042E GR
+  0 A$common$1176                                                  000430 GR
+  0 A$common$1177                                                  000431 GR
+  0 A$common$1178                                                  000433 GR
+  0 A$common$1179                                                  000435 GR
+  0 A$common$1180                                                  000437 GR
+  0 A$common$1181                                                  000439 GR
+  0 A$common$1189                                                  00043B GR
+  0 A$common$1190                                                  00043D GR
+  0 A$common$1194                                                  00043F GR
+  0 A$common$1195                                                  000441 GR
+  0 A$common$1199                                                  000443 GR
+  0 A$common$1207                                                  000445 GR
+  0 A$common$1208                                                  000447 GR
+  0 A$common$121                                                   000012 GR
+  0 A$common$1212                                                  000449 GR
+  0 A$common$1213                                                  00044B GR
+  0 A$common$1217                                                  00044D GR
+  0 A$common$122                                                   000014 GR
+  0 A$common$1225                                                  00044F GR
+  0 A$common$1226                                                  000451 GR
+  0 A$common$123                                                   000016 GR
+  0 A$common$1230                                                  000453 GR
+  0 A$common$1231                                                  000455 GR
+  0 A$common$1235                                                  000457 GR
+  0 A$common$124                                                   000017 GR
+  0 A$common$1243                                                  000459 GR
+  0 A$common$1244                                                  00045B GR
+  0 A$common$1248                                                  00045D GR
+  0 A$common$1249                                                  00045F GR
+  0 A$common$125                                                   000018 GR
+  0 A$common$1257                                                  000461 GR
+  0 A$common$1258                                                  000462 GR
+  0 A$common$1259                                                  000463 GR
+  0 A$common$126                                                   00001A GR
+  0 A$common$1260                                                  000466 GR
+  0 A$common$1264                                                  000467 GR
+  0 A$common$127                                                   00001B GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$common$198                                                   000077 GR
-  0 A$common$199                                                   000079 GR
-  0 A$common$200                                                   00007A GR
-  0 A$common$201                                                   00007C GR
-  0 A$common$202                                                   00007D GR
-  0 A$common$203                                                   00007F GR
-  0 A$common$204                                                   000080 GR
-  0 A$common$206                                                   000082 GR
-  0 A$common$207                                                   000084 GR
-  0 A$common$208                                                   000085 GR
-  0 A$common$209                                                   000087 GR
-  0 A$common$210                                                   000088 GR
-  0 A$common$211                                                   000089 GR
-  0 A$common$212                                                   00008A GR
-  0 A$common$213                                                   00008B GR
-  0 A$common$214                                                   00008C GR
-  0 A$common$215                                                   00008E GR
-  0 A$common$216                                                   00008F GR
-  0 A$common$217                                                   000090 GR
-  0 A$common$218                                                   000091 GR
-  0 A$common$219                                                   000092 GR
-  0 A$common$220                                                   000093 GR
-  0 A$common$221                                                   000094 GR
-  0 A$common$222                                                   000095 GR
-  0 A$common$223                                                   000096 GR
-  0 A$common$224                                                   000097 GR
-  0 A$common$225                                                   000098 GR
-  0 A$common$226                                                   000099 GR
-  0 A$common$227                                                   00009A GR
-  0 A$common$228                                                   00009B GR
-  0 A$common$229                                                   00009C GR
-  0 A$common$230                                                   00009D GR
-  0 A$common$231                                                   00009E GR
-  0 A$common$232                                                   00009F GR
-  0 A$common$233                                                   0000A1 GR
-  0 A$common$234                                                   0000A2 GR
-  0 A$common$235                                                   0000A3 GR
-  0 A$common$236                                                   0000A5 GR
-  0 A$common$237                                                   0000A6 GR
-  0 A$common$238                                                   0000A8 GR
-  0 A$common$239                                                   0000AA GR
-  0 A$common$240                                                   0000AB GR
-  0 A$common$241                                                   0000AC GR
-  0 A$common$242                                                   0000AD GR
-  0 A$common$243                                                   0000AE GR
-  0 A$common$244                                                   0000AF GR
-  0 A$common$245                                                   0000B0 GR
-  0 A$common$246                                                   0000B1 GR
-  0 A$common$247                                                   0000B3 GR
-  0 A$common$248                                                   0000B5 GR
-  0 A$common$249                                                   0000B7 GR
-  0 A$common$250                                                   0000B9 GR
-  0 A$common$251                                                   0000BA GR
-  0 A$common$253                                                   0000BC GR
-  0 A$common$254                                                   0000BE GR
+  0 A$common$1272                                                  000468 GR
+  0 A$common$128                                                   00001C GR
+  0 A$common$1282                                                  00046A GR
+  0 A$common$1286                                                  00046B GR
+  0 A$common$1288                                                  00046D GR
+  0 A$common$1289                                                  00046E GR
+  0 A$common$129                                                   00001E GR
+  0 A$common$1290                                                  000470 GR
+  0 A$common$1294                                                  000471 GR
+  0 A$common$1295                                                  000473 GR
+  0 A$common$1296                                                  000474 GR
+  0 A$common$1297                                                  000476 GR
+  0 A$common$1298                                                  000477 GR
+  0 A$common$1299                                                  000479 GR
+  0 A$common$130                                                   00001F GR
+  0 A$common$1300                                                  00047C GR
+  0 A$common$1301                                                  00047D GR
+  0 A$common$1305                                                  00047E GR
+  0 A$common$1307                                                  00047F GR
+  0 A$common$1308                                                  000481 GR
+  0 A$common$1309                                                  000483 GR
+  0 A$common$131                                                   000020 GR
+  0 A$common$1310                                                  000485 GR
+  0 A$common$1311                                                  000487 GR
+  0 A$common$1316                                                  000489 GR
+  0 A$common$1317                                                  00048B GR
+  0 A$common$132                                                   000022 GR
+  0 A$common$1321                                                  00048D GR
+  0 A$common$1322                                                  00048F GR
+  0 A$common$1326                                                  000491 GR
+  0 A$common$133                                                   000023 GR
+  0 A$common$1334                                                  000493 GR
+  0 A$common$1335                                                  000495 GR
+  0 A$common$1339                                                  000497 GR
+  0 A$common$1340                                                  000499 GR
+  0 A$common$1344                                                  00049B GR
+  0 A$common$1352                                                  00049D GR
+  0 A$common$1353                                                  00049F GR
+  0 A$common$1357                                                  0004A1 GR
+  0 A$common$1358                                                  0004A3 GR
+  0 A$common$1362                                                  0004A5 GR
+  0 A$common$137                                                   000025 GR
+  0 A$common$1370                                                  0004A7 GR
+  0 A$common$1371                                                  0004A9 GR
+  0 A$common$1375                                                  0004AB GR
+  0 A$common$1376                                                  0004AD GR
+  0 A$common$138                                                   000027 GR
+  0 A$common$1380                                                  0004AF GR
+  0 A$common$1388                                                  0004B1 GR
+  0 A$common$1389                                                  0004B2 GR
+  0 A$common$139                                                   000028 GR
+  0 A$common$1393                                                  0004B4 GR
+  0 A$common$1394                                                  0004B5 GR
+  0 A$common$140                                                   00002A GR
+  0 A$common$1402                                                  0004B7 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 4
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$common$255                                                   0000C0 GR
-  0 A$common$257                                                   0000C1 GR
-  0 A$common$261                                                   0000C3 GR
-  0 A$common$262                                                   0000C5 GR
-  0 A$common$263                                                   0000C6 GR
-  0 A$common$264                                                   0000C8 GR
-  0 A$common$265                                                   0000C9 GR
-  0 A$common$266                                                   0000CB GR
-  0 A$common$267                                                   0000CC GR
-  0 A$common$268                                                   0000CE GR
-  0 A$common$269                                                   0000CF GR
-  0 A$common$270                                                   0000D1 GR
-  0 A$common$271                                                   0000D2 GR
-  0 A$common$272                                                   0000D4 GR
-  0 A$common$273                                                   0000D5 GR
-  0 A$common$275                                                   0000D6 GR
-  0 A$common$276                                                   0000D8 GR
-  0 A$common$277                                                   0000D9 GR
-  0 A$common$278                                                   0000DA GR
-  0 A$common$279                                                   0000DC GR
-  0 A$common$280                                                   0000DD GR
-  0 A$common$281                                                   0000DE GR
-  0 A$common$282                                                   0000DF GR
-  0 A$common$283                                                   0000E0 GR
-  0 A$common$284                                                   0000E3 GR
-  0 A$common$288                                                   0000E5 GR
-  0 A$common$289                                                   0000E7 GR
-  0 A$common$290                                                   0000E8 GR
-  0 A$common$295                                                   0000EA GR
-  0 A$common$296                                                   0000EC GR
-  0 A$common$297                                                   0000ED GR
-  0 A$common$298                                                   0000EE GR
-  0 A$common$299                                                   0000EF GR
-  0 A$common$301                                                   0000F1 GR
-  0 A$common$302                                                   0000F2 GR
-  0 A$common$303                                                   0000F4 GR
-  0 A$common$304                                                   0000F5 GR
-  0 A$common$308                                                   0000F7 GR
-  0 A$common$309                                                   0000F8 GR
-  0 A$common$310                                                   0000FA GR
-  0 A$common$311                                                   0000FD GR
-  0 A$common$312                                                   0000FE GR
-  0 A$common$313                                                   0000FF GR
-  0 A$common$314                                                   000100 GR
-  0 A$common$315                                                   000101 GR
-  0 A$common$316                                                   000103 GR
-  0 A$common$319                                                   000104 GR
-  0 A$common$322                                                   000105 GR
-  0 A$common$323                                                   000106 GR
-  0 A$common$324                                                   000107 GR
-  0 A$common$325                                                   000108 GR
-  0 A$common$326                                                   000109 GR
-  0 A$common$327                                                   00010A GR
-  0 A$common$328                                                   00010D GR
-  0 A$common$329                                                   00010F GR
+  0 A$common$1403                                                  0004B8 GR
+  0 A$common$1404                                                  0004B9 GR
+  0 A$common$1405                                                  0004BC GR
+  0 A$common$1409                                                  0004BD GR
+  0 A$common$141                                                   00002B GR
+  0 A$common$1417                                                  0004BE GR
+  0 A$common$142                                                   00002D GR
+  0 A$common$1427                                                  0004C0 GR
+  0 A$common$143                                                   00002E GR
+  0 A$common$1431                                                  0004C1 GR
+  0 A$common$1433                                                  0004C3 GR
+  0 A$common$1434                                                  0004C4 GR
+  0 A$common$1435                                                  0004C6 GR
+  0 A$common$1439                                                  0004C7 GR
+  0 A$common$144                                                   000030 GR
+  0 A$common$1440                                                  0004C8 GR
+  0 A$common$1441                                                  0004C9 GR
+  0 A$common$1442                                                  0004CB GR
+  0 A$common$1443                                                  0004CC GR
+  0 A$common$1444                                                  0004CD GR
+  0 A$common$1445                                                  0004CF GR
+  0 A$common$1446                                                  0004D0 GR
+  0 A$common$1447                                                  0004D2 GR
+  0 A$common$1448                                                  0004D4 GR
+  0 A$common$1449                                                  0004D6 GR
+  0 A$common$145                                                   000031 GR
+  0 A$common$1450                                                  0004D8 GR
+  0 A$common$1458                                                  0004DA GR
+  0 A$common$1459                                                  0004DC GR
+  0 A$common$146                                                   000033 GR
+  0 A$common$1463                                                  0004DE GR
+  0 A$common$1464                                                  0004E0 GR
+  0 A$common$1468                                                  0004E2 GR
+  0 A$common$147                                                   000034 GR
+  0 A$common$1476                                                  0004E4 GR
+  0 A$common$1477                                                  0004E6 GR
+  0 A$common$148                                                   000035 GR
+  0 A$common$1481                                                  0004E8 GR
+  0 A$common$1482                                                  0004EA GR
+  0 A$common$1486                                                  0004EC GR
+  0 A$common$149                                                   000038 GR
+  0 A$common$1494                                                  0004EE GR
+  0 A$common$1495                                                  0004F0 GR
+  0 A$common$1499                                                  0004F2 GR
+  0 A$common$150                                                   000039 GR
+  0 A$common$1500                                                  0004F4 GR
+  0 A$common$1504                                                  0004F6 GR
+  0 A$common$151                                                   00003A GR
+  0 A$common$1512                                                  0004F8 GR
+  0 A$common$1513                                                  0004FA GR
+  0 A$common$1517                                                  0004FC GR
+  0 A$common$1518                                                  0004FE GR
+  0 A$common$152                                                   00003C GR
+  0 A$common$1526                                                  000500 GR
+  0 A$common$1527                                                  000501 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 5
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$common$333                                                   000110 GR
-  0 A$common$334                                                   000111 GR
-  0 A$common$339                                                   000113 GR
-  0 A$common$340                                                   000115 GR
-  0 A$common$341                                                   000116 GR
-  0 A$common$342                                                   000118 GR
-  0 A$common$352                                                   000119 GR
-  0 A$common$353                                                   00011B GR
-  0 A$common$357                                                   00011C GR
-  0 A$common$358                                                   00011D GR
-  0 A$common$359                                                   00011E GR
-  0 A$common$360                                                   00011F GR
-  0 A$common$361                                                   000120 GR
-  0 A$common$362                                                   000121 GR
-  0 A$common$363                                                   000124 GR
-  0 A$common$367                                                   000125 GR
-  0 A$common$368                                                   000127 GR
-  0 A$common$370                                                   000129 GR
-  0 A$common$371                                                   00012A GR
-  0 A$common$372                                                   00012C GR
-  0 A$common$373                                                   00012D GR
-  0 A$common$374                                                   00012E GR
-  0 A$common$375                                                   00012F GR
-  0 A$common$376                                                   000131 GR
-  0 A$common$377                                                   000132 GR
-  0 A$common$378                                                   000134 GR
-  0 A$common$379                                                   000135 GR
-  0 A$common$380                                                   000136 GR
-  0 A$common$381                                                   000137 GR
-  0 A$common$385                                                   000138 GR
-  0 A$common$389                                                   000139 GR
-  0 A$common$390                                                   00013A GR
-  0 A$common$391                                                   00013B GR
-  0 A$common$395                                                   00013E GR
-  0 A$common$396                                                   00013F GR
-  0 A$common$397                                                   000140 GR
-  0 A$common$398                                                   000141 GR
-  0 A$common$399                                                   000142 GR
-  0 A$common$400                                                   000143 GR
-  0 A$common$401                                                   000144 GR
-  0 A$common$402                                                   000145 GR
-  0 A$common$403                                                   000146 GR
-  0 A$common$404                                                   000147 GR
-  0 A$common$405                                                   000148 GR
-  0 A$common$406                                                   00014A GR
-  0 A$common$407                                                   00014C GR
-  0 A$common$408                                                   00014E GR
-  0 A$common$409                                                   00014F GR
-  0 A$common$410                                                   000151 GR
-  0 A$common$411                                                   000152 GR
-  0 A$common$412                                                   000154 GR
-  0 A$common$413                                                   000155 GR
-  0 A$common$414                                                   000156 GR
-  0 A$common$415                                                   000157 GR
-  0 A$common$416                                                   000158 GR
+  0 A$common$1528                                                  000502 GR
+  0 A$common$1529                                                  000505 GR
+  0 A$common$153                                                   00003D GR
+  0 A$common$1533                                                  000506 GR
+  0 A$common$154                                                   00003E GR
+  0 A$common$1541                                                  000507 GR
+  0 A$common$155                                                   00003F GR
+  0 A$common$1554                                                  000509 GR
+  0 A$common$1555                                                  00050B GR
+  0 A$common$1559                                                  00050D GR
+  0 A$common$156                                                   000040 GR
+  0 A$common$1560                                                  00050F GR
+  0 A$common$1568                                                  000511 GR
+  0 A$common$157                                                   000043 GR
+  0 A$common$1581                                                  000512 GR
+  0 A$common$1582                                                  000514 GR
+  0 A$common$1586                                                  000516 GR
+  0 A$common$1587                                                  000518 GR
+  0 A$common$1595                                                  00051A GR
+  0 A$common$161                                                   000045 GR
+  0 A$common$162                                                   000047 GR
+  0 A$common$163                                                   000048 GR
+  0 A$common$164                                                   000049 GR
+  0 A$common$165                                                   00004A GR
+  0 A$common$166                                                   00004B GR
+  0 A$common$167                                                   00004E GR
+  0 A$common$168                                                   00004F GR
+  0 A$common$169                                                   000051 GR
+  0 A$common$170                                                   000052 GR
+  0 A$common$171                                                   000053 GR
+  0 A$common$172                                                   000054 GR
+  0 A$common$173                                                   000056 GR
+  0 A$common$174                                                   000057 GR
+  0 A$common$175                                                   000059 GR
+  0 A$common$176                                                   00005A GR
+  0 A$common$177                                                   00005C GR
+  0 A$common$178                                                   00005D GR
+  0 A$common$179                                                   00005F GR
+  0 A$common$183                                                   000060 GR
+  0 A$common$184                                                   000063 GR
+  0 A$common$185                                                   000064 GR
+  0 A$common$186                                                   000065 GR
+  0 A$common$187                                                   000068 GR
+  0 A$common$188                                                   000069 GR
+  0 A$common$189                                                   00006B GR
+  0 A$common$190                                                   00006C GR
+  0 A$common$191                                                   00006D GR
+  0 A$common$192                                                   00006E GR
+  0 A$common$193                                                   000070 GR
+  0 A$common$194                                                   000071 GR
+  0 A$common$195                                                   000073 GR
+  0 A$common$199                                                   000074 GR
+  0 A$common$200                                                   000076 GR
+  0 A$common$201                                                   000077 GR
+  0 A$common$202                                                   000079 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 6
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$common$417                                                   000159 GR
-  0 A$common$418                                                   00015A GR
-  0 A$common$419                                                   00015B GR
-  0 A$common$420                                                   00015C GR
-  0 A$common$421                                                   00015F GR
-  0 A$common$422                                                   000161 GR
-  0 A$common$423                                                   000162 GR
-  0 A$common$428                                                   000165 GR
-  0 A$common$429                                                   000166 GR
-  0 A$common$430                                                   000168 GR
-  0 A$common$431                                                   00016A GR
-  0 A$common$432                                                   00016C GR
-  0 A$common$433                                                   00016D GR
-  0 A$common$434                                                   00016F GR
-  0 A$common$435                                                   000170 GR
-  0 A$common$436                                                   000172 GR
-  0 A$common$437                                                   000173 GR
-  0 A$common$438                                                   000174 GR
-  0 A$common$439                                                   000175 GR
-  0 A$common$440                                                   000176 GR
-  0 A$common$441                                                   000177 GR
-  0 A$common$442                                                   000178 GR
-  0 A$common$443                                                   000179 GR
-  0 A$common$444                                                   00017A GR
-  0 A$common$445                                                   00017D GR
-  0 A$common$446                                                   00017F GR
-  0 A$common$447                                                   000180 GR
-  0 A$common$452                                                   000182 GR
-  0 A$common$453                                                   000183 GR
-  0 A$common$454                                                   000185 GR
-  0 A$common$455                                                   000187 GR
-  0 A$common$456                                                   000189 GR
-  0 A$common$457                                                   00018A GR
-  0 A$common$458                                                   00018C GR
-  0 A$common$459                                                   00018D GR
-  0 A$common$460                                                   00018F GR
-  0 A$common$461                                                   000190 GR
-  0 A$common$462                                                   000191 GR
-  0 A$common$463                                                   000192 GR
-  0 A$common$464                                                   000193 GR
-  0 A$common$465                                                   000194 GR
-  0 A$common$466                                                   000195 GR
-  0 A$common$467                                                   000196 GR
-  0 A$common$468                                                   000197 GR
-  0 A$common$469                                                   00019A GR
-  0 A$common$470                                                   00019C GR
-  0 A$common$471                                                   00019D GR
-  0 A$common$476                                                   00019F GR
-  0 A$common$477                                                   0001A0 GR
-  0 A$common$478                                                   0001A2 GR
-  0 A$common$479                                                   0001A4 GR
-  0 A$common$480                                                   0001A6 GR
-  0 A$common$481                                                   0001A8 GR
-  0 A$common$482                                                   0001AA GR
-  0 A$common$486                                                   0001AC GR
+  0 A$common$203                                                   00007A GR
+  0 A$common$204                                                   00007C GR
+  0 A$common$205                                                   00007D GR
+  0 A$common$206                                                   00007F GR
+  0 A$common$207                                                   000080 GR
+  0 A$common$209                                                   000082 GR
+  0 A$common$210                                                   000084 GR
+  0 A$common$211                                                   000085 GR
+  0 A$common$212                                                   000087 GR
+  0 A$common$213                                                   000088 GR
+  0 A$common$214                                                   000089 GR
+  0 A$common$215                                                   00008A GR
+  0 A$common$216                                                   00008B GR
+  0 A$common$217                                                   00008C GR
+  0 A$common$218                                                   00008E GR
+  0 A$common$219                                                   00008F GR
+  0 A$common$220                                                   000090 GR
+  0 A$common$221                                                   000091 GR
+  0 A$common$222                                                   000092 GR
+  0 A$common$223                                                   000093 GR
+  0 A$common$224                                                   000094 GR
+  0 A$common$225                                                   000095 GR
+  0 A$common$226                                                   000096 GR
+  0 A$common$227                                                   000097 GR
+  0 A$common$228                                                   000098 GR
+  0 A$common$229                                                   000099 GR
+  0 A$common$230                                                   00009A GR
+  0 A$common$231                                                   00009B GR
+  0 A$common$232                                                   00009C GR
+  0 A$common$233                                                   00009D GR
+  0 A$common$234                                                   00009E GR
+  0 A$common$235                                                   00009F GR
+  0 A$common$236                                                   0000A1 GR
+  0 A$common$237                                                   0000A2 GR
+  0 A$common$238                                                   0000A3 GR
+  0 A$common$239                                                   0000A5 GR
+  0 A$common$240                                                   0000A6 GR
+  0 A$common$241                                                   0000A8 GR
+  0 A$common$242                                                   0000AA GR
+  0 A$common$243                                                   0000AB GR
+  0 A$common$244                                                   0000AC GR
+  0 A$common$245                                                   0000AD GR
+  0 A$common$246                                                   0000AE GR
+  0 A$common$247                                                   0000AF GR
+  0 A$common$248                                                   0000B0 GR
+  0 A$common$249                                                   0000B1 GR
+  0 A$common$250                                                   0000B3 GR
+  0 A$common$251                                                   0000B5 GR
+  0 A$common$252                                                   0000B7 GR
+  0 A$common$253                                                   0000B9 GR
+  0 A$common$254                                                   0000BA GR
+  0 A$common$256                                                   0000BC GR
+  0 A$common$257                                                   0000BE GR
+  0 A$common$258                                                   0000C0 GR
+  0 A$common$260                                                   0000C1 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 7
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$common$487                                                   0001AD GR
-  0 A$common$488                                                   0001AE GR
-  0 A$common$489                                                   0001AF GR
-  0 A$common$490                                                   0001B0 GR
-  0 A$common$491                                                   0001B1 GR
-  0 A$common$492                                                   0001B3 GR
-  0 A$common$493                                                   0001B4 GR
-  0 A$common$494                                                   0001B5 GR
-  0 A$common$495                                                   0001B6 GR
-  0 A$common$496                                                   0001B9 GR
-  0 A$common$497                                                   0001BB GR
-  0 A$common$498                                                   0001BC GR
-  0 A$common$503                                                   0001BE GR
-  0 A$common$504                                                   0001BF GR
-  0 A$common$505                                                   0001C0 GR
-  0 A$common$506                                                   0001C1 GR
-  0 A$common$507                                                   0001C2 GR
-  0 A$common$508                                                   0001C3 GR
-  0 A$common$509                                                   0001C5 GR
-  0 A$common$510                                                   0001C6 GR
-  0 A$common$511                                                   0001C7 GR
-  0 A$common$512                                                   0001C8 GR
-  0 A$common$513                                                   0001CB GR
-  0 A$common$514                                                   0001CD GR
-  0 A$common$515                                                   0001CE GR
-  0 A$common$520                                                   0001D0 GR
-  0 A$common$521                                                   0001D1 GR
-  0 A$common$522                                                   0001D2 GR
-  0 A$common$523                                                   0001D3 GR
-  0 A$common$524                                                   0001D4 GR
-  0 A$common$525                                                   0001D5 GR
-  0 A$common$526                                                   0001D7 GR
-  0 A$common$527                                                   0001D8 GR
-  0 A$common$528                                                   0001D9 GR
-  0 A$common$529                                                   0001DA GR
-  0 A$common$530                                                   0001DD GR
-  0 A$common$531                                                   0001DF GR
-  0 A$common$532                                                   0001E0 GR
-  0 A$common$537                                                   0001E2 GR
-  0 A$common$538                                                   0001E3 GR
-  0 A$common$546                                                   0001E4 GR
-  0 A$common$547                                                   0001E6 GR
-  0 A$common$548                                                   0001E7 GR
-  0 A$common$553                                                   0001EA GR
-  0 A$common$554                                                   0001EB GR
-  0 A$common$558                                                   0001ED GR
-  0 A$common$559                                                   0001EF GR
-  0 A$common$560                                                   0001F0 GR
-  0 A$common$561                                                   0001F1 GR
-  0 A$common$571                                                   0001F2 GR
-  0 A$common$575                                                   0001F3 GR
-  0 A$common$577                                                   0001F5 GR
-  0 A$common$578                                                   0001F6 GR
-  0 A$common$579                                                   0001F8 GR
-  0 A$common$583                                                   0001F9 GR
+  0 A$common$264                                                   0000C3 GR
+  0 A$common$265                                                   0000C5 GR
+  0 A$common$266                                                   0000C6 GR
+  0 A$common$267                                                   0000C8 GR
+  0 A$common$268                                                   0000C9 GR
+  0 A$common$269                                                   0000CB GR
+  0 A$common$270                                                   0000CC GR
+  0 A$common$271                                                   0000CE GR
+  0 A$common$272                                                   0000CF GR
+  0 A$common$273                                                   0000D1 GR
+  0 A$common$274                                                   0000D2 GR
+  0 A$common$275                                                   0000D4 GR
+  0 A$common$276                                                   0000D5 GR
+  0 A$common$278                                                   0000D6 GR
+  0 A$common$279                                                   0000D8 GR
+  0 A$common$280                                                   0000D9 GR
+  0 A$common$281                                                   0000DA GR
+  0 A$common$282                                                   0000DC GR
+  0 A$common$283                                                   0000DD GR
+  0 A$common$284                                                   0000DE GR
+  0 A$common$285                                                   0000DF GR
+  0 A$common$286                                                   0000E0 GR
+  0 A$common$287                                                   0000E3 GR
+  0 A$common$291                                                   0000E5 GR
+  0 A$common$292                                                   0000E7 GR
+  0 A$common$293                                                   0000E8 GR
+  0 A$common$298                                                   0000EA GR
+  0 A$common$299                                                   0000EC GR
+  0 A$common$300                                                   0000ED GR
+  0 A$common$301                                                   0000EE GR
+  0 A$common$302                                                   0000EF GR
+  0 A$common$304                                                   0000F1 GR
+  0 A$common$305                                                   0000F2 GR
+  0 A$common$306                                                   0000F4 GR
+  0 A$common$307                                                   0000F5 GR
+  0 A$common$311                                                   0000F7 GR
+  0 A$common$312                                                   0000F8 GR
+  0 A$common$313                                                   0000FA GR
+  0 A$common$314                                                   0000FD GR
+  0 A$common$315                                                   0000FE GR
+  0 A$common$316                                                   0000FF GR
+  0 A$common$317                                                   000100 GR
+  0 A$common$318                                                   000101 GR
+  0 A$common$319                                                   000103 GR
+  0 A$common$322                                                   000104 GR
+  0 A$common$325                                                   000105 GR
+  0 A$common$326                                                   000106 GR
+  0 A$common$327                                                   000107 GR
+  0 A$common$328                                                   000108 GR
+  0 A$common$329                                                   000109 GR
+  0 A$common$330                                                   00010A GR
+  0 A$common$331                                                   00010D GR
+  0 A$common$332                                                   00010F GR
+  0 A$common$336                                                   000110 GR
+  0 A$common$337                                                   000111 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 8
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$common$584                                                   0001FA GR
-  0 A$common$585                                                   0001FB GR
-  0 A$common$586                                                   0001FD GR
-  0 A$common$587                                                   0001FE GR
-  0 A$common$588                                                   0001FF GR
-  0 A$common$589                                                   000201 GR
-  0 A$common$590                                                   000202 GR
-  0 A$common$591                                                   000204 GR
-  0 A$common$592                                                   000206 GR
-  0 A$common$593                                                   000208 GR
-  0 A$common$594                                                   00020A GR
-  0 A$common$602                                                   00020C GR
-  0 A$common$603                                                   00020E GR
-  0 A$common$607                                                   000210 GR
-  0 A$common$608                                                   000212 GR
-  0 A$common$612                                                   000214 GR
-  0 A$common$620                                                   000216 GR
-  0 A$common$621                                                   000218 GR
-  0 A$common$625                                                   00021A GR
-  0 A$common$626                                                   00021C GR
-  0 A$common$630                                                   00021E GR
-  0 A$common$638                                                   000220 GR
-  0 A$common$639                                                   000222 GR
-  0 A$common$643                                                   000224 GR
-  0 A$common$644                                                   000226 GR
-  0 A$common$648                                                   000228 GR
-  0 A$common$656                                                   00022A GR
-  0 A$common$657                                                   00022C GR
-  0 A$common$661                                                   00022E GR
-  0 A$common$662                                                   000230 GR
-  0 A$common$670                                                   000232 GR
-  0 A$common$671                                                   000233 GR
-  0 A$common$672                                                   000234 GR
-  0 A$common$673                                                   000237 GR
-  0 A$common$677                                                   000238 GR
-  0 A$common$685                                                   000239 GR
-  0 A$common$695                                                   00023B GR
-  0 A$common$699                                                   00023C GR
-  0 A$common$701                                                   00023E GR
-  0 A$common$702                                                   00023F GR
-  0 A$common$703                                                   000241 GR
-  0 A$common$707                                                   000242 GR
-  0 A$common$708                                                   000243 GR
-  0 A$common$709                                                   000244 GR
-  0 A$common$710                                                   000246 GR
-  0 A$common$711                                                   000247 GR
-  0 A$common$712                                                   000248 GR
-  0 A$common$713                                                   00024A GR
-  0 A$common$714                                                   00024B GR
-  0 A$common$715                                                   00024D GR
-  0 A$common$716                                                   00024F GR
-  0 A$common$717                                                   000251 GR
-  0 A$common$718                                                   000253 GR
-  0 A$common$726                                                   000255 GR
-  0 A$common$727                                                   000257 GR
+  0 A$common$342                                                   000113 GR
+  0 A$common$343                                                   000115 GR
+  0 A$common$344                                                   000116 GR
+  0 A$common$345                                                   000118 GR
+  0 A$common$355                                                   000119 GR
+  0 A$common$356                                                   00011B GR
+  0 A$common$357                                                   00011D GR
+  0 A$common$358                                                   00011E GR
+  0 A$common$362                                                   00011F GR
+  0 A$common$363                                                   000121 GR
+  0 A$common$364                                                   000123 GR
+  0 A$common$365                                                   000124 GR
+  0 A$common$366                                                   000125 GR
+  0 A$common$367                                                   000127 GR
+  0 A$common$368                                                   000128 GR
+  0 A$common$369                                                   000129 GR
+  0 A$common$370                                                   00012B GR
+  0 A$common$371                                                   00012C GR
+  0 A$common$372                                                   00012D GR
+  0 A$common$373                                                   00012F GR
+  0 A$common$374                                                   000130 GR
+  0 A$common$378                                                   000132 GR
+  0 A$common$379                                                   000134 GR
+  0 A$common$380                                                   000135 GR
+  0 A$common$381                                                   000137 GR
+  0 A$common$382                                                   000138 GR
+  0 A$common$383                                                   00013A GR
+  0 A$common$384                                                   00013B GR
+  0 A$common$385                                                   00013D GR
+  0 A$common$386                                                   00013E GR
+  0 A$common$387                                                   000140 GR
+  0 A$common$388                                                   000141 GR
+  0 A$common$389                                                   000142 GR
+  0 A$common$390                                                   000145 GR
+  0 A$common$391                                                   000146 GR
+  0 A$common$392                                                   000147 GR
+  0 A$common$393                                                   000149 GR
+  0 A$common$394                                                   00014A GR
+  0 A$common$395                                                   00014B GR
+  0 A$common$396                                                   00014C GR
+  0 A$common$397                                                   00014D GR
+  0 A$common$398                                                   000150 GR
+  0 A$common$402                                                   000152 GR
+  0 A$common$403                                                   000154 GR
+  0 A$common$404                                                   000155 GR
+  0 A$common$405                                                   000156 GR
+  0 A$common$406                                                   000157 GR
+  0 A$common$407                                                   000158 GR
+  0 A$common$408                                                   00015B GR
+  0 A$common$409                                                   00015C GR
+  0 A$common$410                                                   00015E GR
+  0 A$common$411                                                   00015F GR
+  0 A$common$412                                                   000160 GR
+  0 A$common$413                                                   000161 GR
+  0 A$common$414                                                   000163 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 9
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$common$731                                                   000259 GR
-  0 A$common$732                                                   00025B GR
-  0 A$common$736                                                   00025D GR
-  0 A$common$744                                                   00025F GR
-  0 A$common$745                                                   000261 GR
-  0 A$common$749                                                   000263 GR
-  0 A$common$750                                                   000265 GR
-  0 A$common$754                                                   000267 GR
-  0 A$common$762                                                   000269 GR
-  0 A$common$763                                                   00026B GR
-  0 A$common$767                                                   00026D GR
-  0 A$common$768                                                   00026F GR
-  0 A$common$77                                                    000000 GR
-  0 A$common$772                                                   000271 GR
-  0 A$common$780                                                   000273 GR
-  0 A$common$781                                                   000275 GR
-  0 A$common$785                                                   000277 GR
-  0 A$common$786                                                   000279 GR
-  0 A$common$794                                                   00027B GR
-  0 A$common$795                                                   00027C GR
-  0 A$common$796                                                   00027D GR
-  0 A$common$797                                                   000280 GR
-  0 A$common$801                                                   000281 GR
-  0 A$common$809                                                   000282 GR
-  0 A$common$81                                                    000001 GR
-  0 A$common$819                                                   000284 GR
-  0 A$common$823                                                   000285 GR
-  0 A$common$825                                                   000287 GR
-  0 A$common$826                                                   000288 GR
-  0 A$common$827                                                   00028A GR
-  0 A$common$83                                                    000003 GR
-  0 A$common$831                                                   00028B GR
-  0 A$common$832                                                   00028D GR
-  0 A$common$833                                                   00028E GR
-  0 A$common$834                                                   000290 GR
-  0 A$common$835                                                   000291 GR
-  0 A$common$836                                                   000293 GR
-  0 A$common$837                                                   000296 GR
-  0 A$common$838                                                   000297 GR
-  0 A$common$84                                                    000004 GR
-  0 A$common$842                                                   000298 GR
-  0 A$common$844                                                   000299 GR
-  0 A$common$845                                                   00029B GR
-  0 A$common$846                                                   00029D GR
-  0 A$common$847                                                   00029F GR
-  0 A$common$848                                                   0002A1 GR
-  0 A$common$85                                                    000005 GR
-  0 A$common$853                                                   0002A3 GR
-  0 A$common$854                                                   0002A5 GR
-  0 A$common$858                                                   0002A7 GR
-  0 A$common$859                                                   0002A9 GR
-  0 A$common$863                                                   0002AB GR
-  0 A$common$871                                                   0002AD GR
-  0 A$common$872                                                   0002AF GR
-  0 A$common$876                                                   0002B1 GR
+  0 A$common$415                                                   000164 GR
+  0 A$common$416                                                   000166 GR
+  0 A$common$417                                                   000167 GR
+  0 A$common$418                                                   000169 GR
+  0 A$common$419                                                   00016A GR
+  0 A$common$420                                                   00016C GR
+  0 A$common$424                                                   00016D GR
+  0 A$common$425                                                   000170 GR
+  0 A$common$426                                                   000171 GR
+  0 A$common$427                                                   000172 GR
+  0 A$common$428                                                   000175 GR
+  0 A$common$429                                                   000176 GR
+  0 A$common$430                                                   000178 GR
+  0 A$common$431                                                   000179 GR
+  0 A$common$432                                                   00017A GR
+  0 A$common$433                                                   00017B GR
+  0 A$common$434                                                   00017D GR
+  0 A$common$435                                                   00017E GR
+  0 A$common$436                                                   000180 GR
+  0 A$common$440                                                   000181 GR
+  0 A$common$441                                                   000183 GR
+  0 A$common$442                                                   000184 GR
+  0 A$common$443                                                   000186 GR
+  0 A$common$444                                                   000187 GR
+  0 A$common$445                                                   000189 GR
+  0 A$common$446                                                   00018A GR
+  0 A$common$447                                                   00018C GR
+  0 A$common$448                                                   00018D GR
+  0 A$common$450                                                   00018F GR
+  0 A$common$451                                                   000191 GR
+  0 A$common$452                                                   000192 GR
+  0 A$common$453                                                   000194 GR
+  0 A$common$454                                                   000195 GR
+  0 A$common$455                                                   000196 GR
+  0 A$common$456                                                   000197 GR
+  0 A$common$457                                                   000198 GR
+  0 A$common$458                                                   000199 GR
+  0 A$common$459                                                   00019B GR
+  0 A$common$460                                                   00019C GR
+  0 A$common$461                                                   00019D GR
+  0 A$common$462                                                   00019E GR
+  0 A$common$463                                                   00019F GR
+  0 A$common$464                                                   0001A0 GR
+  0 A$common$465                                                   0001A1 GR
+  0 A$common$466                                                   0001A2 GR
+  0 A$common$467                                                   0001A3 GR
+  0 A$common$468                                                   0001A4 GR
+  0 A$common$469                                                   0001A5 GR
+  0 A$common$470                                                   0001A6 GR
+  0 A$common$471                                                   0001A7 GR
+  0 A$common$472                                                   0001A8 GR
+  0 A$common$473                                                   0001A9 GR
+  0 A$common$474                                                   0001AA GR
+  0 A$common$475                                                   0001AB GR
+  0 A$common$476                                                   0001AC GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 10
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$common$877                                                   0002B3 GR
-  0 A$common$881                                                   0002B5 GR
-  0 A$common$889                                                   0002B7 GR
-  0 A$common$89                                                    000006 GR
-  0 A$common$890                                                   0002B9 GR
-  0 A$common$894                                                   0002BB GR
-  0 A$common$895                                                   0002BD GR
-  0 A$common$899                                                   0002BF GR
-  0 A$common$907                                                   0002C1 GR
-  0 A$common$908                                                   0002C3 GR
-  0 A$common$912                                                   0002C5 GR
-  0 A$common$913                                                   0002C7 GR
-  0 A$common$917                                                   0002C9 GR
-  0 A$common$925                                                   0002CB GR
-  0 A$common$926                                                   0002CC GR
-  0 A$common$93                                                    000009 GR
-  0 A$common$930                                                   0002CE GR
-  0 A$common$931                                                   0002CF GR
-  0 A$common$939                                                   0002D1 GR
-  0 A$common$940                                                   0002D2 GR
-  0 A$common$941                                                   0002D3 GR
-  0 A$common$942                                                   0002D6 GR
-  0 A$common$946                                                   0002D7 GR
-  0 A$common$954                                                   0002D8 GR
-  0 A$common$964                                                   0002DA GR
-  0 A$common$968                                                   0002DB GR
-  0 A$common$970                                                   0002DD GR
-  0 A$common$971                                                   0002DE GR
-  0 A$common$972                                                   0002E0 GR
-  0 A$common$976                                                   0002E1 GR
-  0 A$common$977                                                   0002E2 GR
-  0 A$common$978                                                   0002E3 GR
-  0 A$common$979                                                   0002E5 GR
-  0 A$common$980                                                   0002E6 GR
-  0 A$common$981                                                   0002E7 GR
-  0 A$common$982                                                   0002E9 GR
-  0 A$common$983                                                   0002EA GR
-  0 A$common$984                                                   0002EC GR
-  0 A$common$985                                                   0002EE GR
-  0 A$common$986                                                   0002F0 GR
-  0 A$common$987                                                   0002F2 GR
-  0 A$common$995                                                   0002F4 GR
-  0 A$common$996                                                   0002F6 GR
-  0 C$common.c$100$4_0$154                                      =  000220 GR
-  0 C$common.c$101$4_0$154                                      =  000220 GR
-  0 C$common.c$102$4_0$154                                      =  000224 GR
-  0 C$common.c$103$4_0$154                                      =  000228 GR
-  0 C$common.c$104$4_0$154                                      =  00022A GR
-  0 C$common.c$105$4_0$154                                      =  00022A GR
-  0 C$common.c$106$4_0$154                                      =  00022E GR
-  0 C$common.c$108$3_0$153                                      =  000232 GR
-  0 C$common.c$109$3_0$153                                      =  000232 GR
-  0 C$common.c$111$2_0$152                                      =  000239 GR
-  0 C$common.c$113$2_0$157                                      =  00023B GR
-  0 C$common.c$115$2_0$157                                      =  000281 GR
+  0 A$common$477                                                   0001AE GR
+  0 A$common$478                                                   0001AF GR
+  0 A$common$479                                                   0001B0 GR
+  0 A$common$480                                                   0001B2 GR
+  0 A$common$481                                                   0001B3 GR
+  0 A$common$482                                                   0001B5 GR
+  0 A$common$483                                                   0001B7 GR
+  0 A$common$484                                                   0001B8 GR
+  0 A$common$485                                                   0001B9 GR
+  0 A$common$486                                                   0001BA GR
+  0 A$common$487                                                   0001BB GR
+  0 A$common$488                                                   0001BC GR
+  0 A$common$489                                                   0001BD GR
+  0 A$common$490                                                   0001BE GR
+  0 A$common$491                                                   0001C0 GR
+  0 A$common$492                                                   0001C2 GR
+  0 A$common$493                                                   0001C4 GR
+  0 A$common$494                                                   0001C6 GR
+  0 A$common$495                                                   0001C7 GR
+  0 A$common$497                                                   0001C9 GR
+  0 A$common$498                                                   0001CB GR
+  0 A$common$499                                                   0001CD GR
+  0 A$common$501                                                   0001CE GR
+  0 A$common$505                                                   0001D0 GR
+  0 A$common$506                                                   0001D2 GR
+  0 A$common$507                                                   0001D3 GR
+  0 A$common$508                                                   0001D5 GR
+  0 A$common$509                                                   0001D6 GR
+  0 A$common$510                                                   0001D8 GR
+  0 A$common$511                                                   0001D9 GR
+  0 A$common$512                                                   0001DB GR
+  0 A$common$513                                                   0001DC GR
+  0 A$common$514                                                   0001DE GR
+  0 A$common$515                                                   0001DF GR
+  0 A$common$516                                                   0001E1 GR
+  0 A$common$517                                                   0001E2 GR
+  0 A$common$519                                                   0001E3 GR
+  0 A$common$520                                                   0001E5 GR
+  0 A$common$521                                                   0001E6 GR
+  0 A$common$522                                                   0001E7 GR
+  0 A$common$523                                                   0001E9 GR
+  0 A$common$524                                                   0001EA GR
+  0 A$common$525                                                   0001EB GR
+  0 A$common$526                                                   0001EC GR
+  0 A$common$527                                                   0001ED GR
+  0 A$common$528                                                   0001F0 GR
+  0 A$common$532                                                   0001F2 GR
+  0 A$common$533                                                   0001F4 GR
+  0 A$common$534                                                   0001F5 GR
+  0 A$common$539                                                   0001F7 GR
+  0 A$common$540                                                   0001F9 GR
+  0 A$common$541                                                   0001FA GR
+  0 A$common$542                                                   0001FB GR
+  0 A$common$543                                                   0001FC GR
+  0 A$common$545                                                   0001FE GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 11
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 C$common.c$117$3_0$158                                      =  000242 GR
-  0 C$common.c$119$4_0$159                                      =  000255 GR
-  0 C$common.c$120$4_0$159                                      =  000255 GR
-  0 C$common.c$121$4_0$159                                      =  000259 GR
-  0 C$common.c$122$4_0$159                                      =  00025D GR
-  0 C$common.c$123$4_0$159                                      =  00025F GR
-  0 C$common.c$124$4_0$159                                      =  00025F GR
-  0 C$common.c$125$4_0$159                                      =  000263 GR
-  0 C$common.c$126$4_0$159                                      =  000267 GR
-  0 C$common.c$127$4_0$159                                      =  000269 GR
-  0 C$common.c$128$4_0$159                                      =  000269 GR
-  0 C$common.c$129$4_0$159                                      =  00026D GR
-  0 C$common.c$13$0_0$136                                       =  000000 GR
-  0 C$common.c$130$4_0$159                                      =  000271 GR
-  0 C$common.c$131$4_0$159                                      =  000273 GR
-  0 C$common.c$132$4_0$159                                      =  000273 GR
-  0 C$common.c$133$4_0$159                                      =  000277 GR
-  0 C$common.c$135$3_0$158                                      =  00027B GR
-  0 C$common.c$136$3_0$158                                      =  00027B GR
-  0 C$common.c$138$2_0$157                                      =  000282 GR
-  0 C$common.c$140$2_0$162                                      =  000284 GR
-  0 C$common.c$142$2_0$162                                      =  0002D7 GR
-  0 C$common.c$144$3_0$163                                      =  00028B GR
-  0 C$common.c$146$4_0$164                                      =  000298 GR
-  0 C$common.c$147$4_0$164                                      =  0002A3 GR
-  0 C$common.c$148$4_0$164                                      =  0002A7 GR
-  0 C$common.c$149$4_0$164                                      =  0002AB GR
-  0 C$common.c$15$2_0$136                                       =  000009 GR
-  0 C$common.c$150$4_0$164                                      =  0002AD GR
-  0 C$common.c$151$4_0$164                                      =  0002AD GR
-  0 C$common.c$152$4_0$164                                      =  0002B1 GR
-  0 C$common.c$153$4_0$164                                      =  0002B5 GR
-  0 C$common.c$154$4_0$164                                      =  0002B7 GR
-  0 C$common.c$155$4_0$164                                      =  0002B7 GR
-  0 C$common.c$156$4_0$164                                      =  0002BB GR
-  0 C$common.c$157$4_0$164                                      =  0002BF GR
-  0 C$common.c$158$4_0$164                                      =  0002C1 GR
-  0 C$common.c$159$4_0$164                                      =  0002C1 GR
-  0 C$common.c$160$4_0$164                                      =  0002C5 GR
-  0 C$common.c$161$4_0$164                                      =  0002C9 GR
-  0 C$common.c$162$4_0$164                                      =  0002CB GR
-  0 C$common.c$163$4_0$164                                      =  0002CB GR
-  0 C$common.c$164$4_0$164                                      =  0002CE GR
-  0 C$common.c$166$3_0$163                                      =  0002D1 GR
-  0 C$common.c$167$3_0$163                                      =  0002D1 GR
-  0 C$common.c$169$2_0$162                                      =  0002D8 GR
-  0 C$common.c$17$3_0$137                                       =  000006 GR
-  0 C$common.c$171$2_0$167                                      =  0002DA GR
-  0 C$common.c$173$2_0$167                                      =  000320 GR
-  0 C$common.c$175$3_0$168                                      =  0002E1 GR
-  0 C$common.c$177$4_0$169                                      =  0002F4 GR
-  0 C$common.c$178$4_0$169                                      =  0002F4 GR
-  0 C$common.c$179$4_0$169                                      =  0002F8 GR
-  0 C$common.c$180$4_0$169                                      =  0002FC GR
-  0 C$common.c$181$4_0$169                                      =  0002FE GR
+  0 A$common$546                                                   0001FF GR
+  0 A$common$547                                                   000201 GR
+  0 A$common$548                                                   000202 GR
+  0 A$common$552                                                   000204 GR
+  0 A$common$553                                                   000205 GR
+  0 A$common$554                                                   000207 GR
+  0 A$common$555                                                   00020A GR
+  0 A$common$556                                                   00020B GR
+  0 A$common$557                                                   00020C GR
+  0 A$common$558                                                   00020D GR
+  0 A$common$559                                                   00020E GR
+  0 A$common$560                                                   000210 GR
+  0 A$common$563                                                   000211 GR
+  0 A$common$566                                                   000212 GR
+  0 A$common$567                                                   000213 GR
+  0 A$common$568                                                   000214 GR
+  0 A$common$569                                                   000215 GR
+  0 A$common$570                                                   000216 GR
+  0 A$common$571                                                   000217 GR
+  0 A$common$572                                                   00021A GR
+  0 A$common$573                                                   00021C GR
+  0 A$common$577                                                   00021D GR
+  0 A$common$578                                                   00021E GR
+  0 A$common$583                                                   000220 GR
+  0 A$common$584                                                   000222 GR
+  0 A$common$585                                                   000223 GR
+  0 A$common$586                                                   000225 GR
+  0 A$common$596                                                   000226 GR
+  0 A$common$597                                                   000228 GR
+  0 A$common$601                                                   000229 GR
+  0 A$common$602                                                   00022A GR
+  0 A$common$603                                                   00022B GR
+  0 A$common$604                                                   00022C GR
+  0 A$common$605                                                   00022D GR
+  0 A$common$606                                                   00022E GR
+  0 A$common$607                                                   000231 GR
+  0 A$common$611                                                   000232 GR
+  0 A$common$612                                                   000234 GR
+  0 A$common$614                                                   000236 GR
+  0 A$common$615                                                   000237 GR
+  0 A$common$616                                                   000239 GR
+  0 A$common$617                                                   00023A GR
+  0 A$common$618                                                   00023B GR
+  0 A$common$619                                                   00023C GR
+  0 A$common$620                                                   00023E GR
+  0 A$common$621                                                   00023F GR
+  0 A$common$622                                                   000241 GR
+  0 A$common$623                                                   000242 GR
+  0 A$common$624                                                   000243 GR
+  0 A$common$625                                                   000244 GR
+  0 A$common$629                                                   000245 GR
+  0 A$common$633                                                   000246 GR
+  0 A$common$634                                                   000247 GR
+  0 A$common$635                                                   000248 GR
+  0 A$common$639                                                   00024B GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 12
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 C$common.c$182$4_0$169                                      =  0002FE GR
-  0 C$common.c$183$4_0$169                                      =  000302 GR
-  0 C$common.c$184$4_0$169                                      =  000306 GR
-  0 C$common.c$185$4_0$169                                      =  000308 GR
-  0 C$common.c$186$4_0$169                                      =  000308 GR
-  0 C$common.c$187$4_0$169                                      =  00030C GR
-  0 C$common.c$188$4_0$169                                      =  000310 GR
-  0 C$common.c$189$4_0$169                                      =  000312 GR
+  0 A$common$640                                                   00024C GR
+  0 A$common$641                                                   00024D GR
+  0 A$common$642                                                   00024E GR
+  0 A$common$643                                                   00024F GR
+  0 A$common$644                                                   000250 GR
+  0 A$common$645                                                   000251 GR
+  0 A$common$646                                                   000252 GR
+  0 A$common$647                                                   000253 GR
+  0 A$common$648                                                   000254 GR
+  0 A$common$649                                                   000255 GR
+  0 A$common$650                                                   000257 GR
+  0 A$common$651                                                   000259 GR
+  0 A$common$652                                                   00025B GR
+  0 A$common$653                                                   00025C GR
+  0 A$common$654                                                   00025E GR
+  0 A$common$655                                                   00025F GR
+  0 A$common$656                                                   000261 GR
+  0 A$common$657                                                   000262 GR
+  0 A$common$658                                                   000263 GR
+  0 A$common$659                                                   000264 GR
+  0 A$common$660                                                   000265 GR
+  0 A$common$661                                                   000266 GR
+  0 A$common$662                                                   000267 GR
+  0 A$common$663                                                   000268 GR
+  0 A$common$664                                                   000269 GR
+  0 A$common$665                                                   00026C GR
+  0 A$common$666                                                   00026E GR
+  0 A$common$667                                                   00026F GR
+  0 A$common$672                                                   000272 GR
+  0 A$common$673                                                   000273 GR
+  0 A$common$674                                                   000275 GR
+  0 A$common$675                                                   000277 GR
+  0 A$common$676                                                   000279 GR
+  0 A$common$677                                                   00027A GR
+  0 A$common$678                                                   00027C GR
+  0 A$common$679                                                   00027D GR
+  0 A$common$680                                                   00027F GR
+  0 A$common$681                                                   000280 GR
+  0 A$common$682                                                   000281 GR
+  0 A$common$683                                                   000282 GR
+  0 A$common$684                                                   000283 GR
+  0 A$common$685                                                   000284 GR
+  0 A$common$686                                                   000285 GR
+  0 A$common$687                                                   000286 GR
+  0 A$common$688                                                   000287 GR
+  0 A$common$689                                                   00028A GR
+  0 A$common$690                                                   00028C GR
+  0 A$common$691                                                   00028D GR
+  0 A$common$696                                                   00028F GR
+  0 A$common$697                                                   000290 GR
+  0 A$common$698                                                   000292 GR
+  0 A$common$699                                                   000294 GR
+  0 A$common$700                                                   000296 GR
+  0 A$common$701                                                   000297 GR
+  0 A$common$702                                                   000299 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 13
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$common$703                                                   00029A GR
+  0 A$common$704                                                   00029C GR
+  0 A$common$705                                                   00029D GR
+  0 A$common$706                                                   00029E GR
+  0 A$common$707                                                   00029F GR
+  0 A$common$708                                                   0002A0 GR
+  0 A$common$709                                                   0002A1 GR
+  0 A$common$710                                                   0002A2 GR
+  0 A$common$711                                                   0002A3 GR
+  0 A$common$712                                                   0002A4 GR
+  0 A$common$713                                                   0002A7 GR
+  0 A$common$714                                                   0002A9 GR
+  0 A$common$715                                                   0002AA GR
+  0 A$common$720                                                   0002AC GR
+  0 A$common$721                                                   0002AD GR
+  0 A$common$722                                                   0002AF GR
+  0 A$common$723                                                   0002B1 GR
+  0 A$common$724                                                   0002B3 GR
+  0 A$common$725                                                   0002B5 GR
+  0 A$common$726                                                   0002B7 GR
+  0 A$common$730                                                   0002B9 GR
+  0 A$common$731                                                   0002BA GR
+  0 A$common$732                                                   0002BB GR
+  0 A$common$733                                                   0002BC GR
+  0 A$common$734                                                   0002BD GR
+  0 A$common$735                                                   0002BE GR
+  0 A$common$736                                                   0002C0 GR
+  0 A$common$737                                                   0002C1 GR
+  0 A$common$738                                                   0002C2 GR
+  0 A$common$739                                                   0002C3 GR
+  0 A$common$740                                                   0002C6 GR
+  0 A$common$741                                                   0002C8 GR
+  0 A$common$742                                                   0002C9 GR
+  0 A$common$747                                                   0002CB GR
+  0 A$common$748                                                   0002CC GR
+  0 A$common$749                                                   0002CD GR
+  0 A$common$750                                                   0002CE GR
+  0 A$common$751                                                   0002CF GR
+  0 A$common$752                                                   0002D0 GR
+  0 A$common$753                                                   0002D2 GR
+  0 A$common$754                                                   0002D3 GR
+  0 A$common$755                                                   0002D4 GR
+  0 A$common$756                                                   0002D5 GR
+  0 A$common$757                                                   0002D8 GR
+  0 A$common$758                                                   0002DA GR
+  0 A$common$759                                                   0002DB GR
+  0 A$common$764                                                   0002DD GR
+  0 A$common$765                                                   0002DE GR
+  0 A$common$766                                                   0002DF GR
+  0 A$common$767                                                   0002E0 GR
+  0 A$common$768                                                   0002E1 GR
+  0 A$common$769                                                   0002E2 GR
+  0 A$common$770                                                   0002E4 GR
+  0 A$common$771                                                   0002E5 GR
+  0 A$common$772                                                   0002E6 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 14
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$common$773                                                   0002E7 GR
+  0 A$common$774                                                   0002EA GR
+  0 A$common$775                                                   0002EC GR
+  0 A$common$776                                                   0002ED GR
+  0 A$common$781                                                   0002EF GR
+  0 A$common$782                                                   0002F0 GR
+  0 A$common$790                                                   0002F1 GR
+  0 A$common$791                                                   0002F3 GR
+  0 A$common$792                                                   0002F4 GR
+  0 A$common$797                                                   0002F7 GR
+  0 A$common$798                                                   0002F8 GR
+  0 A$common$80                                                    000000 GR
+  0 A$common$802                                                   0002FA GR
+  0 A$common$803                                                   0002FC GR
+  0 A$common$804                                                   0002FD GR
+  0 A$common$805                                                   0002FE GR
+  0 A$common$815                                                   0002FF GR
+  0 A$common$816                                                   000301 GR
+  0 A$common$820                                                   000302 GR
+  0 A$common$821                                                   000303 GR
+  0 A$common$822                                                   000304 GR
+  0 A$common$823                                                   000305 GR
+  0 A$common$824                                                   000306 GR
+  0 A$common$825                                                   000307 GR
+  0 A$common$826                                                   00030A GR
+  0 A$common$830                                                   00030B GR
+  0 A$common$831                                                   00030D GR
+  0 A$common$833                                                   00030F GR
+  0 A$common$834                                                   000310 GR
+  0 A$common$835                                                   000312 GR
+  0 A$common$836                                                   000313 GR
+  0 A$common$837                                                   000314 GR
+  0 A$common$838                                                   000315 GR
+  0 A$common$839                                                   000317 GR
+  0 A$common$84                                                    000001 GR
+  0 A$common$840                                                   000318 GR
+  0 A$common$841                                                   00031A GR
+  0 A$common$842                                                   00031B GR
+  0 A$common$843                                                   00031C GR
+  0 A$common$844                                                   00031D GR
+  0 A$common$848                                                   00031E GR
+  0 A$common$852                                                   00031F GR
+  0 A$common$853                                                   000320 GR
+  0 A$common$854                                                   000321 GR
+  0 A$common$858                                                   000324 GR
+  0 A$common$859                                                   000325 GR
+  0 A$common$86                                                    000003 GR
+  0 A$common$860                                                   000326 GR
+  0 A$common$861                                                   000327 GR
+  0 A$common$862                                                   000328 GR
+  0 A$common$863                                                   000329 GR
+  0 A$common$864                                                   00032A GR
+  0 A$common$865                                                   00032B GR
+  0 A$common$866                                                   00032C GR
+  0 A$common$867                                                   00032D GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 15
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$common$868                                                   00032E GR
+  0 A$common$869                                                   000330 GR
+  0 A$common$87                                                    000004 GR
+  0 A$common$870                                                   000332 GR
+  0 A$common$871                                                   000334 GR
+  0 A$common$872                                                   000335 GR
+  0 A$common$873                                                   000337 GR
+  0 A$common$874                                                   000338 GR
+  0 A$common$875                                                   00033A GR
+  0 A$common$876                                                   00033B GR
+  0 A$common$877                                                   00033C GR
+  0 A$common$878                                                   00033D GR
+  0 A$common$879                                                   00033E GR
+  0 A$common$88                                                    000005 GR
+  0 A$common$880                                                   00033F GR
+  0 A$common$881                                                   000340 GR
+  0 A$common$882                                                   000341 GR
+  0 A$common$883                                                   000342 GR
+  0 A$common$884                                                   000345 GR
+  0 A$common$885                                                   000347 GR
+  0 A$common$886                                                   000348 GR
+  0 A$common$891                                                   00034B GR
+  0 A$common$892                                                   00034C GR
+  0 A$common$893                                                   00034E GR
+  0 A$common$894                                                   000350 GR
+  0 A$common$895                                                   000352 GR
+  0 A$common$896                                                   000353 GR
+  0 A$common$897                                                   000355 GR
+  0 A$common$898                                                   000356 GR
+  0 A$common$899                                                   000358 GR
+  0 A$common$900                                                   000359 GR
+  0 A$common$901                                                   00035A GR
+  0 A$common$902                                                   00035B GR
+  0 A$common$903                                                   00035C GR
+  0 A$common$904                                                   00035D GR
+  0 A$common$905                                                   00035E GR
+  0 A$common$906                                                   00035F GR
+  0 A$common$907                                                   000360 GR
+  0 A$common$908                                                   000363 GR
+  0 A$common$909                                                   000365 GR
+  0 A$common$910                                                   000366 GR
+  0 A$common$915                                                   000368 GR
+  0 A$common$916                                                   000369 GR
+  0 A$common$917                                                   00036B GR
+  0 A$common$918                                                   00036D GR
+  0 A$common$919                                                   00036F GR
+  0 A$common$92                                                    000006 GR
+  0 A$common$920                                                   000370 GR
+  0 A$common$921                                                   000372 GR
+  0 A$common$922                                                   000373 GR
+  0 A$common$923                                                   000375 GR
+  0 A$common$924                                                   000376 GR
+  0 A$common$925                                                   000377 GR
+  0 A$common$926                                                   000378 GR
+  0 A$common$927                                                   000379 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 16
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$common$928                                                   00037A GR
+  0 A$common$929                                                   00037B GR
+  0 A$common$930                                                   00037C GR
+  0 A$common$931                                                   00037D GR
+  0 A$common$932                                                   000380 GR
+  0 A$common$933                                                   000382 GR
+  0 A$common$934                                                   000383 GR
+  0 A$common$939                                                   000385 GR
+  0 A$common$940                                                   000386 GR
+  0 A$common$941                                                   000388 GR
+  0 A$common$942                                                   00038A GR
+  0 A$common$943                                                   00038C GR
+  0 A$common$944                                                   00038E GR
+  0 A$common$945                                                   000390 GR
+  0 A$common$949                                                   000392 GR
+  0 A$common$950                                                   000393 GR
+  0 A$common$951                                                   000394 GR
+  0 A$common$952                                                   000395 GR
+  0 A$common$953                                                   000396 GR
+  0 A$common$954                                                   000397 GR
+  0 A$common$955                                                   000399 GR
+  0 A$common$956                                                   00039A GR
+  0 A$common$957                                                   00039B GR
+  0 A$common$958                                                   00039C GR
+  0 A$common$959                                                   00039F GR
+  0 A$common$96                                                    000009 GR
+  0 A$common$960                                                   0003A1 GR
+  0 A$common$961                                                   0003A2 GR
+  0 A$common$966                                                   0003A4 GR
+  0 A$common$967                                                   0003A5 GR
+  0 A$common$968                                                   0003A6 GR
+  0 A$common$969                                                   0003A7 GR
+  0 A$common$970                                                   0003A8 GR
+  0 A$common$971                                                   0003A9 GR
+  0 A$common$972                                                   0003AB GR
+  0 A$common$973                                                   0003AC GR
+  0 A$common$974                                                   0003AD GR
+  0 A$common$975                                                   0003AE GR
+  0 A$common$976                                                   0003B1 GR
+  0 A$common$977                                                   0003B3 GR
+  0 A$common$978                                                   0003B4 GR
+  0 A$common$983                                                   0003B6 GR
+  0 A$common$984                                                   0003B7 GR
+  0 A$common$985                                                   0003B8 GR
+  0 A$common$986                                                   0003B9 GR
+  0 A$common$987                                                   0003BA GR
+  0 A$common$988                                                   0003BB GR
+  0 A$common$989                                                   0003BD GR
+  0 A$common$990                                                   0003BE GR
+  0 A$common$991                                                   0003BF GR
+  0 A$common$992                                                   0003C0 GR
+  0 A$common$993                                                   0003C3 GR
+  0 A$common$994                                                   0003C5 GR
+  0 A$common$995                                                   0003C6 GR
+  0 C$common.c$100$4_0$156                                      =  0002B9 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 17
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$common.c$101$4_0$156                                      =  0002CB GR
+  0 C$common.c$102$4_0$156                                      =  0002DD GR
+  0 C$common.c$103$4_0$156                                      =  0002EF GR
+  0 C$common.c$104$2_0$154                                      =  0002F1 GR
+  0 C$common.c$108$2_0$154                                      =  0002F1 GR
+  0 C$common.c$110$1_0$153                                      =  0002F7 GR
+  0 C$common.c$112$1_0$153                                      =  0002FA GR
+  0 C$common.c$114$1_0$158                                      =  0002FF GR
+  0 C$common.c$120$1_0$158                                      =  000302 GR
+  0 C$common.c$122$1_0$158                                      =  00031F GR
+  0 C$common.c$126$1_0$158                                      =  000324 GR
+  0 C$common.c$127$1_0$158                                      =  00031E GR
+  0 C$common.c$127$2_0$159                                      =  00034B GR
+  0 C$common.c$128$2_0$159                                      =  000368 GR
+  0 C$common.c$13$0_0$136                                       =  000000 GR
+  0 C$common.c$134$3_0$160                                      =  000385 GR
+  0 C$common.c$135$4_0$161                                      =  000392 GR
+  0 C$common.c$136$4_0$161                                      =  0003A4 GR
+  0 C$common.c$137$4_0$161                                      =  0003B6 GR
+  0 C$common.c$138$4_0$161                                      =  0003C8 GR
+  0 C$common.c$139$2_0$159                                      =  0003CA GR
+  0 C$common.c$143$2_0$159                                      =  0003CA GR
+  0 C$common.c$145$1_0$158                                      =  0003D0 GR
+  0 C$common.c$147$1_0$158                                      =  0003D3 GR
+  0 C$common.c$149$1_0$164                                      =  0003D8 GR
+  0 C$common.c$15$2_0$136                                       =  000009 GR
+  0 C$common.c$151$2_0$164                                      =  00041E GR
+  0 C$common.c$153$3_0$165                                      =  0003DF GR
+  0 C$common.c$155$4_0$166                                      =  0003F2 GR
+  0 C$common.c$156$4_0$166                                      =  0003F2 GR
+  0 C$common.c$157$4_0$166                                      =  0003F6 GR
+  0 C$common.c$158$4_0$166                                      =  0003FA GR
+  0 C$common.c$159$4_0$166                                      =  0003FC GR
+  0 C$common.c$160$4_0$166                                      =  0003FC GR
+  0 C$common.c$161$4_0$166                                      =  000400 GR
+  0 C$common.c$162$4_0$166                                      =  000404 GR
+  0 C$common.c$163$4_0$166                                      =  000406 GR
+  0 C$common.c$164$4_0$166                                      =  000406 GR
+  0 C$common.c$165$4_0$166                                      =  00040A GR
+  0 C$common.c$166$4_0$166                                      =  00040E GR
+  0 C$common.c$167$4_0$166                                      =  000410 GR
+  0 C$common.c$168$4_0$166                                      =  000410 GR
+  0 C$common.c$169$4_0$166                                      =  000414 GR
+  0 C$common.c$17$3_0$137                                       =  000006 GR
+  0 C$common.c$171$3_0$165                                      =  000418 GR
+  0 C$common.c$172$3_0$165                                      =  000418 GR
+  0 C$common.c$174$2_0$164                                      =  00041F GR
+  0 C$common.c$176$2_0$169                                      =  000421 GR
+  0 C$common.c$178$2_0$169                                      =  000467 GR
+  0 C$common.c$180$3_0$170                                      =  000428 GR
+  0 C$common.c$182$4_0$171                                      =  00043B GR
+  0 C$common.c$183$4_0$171                                      =  00043B GR
+  0 C$common.c$184$4_0$171                                      =  00043F GR
+  0 C$common.c$185$4_0$171                                      =  000443 GR
+  0 C$common.c$186$4_0$171                                      =  000445 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 18
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$common.c$187$4_0$171                                      =  000445 GR
+  0 C$common.c$188$4_0$171                                      =  000449 GR
+  0 C$common.c$189$4_0$171                                      =  00044D GR
   0 C$common.c$19$2_0$136                                       =  00000A GR
-  0 C$common.c$190$4_0$169                                      =  000312 GR
-  0 C$common.c$191$4_0$169                                      =  000316 GR
-  0 C$common.c$193$3_0$168                                      =  00031A GR
-  0 C$common.c$194$3_0$168                                      =  00031A GR
-  0 C$common.c$196$2_0$167                                      =  000321 GR
-  0 C$common.c$198$2_0$170                                      =  000323 GR
-  0 C$common.c$200$1_0$170                                      =  000323 GR
-  0 C$common.c$201$1_0$170                                      =  000327 GR
-  0 C$common.c$202$1_0$170                                      =  00032B GR
-  0 C$common.c$204$1_0$171                                      =  00032C GR
-  0 C$common.c$206$1_0$171                                      =  00032C GR
-  0 C$common.c$207$1_0$171                                      =  000330 GR
-  0 C$common.c$208$1_0$171                                      =  000334 GR
+  0 C$common.c$190$4_0$171                                      =  00044F GR
+  0 C$common.c$191$4_0$171                                      =  00044F GR
+  0 C$common.c$192$4_0$171                                      =  000453 GR
+  0 C$common.c$193$4_0$171                                      =  000457 GR
+  0 C$common.c$194$4_0$171                                      =  000459 GR
+  0 C$common.c$195$4_0$171                                      =  000459 GR
+  0 C$common.c$196$4_0$171                                      =  00045D GR
+  0 C$common.c$198$3_0$170                                      =  000461 GR
+  0 C$common.c$199$3_0$170                                      =  000461 GR
+  0 C$common.c$201$2_0$169                                      =  000468 GR
+  0 C$common.c$203$2_0$174                                      =  00046A GR
+  0 C$common.c$205$2_0$174                                      =  0004BD GR
+  0 C$common.c$207$3_0$175                                      =  000471 GR
+  0 C$common.c$209$4_0$176                                      =  00047E GR
+  0 C$common.c$210$4_0$176                                      =  000489 GR
+  0 C$common.c$211$4_0$176                                      =  00048D GR
+  0 C$common.c$212$4_0$176                                      =  000491 GR
+  0 C$common.c$213$4_0$176                                      =  000493 GR
+  0 C$common.c$214$4_0$176                                      =  000493 GR
+  0 C$common.c$215$4_0$176                                      =  000497 GR
+  0 C$common.c$216$4_0$176                                      =  00049B GR
+  0 C$common.c$217$4_0$176                                      =  00049D GR
+  0 C$common.c$218$4_0$176                                      =  00049D GR
+  0 C$common.c$219$4_0$176                                      =  0004A1 GR
   0 C$common.c$22$2_0$139                                       =  00000C GR
+  0 C$common.c$220$4_0$176                                      =  0004A5 GR
+  0 C$common.c$221$4_0$176                                      =  0004A7 GR
+  0 C$common.c$222$4_0$176                                      =  0004A7 GR
+  0 C$common.c$223$4_0$176                                      =  0004AB GR
+  0 C$common.c$224$4_0$176                                      =  0004AF GR
+  0 C$common.c$225$4_0$176                                      =  0004B1 GR
+  0 C$common.c$226$4_0$176                                      =  0004B1 GR
+  0 C$common.c$227$4_0$176                                      =  0004B4 GR
+  0 C$common.c$229$3_0$175                                      =  0004B7 GR
+  0 C$common.c$230$3_0$175                                      =  0004B7 GR
+  0 C$common.c$232$2_0$174                                      =  0004BE GR
+  0 C$common.c$234$2_0$179                                      =  0004C0 GR
+  0 C$common.c$236$2_0$179                                      =  000506 GR
+  0 C$common.c$238$3_0$180                                      =  0004C7 GR
   0 C$common.c$24$2_0$139                                       =  000012 GR
+  0 C$common.c$240$4_0$181                                      =  0004DA GR
+  0 C$common.c$241$4_0$181                                      =  0004DA GR
+  0 C$common.c$242$4_0$181                                      =  0004DE GR
+  0 C$common.c$243$4_0$181                                      =  0004E2 GR
+  0 C$common.c$244$4_0$181                                      =  0004E4 GR
+  0 C$common.c$245$4_0$181                                      =  0004E4 GR
+  0 C$common.c$246$4_0$181                                      =  0004E8 GR
+  0 C$common.c$247$4_0$181                                      =  0004EC GR
+  0 C$common.c$248$4_0$181                                      =  0004EE GR
+  0 C$common.c$249$4_0$181                                      =  0004EE GR
+  0 C$common.c$250$4_0$181                                      =  0004F2 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 19
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$common.c$251$4_0$181                                      =  0004F6 GR
+  0 C$common.c$252$4_0$181                                      =  0004F8 GR
+  0 C$common.c$253$4_0$181                                      =  0004F8 GR
+  0 C$common.c$254$4_0$181                                      =  0004FC GR
+  0 C$common.c$256$3_0$180                                      =  000500 GR
+  0 C$common.c$257$3_0$180                                      =  000500 GR
+  0 C$common.c$259$2_0$179                                      =  000507 GR
+  0 C$common.c$261$2_0$182                                      =  000509 GR
+  0 C$common.c$263$1_0$182                                      =  000509 GR
+  0 C$common.c$264$1_0$182                                      =  00050D GR
+  0 C$common.c$265$1_0$182                                      =  000511 GR
+  0 C$common.c$267$1_0$183                                      =  000512 GR
+  0 C$common.c$269$1_0$183                                      =  000512 GR
   0 C$common.c$27$1_0$139                                       =  000025 GR
+  0 C$common.c$270$1_0$183                                      =  000516 GR
+  0 C$common.c$271$1_0$183                                      =  00051A GR
   0 C$common.c$30$1_1$140                                       =  000045 GR
   0 C$common.c$33$1_1$140                                       =  000060 GR
   0 C$common.c$38$2_1$139                                       =  000074 GR
@@ -698,74 +1109,72 @@ Symbol Table
   0 C$common.c$47$3_1$144                                       =  0000F7 GR
   0 C$common.c$49$2_1$139                                       =  000113 GR
   0 C$common.c$51$2_1$146                                       =  000119 GR
-  0 C$common.c$57$1_0$146                                       =  00011C GR
-  0 C$common.c$59$1_0$146                                       =  000139 GR
-  0 C$common.c$63$1_0$146                                       =  00013E GR
-  0 C$common.c$64$1_0$146                                       =  000138 GR
-  0 C$common.c$64$2_0$147                                       =  000165 GR
-  0 C$common.c$65$2_0$147                                       =  000182 GR
-  0 C$common.c$71$3_0$148                                       =  00019F GR
-  0 C$common.c$72$4_0$149                                       =  0001AC GR
-  0 C$common.c$73$4_0$149                                       =  0001BE GR
-  0 C$common.c$74$4_0$149                                       =  0001D0 GR
-  0 C$common.c$75$4_0$149                                       =  0001E2 GR
-  0 C$common.c$76$2_0$147                                       =  0001E4 GR
-  0 C$common.c$80$2_0$147                                       =  0001E4 GR
-  0 C$common.c$82$1_0$146                                       =  0001EA GR
-  0 C$common.c$84$1_0$146                                       =  0001ED GR
-  0 C$common.c$86$1_0$152                                       =  0001F2 GR
-  0 C$common.c$88$2_0$152                                       =  000238 GR
-  0 C$common.c$90$3_0$153                                       =  0001F9 GR
-  0 C$common.c$92$4_0$154                                       =  00020C GR
-  0 C$common.c$93$4_0$154                                       =  00020C GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 13
-Hexadecimal [24-Bits]
-
-Symbol Table
-
-  0 C$common.c$94$4_0$154                                       =  000210 GR
-  0 C$common.c$95$4_0$154                                       =  000214 GR
-  0 C$common.c$96$4_0$154                                       =  000216 GR
-  0 C$common.c$97$4_0$154                                       =  000216 GR
-  0 C$common.c$98$4_0$154                                       =  00021A GR
-  0 C$common.c$99$4_0$154                                       =  00021E GR
+  0 C$common.c$53$2_0$146                                       =  00011F GR
+  0 C$common.c$56$1_0$146                                       =  000132 GR
+  0 C$common.c$59$1_1$147                                       =  000152 GR
+  0 C$common.c$61$1_1$147                                       =  00016D GR
+  0 C$common.c$66$2_1$146                                       =  000181 GR
+  0 C$common.c$66$2_1$148                                       =  0001F2 GR
+  0 C$common.c$68$3_1$149                                       =  0001D0 GR
+  0 C$common.c$73$2_1$146                                       =  0001F7 GR
+  0 C$common.c$73$2_1$150                                       =  00021D GR
+  0 C$common.c$75$3_1$151                                       =  000204 GR
+  0 C$common.c$77$2_1$146                                       =  000220 GR
+  0 C$common.c$79$2_1$153                                       =  000226 GR
+  0 C$common.c$85$1_0$153                                       =  000229 GR
+  0 C$common.c$87$1_0$153                                       =  000246 GR
+  0 C$common.c$91$1_0$153                                       =  00024B GR
+  0 C$common.c$92$1_0$153                                       =  000245 GR
+  0 C$common.c$92$2_0$154                                       =  000272 GR
+  0 C$common.c$93$2_0$154                                       =  00028F GR
+  0 C$common.c$99$3_0$155                                       =  0002AC GR
   7 Fcommon$__xinit_index$0_0$0                                 =  000002 GR
   7 Fcommon$__xinit_joypadCurrent$0_0$0                         =  000001 GR
   7 Fcommon$__xinit_joypadPrevious$0_0$0                        =  000000 GR
   0 G$DrawNumber$0$0                                            =  00000C GR
-  0 G$DrawText$0$0                                              =  000119 GR
-  0 G$InvertColor$0$0                                           =  000323 GR
-  0 G$ResetColor$0$0                                            =  00032C GR
-  0 G$fadeFromBlack$0$0                                         =  00023B GR
-  0 G$fadeFromWhite$0$0                                         =  0002DA GR
-  0 G$fadeToBlack$0$0                                           =  0001F2 GR
-  0 G$fadeToWhite$0$0                                           =  000284 GR
+  0 G$DrawNumberWindow$0$0                                      =  000119 GR
+  0 G$DrawText$0$0                                              =  000226 GR
+  0 G$DrawTextWindow$0$0                                        =  0002FF GR
+  0 G$InvertColor$0$0                                           =  000509 GR
+  0 G$ResetColor$0$0                                            =  000512 GR
+  0 G$fadeFromBlack$0$0                                         =  000421 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 20
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 G$fadeFromWhite$0$0                                         =  0004C0 GR
+  0 G$fadeToBlack$0$0                                           =  0003D8 GR
+  0 G$fadeToWhite$0$0                                           =  00046A GR
   2 G$index$0_0$0                                               =  000002 GR
   2 G$joypadCurrent$0_0$0                                       =  000001 GR
   2 G$joypadPrevious$0_0$0                                      =  000000 GR
   0 G$performantdelay$0$0                                       =  000000 GR
-  0 XG$InvertColor$0$0                                          =  00032B GR
-  0 XG$ResetColor$0$0                                           =  000334 GR
-  0 XG$fadeFromBlack$0$0                                        =  000282 GR
-  0 XG$fadeFromWhite$0$0                                        =  000321 GR
-  0 XG$fadeToBlack$0$0                                          =  000239 GR
-  0 XG$fadeToWhite$0$0                                          =  0002D8 GR
+  0 XG$InvertColor$0$0                                          =  000511 GR
+  0 XG$ResetColor$0$0                                           =  00051A GR
+  0 XG$fadeFromBlack$0$0                                        =  000468 GR
+  0 XG$fadeFromWhite$0$0                                        =  000507 GR
+  0 XG$fadeToBlack$0$0                                          =  00041F GR
+  0 XG$fadeToWhite$0$0                                          =  0004BE GR
   0 XG$performantdelay$0$0                                      =  00000A GR
     _BGP_REG                                                       ****** GX
   0 _DrawNumber                                                    00000C GR
-  0 _DrawText                                                      000119 GR
-  0 _InvertColor                                                   000323 GR
+  0 _DrawNumberWindow                                              000119 GR
+  0 _DrawText                                                      000226 GR
+  0 _DrawTextWindow                                                0002FF GR
+  0 _InvertColor                                                   000509 GR
     _OBP0_REG                                                      ****** GX
-  0 _ResetColor                                                    00032C GR
+  0 _ResetColor                                                    000512 GR
     _VBK_REG                                                       ****** GX
   7 __xinit__index                                                 000002 R
   7 __xinit__joypadCurrent                                         000001 R
   7 __xinit__joypadPrevious                                        000000 R
-  0 _fadeFromBlack                                                 00023B GR
-  0 _fadeFromWhite                                                 0002DA GR
-  0 _fadeToBlack                                                   0001F2 GR
-  0 _fadeToWhite                                                   000284 GR
+  0 _fadeFromBlack                                                 000421 GR
+  0 _fadeFromWhite                                                 0004C0 GR
+  0 _fadeToBlack                                                   0003D8 GR
+  0 _fadeToWhite                                                   00046A GR
     _get_bkg_xy_addr                                               ****** GX
+    _get_win_xy_addr                                               ****** GX
   2 _index                                                         000002 GR
   2 _joypadCurrent                                                 000001 GR
   2 _joypadPrevious                                                000000 GR
@@ -775,12 +1184,13 @@ Symbol Table
     _uitoa                                                         ****** GX
     _wait_vbl_done                                                 ****** GX
 
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 14
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 21
 Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    335   flags    0
+   0 _CODE                                      size    51B   flags    0
    1 _DATA                                      size      0   flags    0
    2 _INITIALIZED                               size      3   flags    0
    3 _DABS                                      size      0   flags    8

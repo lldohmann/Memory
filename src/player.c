@@ -5,42 +5,9 @@
 #include <gb/metasprites.h> 
 #include "../src/player.h"
 #include "../src/common.h"
+#include "../res/home.h"
 
-void PlayerUpdate(struct player *ptr)
-{
-    (void) ptr;
-    switch (ptr->playerState)
-    {
-    case idle:
-        joypadPrevious = joypadCurrent;
-        joypadCurrent = joypad();
-        if (joypadCurrent & J_UP)
-        {
-            //ptr->y -= 1;
-            ptr->playerDirection = up;
-        }
-        else if (joypadCurrent & J_DOWN)
-        {
-            //ptr->y += 1;
-            ptr->playerDirection = down;
-        }
-        else if (joypadCurrent & J_RIGHT)
-        {
-            //ptr->x += 1;
-            ptr->playerDirection = right;
-        }
-        else if (joypadCurrent & J_LEFT)
-        {
-            //ptr->x -= 1;
-            ptr->playerDirection = left;
-        }
-        break;
-    
-    default:
-        break;
-    }
-}
-
+#pragma region InitializePlayerGraphics
 // Visual Aspects of player logic
 const metasprite_t mouse_down[] = {
     {.dy=-16, .dx=-8, .dtile=0, .props=0},
@@ -65,6 +32,51 @@ const metasprite_t mouse_right1[] = {
 const metasprite_t* const mouse_metasprites[4] = {
     mouse_down, mouse_up, mouse_right0, mouse_right1
 };
+#pragma endregion InitializePlayerGraphics
+
+char check_map(uint8_t map_num, uint8_t x_pos, uint8_t y_pos)
+{
+    if (map_num == 0) // HOME
+    {
+        returnCollisionValue(x_pos, y_pos);
+    }
+} 
+
+void PlayerUpdate(struct player *ptr)
+{
+    (void) ptr;
+    switch (ptr->playerState)
+    {
+    case idle:
+        joypadPrevious = joypadCurrent;
+        joypadCurrent = joypad();
+        if (joypadCurrent & J_UP)
+        {
+            //ptr->y -= 1;
+            
+            ptr->playerDirection = up;
+        }
+        else if (joypadCurrent & J_DOWN)
+        {
+            //ptr->y += 1;
+            ptr->playerDirection = down;
+        }
+        else if (joypadCurrent & J_RIGHT)
+        {
+            //ptr->x += 1;
+            ptr->playerDirection = right;
+        }
+        else if (joypadCurrent & J_LEFT)
+        {
+            //ptr->x -= 1;
+            ptr->playerDirection = left;
+        }
+        break;
+    
+    default:
+        break;
+    }
+}
 
 void DrawPlayer(struct player *ptr)
 {

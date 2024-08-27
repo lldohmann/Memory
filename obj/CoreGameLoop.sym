@@ -7,528 +7,639 @@ Symbol Table
     .__.ABS.                                                    =  000000 G
     .__.CPU.                                                    =  000000 L
     .__.H$L.                                                    =  000000 L
-  0 A$CoreGameLoop$111                                             000000 GR
-  0 A$CoreGameLoop$115                                             000002 GR
-  0 A$CoreGameLoop$116                                             000005 GR
-  0 A$CoreGameLoop$117                                             000007 GR
-  0 A$CoreGameLoop$118                                             00000A GR
-  0 A$CoreGameLoop$122                                             00000C GR
-  0 A$CoreGameLoop$123                                             00000F GR
-  0 A$CoreGameLoop$124                                             000010 GR
-  0 A$CoreGameLoop$125                                             000011 GR
-  0 A$CoreGameLoop$126                                             000012 GR
-  0 A$CoreGameLoop$127                                             000014 GR
-  0 A$CoreGameLoop$128                                             000016 GR
-  0 A$CoreGameLoop$129                                             000018 GR
-  0 A$CoreGameLoop$130                                             00001A GR
-  0 A$CoreGameLoop$131                                             00001C GR
-  0 A$CoreGameLoop$132                                             00001E GR
-  0 A$CoreGameLoop$133                                             000021 GR
-  0 A$CoreGameLoop$137                                             000022 GR
-  0 A$CoreGameLoop$141                                             000023 GR
-  0 A$CoreGameLoop$142                                             000024 GR
-  0 A$CoreGameLoop$143                                             000027 GR
-  0 A$CoreGameLoop$144                                             000028 GR
-  0 A$CoreGameLoop$148                                             00002B GR
-  0 A$CoreGameLoop$149                                             00002E GR
-  0 A$CoreGameLoop$150                                             00002F GR
-  0 A$CoreGameLoop$151                                             000031 GR
-  0 A$CoreGameLoop$152                                             000032 GR
-  0 A$CoreGameLoop$153                                             000033 GR
-  0 A$CoreGameLoop$154                                             000035 GR
-  0 A$CoreGameLoop$155                                             000036 GR
-  0 A$CoreGameLoop$156                                             000038 GR
-  0 A$CoreGameLoop$157                                             000039 GR
-  0 A$CoreGameLoop$158                                             00003A GR
-  0 A$CoreGameLoop$159                                             00003B GR
-  0 A$CoreGameLoop$160                                             00003C GR
-  0 A$CoreGameLoop$161                                             00003D GR
-  0 A$CoreGameLoop$162                                             00003F GR
-  0 A$CoreGameLoop$163                                             000040 GR
-  0 A$CoreGameLoop$164                                             000041 GR
-  0 A$CoreGameLoop$165                                             000042 GR
-  0 A$CoreGameLoop$166                                             000043 GR
-  0 A$CoreGameLoop$167                                             000044 GR
-  0 A$CoreGameLoop$168                                             000046 GR
-  0 A$CoreGameLoop$169                                             000047 GR
-  0 A$CoreGameLoop$170                                             000049 GR
-  0 A$CoreGameLoop$171                                             00004A GR
-  0 A$CoreGameLoop$172                                             00004C GR
-  0 A$CoreGameLoop$173                                             00004D GR
-  0 A$CoreGameLoop$177                                             00004E GR
-  0 A$CoreGameLoop$178                                             000051 GR
-  0 A$CoreGameLoop$179                                             000054 GR
+  0 A$CoreGameLoop$114                                             000000 GR
+  0 A$CoreGameLoop$118                                             000002 GR
+  0 A$CoreGameLoop$119                                             000005 GR
+  0 A$CoreGameLoop$120                                             000007 GR
+  0 A$CoreGameLoop$121                                             00000A GR
+  0 A$CoreGameLoop$125                                             00000C GR
+  0 A$CoreGameLoop$126                                             00000F GR
+  0 A$CoreGameLoop$127                                             000010 GR
+  0 A$CoreGameLoop$128                                             000011 GR
+  0 A$CoreGameLoop$129                                             000012 GR
+  0 A$CoreGameLoop$130                                             000014 GR
+  0 A$CoreGameLoop$131                                             000016 GR
+  0 A$CoreGameLoop$132                                             000018 GR
+  0 A$CoreGameLoop$133                                             00001A GR
+  0 A$CoreGameLoop$134                                             00001C GR
+  0 A$CoreGameLoop$135                                             00001E GR
+  0 A$CoreGameLoop$136                                             000021 GR
+  0 A$CoreGameLoop$140                                             000022 GR
+  0 A$CoreGameLoop$144                                             000023 GR
+  0 A$CoreGameLoop$145                                             000024 GR
+  0 A$CoreGameLoop$146                                             000027 GR
+  0 A$CoreGameLoop$147                                             000028 GR
+  0 A$CoreGameLoop$151                                             00002B GR
+  0 A$CoreGameLoop$152                                             00002E GR
+  0 A$CoreGameLoop$153                                             00002F GR
+  0 A$CoreGameLoop$154                                             000031 GR
+  0 A$CoreGameLoop$155                                             000032 GR
+  0 A$CoreGameLoop$156                                             000033 GR
+  0 A$CoreGameLoop$157                                             000035 GR
+  0 A$CoreGameLoop$158                                             000036 GR
+  0 A$CoreGameLoop$159                                             000038 GR
+  0 A$CoreGameLoop$160                                             000039 GR
+  0 A$CoreGameLoop$161                                             00003A GR
+  0 A$CoreGameLoop$162                                             00003B GR
+  0 A$CoreGameLoop$163                                             00003C GR
+  0 A$CoreGameLoop$164                                             00003D GR
+  0 A$CoreGameLoop$165                                             00003F GR
+  0 A$CoreGameLoop$166                                             000040 GR
+  0 A$CoreGameLoop$167                                             000041 GR
+  0 A$CoreGameLoop$168                                             000042 GR
+  0 A$CoreGameLoop$169                                             000043 GR
+  0 A$CoreGameLoop$170                                             000044 GR
+  0 A$CoreGameLoop$171                                             000046 GR
+  0 A$CoreGameLoop$172                                             000047 GR
+  0 A$CoreGameLoop$173                                             000049 GR
+  0 A$CoreGameLoop$174                                             00004A GR
+  0 A$CoreGameLoop$175                                             00004C GR
+  0 A$CoreGameLoop$176                                             00004D GR
+  0 A$CoreGameLoop$180                                             00004E GR
+  0 A$CoreGameLoop$181                                             000051 GR
+  0 A$CoreGameLoop$182                                             000054 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 2
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$CoreGameLoop$180                                             000055 GR
-  0 A$CoreGameLoop$181                                             000056 GR
-  0 A$CoreGameLoop$182                                             000057 GR
-  0 A$CoreGameLoop$183                                             000058 GR
-  0 A$CoreGameLoop$184                                             000059 GR
-  0 A$CoreGameLoop$185                                             00005A GR
-  0 A$CoreGameLoop$187                                             00005C GR
-  0 A$CoreGameLoop$188                                             00005D GR
-  0 A$CoreGameLoop$189                                             00005E GR
-  0 A$CoreGameLoop$190                                             000060 GR
-  0 A$CoreGameLoop$191                                             000062 GR
-  0 A$CoreGameLoop$193                                             000064 GR
-  0 A$CoreGameLoop$194                                             000066 GR
-  0 A$CoreGameLoop$195                                             000067 GR
-  0 A$CoreGameLoop$198                                             000068 GR
-  0 A$CoreGameLoop$199                                             00006B GR
-  0 A$CoreGameLoop$201                                             00006D GR
-  0 A$CoreGameLoop$204                                             00006F GR
-  0 A$CoreGameLoop$205                                             000070 GR
-  0 A$CoreGameLoop$206                                             000071 GR
-  0 A$CoreGameLoop$207                                             000074 GR
-  0 A$CoreGameLoop$208                                             000075 GR
-  0 A$CoreGameLoop$211                                             000077 GR
-  0 A$CoreGameLoop$212                                             000078 GR
-  0 A$CoreGameLoop$213                                             000079 GR
-  0 A$CoreGameLoop$214                                             00007A GR
-  0 A$CoreGameLoop$215                                             00007B GR
-  0 A$CoreGameLoop$216                                             00007D GR
-  0 A$CoreGameLoop$217                                             00007E GR
-  0 A$CoreGameLoop$218                                             00007F GR
-  0 A$CoreGameLoop$219                                             000080 GR
-  0 A$CoreGameLoop$220                                             000083 GR
-  0 A$CoreGameLoop$222                                             000085 GR
-  0 A$CoreGameLoop$223                                             000088 GR
-  0 A$CoreGameLoop$227                                             00008A GR
-  0 A$CoreGameLoop$232                                             00008C GR
-  0 A$CoreGameLoop$233                                             00008F GR
-  0 A$CoreGameLoop$234                                             000091 GR
-  0 A$CoreGameLoop$236                                             000093 GR
-  0 A$CoreGameLoop$237                                             000096 GR
-  0 A$CoreGameLoop$238                                             000097 GR
-  0 A$CoreGameLoop$239                                             000098 GR
-  0 A$CoreGameLoop$240                                             00009A GR
-  0 A$CoreGameLoop$241                                             00009D GR
-  0 A$CoreGameLoop$243                                             00009F GR
-  0 A$CoreGameLoop$244                                             0000A1 GR
-  0 A$CoreGameLoop$245                                             0000A2 GR
-  0 A$CoreGameLoop$246                                             0000A3 GR
-  0 A$CoreGameLoop$248                                             0000A4 GR
-  0 A$CoreGameLoop$249                                             0000A7 GR
-  0 A$CoreGameLoop$251                                             0000A9 GR
-  0 A$CoreGameLoop$252                                             0000AC GR
-  0 A$CoreGameLoop$254                                             0000AE GR
-  0 A$CoreGameLoop$257                                             0000B0 GR
-  0 A$CoreGameLoop$258                                             0000B1 GR
+  0 A$CoreGameLoop$183                                             000055 GR
+  0 A$CoreGameLoop$184                                             000056 GR
+  0 A$CoreGameLoop$185                                             000057 GR
+  0 A$CoreGameLoop$186                                             000058 GR
+  0 A$CoreGameLoop$187                                             000059 GR
+  0 A$CoreGameLoop$188                                             00005A GR
+  0 A$CoreGameLoop$190                                             00005C GR
+  0 A$CoreGameLoop$191                                             00005D GR
+  0 A$CoreGameLoop$192                                             00005E GR
+  0 A$CoreGameLoop$193                                             000060 GR
+  0 A$CoreGameLoop$194                                             000062 GR
+  0 A$CoreGameLoop$196                                             000064 GR
+  0 A$CoreGameLoop$197                                             000066 GR
+  0 A$CoreGameLoop$198                                             000067 GR
+  0 A$CoreGameLoop$201                                             000068 GR
+  0 A$CoreGameLoop$202                                             00006B GR
+  0 A$CoreGameLoop$204                                             00006D GR
+  0 A$CoreGameLoop$207                                             00006F GR
+  0 A$CoreGameLoop$208                                             000070 GR
+  0 A$CoreGameLoop$209                                             000071 GR
+  0 A$CoreGameLoop$210                                             000074 GR
+  0 A$CoreGameLoop$211                                             000075 GR
+  0 A$CoreGameLoop$214                                             000077 GR
+  0 A$CoreGameLoop$215                                             000078 GR
+  0 A$CoreGameLoop$216                                             000079 GR
+  0 A$CoreGameLoop$217                                             00007A GR
+  0 A$CoreGameLoop$218                                             00007B GR
+  0 A$CoreGameLoop$219                                             00007D GR
+  0 A$CoreGameLoop$220                                             00007E GR
+  0 A$CoreGameLoop$221                                             00007F GR
+  0 A$CoreGameLoop$222                                             000080 GR
+  0 A$CoreGameLoop$223                                             000083 GR
+  0 A$CoreGameLoop$225                                             000085 GR
+  0 A$CoreGameLoop$226                                             000088 GR
+  0 A$CoreGameLoop$230                                             00008A GR
+  0 A$CoreGameLoop$235                                             00008C GR
+  0 A$CoreGameLoop$236                                             00008F GR
+  0 A$CoreGameLoop$237                                             000091 GR
+  0 A$CoreGameLoop$239                                             000093 GR
+  0 A$CoreGameLoop$240                                             000096 GR
+  0 A$CoreGameLoop$241                                             000097 GR
+  0 A$CoreGameLoop$242                                             000098 GR
+  0 A$CoreGameLoop$243                                             00009A GR
+  0 A$CoreGameLoop$244                                             00009D GR
+  0 A$CoreGameLoop$246                                             00009F GR
+  0 A$CoreGameLoop$247                                             0000A1 GR
+  0 A$CoreGameLoop$248                                             0000A2 GR
+  0 A$CoreGameLoop$249                                             0000A3 GR
+  0 A$CoreGameLoop$251                                             0000A4 GR
+  0 A$CoreGameLoop$252                                             0000A7 GR
+  0 A$CoreGameLoop$254                                             0000A9 GR
+  0 A$CoreGameLoop$255                                             0000AC GR
+  0 A$CoreGameLoop$257                                             0000AE GR
+  0 A$CoreGameLoop$260                                             0000B0 GR
+  0 A$CoreGameLoop$261                                             0000B1 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 3
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$CoreGameLoop$259                                             0000B2 GR
-  0 A$CoreGameLoop$260                                             0000B3 GR
-  0 A$CoreGameLoop$263                                             0000B5 GR
-  0 A$CoreGameLoop$264                                             0000B6 GR
-  0 A$CoreGameLoop$265                                             0000B7 GR
-  0 A$CoreGameLoop$268                                             0000B8 GR
-  0 A$CoreGameLoop$269                                             0000B9 GR
-  0 A$CoreGameLoop$270                                             0000BA GR
-  0 A$CoreGameLoop$271                                             0000BB GR
-  0 A$CoreGameLoop$272                                             0000BC GR
-  0 A$CoreGameLoop$273                                             0000BE GR
-  0 A$CoreGameLoop$274                                             0000BF GR
-  0 A$CoreGameLoop$275                                             0000C0 GR
-  0 A$CoreGameLoop$276                                             0000C1 GR
-  0 A$CoreGameLoop$277                                             0000C4 GR
-  0 A$CoreGameLoop$279                                             0000C6 GR
-  0 A$CoreGameLoop$280                                             0000C9 GR
-  0 A$CoreGameLoop$288                                             0000CB GR
-  0 A$CoreGameLoop$289                                             0000CE GR
-  0 A$CoreGameLoop$293                                             0000CF GR
-  0 A$CoreGameLoop$294                                             0000D2 GR
-  0 A$CoreGameLoop$299                                             0000D3 GR
-  0 A$CoreGameLoop$300                                             0000D6 GR
-  0 A$CoreGameLoop$301                                             0000D7 GR
-  0 A$CoreGameLoop$302                                             0000D8 GR
-  0 A$CoreGameLoop$303                                             0000D9 GR
-  0 A$CoreGameLoop$304                                             0000DB GR
-  0 A$CoreGameLoop$305                                             0000DD GR
-  0 A$CoreGameLoop$306                                             0000DF GR
-  0 A$CoreGameLoop$307                                             0000E1 GR
-  0 A$CoreGameLoop$308                                             0000E3 GR
-  0 A$CoreGameLoop$309                                             0000E5 GR
-  0 A$CoreGameLoop$310                                             0000E8 GR
-  0 A$CoreGameLoop$314                                             0000E9 GR
-  0 A$CoreGameLoop$315                                             0000EA GR
-  0 A$CoreGameLoop$316                                             0000ED GR
-  0 A$CoreGameLoop$317                                             0000EE GR
-  0 A$CoreGameLoop$321                                             0000F1 GR
-  0 A$CoreGameLoop$322                                             0000F4 GR
-  0 A$CoreGameLoop$323                                             0000F5 GR
-  0 A$CoreGameLoop$324                                             0000F7 GR
-  0 A$CoreGameLoop$325                                             0000F8 GR
-  0 A$CoreGameLoop$326                                             0000FA GR
-  0 A$CoreGameLoop$327                                             0000FB GR
-  0 A$CoreGameLoop$330                                             0000FC GR
-  0 A$CoreGameLoop$331                                             0000FD GR
-  0 A$CoreGameLoop$332                                             0000FE GR
-  0 A$CoreGameLoop$335                                             0000FF GR
-  0 A$CoreGameLoop$336                                             000101 GR
-  0 A$CoreGameLoop$337                                             000102 GR
-  0 A$CoreGameLoop$338                                             000103 GR
-  0 A$CoreGameLoop$339                                             000104 GR
-  0 A$CoreGameLoop$340                                             000105 GR
-  0 A$CoreGameLoop$341                                             000106 GR
-  0 A$CoreGameLoop$342                                             000108 GR
+  0 A$CoreGameLoop$262                                             0000B2 GR
+  0 A$CoreGameLoop$263                                             0000B3 GR
+  0 A$CoreGameLoop$266                                             0000B5 GR
+  0 A$CoreGameLoop$267                                             0000B6 GR
+  0 A$CoreGameLoop$268                                             0000B7 GR
+  0 A$CoreGameLoop$271                                             0000B8 GR
+  0 A$CoreGameLoop$272                                             0000B9 GR
+  0 A$CoreGameLoop$273                                             0000BA GR
+  0 A$CoreGameLoop$274                                             0000BB GR
+  0 A$CoreGameLoop$275                                             0000BC GR
+  0 A$CoreGameLoop$276                                             0000BE GR
+  0 A$CoreGameLoop$277                                             0000BF GR
+  0 A$CoreGameLoop$278                                             0000C0 GR
+  0 A$CoreGameLoop$279                                             0000C1 GR
+  0 A$CoreGameLoop$280                                             0000C4 GR
+  0 A$CoreGameLoop$282                                             0000C6 GR
+  0 A$CoreGameLoop$283                                             0000C9 GR
+  0 A$CoreGameLoop$291                                             0000CB GR
+  0 A$CoreGameLoop$292                                             0000CE GR
+  0 A$CoreGameLoop$296                                             0000CF GR
+  0 A$CoreGameLoop$297                                             0000D2 GR
+  0 A$CoreGameLoop$302                                             0000D3 GR
+  0 A$CoreGameLoop$303                                             0000D6 GR
+  0 A$CoreGameLoop$304                                             0000D7 GR
+  0 A$CoreGameLoop$305                                             0000D8 GR
+  0 A$CoreGameLoop$306                                             0000D9 GR
+  0 A$CoreGameLoop$307                                             0000DB GR
+  0 A$CoreGameLoop$308                                             0000DD GR
+  0 A$CoreGameLoop$309                                             0000DF GR
+  0 A$CoreGameLoop$310                                             0000E1 GR
+  0 A$CoreGameLoop$311                                             0000E3 GR
+  0 A$CoreGameLoop$312                                             0000E5 GR
+  0 A$CoreGameLoop$313                                             0000E8 GR
+  0 A$CoreGameLoop$317                                             0000E9 GR
+  0 A$CoreGameLoop$318                                             0000EA GR
+  0 A$CoreGameLoop$319                                             0000ED GR
+  0 A$CoreGameLoop$320                                             0000EE GR
+  0 A$CoreGameLoop$324                                             0000F1 GR
+  0 A$CoreGameLoop$325                                             0000F4 GR
+  0 A$CoreGameLoop$326                                             0000F5 GR
+  0 A$CoreGameLoop$327                                             0000F7 GR
+  0 A$CoreGameLoop$328                                             0000F8 GR
+  0 A$CoreGameLoop$329                                             0000FA GR
+  0 A$CoreGameLoop$330                                             0000FB GR
+  0 A$CoreGameLoop$333                                             0000FC GR
+  0 A$CoreGameLoop$334                                             0000FD GR
+  0 A$CoreGameLoop$335                                             0000FE GR
+  0 A$CoreGameLoop$338                                             0000FF GR
+  0 A$CoreGameLoop$339                                             000101 GR
+  0 A$CoreGameLoop$340                                             000102 GR
+  0 A$CoreGameLoop$341                                             000103 GR
+  0 A$CoreGameLoop$342                                             000104 GR
+  0 A$CoreGameLoop$343                                             000105 GR
+  0 A$CoreGameLoop$344                                             000106 GR
+  0 A$CoreGameLoop$345                                             000108 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 4
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$CoreGameLoop$343                                             000109 GR
-  0 A$CoreGameLoop$344                                             00010B GR
-  0 A$CoreGameLoop$345                                             00010C GR
-  0 A$CoreGameLoop$346                                             00010E GR
-  0 A$CoreGameLoop$347                                             00010F GR
-  0 A$CoreGameLoop$351                                             000110 GR
-  0 A$CoreGameLoop$352                                             000111 GR
-  0 A$CoreGameLoop$353                                             000114 GR
-  0 A$CoreGameLoop$354                                             000117 GR
-  0 A$CoreGameLoop$355                                             000118 GR
-  0 A$CoreGameLoop$356                                             000119 GR
-  0 A$CoreGameLoop$357                                             00011A GR
-  0 A$CoreGameLoop$358                                             00011B GR
-  0 A$CoreGameLoop$359                                             00011C GR
-  0 A$CoreGameLoop$360                                             00011D GR
-  0 A$CoreGameLoop$361                                             00011E GR
-  0 A$CoreGameLoop$363                                             000120 GR
-  0 A$CoreGameLoop$364                                             000121 GR
-  0 A$CoreGameLoop$365                                             000122 GR
-  0 A$CoreGameLoop$366                                             000124 GR
-  0 A$CoreGameLoop$368                                             000127 GR
-  0 A$CoreGameLoop$369                                             000128 GR
-  0 A$CoreGameLoop$371                                             00012B GR
-  0 A$CoreGameLoop$372                                             00012E GR
-  0 A$CoreGameLoop$374                                             000130 GR
-  0 A$CoreGameLoop$377                                             000132 GR
-  0 A$CoreGameLoop$378                                             000133 GR
-  0 A$CoreGameLoop$379                                             000134 GR
-  0 A$CoreGameLoop$380                                             000137 GR
-  0 A$CoreGameLoop$381                                             000138 GR
-  0 A$CoreGameLoop$382                                             000139 GR
-  0 A$CoreGameLoop$383                                             00013A GR
-  0 A$CoreGameLoop$386                                             00013C GR
-  0 A$CoreGameLoop$387                                             00013D GR
-  0 A$CoreGameLoop$388                                             00013E GR
-  0 A$CoreGameLoop$391                                             00013F GR
-  0 A$CoreGameLoop$392                                             000140 GR
-  0 A$CoreGameLoop$393                                             000141 GR
-  0 A$CoreGameLoop$394                                             000142 GR
-  0 A$CoreGameLoop$395                                             000143 GR
-  0 A$CoreGameLoop$396                                             000146 GR
-  0 A$CoreGameLoop$398                                             000148 GR
-  0 A$CoreGameLoop$399                                             00014B GR
-  0 A$CoreGameLoop$403                                             00014D GR
-  0 A$CoreGameLoop$408                                             00014F GR
-  0 A$CoreGameLoop$409                                             000152 GR
-  0 A$CoreGameLoop$410                                             000154 GR
-  0 A$CoreGameLoop$412                                             000156 GR
-  0 A$CoreGameLoop$413                                             000157 GR
-  0 A$CoreGameLoop$414                                             000158 GR
-  0 A$CoreGameLoop$415                                             00015A GR
-  0 A$CoreGameLoop$417                                             00015D GR
-  0 A$CoreGameLoop$418                                             00015E GR
-  0 A$CoreGameLoop$419                                             000161 GR
-  0 A$CoreGameLoop$421                                             000163 GR
+  0 A$CoreGameLoop$346                                             000109 GR
+  0 A$CoreGameLoop$347                                             00010B GR
+  0 A$CoreGameLoop$348                                             00010C GR
+  0 A$CoreGameLoop$349                                             00010E GR
+  0 A$CoreGameLoop$350                                             00010F GR
+  0 A$CoreGameLoop$354                                             000110 GR
+  0 A$CoreGameLoop$355                                             000111 GR
+  0 A$CoreGameLoop$356                                             000114 GR
+  0 A$CoreGameLoop$357                                             000117 GR
+  0 A$CoreGameLoop$358                                             000118 GR
+  0 A$CoreGameLoop$359                                             000119 GR
+  0 A$CoreGameLoop$360                                             00011A GR
+  0 A$CoreGameLoop$361                                             00011B GR
+  0 A$CoreGameLoop$362                                             00011C GR
+  0 A$CoreGameLoop$363                                             00011D GR
+  0 A$CoreGameLoop$364                                             00011E GR
+  0 A$CoreGameLoop$366                                             000120 GR
+  0 A$CoreGameLoop$367                                             000121 GR
+  0 A$CoreGameLoop$368                                             000122 GR
+  0 A$CoreGameLoop$369                                             000124 GR
+  0 A$CoreGameLoop$371                                             000127 GR
+  0 A$CoreGameLoop$372                                             000128 GR
+  0 A$CoreGameLoop$374                                             00012B GR
+  0 A$CoreGameLoop$375                                             00012E GR
+  0 A$CoreGameLoop$377                                             000130 GR
+  0 A$CoreGameLoop$380                                             000132 GR
+  0 A$CoreGameLoop$381                                             000133 GR
+  0 A$CoreGameLoop$382                                             000134 GR
+  0 A$CoreGameLoop$383                                             000137 GR
+  0 A$CoreGameLoop$384                                             000138 GR
+  0 A$CoreGameLoop$385                                             000139 GR
+  0 A$CoreGameLoop$386                                             00013A GR
+  0 A$CoreGameLoop$389                                             00013C GR
+  0 A$CoreGameLoop$390                                             00013D GR
+  0 A$CoreGameLoop$391                                             00013E GR
+  0 A$CoreGameLoop$394                                             00013F GR
+  0 A$CoreGameLoop$395                                             000140 GR
+  0 A$CoreGameLoop$396                                             000141 GR
+  0 A$CoreGameLoop$397                                             000142 GR
+  0 A$CoreGameLoop$398                                             000143 GR
+  0 A$CoreGameLoop$399                                             000146 GR
+  0 A$CoreGameLoop$401                                             000148 GR
+  0 A$CoreGameLoop$402                                             00014B GR
+  0 A$CoreGameLoop$406                                             00014D GR
+  0 A$CoreGameLoop$411                                             00014F GR
+  0 A$CoreGameLoop$412                                             000152 GR
+  0 A$CoreGameLoop$413                                             000154 GR
+  0 A$CoreGameLoop$415                                             000156 GR
+  0 A$CoreGameLoop$416                                             000157 GR
+  0 A$CoreGameLoop$417                                             000158 GR
+  0 A$CoreGameLoop$418                                             00015A GR
+  0 A$CoreGameLoop$420                                             00015D GR
+  0 A$CoreGameLoop$421                                             00015E GR
+  0 A$CoreGameLoop$422                                             000161 GR
+  0 A$CoreGameLoop$424                                             000163 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 5
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$CoreGameLoop$422                                             000166 GR
-  0 A$CoreGameLoop$424                                             000168 GR
-  0 A$CoreGameLoop$427                                             00016A GR
-  0 A$CoreGameLoop$428                                             00016B GR
-  0 A$CoreGameLoop$429                                             00016C GR
-  0 A$CoreGameLoop$430                                             00016F GR
-  0 A$CoreGameLoop$431                                             000170 GR
-  0 A$CoreGameLoop$432                                             000171 GR
-  0 A$CoreGameLoop$433                                             000172 GR
-  0 A$CoreGameLoop$436                                             000174 GR
-  0 A$CoreGameLoop$437                                             000175 GR
-  0 A$CoreGameLoop$438                                             000176 GR
-  0 A$CoreGameLoop$441                                             000177 GR
-  0 A$CoreGameLoop$442                                             000178 GR
-  0 A$CoreGameLoop$443                                             000179 GR
-  0 A$CoreGameLoop$444                                             00017A GR
-  0 A$CoreGameLoop$445                                             00017B GR
-  0 A$CoreGameLoop$446                                             00017E GR
-  0 A$CoreGameLoop$448                                             000180 GR
-  0 A$CoreGameLoop$449                                             000183 GR
-  0 A$CoreGameLoop$457                                             000185 GR
-  0 A$CoreGameLoop$458                                             000188 GR
-  0 A$CoreGameLoop$463                                             00018B GR
-  0 A$CoreGameLoop$464                                             00018E GR
-  0 A$CoreGameLoop$465                                             000191 GR
-  0 A$CoreGameLoop$466                                             000194 GR
-  0 A$CoreGameLoop$467                                             000197 GR
-  0 A$CoreGameLoop$468                                             00019A GR
-  0 A$CoreGameLoop$469                                             00019D GR
-  0 A$CoreGameLoop$470                                             0001A0 GR
-  0 A$CoreGameLoop$474                                             0001A3 GR
-  0 A$CoreGameLoop$479                                             0001A5 GR
-  0 A$CoreGameLoop$492                                             0001A6 GR
-  0 A$CoreGameLoop$493                                             0001A9 GR
-  0 A$CoreGameLoop$494                                             0001AB GR
-  0 A$CoreGameLoop$495                                             0001AE GR
-  0 A$CoreGameLoop$499                                             0001B0 GR
-  0 A$CoreGameLoop$500                                             0001B3 GR
-  0 A$CoreGameLoop$504                                             0001B5 GR
-  0 A$CoreGameLoop$505                                             0001B8 GR
-  0 A$CoreGameLoop$506                                             0001BA GR
-  0 A$CoreGameLoop$507                                             0001BB GR
-  0 A$CoreGameLoop$508                                             0001BC GR
-  0 A$CoreGameLoop$512                                             0001BD GR
-  0 A$CoreGameLoop$513                                             0001C0 GR
-  0 A$CoreGameLoop$514                                             0001C2 GR
-  0 A$CoreGameLoop$515                                             0001C3 GR
-  0 A$CoreGameLoop$516                                             0001C4 GR
-  0 A$CoreGameLoop$520                                             0001C5 GR
-  0 A$CoreGameLoop$521                                             0001C8 GR
-  0 A$CoreGameLoop$522                                             0001CA GR
-  0 A$CoreGameLoop$523                                             0001CB GR
-  0 A$CoreGameLoop$524                                             0001CC GR
-  0 A$CoreGameLoop$525                                             0001CD GR
-  0 A$CoreGameLoop$526                                             0001D0 GR
+  0 A$CoreGameLoop$425                                             000166 GR
+  0 A$CoreGameLoop$427                                             000168 GR
+  0 A$CoreGameLoop$430                                             00016A GR
+  0 A$CoreGameLoop$431                                             00016B GR
+  0 A$CoreGameLoop$432                                             00016C GR
+  0 A$CoreGameLoop$433                                             00016F GR
+  0 A$CoreGameLoop$434                                             000170 GR
+  0 A$CoreGameLoop$435                                             000171 GR
+  0 A$CoreGameLoop$436                                             000172 GR
+  0 A$CoreGameLoop$439                                             000174 GR
+  0 A$CoreGameLoop$440                                             000175 GR
+  0 A$CoreGameLoop$441                                             000176 GR
+  0 A$CoreGameLoop$444                                             000177 GR
+  0 A$CoreGameLoop$445                                             000178 GR
+  0 A$CoreGameLoop$446                                             000179 GR
+  0 A$CoreGameLoop$447                                             00017A GR
+  0 A$CoreGameLoop$448                                             00017B GR
+  0 A$CoreGameLoop$449                                             00017E GR
+  0 A$CoreGameLoop$451                                             000180 GR
+  0 A$CoreGameLoop$452                                             000183 GR
+  0 A$CoreGameLoop$460                                             000185 GR
+  0 A$CoreGameLoop$461                                             000188 GR
+  0 A$CoreGameLoop$466                                             00018B GR
+  0 A$CoreGameLoop$467                                             00018E GR
+  0 A$CoreGameLoop$468                                             000191 GR
+  0 A$CoreGameLoop$469                                             000194 GR
+  0 A$CoreGameLoop$470                                             000197 GR
+  0 A$CoreGameLoop$471                                             00019A GR
+  0 A$CoreGameLoop$472                                             00019D GR
+  0 A$CoreGameLoop$473                                             0001A0 GR
+  0 A$CoreGameLoop$477                                             0001A3 GR
+  0 A$CoreGameLoop$482                                             0001A5 GR
+  0 A$CoreGameLoop$495                                             0001A6 GR
+  0 A$CoreGameLoop$496                                             0001A9 GR
+  0 A$CoreGameLoop$497                                             0001AB GR
+  0 A$CoreGameLoop$498                                             0001AE GR
+  0 A$CoreGameLoop$502                                             0001B0 GR
+  0 A$CoreGameLoop$503                                             0001B3 GR
+  0 A$CoreGameLoop$507                                             0001B5 GR
+  0 A$CoreGameLoop$508                                             0001B8 GR
+  0 A$CoreGameLoop$509                                             0001BA GR
+  0 A$CoreGameLoop$510                                             0001BB GR
+  0 A$CoreGameLoop$511                                             0001BC GR
+  0 A$CoreGameLoop$515                                             0001BD GR
+  0 A$CoreGameLoop$516                                             0001C0 GR
+  0 A$CoreGameLoop$517                                             0001C2 GR
+  0 A$CoreGameLoop$518                                             0001C3 GR
+  0 A$CoreGameLoop$519                                             0001C4 GR
+  0 A$CoreGameLoop$523                                             0001C5 GR
+  0 A$CoreGameLoop$524                                             0001C8 GR
+  0 A$CoreGameLoop$525                                             0001CA GR
+  0 A$CoreGameLoop$526                                             0001CB GR
+  0 A$CoreGameLoop$527                                             0001CC GR
+  0 A$CoreGameLoop$528                                             0001CD GR
+  0 A$CoreGameLoop$529                                             0001D0 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 6
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$CoreGameLoop$527                                             0001D2 GR
-  0 A$CoreGameLoop$528                                             0001D3 GR
-  0 A$CoreGameLoop$529                                             0001D4 GR
-  0 A$CoreGameLoop$533                                             0001D5 GR
-  0 A$CoreGameLoop$534                                             0001D8 GR
-  0 A$CoreGameLoop$538                                             0001DA GR
-  0 A$CoreGameLoop$539                                             0001DD GR
-  0 A$CoreGameLoop$540                                             0001DE GR
-  0 A$CoreGameLoop$541                                             0001E1 GR
-  0 A$CoreGameLoop$542                                             0001E2 GR
-  0 A$CoreGameLoop$543                                             0001E5 GR
-  0 A$CoreGameLoop$546                                             0001E7 GR
-  0 A$CoreGameLoop$547                                             0001EA GR
-  0 A$CoreGameLoop$549                                             0001EC GR
-  0 A$CoreGameLoop$550                                             0001EE GR
-  0 A$CoreGameLoop$551                                             0001EF GR
-  0 A$CoreGameLoop$552                                             0001F0 GR
-  0 A$CoreGameLoop$553                                             0001F3 GR
-  0 A$CoreGameLoop$554                                             0001F4 GR
-  0 A$CoreGameLoop$555                                             0001F7 GR
-  0 A$CoreGameLoop$556                                             0001F8 GR
-  0 A$CoreGameLoop$557                                             0001F9 GR
-  0 A$CoreGameLoop$558                                             0001FA GR
-  0 A$CoreGameLoop$559                                             0001FB GR
-  0 A$CoreGameLoop$560                                             0001FE GR
-  0 A$CoreGameLoop$562                                             000200 GR
-  0 A$CoreGameLoop$563                                             000203 GR
-  0 A$CoreGameLoop$567                                             000205 GR
-  0 A$CoreGameLoop$568                                             000208 GR
-  0 A$CoreGameLoop$569                                             000209 GR
-  0 A$CoreGameLoop$570                                             00020C GR
-  0 A$CoreGameLoop$571                                             00020D GR
-  0 A$CoreGameLoop$572                                             000210 GR
-  0 A$CoreGameLoop$576                                             000212 GR
-  0 A$CoreGameLoop$577                                             000214 GR
-  0 A$CoreGameLoop$578                                             000216 GR
-  0 A$CoreGameLoop$582                                             000218 GR
-  0 A$CoreGameLoop$583                                             00021A GR
-  0 A$CoreGameLoop$584                                             00021C GR
-  0 A$CoreGameLoop$588                                             00021E GR
-  0 A$CoreGameLoop$589                                             000220 GR
-  0 A$CoreGameLoop$590                                             000222 GR
-  0 A$CoreGameLoop$594                                             000224 GR
-  0 A$CoreGameLoop$598                                             000227 GR
-  0 A$CoreGameLoop$606                                             000229 GR
-  0 A$CoreGameLoop$619                                             00022C GR
-  0 A$CoreGameLoop$620                                             00022F GR
-  0 A$CoreGameLoop$624                                             000232 GR
-  0 A$CoreGameLoop$625                                             000235 GR
-  0 A$CoreGameLoop$629                                             000238 GR
-  0 A$CoreGameLoop$630                                             00023B GR
-  0 A$CoreGameLoop$634                                             00023E GR
-  0 A$CoreGameLoop$635                                             000241 GR
-  0 A$CoreGameLoop$636                                             000242 GR
-  0 A$CoreGameLoop$637                                             000244 GR
+  0 A$CoreGameLoop$530                                             0001D2 GR
+  0 A$CoreGameLoop$531                                             0001D3 GR
+  0 A$CoreGameLoop$532                                             0001D4 GR
+  0 A$CoreGameLoop$536                                             0001D5 GR
+  0 A$CoreGameLoop$537                                             0001D8 GR
+  0 A$CoreGameLoop$541                                             0001DA GR
+  0 A$CoreGameLoop$542                                             0001DD GR
+  0 A$CoreGameLoop$543                                             0001DE GR
+  0 A$CoreGameLoop$544                                             0001E1 GR
+  0 A$CoreGameLoop$545                                             0001E2 GR
+  0 A$CoreGameLoop$546                                             0001E5 GR
+  0 A$CoreGameLoop$549                                             0001E7 GR
+  0 A$CoreGameLoop$550                                             0001EA GR
+  0 A$CoreGameLoop$552                                             0001EC GR
+  0 A$CoreGameLoop$553                                             0001EE GR
+  0 A$CoreGameLoop$554                                             0001EF GR
+  0 A$CoreGameLoop$555                                             0001F0 GR
+  0 A$CoreGameLoop$556                                             0001F3 GR
+  0 A$CoreGameLoop$557                                             0001F4 GR
+  0 A$CoreGameLoop$558                                             0001F7 GR
+  0 A$CoreGameLoop$559                                             0001F8 GR
+  0 A$CoreGameLoop$560                                             0001F9 GR
+  0 A$CoreGameLoop$561                                             0001FA GR
+  0 A$CoreGameLoop$562                                             0001FB GR
+  0 A$CoreGameLoop$563                                             0001FE GR
+  0 A$CoreGameLoop$565                                             000200 GR
+  0 A$CoreGameLoop$566                                             000203 GR
+  0 A$CoreGameLoop$570                                             000205 GR
+  0 A$CoreGameLoop$571                                             000208 GR
+  0 A$CoreGameLoop$572                                             000209 GR
+  0 A$CoreGameLoop$573                                             00020C GR
+  0 A$CoreGameLoop$574                                             00020D GR
+  0 A$CoreGameLoop$575                                             000210 GR
+  0 A$CoreGameLoop$579                                             000212 GR
+  0 A$CoreGameLoop$580                                             000214 GR
+  0 A$CoreGameLoop$581                                             000216 GR
+  0 A$CoreGameLoop$585                                             000218 GR
+  0 A$CoreGameLoop$586                                             00021A GR
+  0 A$CoreGameLoop$587                                             00021C GR
+  0 A$CoreGameLoop$591                                             00021E GR
+  0 A$CoreGameLoop$592                                             000220 GR
+  0 A$CoreGameLoop$593                                             000222 GR
+  0 A$CoreGameLoop$597                                             000224 GR
+  0 A$CoreGameLoop$601                                             000227 GR
+  0 A$CoreGameLoop$602                                             000229 GR
+  0 A$CoreGameLoop$606                                             00022C GR
+  0 A$CoreGameLoop$607                                             00022E GR
+  0 A$CoreGameLoop$608                                             00022F GR
+  0 A$CoreGameLoop$609                                             000230 GR
+  0 A$CoreGameLoop$610                                             000233 GR
+  0 A$CoreGameLoop$611                                             000234 GR
+  0 A$CoreGameLoop$612                                             000236 GR
+  0 A$CoreGameLoop$613                                             000237 GR
+  0 A$CoreGameLoop$617                                             00023A GR
+  0 A$CoreGameLoop$618                                             00023D GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 7
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$CoreGameLoop$641                                             000246 GR
-  0 A$CoreGameLoop$642                                             000249 GR
-  0 A$CoreGameLoop$643                                             00024A GR
-  0 A$CoreGameLoop$644                                             00024B GR
-  0 A$CoreGameLoop$648                                             00024D GR
-  0 A$CoreGameLoop$649                                             00024E GR
-  0 A$CoreGameLoop$650                                             00024F GR
-  0 A$CoreGameLoop$651                                             000250 GR
-  0 A$CoreGameLoop$652                                             000251 GR
-  0 A$CoreGameLoop$653                                             000252 GR
-  0 A$CoreGameLoop$654                                             000253 GR
-  0 A$CoreGameLoop$655                                             000254 GR
-  0 A$CoreGameLoop$659                                             000255 GR
-  0 A$CoreGameLoop$660                                             000258 GR
-  0 A$CoreGameLoop$661                                             00025A GR
-  0 A$CoreGameLoop$666                                             00025C GR
-  0 A$CoreGameLoop$667                                             00025E GR
-  0 A$CoreGameLoop$671                                             000260 GR
-  0 A$CoreGameLoop$672                                             000263 GR
-  0 A$CoreGameLoop$673                                             000264 GR
-  0 A$CoreGameLoop$674                                             000265 GR
-  0 A$CoreGameLoop$675                                             000267 GR
-  0 A$CoreGameLoop$676                                             000268 GR
-  0 A$CoreGameLoop$677                                             00026A GR
-  0 A$CoreGameLoop$681                                             00026C GR
-  0 A$CoreGameLoop$682                                             00026D GR
-  0 A$CoreGameLoop$683                                             00026E GR
-  0 A$CoreGameLoop$684                                             000270 GR
-  0 A$CoreGameLoop$685                                             000271 GR
-  0 A$CoreGameLoop$690                                             000272 GR
-  0 A$CoreGameLoop$691                                             000275 GR
-  0 A$CoreGameLoop$696                                             000277 GR
-  0 A$CoreGameLoop$697                                             000279 GR
-  0 A$CoreGameLoop$701                                             00027B GR
-  0 A$CoreGameLoop$702                                             00027E GR
-  0 A$CoreGameLoop$703                                             00027F GR
-  0 A$CoreGameLoop$704                                             000280 GR
-  0 A$CoreGameLoop$708                                             000282 GR
-  0 A$CoreGameLoop$709                                             000283 GR
-  0 A$CoreGameLoop$710                                             000284 GR
-  0 A$CoreGameLoop$711                                             000285 GR
-  0 A$CoreGameLoop$712                                             000286 GR
-  0 A$CoreGameLoop$713                                             000287 GR
-  0 A$CoreGameLoop$714                                             000288 GR
-  0 A$CoreGameLoop$715                                             000289 GR
-  0 A$CoreGameLoop$719                                             00028A GR
-  0 A$CoreGameLoop$720                                             00028D GR
-  0 A$CoreGameLoop$721                                             00028F GR
-  0 A$CoreGameLoop$726                                             000291 GR
-  0 A$CoreGameLoop$727                                             000293 GR
-  0 A$CoreGameLoop$731                                             000295 GR
-  0 A$CoreGameLoop$732                                             000298 GR
-  0 A$CoreGameLoop$733                                             000299 GR
-  0 A$CoreGameLoop$734                                             00029B GR
-  0 A$CoreGameLoop$735                                             00029C GR
+  0 A$CoreGameLoop$619                                             00023E GR
+  0 A$CoreGameLoop$620                                             000240 GR
+  0 A$CoreGameLoop$621                                             000242 GR
+  0 A$CoreGameLoop$629                                             000245 GR
+  0 A$CoreGameLoop$646                                             000252 GR
+  0 A$CoreGameLoop$647                                             000255 GR
+  0 A$CoreGameLoop$648                                             000257 GR
+  0 A$CoreGameLoop$649                                             00025A GR
+  0 A$CoreGameLoop$653                                             00025C GR
+  0 A$CoreGameLoop$654                                             00025F GR
+  0 A$CoreGameLoop$658                                             000261 GR
+  0 A$CoreGameLoop$659                                             000264 GR
+  0 A$CoreGameLoop$660                                             000266 GR
+  0 A$CoreGameLoop$661                                             000267 GR
+  0 A$CoreGameLoop$662                                             000268 GR
+  0 A$CoreGameLoop$666                                             000269 GR
+  0 A$CoreGameLoop$667                                             00026C GR
+  0 A$CoreGameLoop$668                                             00026E GR
+  0 A$CoreGameLoop$669                                             00026F GR
+  0 A$CoreGameLoop$670                                             000270 GR
+  0 A$CoreGameLoop$674                                             000271 GR
+  0 A$CoreGameLoop$675                                             000274 GR
+  0 A$CoreGameLoop$676                                             000276 GR
+  0 A$CoreGameLoop$677                                             000277 GR
+  0 A$CoreGameLoop$678                                             000278 GR
+  0 A$CoreGameLoop$679                                             000279 GR
+  0 A$CoreGameLoop$680                                             00027C GR
+  0 A$CoreGameLoop$681                                             00027E GR
+  0 A$CoreGameLoop$682                                             00027F GR
+  0 A$CoreGameLoop$683                                             000280 GR
+  0 A$CoreGameLoop$687                                             000281 GR
+  0 A$CoreGameLoop$688                                             000284 GR
+  0 A$CoreGameLoop$692                                             000286 GR
+  0 A$CoreGameLoop$693                                             000289 GR
+  0 A$CoreGameLoop$694                                             00028A GR
+  0 A$CoreGameLoop$695                                             00028D GR
+  0 A$CoreGameLoop$696                                             00028E GR
+  0 A$CoreGameLoop$697                                             000291 GR
+  0 A$CoreGameLoop$700                                             000293 GR
+  0 A$CoreGameLoop$701                                             000296 GR
+  0 A$CoreGameLoop$703                                             000298 GR
+  0 A$CoreGameLoop$704                                             00029A GR
+  0 A$CoreGameLoop$705                                             00029B GR
+  0 A$CoreGameLoop$706                                             00029C GR
+  0 A$CoreGameLoop$707                                             00029F GR
+  0 A$CoreGameLoop$708                                             0002A0 GR
+  0 A$CoreGameLoop$709                                             0002A3 GR
+  0 A$CoreGameLoop$710                                             0002A4 GR
+  0 A$CoreGameLoop$711                                             0002A5 GR
+  0 A$CoreGameLoop$712                                             0002A6 GR
+  0 A$CoreGameLoop$713                                             0002A7 GR
+  0 A$CoreGameLoop$714                                             0002AA GR
+  0 A$CoreGameLoop$716                                             0002AC GR
+  0 A$CoreGameLoop$717                                             0002AF GR
+  0 A$CoreGameLoop$721                                             0002B1 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 8
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 A$CoreGameLoop$736                                             00029E GR
-  0 A$CoreGameLoop$740                                             0002A0 GR
-  0 A$CoreGameLoop$741                                             0002A1 GR
-  0 A$CoreGameLoop$742                                             0002A2 GR
-  0 A$CoreGameLoop$743                                             0002A4 GR
-  0 A$CoreGameLoop$744                                             0002A5 GR
-  0 A$CoreGameLoop$749                                             0002A6 GR
-  0 A$CoreGameLoop$750                                             0002A9 GR
-  0 A$CoreGameLoop$751                                             0002AB GR
-  0 A$CoreGameLoop$756                                             0002AD GR
-  0 A$CoreGameLoop$757                                             0002AF GR
-  0 A$CoreGameLoop$761                                             0002B1 GR
-  0 A$CoreGameLoop$762                                             0002B3 GR
-  0 A$CoreGameLoop$766                                             0002B6 GR
-  0 A$CoreGameLoop$767                                             0002B8 GR
-  0 A$CoreGameLoop$772                                             0002B9 GR
-  0 A$CoreGameLoop$773                                             0002BB GR
-  0 A$CoreGameLoop$777                                             0002BD GR
-  0 A$CoreGameLoop$778                                             0002C0 GR
-  0 A$CoreGameLoop$779                                             0002C1 GR
-  0 A$CoreGameLoop$780                                             0002C4 GR
-  0 A$CoreGameLoop$781                                             0002C5 GR
-  0 A$CoreGameLoop$782                                             0002C8 GR
-  0 A$CoreGameLoop$787                                             0002CA GR
-  0 A$CoreGameLoop$788                                             0002CD GR
-  0 A$CoreGameLoop$789                                             0002CE GR
-  0 A$CoreGameLoop$793                                             0002D0 GR
-  0 A$CoreGameLoop$797                                             0002D3 GR
-  0 A$CoreGameLoop$801                                             0002D6 GR
-  0 A$CoreGameLoop$802                                             0002D9 GR
-  0 A$CoreGameLoop$807                                             0002DB GR
-  0 A$CoreGameLoop$815                                             0002DD GR
-  0 C$CoreGameLoop.c$100$3_0$142                                =  000272 GR
-  0 C$CoreGameLoop.c$104$1_0$138                                =  000277 GR
-  0 C$CoreGameLoop.c$105$2_0$143                                =  00027B GR
-  0 C$CoreGameLoop.c$107$3_0$144                                =  000282 GR
-  0 C$CoreGameLoop.c$108$3_0$144                                =  00028A GR
-  0 C$CoreGameLoop.c$110$1_0$138                                =  000291 GR
-  0 C$CoreGameLoop.c$111$2_0$145                                =  000295 GR
-  0 C$CoreGameLoop.c$113$3_0$146                                =  0002A0 GR
-  0 C$CoreGameLoop.c$114$3_0$146                                =  0002A6 GR
-  0 C$CoreGameLoop.c$116$1_0$138                                =  0002AD GR
-  0 C$CoreGameLoop.c$117$2_0$147                                =  0002B1 GR
-  0 C$CoreGameLoop.c$118$2_0$147                                =  0002B6 GR
-  0 C$CoreGameLoop.c$120$1_0$138                                =  0002B9 GR
-  0 C$CoreGameLoop.c$122$2_0$148                                =  0002BD GR
-  0 C$CoreGameLoop.c$124$1_0$138                                =  0002CA GR
-  0 C$CoreGameLoop.c$126$2_0$149                                =  0002D0 GR
-  0 C$CoreGameLoop.c$127$2_0$149                                =  0002D3 GR
-  0 C$CoreGameLoop.c$128$2_0$149                                =  0002D6 GR
-  0 C$CoreGameLoop.c$131$1_0$138                                =  0002DB GR
-  0 C$CoreGameLoop.c$132$1_0$138                                =  0002DD GR
-  0 C$CoreGameLoop.c$20$0_0$113                                 =  000000 GR
-  0 C$CoreGameLoop.c$23$1_0$113                                 =  000002 GR
-  0 C$CoreGameLoop.c$25$1_0$113                                 =  00000C GR
+  0 A$CoreGameLoop$722                                             0002B4 GR
+  0 A$CoreGameLoop$723                                             0002B5 GR
+  0 A$CoreGameLoop$724                                             0002B8 GR
+  0 A$CoreGameLoop$725                                             0002B9 GR
+  0 A$CoreGameLoop$726                                             0002BC GR
+  0 A$CoreGameLoop$730                                             0002BE GR
+  0 A$CoreGameLoop$731                                             0002C0 GR
+  0 A$CoreGameLoop$732                                             0002C2 GR
+  0 A$CoreGameLoop$736                                             0002C4 GR
+  0 A$CoreGameLoop$737                                             0002C6 GR
+  0 A$CoreGameLoop$738                                             0002C8 GR
+  0 A$CoreGameLoop$742                                             0002CA GR
+  0 A$CoreGameLoop$743                                             0002CC GR
+  0 A$CoreGameLoop$744                                             0002CE GR
+  0 A$CoreGameLoop$748                                             0002D0 GR
+  0 A$CoreGameLoop$752                                             0002D3 GR
+  0 A$CoreGameLoop$760                                             0002D5 GR
+  0 A$CoreGameLoop$773                                             0002D8 GR
+  0 A$CoreGameLoop$774                                             0002DB GR
+  0 A$CoreGameLoop$778                                             0002DE GR
+  0 A$CoreGameLoop$779                                             0002E1 GR
+  0 A$CoreGameLoop$783                                             0002E4 GR
+  0 A$CoreGameLoop$784                                             0002E7 GR
+  0 A$CoreGameLoop$788                                             0002EA GR
+  0 A$CoreGameLoop$789                                             0002ED GR
+  0 A$CoreGameLoop$790                                             0002EE GR
+  0 A$CoreGameLoop$791                                             0002F0 GR
+  0 A$CoreGameLoop$795                                             0002F2 GR
+  0 A$CoreGameLoop$796                                             0002F5 GR
+  0 A$CoreGameLoop$797                                             0002F6 GR
+  0 A$CoreGameLoop$798                                             0002F7 GR
+  0 A$CoreGameLoop$802                                             0002F9 GR
+  0 A$CoreGameLoop$803                                             0002FA GR
+  0 A$CoreGameLoop$804                                             0002FB GR
+  0 A$CoreGameLoop$805                                             0002FC GR
+  0 A$CoreGameLoop$806                                             0002FD GR
+  0 A$CoreGameLoop$807                                             0002FE GR
+  0 A$CoreGameLoop$808                                             0002FF GR
+  0 A$CoreGameLoop$809                                             000300 GR
+  0 A$CoreGameLoop$813                                             000301 GR
+  0 A$CoreGameLoop$814                                             000304 GR
+  0 A$CoreGameLoop$815                                             000306 GR
+  0 A$CoreGameLoop$820                                             000308 GR
+  0 A$CoreGameLoop$821                                             00030A GR
+  0 A$CoreGameLoop$825                                             00030C GR
+  0 A$CoreGameLoop$826                                             00030F GR
+  0 A$CoreGameLoop$827                                             000310 GR
+  0 A$CoreGameLoop$828                                             000311 GR
+  0 A$CoreGameLoop$829                                             000313 GR
+  0 A$CoreGameLoop$830                                             000314 GR
+  0 A$CoreGameLoop$831                                             000316 GR
+  0 A$CoreGameLoop$835                                             000318 GR
+  0 A$CoreGameLoop$836                                             000319 GR
+  0 A$CoreGameLoop$837                                             00031A GR
+  0 A$CoreGameLoop$838                                             00031C GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                  Page 9
 Hexadecimal [24-Bits]
 
 Symbol Table
 
-  0 C$CoreGameLoop.c$26$1_0$113                                 =  000023 GR
-  0 C$CoreGameLoop.c$28$2_0$114                                 =  00004E GR
-  0 C$CoreGameLoop.c$30$1_0$113                                 =  0000CB GR
-  0 C$CoreGameLoop.c$30$2_0$114                                 =  00008A GR
-  0 C$CoreGameLoop.c$34$3_0$116                                 =  00008C GR
-  0 C$CoreGameLoop.c$36$2_0$114                                 =  0000CB GR
-  0 C$CoreGameLoop.c$39$2_0$114                                 =  0000CF GR
-  0 C$CoreGameLoop.c$42$1_0$113                                 =  0000D3 GR
-  0 C$CoreGameLoop.c$43$1_0$113                                 =  0000E9 GR
-  0 C$CoreGameLoop.c$45$2_0$118                                 =  000110 GR
-  0 C$CoreGameLoop.c$47$1_0$113                                 =  0000F1 GR
-  0 C$CoreGameLoop.c$47$2_0$118                                 =  00014D GR
-  0 C$CoreGameLoop.c$51$3_0$120                                 =  00014F GR
-  0 C$CoreGameLoop.c$53$2_0$118                                 =  000185 GR
-  0 C$CoreGameLoop.c$56$2_0$118                                 =  000185 GR
-  0 C$CoreGameLoop.c$59$1_0$113                                 =  00018B GR
-  0 C$CoreGameLoop.c$60$1_0$113                                 =  0001A5 GR
-  0 C$CoreGameLoop.c$64$1_0$134                                 =  0001A6 GR
-  0 C$CoreGameLoop.c$67$1_0$134                                 =  0001A6 GR
-  0 C$CoreGameLoop.c$68$1_0$134                                 =  0001B0 GR
-  0 C$CoreGameLoop.c$69$1_0$134                                 =  0001B5 GR
-  0 C$CoreGameLoop.c$70$1_0$134                                 =  0001BD GR
-  0 C$CoreGameLoop.c$71$1_0$134                                 =  0001C5 GR
-  0 C$CoreGameLoop.c$72$1_0$134                                 =  0001D5 GR
-  0 C$CoreGameLoop.c$74$1_0$134                                 =  0001DA GR
-  0 C$CoreGameLoop.c$76$1_0$134                                 =  000205 GR
-  0 C$CoreGameLoop.c$77$1_0$134                                 =  000212 GR
-  0 C$CoreGameLoop.c$78$1_0$134                                 =  000218 GR
-  0 C$CoreGameLoop.c$79$1_0$134                                 =  00021E GR
-  0 C$CoreGameLoop.c$80$1_0$134                                 =  000224 GR
-  0 C$CoreGameLoop.c$81$1_0$134                                 =  000227 GR
-  0 C$CoreGameLoop.c$82$1_0$134                                 =  000229 GR
-  0 C$CoreGameLoop.c$86$1_0$138                                 =  00022C GR
-  0 C$CoreGameLoop.c$88$1_0$138                                 =  00022C GR
-  0 C$CoreGameLoop.c$89$1_0$138                                 =  000232 GR
-  0 C$CoreGameLoop.c$90$1_0$138                                 =  000238 GR
-  0 C$CoreGameLoop.c$91$1_0$138                                 =  00023E GR
-  0 C$CoreGameLoop.c$92$2_0$139                                 =  000246 GR
-  0 C$CoreGameLoop.c$93$3_0$140                                 =  00024D GR
-  0 C$CoreGameLoop.c$94$3_0$140                                 =  000255 GR
-  0 C$CoreGameLoop.c$96$1_0$138                                 =  00025C GR
-  0 C$CoreGameLoop.c$97$2_0$141                                 =  000260 GR
-  0 C$CoreGameLoop.c$99$3_0$142                                 =  00026C GR
+  0 A$CoreGameLoop$839                                             00031D GR
+  0 A$CoreGameLoop$844                                             00031E GR
+  0 A$CoreGameLoop$845                                             000321 GR
+  0 A$CoreGameLoop$850                                             000323 GR
+  0 A$CoreGameLoop$851                                             000325 GR
+  0 A$CoreGameLoop$855                                             000327 GR
+  0 A$CoreGameLoop$856                                             00032A GR
+  0 A$CoreGameLoop$857                                             00032B GR
+  0 A$CoreGameLoop$858                                             00032C GR
+  0 A$CoreGameLoop$862                                             00032E GR
+  0 A$CoreGameLoop$863                                             00032F GR
+  0 A$CoreGameLoop$864                                             000330 GR
+  0 A$CoreGameLoop$865                                             000331 GR
+  0 A$CoreGameLoop$866                                             000332 GR
+  0 A$CoreGameLoop$867                                             000333 GR
+  0 A$CoreGameLoop$868                                             000334 GR
+  0 A$CoreGameLoop$869                                             000335 GR
+  0 A$CoreGameLoop$873                                             000336 GR
+  0 A$CoreGameLoop$874                                             000339 GR
+  0 A$CoreGameLoop$875                                             00033B GR
+  0 A$CoreGameLoop$880                                             00033D GR
+  0 A$CoreGameLoop$881                                             00033F GR
+  0 A$CoreGameLoop$885                                             000341 GR
+  0 A$CoreGameLoop$886                                             000344 GR
+  0 A$CoreGameLoop$887                                             000345 GR
+  0 A$CoreGameLoop$888                                             000347 GR
+  0 A$CoreGameLoop$889                                             000348 GR
+  0 A$CoreGameLoop$890                                             00034A GR
+  0 A$CoreGameLoop$894                                             00034C GR
+  0 A$CoreGameLoop$895                                             00034D GR
+  0 A$CoreGameLoop$896                                             00034E GR
+  0 A$CoreGameLoop$897                                             000350 GR
+  0 A$CoreGameLoop$898                                             000351 GR
+  0 A$CoreGameLoop$903                                             000352 GR
+  0 A$CoreGameLoop$904                                             000355 GR
+  0 A$CoreGameLoop$905                                             000357 GR
+  0 A$CoreGameLoop$910                                             000359 GR
+  0 A$CoreGameLoop$911                                             00035B GR
+  0 A$CoreGameLoop$915                                             00035D GR
+  0 A$CoreGameLoop$916                                             00035F GR
+  0 A$CoreGameLoop$920                                             000362 GR
+  0 A$CoreGameLoop$921                                             000364 GR
+  0 A$CoreGameLoop$926                                             000365 GR
+  0 A$CoreGameLoop$927                                             000367 GR
+  0 A$CoreGameLoop$931                                             000369 GR
+  0 A$CoreGameLoop$932                                             00036C GR
+  0 A$CoreGameLoop$933                                             00036D GR
+  0 A$CoreGameLoop$934                                             000370 GR
+  0 A$CoreGameLoop$935                                             000371 GR
+  0 A$CoreGameLoop$936                                             000374 GR
+  0 A$CoreGameLoop$941                                             000376 GR
+  0 A$CoreGameLoop$942                                             000379 GR
+  0 A$CoreGameLoop$943                                             00037A GR
+  0 A$CoreGameLoop$947                                             00037C GR
+  0 A$CoreGameLoop$951                                             00037F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 10
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 A$CoreGameLoop$955                                             000382 GR
+  0 A$CoreGameLoop$956                                             000385 GR
+  0 A$CoreGameLoop$961                                             000387 GR
+  0 A$CoreGameLoop$969                                             000389 GR
+  0 C$CoreGameLoop.c$100$1_0$140                                =  0002BE GR
+  0 C$CoreGameLoop.c$101$1_0$140                                =  0002C4 GR
+  0 C$CoreGameLoop.c$102$1_0$140                                =  0002CA GR
+  0 C$CoreGameLoop.c$103$1_0$140                                =  0002D0 GR
+  0 C$CoreGameLoop.c$104$1_0$140                                =  0002D3 GR
+  0 C$CoreGameLoop.c$105$1_0$140                                =  0002D5 GR
+  0 C$CoreGameLoop.c$109$1_0$144                                =  0002D8 GR
+  0 C$CoreGameLoop.c$111$1_0$144                                =  0002D8 GR
+  0 C$CoreGameLoop.c$112$1_0$144                                =  0002DE GR
+  0 C$CoreGameLoop.c$113$1_0$144                                =  0002E4 GR
+  0 C$CoreGameLoop.c$118$1_0$144                                =  0002EA GR
+  0 C$CoreGameLoop.c$119$2_0$146                                =  0002F2 GR
+  0 C$CoreGameLoop.c$120$3_0$147                                =  0002F9 GR
+  0 C$CoreGameLoop.c$121$3_0$147                                =  000301 GR
+  0 C$CoreGameLoop.c$123$1_0$144                                =  000308 GR
+  0 C$CoreGameLoop.c$124$2_0$148                                =  00030C GR
+  0 C$CoreGameLoop.c$126$3_0$149                                =  000318 GR
+  0 C$CoreGameLoop.c$127$3_0$149                                =  00031E GR
+  0 C$CoreGameLoop.c$131$1_0$144                                =  000323 GR
+  0 C$CoreGameLoop.c$132$2_0$150                                =  000327 GR
+  0 C$CoreGameLoop.c$134$3_0$151                                =  00032E GR
+  0 C$CoreGameLoop.c$135$3_0$151                                =  000336 GR
+  0 C$CoreGameLoop.c$137$1_0$144                                =  00033D GR
+  0 C$CoreGameLoop.c$138$2_0$152                                =  000341 GR
+  0 C$CoreGameLoop.c$140$3_0$153                                =  00034C GR
+  0 C$CoreGameLoop.c$141$3_0$153                                =  000352 GR
+  0 C$CoreGameLoop.c$143$1_0$144                                =  000359 GR
+  0 C$CoreGameLoop.c$144$2_0$154                                =  00035D GR
+  0 C$CoreGameLoop.c$145$2_0$154                                =  000362 GR
+  0 C$CoreGameLoop.c$147$1_0$144                                =  000365 GR
+  0 C$CoreGameLoop.c$149$2_0$155                                =  000369 GR
+  0 C$CoreGameLoop.c$151$1_0$144                                =  000376 GR
+  0 C$CoreGameLoop.c$153$2_0$156                                =  00037C GR
+  0 C$CoreGameLoop.c$154$2_0$156                                =  00037F GR
+  0 C$CoreGameLoop.c$155$2_0$156                                =  000382 GR
+  0 C$CoreGameLoop.c$158$1_0$144                                =  000387 GR
+  0 C$CoreGameLoop.c$159$1_0$144                                =  000389 GR
+  0 C$CoreGameLoop.c$21$0_0$115                                 =  000000 GR
+  0 C$CoreGameLoop.c$24$1_0$115                                 =  000002 GR
+  0 C$CoreGameLoop.c$26$1_0$115                                 =  00000C GR
+  0 C$CoreGameLoop.c$27$1_0$115                                 =  000023 GR
+  0 C$CoreGameLoop.c$29$2_0$116                                 =  00004E GR
+  0 C$CoreGameLoop.c$31$1_0$115                                 =  0000CB GR
+  0 C$CoreGameLoop.c$31$2_0$116                                 =  00008A GR
+  0 C$CoreGameLoop.c$35$3_0$118                                 =  00008C GR
+  0 C$CoreGameLoop.c$37$2_0$116                                 =  0000CB GR
+  0 C$CoreGameLoop.c$40$2_0$116                                 =  0000CF GR
+  0 C$CoreGameLoop.c$43$1_0$115                                 =  0000D3 GR
+  0 C$CoreGameLoop.c$44$1_0$115                                 =  0000E9 GR
+  0 C$CoreGameLoop.c$46$2_0$120                                 =  000110 GR
+  0 C$CoreGameLoop.c$48$1_0$115                                 =  0000F1 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 11
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  0 C$CoreGameLoop.c$48$2_0$120                                 =  00014D GR
+  0 C$CoreGameLoop.c$52$3_0$122                                 =  00014F GR
+  0 C$CoreGameLoop.c$54$2_0$120                                 =  000185 GR
+  0 C$CoreGameLoop.c$57$2_0$120                                 =  000185 GR
+  0 C$CoreGameLoop.c$60$1_0$115                                 =  00018B GR
+  0 C$CoreGameLoop.c$61$1_0$115                                 =  0001A5 GR
+  0 C$CoreGameLoop.c$65$1_0$136                                 =  0001A6 GR
+  0 C$CoreGameLoop.c$68$1_0$136                                 =  0001A6 GR
+  0 C$CoreGameLoop.c$69$1_0$136                                 =  0001B0 GR
+  0 C$CoreGameLoop.c$70$1_0$136                                 =  0001B5 GR
+  0 C$CoreGameLoop.c$71$1_0$136                                 =  0001BD GR
+  0 C$CoreGameLoop.c$72$1_0$136                                 =  0001C5 GR
+  0 C$CoreGameLoop.c$73$1_0$136                                 =  0001D5 GR
+  0 C$CoreGameLoop.c$75$1_0$136                                 =  0001DA GR
+  0 C$CoreGameLoop.c$77$1_0$136                                 =  000205 GR
+  0 C$CoreGameLoop.c$78$1_0$136                                 =  000212 GR
+  0 C$CoreGameLoop.c$79$1_0$136                                 =  000218 GR
+  0 C$CoreGameLoop.c$80$1_0$136                                 =  00021E GR
+  0 C$CoreGameLoop.c$81$1_0$136                                 =  000224 GR
+  0 C$CoreGameLoop.c$82$1_0$136                                 =  000227 GR
+  0 C$CoreGameLoop.c$83$1_0$136                                 =  00022C GR
+  0 C$CoreGameLoop.c$84$1_0$136                                 =  00023A GR
+  0 C$CoreGameLoop.c$85$1_0$136                                 =  000245 GR
+  0 C$CoreGameLoop.c$87$1_0$140                                 =  000252 GR
+  0 C$CoreGameLoop.c$90$1_0$140                                 =  000252 GR
+  0 C$CoreGameLoop.c$91$1_0$140                                 =  00025C GR
+  0 C$CoreGameLoop.c$92$1_0$140                                 =  000261 GR
+  0 C$CoreGameLoop.c$93$1_0$140                                 =  000269 GR
+  0 C$CoreGameLoop.c$94$1_0$140                                 =  000271 GR
+  0 C$CoreGameLoop.c$95$1_0$140                                 =  000281 GR
+  0 C$CoreGameLoop.c$97$1_0$140                                 =  000286 GR
+  0 C$CoreGameLoop.c$99$1_0$140                                 =  0002B1 GR
+  0 FCoreGameLoop$__str_0$0_0$0                                 =  000246 GR
   7 FCoreGameLoop$__xinit_mouse$0_0$0                           =  000000 GR
   0 G$CoreGameLoopSetup$0$0                                     =  0001A6 GR
-  0 G$CoreGameLoopUpdate$0$0                                    =  00022C GR
+  0 G$CoreGameLoopSetup2$0$0                                    =  000252 GR
+  0 G$CoreGameLoopUpdate$0$0                                    =  0002D8 GR
   1 G$camera_pixel_goal_x$0_0$0                                 =  00000D GR
   1 G$camera_pixel_goal_y$0_0$0                                 =  00000E GR
   1 G$camera_x_pixels$0_0$0                                     =  000000 GR
@@ -538,22 +649,26 @@ Symbol Table
   2 G$mouse$0_0$0                                               =  000000 GR
   1 G$old_camera_x_pixels$0_0$0                                 =  000004 GR
   1 G$old_camera_y_pixels$0_0$0                                 =  000006 GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 10
-Hexadecimal [24-Bits]
-
-Symbol Table
-
   1 G$old_map_pos_x_tiles$0_0$0                                 =  00000A GR
   1 G$old_map_pos_y_tiles$0_0$0                                 =  00000B GR
   1 G$redraw$0_0$0                                              =  00000C GR
   0 G$set_camera$0$0                                            =  000000 GR
-  0 XG$CoreGameLoopSetup$0$0                                    =  000229 GR
-  0 XG$CoreGameLoopUpdate$0$0                                   =  0002DD GR
+  0 XG$CoreGameLoopSetup$0$0                                    =  000245 GR
+  0 XG$CoreGameLoopSetup2$0$0                                   =  0002D5 GR
+  0 XG$CoreGameLoopUpdate$0$0                                   =  000389 GR
   0 XG$set_camera$0$0                                           =  0001A5 GR
     _Cast_Tiles                                                    ****** GX
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 12
+Hexadecimal [24-Bits]
+
+Symbol Table
+
   0 _CoreGameLoopSetup                                             0001A6 GR
-  0 _CoreGameLoopUpdate                                            00022C GR
+  0 _CoreGameLoopSetup2                                            000252 GR
+  0 _CoreGameLoopUpdate                                            0002D8 GR
+    _DrawNumberWindow                                              ****** GX
     _DrawPlayer                                                    ****** GX
+    _DrawTextWindow                                                ****** GX
     _Home                                                          ****** GX
     _IndoorTiles                                                   ****** GX
     _LCDC_REG                                                      ****** GX
@@ -561,6 +676,7 @@ Symbol Table
     _SCX_REG                                                       ****** GX
     _SCY_REG                                                       ****** GX
     _Skateboard_Tiles                                              ****** GX
+  0 ___str_0                                                       000246 R
     __submap_tile_offset                                           ****** GX
   7 __xinit__mouse                                                 000000 R
   1 _camera_pixel_goal_x                                           00000D GR
@@ -585,19 +701,18 @@ Symbol Table
     _set_sprite_data                                               ****** GX
     _wait_vbl_done                                                 ****** GX
 
-
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 11
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (GameBoy)                 Page 13
 Hexadecimal [24-Bits]
 
 Area Table
 
-   0 _CODE                                      size    2DE   flags    0
+   0 _CODE                                      size    38A   flags    0
    1 _DATA                                      size      F   flags    0
-   2 _INITIALIZED                               size      8   flags    0
+   2 _INITIALIZED                               size      C   flags    0
    3 _DABS                                      size      0   flags    8
    4 _HOME                                      size      0   flags    0
    5 _GSINIT                                    size      0   flags    0
    6 _GSFINAL                                   size      0   flags    0
-   7 _INITIALIZER                               size      8   flags    0
+   7 _INITIALIZER                               size      C   flags    0
    8 _CABS                                      size      0   flags    8
 

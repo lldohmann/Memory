@@ -1,13 +1,15 @@
 ;!FILE obj\CoreGameLoop.asm
 XL3
-H 9 areas 214 global symbols
+H 9 areas 27D global symbols
 M CoreGameLoop
 O -msm83
 S _joypadCurrent Ref000000
 S _Cast_Tiles Ref000000
 S _SCX_REG Ref000000
+S _DrawTextWindow Ref000000
 S _IndoorTiles Ref000000
 S _SCY_REG Ref000000
+S _DrawNumberWindow Ref000000
 S _fadeToBlack Ref000000
 S _set_sprite_data Ref000000
 S _DrawPlayer Ref000000
@@ -22,495 +24,598 @@ S _set_bkg_data Ref000000
 S __submap_tile_offset Ref000000
 S _wait_vbl_done Ref000000
 S _Skateboard_Tiles Ref000000
-A _CODE size 2DE flags 0 addr 0
-S A$CoreGameLoop$802 Def0002D9
-S A$CoreGameLoop$721 Def00028F
-S A$CoreGameLoop$712 Def000286
-S A$CoreGameLoop$703 Def00027F
-S A$CoreGameLoop$550 Def0001EE
-S A$CoreGameLoop$541 Def0001E1
-S A$CoreGameLoop$523 Def0001CB
-S A$CoreGameLoop$514 Def0001C2
-S A$CoreGameLoop$505 Def0001B8
-S A$CoreGameLoop$442 Def000178
-S A$CoreGameLoop$433 Def000172
-S A$CoreGameLoop$424 Def000168
-S A$CoreGameLoop$415 Def00015A
-S A$CoreGameLoop$361 Def00011E
-S A$CoreGameLoop$352 Def000111
-S A$CoreGameLoop$343 Def000109
-S A$CoreGameLoop$325 Def0000F8
-S A$CoreGameLoop$316 Def0000ED
-S A$CoreGameLoop$307 Def0000E1
-S A$CoreGameLoop$280 Def0000C9
-S A$CoreGameLoop$271 Def0000BB
-S A$CoreGameLoop$244 Def0000A1
-S A$CoreGameLoop$217 Def00007E
-S A$CoreGameLoop$208 Def000075
-S A$CoreGameLoop$190 Def000060
-S A$CoreGameLoop$181 Def000056
-S A$CoreGameLoop$172 Def00004C
-S A$CoreGameLoop$163 Def000040
-S A$CoreGameLoop$154 Def000035
-S A$CoreGameLoop$127 Def000014
-S A$CoreGameLoop$118 Def00000A
-S C$CoreGameLoop.c$70$1_0$134 Def0001BD
-S A$CoreGameLoop$740 Def0002A0
-S A$CoreGameLoop$731 Def000295
-S A$CoreGameLoop$713 Def000287
-S A$CoreGameLoop$704 Def000280
-S A$CoreGameLoop$650 Def00024F
-S A$CoreGameLoop$641 Def000246
-S A$CoreGameLoop$560 Def0001FE
-S A$CoreGameLoop$551 Def0001EF
-S A$CoreGameLoop$542 Def0001E2
-S A$CoreGameLoop$533 Def0001D5
-S A$CoreGameLoop$524 Def0001CC
-S A$CoreGameLoop$515 Def0001C3
-S A$CoreGameLoop$506 Def0001BA
-S A$CoreGameLoop$470 Def0001A0
-S A$CoreGameLoop$443 Def000179
-S A$CoreGameLoop$380 Def000137
-S A$CoreGameLoop$371 Def00012B
-S A$CoreGameLoop$353 Def000114
-S A$CoreGameLoop$344 Def00010B
-S A$CoreGameLoop$335 Def0000FF
-S A$CoreGameLoop$326 Def0000FA
-S A$CoreGameLoop$317 Def0000EE
-S A$CoreGameLoop$308 Def0000E3
-S A$CoreGameLoop$272 Def0000BC
-S A$CoreGameLoop$263 Def0000B5
-S A$CoreGameLoop$254 Def0000AE
-S A$CoreGameLoop$245 Def0000A2
-S A$CoreGameLoop$236 Def000093
-S A$CoreGameLoop$227 Def00008A
-S A$CoreGameLoop$218 Def00007F
-S A$CoreGameLoop$191 Def000062
-S A$CoreGameLoop$182 Def000057
-S A$CoreGameLoop$173 Def00004D
-S A$CoreGameLoop$164 Def000041
-S A$CoreGameLoop$155 Def000036
-S A$CoreGameLoop$137 Def000022
-S A$CoreGameLoop$128 Def000016
-S C$CoreGameLoop.c$80$1_0$134 Def000224
-S C$CoreGameLoop.c$71$1_0$134 Def0001C5
+A _CODE size 38A flags 0 addr 0
+S A$CoreGameLoop$910 Def000359
+S A$CoreGameLoop$820 Def000308
+S A$CoreGameLoop$802 Def0002F9
+S A$CoreGameLoop$730 Def0002BE
+S A$CoreGameLoop$721 Def0002B1
+S A$CoreGameLoop$712 Def0002A6
+S A$CoreGameLoop$703 Def000298
+S A$CoreGameLoop$613 Def000237
+S A$CoreGameLoop$550 Def0001EA
+S A$CoreGameLoop$541 Def0001DA
+S A$CoreGameLoop$532 Def0001D4
+S A$CoreGameLoop$523 Def0001C5
+S A$CoreGameLoop$460 Def000185
+S A$CoreGameLoop$451 Def000180
+S A$CoreGameLoop$433 Def00016F
+S A$CoreGameLoop$424 Def000163
+S A$CoreGameLoop$415 Def000156
+S A$CoreGameLoop$406 Def00014D
+S A$CoreGameLoop$361 Def00011B
+S A$CoreGameLoop$343 Def000105
+S A$CoreGameLoop$334 Def0000FD
+S A$CoreGameLoop$325 Def0000F4
+S A$CoreGameLoop$307 Def0000DB
+S A$CoreGameLoop$280 Def0000C4
+S A$CoreGameLoop$271 Def0000B8
+S A$CoreGameLoop$262 Def0000B2
+S A$CoreGameLoop$244 Def00009D
+S A$CoreGameLoop$235 Def00008C
+S A$CoreGameLoop$226 Def000088
+S A$CoreGameLoop$217 Def00007A
+S A$CoreGameLoop$208 Def000070
+S A$CoreGameLoop$190 Def00005C
+S A$CoreGameLoop$181 Def000051
+S A$CoreGameLoop$172 Def000047
+S A$CoreGameLoop$163 Def00003C
+S A$CoreGameLoop$154 Def000031
+S A$CoreGameLoop$145 Def000024
+S A$CoreGameLoop$136 Def000021
+S A$CoreGameLoop$127 Def000010
+S A$CoreGameLoop$118 Def000002
+S C$CoreGameLoop.c$91$1_0$140 Def00025C
+S C$CoreGameLoop.c$44$1_0$115 Def0000E9
+S C$CoreGameLoop.c$26$1_0$115 Def00000C
+S A$CoreGameLoop$920 Def000362
+S A$CoreGameLoop$911 Def00035B
+S A$CoreGameLoop$830 Def000314
+S A$CoreGameLoop$821 Def00030A
+S A$CoreGameLoop$803 Def0002FA
+S A$CoreGameLoop$731 Def0002C0
+S A$CoreGameLoop$722 Def0002B4
+S A$CoreGameLoop$713 Def0002A7
+S A$CoreGameLoop$704 Def00029A
+S A$CoreGameLoop$560 Def0001F9
+S A$CoreGameLoop$542 Def0001DD
+S A$CoreGameLoop$524 Def0001C8
+S A$CoreGameLoop$515 Def0001BD
+S A$CoreGameLoop$470 Def000197
+S A$CoreGameLoop$461 Def000188
+S A$CoreGameLoop$452 Def000183
+S A$CoreGameLoop$434 Def000170
+S A$CoreGameLoop$425 Def000166
+S A$CoreGameLoop$416 Def000157
+S A$CoreGameLoop$380 Def000132
+S A$CoreGameLoop$371 Def000127
+S A$CoreGameLoop$362 Def00011C
+S A$CoreGameLoop$344 Def000106
+S A$CoreGameLoop$335 Def0000FE
+S A$CoreGameLoop$326 Def0000F5
+S A$CoreGameLoop$317 Def0000E9
+S A$CoreGameLoop$308 Def0000DD
+S A$CoreGameLoop$272 Def0000B9
+S A$CoreGameLoop$263 Def0000B3
+S A$CoreGameLoop$254 Def0000A9
+S A$CoreGameLoop$236 Def00008F
+S A$CoreGameLoop$218 Def00007B
+S A$CoreGameLoop$209 Def000071
+S A$CoreGameLoop$191 Def00005D
+S A$CoreGameLoop$182 Def000054
+S A$CoreGameLoop$173 Def000049
+S A$CoreGameLoop$164 Def00003D
+S A$CoreGameLoop$155 Def000032
+S A$CoreGameLoop$146 Def000027
+S A$CoreGameLoop$128 Def000011
+S A$CoreGameLoop$119 Def000005
+S C$CoreGameLoop.c$92$1_0$140 Def000261
 S G$CoreGameLoopSetup$0$0 Def0001A6
-S C$CoreGameLoop.c$47$1_0$113 Def0000F1
-S C$CoreGameLoop.c$36$2_0$114 Def0000CB
-S A$CoreGameLoop$750 Def0002A9
-S A$CoreGameLoop$741 Def0002A1
-S A$CoreGameLoop$732 Def000298
-S A$CoreGameLoop$714 Def000288
-S A$CoreGameLoop$660 Def000258
-S A$CoreGameLoop$651 Def000250
-S A$CoreGameLoop$642 Def000249
-S A$CoreGameLoop$624 Def000232
-S A$CoreGameLoop$606 Def000229
-S A$CoreGameLoop$570 Def00020C
-S A$CoreGameLoop$552 Def0001F0
-S A$CoreGameLoop$543 Def0001E5
-S A$CoreGameLoop$534 Def0001D8
-S A$CoreGameLoop$525 Def0001CD
-S A$CoreGameLoop$516 Def0001C4
-S A$CoreGameLoop$507 Def0001BB
-S A$CoreGameLoop$444 Def00017A
-S A$CoreGameLoop$417 Def00015D
-S A$CoreGameLoop$408 Def00014F
-S A$CoreGameLoop$381 Def000138
-S A$CoreGameLoop$372 Def00012E
-S A$CoreGameLoop$363 Def000120
-S A$CoreGameLoop$354 Def000117
-S A$CoreGameLoop$345 Def00010C
-S A$CoreGameLoop$336 Def000101
-S A$CoreGameLoop$327 Def0000FB
-S A$CoreGameLoop$309 Def0000E5
-S A$CoreGameLoop$273 Def0000BE
-S A$CoreGameLoop$264 Def0000B6
-S A$CoreGameLoop$246 Def0000A3
-S A$CoreGameLoop$237 Def000096
-S A$CoreGameLoop$219 Def000080
-S A$CoreGameLoop$183 Def000058
-S A$CoreGameLoop$165 Def000042
-S A$CoreGameLoop$156 Def000038
-S A$CoreGameLoop$129 Def000018
-S C$CoreGameLoop.c$81$1_0$134 Def000227
-S C$CoreGameLoop.c$72$1_0$134 Def0001D5
-S C$CoreGameLoop.c$34$3_0$116 Def00008C
-S C$CoreGameLoop.c$28$2_0$114 Def00004E
-S A$CoreGameLoop$751 Def0002AB
-S A$CoreGameLoop$742 Def0002A2
-S A$CoreGameLoop$733 Def000299
-S A$CoreGameLoop$715 Def000289
-S A$CoreGameLoop$661 Def00025A
-S A$CoreGameLoop$652 Def000251
-S A$CoreGameLoop$643 Def00024A
-S A$CoreGameLoop$634 Def00023E
-S A$CoreGameLoop$625 Def000235
-S A$CoreGameLoop$571 Def00020D
-S A$CoreGameLoop$562 Def000200
-S A$CoreGameLoop$553 Def0001F3
-S A$CoreGameLoop$526 Def0001D0
-S A$CoreGameLoop$508 Def0001BC
-S A$CoreGameLoop$463 Def00018B
-S A$CoreGameLoop$445 Def00017B
-S A$CoreGameLoop$436 Def000174
-S A$CoreGameLoop$427 Def00016A
-S A$CoreGameLoop$418 Def00015E
-S A$CoreGameLoop$409 Def000152
-S A$CoreGameLoop$391 Def00013F
-S A$CoreGameLoop$382 Def000139
-S A$CoreGameLoop$364 Def000121
-S A$CoreGameLoop$355 Def000118
-S A$CoreGameLoop$346 Def00010E
-S A$CoreGameLoop$337 Def000102
-S A$CoreGameLoop$274 Def0000BF
-S A$CoreGameLoop$265 Def0000B7
-S A$CoreGameLoop$238 Def000097
-S A$CoreGameLoop$193 Def000064
-S A$CoreGameLoop$184 Def000059
-S A$CoreGameLoop$166 Def000043
-S A$CoreGameLoop$157 Def000039
-S A$CoreGameLoop$148 Def00002B
-S C$CoreGameLoop.c$82$1_0$134 Def000229
-S C$CoreGameLoop.c$64$1_0$134 Def0001A6
-S A$CoreGameLoop$815 Def0002DD
-S A$CoreGameLoop$761 Def0002B1
-S A$CoreGameLoop$743 Def0002A4
-S A$CoreGameLoop$734 Def00029B
-S A$CoreGameLoop$671 Def000260
-S A$CoreGameLoop$653 Def000252
-S A$CoreGameLoop$644 Def00024B
-S A$CoreGameLoop$635 Def000241
-S A$CoreGameLoop$590 Def000222
-S A$CoreGameLoop$572 Def000210
-S A$CoreGameLoop$563 Def000203
-S A$CoreGameLoop$554 Def0001F4
-S A$CoreGameLoop$527 Def0001D2
-S A$CoreGameLoop$464 Def00018E
-S A$CoreGameLoop$446 Def00017E
-S A$CoreGameLoop$437 Def000175
-S A$CoreGameLoop$428 Def00016B
-S A$CoreGameLoop$419 Def000161
-S A$CoreGameLoop$392 Def000140
-S A$CoreGameLoop$383 Def00013A
-S A$CoreGameLoop$374 Def000130
-S A$CoreGameLoop$365 Def000122
-S A$CoreGameLoop$356 Def000119
-S A$CoreGameLoop$347 Def00010F
-S A$CoreGameLoop$338 Def000103
-S A$CoreGameLoop$293 Def0000CF
-S A$CoreGameLoop$275 Def0000C0
-S A$CoreGameLoop$257 Def0000B0
-S A$CoreGameLoop$248 Def0000A4
-S A$CoreGameLoop$239 Def000098
-S A$CoreGameLoop$194 Def000066
-S A$CoreGameLoop$185 Def00005A
-S A$CoreGameLoop$167 Def000044
-S A$CoreGameLoop$158 Def00003A
-S A$CoreGameLoop$149 Def00002E
-S C$CoreGameLoop.c$93$3_0$140 Def00024D
-S C$CoreGameLoop.c$74$1_0$134 Def0001DA
-S C$CoreGameLoop.c$59$1_0$113 Def00018B
-S C$CoreGameLoop.c$53$2_0$118 Def000185
-S C$CoreGameLoop.c$39$2_0$114 Def0000CF
-S A$CoreGameLoop$807 Def0002DB
-S A$CoreGameLoop$780 Def0002C4
-S A$CoreGameLoop$762 Def0002B3
-S A$CoreGameLoop$744 Def0002A5
-S A$CoreGameLoop$735 Def00029C
-S A$CoreGameLoop$726 Def000291
-S A$CoreGameLoop$708 Def000282
-S A$CoreGameLoop$690 Def000272
-S A$CoreGameLoop$681 Def00026C
-S A$CoreGameLoop$672 Def000263
-S A$CoreGameLoop$654 Def000253
-S A$CoreGameLoop$636 Def000242
-S A$CoreGameLoop$582 Def000218
-S A$CoreGameLoop$555 Def0001F7
-S A$CoreGameLoop$546 Def0001E7
-S A$CoreGameLoop$528 Def0001D3
-S A$CoreGameLoop$492 Def0001A6
-S A$CoreGameLoop$474 Def0001A3
-S A$CoreGameLoop$465 Def000191
-S A$CoreGameLoop$438 Def000176
-S A$CoreGameLoop$429 Def00016C
-S A$CoreGameLoop$393 Def000141
-S A$CoreGameLoop$366 Def000124
-S A$CoreGameLoop$357 Def00011A
-S A$CoreGameLoop$339 Def000104
-S A$CoreGameLoop$294 Def0000D2
-S A$CoreGameLoop$276 Def0000C1
-S A$CoreGameLoop$258 Def0000B1
-S A$CoreGameLoop$249 Def0000A7
-S A$CoreGameLoop$195 Def000067
-S A$CoreGameLoop$177 Def00004E
-S A$CoreGameLoop$168 Def000046
-S A$CoreGameLoop$159 Def00003B
-S C$CoreGameLoop.c$94$3_0$140 Def000255
-S C$CoreGameLoop.c$45$2_0$118 Def000110
-S A$CoreGameLoop$781 Def0002C5
-S A$CoreGameLoop$772 Def0002B9
-S A$CoreGameLoop$736 Def00029E
-S A$CoreGameLoop$727 Def000293
-S A$CoreGameLoop$709 Def000283
-S A$CoreGameLoop$691 Def000275
-S A$CoreGameLoop$682 Def00026D
-S A$CoreGameLoop$673 Def000264
-S A$CoreGameLoop$655 Def000254
-S A$CoreGameLoop$637 Def000244
-S A$CoreGameLoop$619 Def00022C
-S A$CoreGameLoop$583 Def00021A
-S A$CoreGameLoop$556 Def0001F8
-S A$CoreGameLoop$547 Def0001EA
-S A$CoreGameLoop$538 Def0001DA
-S A$CoreGameLoop$529 Def0001D4
-S A$CoreGameLoop$493 Def0001A9
-S A$CoreGameLoop$466 Def000194
-S A$CoreGameLoop$457 Def000185
-S A$CoreGameLoop$448 Def000180
-S A$CoreGameLoop$394 Def000142
-S A$CoreGameLoop$358 Def00011B
-S A$CoreGameLoop$277 Def0000C4
-S A$CoreGameLoop$268 Def0000B8
-S A$CoreGameLoop$259 Def0000B2
-S A$CoreGameLoop$187 Def00005C
-S A$CoreGameLoop$178 Def000051
-S A$CoreGameLoop$169 Def000047
-S C$CoreGameLoop.c$90$1_0$138 Def000238
-S C$CoreGameLoop.c$76$1_0$134 Def000205
-S C$CoreGameLoop.c$67$1_0$134 Def0001A6
-S A$CoreGameLoop$782 Def0002C8
-S A$CoreGameLoop$773 Def0002BB
-S A$CoreGameLoop$719 Def00028A
-S A$CoreGameLoop$683 Def00026E
-S A$CoreGameLoop$674 Def000265
-S A$CoreGameLoop$629 Def000238
-S A$CoreGameLoop$584 Def00021C
-S A$CoreGameLoop$557 Def0001F9
-S A$CoreGameLoop$539 Def0001DD
-S A$CoreGameLoop$494 Def0001AB
-S A$CoreGameLoop$467 Def000197
-S A$CoreGameLoop$458 Def000188
-S A$CoreGameLoop$449 Def000183
-S A$CoreGameLoop$395 Def000143
-S A$CoreGameLoop$386 Def00013C
-S A$CoreGameLoop$377 Def000132
-S A$CoreGameLoop$368 Def000127
-S A$CoreGameLoop$359 Def00011C
-S A$CoreGameLoop$269 Def0000B9
-S A$CoreGameLoop$188 Def00005D
-S A$CoreGameLoop$179 Def000054
-S C$CoreGameLoop.c$91$1_0$138 Def00023E
-S C$CoreGameLoop.c$77$1_0$134 Def000212
-S C$CoreGameLoop.c$68$1_0$134 Def0001B0
-S C$CoreGameLoop.c$56$2_0$118 Def000185
-S C$CoreGameLoop.c$47$2_0$118 Def00014D
-S A$CoreGameLoop$756 Def0002AD
-S A$CoreGameLoop$684 Def000270
-S A$CoreGameLoop$675 Def000267
-S A$CoreGameLoop$666 Def00025C
-S A$CoreGameLoop$648 Def00024D
-S A$CoreGameLoop$594 Def000224
-S A$CoreGameLoop$576 Def000212
-S A$CoreGameLoop$567 Def000205
-S A$CoreGameLoop$558 Def0001FA
-S A$CoreGameLoop$549 Def0001EC
-S A$CoreGameLoop$495 Def0001AE
-S A$CoreGameLoop$468 Def00019A
-S A$CoreGameLoop$396 Def000146
-S A$CoreGameLoop$387 Def00013D
-S A$CoreGameLoop$378 Def000133
-S A$CoreGameLoop$369 Def000128
-S A$CoreGameLoop$288 Def0000CB
-S A$CoreGameLoop$279 Def0000C6
-S A$CoreGameLoop$198 Def000068
-S A$CoreGameLoop$189 Def00005E
-S C$CoreGameLoop.c$97$2_0$141 Def000260
-S C$CoreGameLoop.c$78$1_0$134 Def000218
-S C$CoreGameLoop.c$69$1_0$134 Def0001B5
-S A$CoreGameLoop$793 Def0002D0
-S A$CoreGameLoop$766 Def0002B6
-S A$CoreGameLoop$757 Def0002AF
-S A$CoreGameLoop$685 Def000271
-S A$CoreGameLoop$676 Def000268
-S A$CoreGameLoop$667 Def00025E
-S A$CoreGameLoop$649 Def00024E
-S A$CoreGameLoop$577 Def000214
-S A$CoreGameLoop$568 Def000208
-S A$CoreGameLoop$559 Def0001FB
-S A$CoreGameLoop$469 Def00019D
-S A$CoreGameLoop$388 Def00013E
-S A$CoreGameLoop$379 Def000134
-S A$CoreGameLoop$289 Def0000CE
-S A$CoreGameLoop$199 Def00006B
-S C$CoreGameLoop.c$79$1_0$134 Def00021E
-S A$CoreGameLoop$767 Def0002B8
-S A$CoreGameLoop$749 Def0002A6
-S A$CoreGameLoop$677 Def00026A
-S A$CoreGameLoop$659 Def000255
-S A$CoreGameLoop$578 Def000216
-S A$CoreGameLoop$569 Def000209
-S A$CoreGameLoop$479 Def0001A5
-S A$CoreGameLoop$398 Def000148
-S A$CoreGameLoop$299 Def0000D3
-S C$CoreGameLoop.c$92$2_0$139 Def000246
-S A$CoreGameLoop$777 Def0002BD
-S A$CoreGameLoop$696 Def000277
-S A$CoreGameLoop$588 Def00021E
-S A$CoreGameLoop$399 Def00014B
-S C$CoreGameLoop.c$86$1_0$138 Def00022C
-S A$CoreGameLoop$787 Def0002CA
-S A$CoreGameLoop$778 Def0002C0
-S A$CoreGameLoop$697 Def000279
-S A$CoreGameLoop$598 Def000227
-S A$CoreGameLoop$589 Def000220
-S A$CoreGameLoop$499 Def0001B0
-S C$CoreGameLoop.c$99$3_0$142 Def00026C
-S C$CoreGameLoop.c$96$1_0$138 Def00025C
-S A$CoreGameLoop$797 Def0002D3
-S A$CoreGameLoop$788 Def0002CD
-S A$CoreGameLoop$779 Def0002C1
-S C$CoreGameLoop.c$88$1_0$138 Def00022C
+S C$CoreGameLoop.c$57$2_0$120 Def000185
+S C$CoreGameLoop.c$48$2_0$120 Def00014D
+S C$CoreGameLoop.c$27$1_0$115 Def000023
+S A$CoreGameLoop$921 Def000364
+S A$CoreGameLoop$903 Def000352
+S A$CoreGameLoop$831 Def000316
+S A$CoreGameLoop$813 Def000301
+S A$CoreGameLoop$804 Def0002FB
+S A$CoreGameLoop$732 Def0002C2
+S A$CoreGameLoop$723 Def0002B5
+S A$CoreGameLoop$714 Def0002AA
+S A$CoreGameLoop$705 Def00029B
+S A$CoreGameLoop$660 Def000266
+S A$CoreGameLoop$606 Def00022C
+S A$CoreGameLoop$570 Def000205
+S A$CoreGameLoop$561 Def0001FA
+S A$CoreGameLoop$552 Def0001EC
+S A$CoreGameLoop$543 Def0001DE
+S A$CoreGameLoop$525 Def0001CA
+S A$CoreGameLoop$516 Def0001C0
+S A$CoreGameLoop$507 Def0001B5
+S A$CoreGameLoop$471 Def00019A
+S A$CoreGameLoop$444 Def000177
+S A$CoreGameLoop$435 Def000171
+S A$CoreGameLoop$417 Def000158
+S A$CoreGameLoop$390 Def00013D
+S A$CoreGameLoop$381 Def000133
+S A$CoreGameLoop$372 Def000128
+S A$CoreGameLoop$363 Def00011D
+S A$CoreGameLoop$354 Def000110
+S A$CoreGameLoop$345 Def000108
+S A$CoreGameLoop$327 Def0000F7
+S A$CoreGameLoop$318 Def0000EA
+S A$CoreGameLoop$309 Def0000DF
+S A$CoreGameLoop$291 Def0000CB
+S A$CoreGameLoop$282 Def0000C6
+S A$CoreGameLoop$273 Def0000BA
+S A$CoreGameLoop$255 Def0000AC
+S A$CoreGameLoop$246 Def00009F
+S A$CoreGameLoop$237 Def000091
+S A$CoreGameLoop$219 Def00007D
+S A$CoreGameLoop$192 Def00005E
+S A$CoreGameLoop$183 Def000055
+S A$CoreGameLoop$174 Def00004A
+S A$CoreGameLoop$165 Def00003F
+S A$CoreGameLoop$156 Def000033
+S A$CoreGameLoop$147 Def000028
+S A$CoreGameLoop$129 Def000012
+S C$CoreGameLoop.c$93$1_0$140 Def000269
+S C$CoreGameLoop.c$70$1_0$136 Def0001B5
+S A$CoreGameLoop$931 Def000369
+S A$CoreGameLoop$904 Def000355
+S A$CoreGameLoop$850 Def000323
+S A$CoreGameLoop$814 Def000304
+S A$CoreGameLoop$805 Def0002FC
+S A$CoreGameLoop$760 Def0002D5
+S A$CoreGameLoop$742 Def0002CA
+S A$CoreGameLoop$724 Def0002B8
+S A$CoreGameLoop$706 Def00029C
+S A$CoreGameLoop$670 Def000270
+S A$CoreGameLoop$661 Def000267
+S A$CoreGameLoop$607 Def00022E
+S A$CoreGameLoop$580 Def000214
+S A$CoreGameLoop$571 Def000208
+S A$CoreGameLoop$562 Def0001FB
+S A$CoreGameLoop$553 Def0001EE
+S A$CoreGameLoop$544 Def0001E1
+S A$CoreGameLoop$526 Def0001CB
+S A$CoreGameLoop$517 Def0001C2
+S A$CoreGameLoop$508 Def0001B8
+S A$CoreGameLoop$472 Def00019D
+S A$CoreGameLoop$445 Def000178
+S A$CoreGameLoop$436 Def000172
+S A$CoreGameLoop$427 Def000168
+S A$CoreGameLoop$418 Def00015A
+S A$CoreGameLoop$391 Def00013E
+S A$CoreGameLoop$382 Def000134
+S A$CoreGameLoop$364 Def00011E
+S A$CoreGameLoop$355 Def000111
+S A$CoreGameLoop$346 Def000109
+S A$CoreGameLoop$328 Def0000F8
+S A$CoreGameLoop$319 Def0000ED
+S A$CoreGameLoop$292 Def0000CE
+S A$CoreGameLoop$283 Def0000C9
+S A$CoreGameLoop$274 Def0000BB
+S A$CoreGameLoop$247 Def0000A1
+S A$CoreGameLoop$193 Def000060
+S A$CoreGameLoop$184 Def000056
+S A$CoreGameLoop$175 Def00004C
+S A$CoreGameLoop$166 Def000040
+S A$CoreGameLoop$157 Def000035
+S C$CoreGameLoop.c$94$1_0$140 Def000271
+S C$CoreGameLoop.c$80$1_0$136 Def00021E
+S C$CoreGameLoop.c$71$1_0$136 Def0001BD
+S A$CoreGameLoop$941 Def000376
+S A$CoreGameLoop$932 Def00036C
+S A$CoreGameLoop$905 Def000357
+S A$CoreGameLoop$851 Def000325
+S A$CoreGameLoop$815 Def000306
+S A$CoreGameLoop$806 Def0002FD
+S A$CoreGameLoop$752 Def0002D3
+S A$CoreGameLoop$743 Def0002CC
+S A$CoreGameLoop$725 Def0002B9
+S A$CoreGameLoop$716 Def0002AC
+S A$CoreGameLoop$707 Def00029F
+S A$CoreGameLoop$680 Def00027C
+S A$CoreGameLoop$662 Def000268
+S A$CoreGameLoop$653 Def00025C
+S A$CoreGameLoop$617 Def00023A
+S A$CoreGameLoop$608 Def00022F
+S A$CoreGameLoop$581 Def000216
+S A$CoreGameLoop$572 Def000209
+S A$CoreGameLoop$563 Def0001FE
+S A$CoreGameLoop$554 Def0001EF
+S A$CoreGameLoop$545 Def0001E2
+S A$CoreGameLoop$536 Def0001D5
+S A$CoreGameLoop$527 Def0001CC
+S A$CoreGameLoop$518 Def0001C3
+S A$CoreGameLoop$509 Def0001BA
+S A$CoreGameLoop$482 Def0001A5
+S A$CoreGameLoop$473 Def0001A0
+S A$CoreGameLoop$446 Def000179
+S A$CoreGameLoop$383 Def000137
+S A$CoreGameLoop$374 Def00012B
+S A$CoreGameLoop$356 Def000114
+S A$CoreGameLoop$347 Def00010B
+S A$CoreGameLoop$338 Def0000FF
+S A$CoreGameLoop$329 Def0000FA
+S A$CoreGameLoop$275 Def0000BC
+S A$CoreGameLoop$266 Def0000B5
+S A$CoreGameLoop$257 Def0000AE
+S A$CoreGameLoop$248 Def0000A2
+S A$CoreGameLoop$239 Def000093
+S A$CoreGameLoop$194 Def000062
+S A$CoreGameLoop$185 Def000057
+S A$CoreGameLoop$176 Def00004D
+S A$CoreGameLoop$167 Def000041
+S A$CoreGameLoop$158 Def000036
+S C$CoreGameLoop.c$95$1_0$140 Def000281
+S C$CoreGameLoop.c$81$1_0$136 Def000224
+S C$CoreGameLoop.c$72$1_0$136 Def0001C5
+S C$CoreGameLoop.c$48$1_0$115 Def0000F1
+S C$CoreGameLoop.c$37$2_0$116 Def0000CB
+S A$CoreGameLoop$951 Def00037F
+S A$CoreGameLoop$942 Def000379
+S A$CoreGameLoop$933 Def00036D
+S A$CoreGameLoop$915 Def00035D
+S A$CoreGameLoop$825 Def00030C
+S A$CoreGameLoop$807 Def0002FE
+S A$CoreGameLoop$744 Def0002CE
+S A$CoreGameLoop$726 Def0002BC
+S A$CoreGameLoop$717 Def0002AF
+S A$CoreGameLoop$708 Def0002A0
+S A$CoreGameLoop$681 Def00027E
+S A$CoreGameLoop$654 Def00025F
+S A$CoreGameLoop$618 Def00023D
+S A$CoreGameLoop$609 Def000230
+S A$CoreGameLoop$591 Def00021E
+S A$CoreGameLoop$573 Def00020C
+S A$CoreGameLoop$555 Def0001F0
+S A$CoreGameLoop$546 Def0001E5
+S A$CoreGameLoop$537 Def0001D8
+S A$CoreGameLoop$528 Def0001CD
+S A$CoreGameLoop$519 Def0001C4
+S A$CoreGameLoop$447 Def00017A
+S A$CoreGameLoop$384 Def000138
+S A$CoreGameLoop$375 Def00012E
+S A$CoreGameLoop$366 Def000120
+S A$CoreGameLoop$357 Def000117
+S A$CoreGameLoop$348 Def00010C
+S A$CoreGameLoop$339 Def000101
+S A$CoreGameLoop$276 Def0000BE
+S A$CoreGameLoop$267 Def0000B6
+S A$CoreGameLoop$249 Def0000A3
+S A$CoreGameLoop$186 Def000058
+S A$CoreGameLoop$168 Def000042
+S A$CoreGameLoop$159 Def000038
+S C$CoreGameLoop.c$87$1_0$140 Def000252
+S C$CoreGameLoop.c$82$1_0$136 Def000227
+S C$CoreGameLoop.c$73$1_0$136 Def0001D5
+S C$CoreGameLoop.c$35$3_0$118 Def00008C
+S C$CoreGameLoop.c$29$2_0$116 Def00004E
+S A$CoreGameLoop$961 Def000387
+S A$CoreGameLoop$943 Def00037A
+S A$CoreGameLoop$934 Def000370
+S A$CoreGameLoop$916 Def00035F
+S A$CoreGameLoop$880 Def00033D
+S A$CoreGameLoop$862 Def00032E
+S A$CoreGameLoop$844 Def00031E
+S A$CoreGameLoop$835 Def000318
+S A$CoreGameLoop$826 Def00030F
+S A$CoreGameLoop$808 Def0002FF
+S A$CoreGameLoop$790 Def0002EE
+S A$CoreGameLoop$736 Def0002C4
+S A$CoreGameLoop$709 Def0002A3
+S A$CoreGameLoop$682 Def00027F
+S A$CoreGameLoop$646 Def000252
+S A$CoreGameLoop$619 Def00023E
+S A$CoreGameLoop$592 Def000220
+S A$CoreGameLoop$574 Def00020D
+S A$CoreGameLoop$565 Def000200
+S A$CoreGameLoop$556 Def0001F3
+S A$CoreGameLoop$529 Def0001D0
+S A$CoreGameLoop$466 Def00018B
+S A$CoreGameLoop$448 Def00017B
+S A$CoreGameLoop$439 Def000174
+S A$CoreGameLoop$394 Def00013F
+S A$CoreGameLoop$385 Def000139
+S A$CoreGameLoop$367 Def000121
+S A$CoreGameLoop$358 Def000118
+S A$CoreGameLoop$349 Def00010E
+S A$CoreGameLoop$277 Def0000BF
+S A$CoreGameLoop$268 Def0000B7
+S A$CoreGameLoop$196 Def000064
+S A$CoreGameLoop$187 Def000059
+S A$CoreGameLoop$169 Def000043
+S C$CoreGameLoop.c$97$1_0$140 Def000286
+S C$CoreGameLoop.c$83$1_0$136 Def00022C
+S C$CoreGameLoop.c$65$1_0$136 Def0001A6
+S A$CoreGameLoop$935 Def000371
+S A$CoreGameLoop$926 Def000365
+S A$CoreGameLoop$890 Def00034A
+S A$CoreGameLoop$881 Def00033F
+S A$CoreGameLoop$863 Def00032F
+S A$CoreGameLoop$845 Def000321
+S A$CoreGameLoop$836 Def000319
+S A$CoreGameLoop$827 Def000310
+S A$CoreGameLoop$809 Def000300
+S A$CoreGameLoop$791 Def0002F0
+S A$CoreGameLoop$773 Def0002D8
+S A$CoreGameLoop$737 Def0002C6
+S A$CoreGameLoop$692 Def000286
+S A$CoreGameLoop$683 Def000280
+S A$CoreGameLoop$674 Def000271
+S A$CoreGameLoop$647 Def000255
+S A$CoreGameLoop$629 Def000245
+S A$CoreGameLoop$593 Def000222
+S A$CoreGameLoop$575 Def000210
+S A$CoreGameLoop$566 Def000203
+S A$CoreGameLoop$557 Def0001F4
+S A$CoreGameLoop$467 Def00018E
+S A$CoreGameLoop$449 Def00017E
+S A$CoreGameLoop$395 Def000140
+S A$CoreGameLoop$386 Def00013A
+S A$CoreGameLoop$377 Def000130
+S A$CoreGameLoop$368 Def000122
+S A$CoreGameLoop$359 Def000119
+S A$CoreGameLoop$296 Def0000CF
+S A$CoreGameLoop$278 Def0000C0
+S A$CoreGameLoop$197 Def000066
+S A$CoreGameLoop$188 Def00005A
+S C$CoreGameLoop.c$84$1_0$136 Def00023A
+S C$CoreGameLoop.c$75$1_0$136 Def0001DA
+S A$CoreGameLoop$936 Def000374
+S A$CoreGameLoop$927 Def000367
+S A$CoreGameLoop$873 Def000336
+S A$CoreGameLoop$864 Def000330
+S A$CoreGameLoop$855 Def000327
+S A$CoreGameLoop$837 Def00031A
+S A$CoreGameLoop$828 Def000311
+S A$CoreGameLoop$783 Def0002E4
+S A$CoreGameLoop$774 Def0002DB
+S A$CoreGameLoop$738 Def0002C8
+S A$CoreGameLoop$693 Def000289
+S A$CoreGameLoop$675 Def000274
+S A$CoreGameLoop$666 Def000269
+S A$CoreGameLoop$648 Def000257
+S A$CoreGameLoop$585 Def000218
+S A$CoreGameLoop$558 Def0001F7
+S A$CoreGameLoop$549 Def0001E7
+S A$CoreGameLoop$495 Def0001A6
+S A$CoreGameLoop$477 Def0001A3
+S A$CoreGameLoop$468 Def000191
+S A$CoreGameLoop$396 Def000141
+S A$CoreGameLoop$369 Def000124
+S A$CoreGameLoop$297 Def0000D2
+S A$CoreGameLoop$279 Def0000C1
+S A$CoreGameLoop$198 Def000067
+S C$CoreGameLoop.c$99$1_0$140 Def0002B1
+S C$CoreGameLoop.c$85$1_0$136 Def000245
+S A$CoreGameLoop$955 Def000382
+S A$CoreGameLoop$874 Def000339
+S A$CoreGameLoop$865 Def000331
+S A$CoreGameLoop$856 Def00032A
+S A$CoreGameLoop$838 Def00031C
+S A$CoreGameLoop$829 Def000313
+S A$CoreGameLoop$784 Def0002E7
+S A$CoreGameLoop$748 Def0002D0
+S A$CoreGameLoop$694 Def00028A
+S A$CoreGameLoop$676 Def000276
+S A$CoreGameLoop$667 Def00026C
+S A$CoreGameLoop$658 Def000261
+S A$CoreGameLoop$649 Def00025A
+S A$CoreGameLoop$586 Def00021A
+S A$CoreGameLoop$559 Def0001F8
+S A$CoreGameLoop$496 Def0001A9
+S A$CoreGameLoop$469 Def000194
+S A$CoreGameLoop$397 Def000142
+S C$CoreGameLoop.c$77$1_0$136 Def000205
+S C$CoreGameLoop.c$68$1_0$136 Def0001A6
+S A$CoreGameLoop$956 Def000385
+S A$CoreGameLoop$947 Def00037C
+S A$CoreGameLoop$875 Def00033B
+S A$CoreGameLoop$866 Def000332
+S A$CoreGameLoop$857 Def00032B
+S A$CoreGameLoop$839 Def00031D
+S A$CoreGameLoop$695 Def00028D
+S A$CoreGameLoop$677 Def000277
+S A$CoreGameLoop$668 Def00026E
+S A$CoreGameLoop$659 Def000264
+S A$CoreGameLoop$587 Def00021C
+S A$CoreGameLoop$497 Def0001AB
+S A$CoreGameLoop$398 Def000143
+S A$CoreGameLoop$389 Def00013C
+S C$CoreGameLoop.c$78$1_0$136 Def000212
+S C$CoreGameLoop.c$69$1_0$136 Def0001B0
+S A$CoreGameLoop$894 Def00034C
+S A$CoreGameLoop$885 Def000341
+S A$CoreGameLoop$867 Def000333
+S A$CoreGameLoop$858 Def00032C
+S A$CoreGameLoop$795 Def0002F2
+S A$CoreGameLoop$696 Def00028E
+S A$CoreGameLoop$687 Def000281
+S A$CoreGameLoop$678 Def000278
+S A$CoreGameLoop$669 Def00026F
+S A$CoreGameLoop$597 Def000224
+S A$CoreGameLoop$579 Def000212
+S A$CoreGameLoop$498 Def0001AE
+S A$CoreGameLoop$399 Def000146
+S XG$CoreGameLoopSetup2$0$0 Def0002D5
+S C$CoreGameLoop.c$79$1_0$136 Def000218
+S A$CoreGameLoop$895 Def00034D
+S A$CoreGameLoop$886 Def000344
+S A$CoreGameLoop$868 Def000334
+S A$CoreGameLoop$796 Def0002F5
+S A$CoreGameLoop$778 Def0002DE
+S A$CoreGameLoop$697 Def000291
+S A$CoreGameLoop$688 Def000284
+S A$CoreGameLoop$679 Def000279
+S A$CoreGameLoop$896 Def00034E
+S A$CoreGameLoop$887 Def000345
+S A$CoreGameLoop$869 Def000335
+S A$CoreGameLoop$797 Def0002F6
+S A$CoreGameLoop$788 Def0002EA
+S A$CoreGameLoop$779 Def0002E1
 S _CoreGameLoopSetup Def0001A6
-S A$CoreGameLoop$789 Def0002CE
-S C$CoreGameLoop.c$89$1_0$138 Def000232
-S G$CoreGameLoopUpdate$0$0 Def00022C
-S XG$CoreGameLoopSetup$0$0 Def000229
-S _CoreGameLoopUpdate Def00022C
+S A$CoreGameLoop$969 Def000389
+S A$CoreGameLoop$897 Def000350
+S A$CoreGameLoop$888 Def000347
+S A$CoreGameLoop$798 Def0002F7
+S A$CoreGameLoop$789 Def0002ED
+S A$CoreGameLoop$898 Def000351
+S A$CoreGameLoop$889 Def000348
+S G$CoreGameLoopUpdate$0$0 Def0002D8
+S XG$CoreGameLoopSetup$0$0 Def000245
+S _CoreGameLoopUpdate Def0002D8
+S FCoreGameLoop$__str_0$0_0$0 Def000246
+S C$CoreGameLoop.c$100$1_0$140 Def0002BE
 S G$set_camera$0$0 Def000000
-S XG$CoreGameLoopUpdate$0$0 Def0002DD
-S C$CoreGameLoop.c$100$3_0$142 Def000272
-S C$CoreGameLoop.c$111$2_0$145 Def000295
-S C$CoreGameLoop.c$110$1_0$138 Def000291
-S C$CoreGameLoop.c$120$1_0$138 Def0002B9
-S C$CoreGameLoop.c$105$2_0$143 Def00027B
-S C$CoreGameLoop.c$131$1_0$138 Def0002DB
-S C$CoreGameLoop.c$104$1_0$138 Def000277
-S C$CoreGameLoop.c$132$1_0$138 Def0002DD
-S C$CoreGameLoop.c$113$3_0$146 Def0002A0
+S C$CoreGameLoop.c$101$1_0$140 Def0002C4
+S C$CoreGameLoop.c$102$1_0$140 Def0002CA
+S C$CoreGameLoop.c$103$1_0$140 Def0002D0
+S XG$CoreGameLoopUpdate$0$0 Def000389
+S C$CoreGameLoop.c$104$1_0$140 Def0002D3
+S C$CoreGameLoop.c$105$1_0$140 Def0002D5
+S C$CoreGameLoop.c$111$1_0$144 Def0002D8
+S C$CoreGameLoop.c$132$2_0$150 Def000327
+S C$CoreGameLoop.c$112$1_0$144 Def0002DE
+S C$CoreGameLoop.c$131$1_0$144 Def000323
+S C$CoreGameLoop.c$113$1_0$144 Def0002E4
+S C$CoreGameLoop.c$123$1_0$144 Def000308
+S C$CoreGameLoop.c$151$1_0$144 Def000376
+S C$CoreGameLoop.c$140$3_0$153 Def00034C
+S C$CoreGameLoop.c$143$1_0$144 Def000359
+S C$CoreGameLoop.c$141$3_0$153 Def000352
+S C$CoreGameLoop.c$134$3_0$151 Def00032E
+S C$CoreGameLoop.c$120$3_0$147 Def0002F9
+S C$CoreGameLoop.c$135$3_0$151 Def000336
+S C$CoreGameLoop.c$121$3_0$147 Def000301
+S G$CoreGameLoopSetup2$0$0 Def000252
 S _set_camera Def000000
-S C$CoreGameLoop.c$124$1_0$138 Def0002CA
-S C$CoreGameLoop.c$122$2_0$148 Def0002BD
-S C$CoreGameLoop.c$114$3_0$146 Def0002A6
-S C$CoreGameLoop.c$107$3_0$144 Def000282
-S C$CoreGameLoop.c$116$1_0$138 Def0002AD
-S C$CoreGameLoop.c$108$3_0$144 Def00028A
-S C$CoreGameLoop.c$117$2_0$147 Def0002B1
-S C$CoreGameLoop.c$20$0_0$113 Def000000
-S C$CoreGameLoop.c$118$2_0$147 Def0002B6
-S A$CoreGameLoop$300 Def0000D6
-S A$CoreGameLoop$201 Def00006D
-S A$CoreGameLoop$111 Def000000
-S C$CoreGameLoop.c$126$2_0$149 Def0002D0
-S C$CoreGameLoop.c$30$1_0$113 Def0000CB
-S A$CoreGameLoop$310 Def0000E8
-S A$CoreGameLoop$301 Def0000D7
-S A$CoreGameLoop$220 Def000083
-S A$CoreGameLoop$211 Def000077
-S A$CoreGameLoop$130 Def00001A
-S C$CoreGameLoop.c$127$2_0$149 Def0002D3
-S A$CoreGameLoop$500 Def0001B3
-S A$CoreGameLoop$410 Def000154
-S A$CoreGameLoop$302 Def0000D8
-S A$CoreGameLoop$212 Def000078
-S A$CoreGameLoop$131 Def00001C
-S A$CoreGameLoop$122 Def00000C
-S C$CoreGameLoop.c$128$2_0$149 Def0002D6
-S C$CoreGameLoop.c$30$2_0$114 Def00008A
-S C$CoreGameLoop.c$23$1_0$113 Def000002
-S A$CoreGameLoop$330 Def0000FC
-S A$CoreGameLoop$321 Def0000F1
-S A$CoreGameLoop$303 Def0000D9
-S A$CoreGameLoop$240 Def00009A
-S A$CoreGameLoop$222 Def000085
-S A$CoreGameLoop$213 Def000079
-S A$CoreGameLoop$204 Def00006F
-S A$CoreGameLoop$150 Def00002F
-S A$CoreGameLoop$141 Def000023
-S A$CoreGameLoop$132 Def00001E
-S A$CoreGameLoop$123 Def00000F
-S C$CoreGameLoop.c$60$1_0$113 Def0001A5
-S C$CoreGameLoop.c$51$3_0$120 Def00014F
-S C$CoreGameLoop.c$42$1_0$113 Def0000D3
-S A$CoreGameLoop$520 Def0001C5
-S A$CoreGameLoop$430 Def00016F
-S A$CoreGameLoop$421 Def000163
-S A$CoreGameLoop$412 Def000156
-S A$CoreGameLoop$403 Def00014D
-S A$CoreGameLoop$340 Def000105
-S A$CoreGameLoop$331 Def0000FD
-S A$CoreGameLoop$322 Def0000F4
-S A$CoreGameLoop$304 Def0000DB
-S A$CoreGameLoop$241 Def00009D
-S A$CoreGameLoop$232 Def00008C
-S A$CoreGameLoop$223 Def000088
-S A$CoreGameLoop$214 Def00007A
-S A$CoreGameLoop$205 Def000070
-S A$CoreGameLoop$160 Def00003C
-S A$CoreGameLoop$151 Def000031
-S A$CoreGameLoop$142 Def000024
-S A$CoreGameLoop$133 Def000021
-S A$CoreGameLoop$124 Def000010
-S A$CoreGameLoop$115 Def000002
-S C$CoreGameLoop.c$43$1_0$113 Def0000E9
-S C$CoreGameLoop.c$25$1_0$113 Def00000C
-S A$CoreGameLoop$710 Def000284
-S A$CoreGameLoop$701 Def00027B
-S A$CoreGameLoop$620 Def00022F
-S A$CoreGameLoop$521 Def0001C8
-S A$CoreGameLoop$512 Def0001BD
-S A$CoreGameLoop$431 Def000170
-S A$CoreGameLoop$422 Def000166
-S A$CoreGameLoop$413 Def000157
-S A$CoreGameLoop$341 Def000106
-S A$CoreGameLoop$332 Def0000FE
-S A$CoreGameLoop$323 Def0000F5
-S A$CoreGameLoop$314 Def0000E9
-S A$CoreGameLoop$305 Def0000DD
-S A$CoreGameLoop$260 Def0000B3
-S A$CoreGameLoop$251 Def0000A9
-S A$CoreGameLoop$233 Def00008F
-S A$CoreGameLoop$215 Def00007B
-S A$CoreGameLoop$206 Def000071
-S A$CoreGameLoop$170 Def000049
-S A$CoreGameLoop$161 Def00003D
-S A$CoreGameLoop$152 Def000032
-S A$CoreGameLoop$143 Def000027
-S A$CoreGameLoop$125 Def000011
-S A$CoreGameLoop$116 Def000005
-S C$CoreGameLoop.c$26$1_0$113 Def000023
-S A$CoreGameLoop$801 Def0002D6
-S A$CoreGameLoop$720 Def00028D
-S A$CoreGameLoop$711 Def000285
-S A$CoreGameLoop$702 Def00027E
-S A$CoreGameLoop$630 Def00023B
-S A$CoreGameLoop$540 Def0001DE
-S A$CoreGameLoop$522 Def0001CA
-S A$CoreGameLoop$513 Def0001C0
-S A$CoreGameLoop$504 Def0001B5
-S A$CoreGameLoop$441 Def000177
-S A$CoreGameLoop$432 Def000171
-S A$CoreGameLoop$414 Def000158
-S A$CoreGameLoop$360 Def00011D
-S A$CoreGameLoop$351 Def000110
-S A$CoreGameLoop$342 Def000108
-S A$CoreGameLoop$324 Def0000F7
-S A$CoreGameLoop$315 Def0000EA
-S A$CoreGameLoop$306 Def0000DF
-S A$CoreGameLoop$270 Def0000BA
-S A$CoreGameLoop$252 Def0000AC
-S A$CoreGameLoop$243 Def00009F
-S A$CoreGameLoop$234 Def000091
-S A$CoreGameLoop$216 Def00007D
-S A$CoreGameLoop$207 Def000074
-S A$CoreGameLoop$180 Def000055
-S A$CoreGameLoop$171 Def00004A
-S A$CoreGameLoop$162 Def00003F
-S A$CoreGameLoop$153 Def000033
-S A$CoreGameLoop$144 Def000028
-S A$CoreGameLoop$126 Def000012
-S A$CoreGameLoop$117 Def000007
+S C$CoreGameLoop.c$118$1_0$144 Def0002EA
+S C$CoreGameLoop.c$109$1_0$144 Def0002D8
+S C$CoreGameLoop.c$144$2_0$154 Def00035D
+S C$CoreGameLoop.c$137$1_0$144 Def00033D
+S C$CoreGameLoop.c$147$1_0$144 Def000365
+S C$CoreGameLoop.c$145$2_0$154 Def000362
+S C$CoreGameLoop.c$138$2_0$152 Def000341
+S C$CoreGameLoop.c$124$2_0$148 Def00030C
+S C$CoreGameLoop.c$153$2_0$156 Def00037C
+S C$CoreGameLoop.c$158$1_0$144 Def000387
+S C$CoreGameLoop.c$154$2_0$156 Def00037F
+S C$CoreGameLoop.c$119$2_0$146 Def0002F2
+S A$CoreGameLoop$210 Def000074
+S A$CoreGameLoop$201 Def000068
+S A$CoreGameLoop$120 Def000007
+S C$CoreGameLoop.c$159$1_0$144 Def000389
+S C$CoreGameLoop.c$155$2_0$156 Def000382
+S A$CoreGameLoop$310 Def0000E1
+S A$CoreGameLoop$220 Def00007E
+S A$CoreGameLoop$211 Def000075
+S A$CoreGameLoop$202 Def00006B
+S A$CoreGameLoop$130 Def000014
+S A$CoreGameLoop$121 Def00000A
+S C$CoreGameLoop.c$126$3_0$149 Def000318
+S C$CoreGameLoop.c$21$0_0$115 Def000000
+S A$CoreGameLoop$401 Def000148
+S A$CoreGameLoop$320 Def0000EE
+S A$CoreGameLoop$311 Def0000E3
+S A$CoreGameLoop$302 Def0000D3
+S A$CoreGameLoop$230 Def00008A
+S A$CoreGameLoop$221 Def00007F
+S A$CoreGameLoop$140 Def000022
+S A$CoreGameLoop$131 Def000016
+S C$CoreGameLoop.c$149$2_0$155 Def000369
+S C$CoreGameLoop.c$127$3_0$149 Def00031E
+S A$CoreGameLoop$510 Def0001BB
+S A$CoreGameLoop$420 Def00015D
+S A$CoreGameLoop$411 Def00014F
+S A$CoreGameLoop$402 Def00014B
+S A$CoreGameLoop$330 Def0000FB
+S A$CoreGameLoop$312 Def0000E5
+S A$CoreGameLoop$303 Def0000D6
+S A$CoreGameLoop$240 Def000096
+S A$CoreGameLoop$222 Def000080
+S A$CoreGameLoop$204 Def00006D
+S A$CoreGameLoop$132 Def000018
+S A$CoreGameLoop$114 Def000000
+S C$CoreGameLoop.c$31$1_0$115 Def0000CB
+S A$CoreGameLoop$700 Def000293
+S A$CoreGameLoop$610 Def000233
+S A$CoreGameLoop$601 Def000227
+S A$CoreGameLoop$511 Def0001BC
+S A$CoreGameLoop$502 Def0001B0
+S A$CoreGameLoop$430 Def00016A
+S A$CoreGameLoop$421 Def00015E
+S A$CoreGameLoop$412 Def000152
+S A$CoreGameLoop$340 Def000102
+S A$CoreGameLoop$313 Def0000E8
+S A$CoreGameLoop$304 Def0000D7
+S A$CoreGameLoop$241 Def000097
+S A$CoreGameLoop$223 Def000083
+S A$CoreGameLoop$214 Def000077
+S A$CoreGameLoop$160 Def000039
+S A$CoreGameLoop$151 Def00002B
+S A$CoreGameLoop$133 Def00001A
+S A$CoreGameLoop$710 Def0002A4
+S A$CoreGameLoop$701 Def000296
+S A$CoreGameLoop$620 Def000240
+S A$CoreGameLoop$611 Def000234
+S A$CoreGameLoop$602 Def000229
+S A$CoreGameLoop$530 Def0001D2
+S A$CoreGameLoop$503 Def0001B3
+S A$CoreGameLoop$440 Def000175
+S A$CoreGameLoop$431 Def00016B
+S A$CoreGameLoop$422 Def000161
+S A$CoreGameLoop$413 Def000154
+S A$CoreGameLoop$350 Def00010F
+S A$CoreGameLoop$341 Def000103
+S A$CoreGameLoop$305 Def0000D8
+S A$CoreGameLoop$260 Def0000B0
+S A$CoreGameLoop$251 Def0000A4
+S A$CoreGameLoop$242 Def000098
+S A$CoreGameLoop$215 Def000078
+S A$CoreGameLoop$170 Def000044
+S A$CoreGameLoop$161 Def00003A
+S A$CoreGameLoop$152 Def00002E
+S A$CoreGameLoop$134 Def00001C
+S A$CoreGameLoop$125 Def00000C
+S C$CoreGameLoop.c$60$1_0$115 Def00018B
+S C$CoreGameLoop.c$54$2_0$120 Def000185
+S C$CoreGameLoop.c$40$2_0$116 Def0000CF
+S C$CoreGameLoop.c$31$2_0$116 Def00008A
+S C$CoreGameLoop.c$24$1_0$115 Def000002
+S A$CoreGameLoop$711 Def0002A5
+S A$CoreGameLoop$621 Def000242
+S A$CoreGameLoop$612 Def000236
+S A$CoreGameLoop$531 Def0001D3
+S A$CoreGameLoop$441 Def000176
+S A$CoreGameLoop$432 Def00016C
+S A$CoreGameLoop$360 Def00011A
+S A$CoreGameLoop$342 Def000104
+S A$CoreGameLoop$333 Def0000FC
+S A$CoreGameLoop$324 Def0000F1
+S A$CoreGameLoop$306 Def0000D9
+S A$CoreGameLoop$261 Def0000B1
+S A$CoreGameLoop$252 Def0000A7
+S A$CoreGameLoop$243 Def00009A
+S A$CoreGameLoop$225 Def000085
+S A$CoreGameLoop$216 Def000079
+S A$CoreGameLoop$207 Def00006F
+S A$CoreGameLoop$180 Def00004E
+S A$CoreGameLoop$171 Def000046
+S A$CoreGameLoop$162 Def00003B
+S A$CoreGameLoop$153 Def00002F
+S A$CoreGameLoop$144 Def000023
+S A$CoreGameLoop$135 Def00001E
+S A$CoreGameLoop$126 Def00000F
+S C$CoreGameLoop.c$90$1_0$140 Def000252
 S XG$set_camera$0$0 Def0001A5
+S C$CoreGameLoop.c$61$1_0$115 Def0001A5
+S C$CoreGameLoop.c$52$3_0$122 Def00014F
+S C$CoreGameLoop.c$46$2_0$120 Def000110
+S C$CoreGameLoop.c$43$1_0$115 Def0000D3
+S _CoreGameLoopSetup2 Def000252
 A _DATA size F flags 0 addr 0
 S _old_map_pos_x_tiles Def00000A
 S _old_map_pos_y_tiles Def00000B
@@ -534,14 +639,14 @@ S _old_camera_x_pixels Def000004
 S _old_camera_y_pixels Def000006
 S G$old_camera_x_pixels$0_0$0 Def000004
 S G$old_camera_y_pixels$0_0$0 Def000006
-A _INITIALIZED size 8 flags 0 addr 0
+A _INITIALIZED size C flags 0 addr 0
 S _mouse Def000000
 S G$mouse$0_0$0 Def000000
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
-A _INITIALIZER size 8 flags 0 addr 0
+A _INITIALIZER size C flags 0 addr 0
 S FCoreGameLoop$__xinit_mouse$0_0$0 Def000000
 A _CABS size 0 flags 8 addr 0
 T 00 00 00
@@ -595,7 +700,7 @@ R 00 00 02 00
 T 00 00 00
 R 00 00 00 00
 T 00 00 00 E8 FD FA 02 00 E0 00 00 00 FA 00 00 E0
-R 00 00 00 00 00 06 01 00 0B 09 04 00 00 0D 01 00
+R 00 00 00 00 00 06 01 00 0B 09 05 00 00 0D 01 00
 T 0B 00 00 00 00 00 21 02 00 2A 4F 46 CB 38 CB 19
 R 00 00 00 00 0B 03 02 00 00 07 01 00
 T 16 00 00 CB 38 CB 19 CB 38 CB 19 21 09 00 71 4E
@@ -617,15 +722,15 @@ R 00 00 00 00
 T 68 00 00
 R 00 00 00 00
 T 68 00 00 21 00 00 36 80 26 31 E5 33 11 00 00 D5
-R 00 00 00 00 02 04 10 00 02 0D 0C 00
+R 00 00 00 00 02 04 12 00 02 0D 0E 00
 T 75 00 00 26 01 E5 33 47 C5 F8 06 7E F5 33 CD
 R 00 00 00 00
 T 81 00 00 00 00 E8 07 21 00 00 36 00 18 3F
-R 00 00 00 00 02 03 0A 00 02 08 10 00
+R 00 00 00 00 02 03 0C 00 02 08 12 00
 T 8C 00 00
 R 00 00 00 00
 T 8C 00 00 FA 09 00 D6 30 30 38 11 00 00 78 B7 28
-R 00 00 00 00 00 04 01 00 02 0B 0C 00
+R 00 00 00 00 00 04 01 00 02 0B 0E 00
 T 99 00 00 05 01 15 00 18 05
 R 00 00 00 00
 T 9F 00 00
@@ -635,11 +740,11 @@ R 00 00 00 00
 T A4 00 00
 R 00 00 00 00
 T A4 00 00 FA 09 00 C6 12 21 00 00 36 80 26 31 E5
-R 00 00 00 00 00 04 01 00 02 09 10 00
+R 00 00 00 00 00 04 01 00 02 09 12 00
 T B1 00 00 33 D5 26 01 E5 33 61 E5 33 F5 33 F8 06
 R 00 00 00 00
 T BE 00 00 7E F5 33 CD 00 00 E8 07 21 00 00 36 00
-R 00 00 00 00 02 07 0A 00 02 0C 10 00
+R 00 00 00 00 02 07 0C 00 02 0C 12 00
 T CB 00 00
 R 00 00 00 00
 T CB 00 00 21 09 00 4E 21 0B 00 71
@@ -663,11 +768,11 @@ R 00 00 00 00
 T 27 01 00
 R 00 00 00 00
 T 27 01 00 43 FA 08 00 21 00 00 36 80 26 31 E5 33
-R 00 00 00 00 00 05 01 00 02 08 10 00
+R 00 00 00 00 00 05 01 00 02 08 12 00
 T 34 01 00 11 00 00 D5 C5 33 26 01 E5 33 61 E5 33
-R 00 00 00 00 02 04 0C 00
+R 00 00 00 00 02 04 0E 00
 T 41 01 00 F5 33 CD 00 00 E8 07 21 00 00 36 00 18
-R 00 00 00 00 02 06 0A 00 02 0B 10 00
+R 00 00 00 00 02 06 0C 00 02 0B 12 00
 T 4E 01 00 36
 R 00 00 00 00
 T 4F 01 00
@@ -679,11 +784,11 @@ R 00 00 00 00
 T 5D 01 00
 R 00 00 00 00
 T 5D 01 00 43 FA 08 00 C6 14 21 00 00 36 80 26 31
-R 00 00 00 00 00 05 01 00 02 0A 10 00
+R 00 00 00 00 00 05 01 00 02 0A 12 00
 T 6A 01 00 E5 33 11 00 00 D5 C5 33 26 01 E5 33 61
-R 00 00 00 00 02 06 0C 00
+R 00 00 00 00 02 06 0E 00
 T 77 01 00 E5 33 F5 33 CD 00 00 E8 07 21 00 00 36
-R 00 00 00 00 02 08 0A 00 02 0D 10 00
+R 00 00 00 00 02 08 0C 00 02 0D 12 00
 T 84 01 00 00
 R 00 00 00 00
 T 85 01 00
@@ -709,80 +814,114 @@ R 00 00 00 00 00 09 01 00
 T CD 01 00 21 06 00 3E 60 22 AF 77 21 0C 00 36 00
 R 00 00 00 00 00 04 01 00 00 0C 01 00
 T DA 01 00 11 00 00 D5 21 80 90 E5 CD 00 00 E8 04
-R 00 00 00 00 02 04 03 00 02 0C 0F 00
+R 00 00 00 00 02 04 04 00 02 0C 11 00
 T E7 01 00 21 00 00 36 80 3E 31 F5 33 11 00 00 D5
-R 00 00 00 00 02 04 10 00 02 0D 0C 00
+R 00 00 00 00 02 04 12 00 02 0D 0E 00
 T F4 01 00 21 14 12 E5 AF 0F F5 CD 00 00 E8 07 21
-R 00 00 00 00 02 0B 0A 00
+R 00 00 00 00 02 0B 0C 00
 T 01 02 00 00 00 36 00 11 00 00 D5 21 00 80 E5 CD
-R 00 00 00 00 02 03 10 00 02 08 01 00
+R 00 00 00 00 02 03 12 00 02 08 01 00
 T 0E 02 00 00 00 E8 04 F0 00 00 00 F6 04 E0
-R 00 00 00 00 02 03 06 00 0B 08 0E 00
+R 00 00 00 00 02 03 08 00 0B 08 10 00
 T 17 02 00 00 00 00 F0 00 00 00 F6 01 E0 00 00 00
-R 00 00 00 00 0B 03 0E 00 0B 07 0E 00 0B 0D 0E 00
+R 00 00 00 00 0B 03 10 00 0B 07 10 00 0B 0D 10 00
 T 1E 02 00 F0 00 00 00 F6 02 E0 00 00 00 CD 00 00
-R 00 00 00 00 0B 04 0E 00 0B 0A 0E 00 00 0E 00 00
-T 27 02 00 3E 0A C3 00 00
-R 00 00 00 00 02 06 09 00
-T 2C 02 00
+R 00 00 00 00 0B 04 10 00 0B 0A 10 00 00 0E 00 00
+T 27 02 00 3E 0A CD 00 00 3E 04 F5 33 11 1F 00 D5
+R 00 00 00 00 02 06 0B 00
+T 34 02 00 3E 01 5F CD 00 00 11 46 02 D5 1E 03 3E
+R 00 00 00 00 02 07 06 00 00 0A 00 00
+T 41 02 00 01 CD 00 00 C9
+R 00 00 00 00 02 05 03 00
+T 46 02 00
 R 00 00 00 00
-T 2C 02 00 CD 00 00 EA 00 00 11 00 00 CD
-R 00 00 00 00 02 04 0B 00 02 07 00 00 00 0A 02 00
-T 36 02 00 00 00 11 00 00 CD 00 00 21
-R 00 00 00 00 02 03 0D 00 00 06 02 00 02 09 07 00
-T 3F 02 00 00 00 4E CB 51 28 16 21 03 00 3A B6 28
+T 46 02 00 57 69 6E 64 6F 77 20 54 65 78 74 00
+R 00 00 00 00
+T 52 02 00
+R 00 00 00 00
+T 52 02 00 21 09 00 36 00 21 08 00 36 00 21 0A 00
+R 00 00 00 00 00 04 01 00 00 09 01 00 00 0E 01 00
+T 5F 02 00 36 FF 21 00 00 3E D0 22 AF 77 21 02 00
+R 00 00 00 00 00 06 01 00 00 0E 01 00
+T 6C 02 00 3E 60 22 AF 77 21 04 00 3E D0 22 AF 77
+R 00 00 00 00 00 09 01 00
+T 79 02 00 21 06 00 3E 60 22 AF 77 21 0C 00 36 00
+R 00 00 00 00 00 04 01 00 00 0C 01 00
+T 86 02 00 11 00 00 D5 21 80 90 E5 CD 00 00 E8 04
+R 00 00 00 00 02 04 04 00 02 0C 11 00
+T 93 02 00 21 00 00 36 80 3E 31 F5 33 11 00 00 D5
+R 00 00 00 00 02 04 12 00 02 0D 0E 00
+T A0 02 00 21 14 12 E5 AF 0F F5 CD 00 00 E8 07 21
+R 00 00 00 00 02 0B 0C 00
+T AD 02 00 00 00 36 00 11 00 00 D5 21 00 80 E5 CD
+R 00 00 00 00 02 03 12 00 02 08 01 00
+T BA 02 00 00 00 E8 04 F0 00 00 00 F6 04 E0
+R 00 00 00 00 02 03 08 00 0B 08 10 00
+T C3 02 00 00 00 00 F0 00 00 00 F6 01 E0 00 00 00
+R 00 00 00 00 0B 03 10 00 0B 07 10 00 0B 0D 10 00
+T CA 02 00 F0 00 00 00 F6 02 E0 00 00 00 CD 00 00
+R 00 00 00 00 0B 04 10 00 0B 0A 10 00 00 0E 00 00
+T D3 02 00 3E 0A C3 00 00
+R 00 00 00 00 02 06 0B 00
+T D8 02 00
+R 00 00 00 00
+T D8 02 00 CD 00 00 EA 00 00 11 00 00 CD
+R 00 00 00 00 02 04 0D 00 02 07 00 00 00 0A 02 00
+T E2 02 00 00 00 11 00 00 CD 00 00 21
+R 00 00 00 00 02 03 0F 00 00 06 02 00 02 09 09 00
+T EB 02 00 00 00 4E CB 51 28 16 21 03 00 3A B6 28
 R 00 00 00 00 02 03 00 00 00 0B 01 00
-T 4C 02 00 2A 2A 5F 3A 57 1B 7B 22 72 21 0C 00 36
+T F8 02 00 2A 2A 5F 3A 57 1B 7B 22 72 21 0C 00 36
 R 00 00 00 00 00 0D 01 00
-T 59 02 00 01 18 1B
+T 05 03 00 01 18 1B
 R 00 00 00 00
-T 5C 02 00
+T 08 03 00
 R 00 00 00 00
-T 5C 02 00 CB 59 28 17 21 02 00 2A 5E D6 80 7B DE
+T 08 03 00 CB 59 28 17 21 02 00 2A 5E D6 80 7B DE
 R 00 00 00 00 00 08 01 00
-T 69 02 00 01 30 0B 2B 34 20 02 23 34
+T 15 03 00 01 30 0B 2B 34 20 02 23 34
 R 00 00 00 00
-T 72 02 00
+T 1E 03 00
 R 00 00 00 00
-T 72 02 00 21 0C 00 36 01
+T 1E 03 00 21 0C 00 36 01
 R 00 00 00 00 00 04 01 00
-T 77 02 00
+T 23 03 00
 R 00 00 00 00
-T 77 02 00 CB 49 28 16 21 01 00 3A B6 28 48 2A 5F
+T 23 03 00 CB 49 28 16 21 01 00 3A B6 28 48 2A 5F
 R 00 00 00 00 00 08 01 00
-T 84 02 00 3A 57 1B 7B 22 72 21 0C 00 36 01 18 39
+T 30 03 00 3A 57 1B 7B 22 72 21 0C 00 36 01 18 39
 R 00 00 00 00 00 0A 01 00
-T 91 02 00
+T 3D 03 00
 R 00 00 00 00
-T 91 02 00 CB 41 28 18 21 00 00 2A D6 E8 7E DE 00
+T 3D 03 00 CB 41 28 18 21 00 00 2A D6 E8 7E DE 00
 R 00 00 00 00 00 08 01 00
-T 9E 02 00 30 2A 2B 34 20 02 23 34
+T 4A 03 00 30 2A 2B 34 20 02 23 34
 R 00 00 00 00
-T A6 02 00
+T 52 03 00
 R 00 00 00 00
-T A6 02 00 21 0C 00 36 01 18 1D
+T 52 03 00 21 0C 00 36 01 18 1D
 R 00 00 00 00 00 04 01 00
-T AD 02 00
+T 59 03 00
 R 00 00 00 00
-T AD 02 00 CB 71 28 08 3E 0A CD 00 00 3E 01 C9
-R 00 00 00 00 02 0A 05 00
-T B9 02 00
+T 59 03 00 CB 71 28 08 3E 0A CD 00 00 3E 01 C9
+R 00 00 00 00 02 0A 07 00
+T 65 03 00
 R 00 00 00 00
-T B9 02 00 CB 61 28 0D 11 00 00 D5 21 00 10 E5 CD
-R 00 00 00 00 02 08 12 00
-T C6 02 00 00 00 E8 04
-R 00 00 00 00 02 03 06 00
-T CA 02 00
+T 65 03 00 CB 61 28 0D 11 00 00 D5 21 00 10 E5 CD
+R 00 00 00 00 02 08 14 00
+T 72 03 00 00 00 E8 04
+R 00 00 00 00 02 03 08 00
+T 76 03 00
 R 00 00 00 00
-T CA 02 00 FA 0C 00 B7 28 0B CD 00 00 CD 00 00 21
-R 00 00 00 00 00 04 01 00 02 0A 11 00 00 0D 00 00
-T D7 02 00 0C 00 36 00
+T 76 03 00 FA 0C 00 B7 28 0B CD 00 00 CD 00 00 21
+R 00 00 00 00 00 04 01 00 02 0A 13 00 00 0D 00 00
+T 83 03 00 0C 00 36 00
 R 00 00 00 00 00 03 01 00
-T DB 02 00
+T 87 03 00
 R 00 00 00 00
-T DB 02 00 3E 02 C9
+T 87 03 00 3E 02 C9
 R 00 00 00 00
 T 00 00 00
 R 00 00 07 00
-T 00 00 00 58 00 60 00 00 00 03 00
+T 00 00 00 58 00 60 00 00 00 03 00 00 00 00 00
 R 00 00 07 00

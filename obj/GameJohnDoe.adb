@@ -57,10 +57,10 @@ S:LGameJohnDoe.set_native_tile_data$nb_tiles$1_0$89({1}SC:U),B,1,-1
 S:LGameJohnDoe.set_native_tile_data$first_tile$1_0$89({2}SI:U),B,1,-3
 F:G$scanline_isr$0_0$0({2}DF,SV:S),C,0,0,1,256,0
 F:G$GameJohnDoeSetup$0_0$0({2}DF,SV:S),C,0,0,0,0,0
-S:LGameJohnDoe.GameJohnDoeSetup$__1310720006$2_0$107({1}SC:U),R,0,0,[]
-S:LGameJohnDoe.GameJohnDoeSetup$__1310720007$2_0$107({1}SC:U),R,0,0,[]
-S:LGameJohnDoe.GameJohnDoeSetup$x$3_0$108({1}SC:U),R,0,0,[]
-S:LGameJohnDoe.GameJohnDoeSetup$y$3_0$108({1}SC:U),R,0,0,[]
+S:LGameJohnDoe.GameJohnDoeSetup$__1310720006$2_0$109({1}SC:U),R,0,0,[]
+S:LGameJohnDoe.GameJohnDoeSetup$__1310720007$2_0$109({1}SC:U),R,0,0,[]
+S:LGameJohnDoe.GameJohnDoeSetup$x$3_0$110({1}SC:U),R,0,0,[]
+S:LGameJohnDoe.GameJohnDoeSetup$y$3_0$110({1}SC:U),R,0,0,[]
 F:G$GameJohnDoeUpdate$0_0$0({2}DF,SC:U),C,0,0,0,0,0
 T:FGameJohnDoe$isr_vector_t[({0}S:S$opcode$0_0$0({1}SC:U),Z,0,0)({1}S:S$func$0_0$0({2}DG,SV:S),Z,0,0)]
 T:FGameJohnDoe$__00000000[({0}S:S$l$0_0$0({1}SC:U),Z,0,0)({1}S:S$h$0_0$0({1}SC:U),Z,0,0)]
@@ -253,7 +253,9 @@ S:G$fill_bkg_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$fill_win_rect$0_0$0({2}DF,SV:S),C,0,0
 S:G$performantdelay$0_0$0({2}DF,SV:S),C,0,0
 S:G$DrawNumber$0_0$0({2}DF,SV:S),C,0,0
+S:G$DrawNumberWindow$0_0$0({2}DF,SV:S),C,0,0
 S:G$DrawText$0_0$0({2}DF,SV:S),C,0,0
+S:G$DrawTextWindow$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeFromBlack$0_0$0({2}DF,SV:S),C,0,0
 S:G$fadeToWhite$0_0$0({2}DF,SV:S),C,0,0

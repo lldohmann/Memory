@@ -12,779 +12,877 @@
                                      12 	.globl _BattleSetup
                                      13 	.globl _InvertColor
                                      14 	.globl _fadeFromBlack
-                                     15 	.globl _DrawNumber
-                                     16 	.globl _performantdelay
-                                     17 	.globl _set_bkg_tiles
-                                     18 	.globl _set_bkg_data
-                                     19 	.globl _cursor_y
-                                     20 	.globl _cursor_x
-                                     21 ;--------------------------------------------------------
-                                     22 ; special function registers
-                                     23 ;--------------------------------------------------------
+                                     15 	.globl _DrawText
+                                     16 	.globl _DrawNumber
+                                     17 	.globl _performantdelay
+                                     18 	.globl _set_bkg_tiles
+                                     19 	.globl _set_bkg_data
+                                     20 	.globl _cursor_y
+                                     21 	.globl _cursor_x
+                                     22 ;--------------------------------------------------------
+                                     23 ; special function registers
                                      24 ;--------------------------------------------------------
-                                     25 ; ram data
-                                     26 ;--------------------------------------------------------
-                                     27 	.area _DATA
-                           000000    28 G$cursor_x$0_0$0==.
-      000000                         29 _cursor_x::
-      000000                         30 	.ds 1
-                           000001    31 G$cursor_y$0_0$0==.
-      000001                         32 _cursor_y::
-      000001                         33 	.ds 1
-                                     34 ;--------------------------------------------------------
-                                     35 ; ram data
-                                     36 ;--------------------------------------------------------
-                                     37 	.area _INITIALIZED
-                                     38 ;--------------------------------------------------------
-                                     39 ; absolute external ram data
-                                     40 ;--------------------------------------------------------
-                                     41 	.area _DABS (ABS)
-                                     42 ;--------------------------------------------------------
-                                     43 ; global & static initialisations
-                                     44 ;--------------------------------------------------------
-                                     45 	.area _HOME
-                                     46 	.area _GSINIT
-                                     47 	.area _GSFINAL
-                                     48 	.area _GSINIT
-                                     49 ;--------------------------------------------------------
-                                     50 ; Home
-                                     51 ;--------------------------------------------------------
-                                     52 	.area _HOME
+                                     25 ;--------------------------------------------------------
+                                     26 ; ram data
+                                     27 ;--------------------------------------------------------
+                                     28 	.area _DATA
+                           000000    29 G$cursor_x$0_0$0==.
+      000000                         30 _cursor_x::
+      000000                         31 	.ds 1
+                           000001    32 G$cursor_y$0_0$0==.
+      000001                         33 _cursor_y::
+      000001                         34 	.ds 1
+                                     35 ;--------------------------------------------------------
+                                     36 ; ram data
+                                     37 ;--------------------------------------------------------
+                                     38 	.area _INITIALIZED
+                                     39 ;--------------------------------------------------------
+                                     40 ; absolute external ram data
+                                     41 ;--------------------------------------------------------
+                                     42 	.area _DABS (ABS)
+                                     43 ;--------------------------------------------------------
+                                     44 ; global & static initialisations
+                                     45 ;--------------------------------------------------------
+                                     46 	.area _HOME
+                                     47 	.area _GSINIT
+                                     48 	.area _GSFINAL
+                                     49 	.area _GSINIT
+                                     50 ;--------------------------------------------------------
+                                     51 ; Home
+                                     52 ;--------------------------------------------------------
                                      53 	.area _HOME
-                                     54 ;--------------------------------------------------------
-                                     55 ; code
-                                     56 ;--------------------------------------------------------
-                                     57 	.area _CODE
-                           000000    58 	G$BattleSetup$0$0	= .
-                                     59 	.globl	G$BattleSetup$0$0
-                           000000    60 	C$Battle.c$42$0_0$105	= .
-                                     61 	.globl	C$Battle.c$42$0_0$105
-                                     62 ;src\Battle.c:42: void BattleSetup()
-                                     63 ;	---------------------------------
-                                     64 ; Function BattleSetup
-                                     65 ; ---------------------------------
-      000000                         66 _BattleSetup::
-                                     67 ;C:/gbdk/include/gb/gb.h:1208: SCX_REG=x, SCY_REG=y;
-      000000 AF               [ 4]   68 	xor	a, a
-      000001 E0r00            [12]   69 	ldh	(_SCX_REG + 0), a
-      000003 AF               [ 4]   70 	xor	a, a
-      000004 E0r00            [12]   71 	ldh	(_SCY_REG + 0), a
-                           000006    72 	C$Battle.c$45$1_0$105	= .
-                                     73 	.globl	C$Battle.c$45$1_0$105
-                                     74 ;src\Battle.c:45: set_bkg_data(0, 53, FontTiles); // Load font and window tiles
-      000006 11r00r00         [12]   75 	ld	de, #_FontTiles
-      000009 D5               [16]   76 	push	de
-      00000A 21 00 35         [12]   77 	ld	hl, #0x3500
-      00000D E5               [16]   78 	push	hl
-      00000E CDr00r00         [24]   79 	call	_set_bkg_data
-      000011 E8 04            [16]   80 	add	sp, #4
-                           000013    81 	C$Battle.c$46$1_0$105	= .
-                                     82 	.globl	C$Battle.c$46$1_0$105
-                                     83 ;src\Battle.c:46: set_bkg_tiles(0, 0, Battle_MapWidth, Battle_MapHeight, Battle_Map); // draw background window & text
-      000013 11r00r00         [12]   84 	ld	de, #_Battle_Map
-      000016 D5               [16]   85 	push	de
-      000017 21 14 17         [12]   86 	ld	hl, #0x1714
-      00001A E5               [16]   87 	push	hl
-      00001B AF               [ 4]   88 	xor	a, a
-      00001C 0F               [ 4]   89 	rrca
-      00001D F5               [16]   90 	push	af
-      00001E CDr00r00         [24]   91 	call	_set_bkg_tiles
-      000021 E8 06            [16]   92 	add	sp, #6
-                           000023    93 	C$Battle.c$48$1_0$105	= .
-                                     94 	.globl	C$Battle.c$48$1_0$105
-                                     95 ;src\Battle.c:48: DrawNumber(1, 14, 123456, 6);
-      000023 3E 06            [ 8]   96 	ld	a, #0x06
-      000025 F5               [16]   97 	push	af
-      000026 33               [ 8]   98 	inc	sp
-      000027 11 40 E2         [12]   99 	ld	de, #0xe240
-      00002A D5               [16]  100 	push	de
-      00002B 1E 0E            [ 8]  101 	ld	e, #0x0e
-      00002D 3E 01            [ 8]  102 	ld	a, #0x01
-      00002F CDr00r00         [24]  103 	call	_DrawNumber
-                           000032   104 	C$Battle.c$49$1_0$105	= .
-                                    105 	.globl	C$Battle.c$49$1_0$105
-                                    106 ;src\Battle.c:49: DrawNumber(8, 14, 110, 3);
-      000032 3E 03            [ 8]  107 	ld	a, #0x03
-      000034 F5               [16]  108 	push	af
-      000035 33               [ 8]  109 	inc	sp
-      000036 11 6E 00         [12]  110 	ld	de, #0x006e
-      000039 D5               [16]  111 	push	de
-      00003A 1E 0E            [ 8]  112 	ld	e, #0x0e
-      00003C 3E 08            [ 8]  113 	ld	a, #0x08
-      00003E CDr00r00         [24]  114 	call	_DrawNumber
-                           000041   115 	C$Battle.c$50$1_0$105	= .
-                                    116 	.globl	C$Battle.c$50$1_0$105
-                                    117 ;src\Battle.c:50: DrawNumber(13, 14, 70, 2);
-      000041 3E 02            [ 8]  118 	ld	a, #0x02
-      000043 F5               [16]  119 	push	af
-      000044 33               [ 8]  120 	inc	sp
-      000045 11 46 00         [12]  121 	ld	de, #0x0046
-      000048 D5               [16]  122 	push	de
-      000049 1E 0E            [ 8]  123 	ld	e, #0x0e
-      00004B 3E 0D            [ 8]  124 	ld	a, #0x0d
-      00004D CDr00r00         [24]  125 	call	_DrawNumber
-                           000050   126 	C$Battle.c$51$1_0$105	= .
-                                    127 	.globl	C$Battle.c$51$1_0$105
-                                    128 ;src\Battle.c:51: DrawNumber(17, 14, 11, 2);
-      000050 3E 02            [ 8]  129 	ld	a, #0x02
-      000052 F5               [16]  130 	push	af
-      000053 33               [ 8]  131 	inc	sp
-      000054 11 0B 00         [12]  132 	ld	de, #0x000b
-      000057 D5               [16]  133 	push	de
-      000058 1E 0E            [ 8]  134 	ld	e, #0x0e
-      00005A 3E 11            [ 8]  135 	ld	a, #0x11
-      00005C CDr00r00         [24]  136 	call	_DrawNumber
-                           00005F   137 	C$Battle.c$53$1_0$105	= .
-                                    138 	.globl	C$Battle.c$53$1_0$105
-                                    139 ;src\Battle.c:53: DrawNumber(1, 15, 123456, 6);
-      00005F 3E 06            [ 8]  140 	ld	a, #0x06
-      000061 F5               [16]  141 	push	af
-      000062 33               [ 8]  142 	inc	sp
-      000063 11 40 E2         [12]  143 	ld	de, #0xe240
-      000066 D5               [16]  144 	push	de
-      000067 1E 0F            [ 8]  145 	ld	e, #0x0f
-      000069 3E 01            [ 8]  146 	ld	a, #0x01
-      00006B CDr00r00         [24]  147 	call	_DrawNumber
-                           00006E   148 	C$Battle.c$54$1_0$105	= .
-                                    149 	.globl	C$Battle.c$54$1_0$105
-                                    150 ;src\Battle.c:54: DrawNumber(9, 15, 80, 2);
-      00006E 3E 02            [ 8]  151 	ld	a, #0x02
-      000070 F5               [16]  152 	push	af
-      000071 33               [ 8]  153 	inc	sp
-      000072 11 50 00         [12]  154 	ld	de, #0x0050
-      000075 D5               [16]  155 	push	de
-      000076 1E 0F            [ 8]  156 	ld	e, #0x0f
-      000078 3E 09            [ 8]  157 	ld	a, #0x09
-      00007A CDr00r00         [24]  158 	call	_DrawNumber
-                           00007D   159 	C$Battle.c$55$1_0$105	= .
-                                    160 	.globl	C$Battle.c$55$1_0$105
-                                    161 ;src\Battle.c:55: DrawNumber(13, 15, 33, 2);
-      00007D 3E 02            [ 8]  162 	ld	a, #0x02
-      00007F F5               [16]  163 	push	af
-      000080 33               [ 8]  164 	inc	sp
-      000081 11 21 00         [12]  165 	ld	de, #0x0021
-      000084 D5               [16]  166 	push	de
-      000085 1E 0F            [ 8]  167 	ld	e, #0x0f
-      000087 3E 0D            [ 8]  168 	ld	a, #0x0d
-      000089 CDr00r00         [24]  169 	call	_DrawNumber
-                           00008C   170 	C$Battle.c$56$1_0$105	= .
-                                    171 	.globl	C$Battle.c$56$1_0$105
-                                    172 ;src\Battle.c:56: DrawNumber(17, 15, 11, 2);
-      00008C 3E 02            [ 8]  173 	ld	a, #0x02
-      00008E F5               [16]  174 	push	af
-      00008F 33               [ 8]  175 	inc	sp
-      000090 11 0B 00         [12]  176 	ld	de, #0x000b
-      000093 D5               [16]  177 	push	de
-      000094 1E 0F            [ 8]  178 	ld	e, #0x0f
-      000096 3E 11            [ 8]  179 	ld	a, #0x11
-      000098 CDr00r00         [24]  180 	call	_DrawNumber
-                           00009B   181 	C$Battle.c$59$1_0$105	= .
-                                    182 	.globl	C$Battle.c$59$1_0$105
-                                    183 ;src\Battle.c:59: cursor_x = 8;
-      00009B 21r00r00         [12]  184 	ld	hl, #_cursor_x
-      00009E 36 08            [12]  185 	ld	(hl), #0x08
-                           0000A0   186 	C$Battle.c$60$1_0$105	= .
-                                    187 	.globl	C$Battle.c$60$1_0$105
-                                    188 ;src\Battle.c:60: cursor_y = 144;
-      0000A0 21r01r00         [12]  189 	ld	hl, #_cursor_y
-      0000A3 36 90            [12]  190 	ld	(hl), #0x90
-                           0000A5   191 	C$Battle.c$63$1_0$105	= .
-                                    192 	.globl	C$Battle.c$63$1_0$105
-                                    193 ;src\Battle.c:63: SHOW_BKG; 
-      0000A5 F0r00            [12]  194 	ldh	a, (_LCDC_REG + 0)
-      0000A7 F6 01            [ 8]  195 	or	a, #0x01
-      0000A9 E0r00            [12]  196 	ldh	(_LCDC_REG + 0), a
-                           0000AB   197 	C$Battle.c$64$1_0$105	= .
-                                    198 	.globl	C$Battle.c$64$1_0$105
-                                    199 ;src\Battle.c:64: fadeFromBlack(5);
-      0000AB 3E 05            [ 8]  200 	ld	a, #0x05
-      0000AD CDr00r00         [24]  201 	call	_fadeFromBlack
-                           0000B0   202 	C$Battle.c$65$1_0$105	= .
-                                    203 	.globl	C$Battle.c$65$1_0$105
-                                    204 ;src\Battle.c:65: if (index == 0) // JIM
-      0000B0 FAr00r00         [16]  205 	ld	a, (#_index)
-      0000B3 B7               [ 4]  206 	or	a, a
-      0000B4 20 21            [12]  207 	jr	NZ, 00155$
-                           0000B6   208 	C$Battle.c$67$2_0$106	= .
-                                    209 	.globl	C$Battle.c$67$2_0$106
-                                    210 ;src\Battle.c:67: set_bkg_data(128, 23, Crow_Tiles); // init with crow monster
-      0000B6 11r00r00         [12]  211 	ld	de, #_Crow_Tiles
-      0000B9 D5               [16]  212 	push	de
-      0000BA 21 80 17         [12]  213 	ld	hl, #0x1780
-      0000BD E5               [16]  214 	push	hl
-      0000BE CDr00r00         [24]  215 	call	_set_bkg_data
-      0000C1 E8 04            [16]  216 	add	sp, #4
-                           0000C3   217 	C$Battle.c$68$2_0$106	= .
-                                    218 	.globl	C$Battle.c$68$2_0$106
-                                    219 ;src\Battle.c:68: set_bkg_tiles(7, 5, Crow_MapWidth, Crow_MapHeight, Crow_Map); // draw Crow monster
-      0000C3 11r00r00         [12]  220 	ld	de, #_Crow_Map
-      0000C6 D5               [16]  221 	push	de
-      0000C7 21 05 07         [12]  222 	ld	hl, #0x705
-      0000CA E5               [16]  223 	push	hl
-      0000CB 21 07 05         [12]  224 	ld	hl, #0x507
-      0000CE E5               [16]  225 	push	hl
-      0000CF CDr00r00         [24]  226 	call	_set_bkg_tiles
-      0000D2 E8 06            [16]  227 	add	sp, #6
-      0000D4 C3rA3r03         [16]  228 	jp	00156$
-      0000D7                        229 00155$:
-                           0000D7   230 	C$Battle.c$70$1_0$105	= .
-                                    231 	.globl	C$Battle.c$70$1_0$105
-                                    232 ;src\Battle.c:70: else if (index == 1) // GYPSY
-      0000D7 FAr00r00         [16]  233 	ld	a, (#_index)
-      0000DA 3D               [ 4]  234 	dec	a
-      0000DB 20 21            [12]  235 	jr	NZ, 00152$
-                           0000DD   236 	C$Battle.c$72$2_0$107	= .
-                                    237 	.globl	C$Battle.c$72$2_0$107
-                                    238 ;src\Battle.c:72: set_bkg_data(128, 29, GypsyTiles); 
-      0000DD 11r00r00         [12]  239 	ld	de, #_GypsyTiles
-      0000E0 D5               [16]  240 	push	de
-      0000E1 21 80 1D         [12]  241 	ld	hl, #0x1d80
-      0000E4 E5               [16]  242 	push	hl
-      0000E5 CDr00r00         [24]  243 	call	_set_bkg_data
-      0000E8 E8 04            [16]  244 	add	sp, #4
-                           0000EA   245 	C$Battle.c$73$2_0$107	= .
-                                    246 	.globl	C$Battle.c$73$2_0$107
-                                    247 ;src\Battle.c:73: set_bkg_tiles(7, 5, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
-      0000EA 11r00r00         [12]  248 	ld	de, #_Gypsy_Map
-      0000ED D5               [16]  249 	push	de
-      0000EE 21 06 07         [12]  250 	ld	hl, #0x706
-      0000F1 E5               [16]  251 	push	hl
-      0000F2 21 07 05         [12]  252 	ld	hl, #0x507
-      0000F5 E5               [16]  253 	push	hl
-      0000F6 CDr00r00         [24]  254 	call	_set_bkg_tiles
-      0000F9 E8 06            [16]  255 	add	sp, #6
-      0000FB C3rA3r03         [16]  256 	jp	00156$
-      0000FE                        257 00152$:
-                           0000FE   258 	C$Battle.c$75$1_0$105	= .
-                                    259 	.globl	C$Battle.c$75$1_0$105
-                                    260 ;src\Battle.c:75: else if (index == 2) // WALLY
-      0000FE FAr00r00         [16]  261 	ld	a, (#_index)
-      000101 D6 02            [ 8]  262 	sub	a, #0x02
-      000103 20 21            [12]  263 	jr	NZ, 00149$
-                           000105   264 	C$Battle.c$77$2_0$108	= .
-                                    265 	.globl	C$Battle.c$77$2_0$108
-                                    266 ;src\Battle.c:77: set_bkg_data(128, 27, WallyTiles); 
-      000105 11r00r00         [12]  267 	ld	de, #_WallyTiles
-      000108 D5               [16]  268 	push	de
-      000109 21 80 1B         [12]  269 	ld	hl, #0x1b80
-      00010C E5               [16]  270 	push	hl
-      00010D CDr00r00         [24]  271 	call	_set_bkg_data
-      000110 E8 04            [16]  272 	add	sp, #4
-                           000112   273 	C$Battle.c$78$2_0$108	= .
-                                    274 	.globl	C$Battle.c$78$2_0$108
-                                    275 ;src\Battle.c:78: set_bkg_tiles(7, 5, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
-      000112 11r00r00         [12]  276 	ld	de, #_Gypsy_Map
-      000115 D5               [16]  277 	push	de
-      000116 21 06 07         [12]  278 	ld	hl, #0x706
-      000119 E5               [16]  279 	push	hl
-      00011A 21 07 05         [12]  280 	ld	hl, #0x507
-      00011D E5               [16]  281 	push	hl
-      00011E CDr00r00         [24]  282 	call	_set_bkg_tiles
-      000121 E8 06            [16]  283 	add	sp, #6
-      000123 C3rA3r03         [16]  284 	jp	00156$
-      000126                        285 00149$:
-                           000126   286 	C$Battle.c$80$1_0$105	= .
-                                    287 	.globl	C$Battle.c$80$1_0$105
-                                    288 ;src\Battle.c:80: else if (index == 3) // TICK
-      000126 FAr00r00         [16]  289 	ld	a, (#_index)
-      000129 D6 03            [ 8]  290 	sub	a, #0x03
-      00012B 20 21            [12]  291 	jr	NZ, 00146$
-                           00012D   292 	C$Battle.c$82$2_0$109	= .
-                                    293 	.globl	C$Battle.c$82$2_0$109
-                                    294 ;src\Battle.c:82: set_bkg_data(128, 20, Tick_Tiles); 
-      00012D 11r00r00         [12]  295 	ld	de, #_Tick_Tiles
-      000130 D5               [16]  296 	push	de
-      000131 21 80 14         [12]  297 	ld	hl, #0x1480
-      000134 E5               [16]  298 	push	hl
-      000135 CDr00r00         [24]  299 	call	_set_bkg_data
-      000138 E8 04            [16]  300 	add	sp, #4
-                           00013A   301 	C$Battle.c$83$2_0$109	= .
-                                    302 	.globl	C$Battle.c$83$2_0$109
-                                    303 ;src\Battle.c:83: set_bkg_tiles(7, 5, Tick_MapWidth, Tick_MapHeight, Tick_Map); 
-      00013A 11r00r00         [12]  304 	ld	de, #_Tick_Map
-      00013D D5               [16]  305 	push	de
-      00013E 21 05 05         [12]  306 	ld	hl, #0x505
-      000141 E5               [16]  307 	push	hl
-      000142 21 07 05         [12]  308 	ld	hl, #0x507
-      000145 E5               [16]  309 	push	hl
-      000146 CDr00r00         [24]  310 	call	_set_bkg_tiles
-      000149 E8 06            [16]  311 	add	sp, #6
-      00014B C3rA3r03         [16]  312 	jp	00156$
-      00014E                        313 00146$:
-                           00014E   314 	C$Battle.c$85$1_0$105	= .
-                                    315 	.globl	C$Battle.c$85$1_0$105
-                                    316 ;src\Battle.c:85: else if (index == 4) // OFFICER
-      00014E FAr00r00         [16]  317 	ld	a, (#_index)
-      000151 D6 04            [ 8]  318 	sub	a, #0x04
-      000153 20 21            [12]  319 	jr	NZ, 00143$
-                           000155   320 	C$Battle.c$87$2_0$110	= .
-                                    321 	.globl	C$Battle.c$87$2_0$110
-                                    322 ;src\Battle.c:87: set_bkg_data(128, 39, Cop_Tiles); 
-      000155 11r00r00         [12]  323 	ld	de, #_Cop_Tiles
-      000158 D5               [16]  324 	push	de
-      000159 21 80 27         [12]  325 	ld	hl, #0x2780
-      00015C E5               [16]  326 	push	hl
-      00015D CDr00r00         [24]  327 	call	_set_bkg_data
-      000160 E8 04            [16]  328 	add	sp, #4
-                           000162   329 	C$Battle.c$88$2_0$110	= .
-                                    330 	.globl	C$Battle.c$88$2_0$110
-                                    331 ;src\Battle.c:88: set_bkg_tiles(7, 5, Officer_MapWidth, Officer_MapHeight, Officer_Map); 
-      000162 11r00r00         [12]  332 	ld	de, #_Officer_Map
-      000165 D5               [16]  333 	push	de
-      000166 21 06 07         [12]  334 	ld	hl, #0x706
-      000169 E5               [16]  335 	push	hl
-      00016A 21 07 05         [12]  336 	ld	hl, #0x507
-      00016D E5               [16]  337 	push	hl
-      00016E CDr00r00         [24]  338 	call	_set_bkg_tiles
-      000171 E8 06            [16]  339 	add	sp, #6
-      000173 C3rA3r03         [16]  340 	jp	00156$
-      000176                        341 00143$:
-                           000176   342 	C$Battle.c$90$1_0$105	= .
-                                    343 	.globl	C$Battle.c$90$1_0$105
-                                    344 ;src\Battle.c:90: else if (index == 5) // POLICE
-      000176 FAr00r00         [16]  345 	ld	a, (#_index)
-      000179 D6 05            [ 8]  346 	sub	a, #0x05
-      00017B 20 21            [12]  347 	jr	NZ, 00140$
-                           00017D   348 	C$Battle.c$92$2_0$111	= .
-                                    349 	.globl	C$Battle.c$92$2_0$111
-                                    350 ;src\Battle.c:92: set_bkg_data(128, 39, Cop_Tiles); 
-      00017D 11r00r00         [12]  351 	ld	de, #_Cop_Tiles
-      000180 D5               [16]  352 	push	de
-      000181 21 80 27         [12]  353 	ld	hl, #0x2780
-      000184 E5               [16]  354 	push	hl
-      000185 CDr00r00         [24]  355 	call	_set_bkg_data
-      000188 E8 04            [16]  356 	add	sp, #4
-                           00018A   357 	C$Battle.c$93$2_0$111	= .
-                                    358 	.globl	C$Battle.c$93$2_0$111
-                                    359 ;src\Battle.c:93: set_bkg_tiles(7, 5, Police_MapWidth, Police_MapHeight, Police_Map); 
-      00018A 11r00r00         [12]  360 	ld	de, #_Police_Map
-      00018D D5               [16]  361 	push	de
-      00018E 21 06 07         [12]  362 	ld	hl, #0x706
-      000191 E5               [16]  363 	push	hl
-      000192 21 07 05         [12]  364 	ld	hl, #0x507
-      000195 E5               [16]  365 	push	hl
-      000196 CDr00r00         [24]  366 	call	_set_bkg_tiles
-      000199 E8 06            [16]  367 	add	sp, #6
-      00019B C3rA3r03         [16]  368 	jp	00156$
-      00019E                        369 00140$:
-                           00019E   370 	C$Battle.c$95$1_0$105	= .
-                                    371 	.globl	C$Battle.c$95$1_0$105
-                                    372 ;src\Battle.c:95: else if (index == 6) // SHERIFF
-      00019E FAr00r00         [16]  373 	ld	a, (#_index)
-      0001A1 D6 06            [ 8]  374 	sub	a, #0x06
-      0001A3 20 21            [12]  375 	jr	NZ, 00137$
-                           0001A5   376 	C$Battle.c$97$2_0$112	= .
-                                    377 	.globl	C$Battle.c$97$2_0$112
-                                    378 ;src\Battle.c:97: set_bkg_data(128, 39, Cop_Tiles); 
-      0001A5 11r00r00         [12]  379 	ld	de, #_Cop_Tiles
-      0001A8 D5               [16]  380 	push	de
-      0001A9 21 80 27         [12]  381 	ld	hl, #0x2780
-      0001AC E5               [16]  382 	push	hl
-      0001AD CDr00r00         [24]  383 	call	_set_bkg_data
-      0001B0 E8 04            [16]  384 	add	sp, #4
-                           0001B2   385 	C$Battle.c$98$2_0$112	= .
-                                    386 	.globl	C$Battle.c$98$2_0$112
-                                    387 ;src\Battle.c:98: set_bkg_tiles(7, 5, Sheriff_MapWidth, Sheriff_MapHeight, Sheriff_Map); 
-      0001B2 11r00r00         [12]  388 	ld	de, #_Sheriff_Map
-      0001B5 D5               [16]  389 	push	de
-      0001B6 21 06 07         [12]  390 	ld	hl, #0x706
-      0001B9 E5               [16]  391 	push	hl
-      0001BA 21 07 05         [12]  392 	ld	hl, #0x507
-      0001BD E5               [16]  393 	push	hl
-      0001BE CDr00r00         [24]  394 	call	_set_bkg_tiles
-      0001C1 E8 06            [16]  395 	add	sp, #6
-      0001C3 C3rA3r03         [16]  396 	jp	00156$
-      0001C6                        397 00137$:
-                           0001C6   398 	C$Battle.c$100$1_0$105	= .
-                                    399 	.globl	C$Battle.c$100$1_0$105
-                                    400 ;src\Battle.c:100: else if (index == 7) // CHIEF
-      0001C6 FAr00r00         [16]  401 	ld	a, (#_index)
-      0001C9 D6 07            [ 8]  402 	sub	a, #0x07
-      0001CB 20 21            [12]  403 	jr	NZ, 00134$
-                           0001CD   404 	C$Battle.c$102$2_0$113	= .
-                                    405 	.globl	C$Battle.c$102$2_0$113
-                                    406 ;src\Battle.c:102: set_bkg_data(128, 39, Cop_Tiles); 
-      0001CD 11r00r00         [12]  407 	ld	de, #_Cop_Tiles
-      0001D0 D5               [16]  408 	push	de
-      0001D1 21 80 27         [12]  409 	ld	hl, #0x2780
-      0001D4 E5               [16]  410 	push	hl
-      0001D5 CDr00r00         [24]  411 	call	_set_bkg_data
-      0001D8 E8 04            [16]  412 	add	sp, #4
-                           0001DA   413 	C$Battle.c$103$2_0$113	= .
-                                    414 	.globl	C$Battle.c$103$2_0$113
-                                    415 ;src\Battle.c:103: set_bkg_tiles(7, 5, Chief_MapWidth, Chief_MapHeight, Chief_Map); 
-      0001DA 11r00r00         [12]  416 	ld	de, #_Chief_Map
-      0001DD D5               [16]  417 	push	de
-      0001DE 21 06 07         [12]  418 	ld	hl, #0x706
-      0001E1 E5               [16]  419 	push	hl
-      0001E2 21 07 05         [12]  420 	ld	hl, #0x507
-      0001E5 E5               [16]  421 	push	hl
-      0001E6 CDr00r00         [24]  422 	call	_set_bkg_tiles
-      0001E9 E8 06            [16]  423 	add	sp, #6
-      0001EB C3rA3r03         [16]  424 	jp	00156$
-      0001EE                        425 00134$:
-                           0001EE   426 	C$Battle.c$105$1_0$105	= .
-                                    427 	.globl	C$Battle.c$105$1_0$105
-                                    428 ;src\Battle.c:105: else if (index == 8)
-      0001EE FAr00r00         [16]  429 	ld	a, (#_index)
-      0001F1 D6 08            [ 8]  430 	sub	a, #0x08
-      0001F3 20 24            [12]  431 	jr	NZ, 00131$
-                           0001F5   432 	C$Battle.c$107$2_0$114	= .
-                                    433 	.globl	C$Battle.c$107$2_0$114
-                                    434 ;src\Battle.c:107: InvertColor();
-      0001F5 CDr00r00         [24]  435 	call	_InvertColor
-                           0001F8   436 	C$Battle.c$108$2_0$114	= .
-                                    437 	.globl	C$Battle.c$108$2_0$114
-                                    438 ;src\Battle.c:108: set_bkg_data(128, 30, Man_Tiles); 
-      0001F8 11r00r00         [12]  439 	ld	de, #_Man_Tiles
-      0001FB D5               [16]  440 	push	de
-      0001FC 21 80 1E         [12]  441 	ld	hl, #0x1e80
-      0001FF E5               [16]  442 	push	hl
-      000200 CDr00r00         [24]  443 	call	_set_bkg_data
-      000203 E8 04            [16]  444 	add	sp, #4
-                           000205   445 	C$Battle.c$109$2_0$114	= .
-                                    446 	.globl	C$Battle.c$109$2_0$114
-                                    447 ;src\Battle.c:109: set_bkg_tiles(7, 5, Man_MapWidth, Man_MapHeight, Man_Map); 
-      000205 11r00r00         [12]  448 	ld	de, #_Man_Map
-      000208 D5               [16]  449 	push	de
-      000209 21 06 06         [12]  450 	ld	hl, #0x606
-      00020C E5               [16]  451 	push	hl
-      00020D 21 07 05         [12]  452 	ld	hl, #0x507
-      000210 E5               [16]  453 	push	hl
-      000211 CDr00r00         [24]  454 	call	_set_bkg_tiles
-      000214 E8 06            [16]  455 	add	sp, #6
-      000216 C3rA3r03         [16]  456 	jp	00156$
-      000219                        457 00131$:
-                           000219   458 	C$Battle.c$111$1_0$105	= .
-                                    459 	.globl	C$Battle.c$111$1_0$105
-                                    460 ;src\Battle.c:111: else if (index == 9)
-      000219 FAr00r00         [16]  461 	ld	a, (#_index)
-      00021C D6 09            [ 8]  462 	sub	a, #0x09
-      00021E 20 21            [12]  463 	jr	NZ, 00128$
-                           000220   464 	C$Battle.c$113$2_0$115	= .
-                                    465 	.globl	C$Battle.c$113$2_0$115
-                                    466 ;src\Battle.c:113: set_bkg_data(128, 26, Car_Tiles); 
-      000220 11r00r00         [12]  467 	ld	de, #_Car_Tiles
-      000223 D5               [16]  468 	push	de
-      000224 21 80 1A         [12]  469 	ld	hl, #0x1a80
-      000227 E5               [16]  470 	push	hl
-      000228 CDr00r00         [24]  471 	call	_set_bkg_data
-      00022B E8 04            [16]  472 	add	sp, #4
-                           00022D   473 	C$Battle.c$114$2_0$115	= .
-                                    474 	.globl	C$Battle.c$114$2_0$115
-                                    475 ;src\Battle.c:114: set_bkg_tiles(7, 5, Car_MapWidth, Car_MapHeight, Car_Map); 
-      00022D 11r00r00         [12]  476 	ld	de, #_Car_Map
-      000230 D5               [16]  477 	push	de
-      000231 21 06 05         [12]  478 	ld	hl, #0x506
-      000234 E5               [16]  479 	push	hl
-      000235 21 07 05         [12]  480 	ld	hl, #0x507
-      000238 E5               [16]  481 	push	hl
-      000239 CDr00r00         [24]  482 	call	_set_bkg_tiles
-      00023C E8 06            [16]  483 	add	sp, #6
-      00023E C3rA3r03         [16]  484 	jp	00156$
-      000241                        485 00128$:
-                           000241   486 	C$Battle.c$116$1_0$105	= .
-                                    487 	.globl	C$Battle.c$116$1_0$105
-                                    488 ;src\Battle.c:116: else if (index == 10)
-      000241 FAr00r00         [16]  489 	ld	a, (#_index)
-      000244 D6 0A            [ 8]  490 	sub	a, #0x0a
-      000246 20 21            [12]  491 	jr	NZ, 00125$
-                           000248   492 	C$Battle.c$118$2_0$116	= .
-                                    493 	.globl	C$Battle.c$118$2_0$116
-                                    494 ;src\Battle.c:118: set_bkg_data(128, 46, Semi_Tiles); 
-      000248 11r00r00         [12]  495 	ld	de, #_Semi_Tiles
-      00024B D5               [16]  496 	push	de
-      00024C 21 80 2E         [12]  497 	ld	hl, #0x2e80
-      00024F E5               [16]  498 	push	hl
-      000250 CDr00r00         [24]  499 	call	_set_bkg_data
-      000253 E8 04            [16]  500 	add	sp, #4
-                           000255   501 	C$Battle.c$119$2_0$116	= .
-                                    502 	.globl	C$Battle.c$119$2_0$116
-                                    503 ;src\Battle.c:119: set_bkg_tiles(7, 5, Semi_MapWidth, Semi_MapHeight, Semi_Map); 
-      000255 11r00r00         [12]  504 	ld	de, #_Semi_Map
-      000258 D5               [16]  505 	push	de
-      000259 21 06 08         [12]  506 	ld	hl, #0x806
-      00025C E5               [16]  507 	push	hl
-      00025D 21 07 05         [12]  508 	ld	hl, #0x507
-      000260 E5               [16]  509 	push	hl
-      000261 CDr00r00         [24]  510 	call	_set_bkg_tiles
-      000264 E8 06            [16]  511 	add	sp, #6
-      000266 C3rA3r03         [16]  512 	jp	00156$
-      000269                        513 00125$:
-                           000269   514 	C$Battle.c$121$1_0$105	= .
-                                    515 	.globl	C$Battle.c$121$1_0$105
-                                    516 ;src\Battle.c:121: else if (index == 11)
-      000269 FAr00r00         [16]  517 	ld	a, (#_index)
-      00026C D6 0B            [ 8]  518 	sub	a, #0x0b
-      00026E 20 21            [12]  519 	jr	NZ, 00122$
-                           000270   520 	C$Battle.c$123$2_0$117	= .
-                                    521 	.globl	C$Battle.c$123$2_0$117
-                                    522 ;src\Battle.c:123: set_bkg_data(128, 31, Sis_Tiles); 
-      000270 11r00r00         [12]  523 	ld	de, #_Sis_Tiles
-      000273 D5               [16]  524 	push	de
-      000274 21 80 1F         [12]  525 	ld	hl, #0x1f80
-      000277 E5               [16]  526 	push	hl
-      000278 CDr00r00         [24]  527 	call	_set_bkg_data
-      00027B E8 04            [16]  528 	add	sp, #4
-                           00027D   529 	C$Battle.c$124$2_0$117	= .
-                                    530 	.globl	C$Battle.c$124$2_0$117
-                                    531 ;src\Battle.c:124: set_bkg_tiles(7, 5, BigSis_MapWidth, BigSis_MapHeight, BigSis_Map); 
-      00027D 11r00r00         [12]  532 	ld	de, #_BigSis_Map
-      000280 D5               [16]  533 	push	de
-      000281 21 05 07         [12]  534 	ld	hl, #0x705
-      000284 E5               [16]  535 	push	hl
-      000285 21 07 05         [12]  536 	ld	hl, #0x507
-      000288 E5               [16]  537 	push	hl
-      000289 CDr00r00         [24]  538 	call	_set_bkg_tiles
-      00028C E8 06            [16]  539 	add	sp, #6
-      00028E C3rA3r03         [16]  540 	jp	00156$
-      000291                        541 00122$:
-                           000291   542 	C$Battle.c$126$1_0$105	= .
-                                    543 	.globl	C$Battle.c$126$1_0$105
-                                    544 ;src\Battle.c:126: else if (index == 12)
-      000291 FAr00r00         [16]  545 	ld	a, (#_index)
-      000294 D6 0C            [ 8]  546 	sub	a, #0x0c
-      000296 20 21            [12]  547 	jr	NZ, 00119$
-                           000298   548 	C$Battle.c$128$2_0$118	= .
-                                    549 	.globl	C$Battle.c$128$2_0$118
-                                    550 ;src\Battle.c:128: set_bkg_data(128, 31, Sis_Tiles); 
-      000298 11r00r00         [12]  551 	ld	de, #_Sis_Tiles
-      00029B D5               [16]  552 	push	de
-      00029C 21 80 1F         [12]  553 	ld	hl, #0x1f80
-      00029F E5               [16]  554 	push	hl
-      0002A0 CDr00r00         [24]  555 	call	_set_bkg_data
-      0002A3 E8 04            [16]  556 	add	sp, #4
-                           0002A5   557 	C$Battle.c$129$2_0$118	= .
-                                    558 	.globl	C$Battle.c$129$2_0$118
-                                    559 ;src\Battle.c:129: set_bkg_tiles(7, 5, MadSis_MapWidth, MadSis_MapHeight, MadSis_Map); 
-      0002A5 11r00r00         [12]  560 	ld	de, #_MadSis_Map
-      0002A8 D5               [16]  561 	push	de
-      0002A9 21 05 07         [12]  562 	ld	hl, #0x705
-      0002AC E5               [16]  563 	push	hl
-      0002AD 21 07 05         [12]  564 	ld	hl, #0x507
-      0002B0 E5               [16]  565 	push	hl
-      0002B1 CDr00r00         [24]  566 	call	_set_bkg_tiles
-      0002B4 E8 06            [16]  567 	add	sp, #6
-      0002B6 C3rA3r03         [16]  568 	jp	00156$
-      0002B9                        569 00119$:
-                           0002B9   570 	C$Battle.c$131$1_0$105	= .
-                                    571 	.globl	C$Battle.c$131$1_0$105
-                                    572 ;src\Battle.c:131: else if (index == 13)
-      0002B9 FAr00r00         [16]  573 	ld	a, (#_index)
-      0002BC D6 0D            [ 8]  574 	sub	a, #0x0d
-      0002BE 20 21            [12]  575 	jr	NZ, 00116$
-                           0002C0   576 	C$Battle.c$133$2_0$119	= .
-                                    577 	.globl	C$Battle.c$133$2_0$119
-                                    578 ;src\Battle.c:133: set_bkg_data(128, 29, Experiment_Tiles);
-      0002C0 11r00r00         [12]  579 	ld	de, #_Experiment_Tiles
-      0002C3 D5               [16]  580 	push	de
-      0002C4 21 80 1D         [12]  581 	ld	hl, #0x1d80
-      0002C7 E5               [16]  582 	push	hl
-      0002C8 CDr00r00         [24]  583 	call	_set_bkg_data
-      0002CB E8 04            [16]  584 	add	sp, #4
-                           0002CD   585 	C$Battle.c$134$2_0$119	= .
-                                    586 	.globl	C$Battle.c$134$2_0$119
-                                    587 ;src\Battle.c:134: set_bkg_tiles(7, 5, Experiment_MapWidth, Experiment_MapHeight, Experiment_Map );
-      0002CD 11r00r00         [12]  588 	ld	de, #_Experiment_Map
-      0002D0 D5               [16]  589 	push	de
-      0002D1 21 05 07         [12]  590 	ld	hl, #0x705
-      0002D4 E5               [16]  591 	push	hl
-      0002D5 21 07 05         [12]  592 	ld	hl, #0x507
-      0002D8 E5               [16]  593 	push	hl
-      0002D9 CDr00r00         [24]  594 	call	_set_bkg_tiles
-      0002DC E8 06            [16]  595 	add	sp, #6
-      0002DE C3rA3r03         [16]  596 	jp	00156$
-      0002E1                        597 00116$:
-                           0002E1   598 	C$Battle.c$136$1_0$105	= .
-                                    599 	.globl	C$Battle.c$136$1_0$105
-                                    600 ;src\Battle.c:136: else if (index == 14)
-      0002E1 FAr00r00         [16]  601 	ld	a, (#_index)
-      0002E4 D6 0E            [ 8]  602 	sub	a, #0x0e
-      0002E6 20 21            [12]  603 	jr	NZ, 00113$
-                           0002E8   604 	C$Battle.c$138$2_0$120	= .
-                                    605 	.globl	C$Battle.c$138$2_0$120
-                                    606 ;src\Battle.c:138: set_bkg_data(128, 19, Ghost_Tiles);
-      0002E8 11r00r00         [12]  607 	ld	de, #_Ghost_Tiles
-      0002EB D5               [16]  608 	push	de
-      0002EC 21 80 13         [12]  609 	ld	hl, #0x1380
-      0002EF E5               [16]  610 	push	hl
-      0002F0 CDr00r00         [24]  611 	call	_set_bkg_data
-      0002F3 E8 04            [16]  612 	add	sp, #4
-                           0002F5   613 	C$Battle.c$139$2_0$120	= .
-                                    614 	.globl	C$Battle.c$139$2_0$120
-                                    615 ;src\Battle.c:139: set_bkg_tiles(7, 5, Ghost_MapWidth, Ghost_MapHeight, Ghost_Map);
-      0002F5 11r00r00         [12]  616 	ld	de, #_Ghost_Map
-      0002F8 D5               [16]  617 	push	de
-      0002F9 21 04 05         [12]  618 	ld	hl, #0x504
-      0002FC E5               [16]  619 	push	hl
-      0002FD 21 07 05         [12]  620 	ld	hl, #0x507
-      000300 E5               [16]  621 	push	hl
-      000301 CDr00r00         [24]  622 	call	_set_bkg_tiles
-      000304 E8 06            [16]  623 	add	sp, #6
-      000306 C3rA3r03         [16]  624 	jp	00156$
-      000309                        625 00113$:
-                           000309   626 	C$Battle.c$141$1_0$105	= .
-                                    627 	.globl	C$Battle.c$141$1_0$105
-                                    628 ;src\Battle.c:141: else if (index == 15)
-      000309 FAr00r00         [16]  629 	ld	a, (#_index)
-      00030C D6 0F            [ 8]  630 	sub	a, #0x0f
-      00030E 20 20            [12]  631 	jr	NZ, 00110$
-                           000310   632 	C$Battle.c$143$2_0$121	= .
-                                    633 	.globl	C$Battle.c$143$2_0$121
-                                    634 ;src\Battle.c:143: set_bkg_data(128, 14, Saucer_Tiles);
-      000310 11r00r00         [12]  635 	ld	de, #_Saucer_Tiles
-      000313 D5               [16]  636 	push	de
-      000314 21 80 0E         [12]  637 	ld	hl, #0xe80
-      000317 E5               [16]  638 	push	hl
-      000318 CDr00r00         [24]  639 	call	_set_bkg_data
-      00031B E8 04            [16]  640 	add	sp, #4
-                           00031D   641 	C$Battle.c$144$2_0$121	= .
-                                    642 	.globl	C$Battle.c$144$2_0$121
-                                    643 ;src\Battle.c:144: set_bkg_tiles(7, 5, Saucer_MapWidth, Saucer_MapHeight, Ghost_Map);
-      00031D 11r00r00         [12]  644 	ld	de, #_Ghost_Map
-      000320 D5               [16]  645 	push	de
-      000321 21 05 03         [12]  646 	ld	hl, #0x305
-      000324 E5               [16]  647 	push	hl
-      000325 21 07 05         [12]  648 	ld	hl, #0x507
-      000328 E5               [16]  649 	push	hl
-      000329 CDr00r00         [24]  650 	call	_set_bkg_tiles
-      00032C E8 06            [16]  651 	add	sp, #6
-      00032E 18 73            [12]  652 	jr	00156$
-      000330                        653 00110$:
-                           000330   654 	C$Battle.c$146$1_0$105	= .
-                                    655 	.globl	C$Battle.c$146$1_0$105
-                                    656 ;src\Battle.c:146: else if (index == 16)
-      000330 FAr00r00         [16]  657 	ld	a, (#_index)
-      000333 D6 10            [ 8]  658 	sub	a, #0x10
-      000335 20 20            [12]  659 	jr	NZ, 00107$
-                           000337   660 	C$Battle.c$148$2_0$122	= .
-                                    661 	.globl	C$Battle.c$148$2_0$122
-                                    662 ;src\Battle.c:148: set_bkg_data(128, 20, SockHead_Tiles);
-      000337 11r00r00         [12]  663 	ld	de, #_SockHead_Tiles
-      00033A D5               [16]  664 	push	de
-      00033B 21 80 14         [12]  665 	ld	hl, #0x1480
-      00033E E5               [16]  666 	push	hl
-      00033F CDr00r00         [24]  667 	call	_set_bkg_data
-      000342 E8 04            [16]  668 	add	sp, #4
-                           000344   669 	C$Battle.c$149$2_0$122	= .
-                                    670 	.globl	C$Battle.c$149$2_0$122
-                                    671 ;src\Battle.c:149: set_bkg_tiles(7, 5, SockHead_MapWidth, SockHead_MapHeight, SockHead_Map);
-      000344 11r00r00         [12]  672 	ld	de, #_SockHead_Map
-      000347 D5               [16]  673 	push	de
-      000348 21 04 07         [12]  674 	ld	hl, #0x704
-      00034B E5               [16]  675 	push	hl
-      00034C 21 07 05         [12]  676 	ld	hl, #0x507
-      00034F E5               [16]  677 	push	hl
-      000350 CDr00r00         [24]  678 	call	_set_bkg_tiles
-      000353 E8 06            [16]  679 	add	sp, #6
-      000355 18 4C            [12]  680 	jr	00156$
-      000357                        681 00107$:
-                           000357   682 	C$Battle.c$151$1_0$105	= .
-                                    683 	.globl	C$Battle.c$151$1_0$105
-                                    684 ;src\Battle.c:151: else if (index == 17)
-      000357 FAr00r00         [16]  685 	ld	a, (#_index)
-      00035A D6 11            [ 8]  686 	sub	a, #0x11
-      00035C 20 20            [12]  687 	jr	NZ, 00104$
-                           00035E   688 	C$Battle.c$153$2_0$123	= .
-                                    689 	.globl	C$Battle.c$153$2_0$123
-                                    690 ;src\Battle.c:153: set_bkg_data(128, 26, Toby_Tiles);
-      00035E 11r00r00         [12]  691 	ld	de, #_Toby_Tiles
-      000361 D5               [16]  692 	push	de
-      000362 21 80 1A         [12]  693 	ld	hl, #0x1a80
-      000365 E5               [16]  694 	push	hl
-      000366 CDr00r00         [24]  695 	call	_set_bkg_data
-      000369 E8 04            [16]  696 	add	sp, #4
-                           00036B   697 	C$Battle.c$154$2_0$123	= .
-                                    698 	.globl	C$Battle.c$154$2_0$123
-                                    699 ;src\Battle.c:154: set_bkg_tiles(7, 5, Toby_MapWidth, Toby_MapHeight, Toby_Map);
-      00036B 11r00r00         [12]  700 	ld	de, #_Toby_Map
-      00036E D5               [16]  701 	push	de
-      00036F 21 04 07         [12]  702 	ld	hl, #0x704
-      000372 E5               [16]  703 	push	hl
-      000373 21 07 05         [12]  704 	ld	hl, #0x507
-      000376 E5               [16]  705 	push	hl
-      000377 CDr00r00         [24]  706 	call	_set_bkg_tiles
-      00037A E8 06            [16]  707 	add	sp, #6
-      00037C 18 25            [12]  708 	jr	00156$
-      00037E                        709 00104$:
-                           00037E   710 	C$Battle.c$156$1_0$105	= .
-                                    711 	.globl	C$Battle.c$156$1_0$105
-                                    712 ;src\Battle.c:156: else if (index == 18)
-      00037E FAr00r00         [16]  713 	ld	a, (#_index)
-      000381 D6 12            [ 8]  714 	sub	a, #0x12
-      000383 20 1E            [12]  715 	jr	NZ, 00156$
-                           000385   716 	C$Battle.c$158$2_0$124	= .
-                                    717 	.globl	C$Battle.c$158$2_0$124
-                                    718 ;src\Battle.c:158: set_bkg_data(128, 24, Drunk_Tiles);
-      000385 11r00r00         [12]  719 	ld	de, #_Drunk_Tiles
-      000388 D5               [16]  720 	push	de
-      000389 21 80 18         [12]  721 	ld	hl, #0x1880
-      00038C E5               [16]  722 	push	hl
-      00038D CDr00r00         [24]  723 	call	_set_bkg_data
-      000390 E8 04            [16]  724 	add	sp, #4
-                           000392   725 	C$Battle.c$159$2_0$124	= .
-                                    726 	.globl	C$Battle.c$159$2_0$124
-                                    727 ;src\Battle.c:159: set_bkg_tiles(7, 5, Drunk_MapWidth, Drunk_MapHeight, Drunk_Map);
-      000392 11r00r00         [12]  728 	ld	de, #_Drunk_Map
-      000395 D5               [16]  729 	push	de
-      000396 21 04 06         [12]  730 	ld	hl, #0x604
-      000399 E5               [16]  731 	push	hl
-      00039A 21 07 05         [12]  732 	ld	hl, #0x507
-      00039D E5               [16]  733 	push	hl
-      00039E CDr00r00         [24]  734 	call	_set_bkg_tiles
-      0003A1 E8 06            [16]  735 	add	sp, #6
-      0003A3                        736 00156$:
-                           0003A3   737 	C$Battle.c$161$1_0$105	= .
-                                    738 	.globl	C$Battle.c$161$1_0$105
-                                    739 ;src\Battle.c:161: performantdelay(120);
-      0003A3 3E 78            [ 8]  740 	ld	a, #0x78
-      0003A5 CDr00r00         [24]  741 	call	_performantdelay
-                                    742 ;C:/gbdk/include/gb/gb.h:1222: SCX_REG+=x, SCY_REG+=y;
-      0003A8 F0r00            [12]  743 	ldh	a, (_SCY_REG + 0)
-      0003AA C6 28            [ 8]  744 	add	a, #0x28
-      0003AC E0r00            [12]  745 	ldh	(_SCY_REG + 0), a
-                           0003AE   746 	C$Battle.c$162$3_0$105	= .
-                                    747 	.globl	C$Battle.c$162$3_0$105
-                                    748 ;src\Battle.c:162: scroll_bkg(0, 40);
-                           0003AE   749 	C$Battle.c$163$3_0$105	= .
-                                    750 	.globl	C$Battle.c$163$3_0$105
-                                    751 ;src\Battle.c:163: }
-                           0003AE   752 	C$Battle.c$163$3_0$105	= .
-                                    753 	.globl	C$Battle.c$163$3_0$105
-                           0003AE   754 	XG$BattleSetup$0$0	= .
-                                    755 	.globl	XG$BattleSetup$0$0
-      0003AE C9               [16]  756 	ret
-                           0003AF   757 	G$BattleUpdate$0$0	= .
-                                    758 	.globl	G$BattleUpdate$0$0
-                           0003AF   759 	C$Battle.c$165$3_0$131	= .
-                                    760 	.globl	C$Battle.c$165$3_0$131
-                                    761 ;src\Battle.c:165: uint8_t BattleUpdate()
-                                    762 ;	---------------------------------
-                                    763 ; Function BattleUpdate
-                                    764 ; ---------------------------------
-      0003AF                        765 _BattleUpdate::
-                           0003AF   766 	C$Battle.c$167$1_0$131	= .
-                                    767 	.globl	C$Battle.c$167$1_0$131
-                                    768 ;src\Battle.c:167: if (joypadCurrent & J_SELECT)
-      0003AF FAr00r00         [16]  769 	ld	a, (#_joypadCurrent)
-      0003B2 CB 77            [ 8]  770 	bit	6, a
-                           0003B4   771 	C$Battle.c$169$2_0$132	= .
-                                    772 	.globl	C$Battle.c$169$2_0$132
-                                    773 ;src\Battle.c:169: return GAMETITLE;
-                           0003B4   774 	C$Battle.c$172$2_0$133	= .
-                                    775 	.globl	C$Battle.c$172$2_0$133
-                                    776 ;src\Battle.c:172: return BATTLE;
-      0003B4 3E 01            [ 8]  777 	ld	a, #0x01
-      0003B6 C0               [20]  778 	ret	NZ
-      0003B7 3E 05            [ 8]  779 	ld	a, #0x05
-                           0003B9   780 	C$Battle.c$174$1_0$131	= .
-                                    781 	.globl	C$Battle.c$174$1_0$131
-                                    782 ;src\Battle.c:174: }
-                           0003B9   783 	C$Battle.c$174$1_0$131	= .
-                                    784 	.globl	C$Battle.c$174$1_0$131
-                           0003B9   785 	XG$BattleUpdate$0$0	= .
-                                    786 	.globl	XG$BattleUpdate$0$0
-      0003B9 C9               [16]  787 	ret
-                                    788 	.area _CODE
-                                    789 	.area _INITIALIZER
-                                    790 	.area _CABS (ABS)
+                                     54 	.area _HOME
+                                     55 ;--------------------------------------------------------
+                                     56 ; code
+                                     57 ;--------------------------------------------------------
+                                     58 	.area _CODE
+                           000000    59 	G$BattleSetup$0$0	= .
+                                     60 	.globl	G$BattleSetup$0$0
+                           000000    61 	C$Battle.c$42$0_0$107	= .
+                                     62 	.globl	C$Battle.c$42$0_0$107
+                                     63 ;src\Battle.c:42: void BattleSetup()
+                                     64 ;	---------------------------------
+                                     65 ; Function BattleSetup
+                                     66 ; ---------------------------------
+      000000                         67 _BattleSetup::
+                                     68 ;C:/gbdk/include/gb/gb.h:1208: SCX_REG=x, SCY_REG=y;
+      000000 AF               [ 4]   69 	xor	a, a
+      000001 E0r00            [12]   70 	ldh	(_SCX_REG + 0), a
+      000003 AF               [ 4]   71 	xor	a, a
+      000004 E0r00            [12]   72 	ldh	(_SCY_REG + 0), a
+                           000006    73 	C$Battle.c$45$1_0$107	= .
+                                     74 	.globl	C$Battle.c$45$1_0$107
+                                     75 ;src\Battle.c:45: set_bkg_data(0, 53, FontTiles); // Load font and window tiles
+      000006 11r00r00         [12]   76 	ld	de, #_FontTiles
+      000009 D5               [16]   77 	push	de
+      00000A 21 00 35         [12]   78 	ld	hl, #0x3500
+      00000D E5               [16]   79 	push	hl
+      00000E CDr00r00         [24]   80 	call	_set_bkg_data
+      000011 E8 04            [16]   81 	add	sp, #4
+                           000013    82 	C$Battle.c$46$1_0$107	= .
+                                     83 	.globl	C$Battle.c$46$1_0$107
+                                     84 ;src\Battle.c:46: set_bkg_tiles(0, 0, Battle_MapWidth, Battle_MapHeight, Battle_Map); // draw background window & text
+      000013 11r00r00         [12]   85 	ld	de, #_Battle_Map
+      000016 D5               [16]   86 	push	de
+      000017 21 14 17         [12]   87 	ld	hl, #0x1714
+      00001A E5               [16]   88 	push	hl
+      00001B AF               [ 4]   89 	xor	a, a
+      00001C 0F               [ 4]   90 	rrca
+      00001D F5               [16]   91 	push	af
+      00001E CDr00r00         [24]   92 	call	_set_bkg_tiles
+      000021 E8 06            [16]   93 	add	sp, #6
+                           000023    94 	C$Battle.c$48$1_0$107	= .
+                                     95 	.globl	C$Battle.c$48$1_0$107
+                                     96 ;src\Battle.c:48: DrawNumber(1, 14, 123456, 6);
+      000023 3E 06            [ 8]   97 	ld	a, #0x06
+      000025 F5               [16]   98 	push	af
+      000026 33               [ 8]   99 	inc	sp
+      000027 11 40 E2         [12]  100 	ld	de, #0xe240
+      00002A D5               [16]  101 	push	de
+      00002B 1E 0E            [ 8]  102 	ld	e, #0x0e
+      00002D 3E 01            [ 8]  103 	ld	a, #0x01
+      00002F CDr00r00         [24]  104 	call	_DrawNumber
+                           000032   105 	C$Battle.c$49$1_0$107	= .
+                                    106 	.globl	C$Battle.c$49$1_0$107
+                                    107 ;src\Battle.c:49: DrawNumber(8, 14, 110, 3);
+      000032 3E 03            [ 8]  108 	ld	a, #0x03
+      000034 F5               [16]  109 	push	af
+      000035 33               [ 8]  110 	inc	sp
+      000036 11 6E 00         [12]  111 	ld	de, #0x006e
+      000039 D5               [16]  112 	push	de
+      00003A 1E 0E            [ 8]  113 	ld	e, #0x0e
+      00003C 3E 08            [ 8]  114 	ld	a, #0x08
+      00003E CDr00r00         [24]  115 	call	_DrawNumber
+                           000041   116 	C$Battle.c$50$1_0$107	= .
+                                    117 	.globl	C$Battle.c$50$1_0$107
+                                    118 ;src\Battle.c:50: DrawNumber(13, 14, 70, 2);
+      000041 3E 02            [ 8]  119 	ld	a, #0x02
+      000043 F5               [16]  120 	push	af
+      000044 33               [ 8]  121 	inc	sp
+      000045 11 46 00         [12]  122 	ld	de, #0x0046
+      000048 D5               [16]  123 	push	de
+      000049 1E 0E            [ 8]  124 	ld	e, #0x0e
+      00004B 3E 0D            [ 8]  125 	ld	a, #0x0d
+      00004D CDr00r00         [24]  126 	call	_DrawNumber
+                           000050   127 	C$Battle.c$51$1_0$107	= .
+                                    128 	.globl	C$Battle.c$51$1_0$107
+                                    129 ;src\Battle.c:51: DrawNumber(17, 14, 11, 2);
+      000050 3E 02            [ 8]  130 	ld	a, #0x02
+      000052 F5               [16]  131 	push	af
+      000053 33               [ 8]  132 	inc	sp
+      000054 11 0B 00         [12]  133 	ld	de, #0x000b
+      000057 D5               [16]  134 	push	de
+      000058 1E 0E            [ 8]  135 	ld	e, #0x0e
+      00005A 3E 11            [ 8]  136 	ld	a, #0x11
+      00005C CDr00r00         [24]  137 	call	_DrawNumber
+                           00005F   138 	C$Battle.c$53$1_0$107	= .
+                                    139 	.globl	C$Battle.c$53$1_0$107
+                                    140 ;src\Battle.c:53: DrawNumber(1, 15, 123456, 6);
+      00005F 3E 06            [ 8]  141 	ld	a, #0x06
+      000061 F5               [16]  142 	push	af
+      000062 33               [ 8]  143 	inc	sp
+      000063 11 40 E2         [12]  144 	ld	de, #0xe240
+      000066 D5               [16]  145 	push	de
+      000067 1E 0F            [ 8]  146 	ld	e, #0x0f
+      000069 3E 01            [ 8]  147 	ld	a, #0x01
+      00006B CDr00r00         [24]  148 	call	_DrawNumber
+                           00006E   149 	C$Battle.c$54$1_0$107	= .
+                                    150 	.globl	C$Battle.c$54$1_0$107
+                                    151 ;src\Battle.c:54: DrawNumber(9, 15, 80, 2);
+      00006E 3E 02            [ 8]  152 	ld	a, #0x02
+      000070 F5               [16]  153 	push	af
+      000071 33               [ 8]  154 	inc	sp
+      000072 11 50 00         [12]  155 	ld	de, #0x0050
+      000075 D5               [16]  156 	push	de
+      000076 1E 0F            [ 8]  157 	ld	e, #0x0f
+      000078 3E 09            [ 8]  158 	ld	a, #0x09
+      00007A CDr00r00         [24]  159 	call	_DrawNumber
+                           00007D   160 	C$Battle.c$55$1_0$107	= .
+                                    161 	.globl	C$Battle.c$55$1_0$107
+                                    162 ;src\Battle.c:55: DrawNumber(13, 15, 33, 2);
+      00007D 3E 02            [ 8]  163 	ld	a, #0x02
+      00007F F5               [16]  164 	push	af
+      000080 33               [ 8]  165 	inc	sp
+      000081 11 21 00         [12]  166 	ld	de, #0x0021
+      000084 D5               [16]  167 	push	de
+      000085 1E 0F            [ 8]  168 	ld	e, #0x0f
+      000087 3E 0D            [ 8]  169 	ld	a, #0x0d
+      000089 CDr00r00         [24]  170 	call	_DrawNumber
+                           00008C   171 	C$Battle.c$56$1_0$107	= .
+                                    172 	.globl	C$Battle.c$56$1_0$107
+                                    173 ;src\Battle.c:56: DrawNumber(17, 15, 11, 2);
+      00008C 3E 02            [ 8]  174 	ld	a, #0x02
+      00008E F5               [16]  175 	push	af
+      00008F 33               [ 8]  176 	inc	sp
+      000090 11 0B 00         [12]  177 	ld	de, #0x000b
+      000093 D5               [16]  178 	push	de
+      000094 1E 0F            [ 8]  179 	ld	e, #0x0f
+      000096 3E 11            [ 8]  180 	ld	a, #0x11
+      000098 CDr00r00         [24]  181 	call	_DrawNumber
+                           00009B   182 	C$Battle.c$59$1_0$107	= .
+                                    183 	.globl	C$Battle.c$59$1_0$107
+                                    184 ;src\Battle.c:59: cursor_x = 8;
+      00009B 21r00r00         [12]  185 	ld	hl, #_cursor_x
+      00009E 36 08            [12]  186 	ld	(hl), #0x08
+                           0000A0   187 	C$Battle.c$60$1_0$107	= .
+                                    188 	.globl	C$Battle.c$60$1_0$107
+                                    189 ;src\Battle.c:60: cursor_y = 144;
+      0000A0 21r01r00         [12]  190 	ld	hl, #_cursor_y
+      0000A3 36 90            [12]  191 	ld	(hl), #0x90
+                           0000A5   192 	C$Battle.c$63$1_0$107	= .
+                                    193 	.globl	C$Battle.c$63$1_0$107
+                                    194 ;src\Battle.c:63: SHOW_BKG; 
+      0000A5 F0r00            [12]  195 	ldh	a, (_LCDC_REG + 0)
+      0000A7 F6 01            [ 8]  196 	or	a, #0x01
+      0000A9 E0r00            [12]  197 	ldh	(_LCDC_REG + 0), a
+                           0000AB   198 	C$Battle.c$64$1_0$107	= .
+                                    199 	.globl	C$Battle.c$64$1_0$107
+                                    200 ;src\Battle.c:64: fadeFromBlack(5);
+      0000AB 3E 05            [ 8]  201 	ld	a, #0x05
+      0000AD CDr00r00         [24]  202 	call	_fadeFromBlack
+                           0000B0   203 	C$Battle.c$65$1_0$107	= .
+                                    204 	.globl	C$Battle.c$65$1_0$107
+                                    205 ;src\Battle.c:65: if (index == 0) // JIM
+      0000B0 FAr00r00         [16]  206 	ld	a, (#_index)
+      0000B3 B7               [ 4]  207 	or	a, a
+      0000B4 20 36            [12]  208 	jr	NZ, 00155$
+                           0000B6   209 	C$Battle.c$67$2_0$108	= .
+                                    210 	.globl	C$Battle.c$67$2_0$108
+                                    211 ;src\Battle.c:67: DrawText(1, 1, "Jim Crow draws");
+      0000B6 11r02r04         [12]  212 	ld	de, #___str_0
+      0000B9 D5               [16]  213 	push	de
+      0000BA 3E 01            [ 8]  214 	ld	a,#0x01
+      0000BC 5F               [ 4]  215 	ld	e,a
+      0000BD CDr00r00         [24]  216 	call	_DrawText
+                           0000C0   217 	C$Battle.c$68$2_0$108	= .
+                                    218 	.globl	C$Battle.c$68$2_0$108
+                                    219 ;src\Battle.c:68: DrawText(1, 3, "near.");
+      0000C0 11r11r04         [12]  220 	ld	de, #___str_1
+      0000C3 D5               [16]  221 	push	de
+      0000C4 1E 03            [ 8]  222 	ld	e, #0x03
+      0000C6 3E 01            [ 8]  223 	ld	a, #0x01
+      0000C8 CDr00r00         [24]  224 	call	_DrawText
+                           0000CB   225 	C$Battle.c$69$2_0$108	= .
+                                    226 	.globl	C$Battle.c$69$2_0$108
+                                    227 ;src\Battle.c:69: set_bkg_data(128, 23, Crow_Tiles); // init with crow monster
+      0000CB 11r00r00         [12]  228 	ld	de, #_Crow_Tiles
+      0000CE D5               [16]  229 	push	de
+      0000CF 21 80 17         [12]  230 	ld	hl, #0x1780
+      0000D2 E5               [16]  231 	push	hl
+      0000D3 CDr00r00         [24]  232 	call	_set_bkg_data
+      0000D6 E8 04            [16]  233 	add	sp, #4
+                           0000D8   234 	C$Battle.c$70$2_0$108	= .
+                                    235 	.globl	C$Battle.c$70$2_0$108
+                                    236 ;src\Battle.c:70: set_bkg_tiles(7, 6, Crow_MapWidth, Crow_MapHeight, Crow_Map); // draw Crow monster
+      0000D8 11r00r00         [12]  237 	ld	de, #_Crow_Map
+      0000DB D5               [16]  238 	push	de
+      0000DC 21 05 07         [12]  239 	ld	hl, #0x705
+      0000DF E5               [16]  240 	push	hl
+      0000E0 21 07 06         [12]  241 	ld	hl, #0x607
+      0000E3 E5               [16]  242 	push	hl
+      0000E4 CDr00r00         [24]  243 	call	_set_bkg_tiles
+      0000E7 E8 06            [16]  244 	add	sp, #6
+      0000E9 C3rF6r03         [16]  245 	jp	00156$
+      0000EC                        246 00155$:
+                           0000EC   247 	C$Battle.c$72$1_0$107	= .
+                                    248 	.globl	C$Battle.c$72$1_0$107
+                                    249 ;src\Battle.c:72: else if (index == 1) // GYPSY
+      0000EC FAr00r00         [16]  250 	ld	a, (#_index)
+      0000EF 3D               [ 4]  251 	dec	a
+      0000F0 20 36            [12]  252 	jr	NZ, 00152$
+                           0000F2   253 	C$Battle.c$74$2_0$109	= .
+                                    254 	.globl	C$Battle.c$74$2_0$109
+                                    255 ;src\Battle.c:74: DrawText(1, 1, "Gypsy Moth draws");
+      0000F2 11r17r04         [12]  256 	ld	de, #___str_2
+      0000F5 D5               [16]  257 	push	de
+      0000F6 3E 01            [ 8]  258 	ld	a,#0x01
+      0000F8 5F               [ 4]  259 	ld	e,a
+      0000F9 CDr00r00         [24]  260 	call	_DrawText
+                           0000FC   261 	C$Battle.c$75$2_0$109	= .
+                                    262 	.globl	C$Battle.c$75$2_0$109
+                                    263 ;src\Battle.c:75: DrawText(1, 3, "near.");
+      0000FC 11r11r04         [12]  264 	ld	de, #___str_1
+      0000FF D5               [16]  265 	push	de
+      000100 1E 03            [ 8]  266 	ld	e, #0x03
+      000102 3E 01            [ 8]  267 	ld	a, #0x01
+      000104 CDr00r00         [24]  268 	call	_DrawText
+                           000107   269 	C$Battle.c$76$2_0$109	= .
+                                    270 	.globl	C$Battle.c$76$2_0$109
+                                    271 ;src\Battle.c:76: set_bkg_data(128, 29, GypsyTiles); 
+      000107 11r00r00         [12]  272 	ld	de, #_GypsyTiles
+      00010A D5               [16]  273 	push	de
+      00010B 21 80 1D         [12]  274 	ld	hl, #0x1d80
+      00010E E5               [16]  275 	push	hl
+      00010F CDr00r00         [24]  276 	call	_set_bkg_data
+      000112 E8 04            [16]  277 	add	sp, #4
+                           000114   278 	C$Battle.c$77$2_0$109	= .
+                                    279 	.globl	C$Battle.c$77$2_0$109
+                                    280 ;src\Battle.c:77: set_bkg_tiles(7, 5, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
+      000114 11r00r00         [12]  281 	ld	de, #_Gypsy_Map
+      000117 D5               [16]  282 	push	de
+      000118 21 06 07         [12]  283 	ld	hl, #0x706
+      00011B E5               [16]  284 	push	hl
+      00011C 21 07 05         [12]  285 	ld	hl, #0x507
+      00011F E5               [16]  286 	push	hl
+      000120 CDr00r00         [24]  287 	call	_set_bkg_tiles
+      000123 E8 06            [16]  288 	add	sp, #6
+      000125 C3rF6r03         [16]  289 	jp	00156$
+      000128                        290 00152$:
+                           000128   291 	C$Battle.c$79$1_0$107	= .
+                                    292 	.globl	C$Battle.c$79$1_0$107
+                                    293 ;src\Battle.c:79: else if (index == 2) // WALLY
+      000128 FAr00r00         [16]  294 	ld	a, (#_index)
+      00012B D6 02            [ 8]  295 	sub	a, #0x02
+      00012D 20 2B            [12]  296 	jr	NZ, 00149$
+                           00012F   297 	C$Battle.c$81$2_0$110	= .
+                                    298 	.globl	C$Battle.c$81$2_0$110
+                                    299 ;src\Battle.c:81: DrawText(1, 1, "Wally butts in.");
+      00012F 11r28r04         [12]  300 	ld	de, #___str_3
+      000132 D5               [16]  301 	push	de
+      000133 3E 01            [ 8]  302 	ld	a,#0x01
+      000135 5F               [ 4]  303 	ld	e,a
+      000136 CDr00r00         [24]  304 	call	_DrawText
+                           000139   305 	C$Battle.c$82$2_0$110	= .
+                                    306 	.globl	C$Battle.c$82$2_0$110
+                                    307 ;src\Battle.c:82: set_bkg_data(128, 27, WallyTiles); 
+      000139 11r00r00         [12]  308 	ld	de, #_WallyTiles
+      00013C D5               [16]  309 	push	de
+      00013D 21 80 1B         [12]  310 	ld	hl, #0x1b80
+      000140 E5               [16]  311 	push	hl
+      000141 CDr00r00         [24]  312 	call	_set_bkg_data
+      000144 E8 04            [16]  313 	add	sp, #4
+                           000146   314 	C$Battle.c$83$2_0$110	= .
+                                    315 	.globl	C$Battle.c$83$2_0$110
+                                    316 ;src\Battle.c:83: set_bkg_tiles(7, 5, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
+      000146 11r00r00         [12]  317 	ld	de, #_Gypsy_Map
+      000149 D5               [16]  318 	push	de
+      00014A 21 06 07         [12]  319 	ld	hl, #0x706
+      00014D E5               [16]  320 	push	hl
+      00014E 21 07 05         [12]  321 	ld	hl, #0x507
+      000151 E5               [16]  322 	push	hl
+      000152 CDr00r00         [24]  323 	call	_set_bkg_tiles
+      000155 E8 06            [16]  324 	add	sp, #6
+      000157 C3rF6r03         [16]  325 	jp	00156$
+      00015A                        326 00149$:
+                           00015A   327 	C$Battle.c$85$1_0$107	= .
+                                    328 	.globl	C$Battle.c$85$1_0$107
+                                    329 ;src\Battle.c:85: else if (index == 3) // TICK
+      00015A FAr00r00         [16]  330 	ld	a, (#_index)
+      00015D D6 03            [ 8]  331 	sub	a, #0x03
+      00015F 20 2B            [12]  332 	jr	NZ, 00146$
+                           000161   333 	C$Battle.c$87$2_0$111	= .
+                                    334 	.globl	C$Battle.c$87$2_0$111
+                                    335 ;src\Battle.c:87: DrawText(1, 1, "A tick draws near.");
+      000161 11r38r04         [12]  336 	ld	de, #___str_4
+      000164 D5               [16]  337 	push	de
+      000165 3E 01            [ 8]  338 	ld	a,#0x01
+      000167 5F               [ 4]  339 	ld	e,a
+      000168 CDr00r00         [24]  340 	call	_DrawText
+                           00016B   341 	C$Battle.c$88$2_0$111	= .
+                                    342 	.globl	C$Battle.c$88$2_0$111
+                                    343 ;src\Battle.c:88: set_bkg_data(128, 20, Tick_Tiles); 
+      00016B 11r00r00         [12]  344 	ld	de, #_Tick_Tiles
+      00016E D5               [16]  345 	push	de
+      00016F 21 80 14         [12]  346 	ld	hl, #0x1480
+      000172 E5               [16]  347 	push	hl
+      000173 CDr00r00         [24]  348 	call	_set_bkg_data
+      000176 E8 04            [16]  349 	add	sp, #4
+                           000178   350 	C$Battle.c$89$2_0$111	= .
+                                    351 	.globl	C$Battle.c$89$2_0$111
+                                    352 ;src\Battle.c:89: set_bkg_tiles(7, 5, Tick_MapWidth, Tick_MapHeight, Tick_Map); 
+      000178 11r00r00         [12]  353 	ld	de, #_Tick_Map
+      00017B D5               [16]  354 	push	de
+      00017C 21 05 05         [12]  355 	ld	hl, #0x505
+      00017F E5               [16]  356 	push	hl
+      000180 21 07 05         [12]  357 	ld	hl, #0x507
+      000183 E5               [16]  358 	push	hl
+      000184 CDr00r00         [24]  359 	call	_set_bkg_tiles
+      000187 E8 06            [16]  360 	add	sp, #6
+      000189 C3rF6r03         [16]  361 	jp	00156$
+      00018C                        362 00146$:
+                           00018C   363 	C$Battle.c$91$1_0$107	= .
+                                    364 	.globl	C$Battle.c$91$1_0$107
+                                    365 ;src\Battle.c:91: else if (index == 4) // OFFICER
+      00018C FAr00r00         [16]  366 	ld	a, (#_index)
+      00018F D6 04            [ 8]  367 	sub	a, #0x04
+      000191 20 36            [12]  368 	jr	NZ, 00143$
+                           000193   369 	C$Battle.c$93$2_0$112	= .
+                                    370 	.globl	C$Battle.c$93$2_0$112
+                                    371 ;src\Battle.c:93: DrawText(1, 1, "An Officer draws");
+      000193 11r4Br04         [12]  372 	ld	de, #___str_5
+      000196 D5               [16]  373 	push	de
+      000197 3E 01            [ 8]  374 	ld	a,#0x01
+      000199 5F               [ 4]  375 	ld	e,a
+      00019A CDr00r00         [24]  376 	call	_DrawText
+                           00019D   377 	C$Battle.c$94$2_0$112	= .
+                                    378 	.globl	C$Battle.c$94$2_0$112
+                                    379 ;src\Battle.c:94: DrawText(1, 3, "near.");
+      00019D 11r11r04         [12]  380 	ld	de, #___str_1
+      0001A0 D5               [16]  381 	push	de
+      0001A1 1E 03            [ 8]  382 	ld	e, #0x03
+      0001A3 3E 01            [ 8]  383 	ld	a, #0x01
+      0001A5 CDr00r00         [24]  384 	call	_DrawText
+                           0001A8   385 	C$Battle.c$95$2_0$112	= .
+                                    386 	.globl	C$Battle.c$95$2_0$112
+                                    387 ;src\Battle.c:95: set_bkg_data(128, 39, Cop_Tiles); 
+      0001A8 11r00r00         [12]  388 	ld	de, #_Cop_Tiles
+      0001AB D5               [16]  389 	push	de
+      0001AC 21 80 27         [12]  390 	ld	hl, #0x2780
+      0001AF E5               [16]  391 	push	hl
+      0001B0 CDr00r00         [24]  392 	call	_set_bkg_data
+      0001B3 E8 04            [16]  393 	add	sp, #4
+                           0001B5   394 	C$Battle.c$96$2_0$112	= .
+                                    395 	.globl	C$Battle.c$96$2_0$112
+                                    396 ;src\Battle.c:96: set_bkg_tiles(7, 5, Officer_MapWidth, Officer_MapHeight, Officer_Map); 
+      0001B5 11r00r00         [12]  397 	ld	de, #_Officer_Map
+      0001B8 D5               [16]  398 	push	de
+      0001B9 21 06 07         [12]  399 	ld	hl, #0x706
+      0001BC E5               [16]  400 	push	hl
+      0001BD 21 07 05         [12]  401 	ld	hl, #0x507
+      0001C0 E5               [16]  402 	push	hl
+      0001C1 CDr00r00         [24]  403 	call	_set_bkg_tiles
+      0001C4 E8 06            [16]  404 	add	sp, #6
+      0001C6 C3rF6r03         [16]  405 	jp	00156$
+      0001C9                        406 00143$:
+                           0001C9   407 	C$Battle.c$98$1_0$107	= .
+                                    408 	.globl	C$Battle.c$98$1_0$107
+                                    409 ;src\Battle.c:98: else if (index == 5) // POLICE
+      0001C9 FAr00r00         [16]  410 	ld	a, (#_index)
+      0001CC D6 05            [ 8]  411 	sub	a, #0x05
+      0001CE 20 21            [12]  412 	jr	NZ, 00140$
+                           0001D0   413 	C$Battle.c$100$2_0$113	= .
+                                    414 	.globl	C$Battle.c$100$2_0$113
+                                    415 ;src\Battle.c:100: set_bkg_data(128, 39, Cop_Tiles); 
+      0001D0 11r00r00         [12]  416 	ld	de, #_Cop_Tiles
+      0001D3 D5               [16]  417 	push	de
+      0001D4 21 80 27         [12]  418 	ld	hl, #0x2780
+      0001D7 E5               [16]  419 	push	hl
+      0001D8 CDr00r00         [24]  420 	call	_set_bkg_data
+      0001DB E8 04            [16]  421 	add	sp, #4
+                           0001DD   422 	C$Battle.c$101$2_0$113	= .
+                                    423 	.globl	C$Battle.c$101$2_0$113
+                                    424 ;src\Battle.c:101: set_bkg_tiles(7, 5, Police_MapWidth, Police_MapHeight, Police_Map); 
+      0001DD 11r00r00         [12]  425 	ld	de, #_Police_Map
+      0001E0 D5               [16]  426 	push	de
+      0001E1 21 06 07         [12]  427 	ld	hl, #0x706
+      0001E4 E5               [16]  428 	push	hl
+      0001E5 21 07 05         [12]  429 	ld	hl, #0x507
+      0001E8 E5               [16]  430 	push	hl
+      0001E9 CDr00r00         [24]  431 	call	_set_bkg_tiles
+      0001EC E8 06            [16]  432 	add	sp, #6
+      0001EE C3rF6r03         [16]  433 	jp	00156$
+      0001F1                        434 00140$:
+                           0001F1   435 	C$Battle.c$103$1_0$107	= .
+                                    436 	.globl	C$Battle.c$103$1_0$107
+                                    437 ;src\Battle.c:103: else if (index == 6) // SHERIFF
+      0001F1 FAr00r00         [16]  438 	ld	a, (#_index)
+      0001F4 D6 06            [ 8]  439 	sub	a, #0x06
+      0001F6 20 21            [12]  440 	jr	NZ, 00137$
+                           0001F8   441 	C$Battle.c$105$2_0$114	= .
+                                    442 	.globl	C$Battle.c$105$2_0$114
+                                    443 ;src\Battle.c:105: set_bkg_data(128, 39, Cop_Tiles); 
+      0001F8 11r00r00         [12]  444 	ld	de, #_Cop_Tiles
+      0001FB D5               [16]  445 	push	de
+      0001FC 21 80 27         [12]  446 	ld	hl, #0x2780
+      0001FF E5               [16]  447 	push	hl
+      000200 CDr00r00         [24]  448 	call	_set_bkg_data
+      000203 E8 04            [16]  449 	add	sp, #4
+                           000205   450 	C$Battle.c$106$2_0$114	= .
+                                    451 	.globl	C$Battle.c$106$2_0$114
+                                    452 ;src\Battle.c:106: set_bkg_tiles(7, 5, Sheriff_MapWidth, Sheriff_MapHeight, Sheriff_Map); 
+      000205 11r00r00         [12]  453 	ld	de, #_Sheriff_Map
+      000208 D5               [16]  454 	push	de
+      000209 21 06 07         [12]  455 	ld	hl, #0x706
+      00020C E5               [16]  456 	push	hl
+      00020D 21 07 05         [12]  457 	ld	hl, #0x507
+      000210 E5               [16]  458 	push	hl
+      000211 CDr00r00         [24]  459 	call	_set_bkg_tiles
+      000214 E8 06            [16]  460 	add	sp, #6
+      000216 C3rF6r03         [16]  461 	jp	00156$
+      000219                        462 00137$:
+                           000219   463 	C$Battle.c$108$1_0$107	= .
+                                    464 	.globl	C$Battle.c$108$1_0$107
+                                    465 ;src\Battle.c:108: else if (index == 7) // CHIEF
+      000219 FAr00r00         [16]  466 	ld	a, (#_index)
+      00021C D6 07            [ 8]  467 	sub	a, #0x07
+      00021E 20 21            [12]  468 	jr	NZ, 00134$
+                           000220   469 	C$Battle.c$110$2_0$115	= .
+                                    470 	.globl	C$Battle.c$110$2_0$115
+                                    471 ;src\Battle.c:110: set_bkg_data(128, 39, Cop_Tiles); 
+      000220 11r00r00         [12]  472 	ld	de, #_Cop_Tiles
+      000223 D5               [16]  473 	push	de
+      000224 21 80 27         [12]  474 	ld	hl, #0x2780
+      000227 E5               [16]  475 	push	hl
+      000228 CDr00r00         [24]  476 	call	_set_bkg_data
+      00022B E8 04            [16]  477 	add	sp, #4
+                           00022D   478 	C$Battle.c$111$2_0$115	= .
+                                    479 	.globl	C$Battle.c$111$2_0$115
+                                    480 ;src\Battle.c:111: set_bkg_tiles(7, 5, Chief_MapWidth, Chief_MapHeight, Chief_Map); 
+      00022D 11r00r00         [12]  481 	ld	de, #_Chief_Map
+      000230 D5               [16]  482 	push	de
+      000231 21 06 07         [12]  483 	ld	hl, #0x706
+      000234 E5               [16]  484 	push	hl
+      000235 21 07 05         [12]  485 	ld	hl, #0x507
+      000238 E5               [16]  486 	push	hl
+      000239 CDr00r00         [24]  487 	call	_set_bkg_tiles
+      00023C E8 06            [16]  488 	add	sp, #6
+      00023E C3rF6r03         [16]  489 	jp	00156$
+      000241                        490 00134$:
+                           000241   491 	C$Battle.c$113$1_0$107	= .
+                                    492 	.globl	C$Battle.c$113$1_0$107
+                                    493 ;src\Battle.c:113: else if (index == 8)
+      000241 FAr00r00         [16]  494 	ld	a, (#_index)
+      000244 D6 08            [ 8]  495 	sub	a, #0x08
+      000246 20 24            [12]  496 	jr	NZ, 00131$
+                           000248   497 	C$Battle.c$115$2_0$116	= .
+                                    498 	.globl	C$Battle.c$115$2_0$116
+                                    499 ;src\Battle.c:115: InvertColor();
+      000248 CDr00r00         [24]  500 	call	_InvertColor
+                           00024B   501 	C$Battle.c$116$2_0$116	= .
+                                    502 	.globl	C$Battle.c$116$2_0$116
+                                    503 ;src\Battle.c:116: set_bkg_data(128, 30, Man_Tiles); 
+      00024B 11r00r00         [12]  504 	ld	de, #_Man_Tiles
+      00024E D5               [16]  505 	push	de
+      00024F 21 80 1E         [12]  506 	ld	hl, #0x1e80
+      000252 E5               [16]  507 	push	hl
+      000253 CDr00r00         [24]  508 	call	_set_bkg_data
+      000256 E8 04            [16]  509 	add	sp, #4
+                           000258   510 	C$Battle.c$117$2_0$116	= .
+                                    511 	.globl	C$Battle.c$117$2_0$116
+                                    512 ;src\Battle.c:117: set_bkg_tiles(7, 5, Man_MapWidth, Man_MapHeight, Man_Map); 
+      000258 11r00r00         [12]  513 	ld	de, #_Man_Map
+      00025B D5               [16]  514 	push	de
+      00025C 21 06 06         [12]  515 	ld	hl, #0x606
+      00025F E5               [16]  516 	push	hl
+      000260 21 07 05         [12]  517 	ld	hl, #0x507
+      000263 E5               [16]  518 	push	hl
+      000264 CDr00r00         [24]  519 	call	_set_bkg_tiles
+      000267 E8 06            [16]  520 	add	sp, #6
+      000269 C3rF6r03         [16]  521 	jp	00156$
+      00026C                        522 00131$:
+                           00026C   523 	C$Battle.c$119$1_0$107	= .
+                                    524 	.globl	C$Battle.c$119$1_0$107
+                                    525 ;src\Battle.c:119: else if (index == 9)
+      00026C FAr00r00         [16]  526 	ld	a, (#_index)
+      00026F D6 09            [ 8]  527 	sub	a, #0x09
+      000271 20 21            [12]  528 	jr	NZ, 00128$
+                           000273   529 	C$Battle.c$121$2_0$117	= .
+                                    530 	.globl	C$Battle.c$121$2_0$117
+                                    531 ;src\Battle.c:121: set_bkg_data(128, 26, Car_Tiles); 
+      000273 11r00r00         [12]  532 	ld	de, #_Car_Tiles
+      000276 D5               [16]  533 	push	de
+      000277 21 80 1A         [12]  534 	ld	hl, #0x1a80
+      00027A E5               [16]  535 	push	hl
+      00027B CDr00r00         [24]  536 	call	_set_bkg_data
+      00027E E8 04            [16]  537 	add	sp, #4
+                           000280   538 	C$Battle.c$122$2_0$117	= .
+                                    539 	.globl	C$Battle.c$122$2_0$117
+                                    540 ;src\Battle.c:122: set_bkg_tiles(7, 5, Car_MapWidth, Car_MapHeight, Car_Map); 
+      000280 11r00r00         [12]  541 	ld	de, #_Car_Map
+      000283 D5               [16]  542 	push	de
+      000284 21 06 05         [12]  543 	ld	hl, #0x506
+      000287 E5               [16]  544 	push	hl
+      000288 21 07 05         [12]  545 	ld	hl, #0x507
+      00028B E5               [16]  546 	push	hl
+      00028C CDr00r00         [24]  547 	call	_set_bkg_tiles
+      00028F E8 06            [16]  548 	add	sp, #6
+      000291 C3rF6r03         [16]  549 	jp	00156$
+      000294                        550 00128$:
+                           000294   551 	C$Battle.c$124$1_0$107	= .
+                                    552 	.globl	C$Battle.c$124$1_0$107
+                                    553 ;src\Battle.c:124: else if (index == 10)
+      000294 FAr00r00         [16]  554 	ld	a, (#_index)
+      000297 D6 0A            [ 8]  555 	sub	a, #0x0a
+      000299 20 21            [12]  556 	jr	NZ, 00125$
+                           00029B   557 	C$Battle.c$126$2_0$118	= .
+                                    558 	.globl	C$Battle.c$126$2_0$118
+                                    559 ;src\Battle.c:126: set_bkg_data(128, 46, Semi_Tiles); 
+      00029B 11r00r00         [12]  560 	ld	de, #_Semi_Tiles
+      00029E D5               [16]  561 	push	de
+      00029F 21 80 2E         [12]  562 	ld	hl, #0x2e80
+      0002A2 E5               [16]  563 	push	hl
+      0002A3 CDr00r00         [24]  564 	call	_set_bkg_data
+      0002A6 E8 04            [16]  565 	add	sp, #4
+                           0002A8   566 	C$Battle.c$127$2_0$118	= .
+                                    567 	.globl	C$Battle.c$127$2_0$118
+                                    568 ;src\Battle.c:127: set_bkg_tiles(7, 5, Semi_MapWidth, Semi_MapHeight, Semi_Map); 
+      0002A8 11r00r00         [12]  569 	ld	de, #_Semi_Map
+      0002AB D5               [16]  570 	push	de
+      0002AC 21 06 08         [12]  571 	ld	hl, #0x806
+      0002AF E5               [16]  572 	push	hl
+      0002B0 21 07 05         [12]  573 	ld	hl, #0x507
+      0002B3 E5               [16]  574 	push	hl
+      0002B4 CDr00r00         [24]  575 	call	_set_bkg_tiles
+      0002B7 E8 06            [16]  576 	add	sp, #6
+      0002B9 C3rF6r03         [16]  577 	jp	00156$
+      0002BC                        578 00125$:
+                           0002BC   579 	C$Battle.c$129$1_0$107	= .
+                                    580 	.globl	C$Battle.c$129$1_0$107
+                                    581 ;src\Battle.c:129: else if (index == 11)
+      0002BC FAr00r00         [16]  582 	ld	a, (#_index)
+      0002BF D6 0B            [ 8]  583 	sub	a, #0x0b
+      0002C1 20 21            [12]  584 	jr	NZ, 00122$
+                           0002C3   585 	C$Battle.c$131$2_0$119	= .
+                                    586 	.globl	C$Battle.c$131$2_0$119
+                                    587 ;src\Battle.c:131: set_bkg_data(128, 31, Sis_Tiles); 
+      0002C3 11r00r00         [12]  588 	ld	de, #_Sis_Tiles
+      0002C6 D5               [16]  589 	push	de
+      0002C7 21 80 1F         [12]  590 	ld	hl, #0x1f80
+      0002CA E5               [16]  591 	push	hl
+      0002CB CDr00r00         [24]  592 	call	_set_bkg_data
+      0002CE E8 04            [16]  593 	add	sp, #4
+                           0002D0   594 	C$Battle.c$132$2_0$119	= .
+                                    595 	.globl	C$Battle.c$132$2_0$119
+                                    596 ;src\Battle.c:132: set_bkg_tiles(7, 5, BigSis_MapWidth, BigSis_MapHeight, BigSis_Map); 
+      0002D0 11r00r00         [12]  597 	ld	de, #_BigSis_Map
+      0002D3 D5               [16]  598 	push	de
+      0002D4 21 05 07         [12]  599 	ld	hl, #0x705
+      0002D7 E5               [16]  600 	push	hl
+      0002D8 21 07 05         [12]  601 	ld	hl, #0x507
+      0002DB E5               [16]  602 	push	hl
+      0002DC CDr00r00         [24]  603 	call	_set_bkg_tiles
+      0002DF E8 06            [16]  604 	add	sp, #6
+      0002E1 C3rF6r03         [16]  605 	jp	00156$
+      0002E4                        606 00122$:
+                           0002E4   607 	C$Battle.c$134$1_0$107	= .
+                                    608 	.globl	C$Battle.c$134$1_0$107
+                                    609 ;src\Battle.c:134: else if (index == 12)
+      0002E4 FAr00r00         [16]  610 	ld	a, (#_index)
+      0002E7 D6 0C            [ 8]  611 	sub	a, #0x0c
+      0002E9 20 21            [12]  612 	jr	NZ, 00119$
+                           0002EB   613 	C$Battle.c$136$2_0$120	= .
+                                    614 	.globl	C$Battle.c$136$2_0$120
+                                    615 ;src\Battle.c:136: set_bkg_data(128, 31, Sis_Tiles); 
+      0002EB 11r00r00         [12]  616 	ld	de, #_Sis_Tiles
+      0002EE D5               [16]  617 	push	de
+      0002EF 21 80 1F         [12]  618 	ld	hl, #0x1f80
+      0002F2 E5               [16]  619 	push	hl
+      0002F3 CDr00r00         [24]  620 	call	_set_bkg_data
+      0002F6 E8 04            [16]  621 	add	sp, #4
+                           0002F8   622 	C$Battle.c$137$2_0$120	= .
+                                    623 	.globl	C$Battle.c$137$2_0$120
+                                    624 ;src\Battle.c:137: set_bkg_tiles(7, 5, MadSis_MapWidth, MadSis_MapHeight, MadSis_Map); 
+      0002F8 11r00r00         [12]  625 	ld	de, #_MadSis_Map
+      0002FB D5               [16]  626 	push	de
+      0002FC 21 05 07         [12]  627 	ld	hl, #0x705
+      0002FF E5               [16]  628 	push	hl
+      000300 21 07 05         [12]  629 	ld	hl, #0x507
+      000303 E5               [16]  630 	push	hl
+      000304 CDr00r00         [24]  631 	call	_set_bkg_tiles
+      000307 E8 06            [16]  632 	add	sp, #6
+      000309 C3rF6r03         [16]  633 	jp	00156$
+      00030C                        634 00119$:
+                           00030C   635 	C$Battle.c$139$1_0$107	= .
+                                    636 	.globl	C$Battle.c$139$1_0$107
+                                    637 ;src\Battle.c:139: else if (index == 13)
+      00030C FAr00r00         [16]  638 	ld	a, (#_index)
+      00030F D6 0D            [ 8]  639 	sub	a, #0x0d
+      000311 20 21            [12]  640 	jr	NZ, 00116$
+                           000313   641 	C$Battle.c$141$2_0$121	= .
+                                    642 	.globl	C$Battle.c$141$2_0$121
+                                    643 ;src\Battle.c:141: set_bkg_data(128, 29, Experiment_Tiles);
+      000313 11r00r00         [12]  644 	ld	de, #_Experiment_Tiles
+      000316 D5               [16]  645 	push	de
+      000317 21 80 1D         [12]  646 	ld	hl, #0x1d80
+      00031A E5               [16]  647 	push	hl
+      00031B CDr00r00         [24]  648 	call	_set_bkg_data
+      00031E E8 04            [16]  649 	add	sp, #4
+                           000320   650 	C$Battle.c$142$2_0$121	= .
+                                    651 	.globl	C$Battle.c$142$2_0$121
+                                    652 ;src\Battle.c:142: set_bkg_tiles(7, 5, Experiment_MapWidth, Experiment_MapHeight, Experiment_Map );
+      000320 11r00r00         [12]  653 	ld	de, #_Experiment_Map
+      000323 D5               [16]  654 	push	de
+      000324 21 05 07         [12]  655 	ld	hl, #0x705
+      000327 E5               [16]  656 	push	hl
+      000328 21 07 05         [12]  657 	ld	hl, #0x507
+      00032B E5               [16]  658 	push	hl
+      00032C CDr00r00         [24]  659 	call	_set_bkg_tiles
+      00032F E8 06            [16]  660 	add	sp, #6
+      000331 C3rF6r03         [16]  661 	jp	00156$
+      000334                        662 00116$:
+                           000334   663 	C$Battle.c$144$1_0$107	= .
+                                    664 	.globl	C$Battle.c$144$1_0$107
+                                    665 ;src\Battle.c:144: else if (index == 14)
+      000334 FAr00r00         [16]  666 	ld	a, (#_index)
+      000337 D6 0E            [ 8]  667 	sub	a, #0x0e
+      000339 20 21            [12]  668 	jr	NZ, 00113$
+                           00033B   669 	C$Battle.c$146$2_0$122	= .
+                                    670 	.globl	C$Battle.c$146$2_0$122
+                                    671 ;src\Battle.c:146: set_bkg_data(128, 19, Ghost_Tiles);
+      00033B 11r00r00         [12]  672 	ld	de, #_Ghost_Tiles
+      00033E D5               [16]  673 	push	de
+      00033F 21 80 13         [12]  674 	ld	hl, #0x1380
+      000342 E5               [16]  675 	push	hl
+      000343 CDr00r00         [24]  676 	call	_set_bkg_data
+      000346 E8 04            [16]  677 	add	sp, #4
+                           000348   678 	C$Battle.c$147$2_0$122	= .
+                                    679 	.globl	C$Battle.c$147$2_0$122
+                                    680 ;src\Battle.c:147: set_bkg_tiles(7, 5, Ghost_MapWidth, Ghost_MapHeight, Ghost_Map);
+      000348 11r00r00         [12]  681 	ld	de, #_Ghost_Map
+      00034B D5               [16]  682 	push	de
+      00034C 21 04 05         [12]  683 	ld	hl, #0x504
+      00034F E5               [16]  684 	push	hl
+      000350 21 07 05         [12]  685 	ld	hl, #0x507
+      000353 E5               [16]  686 	push	hl
+      000354 CDr00r00         [24]  687 	call	_set_bkg_tiles
+      000357 E8 06            [16]  688 	add	sp, #6
+      000359 C3rF6r03         [16]  689 	jp	00156$
+      00035C                        690 00113$:
+                           00035C   691 	C$Battle.c$149$1_0$107	= .
+                                    692 	.globl	C$Battle.c$149$1_0$107
+                                    693 ;src\Battle.c:149: else if (index == 15)
+      00035C FAr00r00         [16]  694 	ld	a, (#_index)
+      00035F D6 0F            [ 8]  695 	sub	a, #0x0f
+      000361 20 20            [12]  696 	jr	NZ, 00110$
+                           000363   697 	C$Battle.c$151$2_0$123	= .
+                                    698 	.globl	C$Battle.c$151$2_0$123
+                                    699 ;src\Battle.c:151: set_bkg_data(128, 14, Saucer_Tiles);
+      000363 11r00r00         [12]  700 	ld	de, #_Saucer_Tiles
+      000366 D5               [16]  701 	push	de
+      000367 21 80 0E         [12]  702 	ld	hl, #0xe80
+      00036A E5               [16]  703 	push	hl
+      00036B CDr00r00         [24]  704 	call	_set_bkg_data
+      00036E E8 04            [16]  705 	add	sp, #4
+                           000370   706 	C$Battle.c$152$2_0$123	= .
+                                    707 	.globl	C$Battle.c$152$2_0$123
+                                    708 ;src\Battle.c:152: set_bkg_tiles(7, 5, Saucer_MapWidth, Saucer_MapHeight, Ghost_Map);
+      000370 11r00r00         [12]  709 	ld	de, #_Ghost_Map
+      000373 D5               [16]  710 	push	de
+      000374 21 05 03         [12]  711 	ld	hl, #0x305
+      000377 E5               [16]  712 	push	hl
+      000378 21 07 05         [12]  713 	ld	hl, #0x507
+      00037B E5               [16]  714 	push	hl
+      00037C CDr00r00         [24]  715 	call	_set_bkg_tiles
+      00037F E8 06            [16]  716 	add	sp, #6
+      000381 18 73            [12]  717 	jr	00156$
+      000383                        718 00110$:
+                           000383   719 	C$Battle.c$154$1_0$107	= .
+                                    720 	.globl	C$Battle.c$154$1_0$107
+                                    721 ;src\Battle.c:154: else if (index == 16)
+      000383 FAr00r00         [16]  722 	ld	a, (#_index)
+      000386 D6 10            [ 8]  723 	sub	a, #0x10
+      000388 20 20            [12]  724 	jr	NZ, 00107$
+                           00038A   725 	C$Battle.c$156$2_0$124	= .
+                                    726 	.globl	C$Battle.c$156$2_0$124
+                                    727 ;src\Battle.c:156: set_bkg_data(128, 20, SockHead_Tiles);
+      00038A 11r00r00         [12]  728 	ld	de, #_SockHead_Tiles
+      00038D D5               [16]  729 	push	de
+      00038E 21 80 14         [12]  730 	ld	hl, #0x1480
+      000391 E5               [16]  731 	push	hl
+      000392 CDr00r00         [24]  732 	call	_set_bkg_data
+      000395 E8 04            [16]  733 	add	sp, #4
+                           000397   734 	C$Battle.c$157$2_0$124	= .
+                                    735 	.globl	C$Battle.c$157$2_0$124
+                                    736 ;src\Battle.c:157: set_bkg_tiles(7, 5, SockHead_MapWidth, SockHead_MapHeight, SockHead_Map);
+      000397 11r00r00         [12]  737 	ld	de, #_SockHead_Map
+      00039A D5               [16]  738 	push	de
+      00039B 21 04 07         [12]  739 	ld	hl, #0x704
+      00039E E5               [16]  740 	push	hl
+      00039F 21 07 05         [12]  741 	ld	hl, #0x507
+      0003A2 E5               [16]  742 	push	hl
+      0003A3 CDr00r00         [24]  743 	call	_set_bkg_tiles
+      0003A6 E8 06            [16]  744 	add	sp, #6
+      0003A8 18 4C            [12]  745 	jr	00156$
+      0003AA                        746 00107$:
+                           0003AA   747 	C$Battle.c$159$1_0$107	= .
+                                    748 	.globl	C$Battle.c$159$1_0$107
+                                    749 ;src\Battle.c:159: else if (index == 17)
+      0003AA FAr00r00         [16]  750 	ld	a, (#_index)
+      0003AD D6 11            [ 8]  751 	sub	a, #0x11
+      0003AF 20 20            [12]  752 	jr	NZ, 00104$
+                           0003B1   753 	C$Battle.c$161$2_0$125	= .
+                                    754 	.globl	C$Battle.c$161$2_0$125
+                                    755 ;src\Battle.c:161: set_bkg_data(128, 26, Toby_Tiles);
+      0003B1 11r00r00         [12]  756 	ld	de, #_Toby_Tiles
+      0003B4 D5               [16]  757 	push	de
+      0003B5 21 80 1A         [12]  758 	ld	hl, #0x1a80
+      0003B8 E5               [16]  759 	push	hl
+      0003B9 CDr00r00         [24]  760 	call	_set_bkg_data
+      0003BC E8 04            [16]  761 	add	sp, #4
+                           0003BE   762 	C$Battle.c$162$2_0$125	= .
+                                    763 	.globl	C$Battle.c$162$2_0$125
+                                    764 ;src\Battle.c:162: set_bkg_tiles(7, 5, Toby_MapWidth, Toby_MapHeight, Toby_Map);
+      0003BE 11r00r00         [12]  765 	ld	de, #_Toby_Map
+      0003C1 D5               [16]  766 	push	de
+      0003C2 21 04 07         [12]  767 	ld	hl, #0x704
+      0003C5 E5               [16]  768 	push	hl
+      0003C6 21 07 05         [12]  769 	ld	hl, #0x507
+      0003C9 E5               [16]  770 	push	hl
+      0003CA CDr00r00         [24]  771 	call	_set_bkg_tiles
+      0003CD E8 06            [16]  772 	add	sp, #6
+      0003CF 18 25            [12]  773 	jr	00156$
+      0003D1                        774 00104$:
+                           0003D1   775 	C$Battle.c$164$1_0$107	= .
+                                    776 	.globl	C$Battle.c$164$1_0$107
+                                    777 ;src\Battle.c:164: else if (index == 18)
+      0003D1 FAr00r00         [16]  778 	ld	a, (#_index)
+      0003D4 D6 12            [ 8]  779 	sub	a, #0x12
+      0003D6 20 1E            [12]  780 	jr	NZ, 00156$
+                           0003D8   781 	C$Battle.c$166$2_0$126	= .
+                                    782 	.globl	C$Battle.c$166$2_0$126
+                                    783 ;src\Battle.c:166: set_bkg_data(128, 24, Drunk_Tiles);
+      0003D8 11r00r00         [12]  784 	ld	de, #_Drunk_Tiles
+      0003DB D5               [16]  785 	push	de
+      0003DC 21 80 18         [12]  786 	ld	hl, #0x1880
+      0003DF E5               [16]  787 	push	hl
+      0003E0 CDr00r00         [24]  788 	call	_set_bkg_data
+      0003E3 E8 04            [16]  789 	add	sp, #4
+                           0003E5   790 	C$Battle.c$167$2_0$126	= .
+                                    791 	.globl	C$Battle.c$167$2_0$126
+                                    792 ;src\Battle.c:167: set_bkg_tiles(7, 5, Drunk_MapWidth, Drunk_MapHeight, Drunk_Map);
+      0003E5 11r00r00         [12]  793 	ld	de, #_Drunk_Map
+      0003E8 D5               [16]  794 	push	de
+      0003E9 21 04 06         [12]  795 	ld	hl, #0x604
+      0003EC E5               [16]  796 	push	hl
+      0003ED 21 07 05         [12]  797 	ld	hl, #0x507
+      0003F0 E5               [16]  798 	push	hl
+      0003F1 CDr00r00         [24]  799 	call	_set_bkg_tiles
+      0003F4 E8 06            [16]  800 	add	sp, #6
+      0003F6                        801 00156$:
+                           0003F6   802 	C$Battle.c$169$1_0$107	= .
+                                    803 	.globl	C$Battle.c$169$1_0$107
+                                    804 ;src\Battle.c:169: performantdelay(120);
+      0003F6 3E 78            [ 8]  805 	ld	a, #0x78
+      0003F8 CDr00r00         [24]  806 	call	_performantdelay
+                                    807 ;C:/gbdk/include/gb/gb.h:1222: SCX_REG+=x, SCY_REG+=y;
+      0003FB F0r00            [12]  808 	ldh	a, (_SCY_REG + 0)
+      0003FD C6 28            [ 8]  809 	add	a, #0x28
+      0003FF E0r00            [12]  810 	ldh	(_SCY_REG + 0), a
+                           000401   811 	C$Battle.c$170$3_0$107	= .
+                                    812 	.globl	C$Battle.c$170$3_0$107
+                                    813 ;src\Battle.c:170: scroll_bkg(0, 40);
+                           000401   814 	C$Battle.c$172$3_0$107	= .
+                                    815 	.globl	C$Battle.c$172$3_0$107
+                                    816 ;src\Battle.c:172: }
+                           000401   817 	C$Battle.c$172$3_0$107	= .
+                                    818 	.globl	C$Battle.c$172$3_0$107
+                           000401   819 	XG$BattleSetup$0$0	= .
+                                    820 	.globl	XG$BattleSetup$0$0
+      000401 C9               [16]  821 	ret
+                           000402   822 FBattle$__str_0$0_0$0 == .
+      000402                        823 ___str_0:
+      000402 4A 69 6D 20 43 72 6F   824 	.ascii "Jim Crow draws"
+             77 20 64 72 61 77 73
+      000410 00                     825 	.db 0x00
+                           000411   826 FBattle$__str_1$0_0$0 == .
+      000411                        827 ___str_1:
+      000411 6E 65 61 72 2E         828 	.ascii "near."
+      000416 00                     829 	.db 0x00
+                           000417   830 FBattle$__str_2$0_0$0 == .
+      000417                        831 ___str_2:
+      000417 47 79 70 73 79 20 4D   832 	.ascii "Gypsy Moth draws"
+             6F 74 68 20 64 72 61
+             77 73
+      000427 00                     833 	.db 0x00
+                           000428   834 FBattle$__str_3$0_0$0 == .
+      000428                        835 ___str_3:
+      000428 57 61 6C 6C 79 20 62   836 	.ascii "Wally butts in."
+             75 74 74 73 20 69 6E
+             2E
+      000437 00                     837 	.db 0x00
+                           000438   838 FBattle$__str_4$0_0$0 == .
+      000438                        839 ___str_4:
+      000438 41 20 74 69 63 6B 20   840 	.ascii "A tick draws near."
+             64 72 61 77 73 20 6E
+             65 61 72 2E
+      00044A 00                     841 	.db 0x00
+                           00044B   842 FBattle$__str_5$0_0$0 == .
+      00044B                        843 ___str_5:
+      00044B 41 6E 20 4F 66 66 69   844 	.ascii "An Officer draws"
+             63 65 72 20 64 72 61
+             77 73
+      00045B 00                     845 	.db 0x00
+                           00045C   846 	G$BattleUpdate$0$0	= .
+                                    847 	.globl	G$BattleUpdate$0$0
+                           00045C   848 	C$Battle.c$174$3_0$133	= .
+                                    849 	.globl	C$Battle.c$174$3_0$133
+                                    850 ;src\Battle.c:174: uint8_t BattleUpdate()
+                                    851 ;	---------------------------------
+                                    852 ; Function BattleUpdate
+                                    853 ; ---------------------------------
+      00045C                        854 _BattleUpdate::
+                           00045C   855 	C$Battle.c$176$1_0$133	= .
+                                    856 	.globl	C$Battle.c$176$1_0$133
+                                    857 ;src\Battle.c:176: if (joypadCurrent & J_SELECT)
+      00045C FAr00r00         [16]  858 	ld	a, (#_joypadCurrent)
+      00045F CB 77            [ 8]  859 	bit	6, a
+                           000461   860 	C$Battle.c$178$2_0$134	= .
+                                    861 	.globl	C$Battle.c$178$2_0$134
+                                    862 ;src\Battle.c:178: return GAMETITLE;
+                           000461   863 	C$Battle.c$182$2_0$135	= .
+                                    864 	.globl	C$Battle.c$182$2_0$135
+                                    865 ;src\Battle.c:182: return BATTLE;
+      000461 3E 01            [ 8]  866 	ld	a, #0x01
+      000463 C0               [20]  867 	ret	NZ
+      000464 3E 05            [ 8]  868 	ld	a, #0x05
+                           000466   869 	C$Battle.c$184$1_0$133	= .
+                                    870 	.globl	C$Battle.c$184$1_0$133
+                                    871 ;src\Battle.c:184: }
+                           000466   872 	C$Battle.c$184$1_0$133	= .
+                                    873 	.globl	C$Battle.c$184$1_0$133
+                           000466   874 	XG$BattleUpdate$0$0	= .
+                                    875 	.globl	XG$BattleUpdate$0$0
+      000466 C9               [16]  876 	ret
+                                    877 	.area _CODE
+                                    878 	.area _INITIALIZER
+                                    879 	.area _CABS (ABS)

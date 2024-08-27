@@ -34,6 +34,20 @@ void performantdelay(uint8_t numloops);
 void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits);
 
 /**
+ * CUSTOM FUNCTION TO PRINT NUMBERS OF A SPECIFIED AMOUNT OF DIGITS
+ * 
+ * @param x
+ * The X position of the window tile map.
+ * @param y
+ *  The Y position of the window tile map.
+ * @param number
+ * The int number to be printed
+ * @param digits
+ * The number of digits to be printed.
+*/
+void DrawNumberWindow(uint8_t x, uint8_t y, uint16_t number, uint8_t digits);
+
+/**
  * Custom function to print text onto the background layer.
  * 
  * @param x
@@ -44,6 +58,18 @@ void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits);
  * The string text to print out horizontally.
 */
 void DrawText(uint8_t x, uint8_t y, unsigned char *text );
+
+/**
+ * Custom function to print text onto the window layer.
+ * 
+ * @param x
+ * The X position of the window tile map (IN TILES).
+ * @param y 
+ * The Y position of the window tile map (IN TILES).
+ * @param text
+ * The string text to print out horizontally.
+*/
+void DrawTextWindow(uint8_t x, uint8_t y, unsigned char *text );
 
 /**
  * Slowly causes the background pallet to turn black.

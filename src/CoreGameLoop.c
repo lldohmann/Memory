@@ -7,6 +7,7 @@
 #include "../src/player.h"
 #include "../src/common.h"
 #include "../res/Skateboard_Tiles.h"
+#include "../res/Pets_Map.h"
 
 #define MIN(A,B) ((A)<(B)?(A):(B))
 
@@ -79,6 +80,28 @@ void CoreGameLoopSetup()
     SHOW_SPRITES;
     set_camera();
     fadeFromBlack(10);
+    DrawNumberWindow(1, 1, 31, 4);
+    DrawTextWindow(1, 3, "Window Text");
+}
+
+void CoreGameLoopSetup2()
+{
+    // Camera code
+    map_pos_x_tiles = map_pos_y_tiles = 0;
+    old_map_pos_x_tiles = old_camera_y_pixels = 255; 
+    camera_x_pixels = 208;
+    camera_y_pixels = 96;
+    old_camera_x_pixels = camera_x_pixels; old_camera_y_pixels = camera_y_pixels;
+    redraw = FALSE;
+    // My code
+    set_bkg_data(128, 144, IndoorTiles);
+    set_bkg_based_submap(0, 0, 20u, 18u, Home, HomeWidth, 128);
+    set_sprite_data(0, 128, Cast_Tiles);
+    SPRITES_8x16;
+    SHOW_BKG;
+    SHOW_SPRITES;
+    set_camera();
+    fadeFromBlack(10);
 }
 
 uint8_t camera_pixel_goal_x, camera_pixel_goal_y;
@@ -88,6 +111,10 @@ uint8_t CoreGameLoopUpdate()
     joypadCurrent = joypad();
     PlayerUpdate(&mouse);
     DrawPlayer(&mouse);
+    if ((joypadCurrent & J_B) && !(joypadPrevious & J_B))
+    {
+
+    }
     if (joypadCurrent & J_UP) {
         if (camera_y_pixels){
             camera_y_pixels--;

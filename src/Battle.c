@@ -64,26 +64,34 @@ void BattleSetup()
     fadeFromBlack(5);
     if (index == 0) // JIM
     {
+        DrawText(1, 1, "Jim Crow draws");
+        DrawText(1, 3, "near.");
         set_bkg_data(128, 23, Crow_Tiles); // init with crow monster
-        set_bkg_tiles(7, 5, Crow_MapWidth, Crow_MapHeight, Crow_Map); // draw Crow monster
+        set_bkg_tiles(7, 6, Crow_MapWidth, Crow_MapHeight, Crow_Map); // draw Crow monster
     }
     else if (index == 1) // GYPSY
     {
+        DrawText(1, 1, "Gypsy Moth draws");
+        DrawText(1, 3, "near.");
         set_bkg_data(128, 29, GypsyTiles); 
         set_bkg_tiles(7, 5, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
     }
     else if (index == 2) // WALLY
     {
+        DrawText(1, 1, "Wally butts in.");
         set_bkg_data(128, 27, WallyTiles); 
         set_bkg_tiles(7, 5, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
     }
     else if (index == 3) // TICK
     {
+        DrawText(1, 1, "A tick draws near.");
         set_bkg_data(128, 20, Tick_Tiles); 
         set_bkg_tiles(7, 5, Tick_MapWidth, Tick_MapHeight, Tick_Map); 
     }
     else if (index == 4) // OFFICER
     {
+        DrawText(1, 1, "An Officer draws");
+        DrawText(1, 3, "near.");
         set_bkg_data(128, 39, Cop_Tiles); 
         set_bkg_tiles(7, 5, Officer_MapWidth, Officer_MapHeight, Officer_Map); 
     }
@@ -160,6 +168,7 @@ void BattleSetup()
     }
     performantdelay(120);
     scroll_bkg(0, 40);
+    //set_sprite_prop()
 }
 
 uint8_t BattleUpdate()
@@ -169,6 +178,7 @@ uint8_t BattleUpdate()
         return GAMETITLE;
     }
     else {
+
         return BATTLE;
     }
 }

@@ -14,6 +14,8 @@ enum state {idle, moving, paused};
 
 typedef struct player {
     uint16_t x,y;
+    uint8_t local_x, local_y; // LOCAL LOCATION ON MAP
+    uint8_t goal_x, goal_y; // TARGET LOCATION ON SCREEN
     uint8_t moveSpeed;
     uint8_t frame;
     enum direction playerDirection;
