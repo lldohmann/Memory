@@ -27,6 +27,7 @@ ISR_VECTOR(VECTOR_STAT, scanline_isr)
 
 void GameJohnDoeSetup()
 {
+    move_bkg(0,0);
     set_bkg_data(0, 79, JohnDoe_Tiles);
     set_bkg_tiles(0, 0, JohnDoe_MapWidth, JohnDoe_MapHeight, JohnDoe_Map);
     SHOW_BKG;

@@ -67,43 +67,43 @@
                                      67 	.area _CODE
                            000000    68 	G$performantdelay$0$0	= .
                                      69 	.globl	G$performantdelay$0$0
-                           000000    70 	C$common.c$9$0_0$136	= .
-                                     71 	.globl	C$common.c$9$0_0$136
-                                     72 ;src\common.c:9: void performantdelay(uint8_t numloops)
+                           000000    70 	C$common.c$13$0_0$136	= .
+                                     71 	.globl	C$common.c$13$0_0$136
+                                     72 ;src\common.c:13: void performantdelay(uint8_t numloops)
                                      73 ;	---------------------------------
                                      74 ; Function performantdelay
                                      75 ; ---------------------------------
       000000                         76 _performantdelay::
       000000 4F               [ 4]   77 	ld	c, a
-                           000001    78 	C$common.c$11$2_0$136	= .
-                                     79 	.globl	C$common.c$11$2_0$136
-                                     80 ;src\common.c:11: for (uint8_t i = 0; i < numloops; i++)
+                           000001    78 	C$common.c$15$2_0$136	= .
+                                     79 	.globl	C$common.c$15$2_0$136
+                                     80 ;src\common.c:15: for (uint8_t i = 0; i < numloops; i++)
       000001 06 00            [ 8]   81 	ld	b, #0x00
       000003                         82 00103$:
       000003 78               [ 4]   83 	ld	a, b
       000004 91               [ 4]   84 	sub	a, c
       000005 D0               [20]   85 	ret	NC
-                           000006    86 	C$common.c$13$3_0$137	= .
-                                     87 	.globl	C$common.c$13$3_0$137
-                                     88 ;src\common.c:13: wait_vbl_done();
+                           000006    86 	C$common.c$17$3_0$137	= .
+                                     87 	.globl	C$common.c$17$3_0$137
+                                     88 ;src\common.c:17: wait_vbl_done();
       000006 CDr00r00         [24]   89 	call	_wait_vbl_done
-                           000009    90 	C$common.c$11$2_0$136	= .
-                                     91 	.globl	C$common.c$11$2_0$136
-                                     92 ;src\common.c:11: for (uint8_t i = 0; i < numloops; i++)
+                           000009    90 	C$common.c$15$2_0$136	= .
+                                     91 	.globl	C$common.c$15$2_0$136
+                                     92 ;src\common.c:15: for (uint8_t i = 0; i < numloops; i++)
       000009 04               [ 4]   93 	inc	b
-                           00000A    94 	C$common.c$15$2_0$136	= .
-                                     95 	.globl	C$common.c$15$2_0$136
-                                     96 ;src\common.c:15: }
-                           00000A    97 	C$common.c$15$2_0$136	= .
-                                     98 	.globl	C$common.c$15$2_0$136
+                           00000A    94 	C$common.c$19$2_0$136	= .
+                                     95 	.globl	C$common.c$19$2_0$136
+                                     96 ;src\common.c:19: }
+                           00000A    97 	C$common.c$19$2_0$136	= .
+                                     98 	.globl	C$common.c$19$2_0$136
                            00000A    99 	XG$performantdelay$0$0	= .
                                     100 	.globl	XG$performantdelay$0$0
       00000A 18 F7            [12]  101 	jr	00103$
                            00000C   102 	G$DrawNumber$0$0	= .
                                     103 	.globl	G$DrawNumber$0$0
-                           00000C   104 	C$common.c$18$2_0$139	= .
-                                    105 	.globl	C$common.c$18$2_0$139
-                                    106 ;src\common.c:18: void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits)
+                           00000C   104 	C$common.c$22$2_0$139	= .
+                                    105 	.globl	C$common.c$22$2_0$139
+                                    106 ;src\common.c:22: void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits)
                                     107 ;	---------------------------------
                                     108 ; Function DrawNumber
                                     109 ; ---------------------------------
@@ -112,9 +112,9 @@
       00000E F8 10            [12]  112 	ldhl	sp,	#16
       000010 32               [ 8]  113 	ld	(hl-), a
       000011 73               [ 8]  114 	ld	(hl), e
-                           000012   115 	C$common.c$20$2_0$139	= .
-                                    116 	.globl	C$common.c$20$2_0$139
-                                    117 ;src\common.c:20: unsigned char buffer[8]={'0', '0', '0', '0', '0', '0', '0', '0'};
+                           000012   115 	C$common.c$24$2_0$139	= .
+                                    116 	.globl	C$common.c$24$2_0$139
+                                    117 ;src\common.c:24: unsigned char buffer[8]={'0', '0', '0', '0', '0', '0', '0', '0'};
       000012 F8 00            [12]  118 	ldhl	sp,	#0
       000014 3E 30            [ 8]  119 	ld	a,#0x30
       000016 22               [ 8]  120 	ld	(hl+),a
@@ -128,9 +128,9 @@
       000020 3E 30            [ 8]  128 	ld	a, #0x30
       000022 22               [ 8]  129 	ld	(hl+), a
       000023 36 30            [12]  130 	ld	(hl), #0x30
-                           000025   131 	C$common.c$23$1_0$139	= .
-                                    132 	.globl	C$common.c$23$1_0$139
-                                    133 ;src\common.c:23: uitoa(number, buffer, 10);
+                           000025   131 	C$common.c$27$1_0$139	= .
+                                    132 	.globl	C$common.c$27$1_0$139
+                                    133 ;src\common.c:27: uitoa(number, buffer, 10);
       000025 F8 16            [12]  134 	ldhl	sp,	#22
       000027 7E               [ 8]  135 	ld	a, (hl)
       000028 F8 12            [12]  136 	ldhl	sp,	#18
@@ -152,9 +152,9 @@
       00003F D5               [16]  152 	push	de
       000040 CDr00r00         [24]  153 	call	_uitoa
       000043 E8 05            [16]  154 	add	sp, #5
-                           000045   155 	C$common.c$26$1_1$140	= .
-                                    156 	.globl	C$common.c$26$1_1$140
-                                    157 ;src\common.c:26: uint8_t *vramAddr = get_bkg_xy_addr(x,y); 
+                           000045   155 	C$common.c$30$1_1$140	= .
+                                    156 	.globl	C$common.c$30$1_1$140
+                                    157 ;src\common.c:30: uint8_t *vramAddr = get_bkg_xy_addr(x,y); 
       000045 F8 0F            [12]  158 	ldhl	sp,	#15
       000047 2A               [ 8]  159 	ld	a, (hl+)
       000048 57               [ 4]  160 	ld	d, a
@@ -174,9 +174,9 @@
       00005C 7E               [ 8]  174 	ld	a, (hl)
       00005D F8 0E            [12]  175 	ldhl	sp,	#14
       00005F 77               [ 8]  176 	ld	(hl), a
-                           000060   177 	C$common.c$29$1_1$140	= .
-                                    178 	.globl	C$common.c$29$1_1$140
-                                    179 ;src\common.c:29: uint8_t len = strlen(buffer);
+                           000060   177 	C$common.c$33$1_1$140	= .
+                                    178 	.globl	C$common.c$33$1_1$140
+                                    179 ;src\common.c:33: uint8_t len = strlen(buffer);
       000060 21 00 00         [12]  180 	ld	hl, #0
       000063 39               [ 8]  181 	add	hl, sp
       000064 E5               [16]  182 	push	hl
@@ -190,9 +190,9 @@
       000070 7E               [ 8]  190 	ld	a, (hl)
       000071 F8 08            [12]  191 	ldhl	sp,	#8
       000073 77               [ 8]  192 	ld	(hl), a
-                           000074   193 	C$common.c$34$2_1$139	= .
-                                    194 	.globl	C$common.c$34$2_1$139
-                                    195 ;src\common.c:34: for (uint8_t i=0; i<digits-len;i++)
+                           000074   193 	C$common.c$38$2_1$139	= .
+                                    194 	.globl	C$common.c$38$2_1$139
+                                    195 ;src\common.c:38: for (uint8_t i=0; i<digits-len;i++)
       000074 F8 0D            [12]  196 	ldhl	sp,	#13
       000076 7E               [ 8]  197 	ld	a, (hl)
       000077 F8 11            [12]  198 	ldhl	sp,	#17
@@ -255,9 +255,9 @@
       0000C0 37               [ 4]  255 	scf
       0000C1                        256 00134$:
       0000C1 30 27            [12]  257 	jr	NC, 00101$
-                           0000C3   258 	C$common.c$36$3_1$142	= .
-                                    259 	.globl	C$common.c$36$3_1$142
-                                    260 ;src\common.c:36: set_vram_byte(vramAddr++, 283);
+                           0000C3   258 	C$common.c$40$3_1$142	= .
+                                    259 	.globl	C$common.c$40$3_1$142
+                                    260 ;src\common.c:40: set_vram_byte(vramAddr++, 283);
       0000C3 F8 11            [12]  261 	ldhl	sp,	#17
       0000C5 7E               [ 8]  262 	ld	a, (hl)
       0000C6 F8 0D            [12]  263 	ldhl	sp,	#13
@@ -282,16 +282,16 @@
       0000DF D5               [16]  282 	push	de
       0000E0 CDr00r00         [24]  283 	call	_set_vram_byte
       0000E3 E8 03            [16]  284 	add	sp, #3
-                           0000E5   285 	C$common.c$34$2_1$141	= .
-                                    286 	.globl	C$common.c$34$2_1$141
-                                    287 ;src\common.c:34: for (uint8_t i=0; i<digits-len;i++)
+                           0000E5   285 	C$common.c$38$2_1$141	= .
+                                    286 	.globl	C$common.c$38$2_1$141
+                                    287 ;src\common.c:38: for (uint8_t i=0; i<digits-len;i++)
       0000E5 F8 13            [12]  288 	ldhl	sp,	#19
       0000E7 34               [12]  289 	inc	(hl)
       0000E8 18 98            [12]  290 	jr	00104$
       0000EA                        291 00101$:
-                           0000EA   292 	C$common.c$41$2_1$139	= .
-                                    293 	.globl	C$common.c$41$2_1$139
-                                    294 ;src\common.c:41: for (uint8_t i=0; i<len; i++)
+                           0000EA   292 	C$common.c$45$2_1$139	= .
+                                    293 	.globl	C$common.c$45$2_1$139
+                                    294 ;src\common.c:45: for (uint8_t i=0; i<len; i++)
       0000EA F8 11            [12]  295 	ldhl	sp,	#17
       0000EC 2A               [ 8]  296 	ld	a, (hl+)
       0000ED 4F               [ 4]  297 	ld	c, a
@@ -302,9 +302,9 @@
       0000F2 F8 08            [12]  302 	ldhl	sp,	#8
       0000F4 96               [ 8]  303 	sub	a, (hl)
       0000F5 30 1C            [12]  304 	jr	NC, 00109$
-                           0000F7   305 	C$common.c$43$3_1$144	= .
-                                    306 	.globl	C$common.c$43$3_1$144
-                                    307 ;src\common.c:43: set_vram_byte(vramAddr++, (buffer[i] -'0')+283);
+                           0000F7   305 	C$common.c$47$3_1$144	= .
+                                    306 	.globl	C$common.c$47$3_1$144
+                                    307 ;src\common.c:47: set_vram_byte(vramAddr++, (buffer[i] -'0')+283);
       0000F7 D5               [16]  308 	push	de
       0000F8 16 00            [ 8]  309 	ld	d, #0x00
       0000FA 21 02 00         [12]  310 	ld	hl, #2
@@ -327,33 +327,33 @@
       00010A CDr00r00         [24]  327 	call	_set_vram_byte
       00010D E8 03            [16]  328 	add	sp, #3
       00010F D1               [12]  329 	pop	de
-                           000110   330 	C$common.c$41$2_1$143	= .
-                                    331 	.globl	C$common.c$41$2_1$143
-                                    332 ;src\common.c:41: for (uint8_t i=0; i<len; i++)
+                           000110   330 	C$common.c$45$2_1$143	= .
+                                    331 	.globl	C$common.c$45$2_1$143
+                                    332 ;src\common.c:45: for (uint8_t i=0; i<len; i++)
       000110 1C               [ 4]  333 	inc	e
       000111 18 DE            [12]  334 	jr	00107$
       000113                        335 00109$:
-                           000113   336 	C$common.c$45$2_1$139	= .
-                                    337 	.globl	C$common.c$45$2_1$139
-                                    338 ;src\common.c:45: }
+                           000113   336 	C$common.c$49$2_1$139	= .
+                                    337 	.globl	C$common.c$49$2_1$139
+                                    338 ;src\common.c:49: }
       000113 E8 14            [16]  339 	add	sp, #20
       000115 E1               [12]  340 	pop	hl
       000116 E8 03            [16]  341 	add	sp, #3
       000118 E9               [ 4]  342 	jp	(hl)
                            000119   343 	G$DrawText$0$0	= .
                                     344 	.globl	G$DrawText$0$0
-                           000119   345 	C$common.c$47$2_1$146	= .
-                                    346 	.globl	C$common.c$47$2_1$146
-                                    347 ;src\common.c:47: void DrawText(uint8_t x, uint8_t y, unsigned char *text ){
+                           000119   345 	C$common.c$51$2_1$146	= .
+                                    346 	.globl	C$common.c$51$2_1$146
+                                    347 ;src\common.c:51: void DrawText(uint8_t x, uint8_t y, unsigned char *text ){
                                     348 ;	---------------------------------
                                     349 ; Function DrawText
                                     350 ; ---------------------------------
       000119                        351 _DrawText::
       000119 E8 FD            [16]  352 	add	sp, #-3
       00011B 47               [ 4]  353 	ld	b, a
-                           00011C   354 	C$common.c$53$1_0$146	= .
-                                    355 	.globl	C$common.c$53$1_0$146
-                                    356 ;src\common.c:53: uint8_t *vramAddr= get_bkg_xy_addr(x,y);
+                           00011C   354 	C$common.c$57$1_0$146	= .
+                                    355 	.globl	C$common.c$57$1_0$146
+                                    356 ;src\common.c:57: uint8_t *vramAddr= get_bkg_xy_addr(x,y);
       00011C 7B               [ 4]  357 	ld	a, e
       00011D F5               [16]  358 	push	af
       00011E 33               [ 8]  359 	inc	sp
@@ -361,9 +361,9 @@
       000120 33               [ 8]  361 	inc	sp
       000121 CDr00r00         [24]  362 	call	_get_bkg_xy_addr
       000124 E1               [12]  363 	pop	hl
-                           000125   364 	C$common.c$55$1_0$146	= .
-                                    365 	.globl	C$common.c$55$1_0$146
-                                    366 ;src\common.c:55: while(text[i]!='\0'){
+                           000125   364 	C$common.c$59$1_0$146	= .
+                                    365 	.globl	C$common.c$59$1_0$146
+                                    366 ;src\common.c:59: while(text[i]!='\0'){
       000125 F8 02            [12]  367 	ldhl	sp,	#2
       000127 36 00            [12]  368 	ld	(hl), #0x00
       000129                        369 00118$:
@@ -379,19 +379,19 @@
       000135 D1               [12]  379 	pop	de
       000136 4D               [ 4]  380 	ld	c, l
       000137 44               [ 4]  381 	ld	b, h
-                           000138   382 	C$common.c$60$1_0$146	= .
-                                    383 	.globl	C$common.c$60$1_0$146
-                                    384 ;src\common.c:60: else if(text[i]>='a'&&text[i]<='z')set_vram_byte(vramAddr++,1+(text[i]-'a'));
+                           000138   382 	C$common.c$64$1_0$146	= .
+                                    383 	.globl	C$common.c$64$1_0$146
+                                    384 ;src\common.c:64: else if(text[i]>='a'&&text[i]<='z')set_vram_byte(vramAddr++,1+(text[i]-'a'));
       000138 0A               [ 8]  385 	ld	a, (bc)
-                           000139   386 	C$common.c$55$1_0$146	= .
-                                    387 	.globl	C$common.c$55$1_0$146
-                                    388 ;src\common.c:55: while(text[i]!='\0'){
+                           000139   386 	C$common.c$59$1_0$146	= .
+                                    387 	.globl	C$common.c$59$1_0$146
+                                    388 ;src\common.c:59: while(text[i]!='\0'){
       000139 4F               [ 4]  389 	ld	c, a
       00013A B7               [ 4]  390 	or	a, a
       00013B CArEAr01         [16]  391 	jp	Z, 00120$
-                           00013E   392 	C$common.c$59$1_0$146	= .
-                                    393 	.globl	C$common.c$59$1_0$146
-                                    394 ;src\common.c:59: if(text[i]>='A'&&text[i]<='Z')set_vram_byte(vramAddr++,1+(text[i]-'A'));
+                           00013E   392 	C$common.c$63$1_0$146	= .
+                                    393 	.globl	C$common.c$63$1_0$146
+                                    394 ;src\common.c:63: if(text[i]>='A'&&text[i]<='Z')set_vram_byte(vramAddr++,1+(text[i]-'A'));
       00013E D5               [16]  395 	push	de
       00013F 6B               [ 4]  396 	ld	l, e
       000140 62               [ 4]  397 	ld	h, d
@@ -422,9 +422,9 @@
       000161 D1               [12]  422 	pop	de
       000162 C3rE4r01         [16]  423 	jp	00116$
       000165                        424 00115$:
-                           000165   425 	C$common.c$60$2_0$147	= .
-                                    426 	.globl	C$common.c$60$2_0$147
-                                    427 ;src\common.c:60: else if(text[i]>='a'&&text[i]<='z')set_vram_byte(vramAddr++,1+(text[i]-'a'));
+                           000165   425 	C$common.c$64$2_0$147	= .
+                                    426 	.globl	C$common.c$64$2_0$147
+                                    427 ;src\common.c:64: else if(text[i]>='a'&&text[i]<='z')set_vram_byte(vramAddr++,1+(text[i]-'a'));
       000165 79               [ 4]  428 	ld	a, c
       000166 D6 61            [ 8]  429 	sub	a, #0x61
       000168 38 18            [12]  430 	jr	C, 00111$
@@ -446,9 +446,9 @@
       00017F D1               [12]  446 	pop	de
       000180 18 62            [12]  447 	jr	00116$
       000182                        448 00111$:
-                           000182   449 	C$common.c$61$2_0$147	= .
-                                    450 	.globl	C$common.c$61$2_0$147
-                                    451 ;src\common.c:61: else if(text[i]>='0'&&text[i]<='9')set_vram_byte(vramAddr++,27+(text[i]-'0'));
+                           000182   449 	C$common.c$65$2_0$147	= .
+                                    450 	.globl	C$common.c$65$2_0$147
+                                    451 ;src\common.c:65: else if(text[i]>='0'&&text[i]<='9')set_vram_byte(vramAddr++,27+(text[i]-'0'));
       000182 79               [ 4]  452 	ld	a, c
       000183 D6 30            [ 8]  453 	sub	a, #0x30
       000185 38 18            [12]  454 	jr	C, 00107$
@@ -470,9 +470,9 @@
       00019C D1               [12]  470 	pop	de
       00019D 18 45            [12]  471 	jr	00116$
       00019F                        472 00107$:
-                           00019F   473 	C$common.c$67$3_0$148	= .
-                                    474 	.globl	C$common.c$67$3_0$148
-                                    475 ;src\common.c:67: switch(text[i]){
+                           00019F   473 	C$common.c$71$3_0$148	= .
+                                    474 	.globl	C$common.c$71$3_0$148
+                                    475 ;src\common.c:71: switch(text[i]){
       00019F 79               [ 4]  476 	ld	a,c
       0001A0 FE 2E            [ 8]  477 	cp	a,#0x2e
       0001A2 28 1A            [12]  478 	jr	Z, 00102$
@@ -480,9 +480,9 @@
       0001A6 28 28            [12]  480 	jr	Z, 00103$
       0001A8 D6 3A            [ 8]  481 	sub	a, #0x3a
       0001AA 20 36            [12]  482 	jr	NZ, 00104$
-                           0001AC   483 	C$common.c$68$4_0$149	= .
-                                    484 	.globl	C$common.c$68$4_0$149
-                                    485 ;src\common.c:68: case ':': set_vram_byte(vramAddr++,38); break;
+                           0001AC   483 	C$common.c$72$4_0$149	= .
+                                    484 	.globl	C$common.c$72$4_0$149
+                                    485 ;src\common.c:72: case ':': set_vram_byte(vramAddr++,38); break;
       0001AC 4B               [ 4]  486 	ld	c, e
       0001AD 42               [ 4]  487 	ld	b, d
       0001AE D1               [12]  488 	pop	de
@@ -496,9 +496,9 @@
       0001B9 E8 03            [16]  496 	add	sp, #3
       0001BB D1               [12]  497 	pop	de
       0001BC 18 26            [12]  498 	jr	00116$
-                           0001BE   499 	C$common.c$69$4_0$149	= .
-                                    500 	.globl	C$common.c$69$4_0$149
-                                    501 ;src\common.c:69: case '.': set_vram_byte(vramAddr++,43);break;
+                           0001BE   499 	C$common.c$73$4_0$149	= .
+                                    500 	.globl	C$common.c$73$4_0$149
+                                    501 ;src\common.c:73: case '.': set_vram_byte(vramAddr++,43);break;
       0001BE                        502 00102$:
       0001BE 4B               [ 4]  503 	ld	c, e
       0001BF 42               [ 4]  504 	ld	b, d
@@ -513,9 +513,9 @@
       0001CB E8 03            [16]  513 	add	sp, #3
       0001CD D1               [12]  514 	pop	de
       0001CE 18 14            [12]  515 	jr	00116$
-                           0001D0   516 	C$common.c$70$4_0$149	= .
-                                    517 	.globl	C$common.c$70$4_0$149
-                                    518 ;src\common.c:70: case '/': set_vram_byte(vramAddr++,40);break;
+                           0001D0   516 	C$common.c$74$4_0$149	= .
+                                    517 	.globl	C$common.c$74$4_0$149
+                                    518 ;src\common.c:74: case '/': set_vram_byte(vramAddr++,40);break;
       0001D0                        519 00103$:
       0001D0 4B               [ 4]  520 	ld	c, e
       0001D1 42               [ 4]  521 	ld	b, d
@@ -530,56 +530,56 @@
       0001DD E8 03            [16]  530 	add	sp, #3
       0001DF D1               [12]  531 	pop	de
       0001E0 18 02            [12]  532 	jr	00116$
-                           0001E2   533 	C$common.c$71$4_0$149	= .
-                                    534 	.globl	C$common.c$71$4_0$149
-                                    535 ;src\common.c:71: default: vramAddr++; break;
+                           0001E2   533 	C$common.c$75$4_0$149	= .
+                                    534 	.globl	C$common.c$75$4_0$149
+                                    535 ;src\common.c:75: default: vramAddr++; break;
       0001E2                        536 00104$:
       0001E2 D1               [12]  537 	pop	de
       0001E3 D5               [16]  538 	push	de
-                           0001E4   539 	C$common.c$72$2_0$147	= .
-                                    540 	.globl	C$common.c$72$2_0$147
-                                    541 ;src\common.c:72: }
+                           0001E4   539 	C$common.c$76$2_0$147	= .
+                                    540 	.globl	C$common.c$76$2_0$147
+                                    541 ;src\common.c:76: }
       0001E4                        542 00116$:
-                           0001E4   543 	C$common.c$76$2_0$147	= .
-                                    544 	.globl	C$common.c$76$2_0$147
-                                    545 ;src\common.c:76: i++;
+                           0001E4   543 	C$common.c$80$2_0$147	= .
+                                    544 	.globl	C$common.c$80$2_0$147
+                                    545 ;src\common.c:80: i++;
       0001E4 F8 02            [12]  546 	ldhl	sp,	#2
       0001E6 34               [12]  547 	inc	(hl)
       0001E7 C3r29r01         [16]  548 	jp	00118$
       0001EA                        549 00120$:
-                           0001EA   550 	C$common.c$78$1_0$146	= .
-                                    551 	.globl	C$common.c$78$1_0$146
-                                    552 ;src\common.c:78: VBK_REG=0;
+                           0001EA   550 	C$common.c$82$1_0$146	= .
+                                    551 	.globl	C$common.c$82$1_0$146
+                                    552 ;src\common.c:82: VBK_REG=0;
       0001EA AF               [ 4]  553 	xor	a, a
       0001EB E0r00            [12]  554 	ldh	(_VBK_REG + 0), a
-                           0001ED   555 	C$common.c$80$1_0$146	= .
-                                    556 	.globl	C$common.c$80$1_0$146
-                                    557 ;src\common.c:80: }
+                           0001ED   555 	C$common.c$84$1_0$146	= .
+                                    556 	.globl	C$common.c$84$1_0$146
+                                    557 ;src\common.c:84: }
       0001ED E8 03            [16]  558 	add	sp, #3
       0001EF E1               [12]  559 	pop	hl
       0001F0 F1               [12]  560 	pop	af
       0001F1 E9               [ 4]  561 	jp	(hl)
                            0001F2   562 	G$fadeToBlack$0$0	= .
                                     563 	.globl	G$fadeToBlack$0$0
-                           0001F2   564 	C$common.c$82$1_0$152	= .
-                                    565 	.globl	C$common.c$82$1_0$152
-                                    566 ;src\common.c:82: void fadeToBlack(uint8_t frames)
+                           0001F2   564 	C$common.c$86$1_0$152	= .
+                                    565 	.globl	C$common.c$86$1_0$152
+                                    566 ;src\common.c:86: void fadeToBlack(uint8_t frames)
                                     567 ;	---------------------------------
                                     568 ; Function fadeToBlack
                                     569 ; ---------------------------------
       0001F2                        570 _fadeToBlack::
       0001F2 4F               [ 4]  571 	ld	c, a
-                           0001F3   572 	C$common.c$84$2_0$152	= .
-                                    573 	.globl	C$common.c$84$2_0$152
-                                    574 ;src\common.c:84: for (uint8_t i = 0; i < 4; i++)
+                           0001F3   572 	C$common.c$88$2_0$152	= .
+                                    573 	.globl	C$common.c$88$2_0$152
+                                    574 ;src\common.c:88: for (uint8_t i = 0; i < 4; i++)
       0001F3 06 00            [ 8]  575 	ld	b, #0x00
       0001F5                        576 00108$:
       0001F5 78               [ 4]  577 	ld	a, b
       0001F6 D6 04            [ 8]  578 	sub	a, #0x04
       0001F8 D0               [20]  579 	ret	NC
-                           0001F9   580 	C$common.c$86$3_0$153	= .
-                                    581 	.globl	C$common.c$86$3_0$153
-                                    582 ;src\common.c:86: switch(i) 
+                           0001F9   580 	C$common.c$90$3_0$153	= .
+                                    581 	.globl	C$common.c$90$3_0$153
+                                    582 ;src\common.c:90: switch(i) 
       0001F9 78               [ 4]  583 	ld	a, b
       0001FA B7               [ 4]  584 	or	a, a
       0001FB 28 0F            [12]  585 	jr	Z, 00101$
@@ -592,118 +592,118 @@
       000206 D6 03            [ 8]  592 	sub	a, #0x03
       000208 28 20            [12]  593 	jr	Z, 00104$
       00020A 18 26            [12]  594 	jr	00105$
-                           00020C   595 	C$common.c$88$4_0$154	= .
-                                    596 	.globl	C$common.c$88$4_0$154
-                                    597 ;src\common.c:88: case 0: 
+                           00020C   595 	C$common.c$92$4_0$154	= .
+                                    596 	.globl	C$common.c$92$4_0$154
+                                    597 ;src\common.c:92: case 0: 
       00020C                        598 00101$:
-                           00020C   599 	C$common.c$89$4_0$154	= .
-                                    600 	.globl	C$common.c$89$4_0$154
-                                    601 ;src\common.c:89: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           00020C   599 	C$common.c$93$4_0$154	= .
+                                    600 	.globl	C$common.c$93$4_0$154
+                                    601 ;src\common.c:93: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       00020C 3E E4            [ 8]  602 	ld	a, #0xe4
       00020E E0r00            [12]  603 	ldh	(_BGP_REG + 0), a
-                           000210   604 	C$common.c$90$4_0$154	= .
-                                    605 	.globl	C$common.c$90$4_0$154
-                                    606 ;src\common.c:90: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           000210   604 	C$common.c$94$4_0$154	= .
+                                    605 	.globl	C$common.c$94$4_0$154
+                                    606 ;src\common.c:94: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       000210 3E E4            [ 8]  607 	ld	a, #0xe4
       000212 E0r00            [12]  608 	ldh	(_OBP0_REG + 0), a
-                           000214   609 	C$common.c$91$4_0$154	= .
-                                    610 	.globl	C$common.c$91$4_0$154
-                                    611 ;src\common.c:91: break;
+                           000214   609 	C$common.c$95$4_0$154	= .
+                                    610 	.globl	C$common.c$95$4_0$154
+                                    611 ;src\common.c:95: break;
       000214 18 1C            [12]  612 	jr	00105$
-                           000216   613 	C$common.c$92$4_0$154	= .
-                                    614 	.globl	C$common.c$92$4_0$154
-                                    615 ;src\common.c:92: case 1: 
+                           000216   613 	C$common.c$96$4_0$154	= .
+                                    614 	.globl	C$common.c$96$4_0$154
+                                    615 ;src\common.c:96: case 1: 
       000216                        616 00102$:
-                           000216   617 	C$common.c$93$4_0$154	= .
-                                    618 	.globl	C$common.c$93$4_0$154
-                                    619 ;src\common.c:93: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
+                           000216   617 	C$common.c$97$4_0$154	= .
+                                    618 	.globl	C$common.c$97$4_0$154
+                                    619 ;src\common.c:97: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
       000216 3E F9            [ 8]  620 	ld	a, #0xf9
       000218 E0r00            [12]  621 	ldh	(_BGP_REG + 0), a
-                           00021A   622 	C$common.c$94$4_0$154	= .
-                                    623 	.globl	C$common.c$94$4_0$154
-                                    624 ;src\common.c:94: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
+                           00021A   622 	C$common.c$98$4_0$154	= .
+                                    623 	.globl	C$common.c$98$4_0$154
+                                    624 ;src\common.c:98: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
       00021A 3E F9            [ 8]  625 	ld	a, #0xf9
       00021C E0r00            [12]  626 	ldh	(_OBP0_REG + 0), a
-                           00021E   627 	C$common.c$95$4_0$154	= .
-                                    628 	.globl	C$common.c$95$4_0$154
-                                    629 ;src\common.c:95: break;
+                           00021E   627 	C$common.c$99$4_0$154	= .
+                                    628 	.globl	C$common.c$99$4_0$154
+                                    629 ;src\common.c:99: break;
       00021E 18 12            [12]  630 	jr	00105$
-                           000220   631 	C$common.c$96$4_0$154	= .
-                                    632 	.globl	C$common.c$96$4_0$154
-                                    633 ;src\common.c:96: case 2:
+                           000220   631 	C$common.c$100$4_0$154	= .
+                                    632 	.globl	C$common.c$100$4_0$154
+                                    633 ;src\common.c:100: case 2:
       000220                        634 00103$:
-                           000220   635 	C$common.c$97$4_0$154	= .
-                                    636 	.globl	C$common.c$97$4_0$154
-                                    637 ;src\common.c:97: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+                           000220   635 	C$common.c$101$4_0$154	= .
+                                    636 	.globl	C$common.c$101$4_0$154
+                                    637 ;src\common.c:101: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
       000220 3E FE            [ 8]  638 	ld	a, #0xfe
       000222 E0r00            [12]  639 	ldh	(_BGP_REG + 0), a
-                           000224   640 	C$common.c$98$4_0$154	= .
-                                    641 	.globl	C$common.c$98$4_0$154
-                                    642 ;src\common.c:98: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+                           000224   640 	C$common.c$102$4_0$154	= .
+                                    641 	.globl	C$common.c$102$4_0$154
+                                    642 ;src\common.c:102: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
       000224 3E FE            [ 8]  643 	ld	a, #0xfe
       000226 E0r00            [12]  644 	ldh	(_OBP0_REG + 0), a
-                           000228   645 	C$common.c$99$4_0$154	= .
-                                    646 	.globl	C$common.c$99$4_0$154
-                                    647 ;src\common.c:99: break;
+                           000228   645 	C$common.c$103$4_0$154	= .
+                                    646 	.globl	C$common.c$103$4_0$154
+                                    647 ;src\common.c:103: break;
       000228 18 08            [12]  648 	jr	00105$
-                           00022A   649 	C$common.c$100$4_0$154	= .
-                                    650 	.globl	C$common.c$100$4_0$154
-                                    651 ;src\common.c:100: case 3:
+                           00022A   649 	C$common.c$104$4_0$154	= .
+                                    650 	.globl	C$common.c$104$4_0$154
+                                    651 ;src\common.c:104: case 3:
       00022A                        652 00104$:
-                           00022A   653 	C$common.c$101$4_0$154	= .
-                                    654 	.globl	C$common.c$101$4_0$154
-                                    655 ;src\common.c:101: BGP_REG = DMG_PALETTE(DMG_BLACK, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+                           00022A   653 	C$common.c$105$4_0$154	= .
+                                    654 	.globl	C$common.c$105$4_0$154
+                                    655 ;src\common.c:105: BGP_REG = DMG_PALETTE(DMG_BLACK, DMG_BLACK, DMG_BLACK, DMG_BLACK);
       00022A 3E FF            [ 8]  656 	ld	a, #0xff
       00022C E0r00            [12]  657 	ldh	(_BGP_REG + 0), a
-                           00022E   658 	C$common.c$102$4_0$154	= .
-                                    659 	.globl	C$common.c$102$4_0$154
-                                    660 ;src\common.c:102: OBP0_REG = DMG_PALETTE(DMG_BLACK, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+                           00022E   658 	C$common.c$106$4_0$154	= .
+                                    659 	.globl	C$common.c$106$4_0$154
+                                    660 ;src\common.c:106: OBP0_REG = DMG_PALETTE(DMG_BLACK, DMG_BLACK, DMG_BLACK, DMG_BLACK);
       00022E 3E FF            [ 8]  661 	ld	a, #0xff
       000230 E0r00            [12]  662 	ldh	(_OBP0_REG + 0), a
-                           000232   663 	C$common.c$104$3_0$153	= .
-                                    664 	.globl	C$common.c$104$3_0$153
-                                    665 ;src\common.c:104: }
+                           000232   663 	C$common.c$108$3_0$153	= .
+                                    664 	.globl	C$common.c$108$3_0$153
+                                    665 ;src\common.c:108: }
       000232                        666 00105$:
-                           000232   667 	C$common.c$105$3_0$153	= .
-                                    668 	.globl	C$common.c$105$3_0$153
-                                    669 ;src\common.c:105: performantdelay(frames);
+                           000232   667 	C$common.c$109$3_0$153	= .
+                                    668 	.globl	C$common.c$109$3_0$153
+                                    669 ;src\common.c:109: performantdelay(frames);
       000232 C5               [16]  670 	push	bc
       000233 79               [ 4]  671 	ld	a, c
       000234 CDr00r00         [24]  672 	call	_performantdelay
       000237 C1               [12]  673 	pop	bc
-                           000238   674 	C$common.c$84$2_0$152	= .
-                                    675 	.globl	C$common.c$84$2_0$152
-                                    676 ;src\common.c:84: for (uint8_t i = 0; i < 4; i++)
+                           000238   674 	C$common.c$88$2_0$152	= .
+                                    675 	.globl	C$common.c$88$2_0$152
+                                    676 ;src\common.c:88: for (uint8_t i = 0; i < 4; i++)
       000238 04               [ 4]  677 	inc	b
-                           000239   678 	C$common.c$107$2_0$152	= .
-                                    679 	.globl	C$common.c$107$2_0$152
-                                    680 ;src\common.c:107: }
-                           000239   681 	C$common.c$107$2_0$152	= .
-                                    682 	.globl	C$common.c$107$2_0$152
+                           000239   678 	C$common.c$111$2_0$152	= .
+                                    679 	.globl	C$common.c$111$2_0$152
+                                    680 ;src\common.c:111: }
+                           000239   681 	C$common.c$111$2_0$152	= .
+                                    682 	.globl	C$common.c$111$2_0$152
                            000239   683 	XG$fadeToBlack$0$0	= .
                                     684 	.globl	XG$fadeToBlack$0$0
       000239 18 BA            [12]  685 	jr	00108$
                            00023B   686 	G$fadeFromBlack$0$0	= .
                                     687 	.globl	G$fadeFromBlack$0$0
-                           00023B   688 	C$common.c$109$2_0$157	= .
-                                    689 	.globl	C$common.c$109$2_0$157
-                                    690 ;src\common.c:109: void fadeFromBlack(uint8_t frames)
+                           00023B   688 	C$common.c$113$2_0$157	= .
+                                    689 	.globl	C$common.c$113$2_0$157
+                                    690 ;src\common.c:113: void fadeFromBlack(uint8_t frames)
                                     691 ;	---------------------------------
                                     692 ; Function fadeFromBlack
                                     693 ; ---------------------------------
       00023B                        694 _fadeFromBlack::
       00023B 4F               [ 4]  695 	ld	c, a
-                           00023C   696 	C$common.c$111$2_0$157	= .
-                                    697 	.globl	C$common.c$111$2_0$157
-                                    698 ;src\common.c:111: for (uint8_t i = 0; i < 4; i++)
+                           00023C   696 	C$common.c$115$2_0$157	= .
+                                    697 	.globl	C$common.c$115$2_0$157
+                                    698 ;src\common.c:115: for (uint8_t i = 0; i < 4; i++)
       00023C 06 00            [ 8]  699 	ld	b, #0x00
       00023E                        700 00108$:
       00023E 78               [ 4]  701 	ld	a, b
       00023F D6 04            [ 8]  702 	sub	a, #0x04
       000241 D0               [20]  703 	ret	NC
-                           000242   704 	C$common.c$113$3_0$158	= .
-                                    705 	.globl	C$common.c$113$3_0$158
-                                    706 ;src\common.c:113: switch(i) 
+                           000242   704 	C$common.c$117$3_0$158	= .
+                                    705 	.globl	C$common.c$117$3_0$158
+                                    706 ;src\common.c:117: switch(i) 
       000242 78               [ 4]  707 	ld	a, b
       000243 B7               [ 4]  708 	or	a, a
       000244 28 0F            [12]  709 	jr	Z, 00101$
@@ -716,118 +716,118 @@
       00024F D6 03            [ 8]  716 	sub	a, #0x03
       000251 28 20            [12]  717 	jr	Z, 00104$
       000253 18 26            [12]  718 	jr	00105$
-                           000255   719 	C$common.c$115$4_0$159	= .
-                                    720 	.globl	C$common.c$115$4_0$159
-                                    721 ;src\common.c:115: case 0: 
+                           000255   719 	C$common.c$119$4_0$159	= .
+                                    720 	.globl	C$common.c$119$4_0$159
+                                    721 ;src\common.c:119: case 0: 
       000255                        722 00101$:
-                           000255   723 	C$common.c$116$4_0$159	= .
-                                    724 	.globl	C$common.c$116$4_0$159
-                                    725 ;src\common.c:116: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+                           000255   723 	C$common.c$120$4_0$159	= .
+                                    724 	.globl	C$common.c$120$4_0$159
+                                    725 ;src\common.c:120: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
       000255 3E FE            [ 8]  726 	ld	a, #0xfe
       000257 E0r00            [12]  727 	ldh	(_BGP_REG + 0), a
-                           000259   728 	C$common.c$117$4_0$159	= .
-                                    729 	.globl	C$common.c$117$4_0$159
-                                    730 ;src\common.c:117: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+                           000259   728 	C$common.c$121$4_0$159	= .
+                                    729 	.globl	C$common.c$121$4_0$159
+                                    730 ;src\common.c:121: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
       000259 3E FE            [ 8]  731 	ld	a, #0xfe
       00025B E0r00            [12]  732 	ldh	(_OBP0_REG + 0), a
-                           00025D   733 	C$common.c$118$4_0$159	= .
-                                    734 	.globl	C$common.c$118$4_0$159
-                                    735 ;src\common.c:118: break;
+                           00025D   733 	C$common.c$122$4_0$159	= .
+                                    734 	.globl	C$common.c$122$4_0$159
+                                    735 ;src\common.c:122: break;
       00025D 18 1C            [12]  736 	jr	00105$
-                           00025F   737 	C$common.c$119$4_0$159	= .
-                                    738 	.globl	C$common.c$119$4_0$159
-                                    739 ;src\common.c:119: case 1: 
+                           00025F   737 	C$common.c$123$4_0$159	= .
+                                    738 	.globl	C$common.c$123$4_0$159
+                                    739 ;src\common.c:123: case 1: 
       00025F                        740 00102$:
-                           00025F   741 	C$common.c$120$4_0$159	= .
-                                    742 	.globl	C$common.c$120$4_0$159
-                                    743 ;src\common.c:120: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
+                           00025F   741 	C$common.c$124$4_0$159	= .
+                                    742 	.globl	C$common.c$124$4_0$159
+                                    743 ;src\common.c:124: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
       00025F 3E F9            [ 8]  744 	ld	a, #0xf9
       000261 E0r00            [12]  745 	ldh	(_BGP_REG + 0), a
-                           000263   746 	C$common.c$121$4_0$159	= .
-                                    747 	.globl	C$common.c$121$4_0$159
-                                    748 ;src\common.c:121: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
+                           000263   746 	C$common.c$125$4_0$159	= .
+                                    747 	.globl	C$common.c$125$4_0$159
+                                    748 ;src\common.c:125: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK);
       000263 3E F9            [ 8]  749 	ld	a, #0xf9
       000265 E0r00            [12]  750 	ldh	(_OBP0_REG + 0), a
-                           000267   751 	C$common.c$122$4_0$159	= .
-                                    752 	.globl	C$common.c$122$4_0$159
-                                    753 ;src\common.c:122: break;
+                           000267   751 	C$common.c$126$4_0$159	= .
+                                    752 	.globl	C$common.c$126$4_0$159
+                                    753 ;src\common.c:126: break;
       000267 18 12            [12]  754 	jr	00105$
-                           000269   755 	C$common.c$123$4_0$159	= .
-                                    756 	.globl	C$common.c$123$4_0$159
-                                    757 ;src\common.c:123: case 2:
+                           000269   755 	C$common.c$127$4_0$159	= .
+                                    756 	.globl	C$common.c$127$4_0$159
+                                    757 ;src\common.c:127: case 2:
       000269                        758 00103$:
-                           000269   759 	C$common.c$124$4_0$159	= .
-                                    760 	.globl	C$common.c$124$4_0$159
-                                    761 ;src\common.c:124: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           000269   759 	C$common.c$128$4_0$159	= .
+                                    760 	.globl	C$common.c$128$4_0$159
+                                    761 ;src\common.c:128: BGP_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       000269 3E E5            [ 8]  762 	ld	a, #0xe5
       00026B E0r00            [12]  763 	ldh	(_BGP_REG + 0), a
-                           00026D   764 	C$common.c$125$4_0$159	= .
-                                    765 	.globl	C$common.c$125$4_0$159
-                                    766 ;src\common.c:125: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           00026D   764 	C$common.c$129$4_0$159	= .
+                                    765 	.globl	C$common.c$129$4_0$159
+                                    766 ;src\common.c:129: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       00026D 3E E5            [ 8]  767 	ld	a, #0xe5
       00026F E0r00            [12]  768 	ldh	(_OBP0_REG + 0), a
-                           000271   769 	C$common.c$126$4_0$159	= .
-                                    770 	.globl	C$common.c$126$4_0$159
-                                    771 ;src\common.c:126: break;
+                           000271   769 	C$common.c$130$4_0$159	= .
+                                    770 	.globl	C$common.c$130$4_0$159
+                                    771 ;src\common.c:130: break;
       000271 18 08            [12]  772 	jr	00105$
-                           000273   773 	C$common.c$127$4_0$159	= .
-                                    774 	.globl	C$common.c$127$4_0$159
-                                    775 ;src\common.c:127: case 3:
+                           000273   773 	C$common.c$131$4_0$159	= .
+                                    774 	.globl	C$common.c$131$4_0$159
+                                    775 ;src\common.c:131: case 3:
       000273                        776 00104$:
-                           000273   777 	C$common.c$128$4_0$159	= .
-                                    778 	.globl	C$common.c$128$4_0$159
-                                    779 ;src\common.c:128: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           000273   777 	C$common.c$132$4_0$159	= .
+                                    778 	.globl	C$common.c$132$4_0$159
+                                    779 ;src\common.c:132: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       000273 3E E4            [ 8]  780 	ld	a, #0xe4
       000275 E0r00            [12]  781 	ldh	(_BGP_REG + 0), a
-                           000277   782 	C$common.c$129$4_0$159	= .
-                                    783 	.globl	C$common.c$129$4_0$159
-                                    784 ;src\common.c:129: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           000277   782 	C$common.c$133$4_0$159	= .
+                                    783 	.globl	C$common.c$133$4_0$159
+                                    784 ;src\common.c:133: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       000277 3E E4            [ 8]  785 	ld	a, #0xe4
       000279 E0r00            [12]  786 	ldh	(_OBP0_REG + 0), a
-                           00027B   787 	C$common.c$131$3_0$158	= .
-                                    788 	.globl	C$common.c$131$3_0$158
-                                    789 ;src\common.c:131: }
+                           00027B   787 	C$common.c$135$3_0$158	= .
+                                    788 	.globl	C$common.c$135$3_0$158
+                                    789 ;src\common.c:135: }
       00027B                        790 00105$:
-                           00027B   791 	C$common.c$132$3_0$158	= .
-                                    792 	.globl	C$common.c$132$3_0$158
-                                    793 ;src\common.c:132: performantdelay(frames);
+                           00027B   791 	C$common.c$136$3_0$158	= .
+                                    792 	.globl	C$common.c$136$3_0$158
+                                    793 ;src\common.c:136: performantdelay(frames);
       00027B C5               [16]  794 	push	bc
       00027C 79               [ 4]  795 	ld	a, c
       00027D CDr00r00         [24]  796 	call	_performantdelay
       000280 C1               [12]  797 	pop	bc
-                           000281   798 	C$common.c$111$2_0$157	= .
-                                    799 	.globl	C$common.c$111$2_0$157
-                                    800 ;src\common.c:111: for (uint8_t i = 0; i < 4; i++)
+                           000281   798 	C$common.c$115$2_0$157	= .
+                                    799 	.globl	C$common.c$115$2_0$157
+                                    800 ;src\common.c:115: for (uint8_t i = 0; i < 4; i++)
       000281 04               [ 4]  801 	inc	b
-                           000282   802 	C$common.c$134$2_0$157	= .
-                                    803 	.globl	C$common.c$134$2_0$157
-                                    804 ;src\common.c:134: }
-                           000282   805 	C$common.c$134$2_0$157	= .
-                                    806 	.globl	C$common.c$134$2_0$157
+                           000282   802 	C$common.c$138$2_0$157	= .
+                                    803 	.globl	C$common.c$138$2_0$157
+                                    804 ;src\common.c:138: }
+                           000282   805 	C$common.c$138$2_0$157	= .
+                                    806 	.globl	C$common.c$138$2_0$157
                            000282   807 	XG$fadeFromBlack$0$0	= .
                                     808 	.globl	XG$fadeFromBlack$0$0
       000282 18 BA            [12]  809 	jr	00108$
                            000284   810 	G$fadeToWhite$0$0	= .
                                     811 	.globl	G$fadeToWhite$0$0
-                           000284   812 	C$common.c$136$2_0$162	= .
-                                    813 	.globl	C$common.c$136$2_0$162
-                                    814 ;src\common.c:136: void fadeToWhite(uint8_t frames)
+                           000284   812 	C$common.c$140$2_0$162	= .
+                                    813 	.globl	C$common.c$140$2_0$162
+                                    814 ;src\common.c:140: void fadeToWhite(uint8_t frames)
                                     815 ;	---------------------------------
                                     816 ; Function fadeToWhite
                                     817 ; ---------------------------------
       000284                        818 _fadeToWhite::
       000284 4F               [ 4]  819 	ld	c, a
-                           000285   820 	C$common.c$138$2_0$162	= .
-                                    821 	.globl	C$common.c$138$2_0$162
-                                    822 ;src\common.c:138: for (uint8_t i = 0; i < 5; i++)
+                           000285   820 	C$common.c$142$2_0$162	= .
+                                    821 	.globl	C$common.c$142$2_0$162
+                                    822 ;src\common.c:142: for (uint8_t i = 0; i < 5; i++)
       000285 06 00            [ 8]  823 	ld	b, #0x00
       000287                        824 00109$:
       000287 78               [ 4]  825 	ld	a, b
       000288 D6 05            [ 8]  826 	sub	a, #0x05
       00028A D0               [20]  827 	ret	NC
-                           00028B   828 	C$common.c$140$3_0$163	= .
-                                    829 	.globl	C$common.c$140$3_0$163
-                                    830 ;src\common.c:140: switch(i) 
+                           00028B   828 	C$common.c$144$3_0$163	= .
+                                    829 	.globl	C$common.c$144$3_0$163
+                                    830 ;src\common.c:144: switch(i) 
       00028B 3E 04            [ 8]  831 	ld	a, #0x04
       00028D 90               [ 4]  832 	sub	a, b
       00028E 38 41            [12]  833 	jr	C, 00106$
@@ -836,9 +836,9 @@
       000293 21r99r02         [12]  836 	ld	hl, #00129$
       000296 19               [ 8]  837 	add	hl, de
       000297 19               [ 8]  838 	add	hl, de
-                           000298   839 	C$common.c$142$4_0$164	= .
-                                    840 	.globl	C$common.c$142$4_0$164
-                                    841 ;src\common.c:142: case 0: 
+                           000298   839 	C$common.c$146$4_0$164	= .
+                                    840 	.globl	C$common.c$146$4_0$164
+                                    841 ;src\common.c:146: case 0: 
       000298 E9               [ 4]  842 	jp	(hl)
       000299                        843 00129$:
       000299 18 08            [12]  844 	jr	00101$
@@ -847,132 +847,132 @@
       00029F 18 20            [12]  847 	jr	00104$
       0002A1 18 28            [12]  848 	jr	00105$
       0002A3                        849 00101$:
-                           0002A3   850 	C$common.c$143$4_0$164	= .
-                                    851 	.globl	C$common.c$143$4_0$164
-                                    852 ;src\common.c:143: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           0002A3   850 	C$common.c$147$4_0$164	= .
+                                    851 	.globl	C$common.c$147$4_0$164
+                                    852 ;src\common.c:147: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       0002A3 3E E4            [ 8]  853 	ld	a, #0xe4
       0002A5 E0r00            [12]  854 	ldh	(_BGP_REG + 0), a
-                           0002A7   855 	C$common.c$144$4_0$164	= .
-                                    856 	.globl	C$common.c$144$4_0$164
-                                    857 ;src\common.c:144: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           0002A7   855 	C$common.c$148$4_0$164	= .
+                                    856 	.globl	C$common.c$148$4_0$164
+                                    857 ;src\common.c:148: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       0002A7 3E E4            [ 8]  858 	ld	a, #0xe4
       0002A9 E0r00            [12]  859 	ldh	(_OBP0_REG + 0), a
-                           0002AB   860 	C$common.c$145$4_0$164	= .
-                                    861 	.globl	C$common.c$145$4_0$164
-                                    862 ;src\common.c:145: break;
+                           0002AB   860 	C$common.c$149$4_0$164	= .
+                                    861 	.globl	C$common.c$149$4_0$164
+                                    862 ;src\common.c:149: break;
       0002AB 18 24            [12]  863 	jr	00106$
-                           0002AD   864 	C$common.c$146$4_0$164	= .
-                                    865 	.globl	C$common.c$146$4_0$164
-                                    866 ;src\common.c:146: case 1: 
+                           0002AD   864 	C$common.c$150$4_0$164	= .
+                                    865 	.globl	C$common.c$150$4_0$164
+                                    866 ;src\common.c:150: case 1: 
       0002AD                        867 00102$:
-                           0002AD   868 	C$common.c$147$4_0$164	= .
-                                    869 	.globl	C$common.c$147$4_0$164
-                                    870 ;src\common.c:147: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_BLACK);
+                           0002AD   868 	C$common.c$151$4_0$164	= .
+                                    869 	.globl	C$common.c$151$4_0$164
+                                    870 ;src\common.c:151: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_BLACK);
       0002AD 3E D4            [ 8]  871 	ld	a, #0xd4
       0002AF E0r00            [12]  872 	ldh	(_BGP_REG + 0), a
-                           0002B1   873 	C$common.c$148$4_0$164	= .
-                                    874 	.globl	C$common.c$148$4_0$164
-                                    875 ;src\common.c:148: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_BLACK);
+                           0002B1   873 	C$common.c$152$4_0$164	= .
+                                    874 	.globl	C$common.c$152$4_0$164
+                                    875 ;src\common.c:152: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_BLACK);
       0002B1 3E D5            [ 8]  876 	ld	a, #0xd5
       0002B3 E0r00            [12]  877 	ldh	(_OBP0_REG + 0), a
-                           0002B5   878 	C$common.c$149$4_0$164	= .
-                                    879 	.globl	C$common.c$149$4_0$164
-                                    880 ;src\common.c:149: break;
+                           0002B5   878 	C$common.c$153$4_0$164	= .
+                                    879 	.globl	C$common.c$153$4_0$164
+                                    880 ;src\common.c:153: break;
       0002B5 18 1A            [12]  881 	jr	00106$
-                           0002B7   882 	C$common.c$150$4_0$164	= .
-                                    883 	.globl	C$common.c$150$4_0$164
-                                    884 ;src\common.c:150: case 2:
+                           0002B7   882 	C$common.c$154$4_0$164	= .
+                                    883 	.globl	C$common.c$154$4_0$164
+                                    884 ;src\common.c:154: case 2:
       0002B7                        885 00103$:
-                           0002B7   886 	C$common.c$151$4_0$164	= .
-                                    887 	.globl	C$common.c$151$4_0$164
-                                    888 ;src\common.c:151: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY);
+                           0002B7   886 	C$common.c$155$4_0$164	= .
+                                    887 	.globl	C$common.c$155$4_0$164
+                                    888 ;src\common.c:155: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY);
       0002B7 3E 90            [ 8]  889 	ld	a, #0x90
       0002B9 E0r00            [12]  890 	ldh	(_BGP_REG + 0), a
-                           0002BB   891 	C$common.c$152$4_0$164	= .
-                                    892 	.globl	C$common.c$152$4_0$164
-                                    893 ;src\common.c:152: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY);
+                           0002BB   891 	C$common.c$156$4_0$164	= .
+                                    892 	.globl	C$common.c$156$4_0$164
+                                    893 ;src\common.c:156: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY);
       0002BB 3E 90            [ 8]  894 	ld	a, #0x90
       0002BD E0r00            [12]  895 	ldh	(_OBP0_REG + 0), a
-                           0002BF   896 	C$common.c$153$4_0$164	= .
-                                    897 	.globl	C$common.c$153$4_0$164
-                                    898 ;src\common.c:153: break;
+                           0002BF   896 	C$common.c$157$4_0$164	= .
+                                    897 	.globl	C$common.c$157$4_0$164
+                                    898 ;src\common.c:157: break;
       0002BF 18 10            [12]  899 	jr	00106$
-                           0002C1   900 	C$common.c$154$4_0$164	= .
-                                    901 	.globl	C$common.c$154$4_0$164
-                                    902 ;src\common.c:154: case 3:
+                           0002C1   900 	C$common.c$158$4_0$164	= .
+                                    901 	.globl	C$common.c$158$4_0$164
+                                    902 ;src\common.c:158: case 3:
       0002C1                        903 00104$:
-                           0002C1   904 	C$common.c$155$4_0$164	= .
-                                    905 	.globl	C$common.c$155$4_0$164
-                                    906 ;src\common.c:155: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY);
+                           0002C1   904 	C$common.c$159$4_0$164	= .
+                                    905 	.globl	C$common.c$159$4_0$164
+                                    906 ;src\common.c:159: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY);
       0002C1 3E 40            [ 8]  907 	ld	a, #0x40
       0002C3 E0r00            [12]  908 	ldh	(_BGP_REG + 0), a
-                           0002C5   909 	C$common.c$156$4_0$164	= .
-                                    910 	.globl	C$common.c$156$4_0$164
-                                    911 ;src\common.c:156: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY);
+                           0002C5   909 	C$common.c$160$4_0$164	= .
+                                    910 	.globl	C$common.c$160$4_0$164
+                                    911 ;src\common.c:160: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY);
       0002C5 3E 40            [ 8]  912 	ld	a, #0x40
       0002C7 E0r00            [12]  913 	ldh	(_OBP0_REG + 0), a
-                           0002C9   914 	C$common.c$157$4_0$164	= .
-                                    915 	.globl	C$common.c$157$4_0$164
-                                    916 ;src\common.c:157: break;
+                           0002C9   914 	C$common.c$161$4_0$164	= .
+                                    915 	.globl	C$common.c$161$4_0$164
+                                    916 ;src\common.c:161: break;
       0002C9 18 06            [12]  917 	jr	00106$
-                           0002CB   918 	C$common.c$158$4_0$164	= .
-                                    919 	.globl	C$common.c$158$4_0$164
-                                    920 ;src\common.c:158: case 4:
+                           0002CB   918 	C$common.c$162$4_0$164	= .
+                                    919 	.globl	C$common.c$162$4_0$164
+                                    920 ;src\common.c:162: case 4:
       0002CB                        921 00105$:
-                           0002CB   922 	C$common.c$159$4_0$164	= .
-                                    923 	.globl	C$common.c$159$4_0$164
-                                    924 ;src\common.c:159: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_WHITE);
+                           0002CB   922 	C$common.c$163$4_0$164	= .
+                                    923 	.globl	C$common.c$163$4_0$164
+                                    924 ;src\common.c:163: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_WHITE);
       0002CB AF               [ 4]  925 	xor	a, a
       0002CC E0r00            [12]  926 	ldh	(_BGP_REG + 0), a
-                           0002CE   927 	C$common.c$160$4_0$164	= .
-                                    928 	.globl	C$common.c$160$4_0$164
-                                    929 ;src\common.c:160: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_WHITE);
+                           0002CE   927 	C$common.c$164$4_0$164	= .
+                                    928 	.globl	C$common.c$164$4_0$164
+                                    929 ;src\common.c:164: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_WHITE);
       0002CE AF               [ 4]  930 	xor	a, a
       0002CF E0r00            [12]  931 	ldh	(_OBP0_REG + 0), a
-                           0002D1   932 	C$common.c$162$3_0$163	= .
-                                    933 	.globl	C$common.c$162$3_0$163
-                                    934 ;src\common.c:162: }
+                           0002D1   932 	C$common.c$166$3_0$163	= .
+                                    933 	.globl	C$common.c$166$3_0$163
+                                    934 ;src\common.c:166: }
       0002D1                        935 00106$:
-                           0002D1   936 	C$common.c$163$3_0$163	= .
-                                    937 	.globl	C$common.c$163$3_0$163
-                                    938 ;src\common.c:163: performantdelay(frames);
+                           0002D1   936 	C$common.c$167$3_0$163	= .
+                                    937 	.globl	C$common.c$167$3_0$163
+                                    938 ;src\common.c:167: performantdelay(frames);
       0002D1 C5               [16]  939 	push	bc
       0002D2 79               [ 4]  940 	ld	a, c
       0002D3 CDr00r00         [24]  941 	call	_performantdelay
       0002D6 C1               [12]  942 	pop	bc
-                           0002D7   943 	C$common.c$138$2_0$162	= .
-                                    944 	.globl	C$common.c$138$2_0$162
-                                    945 ;src\common.c:138: for (uint8_t i = 0; i < 5; i++)
+                           0002D7   943 	C$common.c$142$2_0$162	= .
+                                    944 	.globl	C$common.c$142$2_0$162
+                                    945 ;src\common.c:142: for (uint8_t i = 0; i < 5; i++)
       0002D7 04               [ 4]  946 	inc	b
-                           0002D8   947 	C$common.c$165$2_0$162	= .
-                                    948 	.globl	C$common.c$165$2_0$162
-                                    949 ;src\common.c:165: }
-                           0002D8   950 	C$common.c$165$2_0$162	= .
-                                    951 	.globl	C$common.c$165$2_0$162
+                           0002D8   947 	C$common.c$169$2_0$162	= .
+                                    948 	.globl	C$common.c$169$2_0$162
+                                    949 ;src\common.c:169: }
+                           0002D8   950 	C$common.c$169$2_0$162	= .
+                                    951 	.globl	C$common.c$169$2_0$162
                            0002D8   952 	XG$fadeToWhite$0$0	= .
                                     953 	.globl	XG$fadeToWhite$0$0
       0002D8 18 AD            [12]  954 	jr	00109$
                            0002DA   955 	G$fadeFromWhite$0$0	= .
                                     956 	.globl	G$fadeFromWhite$0$0
-                           0002DA   957 	C$common.c$167$2_0$167	= .
-                                    958 	.globl	C$common.c$167$2_0$167
-                                    959 ;src\common.c:167: void fadeFromWhite(uint8_t frames)
+                           0002DA   957 	C$common.c$171$2_0$167	= .
+                                    958 	.globl	C$common.c$171$2_0$167
+                                    959 ;src\common.c:171: void fadeFromWhite(uint8_t frames)
                                     960 ;	---------------------------------
                                     961 ; Function fadeFromWhite
                                     962 ; ---------------------------------
       0002DA                        963 _fadeFromWhite::
       0002DA 4F               [ 4]  964 	ld	c, a
-                           0002DB   965 	C$common.c$169$2_0$167	= .
-                                    966 	.globl	C$common.c$169$2_0$167
-                                    967 ;src\common.c:169: for (uint8_t i = 0; i < 4; i++)
+                           0002DB   965 	C$common.c$173$2_0$167	= .
+                                    966 	.globl	C$common.c$173$2_0$167
+                                    967 ;src\common.c:173: for (uint8_t i = 0; i < 4; i++)
       0002DB 06 00            [ 8]  968 	ld	b, #0x00
       0002DD                        969 00108$:
       0002DD 78               [ 4]  970 	ld	a, b
       0002DE D6 04            [ 8]  971 	sub	a, #0x04
       0002E0 D0               [20]  972 	ret	NC
-                           0002E1   973 	C$common.c$171$3_0$168	= .
-                                    974 	.globl	C$common.c$171$3_0$168
-                                    975 ;src\common.c:171: switch(i) 
+                           0002E1   973 	C$common.c$175$3_0$168	= .
+                                    974 	.globl	C$common.c$175$3_0$168
+                                    975 ;src\common.c:175: switch(i) 
       0002E1 78               [ 4]  976 	ld	a, b
       0002E2 B7               [ 4]  977 	or	a, a
       0002E3 28 0F            [12]  978 	jr	Z, 00101$
@@ -985,148 +985,148 @@
       0002EE D6 03            [ 8]  985 	sub	a, #0x03
       0002F0 28 20            [12]  986 	jr	Z, 00104$
       0002F2 18 26            [12]  987 	jr	00105$
-                           0002F4   988 	C$common.c$173$4_0$169	= .
-                                    989 	.globl	C$common.c$173$4_0$169
-                                    990 ;src\common.c:173: case 0: 
+                           0002F4   988 	C$common.c$177$4_0$169	= .
+                                    989 	.globl	C$common.c$177$4_0$169
+                                    990 ;src\common.c:177: case 0: 
       0002F4                        991 00101$:
-                           0002F4   992 	C$common.c$174$4_0$169	= .
-                                    993 	.globl	C$common.c$174$4_0$169
-                                    994 ;src\common.c:174: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY);
+                           0002F4   992 	C$common.c$178$4_0$169	= .
+                                    993 	.globl	C$common.c$178$4_0$169
+                                    994 ;src\common.c:178: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY);
       0002F4 3E 40            [ 8]  995 	ld	a, #0x40
       0002F6 E0r00            [12]  996 	ldh	(_BGP_REG + 0), a
-                           0002F8   997 	C$common.c$175$4_0$169	= .
-                                    998 	.globl	C$common.c$175$4_0$169
-                                    999 ;src\common.c:175: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY);
+                           0002F8   997 	C$common.c$179$4_0$169	= .
+                                    998 	.globl	C$common.c$179$4_0$169
+                                    999 ;src\common.c:179: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY);
       0002F8 3E 40            [ 8] 1000 	ld	a, #0x40
       0002FA E0r00            [12] 1001 	ldh	(_OBP0_REG + 0), a
-                           0002FC  1002 	C$common.c$176$4_0$169	= .
-                                   1003 	.globl	C$common.c$176$4_0$169
-                                   1004 ;src\common.c:176: break;
+                           0002FC  1002 	C$common.c$180$4_0$169	= .
+                                   1003 	.globl	C$common.c$180$4_0$169
+                                   1004 ;src\common.c:180: break;
       0002FC 18 1C            [12] 1005 	jr	00105$
-                           0002FE  1006 	C$common.c$177$4_0$169	= .
-                                   1007 	.globl	C$common.c$177$4_0$169
-                                   1008 ;src\common.c:177: case 1: 
+                           0002FE  1006 	C$common.c$181$4_0$169	= .
+                                   1007 	.globl	C$common.c$181$4_0$169
+                                   1008 ;src\common.c:181: case 1: 
       0002FE                       1009 00102$:
-                           0002FE  1010 	C$common.c$178$4_0$169	= .
-                                   1011 	.globl	C$common.c$178$4_0$169
-                                   1012 ;src\common.c:178: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY);
+                           0002FE  1010 	C$common.c$182$4_0$169	= .
+                                   1011 	.globl	C$common.c$182$4_0$169
+                                   1012 ;src\common.c:182: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY);
       0002FE 3E 90            [ 8] 1013 	ld	a, #0x90
       000300 E0r00            [12] 1014 	ldh	(_BGP_REG + 0), a
-                           000302  1015 	C$common.c$179$4_0$169	= .
-                                   1016 	.globl	C$common.c$179$4_0$169
-                                   1017 ;src\common.c:179: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY);
+                           000302  1015 	C$common.c$183$4_0$169	= .
+                                   1016 	.globl	C$common.c$183$4_0$169
+                                   1017 ;src\common.c:183: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY);
       000302 3E 90            [ 8] 1018 	ld	a, #0x90
       000304 E0r00            [12] 1019 	ldh	(_OBP0_REG + 0), a
-                           000306  1020 	C$common.c$180$4_0$169	= .
-                                   1021 	.globl	C$common.c$180$4_0$169
-                                   1022 ;src\common.c:180: break;
+                           000306  1020 	C$common.c$184$4_0$169	= .
+                                   1021 	.globl	C$common.c$184$4_0$169
+                                   1022 ;src\common.c:184: break;
       000306 18 12            [12] 1023 	jr	00105$
-                           000308  1024 	C$common.c$181$4_0$169	= .
-                                   1025 	.globl	C$common.c$181$4_0$169
-                                   1026 ;src\common.c:181: case 2:
+                           000308  1024 	C$common.c$185$4_0$169	= .
+                                   1025 	.globl	C$common.c$185$4_0$169
+                                   1026 ;src\common.c:185: case 2:
       000308                       1027 00103$:
-                           000308  1028 	C$common.c$182$4_0$169	= .
-                                   1029 	.globl	C$common.c$182$4_0$169
-                                   1030 ;src\common.c:182: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_BLACK);
+                           000308  1028 	C$common.c$186$4_0$169	= .
+                                   1029 	.globl	C$common.c$186$4_0$169
+                                   1030 ;src\common.c:186: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_BLACK);
       000308 3E D4            [ 8] 1031 	ld	a, #0xd4
       00030A E0r00            [12] 1032 	ldh	(_BGP_REG + 0), a
-                           00030C  1033 	C$common.c$183$4_0$169	= .
-                                   1034 	.globl	C$common.c$183$4_0$169
-                                   1035 ;src\common.c:183: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_BLACK);
+                           00030C  1033 	C$common.c$187$4_0$169	= .
+                                   1034 	.globl	C$common.c$187$4_0$169
+                                   1035 ;src\common.c:187: OBP0_REG = DMG_PALETTE(DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_LITE_GRAY, DMG_BLACK);
       00030C 3E D5            [ 8] 1036 	ld	a, #0xd5
       00030E E0r00            [12] 1037 	ldh	(_OBP0_REG + 0), a
-                           000310  1038 	C$common.c$184$4_0$169	= .
-                                   1039 	.globl	C$common.c$184$4_0$169
-                                   1040 ;src\common.c:184: break;
+                           000310  1038 	C$common.c$188$4_0$169	= .
+                                   1039 	.globl	C$common.c$188$4_0$169
+                                   1040 ;src\common.c:188: break;
       000310 18 08            [12] 1041 	jr	00105$
-                           000312  1042 	C$common.c$185$4_0$169	= .
-                                   1043 	.globl	C$common.c$185$4_0$169
-                                   1044 ;src\common.c:185: case 3:
+                           000312  1042 	C$common.c$189$4_0$169	= .
+                                   1043 	.globl	C$common.c$189$4_0$169
+                                   1044 ;src\common.c:189: case 3:
       000312                       1045 00104$:
-                           000312  1046 	C$common.c$186$4_0$169	= .
-                                   1047 	.globl	C$common.c$186$4_0$169
-                                   1048 ;src\common.c:186: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           000312  1046 	C$common.c$190$4_0$169	= .
+                                   1047 	.globl	C$common.c$190$4_0$169
+                                   1048 ;src\common.c:190: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       000312 3E E4            [ 8] 1049 	ld	a, #0xe4
       000314 E0r00            [12] 1050 	ldh	(_BGP_REG + 0), a
-                           000316  1051 	C$common.c$187$4_0$169	= .
-                                   1052 	.globl	C$common.c$187$4_0$169
-                                   1053 ;src\common.c:187: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           000316  1051 	C$common.c$191$4_0$169	= .
+                                   1052 	.globl	C$common.c$191$4_0$169
+                                   1053 ;src\common.c:191: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       000316 3E E4            [ 8] 1054 	ld	a, #0xe4
       000318 E0r00            [12] 1055 	ldh	(_OBP0_REG + 0), a
-                           00031A  1056 	C$common.c$189$3_0$168	= .
-                                   1057 	.globl	C$common.c$189$3_0$168
-                                   1058 ;src\common.c:189: }
+                           00031A  1056 	C$common.c$193$3_0$168	= .
+                                   1057 	.globl	C$common.c$193$3_0$168
+                                   1058 ;src\common.c:193: }
       00031A                       1059 00105$:
-                           00031A  1060 	C$common.c$190$3_0$168	= .
-                                   1061 	.globl	C$common.c$190$3_0$168
-                                   1062 ;src\common.c:190: performantdelay(frames);
+                           00031A  1060 	C$common.c$194$3_0$168	= .
+                                   1061 	.globl	C$common.c$194$3_0$168
+                                   1062 ;src\common.c:194: performantdelay(frames);
       00031A C5               [16] 1063 	push	bc
       00031B 79               [ 4] 1064 	ld	a, c
       00031C CDr00r00         [24] 1065 	call	_performantdelay
       00031F C1               [12] 1066 	pop	bc
-                           000320  1067 	C$common.c$169$2_0$167	= .
-                                   1068 	.globl	C$common.c$169$2_0$167
-                                   1069 ;src\common.c:169: for (uint8_t i = 0; i < 4; i++)
+                           000320  1067 	C$common.c$173$2_0$167	= .
+                                   1068 	.globl	C$common.c$173$2_0$167
+                                   1069 ;src\common.c:173: for (uint8_t i = 0; i < 4; i++)
       000320 04               [ 4] 1070 	inc	b
-                           000321  1071 	C$common.c$192$2_0$167	= .
-                                   1072 	.globl	C$common.c$192$2_0$167
-                                   1073 ;src\common.c:192: }
-                           000321  1074 	C$common.c$192$2_0$167	= .
-                                   1075 	.globl	C$common.c$192$2_0$167
+                           000321  1071 	C$common.c$196$2_0$167	= .
+                                   1072 	.globl	C$common.c$196$2_0$167
+                                   1073 ;src\common.c:196: }
+                           000321  1074 	C$common.c$196$2_0$167	= .
+                                   1075 	.globl	C$common.c$196$2_0$167
                            000321  1076 	XG$fadeFromWhite$0$0	= .
                                    1077 	.globl	XG$fadeFromWhite$0$0
       000321 18 BA            [12] 1078 	jr	00108$
                            000323  1079 	G$InvertColor$0$0	= .
                                    1080 	.globl	G$InvertColor$0$0
-                           000323  1081 	C$common.c$194$2_0$170	= .
-                                   1082 	.globl	C$common.c$194$2_0$170
-                                   1083 ;src\common.c:194: void InvertColor()
+                           000323  1081 	C$common.c$198$2_0$170	= .
+                                   1082 	.globl	C$common.c$198$2_0$170
+                                   1083 ;src\common.c:198: void InvertColor()
                                    1084 ;	---------------------------------
                                    1085 ; Function InvertColor
                                    1086 ; ---------------------------------
       000323                       1087 _InvertColor::
-                           000323  1088 	C$common.c$196$1_0$170	= .
-                                   1089 	.globl	C$common.c$196$1_0$170
-                                   1090 ;src\common.c:196: BGP_REG = DMG_PALETTE(DMG_BLACK, DMG_DARK_GRAY, DMG_LITE_GRAY, DMG_WHITE);
+                           000323  1088 	C$common.c$200$1_0$170	= .
+                                   1089 	.globl	C$common.c$200$1_0$170
+                                   1090 ;src\common.c:200: BGP_REG = DMG_PALETTE(DMG_BLACK, DMG_DARK_GRAY, DMG_LITE_GRAY, DMG_WHITE);
       000323 3E 1B            [ 8] 1091 	ld	a, #0x1b
       000325 E0r00            [12] 1092 	ldh	(_BGP_REG + 0), a
-                           000327  1093 	C$common.c$197$1_0$170	= .
-                                   1094 	.globl	C$common.c$197$1_0$170
-                                   1095 ;src\common.c:197: OBP0_REG = DMG_PALETTE(DMG_BLACK, DMG_DARK_GRAY, DMG_LITE_GRAY, DMG_WHITE);
+                           000327  1093 	C$common.c$201$1_0$170	= .
+                                   1094 	.globl	C$common.c$201$1_0$170
+                                   1095 ;src\common.c:201: OBP0_REG = DMG_PALETTE(DMG_BLACK, DMG_DARK_GRAY, DMG_LITE_GRAY, DMG_WHITE);
       000327 3E 1B            [ 8] 1096 	ld	a, #0x1b
       000329 E0r00            [12] 1097 	ldh	(_OBP0_REG + 0), a
-                           00032B  1098 	C$common.c$198$1_0$170	= .
-                                   1099 	.globl	C$common.c$198$1_0$170
-                                   1100 ;src\common.c:198: }
-                           00032B  1101 	C$common.c$198$1_0$170	= .
-                                   1102 	.globl	C$common.c$198$1_0$170
+                           00032B  1098 	C$common.c$202$1_0$170	= .
+                                   1099 	.globl	C$common.c$202$1_0$170
+                                   1100 ;src\common.c:202: }
+                           00032B  1101 	C$common.c$202$1_0$170	= .
+                                   1102 	.globl	C$common.c$202$1_0$170
                            00032B  1103 	XG$InvertColor$0$0	= .
                                    1104 	.globl	XG$InvertColor$0$0
       00032B C9               [16] 1105 	ret
                            00032C  1106 	G$ResetColor$0$0	= .
                                    1107 	.globl	G$ResetColor$0$0
-                           00032C  1108 	C$common.c$200$1_0$171	= .
-                                   1109 	.globl	C$common.c$200$1_0$171
-                                   1110 ;src\common.c:200: void ResetColor()
+                           00032C  1108 	C$common.c$204$1_0$171	= .
+                                   1109 	.globl	C$common.c$204$1_0$171
+                                   1110 ;src\common.c:204: void ResetColor()
                                    1111 ;	---------------------------------
                                    1112 ; Function ResetColor
                                    1113 ; ---------------------------------
       00032C                       1114 _ResetColor::
-                           00032C  1115 	C$common.c$202$1_0$171	= .
-                                   1116 	.globl	C$common.c$202$1_0$171
-                                   1117 ;src\common.c:202: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           00032C  1115 	C$common.c$206$1_0$171	= .
+                                   1116 	.globl	C$common.c$206$1_0$171
+                                   1117 ;src\common.c:206: BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       00032C 3E E4            [ 8] 1118 	ld	a, #0xe4
       00032E E0r00            [12] 1119 	ldh	(_BGP_REG + 0), a
-                           000330  1120 	C$common.c$203$1_0$171	= .
-                                   1121 	.globl	C$common.c$203$1_0$171
-                                   1122 ;src\common.c:203: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+                           000330  1120 	C$common.c$207$1_0$171	= .
+                                   1121 	.globl	C$common.c$207$1_0$171
+                                   1122 ;src\common.c:207: OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
       000330 3E E4            [ 8] 1123 	ld	a, #0xe4
       000332 E0r00            [12] 1124 	ldh	(_OBP0_REG + 0), a
-                           000334  1125 	C$common.c$204$1_0$171	= .
-                                   1126 	.globl	C$common.c$204$1_0$171
-                                   1127 ;src\common.c:204: }
-                           000334  1128 	C$common.c$204$1_0$171	= .
-                                   1129 	.globl	C$common.c$204$1_0$171
+                           000334  1125 	C$common.c$208$1_0$171	= .
+                                   1126 	.globl	C$common.c$208$1_0$171
+                                   1127 ;src\common.c:208: }
+                           000334  1128 	C$common.c$208$1_0$171	= .
+                                   1129 	.globl	C$common.c$208$1_0$171
                            000334  1130 	XG$ResetColor$0$0	= .
                                    1131 	.globl	XG$ResetColor$0$0
       000334 C9               [16] 1132 	ret

@@ -41,6 +41,7 @@ uint8_t cursor_x, cursor_y;
 
 void BattleSetup()
 {
+    move_bkg(0,0);
     set_bkg_data(0, 53, FontTiles); // Load font and window tiles
     set_bkg_tiles(0, 0, Battle_MapWidth, Battle_MapHeight, Battle_Map); // draw background window & text
     // PLAYER STATS MOCKUP

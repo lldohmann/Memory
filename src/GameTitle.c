@@ -90,6 +90,7 @@ const metasprite_t* const globe_metasprites[7] = {
 
 void GameTitleSetup()
 {
+    move_bkg(0,0);
     BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
     OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
     SPRITES_8x16;

@@ -3,6 +3,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#define MAX(x, y) (((x) > (y)) ? (x) : (y))
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
+#define ABS(x) ((x < 0) ? -x : x)
+
 uint8_t joypadPrevious = 0;
 uint8_t joypadCurrent = 0;
 int8_t index = 0;

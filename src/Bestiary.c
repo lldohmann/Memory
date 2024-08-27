@@ -47,6 +47,7 @@ uint8_t invert = 0;
 
 void BestiarySetup()
 {
+    move_bkg(0,0);
     set_bkg_data(0, 53, FontTiles); // Load font and window tiles
     set_bkg_tiles(0, 0, Bestiary_MapWidth, Bestiary_MapHeight, Bestiary_Map); // draw background window & text
     SHOW_BKG; 
@@ -58,18 +59,20 @@ uint8_t BestiaryUpdate()
     joypadPrevious = joypadCurrent;
     joypadCurrent = joypad();
 
-    if (joypadCurrent & J_LEFT)
+    if ((joypadCurrent & J_LEFT) && !(joypadPrevious & J_LEFT))
     {
         if (index - 1 >= 0)
         {
             index--;
+            set_bkg_tiles(0, 0, Bestiary_MapWidth, Bestiary_MapHeight, Bestiary_Map);
         }
     }
-    if (joypadCurrent & J_RIGHT)
+    if ((joypadCurrent & J_RIGHT) && !(joypadPrevious & J_RIGHT))
     {
         if (index + 1 <= 18)
         {
             index++;
+            set_bkg_tiles(0, 0, Bestiary_MapWidth, Bestiary_MapHeight, Bestiary_Map);
         }
     }
     if (joypadCurrent & J_START)
