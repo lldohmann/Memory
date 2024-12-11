@@ -12,7 +12,7 @@ typedef struct Enemy
     uint16_t exp;
 };
 
-void BestiarySetup();
-uint8_t BestiaryUpdate();
+void BestiarySetup(void);
+uint8_t BestiaryUpdate(void);
 
 #endif

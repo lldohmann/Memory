@@ -8,6 +8,7 @@
 #include "../src/common.h"
 #include "../res/Skateboard_Tiles.h"
 #include "../res/Pets_Map.h"
+#include "../res/Font.h"
 
 #define MIN(A,B) ((A)<(B)?(A):(B))
 
@@ -18,7 +19,7 @@ uint16_t camera_x_pixels, camera_y_pixels, old_camera_x_pixels, old_camera_y_pix
 uint8_t map_pos_x_tiles, map_pos_y_tiles, old_map_pos_x_tiles, old_map_pos_y_tiles;
 // redraw flag, indicates that camera position was changed
 uint8_t redraw;
-void set_camera()
+void set_camera(void)
 {
     // update hardware scroll position
     SCY_REG = camera_y_pixels; SCX_REG = camera_x_pixels;
@@ -58,11 +59,16 @@ void set_camera()
     }
     // Set old camera position to current camera position
     old_camera_x_pixels = camera_x_pixels, old_camera_y_pixels = camera_y_pixels;
+
+    DrawNumber(2, 1, map_pos_x_tiles, 4, FALSE);
+    DrawText(0, 1, "X:", FALSE);
+    DrawNumber(2, 3, map_pos_y_tiles, 4, FALSE);
+    DrawText(0, 3, "Y:", FALSE);
 }
 
 struct player mouse = {88, 96, 0, 0, left, idle};
 
-void CoreGameLoopSetup()
+void CoreGameLoopSetup(void)
 {
     // Camera code
     map_pos_x_tiles = map_pos_y_tiles = 0;
@@ -72,6 +78,7 @@ void CoreGameLoopSetup()
     old_camera_x_pixels = camera_x_pixels; old_camera_y_pixels = camera_y_pixels;
     redraw = FALSE;
     // My code
+    set_bkg_data(0, 53, FontTiles); // Load font and window tiles
     set_bkg_data(128, 144, IndoorTiles);
     set_bkg_based_submap(0, 0, 20u, 18u, Home, HomeWidth, 128);
     set_sprite_data(0, 128, Cast_Tiles);
@@ -80,33 +87,13 @@ void CoreGameLoopSetup()
     SHOW_SPRITES;
     set_camera();
     fadeFromBlack(10);
-    DrawNumberWindow(1, 1, 31, 4);
-    DrawTextWindow(1, 3, "Window Text");
-}
-
-void CoreGameLoopSetup2()
-{
-    // Camera code
-    map_pos_x_tiles = map_pos_y_tiles = 0;
-    old_map_pos_x_tiles = old_camera_y_pixels = 255; 
-    camera_x_pixels = 208;
-    camera_y_pixels = 96;
-    old_camera_x_pixels = camera_x_pixels; old_camera_y_pixels = camera_y_pixels;
-    redraw = FALSE;
-    // My code
-    set_bkg_data(128, 144, IndoorTiles);
-    set_bkg_based_submap(0, 0, 20u, 18u, Home, HomeWidth, 128);
-    set_sprite_data(0, 128, Cast_Tiles);
-    SPRITES_8x16;
-    SHOW_BKG;
-    SHOW_SPRITES;
-    set_camera();
-    fadeFromBlack(10);
+    DrawNumber(1, 1, 31, 4, FALSE);
+    DrawText(1, 3, "Window Text", FALSE);
 }
 
 uint8_t camera_pixel_goal_x, camera_pixel_goal_y;
 
-uint8_t CoreGameLoopUpdate()
+uint8_t CoreGameLoopUpdate(void)
 {
     joypadCurrent = joypad();
     PlayerUpdate(&mouse);
@@ -144,9 +131,25 @@ uint8_t CoreGameLoopUpdate()
         fadeToBlack(10);
         return GAMETITLE;
     }
-    else if (joypadCurrent & J_A)
+    else if (joypadCurrent & J_B)
     {
         set_sprite_data(0, 16, Skateboard_Tiles);
+    }
+    else if (joypadCurrent & J_A)
+    {
+        // DRAWING COMMAND WINDOW - MYSTERY CODE _ TODO: MAKE INTO A FUNCTION
+        DrawWindow(map_pos_x_tiles, map_pos_y_tiles, 9, 6, TRUE);
+        DrawText(map_pos_x_tiles + 1, map_pos_y_tiles + 0, "COMMAND", TRUE);
+        DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 1, "TALK", TRUE);
+        DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 2, "CHECK", TRUE);
+        DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 3, "PSI", TRUE);
+        DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 4, "GOODS", TRUE);
+        // DRAWING HUD
+        DrawWindow(map_pos_x_tiles, map_pos_y_tiles + 15, 20, 3, TRUE);
+        DrawText(map_pos_x_tiles + 1, map_pos_y_tiles + 15, "NAME", TRUE);
+        DrawText(map_pos_x_tiles + 10, map_pos_y_tiles + 15, "HP", TRUE);
+        DrawText(map_pos_x_tiles + 14, map_pos_y_tiles + 15, "MP", TRUE);
+        DrawText(map_pos_x_tiles + 18, map_pos_y_tiles + 15, "LV", TRUE);
     }
     if (redraw)
     {

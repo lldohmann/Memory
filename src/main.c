@@ -19,17 +19,45 @@ void main(void)
         if (nextGameState != currentGameState)
         {
             currentGameState = nextGameState;
-
-            if (currentGameState == GAMETITLE) GameTitleSetup();
-            else if (currentGameState == COREGAMELOOP) CoreGameLoopSetup();
-            else if (currentGameState == GAMEJOHNDOE) GameJohnDoeSetup();
-            else if (currentGameState == BESTIARY) BestiarySetup();
-            else if (currentGameState == BATTLE) BattleSetup();
+            switch (currentGameState)
+            {
+            case GAMETITLE:
+                GameTitleSetup();
+                break;
+            case GAMEJOHNDOE:
+                GameJohnDoeSetup();
+                break;
+            case COREGAMELOOP:
+                CoreGameLoopSetup();
+                break;
+            case BESTIARY:
+                BestiarySetup();
+                break;
+            case BATTLE:
+                BattleSetup();
+            default:
+                break;
+            }
         }
-        if (currentGameState == GAMETITLE) nextGameState = GameTitleUpdate();
-        else if (currentGameState == COREGAMELOOP) nextGameState = CoreGameLoopUpdate();
-        else if (currentGameState == GAMEJOHNDOE) nextGameState = GameJohnDoeUpdate();
-        else if (currentGameState == BESTIARY) nextGameState = BestiaryUpdate();
-        else if (currentGameState == BATTLE) nextGameState = BattleUpdate();
+        switch (currentGameState)
+        {
+        case GAMETITLE:
+            nextGameState = GameTitleUpdate();
+            break;
+        case GAMEJOHNDOE:
+            nextGameState = GameJohnDoeUpdate();
+            break;
+        case COREGAMELOOP:
+            nextGameState = CoreGameLoopUpdate();
+            break;
+        case BESTIARY:
+            nextGameState = BestiaryUpdate();
+            break;
+        case BATTLE:
+            nextGameState = BattleUpdate();
+            break;
+        default:
+            break;
+        }
     }
 }

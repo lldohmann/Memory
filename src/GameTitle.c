@@ -88,7 +88,7 @@ const metasprite_t* const globe_metasprites[7] = {
     globe1, globe2, globe3, globe4, globe5, globe6, globe7
 };
 
-void GameTitleSetup()
+void GameTitleSetup(void)
 {
     move_bkg(0,0);
     BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
@@ -105,7 +105,7 @@ void GameTitleSetup()
 
 uint8_t timer = 0;
 uint8_t frame = 0;
-uint8_t GameTitleUpdate()
+uint8_t GameTitleUpdate(void)
 {
     joypadPrevious = joypadCurrent;
     joypadCurrent = joypad();

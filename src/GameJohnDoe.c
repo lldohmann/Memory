@@ -13,7 +13,7 @@ const uint8_t scanline_normal_tbl[]  = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 const uint8_t * scanline_offsets = scanline_offsets_tbl;
 
 // Create the ISR Function
-void scanline_isr() CRITICAL INTERRUPT {
+void scanline_isr(void) CRITICAL INTERRUPT {
     SCX_REG = scanline_offsets[LY_REG & (uint8_t)7];
 }
 // Then set the LCD Status (scanline) interrupt to call the ISR function
@@ -25,7 +25,7 @@ ISR_VECTOR(VECTOR_STAT, scanline_isr)
 //    in the same program as `stdio.h` since they install
 //    an ISR vector to the same location.
 
-void GameJohnDoeSetup()
+void GameJohnDoeSetup(void)
 {
     move_bkg(0,0);
     set_bkg_data(0, 79, JohnDoe_Tiles);
@@ -34,7 +34,7 @@ void GameJohnDoeSetup()
     fadeFromBlack(10);
 }
 
-uint8_t GameJohnDoeUpdate()
+uint8_t GameJohnDoeUpdate(void)
 {
     joypadPrevious = joypadCurrent;
     joypadCurrent = joypad();

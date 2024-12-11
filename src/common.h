@@ -30,8 +30,10 @@ void performantdelay(uint8_t numloops);
  * The int number to be printed
  * @param digits
  * The number of digits to be printed.
+ * @param bkg
+ * If true, print to background layer. If false, print to window layer.
 */
-void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits);
+void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits, BOOLEAN bgk);
 
 /**
  * CUSTOM FUNCTION TO PRINT NUMBERS OF A SPECIFIED AMOUNT OF DIGITS
@@ -40,36 +42,12 @@ void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits);
  * The X position of the window tile map.
  * @param y
  *  The Y position of the window tile map.
- * @param number
- * The int number to be printed
- * @param digits
- * The number of digits to be printed.
-*/
-void DrawNumberWindow(uint8_t x, uint8_t y, uint16_t number, uint8_t digits);
-
-/**
- * Custom function to print text onto the background layer.
- * 
- * @param x
- * The X position of the background tile map (IN TILES).
- * @param y 
- * The Y position of the background tile map (IN TILES).
  * @param text
- * The string text to print out horizontally.
+ * The string to be printed
+ * @param bkg
+ * If true, print to background layer. If false, print to window layer.
 */
-void DrawText(uint8_t x, uint8_t y, unsigned char *text );
-
-/**
- * Custom function to print text onto the window layer.
- * 
- * @param x
- * The X position of the window tile map (IN TILES).
- * @param y 
- * The Y position of the window tile map (IN TILES).
- * @param text
- * The string text to print out horizontally.
-*/
-void DrawTextWindow(uint8_t x, uint8_t y, unsigned char *text );
+void DrawText(uint8_t x, uint8_t y, unsigned char *text, BOOLEAN bkg );
 
 /**
  * Slowly causes the background pallet to turn black.
@@ -106,11 +84,35 @@ void fadeFromWhite(uint8_t frames);
 /**
  * Inverts the colors on the screen (Good for dark/night fights.)
 */
-void InvertColor();
+void InvertColor(void);
 
 /**
  * Returns color sceme to normal.
 */
-void ResetColor();
+void ResetColor(void);
+
+/**
+ * Generates a random number.
+ * @param min
+ * Minimum value to be generated.
+ * @param max
+ * Maximum value to be generated.
+ */
+uint8_t RandomNumber(uint8_t min, uint8_t max);
+
+/**
+ * Draws a window on either background or window layers.
+ * @param x 
+ * X position of window's top left corner.
+ * @param y
+ * Y position of window's top left corner.
+ * @param width
+ * Width (in tiles) of the window.
+ * @param height
+ * The height of the window in tiles.
+ * @param bkg
+ * If true, draws window on background layer, otherwise draw on window layer. 
+ */
+uint8_t DrawWindow(uint8_t x, uint8_t y, uint8_t width, uint8_t height, BOOLEAN bkg);
 
 #endif

@@ -1,3 +1,3 @@
-void BattleSetup();
+void BattleSetup(void);
 
-uint8_t BattleUpdate();
+uint8_t BattleUpdate(void);

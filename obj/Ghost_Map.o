@@ -1,27 +1,27 @@
-XL3
+XL4
 H 9 areas 4 global symbols
 M Ghost_Map
 O -msm83
-S .__.ABS. Def000000
+S .__.ABS. Def00000000
 A _CODE size 0 flags 0 addr 0
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 14 flags 0 addr 0
-S _Ghost_Map Def000000
-S G$Ghost_Map$0_0$0 Def000000
+S _Ghost_Map Def00000000
+S G$Ghost_Map$0_0$0 Def00000000
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
 A _INITIALIZER size 14 flags 0 addr 0
-S FGhost_Map$__xinit_Ghost_Map$0_0$0 Def000000
+S FGhost_Map$__xinit_Ghost_Map$0_0$0 Def00000000
 A _CABS size 0 flags 8 addr 0
-T 00 00 00
+T 00 00 00 00
 R 00 00 02 00
-T 00 00 00
+T 00 00 00 00
 R 00 00 02 00
-T 00 00 00
+T 00 00 00 00
 R 00 00 07 00
-T 00 00 00 80 85 8A 80 81 86 8B 8F 82 87 8C 90 83
+T 00 00 00 00 80 85 8A 80 81 86 8B 8F 82 87 8C 90
 R 00 00 07 00
-T 0D 00 00 88 8D 91 84 89 8E 92
+T 0C 00 00 00 83 88 8D 91 84 89 8E 92
 R 00 00 07 00

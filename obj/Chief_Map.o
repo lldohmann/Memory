@@ -1,11 +1,11 @@
-XL3
+XL4
 H 9 areas 3 global symbols
 M Chief_Map
 O -msm83
-S .__.ABS. Def000000
+S .__.ABS. Def00000000
 A _CODE size 2A flags 0 addr 0
-S _Chief_Map Def000000
-S G$Chief_Map$0_0$0 Def000000
+S _Chief_Map Def00000000
+S G$Chief_Map$0_0$0 Def00000000
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0
@@ -14,13 +14,13 @@ A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
 A _INITIALIZER size 0 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
-T 00 00 00
+T 00 00 00 00
 R 00 00 00 00
-T 00 00 00 A8 A8 A8 8F A4 A6 A8 83 89 90 A5 A7 80
+T 00 00 00 00 A8 A8 A8 8F A4 A6 A8 83 89 90 A5 A7
 R 00 00 00 00
-T 0D 00 00 84 8A 91 97 9D 81 85 8B 92 98 9E 82 86
+T 0C 00 00 00 80 84 8A 91 97 9D 81 85 8B 92 98 9E
 R 00 00 00 00
-T 1A 00 00 A1 93 99 A8 A8 87 A2 94 9A A8 A8 88 A3
+T 18 00 00 00 82 86 A1 93 99 A8 A8 87 A2 94 9A A8
 R 00 00 00 00
-T 27 00 00 95 9B A8
+T 24 00 00 00 A8 88 A3 95 9B A8
 R 00 00 00 00

@@ -37,61 +37,71 @@
 #include "../res/Toby_Tiles.h"
 #include "../res/Toby_Map.h"
 
-uint8_t cursor_x, cursor_y;
+typedef struct Cursor
+{
+    uint8_t x;
+    uint8_t y;
+    uint8_t col;
+    uint8_t row;
+};
 
-void BattleSetup()
+struct Cursor cursor;
+
+void BattleSetup(void)
 {
     move_bkg(0,0);
     set_bkg_data(0, 53, FontTiles); // Load font and window tiles
     set_bkg_tiles(0, 0, Battle_MapWidth, Battle_MapHeight, Battle_Map); // draw background window & text
     // PLAYER STATS MOCKUP
-    DrawNumber(1, 14, 123456, 6);
-    DrawNumber(8, 14, 110, 3);
-    DrawNumber(13, 14, 70, 2);
-    DrawNumber(17, 14, 11, 2);
+    DrawNumber(1, 14, 123456, 6, TRUE);
+    DrawNumber(8, 14, 110, 3, TRUE);
+    DrawNumber(13, 14, 70, 2, TRUE);
+    DrawNumber(17, 14, 11, 2, TRUE);
     // ALLY STATS MOCKUP
-    DrawNumber(1, 15, 123456, 6);
-    DrawNumber(9, 15, 80, 2);
-    DrawNumber(13, 15, 33, 2);
-    DrawNumber(17, 15, 11, 2);
+    DrawNumber(1, 15, 123456, 6, TRUE);
+    DrawNumber(9, 15, 80, 2, TRUE);
+    DrawNumber(13, 15, 33, 2, TRUE);
+    DrawNumber(17, 15, 11, 2, TRUE);
 
     // CURSOR SET UP
-    cursor_x = 8;
-    cursor_y = 144;
+    cursor.x = 8;
+    cursor.y = 144;
+    set_sprite_tile(0, 255);
+    move_sprite(0, cursor.x, cursor.y);
     
 
     SHOW_BKG; 
     fadeFromBlack(5);
     if (index == 0) // JIM
     {
-        DrawText(1, 1, "Jim Crow draws");
-        DrawText(1, 3, "near.");
+        DrawText(1, 1, "Jim Crow draws", TRUE);
+        DrawText(1, 3, "near.", TRUE);
         set_bkg_data(128, 23, Crow_Tiles); // init with crow monster
         set_bkg_tiles(7, 6, Crow_MapWidth, Crow_MapHeight, Crow_Map); // draw Crow monster
     }
     else if (index == 1) // GYPSY
     {
-        DrawText(1, 1, "Gypsy Moth draws");
-        DrawText(1, 3, "near.");
+        DrawText(1, 1, "Gypsy Moth draws", TRUE);
+        DrawText(1, 3, "near.", TRUE);
         set_bkg_data(128, 29, GypsyTiles); 
         set_bkg_tiles(7, 5, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
     }
     else if (index == 2) // WALLY
     {
-        DrawText(1, 1, "Wally butts in.");
+        DrawText(1, 1, "Wally butts in.", TRUE);
         set_bkg_data(128, 27, WallyTiles); 
         set_bkg_tiles(7, 5, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
     }
     else if (index == 3) // TICK
     {
-        DrawText(1, 1, "A tick draws near.");
+        DrawText(1, 1, "A tick draws near.", TRUE);
         set_bkg_data(128, 20, Tick_Tiles); 
         set_bkg_tiles(7, 5, Tick_MapWidth, Tick_MapHeight, Tick_Map); 
     }
     else if (index == 4) // OFFICER
     {
-        DrawText(1, 1, "An Officer draws");
-        DrawText(1, 3, "near.");
+        DrawText(1, 1, "An Officer draws", TRUE);
+        DrawText(1, 3, "near.", TRUE);
         set_bkg_data(128, 39, Cop_Tiles); 
         set_bkg_tiles(7, 5, Officer_MapWidth, Officer_MapHeight, Officer_Map); 
     }
@@ -171,11 +181,18 @@ void BattleSetup()
     //set_sprite_prop()
 }
 
-uint8_t BattleUpdate()
+uint8_t BattleUpdate(void)
 {
     if (joypadCurrent & J_SELECT)
     {
         return GAMETITLE;
+    }
+    else if ((joypadCurrent & J_DOWN) && !(joypadCurrent & J_DOWN))
+    {
+        cursor.x += 0;
+        cursor.y += 8;
+        move_sprite(0, cursor.x, cursor.y);
+        return BATTLE;
     }
     else {
 

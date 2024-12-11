@@ -1,29 +1,29 @@
-XL3
+XL4
 H 9 areas 4 global symbols
 M Toby_Map
 O -msm83
-S .__.ABS. Def000000
+S .__.ABS. Def00000000
 A _CODE size 0 flags 0 addr 0
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 1C flags 0 addr 0
-S _Toby_Map Def000000
-S G$Toby_Map$0_0$0 Def000000
+S _Toby_Map Def00000000
+S G$Toby_Map$0_0$0 Def00000000
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
 A _INITIALIZER size 1C flags 0 addr 0
-S FToby_Map$__xinit_Toby_Map$0_0$0 Def000000
+S FToby_Map$__xinit_Toby_Map$0_0$0 Def00000000
 A _CABS size 0 flags 8 addr 0
-T 00 00 00
+T 00 00 00 00
 R 00 00 02 00
-T 00 00 00
+T 00 00 00 00
 R 00 00 02 00
-T 00 00 00
+T 00 00 00 00
 R 00 00 07 00
-T 00 00 00 81 88 8F 80 82 89 90 80 83 8A 91 80 84
+T 00 00 00 00 81 88 8F 80 82 89 90 80 83 8A 91 80
 R 00 00 07 00
-T 0D 00 00 8B 92 96 85 8C 93 97 86 8D 94 98 87 8E
+T 0C 00 00 00 84 8B 92 96 85 8C 93 97 86 8D 94 98
 R 00 00 07 00
-T 1A 00 00 95 99
+T 18 00 00 00 87 8E 95 99
 R 00 00 07 00

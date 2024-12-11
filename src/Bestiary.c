@@ -45,7 +45,7 @@
 //const struct  Enemy* const bestiary[3] = {enemy_JIM, enemy_GYPSY, enemy_WALLY};
 uint8_t invert = 0;
 
-void BestiarySetup()
+void BestiarySetup(void)
 {
     move_bkg(0,0);
     set_bkg_data(0, 53, FontTiles); // Load font and window tiles
@@ -54,7 +54,7 @@ void BestiarySetup()
     fadeFromBlack(10);
 }
 
-uint8_t BestiaryUpdate()
+uint8_t BestiaryUpdate(void)
 {
     joypadPrevious = joypadCurrent;
     joypadCurrent = joypad();
@@ -109,253 +109,253 @@ uint8_t BestiaryUpdate()
     {
         set_bkg_data(128, 79, Crow_Tiles); // init with crow monster
         set_bkg_tiles(2, 4, Crow_MapWidth, Crow_MapHeight, Crow_Map); // draw Crow monster
-        DrawNumber(4, 0, 0, 3);     // ID
+        DrawNumber(4, 0, 0, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(17, 2, 3, 1);    // ATTACK
-        DrawNumber(17, 4, 2, 1);    // DEFENSE
-        DrawNumber(17, 6, 1, 1);    // SPECIAL
-        DrawNumber(17, 8, 4, 1);    // SPEED
-        DrawNumber(17, 10, 5, 1);   // EXP.
-        DrawText(1, 13, "JIM IS A ");
-        DrawText(1, 14, "GAMBLER. HE LIKES");
-        DrawText(1, 15, "SHOOTING DICE.");
+        DrawNumber(17, 2, 3, 1, TRUE);    // ATTACK
+        DrawNumber(17, 4, 2, 1, TRUE);    // DEFENSE
+        DrawNumber(17, 6, 1, 1, TRUE);    // SPECIAL
+        DrawNumber(17, 8, 4, 1, TRUE);    // SPEED
+        DrawNumber(17, 10, 5, 1, TRUE);   // EXP.
+        DrawText(1, 13, "JIM IS A ", TRUE);
+        DrawText(1, 14, "GAMBLER. HE LIKES", TRUE);
+        DrawText(1, 15, "SHOOTING DICE.", TRUE);
     }
     else if (index == 1) // Gypsy
     {
         set_bkg_data(128, 79, GypsyTiles); 
         set_bkg_tiles(2, 4, Gypsy_MapWidth, Gypsy_MapHeight, Gypsy_Map); 
-        DrawNumber(4, 0, 1, 3);     // ID
+        DrawNumber(4, 0, 1, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(17, 2, 2, 1);    // ATTACK
-        DrawNumber(17, 4, 2, 1);    // DEFENSE
-        DrawNumber(17, 6, 3, 1);    // SPECIAL
-        DrawNumber(17, 8, 2, 1);    // SPEED
-        DrawNumber(17, 10, 7, 1);   // EXP.
-        DrawText(1, 13, "GYPSY MOTHS ARE");
-        DrawText(1, 14, "TAKING ALL FROM");
-        DrawText(1, 15, "EVERYWHERE!");
+        DrawNumber(17, 2, 2, 1, TRUE);    // ATTACK
+        DrawNumber(17, 4, 2, 1, TRUE);    // DEFENSE
+        DrawNumber(17, 6, 3, 1, TRUE);    // SPECIAL
+        DrawNumber(17, 8, 2, 1, TRUE);    // SPEED
+        DrawNumber(17, 10, 7, 1, TRUE);   // EXP.
+        DrawText(1, 13, "GYPSY MOTHS ARE", TRUE);
+        DrawText(1, 14, "TAKING ALL FROM", TRUE);
+        DrawText(1, 15, "EVERYWHERE!", TRUE);
     }
     else if (index == 2) // Wally
     {
         set_bkg_data(128, 79, WallyTiles); 
         set_bkg_tiles(2, 4, Wally_MapWidth, Wally_MapHeight, Wally_Map); 
-        DrawNumber(4, 0, 2, 3);     // ID
+        DrawNumber(4, 0, 2, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(17, 2, 4, 1);    // ATTACK
-        DrawNumber(17, 4, 4, 1);    // DEFENSE
-        DrawNumber(17, 6, 4, 1);    // SPECIAL
-        DrawNumber(17, 8, 4, 1);    // SPEED
-        DrawNumber(16, 10, 12, 2);   // EXP.
-        DrawText(1, 13, "WALLY IS IN A");
-        DrawText(1, 14, "GANG. HE SAYS");
-        DrawText(1, 15, "NO TO DRUGS!");
-        DrawText(1, 16, "HOW COOL!");
+        DrawNumber(17, 2, 4, 1, TRUE);    // ATTACK
+        DrawNumber(17, 4, 4, 1, TRUE);    // DEFENSE
+        DrawNumber(17, 6, 4, 1, TRUE);    // SPECIAL
+        DrawNumber(17, 8, 4, 1, TRUE);    // SPEED
+        DrawNumber(16, 10, 12, 2, TRUE);   // EXP.
+        DrawText(1, 13, "WALLY IS IN A", TRUE);
+        DrawText(1, 14, "GANG. HE SAYS", TRUE);
+        DrawText(1, 15, "NO TO DRUGS!", TRUE);
+        DrawText(1, 16, "HOW COOL!", TRUE);
     }
     else if (index == 3)
     {
         set_bkg_data(128, 20, Tick_Tiles);
         set_bkg_tiles(2, 4, Tick_MapWidth, Tick_MapHeight, Tick_Map);
-        DrawNumber(4, 0, 3, 3);     // ID
+        DrawNumber(4, 0, 3, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(17, 2, 4, 1);    // ATTACK
-        DrawNumber(17, 4, 7, 1);    // DEFENSE
-        DrawNumber(17, 6, 3, 1);    // SPECIAL
-        DrawNumber(17, 8, 2, 1);    // SPEED
-        DrawNumber(16, 10, 16, 2);   // EXP.
-        DrawText(1, 13, "BLOOD SUCKING");
-        DrawText(1, 14, "PARASITE!");
-        DrawText(1, 15, "THEY HIDE IN");
-        DrawText(1, 16, "TALL GRASS!");
+        DrawNumber(17, 2, 4, 1, TRUE);    // ATTACK
+        DrawNumber(17, 4, 7, 1, TRUE);    // DEFENSE
+        DrawNumber(17, 6, 3, 1, TRUE);    // SPECIAL
+        DrawNumber(17, 8, 2, 1, TRUE);    // SPEED
+        DrawNumber(16, 10, 16, 2, TRUE);   // EXP.
+        DrawText(1, 13, "BLOOD SUCKING", TRUE);
+        DrawText(1, 14, "PARASITE!", TRUE);
+        DrawText(1, 15, "THEY HIDE IN", TRUE);
+        DrawText(1, 16, "TALL GRASS!", TRUE);
     }
     else if (index == 4)
     {
         set_bkg_data(128, 39, Cop_Tiles);
         set_bkg_tiles(2, 4, Officer_MapWidth, Officer_MapHeight, Officer_Map);
-        DrawNumber(4, 0, 4, 3);     // ID
+        DrawNumber(4, 0, 4, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(17, 2, 9, 1);    // ATTACK
-        DrawNumber(17, 4, 5, 1);    // DEFENSE
-        DrawNumber(17, 6, 2, 1);    // SPECIAL
-        DrawNumber(17, 8, 4, 1);    // SPEED
-        DrawNumber(16, 10, 12, 2);   // EXP.
-        DrawText(1, 13, "OH NO! THE COPS!");
-        DrawText(1, 14, "SOMEONE HAS BEEN");
-        DrawText(1, 15, "BEING NAUGHTY!");
-        DrawText(1, 16, "CAN'T BE YOU?");
+        DrawNumber(17, 2, 9, 1, TRUE);    // ATTACK
+        DrawNumber(17, 4, 5, 1, TRUE);    // DEFENSE
+        DrawNumber(17, 6, 2, 1, TRUE);    // SPECIAL
+        DrawNumber(17, 8, 4, 1, TRUE);    // SPEED
+        DrawNumber(16, 10, 12, 2, TRUE);   // EXP.
+        DrawText(1, 13, "OH NO! THE COPS!", TRUE);
+        DrawText(1, 14, "SOMEONE HAS BEEN", TRUE);
+        DrawText(1, 15, "BEING NAUGHTY!", TRUE);
+        DrawText(1, 16, "CAN'T BE YOU?", TRUE);
     }
     else if (index == 5)
     {
         set_bkg_data(128, 39, Cop_Tiles);
         set_bkg_tiles(2, 4, Police_MapWidth, Police_MapHeight, Police_Map);
-        DrawNumber(4, 0, 5, 3);     // ID
+        DrawNumber(4, 0, 5, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(16, 2, 10, 2);    // ATTACK
-        DrawNumber(16, 4, 15, 2);    // DEFENSE
-        DrawNumber(17, 6, 5, 1);    // SPECIAL
-        DrawNumber(17, 8, 6, 1);    // SPEED
-        DrawNumber(16, 10, 22, 2);   // EXP.
-        DrawText(1, 13, "LOOKS LIKE THE ");
-        DrawText(1, 14, "POLICE HAS COME");
-        DrawText(1, 15, "TO TAKE YOU AWAY!");
-        DrawText(1, 16, "STOP RESISTING!");
+        DrawNumber(16, 2, 10, 2, TRUE);    // ATTACK
+        DrawNumber(16, 4, 15, 2, TRUE);    // DEFENSE
+        DrawNumber(17, 6, 5, 1, TRUE);    // SPECIAL
+        DrawNumber(17, 8, 6, 1, TRUE);    // SPEED
+        DrawNumber(16, 10, 22, 2, TRUE);   // EXP.
+        DrawText(1, 13, "LOOKS LIKE THE ", TRUE);
+        DrawText(1, 14, "POLICE HAS COME", TRUE);
+        DrawText(1, 15, "TO TAKE YOU AWAY!", TRUE);
+        DrawText(1, 16, "STOP RESISTING!", TRUE);
     }
     else if (index == 6)
     {
         set_bkg_data(128, 39, Cop_Tiles);
         set_bkg_tiles(2, 4, Sheriff_MapWidth, Sheriff_MapHeight, Sheriff_Map);
-        DrawNumber(4, 0, 6, 3);     // ID
+        DrawNumber(4, 0, 6, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(16, 2, 16, 2);    // ATTACK
-        DrawNumber(16, 4, 10, 2);    // DEFENSE
-        DrawNumber(17, 6, 6, 1);    // SPECIAL
-        DrawNumber(17, 8, 8, 1);    // SPEED
-        DrawNumber(16, 10, 22, 2);   // EXP.
-        DrawText(1, 13, "THE SHERIFF IS");
-        DrawText(1, 14, "CALLED IN DUE");
-        DrawText(1, 15, "POLICE NEGLIGENCE");
+        DrawNumber(16, 2, 16, 2, TRUE);    // ATTACK
+        DrawNumber(16, 4, 10, 2, TRUE);    // DEFENSE
+        DrawNumber(17, 6, 6, 1, TRUE);    // SPECIAL
+        DrawNumber(17, 8, 8, 1, TRUE);    // SPEED
+        DrawNumber(16, 10, 22, 2, TRUE);   // EXP.
+        DrawText(1, 13, "THE SHERIFF IS", TRUE);
+        DrawText(1, 14, "CALLED IN DUE", TRUE);
+        DrawText(1, 15, "POLICE NEGLIGENCE", TRUE);
     }
     else if (index == 7)
     {
         set_bkg_data(128, 39, Cop_Tiles);
         set_bkg_tiles(2, 4, Chief_MapWidth, Chief_MapHeight, Chief_Map);
-        DrawNumber(4, 0, 7, 3);     // ID
+        DrawNumber(4, 0, 7, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(16, 2, 30, 2);    // ATTACK
-        DrawNumber(16, 4, 20, 2);    // DEFENSE
-        DrawNumber(17, 6, 10, 1);    // SPECIAL
-        DrawNumber(17, 8, 10, 1);    // SPEED
-        DrawNumber(16, 10, 55, 2);   // EXP.
-        DrawText(1, 13, "CHIEF! CHIEF!");
-        DrawText(1, 14, "YOU GOT TO HELP!");
-        DrawText(1, 15, "WHY MUST I DO");
-        DrawText(1, 16, "EVERYTHING HERE?");
+        DrawNumber(16, 2, 30, 2, TRUE);    // ATTACK
+        DrawNumber(16, 4, 20, 2, TRUE);    // DEFENSE
+        DrawNumber(17, 6, 10, 1, TRUE);    // SPECIAL
+        DrawNumber(17, 8, 10, 1, TRUE);    // SPEED
+        DrawNumber(16, 10, 55, 2, TRUE);   // EXP.
+        DrawText(1, 13, "CHIEF! CHIEF!", TRUE);
+        DrawText(1, 14, "YOU GOT TO HELP!", TRUE);
+        DrawText(1, 15, "WHY MUST I DO", TRUE);
+        DrawText(1, 16, "EVERYTHING HERE?", TRUE);
     }
     else if (index == 8)
     {
         set_bkg_data(128, 30, Man_Tiles);
         set_bkg_tiles(2, 4, Man_MapWidth, Man_MapHeight, Man_Map);
-        DrawNumber(4, 0, 8, 3);     // ID
+        DrawNumber(4, 0, 8, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(17, 2, 0, 1);    // ATTACK
-        DrawNumber(15, 4, 255, 3);    // DEFENSE
-        DrawNumber(17, 6, 1, 1);    // SPECIAL
-        DrawNumber(17, 8, 1, 1);    // SPEED
-        DrawNumber(16, 10, 1, 1);   // EXP.
-        DrawText(1, 13, "HE'S BUILT");
-        DrawText(1, 14, "LIKE A BRICK");
-        DrawText(1, 15, "HOUSE!");
+        DrawNumber(17, 2, 0, 1, TRUE);    // ATTACK
+        DrawNumber(15, 4, 255, 3, TRUE);    // DEFENSE
+        DrawNumber(17, 6, 1, 1, TRUE);    // SPECIAL
+        DrawNumber(17, 8, 1, 1, TRUE);    // SPEED
+        DrawNumber(16, 10, 1, 1, TRUE);   // EXP.
+        DrawText(1, 13, "HE'S BUILT", TRUE);
+        DrawText(1, 14, "LIKE A BRICK", TRUE);
+        DrawText(1, 15, "HOUSE!", TRUE);
     }
     else if (index == 9)
     {
         set_bkg_data(128, 26, Car_Tiles);
         set_bkg_tiles(2, 4, Car_MapWidth, Car_MapHeight, Car_Map);
-        DrawNumber(4, 0, 9, 3);     // ID
+        DrawNumber(4, 0, 9, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(16, 2, 30, 2);    // ATTACK
-        DrawNumber(16, 4, 25, 3);    // DEFENSE
-        DrawNumber(16, 6, 15, 2);    // SPECIAL
-        DrawNumber(16, 8, 40, 2);    // SPEED
-        DrawNumber(16, 10, 66, 2);   // EXP.
+        DrawNumber(16, 2, 30, 2, TRUE);    // ATTACK
+        DrawNumber(16, 4, 25, 3, TRUE);    // DEFENSE
+        DrawNumber(16, 6, 15, 2, TRUE);    // SPECIAL
+        DrawNumber(16, 8, 40, 2, TRUE);    // SPEED
+        DrawNumber(16, 10, 66, 2, TRUE);   // EXP.
     }
     else if (index == 10)
     {
         set_bkg_data(128, 46, Semi_Tiles);
         set_bkg_tiles(2, 4, Semi_MapWidth, Semi_MapHeight, Semi_Map);
-        DrawNumber(4, 0, 10, 3);     // ID
+        DrawNumber(4, 0, 10, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(16, 2, 66, 2);    // ATTACK
-        DrawNumber(16, 4, 66, 2);    // DEFENSE
-        DrawNumber(16, 6, 15, 2);    // SPECIAL
-        DrawNumber(16, 8, 35, 2);    // SPEED
-        DrawNumber(15, 10, 100, 3);   // EXP.
+        DrawNumber(16, 2, 66, 2, TRUE);    // ATTACK
+        DrawNumber(16, 4, 66, 2, TRUE);    // DEFENSE
+        DrawNumber(16, 6, 15, 2, TRUE);    // SPECIAL
+        DrawNumber(16, 8, 35, 2, TRUE);    // SPEED
+        DrawNumber(15, 10, 100, 3, TRUE);   // EXP.
     }
     else if (index == 11)
     {
         set_bkg_data(128, 31, Sis_Tiles);
         set_bkg_tiles(2, 4, BigSis_MapWidth, BigSis_MapHeight, BigSis_Map);
-        DrawNumber(4, 0, 11, 3);     // ID
+        DrawNumber(4, 0, 11, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(16, 2, 26, 2);    // ATTACK
-        DrawNumber(16, 4, 14, 2);    // DEFENSE
-        DrawNumber(16, 6, 20, 2);    // SPECIAL
-        DrawNumber(16, 8, 20, 2);    // SPEED
-        DrawNumber(16, 10, 38, 2);   // EXP.
-        DrawText(1, 13, "AROUND HERE,");
-        DrawText(1, 14, "SHE'S KNOWN ");
-        DrawText(1, 15, "AS BIG SIS!");
+        DrawNumber(16, 2, 26, 2, TRUE);    // ATTACK
+        DrawNumber(16, 4, 14, 2, TRUE);    // DEFENSE
+        DrawNumber(16, 6, 20, 2, TRUE);    // SPECIAL
+        DrawNumber(16, 8, 20, 2, TRUE);    // SPEED
+        DrawNumber(16, 10, 38, 2, TRUE);   // EXP.
+        DrawText(1, 13, "AROUND HERE,", TRUE);
+        DrawText(1, 14, "SHE'S KNOWN ", TRUE);
+        DrawText(1, 15, "AS BIG SIS!", TRUE);
     }
     else if (index == 12)
     {
         set_bkg_data(128, 31, Sis_Tiles);
         set_bkg_tiles(2, 4, MadSis_MapWidth, MadSis_MapHeight, MadSis_Map);
-        DrawNumber(4, 0, 12, 3);     // ID
+        DrawNumber(4, 0, 12, 3, TRUE);     // ID
         //DrawText(2, 2, "GYPSY");    // NAME
-        DrawNumber(16, 2, 36, 2);    // ATTACK
-        DrawNumber(16, 4, 24, 2);    // DEFENSE
-        DrawNumber(16, 6, 30, 2);    // SPECIAL
-        DrawNumber(16, 8, 30, 2);    // SPEED
-        DrawNumber(16, 10, 58, 2);   // EXP.
-        DrawText(1, 13, "SHE REMEMBERS");
-        DrawText(1, 14, "YOUR LAST ");
-        DrawText(1, 15, "FIGHT.    ");
+        DrawNumber(16, 2, 36, 2, TRUE);    // ATTACK
+        DrawNumber(16, 4, 24, 2, TRUE);    // DEFENSE
+        DrawNumber(16, 6, 30, 2, TRUE);    // SPECIAL
+        DrawNumber(16, 8, 30, 2, TRUE);    // SPEED
+        DrawNumber(16, 10, 58, 2, TRUE);   // EXP.
+        DrawText(1, 13, "SHE REMEMBERS", TRUE);
+        DrawText(1, 14, "YOUR LAST ", TRUE);
+        DrawText(1, 15, "FIGHT.    ", TRUE);
     }
     else if (index == 13)
     {
         set_bkg_data(128, 29, Experiment_Tiles);
         set_bkg_tiles(2, 4, Experiment_MapWidth, Experiment_MapHeight, Experiment_Map );
-        DrawNumber(4, 0, 13, 3);
-        DrawText(1, 13, "ONE OF YAKUB'S");
-        DrawText(1, 14, "EXPERIMENTS!");
-        DrawText(1, 15, "MAKES YOU ");
-        DrawText(1, 16, "THINK, HUH? ");
+        DrawNumber(4, 0, 13, 3, TRUE);
+        DrawText(1, 13, "ONE OF YAKUB'S", TRUE);
+        DrawText(1, 14, "EXPERIMENTS!", TRUE);
+        DrawText(1, 15, "MAKES YOU ", TRUE);
+        DrawText(1, 16, "THINK, HUH? ", TRUE);
     }
     else if (index == 14)
     {
         set_bkg_data(128, 19, Ghost_Tiles);
         set_bkg_tiles(2, 4, Ghost_MapWidth, Ghost_MapHeight, Ghost_Map);
-        DrawNumber(4, 0, 14, 3);
-        DrawText(1, 13, "AHH! A GHOST!");
-        DrawText(1, 14, "WHO IS UNDER");
-        DrawText(1, 15, "THAT SHEET? ");
+        DrawNumber(4, 0, 14, 3, TRUE);
+        DrawText(1, 13, "AHH! A GHOST!", TRUE);
+        DrawText(1, 14, "WHO IS UNDER", TRUE);
+        DrawText(1, 15, "THAT SHEET? ", TRUE);
     }
     else if (index == 15)
     {
         set_bkg_data(128, 14, Saucer_Tiles);
         set_bkg_tiles(2, 4, Saucer_MapWidth, Saucer_MapHeight, Ghost_Map);
-        DrawNumber(4, 0, 15, 3);
-        DrawText(1, 13, "LOOK! A UFO!");
-        DrawText(1, 14, "A FLYING");
-        DrawText(1, 15, "SAUCER?!");
+        DrawNumber(4, 0, 15, 3, TRUE);
+        DrawText(1, 13, "LOOK! A UFO!", TRUE);
+        DrawText(1, 14, "A FLYING", TRUE);
+        DrawText(1, 15, "SAUCER?!", TRUE);
     }
     else if (index == 16)
     {
         set_bkg_data(128, 20, SockHead_Tiles);
         set_bkg_tiles(2, 4, SockHead_MapWidth, SockHead_MapHeight, SockHead_Map);
-        DrawNumber(4, 0, 16, 3);
-        DrawText(1, 13, "SOCK HEADS");
-        DrawText(1, 14, "DON'T THINK");
-        DrawText(1, 15, "ABOUT THE");
-        DrawText(1, 16, "FUTURE.");
+        DrawNumber(4, 0, 16, 3, TRUE);
+        DrawText(1, 13, "SOCK HEADS", TRUE);
+        DrawText(1, 14, "DON'T THINK", TRUE);
+        DrawText(1, 15, "ABOUT THE", TRUE);
+        DrawText(1, 16, "FUTURE.", TRUE);
     }
     else if (index == 17)
     {
         set_bkg_data(128, 26, Toby_Tiles);
         set_bkg_tiles(2, 4, Toby_MapWidth, Toby_MapHeight, Toby_Map);
-        DrawNumber(4, 0, 17, 3);
-        DrawText(1, 13, "FOX LOVES TO SAY");
-        DrawText(1, 14, "FLOAT LIKE A ");
-        DrawText(1, 15, "BUTTERFLY, STING");
-        DrawText(1, 16, "LIKE A BEE!");
+        DrawNumber(4, 0, 17, 3, TRUE);
+        DrawText(1, 13, "FOX LOVES TO SAY", TRUE);
+        DrawText(1, 14, "FLOAT LIKE A ", TRUE);
+        DrawText(1, 15, "BUTTERFLY, STING", TRUE);
+        DrawText(1, 16, "LIKE A BEE!", TRUE);
     }
     else if (index == 18)
     {
         set_bkg_data(128, 24, Drunk_Tiles);
         set_bkg_tiles(2, 4, Drunk_MapWidth, Drunk_MapHeight, Drunk_Map);
-        DrawNumber(4, 0, 18, 3);
-        DrawText(1, 13, "DRUNK STUMBLES.");
-        DrawText(1, 14, "HE HITS HARD.");
-        DrawText(1, 15, "AND YELLS A LOT.");
-        DrawText(1, 16, "NOT FUN TO BE NEAR.");
+        DrawNumber(4, 0, 18, 3, TRUE);
+        DrawText(1, 13, "DRUNK STUMBLES.", TRUE);
+        DrawText(1, 14, "HE HITS HARD.", TRUE);
+        DrawText(1, 15, "AND YELLS A LOT.", TRUE);
+        DrawText(1, 16, "NOT FUN TO BE NEAR.", TRUE);
     }
     return BESTIARY;
 }

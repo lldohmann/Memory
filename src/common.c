@@ -19,15 +19,22 @@ void performantdelay(uint8_t numloops)
 }
 
 // CUSTOM FUNCTION TO PRINT NUMBERS OF A SPECIFIED AMOUNT OF DIGITS
-void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits)
+void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits, BOOLEAN bkg)
 {
     unsigned char buffer[8]={'0', '0', '0', '0', '0', '0', '0', '0'};
 
     // Convert the number to a decimal string (stored in the buffer char array)
     uitoa(number, buffer, 10);
 
-    // The background address of the first digit
-    uint8_t *vramAddr = get_bkg_xy_addr(x,y); 
+    // The memory address for the first digit tile
+    uint8_t *vramAddr;
+    if (bkg)
+    {
+        vramAddr = get_bkg_xy_addr(x,y); 
+    }
+    else {
+        vramAddr = get_win_xy_addr(x,y);
+    }
 
     // Get the length of the number so we can add leading zeros
     uint8_t len = strlen(buffer);
@@ -48,41 +55,20 @@ void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits)
     }
 }
 
-void DrawNumberWindow(uint8_t x, uint8_t y, uint16_t number, uint8_t digits)
-{
-    unsigned char buffer[8]={'0', '0', '0', '0', '0', '0', '0', '0'};
-
-    // Convert the number to a decimal string (stored in the buffer char array)
-    uitoa(number, buffer, 10);
-
-    // The window Tile address of the first digit
-    uint8_t *vramAddr = get_win_xy_addr(x,y);
-    // Get the length of the number so we can add leading zeros
-    uint8_t len = strlen(buffer);
-
-    // Add some leading zeros
-    // uitoa will not do for us
-    // Increase the VRAM address each iteration to move to the next tile
-    for (uint8_t i=0; i<digits-len;i++)
-    {
-        set_vram_byte(vramAddr++, 283);
-    }
-
-    // Draw our number
-    // Increase the VRAM address each iteration to move to the next tile
-    for (uint8_t i=0; i<len; i++)
-    {
-        set_vram_byte(vramAddr++, (buffer[i] -'0')+283);
-    }
-}
-
-void DrawText(uint8_t x, uint8_t y, unsigned char *text ){
+void DrawText(uint8_t x, uint8_t y, unsigned char *text, BOOLEAN bkg ){
 
     uint8_t i=0;
 
     // The VRAM address of the first character
     // After setting a tile, we'll increase the VRAM address each iteration to move to the next tile
-    uint8_t *vramAddr= get_bkg_xy_addr(x,y);
+    uint8_t *vramAddr;
+    if (bkg)
+    {
+        vramAddr = get_bkg_xy_addr(x,y); 
+    }
+    else {
+        vramAddr = get_win_xy_addr(x,y);
+    }
 
     while(text[i]!='\0'){
 
@@ -111,40 +97,6 @@ void DrawText(uint8_t x, uint8_t y, unsigned char *text ){
 
 }
 
-void DrawTextWindow(uint8_t x, uint8_t y, unsigned char *text ){
-
-    uint8_t i=0;
-
-    // The VRAM address of the first character
-    // After setting a tile, we'll increase the VRAM address each iteration to move to the next tile
-    uint8_t *vramAddr= get_win_xy_addr(x,y);
-
-    while(text[i]!='\0'){
-
-        // Map our alphabet characters to only use uppercase letters
-        // From the SpaceInvadersFont.png/aseprite
-        if(text[i]>='A'&&text[i]<='Z')set_vram_byte(vramAddr++,1+(text[i]-'A'));
-        else if(text[i]>='a'&&text[i]<='z')set_vram_byte(vramAddr++,1+(text[i]-'a'));
-        else if(text[i]>='0'&&text[i]<='9')set_vram_byte(vramAddr++,27+(text[i]-'0'));
-
-        else {
-
-            // Map our special characters manually
-            // From the SpaceInvadersFont.png/aseprite
-            switch(text[i]){
-                case ':': set_vram_byte(vramAddr++,38); break;
-                case '.': set_vram_byte(vramAddr++,43);break;
-                case '/': set_vram_byte(vramAddr++,40);break;
-                default: vramAddr++; break;
-            }
-        }
-
-
-        i++;
-    }
-    VBK_REG=0;
-
-}
 
 void fadeToBlack(uint8_t frames)
 {
@@ -258,14 +210,70 @@ void fadeFromWhite(uint8_t frames)
     }
 }
 
-void InvertColor()
+void InvertColor(void)
 {
     BGP_REG = DMG_PALETTE(DMG_BLACK, DMG_DARK_GRAY, DMG_LITE_GRAY, DMG_WHITE);
     OBP0_REG = DMG_PALETTE(DMG_BLACK, DMG_DARK_GRAY, DMG_LITE_GRAY, DMG_WHITE);
 }
 
-void ResetColor()
+void ResetColor(void)
 {
     BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
     OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
+}
+
+uint8_t RandomNumber(uint8_t min, uint8_t max)
+{
+    // get value at memory address
+    return min + (DIV_REG % (max - min)); 
+}
+
+void DrawWindow(uint8_t x, uint8_t y, uint8_t width, uint8_t height, BOOLEAN bkg)
+{
+    // The VRAM address of the first character
+    // After setting a tile, we'll increase the VRAM address each iteration to move to the next tile
+    uint8_t *vramAddr;
+    if (bkg)
+    {
+        vramAddr = get_bkg_xy_addr(x,y); 
+    }
+    else {
+        vramAddr = get_win_xy_addr(x,y);
+    }
+    set_vram_byte(vramAddr++,301u);             // TOP LEFT CORNER
+    for (uint8_t i = 0; i < width - 2; i++)
+    {
+        set_vram_byte(vramAddr++,304u);         // TOP SIDE
+    }
+    set_vram_byte(vramAddr++,306u);             // TOP RIGHT CORNER
+    // GO DOWN ONE ROW
+    if (bkg) 
+    {
+        vramAddr = get_bkg_xy_addr(x,y+1); 
+    }
+    else {
+        vramAddr = get_win_xy_addr(x,y+1);
+    }
+    for (uint8_t j = 0; j < height - 2; j++)
+    {
+        set_vram_byte(vramAddr++,302u); // LEFT SIDE
+        for (uint8_t i = 0; i < width - 2; i++)
+        {
+            set_vram_byte(vramAddr++,256u);
+        }
+        set_vram_byte(vramAddr++,307u); // RIGHT SIDE
+        if (bkg)
+        {
+            vramAddr = get_bkg_xy_addr(x,y+2+j); 
+        }
+        else {
+            vramAddr = get_win_xy_addr(x,y+2+j);
+        }
+    }
+    set_vram_byte(vramAddr++,303u);             // TOP LEFT CORNER
+    for (uint8_t i = 0; i < width - 2; i++)
+    {
+        set_vram_byte(vramAddr++,305u);         // TOP SIDE
+    }
+    set_vram_byte(vramAddr++,308u);             // TOP RIGHT CORNER
 }
