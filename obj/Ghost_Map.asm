@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Ghost_Map$0_0$0==.
-_Ghost_Map::
-	.ds 20
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Ghost_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FGhost_Map$__xinit_Ghost_Map$0_0$0 == .
-__xinit__Ghost_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$Ghost_Map$0_0$0 == .
+_Ghost_Map:
 	.db #0x80	; 128
 	.db #0x85	; 133
 	.db #0x8a	; 138
@@ -67,4 +63,5 @@ __xinit__Ghost_Map:
 	.db #0x89	; 137
 	.db #0x8e	; 142
 	.db #0x92	; 146
+	.area _INITIALIZER
 	.area _CABS (ABS)

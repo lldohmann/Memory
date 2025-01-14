@@ -8,8 +8,16 @@
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
+	.globl b_GameTitleUpdate
 	.globl _GameTitleUpdate
+	.globl b___func_GameTitleUpdate
+	.globl ___func_GameTitleUpdate
+	.globl b_GameTitleSetup
 	.globl _GameTitleSetup
+	.globl b___func_GameTitleSetup
+	.globl ___func_GameTitleSetup
+	.globl b___func_const_bank_ID_title
+	.globl ___func_const_bank_ID_title
 	.globl _fadeFromBlack
 	.globl _fadeToBlack
 	.globl _set_sprite_data
@@ -26,6 +34,7 @@
 	.globl _globe3
 	.globl _globe2
 	.globl _globe1
+	.globl _const_bank_ID_title
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -62,49 +71,76 @@ _frame::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
+	.area _CODE_1
+	G$__func_const_bank_ID_title$0$0	= .
+	.globl	G$__func_const_bank_ID_title$0$0
+	C$GameTitle.c$10$0_0$164	= .
+	.globl	C$GameTitle.c$10$0_0$164
+;src\GameTitle.c:10: BANKREF(const_bank_ID_title)
+;	---------------------------------
+; Function __func_const_bank_ID_title
+; ---------------------------------
+	b___func_const_bank_ID_title	= 1
+___func_const_bank_ID_title::
+	.local b___func_const_bank_ID_title 
+	___bank_const_bank_ID_title = b___func_const_bank_ID_title 
+	.globl ___bank_const_bank_ID_title 
+	G$__func_GameTitleSetup$0$0	= .
+	.globl	G$__func_GameTitleSetup$0$0
+	C$GameTitle.c$98$1_0$166	= .
+	.globl	C$GameTitle.c$98$1_0$166
+;src\GameTitle.c:98: BANKREF(GameTitleSetup)
+;	---------------------------------
+; Function __func_GameTitleSetup
+; ---------------------------------
+	b___func_GameTitleSetup	= 1
+___func_GameTitleSetup::
+	.local b___func_GameTitleSetup 
+	___bank_GameTitleSetup = b___func_GameTitleSetup 
+	.globl ___bank_GameTitleSetup 
 	G$GameTitleSetup$0$0	= .
 	.globl	G$GameTitleSetup$0$0
-	C$GameTitle.c$91$0_0$164	= .
-	.globl	C$GameTitle.c$91$0_0$164
-;src\GameTitle.c:91: void GameTitleSetup(void)
+	C$GameTitle.c$99$1_0$168	= .
+	.globl	C$GameTitle.c$99$1_0$168
+;src\GameTitle.c:99: void GameTitleSetup(void) BANKED
 ;	---------------------------------
 ; Function GameTitleSetup
 ; ---------------------------------
+	b_GameTitleSetup	= 1
 _GameTitleSetup::
 ;c:\gbdk\include\gb\gb.h:1449: SCX_REG=x, SCY_REG=y;
 	xor	a, a
 	ldh	(_SCX_REG + 0), a
 	xor	a, a
 	ldh	(_SCY_REG + 0), a
-	C$GameTitle.c$94$1_0$164	= .
-	.globl	C$GameTitle.c$94$1_0$164
-;src\GameTitle.c:94: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+	C$GameTitle.c$102$1_0$168	= .
+	.globl	C$GameTitle.c$102$1_0$168
+;src\GameTitle.c:102: BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
 	ld	a, #0xfe
 	ldh	(_BGP_REG + 0), a
-	C$GameTitle.c$95$1_0$164	= .
-	.globl	C$GameTitle.c$95$1_0$164
-;src\GameTitle.c:95: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
+	C$GameTitle.c$103$1_0$168	= .
+	.globl	C$GameTitle.c$103$1_0$168
+;src\GameTitle.c:103: OBP0_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
 	ld	a, #0xfe
 	ldh	(_OBP0_REG + 0), a
-	C$GameTitle.c$96$1_0$164	= .
-	.globl	C$GameTitle.c$96$1_0$164
-;src\GameTitle.c:96: SPRITES_8x16;
+	C$GameTitle.c$104$1_0$168	= .
+	.globl	C$GameTitle.c$104$1_0$168
+;src\GameTitle.c:104: SPRITES_8x16;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x04
 	ldh	(_LCDC_REG + 0), a
-	C$GameTitle.c$97$1_0$164	= .
-	.globl	C$GameTitle.c$97$1_0$164
-;src\GameTitle.c:97: set_bkg_data(0, 50, TitleLabel);
+	C$GameTitle.c$105$1_0$168	= .
+	.globl	C$GameTitle.c$105$1_0$168
+;src\GameTitle.c:105: set_bkg_data(0, 50, TitleLabel);
 	ld	de, #_TitleLabel
 	push	de
 	ld	hl, #0x3200
 	push	hl
 	call	_set_bkg_data
 	add	sp, #4
-	C$GameTitle.c$98$1_0$164	= .
-	.globl	C$GameTitle.c$98$1_0$164
-;src\GameTitle.c:98: set_bkg_tiles(0, 0, Title_MapWidth, Title_MapHeight, Title_Map);
+	C$GameTitle.c$106$1_0$168	= .
+	.globl	C$GameTitle.c$106$1_0$168
+;src\GameTitle.c:106: set_bkg_tiles(0, 0, Title_MapWidth, Title_MapHeight, Title_Map);
 	ld	de, #_Title_Map
 	push	de
 	ld	hl, #0x1214
@@ -114,16 +150,16 @@ _GameTitleSetup::
 	push	af
 	call	_set_bkg_tiles
 	add	sp, #6
-	C$GameTitle.c$99$1_0$164	= .
-	.globl	C$GameTitle.c$99$1_0$164
-;src\GameTitle.c:99: set_sprite_data(0, 112, Globe_Tiles);
+	C$GameTitle.c$107$1_0$168	= .
+	.globl	C$GameTitle.c$107$1_0$168
+;src\GameTitle.c:107: set_sprite_data(0, 112, Globe_Tiles);
 	ld	de, #_Globe_Tiles
 	push	de
 	ld	hl, #0x7000
 	push	hl
 	call	_set_sprite_data
 	add	sp, #4
-;src\GameTitle.c:100: move_metasprite(globe_metasprites[6], 0, 0, 88, 64);
+;src\GameTitle.c:108: move_metasprite(globe_metasprites[6], 0, 0, 88, 64);
 	ld	hl, #(_globe_metasprites + 12)
 	ld	a, (hl+)
 	ld	c, a
@@ -143,30 +179,33 @@ _GameTitleSetup::
 	ld	de, #0x4058
 	xor	a, a
 	call	___move_metasprite
-	C$GameTitle.c$101$1_0$164	= .
-	.globl	C$GameTitle.c$101$1_0$164
-;src\GameTitle.c:101: SHOW_BKG;
+	C$GameTitle.c$109$1_0$168	= .
+	.globl	C$GameTitle.c$109$1_0$168
+;src\GameTitle.c:109: SHOW_BKG;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x01
 	ldh	(_LCDC_REG + 0), a
-	C$GameTitle.c$102$1_0$164	= .
-	.globl	C$GameTitle.c$102$1_0$164
-;src\GameTitle.c:102: SHOW_SPRITES;
+	C$GameTitle.c$110$1_0$168	= .
+	.globl	C$GameTitle.c$110$1_0$168
+;src\GameTitle.c:110: SHOW_SPRITES;
 	ldh	a, (_LCDC_REG + 0)
 	or	a, #0x02
 	ldh	(_LCDC_REG + 0), a
-	C$GameTitle.c$103$1_0$164	= .
-	.globl	C$GameTitle.c$103$1_0$164
-;src\GameTitle.c:103: fadeFromBlack(10);
+	C$GameTitle.c$111$1_0$168	= .
+	.globl	C$GameTitle.c$111$1_0$168
+;src\GameTitle.c:111: fadeFromBlack(10);
 	ld	a, #0x0a
-	C$GameTitle.c$104$1_0$164	= .
-	.globl	C$GameTitle.c$104$1_0$164
-;src\GameTitle.c:104: }
-	C$GameTitle.c$104$1_0$164	= .
-	.globl	C$GameTitle.c$104$1_0$164
+	C$GameTitle.c$112$1_0$168	= .
+	.globl	C$GameTitle.c$112$1_0$168
+;src\GameTitle.c:112: }
+	C$GameTitle.c$112$1_0$168	= .
+	.globl	C$GameTitle.c$112$1_0$168
 	XG$GameTitleSetup$0$0	= .
 	.globl	XG$GameTitleSetup$0$0
 	jp	_fadeFromBlack
+G$const_bank_ID_title$0_0$0 == .
+_const_bank_ID_title:
+	.db #0x01	; 1
 G$globe1$0_0$0 == .
 _globe1:
 	.db #0x00	;  0
@@ -442,57 +481,71 @@ _globe_metasprites:
 	.dw _globe5
 	.dw _globe6
 	.dw _globe7
+	G$__func_GameTitleUpdate$0$0	= .
+	.globl	G$__func_GameTitleUpdate$0$0
+	C$GameTitle.c$117$1_0$176	= .
+	.globl	C$GameTitle.c$117$1_0$176
+;src\GameTitle.c:117: BANKREF(GameTitleUpdate)
+;	---------------------------------
+; Function __func_GameTitleUpdate
+; ---------------------------------
+	b___func_GameTitleUpdate	= 1
+___func_GameTitleUpdate::
+	.local b___func_GameTitleUpdate 
+	___bank_GameTitleUpdate = b___func_GameTitleUpdate 
+	.globl ___bank_GameTitleUpdate 
 	G$GameTitleUpdate$0$0	= .
 	.globl	G$GameTitleUpdate$0$0
-	C$GameTitle.c$108$1_0$172	= .
-	.globl	C$GameTitle.c$108$1_0$172
-;src\GameTitle.c:108: uint8_t GameTitleUpdate(void)
+	C$GameTitle.c$118$1_0$178	= .
+	.globl	C$GameTitle.c$118$1_0$178
+;src\GameTitle.c:118: uint8_t GameTitleUpdate(void) BANKED
 ;	---------------------------------
 ; Function GameTitleUpdate
 ; ---------------------------------
+	b_GameTitleUpdate	= 1
 _GameTitleUpdate::
-	C$GameTitle.c$110$1_0$172	= .
-	.globl	C$GameTitle.c$110$1_0$172
-;src\GameTitle.c:110: joypadPrevious = joypadCurrent;
+	C$GameTitle.c$120$1_0$178	= .
+	.globl	C$GameTitle.c$120$1_0$178
+;src\GameTitle.c:120: joypadPrevious = joypadCurrent;
 	ld	a, (#_joypadCurrent)
 	ld	(#_joypadPrevious),a
-	C$GameTitle.c$111$1_0$172	= .
-	.globl	C$GameTitle.c$111$1_0$172
-;src\GameTitle.c:111: joypadCurrent = joypad();
+	C$GameTitle.c$121$1_0$178	= .
+	.globl	C$GameTitle.c$121$1_0$178
+;src\GameTitle.c:121: joypadCurrent = joypad();
 	call	_joypad
 	ld	(#_joypadCurrent),a
-	C$GameTitle.c$112$1_0$172	= .
-	.globl	C$GameTitle.c$112$1_0$172
-;src\GameTitle.c:112: timer++;
+	C$GameTitle.c$122$1_0$178	= .
+	.globl	C$GameTitle.c$122$1_0$178
+;src\GameTitle.c:122: timer++;
 	ld	hl, #_timer
 	inc	(hl)
-	C$GameTitle.c$113$1_0$172	= .
-	.globl	C$GameTitle.c$113$1_0$172
-;src\GameTitle.c:113: if (timer == 60)
+	C$GameTitle.c$123$1_0$178	= .
+	.globl	C$GameTitle.c$123$1_0$178
+;src\GameTitle.c:123: if (timer == 60)
 	ld	a, (hl)
 	sub	a, #0x3c
 	jr	NZ, 00102$
-	C$GameTitle.c$115$2_0$173	= .
-	.globl	C$GameTitle.c$115$2_0$173
-;src\GameTitle.c:115: frame++; 
+	C$GameTitle.c$125$2_0$179	= .
+	.globl	C$GameTitle.c$125$2_0$179
+;src\GameTitle.c:125: frame++; 
 	ld	hl, #_frame
 	inc	(hl)
-	C$GameTitle.c$116$2_0$173	= .
-	.globl	C$GameTitle.c$116$2_0$173
-;src\GameTitle.c:116: timer = 0;
+	C$GameTitle.c$126$2_0$179	= .
+	.globl	C$GameTitle.c$126$2_0$179
+;src\GameTitle.c:126: timer = 0;
 	ld	hl, #_timer
 	ld	(hl), #0x00
 00102$:
-	C$GameTitle.c$118$1_0$172	= .
-	.globl	C$GameTitle.c$118$1_0$172
-;src\GameTitle.c:118: if (frame >= 7) frame = 0;
+	C$GameTitle.c$128$1_0$178	= .
+	.globl	C$GameTitle.c$128$1_0$178
+;src\GameTitle.c:128: if (frame >= 7) frame = 0;
 	ld	hl, #_frame
 	ld	a, (hl)
 	sub	a, #0x07
 	jr	C, 00104$
 	ld	(hl), #0x00
 00104$:
-;src\GameTitle.c:119: move_metasprite(globe_metasprites[frame], 0, 0, 88, 64);
+;src\GameTitle.c:129: move_metasprite(globe_metasprites[frame], 0, 0, 88, 64);
 	ld	bc, #_globe_metasprites+0
 	ld	hl, #_frame
 	ld	l, (hl)
@@ -524,21 +577,21 @@ _GameTitleUpdate::
 	xor	a, a
 	call	___move_metasprite
 	pop	bc
-	C$GameTitle.c$120$1_0$172	= .
-	.globl	C$GameTitle.c$120$1_0$172
-;src\GameTitle.c:120: if (joypadCurrent & J_START)
+	C$GameTitle.c$130$1_0$178	= .
+	.globl	C$GameTitle.c$130$1_0$178
+;src\GameTitle.c:130: if (joypadCurrent & J_START)
 	ld	hl, #_joypadCurrent
 	ld	e, (hl)
 	bit	7, e
 	jr	Z, 00106$
-	C$GameTitle.c$122$2_0$174	= .
-	.globl	C$GameTitle.c$122$2_0$174
-;src\GameTitle.c:122: fadeToBlack(10);
+	C$GameTitle.c$132$2_0$180	= .
+	.globl	C$GameTitle.c$132$2_0$180
+;src\GameTitle.c:132: fadeToBlack(10);
 	push	bc
 	ld	a, #0x0a
 	call	_fadeToBlack
 	pop	bc
-;src\GameTitle.c:123: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+;src\GameTitle.c:133: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
 	ld	hl, #_frame
 	ld	l, (hl)
 ;	spillPairReg hl
@@ -563,25 +616,25 @@ _GameTitleUpdate::
 	ld	de, #0xb0b0
 	xor	a, a
 	call	___move_metasprite
-	C$GameTitle.c$124$2_0$174	= .
-	.globl	C$GameTitle.c$124$2_0$174
-;src\GameTitle.c:124: return COREGAMELOOP;
+	C$GameTitle.c$134$2_0$180	= .
+	.globl	C$GameTitle.c$134$2_0$180
+;src\GameTitle.c:134: return COREGAMELOOP;
 	ld	a, #0x02
 	ret
 00106$:
-	C$GameTitle.c$126$1_0$172	= .
-	.globl	C$GameTitle.c$126$1_0$172
-;src\GameTitle.c:126: if (joypadCurrent & J_SELECT)
+	C$GameTitle.c$136$1_0$178	= .
+	.globl	C$GameTitle.c$136$1_0$178
+;src\GameTitle.c:136: if (joypadCurrent & J_SELECT)
 	bit	6, e
 	jr	Z, 00108$
-	C$GameTitle.c$128$2_0$175	= .
-	.globl	C$GameTitle.c$128$2_0$175
-;src\GameTitle.c:128: fadeToBlack(10);
+	C$GameTitle.c$138$2_0$181	= .
+	.globl	C$GameTitle.c$138$2_0$181
+;src\GameTitle.c:138: fadeToBlack(10);
 	push	bc
 	ld	a, #0x0a
 	call	_fadeToBlack
 	pop	bc
-;src\GameTitle.c:129: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+;src\GameTitle.c:139: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
 	ld	hl, #_frame
 	ld	l, (hl)
 ;	spillPairReg hl
@@ -607,20 +660,20 @@ _GameTitleUpdate::
 	ld	de, #0xb0b0
 	xor	a, a
 	call	___move_metasprite
-	C$GameTitle.c$130$2_0$175	= .
-	.globl	C$GameTitle.c$130$2_0$175
-;src\GameTitle.c:130: return GAMEJOHNDOE;
+	C$GameTitle.c$140$2_0$181	= .
+	.globl	C$GameTitle.c$140$2_0$181
+;src\GameTitle.c:140: return GAMEJOHNDOE;
 	ld	a, #0x03
 	ret
 00108$:
-	C$GameTitle.c$132$1_0$172	= .
-	.globl	C$GameTitle.c$132$1_0$172
-;src\GameTitle.c:132: if (joypadCurrent & J_B)
+	C$GameTitle.c$142$1_0$178	= .
+	.globl	C$GameTitle.c$142$1_0$178
+;src\GameTitle.c:142: if (joypadCurrent & J_B)
 	bit	5, e
 	jr	Z, 00110$
-	C$GameTitle.c$134$2_0$176	= .
-	.globl	C$GameTitle.c$134$2_0$176
-;src\GameTitle.c:134: fadeToBlack(3);
+	C$GameTitle.c$144$2_0$182	= .
+	.globl	C$GameTitle.c$144$2_0$182
+;src\GameTitle.c:144: fadeToBlack(3);
 	push	bc
 	ld	a, #0x03
 	call	_fadeToBlack
@@ -633,7 +686,7 @@ _GameTitleUpdate::
 	ld	a, #0x03
 	call	_fadeToBlack
 	pop	bc
-;src\GameTitle.c:139: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+;src\GameTitle.c:149: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
 	ld	hl, #_frame
 	ld	l, (hl)
 ;	spillPairReg hl
@@ -658,25 +711,25 @@ _GameTitleUpdate::
 	ld	de, #0xb0b0
 	xor	a, a
 	call	___move_metasprite
-	C$GameTitle.c$140$2_0$176	= .
-	.globl	C$GameTitle.c$140$2_0$176
-;src\GameTitle.c:140: return BATTLE;
+	C$GameTitle.c$150$2_0$182	= .
+	.globl	C$GameTitle.c$150$2_0$182
+;src\GameTitle.c:150: return BATTLE;
 	ld	a, #0x05
 	ret
 00110$:
-	C$GameTitle.c$142$1_0$172	= .
-	.globl	C$GameTitle.c$142$1_0$172
-;src\GameTitle.c:142: if (joypadCurrent & J_A)
+	C$GameTitle.c$152$1_0$178	= .
+	.globl	C$GameTitle.c$152$1_0$178
+;src\GameTitle.c:152: if (joypadCurrent & J_A)
 	bit	4, e
 	jr	Z, 00112$
-	C$GameTitle.c$144$2_0$177	= .
-	.globl	C$GameTitle.c$144$2_0$177
-;src\GameTitle.c:144: fadeToBlack(10);
+	C$GameTitle.c$154$2_0$183	= .
+	.globl	C$GameTitle.c$154$2_0$183
+;src\GameTitle.c:154: fadeToBlack(10);
 	push	bc
 	ld	a, #0x0a
 	call	_fadeToBlack
 	pop	bc
-;src\GameTitle.c:145: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
+;src\GameTitle.c:155: move_metasprite(globe_metasprites[frame], 0, 0, -80, -80);
 	ld	hl, #_frame
 	ld	l, (hl)
 ;	spillPairReg hl
@@ -701,25 +754,25 @@ _GameTitleUpdate::
 	ld	de, #0xb0b0
 	xor	a, a
 	call	___move_metasprite
-	C$GameTitle.c$146$2_0$177	= .
-	.globl	C$GameTitle.c$146$2_0$177
-;src\GameTitle.c:146: return BESTIARY;
+	C$GameTitle.c$156$2_0$183	= .
+	.globl	C$GameTitle.c$156$2_0$183
+;src\GameTitle.c:156: return BESTIARY;
 	ld	a, #0x04
 	ret
 00112$:
-	C$GameTitle.c$149$1_0$172	= .
-	.globl	C$GameTitle.c$149$1_0$172
-;src\GameTitle.c:149: return GAMETITLE;
+	C$GameTitle.c$159$1_0$178	= .
+	.globl	C$GameTitle.c$159$1_0$178
+;src\GameTitle.c:159: return GAMETITLE;
 	ld	a, #0x01
-	C$GameTitle.c$150$1_0$172	= .
-	.globl	C$GameTitle.c$150$1_0$172
-;src\GameTitle.c:150: }
-	C$GameTitle.c$150$1_0$172	= .
-	.globl	C$GameTitle.c$150$1_0$172
+	C$GameTitle.c$160$1_0$178	= .
+	.globl	C$GameTitle.c$160$1_0$178
+;src\GameTitle.c:160: }
+	C$GameTitle.c$160$1_0$178	= .
+	.globl	C$GameTitle.c$160$1_0$178
 	XG$GameTitleUpdate$0$0	= .
 	.globl	XG$GameTitleUpdate$0$0
 	ret
-	.area _CODE
+	.area _CODE_1
 	.area _INITIALIZER
 FGameTitle$__xinit_timer$0_0$0 == .
 __xinit__timer:

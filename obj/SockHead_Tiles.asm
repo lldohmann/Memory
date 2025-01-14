@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$SockHead_Tiles$0_0$0==.
-_SockHead_Tiles::
-	.ds 336
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _SockHead_Tiles::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FSockHead_Tiles$__xinit_SockHead_Tiles$0_0$0 == .
-__xinit__SockHead_Tiles:
+	.area _CODE_5
+	.area _CODE_5
+G$SockHead_Tiles$0_0$0 == .
+_SockHead_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -383,4 +379,5 @@ __xinit__SockHead_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
+	.area _INITIALIZER
 	.area _CABS (ABS)

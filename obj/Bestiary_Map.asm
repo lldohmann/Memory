@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Bestiary_Map$0_0$0==.
-_Bestiary_Map::
-	.ds 360
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Bestiary_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FBestiary_Map$__xinit_Bestiary_Map$0_0$0 == .
-__xinit__Bestiary_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$Bestiary_Map$0_0$0 == .
+_Bestiary_Map:
 	.db #0x00	; 0
 	.db #0x09	; 9
 	.db #0x04	; 4
@@ -407,4 +403,5 @@ __xinit__Bestiary_Map:
 	.db #0x31	; 49	'1'
 	.db #0x31	; 49	'1'
 	.db #0x34	; 52	'4'
+	.area _INITIALIZER
 	.area _CABS (ABS)

@@ -1,24 +1,25 @@
 XL4
-H 9 areas 3 global symbols
+H A areas 3 global symbols
 M BigSis_Map
 O -msm83
 S .__.ABS. Def00000000
-A _CODE size 23 flags 0 addr 0
-S _BigSis_Map Def00000000
-S G$BigSis_Map$0_0$0 Def00000000
+A _CODE size 0 flags 0 addr 0
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
+A _CODE_5 size 23 flags 0 addr 0
+S _BigSis_Map Def00000000
+S G$BigSis_Map$0_0$0 Def00000000
 A _INITIALIZER size 0 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
 T 00 00 00 00
-R 00 00 00 00
+R 00 00 07 00
 T 00 00 00 00 80 87 8E A0 A0 81 88 8F 94 A0 82 89
-R 00 00 00 00
+R 00 00 07 00
 T 0C 00 00 00 90 95 9A 83 8A 91 96 9B 84 8B 92 97
-R 00 00 00 00
+R 00 00 07 00
 T 18 00 00 00 9C 85 8C 93 98 9D 86 8D A0 99 9E
-R 00 00 00 00
+R 00 00 07 00

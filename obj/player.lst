@@ -48,33 +48,33 @@
                                      48 ;--------------------------------------------------------
                                      49 ; code
                                      50 ;--------------------------------------------------------
-                                     51 	.area _CODE
+                                     51 	.area _CODE_3
                          00000000    52 	G$check_map$0$0	= .
                                      53 	.globl	G$check_map$0$0
-                         00000000    54 	C$player.c$37$0_0$185	= .
-                                     55 	.globl	C$player.c$37$0_0$185
-                                     56 ;src\player.c:37: char check_map(uint8_t map_num, uint8_t x_pos, uint8_t y_pos)
+                         00000000    54 	C$player.c$39$0_0$185	= .
+                                     55 	.globl	C$player.c$39$0_0$185
+                                     56 ;src\player.c:39: char check_map(uint8_t map_num, uint8_t x_pos, uint8_t y_pos)
                                      57 ;	---------------------------------
                                      58 ; Function check_map
                                      59 ; ---------------------------------
     00000000                         60 _check_map::
     00000000 4B               [ 4]   61 	ld	c, e
-                         00000001    62 	C$player.c$39$1_0$185	= .
-                                     63 	.globl	C$player.c$39$1_0$185
-                                     64 ;src\player.c:39: if (map_num == 0) // HOME
+                         00000001    62 	C$player.c$41$1_0$185	= .
+                                     63 	.globl	C$player.c$41$1_0$185
+                                     64 ;src\player.c:41: if (map_num == 0) // HOME
     00000001 B7               [ 4]   65 	or	a, a
     00000002 20 07            [12]   66 	jr	NZ, 00103$
-                         00000004    67 	C$player.c$41$2_0$186	= .
-                                     68 	.globl	C$player.c$41$2_0$186
-                                     69 ;src\player.c:41: returnCollisionValue(x_pos, y_pos);
+                         00000004    67 	C$player.c$43$2_0$186	= .
+                                     68 	.globl	C$player.c$43$2_0$186
+                                     69 ;src\player.c:43: returnCollisionValue(x_pos, y_pos);
     00000004 F8 02            [12]   70 	ldhl	sp,	#2
     00000006 5E               [ 8]   71 	ld	e, (hl)
     00000007 79               [ 4]   72 	ld	a, c
     00000008 CDr00r00         [24]   73 	call	_returnCollisionValue
     0000000B                         74 00103$:
-                         0000000B    75 	C$player.c$43$1_0$185	= .
-                                     76 	.globl	C$player.c$43$1_0$185
-                                     77 ;src\player.c:43: } 
+                         0000000B    75 	C$player.c$45$1_0$185	= .
+                                     76 	.globl	C$player.c$45$1_0$185
+                                     77 ;src\player.c:45: } 
     0000000B E1               [12]   78 	pop	hl
     0000000C 33               [ 8]   79 	inc	sp
     0000000D E9               [ 4]   80 	jp	(hl)
@@ -142,117 +142,117 @@
     00000044r32r00                  142 	.dw _mouse_right1
                          00000046   143 	G$PlayerUpdate$0$0	= .
                                     144 	.globl	G$PlayerUpdate$0$0
-                         00000046   145 	C$player.c$45$1_0$188	= .
-                                    146 	.globl	C$player.c$45$1_0$188
-                                    147 ;src\player.c:45: void PlayerUpdate(struct player *ptr)
+                         00000046   145 	C$player.c$47$1_0$188	= .
+                                    146 	.globl	C$player.c$47$1_0$188
+                                    147 ;src\player.c:47: void PlayerUpdate(struct player *ptr)
                                     148 ;	---------------------------------
                                     149 ; Function PlayerUpdate
                                     150 ; ---------------------------------
     00000046                        151 _PlayerUpdate::
     00000046 4B               [ 4]  152 	ld	c, e
     00000047 42               [ 4]  153 	ld	b, d
-                         00000048   154 	C$player.c$48$1_0$188	= .
-                                    155 	.globl	C$player.c$48$1_0$188
-                                    156 ;src\player.c:48: switch (ptr->playerState)
+                         00000048   154 	C$player.c$50$1_0$188	= .
+                                    155 	.globl	C$player.c$50$1_0$188
+                                    156 ;src\player.c:50: switch (ptr->playerState)
     00000048 21 0B 00         [12]  157 	ld	hl, #0x000b
     0000004B 09               [ 8]  158 	add	hl, bc
     0000004C 7E               [ 8]  159 	ld	a, (hl)
     0000004D B7               [ 4]  160 	or	a, a
     0000004E C0               [20]  161 	ret	NZ
-                         0000004F   162 	C$player.c$51$2_0$189	= .
-                                    163 	.globl	C$player.c$51$2_0$189
-                                    164 ;src\player.c:51: joypadPrevious = joypadCurrent;
+                         0000004F   162 	C$player.c$53$2_0$189	= .
+                                    163 	.globl	C$player.c$53$2_0$189
+                                    164 ;src\player.c:53: joypadPrevious = joypadCurrent;
     0000004F FAr00r00         [16]  165 	ld	a, (#_joypadCurrent)
     00000052 EAr00r00         [16]  166 	ld	(#_joypadPrevious),a
-                         00000055   167 	C$player.c$52$2_0$189	= .
-                                    168 	.globl	C$player.c$52$2_0$189
-                                    169 ;src\player.c:52: joypadCurrent = joypad();
+                         00000055   167 	C$player.c$54$2_0$189	= .
+                                    168 	.globl	C$player.c$54$2_0$189
+                                    169 ;src\player.c:54: joypadCurrent = joypad();
     00000055 CDr00r00         [24]  170 	call	_joypad
     00000058 21r00r00         [12]  171 	ld	hl, #_joypadCurrent
     0000005B 77               [ 8]  172 	ld	(hl), a
-                         0000005C   173 	C$player.c$53$1_0$188	= .
-                                    174 	.globl	C$player.c$53$1_0$188
-                                    175 ;src\player.c:53: if (joypadCurrent & J_UP)
+                         0000005C   173 	C$player.c$55$1_0$188	= .
+                                    174 	.globl	C$player.c$55$1_0$188
+                                    175 ;src\player.c:55: if (joypadCurrent & J_UP)
     0000005C 5E               [ 8]  176 	ld	e, (hl)
-                         0000005D   177 	C$player.c$57$1_0$188	= .
-                                    178 	.globl	C$player.c$57$1_0$188
-                                    179 ;src\player.c:57: ptr->playerDirection = up;
+                         0000005D   177 	C$player.c$59$1_0$188	= .
+                                    178 	.globl	C$player.c$59$1_0$188
+                                    179 ;src\player.c:59: ptr->playerDirection = up;
     0000005D 21 0A 00         [12]  180 	ld	hl, #0x000a
     00000060 09               [ 8]  181 	add	hl, bc
-                         00000061   182 	C$player.c$53$2_0$189	= .
-                                    183 	.globl	C$player.c$53$2_0$189
-                                    184 ;src\player.c:53: if (joypadCurrent & J_UP)
+                         00000061   182 	C$player.c$55$2_0$189	= .
+                                    183 	.globl	C$player.c$55$2_0$189
+                                    184 ;src\player.c:55: if (joypadCurrent & J_UP)
     00000061 CB 53            [ 8]  185 	bit	2, e
     00000063 28 03            [12]  186 	jr	Z, 00111$
-                         00000065   187 	C$player.c$57$3_0$190	= .
-                                    188 	.globl	C$player.c$57$3_0$190
-                                    189 ;src\player.c:57: ptr->playerDirection = up;
+                         00000065   187 	C$player.c$59$3_0$190	= .
+                                    188 	.globl	C$player.c$59$3_0$190
+                                    189 ;src\player.c:59: ptr->playerDirection = up;
     00000065 36 01            [12]  190 	ld	(hl), #0x01
     00000067 C9               [16]  191 	ret
     00000068                        192 00111$:
-                         00000068   193 	C$player.c$59$2_0$189	= .
-                                    194 	.globl	C$player.c$59$2_0$189
-                                    195 ;src\player.c:59: else if (joypadCurrent & J_DOWN)
+                         00000068   193 	C$player.c$61$2_0$189	= .
+                                    194 	.globl	C$player.c$61$2_0$189
+                                    195 ;src\player.c:61: else if (joypadCurrent & J_DOWN)
     00000068 CB 5B            [ 8]  196 	bit	3, e
     0000006A 28 03            [12]  197 	jr	Z, 00108$
-                         0000006C   198 	C$player.c$62$3_0$191	= .
-                                    199 	.globl	C$player.c$62$3_0$191
-                                    200 ;src\player.c:62: ptr->playerDirection = down;
+                         0000006C   198 	C$player.c$64$3_0$191	= .
+                                    199 	.globl	C$player.c$64$3_0$191
+                                    200 ;src\player.c:64: ptr->playerDirection = down;
     0000006C 36 00            [12]  201 	ld	(hl), #0x00
     0000006E C9               [16]  202 	ret
     0000006F                        203 00108$:
-                         0000006F   204 	C$player.c$64$2_0$189	= .
-                                    205 	.globl	C$player.c$64$2_0$189
-                                    206 ;src\player.c:64: else if (joypadCurrent & J_RIGHT)
+                         0000006F   204 	C$player.c$66$2_0$189	= .
+                                    205 	.globl	C$player.c$66$2_0$189
+                                    206 ;src\player.c:66: else if (joypadCurrent & J_RIGHT)
     0000006F CB 43            [ 8]  207 	bit	0, e
     00000071 28 03            [12]  208 	jr	Z, 00105$
-                         00000073   209 	C$player.c$67$3_0$192	= .
-                                    210 	.globl	C$player.c$67$3_0$192
-                                    211 ;src\player.c:67: ptr->playerDirection = right;
+                         00000073   209 	C$player.c$69$3_0$192	= .
+                                    210 	.globl	C$player.c$69$3_0$192
+                                    211 ;src\player.c:69: ptr->playerDirection = right;
     00000073 36 02            [12]  212 	ld	(hl), #0x02
     00000075 C9               [16]  213 	ret
     00000076                        214 00105$:
-                         00000076   215 	C$player.c$69$2_0$189	= .
-                                    216 	.globl	C$player.c$69$2_0$189
-                                    217 ;src\player.c:69: else if (joypadCurrent & J_LEFT)
+                         00000076   215 	C$player.c$71$2_0$189	= .
+                                    216 	.globl	C$player.c$71$2_0$189
+                                    217 ;src\player.c:71: else if (joypadCurrent & J_LEFT)
     00000076 CB 4B            [ 8]  218 	bit	1, e
     00000078 C8               [20]  219 	ret	Z
-                         00000079   220 	C$player.c$72$3_0$193	= .
-                                    221 	.globl	C$player.c$72$3_0$193
-                                    222 ;src\player.c:72: ptr->playerDirection = left;
+                         00000079   220 	C$player.c$74$3_0$193	= .
+                                    221 	.globl	C$player.c$74$3_0$193
+                                    222 ;src\player.c:74: ptr->playerDirection = left;
     00000079 36 03            [12]  223 	ld	(hl), #0x03
-                         0000007B   224 	C$player.c$78$1_0$188	= .
-                                    225 	.globl	C$player.c$78$1_0$188
-                                    226 ;src\player.c:78: }
-                         0000007B   227 	C$player.c$79$1_0$188	= .
-                                    228 	.globl	C$player.c$79$1_0$188
-                                    229 ;src\player.c:79: }
-                         0000007B   230 	C$player.c$79$1_0$188	= .
-                                    231 	.globl	C$player.c$79$1_0$188
+                         0000007B   224 	C$player.c$80$1_0$188	= .
+                                    225 	.globl	C$player.c$80$1_0$188
+                                    226 ;src\player.c:80: }
+                         0000007B   227 	C$player.c$81$1_0$188	= .
+                                    228 	.globl	C$player.c$81$1_0$188
+                                    229 ;src\player.c:81: }
+                         0000007B   230 	C$player.c$81$1_0$188	= .
+                                    231 	.globl	C$player.c$81$1_0$188
                          0000007B   232 	XG$PlayerUpdate$0$0	= .
                                     233 	.globl	XG$PlayerUpdate$0$0
     0000007B C9               [16]  234 	ret
                          0000007C   235 	G$DrawPlayer$0$0	= .
                                     236 	.globl	G$DrawPlayer$0$0
-                         0000007C   237 	C$player.c$81$1_0$195	= .
-                                    238 	.globl	C$player.c$81$1_0$195
-                                    239 ;src\player.c:81: void DrawPlayer(struct player *ptr)
+                         0000007C   237 	C$player.c$83$1_0$195	= .
+                                    238 	.globl	C$player.c$83$1_0$195
+                                    239 ;src\player.c:83: void DrawPlayer(struct player *ptr)
                                     240 ;	---------------------------------
                                     241 ; Function DrawPlayer
                                     242 ; ---------------------------------
     0000007C                        243 _DrawPlayer::
     0000007C E8 FD            [16]  244 	add	sp, #-3
-                         0000007E   245 	C$player.c$85$1_0$195	= .
-                                    246 	.globl	C$player.c$85$1_0$195
-                                    247 ;src\player.c:85: switch (ptr->playerDirection)
+                         0000007E   245 	C$player.c$87$1_0$195	= .
+                                    246 	.globl	C$player.c$87$1_0$195
+                                    247 ;src\player.c:87: switch (ptr->playerDirection)
     0000007E 21 0A 00         [12]  248 	ld	hl, #0x000a
     00000081 19               [ 8]  249 	add	hl, de
     00000082 7E               [ 8]  250 	ld	a, (hl)
     00000083 F8 00            [12]  251 	ldhl	sp,	#0
     00000085 77               [ 8]  252 	ld	(hl), a
-                         00000086   253 	C$player.c$88$1_0$195	= .
-                                    254 	.globl	C$player.c$88$1_0$195
-                                    255 ;src\player.c:88: move_metasprite(mouse_metasprites[1], 0, 0, ptr->x, ptr->y);
+                         00000086   253 	C$player.c$90$1_0$195	= .
+                                    254 	.globl	C$player.c$90$1_0$195
+                                    255 ;src\player.c:90: move_metasprite(mouse_metasprites[1], 0, 0, ptr->x, ptr->y);
     00000086 4B               [ 4]  256 	ld	c, e
     00000087 42               [ 4]  257 	ld	b, d
     00000088 03               [ 8]  258 	inc	bc
@@ -261,9 +261,9 @@
     0000008B F8 02            [12]  261 	ldhl	sp,	#2
     0000008D 32               [ 8]  262 	ld	(hl-), a
     0000008E 0A               [ 8]  263 	ld	a, (bc)
-                         0000008F   264 	C$player.c$85$1_0$195	= .
-                                    265 	.globl	C$player.c$85$1_0$195
-                                    266 ;src\player.c:85: switch (ptr->playerDirection)
+                         0000008F   264 	C$player.c$87$1_0$195	= .
+                                    265 	.globl	C$player.c$87$1_0$195
+                                    266 ;src\player.c:87: switch (ptr->playerDirection)
     0000008F 32               [ 8]  267 	ld	(hl-), a
     00000090 7E               [ 8]  268 	ld	a, (hl)
     00000091 B7               [ 4]  269 	or	a, a
@@ -281,11 +281,11 @@
     000000A4 D6 03            [ 8]  281 	sub	a, #0x03
     000000A6 28 6E            [12]  282 	jr	Z, 00104$
     000000A8 C3r3Dr01         [16]  283 	jp	00105$
-                         000000AB   284 	C$player.c$87$2_0$196	= .
-                                    285 	.globl	C$player.c$87$2_0$196
-                                    286 ;src\player.c:87: case up:
+                         000000AB   284 	C$player.c$89$2_0$196	= .
+                                    285 	.globl	C$player.c$89$2_0$196
+                                    286 ;src\player.c:89: case up:
     000000AB                        287 00101$:
-                                    288 ;src\player.c:88: move_metasprite(mouse_metasprites[1], 0, 0, ptr->x, ptr->y);
+                                    288 ;src\player.c:90: move_metasprite(mouse_metasprites[1], 0, 0, ptr->x, ptr->y);
     000000AB F8 01            [12]  289 	ldhl	sp,	#1
     000000AD 2A               [ 8]  290 	ld	a, (hl+)
     000000AE 47               [ 4]  291 	ld	b, a
@@ -314,15 +314,15 @@
     000000C8 59               [ 4]  314 	ld	e, c
     000000C9 AF               [ 4]  315 	xor	a, a
     000000CA CDr00r00         [24]  316 	call	___move_metasprite
-                         000000CD   317 	C$player.c$89$2_0$196	= .
-                                    318 	.globl	C$player.c$89$2_0$196
-                                    319 ;src\player.c:89: break;
+                         000000CD   317 	C$player.c$91$2_0$196	= .
+                                    318 	.globl	C$player.c$91$2_0$196
+                                    319 ;src\player.c:91: break;
     000000CD C3r62r01         [16]  320 	jp	00112$
-                         000000D0   321 	C$player.c$90$2_0$196	= .
-                                    322 	.globl	C$player.c$90$2_0$196
-                                    323 ;src\player.c:90: case down:
+                         000000D0   321 	C$player.c$92$2_0$196	= .
+                                    322 	.globl	C$player.c$92$2_0$196
+                                    323 ;src\player.c:92: case down:
     000000D0                        324 00102$:
-                                    325 ;src\player.c:91: move_metasprite(mouse_metasprites[0], 0, 0, ptr->x, ptr->y);
+                                    325 ;src\player.c:93: move_metasprite(mouse_metasprites[0], 0, 0, ptr->x, ptr->y);
     000000D0 21r3Er00         [12]  326 	ld	hl, #_mouse_metasprites
     000000D3 2A               [ 8]  327 	ld	a, (hl+)
     000000D4 4F               [ 4]  328 	ld	c, a
@@ -346,15 +346,15 @@
     000000EB 50               [ 4]  346 	ld	d, b
     000000EC AF               [ 4]  347 	xor	a, a
     000000ED CDr00r00         [24]  348 	call	___move_metasprite
-                         000000F0   349 	C$player.c$92$2_0$196	= .
-                                    350 	.globl	C$player.c$92$2_0$196
-                                    351 ;src\player.c:92: break;
+                         000000F0   349 	C$player.c$94$2_0$196	= .
+                                    350 	.globl	C$player.c$94$2_0$196
+                                    351 ;src\player.c:94: break;
     000000F0 18 70            [12]  352 	jr	00112$
-                         000000F2   353 	C$player.c$93$2_0$196	= .
-                                    354 	.globl	C$player.c$93$2_0$196
-                                    355 ;src\player.c:93: case right:
+                         000000F2   353 	C$player.c$95$2_0$196	= .
+                                    354 	.globl	C$player.c$95$2_0$196
+                                    355 ;src\player.c:95: case right:
     000000F2                        356 00103$:
-                                    357 ;src\player.c:94: move_metasprite(mouse_metasprites[3], 0, 0, ptr->x, ptr->y);
+                                    357 ;src\player.c:96: move_metasprite(mouse_metasprites[3], 0, 0, ptr->x, ptr->y);
     000000F2 F8 01            [12]  358 	ldhl	sp,	#1
     000000F4 2A               [ 8]  359 	ld	a, (hl+)
     000000F5 47               [ 4]  360 	ld	b, a
@@ -383,15 +383,15 @@
     0000010F 59               [ 4]  383 	ld	e, c
     00000110 AF               [ 4]  384 	xor	a, a
     00000111 CDr00r00         [24]  385 	call	___move_metasprite
-                         00000114   386 	C$player.c$95$2_0$196	= .
-                                    387 	.globl	C$player.c$95$2_0$196
-                                    388 ;src\player.c:95: break;
+                         00000114   386 	C$player.c$97$2_0$196	= .
+                                    387 	.globl	C$player.c$97$2_0$196
+                                    388 ;src\player.c:97: break;
     00000114 18 4C            [12]  389 	jr	00112$
-                         00000116   390 	C$player.c$96$2_0$196	= .
-                                    391 	.globl	C$player.c$96$2_0$196
-                                    392 ;src\player.c:96: case left:
+                         00000116   390 	C$player.c$98$2_0$196	= .
+                                    391 	.globl	C$player.c$98$2_0$196
+                                    392 ;src\player.c:98: case left:
     00000116                        393 00104$:
-                                    394 ;src\player.c:97: move_metasprite_vflip(mouse_metasprites[2], 0, 0, ptr->x, ptr->y);
+                                    394 ;src\player.c:99: move_metasprite_vflip(mouse_metasprites[2], 0, 0, ptr->x, ptr->y);
     00000116 F8 01            [12]  395 	ldhl	sp,	#1
     00000118 2A               [ 8]  396 	ld	a, (hl+)
     00000119 47               [ 4]  397 	ld	b, a
@@ -422,15 +422,15 @@
     00000136 5F               [ 4]  422 	ld	e, a
     00000137 AF               [ 4]  423 	xor	a, a
     00000138 CDr00r00         [24]  424 	call	___move_metasprite_vflip
-                         0000013B   425 	C$player.c$98$2_0$196	= .
-                                    426 	.globl	C$player.c$98$2_0$196
-                                    427 ;src\player.c:98: break;
+                         0000013B   425 	C$player.c$100$2_0$196	= .
+                                    426 	.globl	C$player.c$100$2_0$196
+                                    427 ;src\player.c:100: break;
     0000013B 18 25            [12]  428 	jr	00112$
-                         0000013D   429 	C$player.c$99$2_0$196	= .
-                                    430 	.globl	C$player.c$99$2_0$196
-                                    431 ;src\player.c:99: default:
+                         0000013D   429 	C$player.c$101$2_0$196	= .
+                                    430 	.globl	C$player.c$101$2_0$196
+                                    431 ;src\player.c:101: default:
     0000013D                        432 00105$:
-                                    433 ;src\player.c:100: move_metasprite_vflip(mouse_metasprites[2], 0, 0, ptr->x, ptr->y);
+                                    433 ;src\player.c:102: move_metasprite_vflip(mouse_metasprites[2], 0, 0, ptr->x, ptr->y);
     0000013D F8 01            [12]  434 	ldhl	sp,	#1
     0000013F 2A               [ 8]  435 	ld	a, (hl+)
     00000140 47               [ 4]  436 	ld	b, a
@@ -461,19 +461,19 @@
     0000015D 5F               [ 4]  461 	ld	e, a
     0000015E AF               [ 4]  462 	xor	a, a
     0000015F CDr00r00         [24]  463 	call	___move_metasprite_vflip
-                         00000162   464 	C$player.c$102$1_0$195	= .
-                                    465 	.globl	C$player.c$102$1_0$195
-                                    466 ;src\player.c:102: }
+                         00000162   464 	C$player.c$104$1_0$195	= .
+                                    465 	.globl	C$player.c$104$1_0$195
+                                    466 ;src\player.c:104: }
     00000162                        467 00112$:
-                         00000162   468 	C$player.c$103$1_0$195	= .
-                                    469 	.globl	C$player.c$103$1_0$195
-                                    470 ;src\player.c:103: }
+                         00000162   468 	C$player.c$105$1_0$195	= .
+                                    469 	.globl	C$player.c$105$1_0$195
+                                    470 ;src\player.c:105: }
     00000162 E8 03            [16]  471 	add	sp, #3
-                         00000164   472 	C$player.c$103$1_0$195	= .
-                                    473 	.globl	C$player.c$103$1_0$195
+                         00000164   472 	C$player.c$105$1_0$195	= .
+                                    473 	.globl	C$player.c$105$1_0$195
                          00000164   474 	XG$DrawPlayer$0$0	= .
                                     475 	.globl	XG$DrawPlayer$0$0
     00000164 C9               [16]  476 	ret
-                                    477 	.area _CODE
+                                    477 	.area _CODE_3
                                     478 	.area _INITIALIZER
                                     479 	.area _CABS (ABS)

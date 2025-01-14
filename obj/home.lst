@@ -44,20 +44,20 @@
                                      44 ;--------------------------------------------------------
                                      45 ; code
                                      46 ;--------------------------------------------------------
-                                     47 	.area _CODE
+                                     47 	.area _CODE_3
                          00000000    48 	G$returnCollisionValue$0$0	= .
                                      49 	.globl	G$returnCollisionValue$0$0
-                         00000000    50 	C$home.c$390$0_0$2	= .
-                                     51 	.globl	C$home.c$390$0_0$2
-                                     52 ;res\home.c:390: char returnCollisionValue(uint8_t x_pos, uint8_t y_pos)
+                         00000000    50 	C$home.c$392$0_0$2	= .
+                                     51 	.globl	C$home.c$392$0_0$2
+                                     52 ;res\maps\home.c:392: char returnCollisionValue(uint8_t x_pos, uint8_t y_pos)
                                      53 ;	---------------------------------
                                      54 ; Function returnCollisionValue
                                      55 ; ---------------------------------
     00000000                         56 _returnCollisionValue::
     00000000 4F               [ 4]   57 	ld	c, a
-                         00000001    58 	C$home.c$392$1_0$2	= .
-                                     59 	.globl	C$home.c$392$1_0$2
-                                     60 ;res\home.c:392: return HOME_COLLISION[y_pos][x_pos];
+                         00000001    58 	C$home.c$394$1_0$2	= .
+                                     59 	.globl	C$home.c$394$1_0$2
+                                     60 ;res\maps\home.c:394: return HOME_COLLISION[y_pos][x_pos];
     00000001 16 00            [ 8]   61 	ld	d, #0x00
     00000003 6B               [ 4]   62 	ld	l, e
     00000004 62               [ 4]   63 	ld	h, d
@@ -73,11 +73,11 @@
     00000010 16 00            [ 8]   73 	ld	d, #0x00
     00000012 19               [ 8]   74 	add	hl, de
     00000013 7E               [ 8]   75 	ld	a, (hl)
-                         00000014    76 	C$home.c$393$1_0$2	= .
-                                     77 	.globl	C$home.c$393$1_0$2
-                                     78 ;res\home.c:393: }
-                         00000014    79 	C$home.c$393$1_0$2	= .
-                                     80 	.globl	C$home.c$393$1_0$2
+                         00000014    76 	C$home.c$395$1_0$2	= .
+                                     77 	.globl	C$home.c$395$1_0$2
+                                     78 ;res\maps\home.c:395: }
+                         00000014    79 	C$home.c$395$1_0$2	= .
+                                     80 	.globl	C$home.c$395$1_0$2
                          00000014    81 	XG$returnCollisionValue$0$0	= .
                                      82 	.globl	XG$returnCollisionValue$0$0
     00000014 C9               [16]   83 	ret
@@ -713,7 +713,7 @@
     00000288 30                     713 	.db #0x30	;  48	'0'
     00000289 30                     714 	.db #0x30	;  48	'0'
     0000028A 30                     715 	.db #0x30	;  48	'0'
-                                    716 	.area _CODE
+                                    716 	.area _CODE_3
                                     717 	.area _INITIALIZER
                          00000000   718 Fhome$__xinit_Home$0_0$0 == .
     00000000                        719 __xinit__Home:

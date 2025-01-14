@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Toby_Tiles$0_0$0==.
-_Toby_Tiles::
-	.ds 432
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Toby_Tiles::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FToby_Tiles$__xinit_Toby_Tiles$0_0$0 == .
-__xinit__Toby_Tiles:
+	.area _CODE_5
+	.area _CODE_5
+G$Toby_Tiles$0_0$0 == .
+_Toby_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -479,4 +475,5 @@ __xinit__Toby_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
+	.area _INITIALIZER
 	.area _CABS (ABS)

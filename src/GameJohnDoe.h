@@ -1,15 +1,19 @@
 #ifndef _GAMEJOHNDOE
 #define _GAMEJOHNDOE
 
+extern const uint8_t const_bank_ID_John;
+BANKREF_EXTERN(const_bank_ID_John)
+
 /**
  * Loads John Doe's tiles into VRAM & turns on displays
 */
-void GameJohnDoeSetup(void);
-
+void GameJohnDoeSetup(void) BANKED;
+BANKREF_EXTERN(GameJohnDoeSetup)
 /**
- * Waits for player to press A and fades game to black. Press A again to fade in from black.
+ * Waits for input to test various screen effects.
 */
-uint8_t GameJohnDoeUpdate(void);
+uint8_t GameJohnDoeUpdate(void) BANKED;
+BANKREF_EXTERN(GameJohnDoeUpdate)
 
 void scanline_isr(void) CRITICAL INTERRUPT;
 

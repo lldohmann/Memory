@@ -1,9 +1,14 @@
+#pragma bank 1
+
 #include <gb/gb.h>
 #include <gb/isr.h>
 #include <gbdk/incbin.h>
 #include "../src/common.h"
-#include "../res/JohnDoe_Tiles.h"
-#include "../res/JohnDoe_Map.h"
+#include "../res/misc/JohnDoe_Tiles.h"
+#include "../res/misc/JohnDoe_Map.h"
+
+BANKREF(const_bank_ID_John)
+const uint8_t const_bank_ID_John = 1;
 
 BOOLEAN wabble = FALSE;
 BOOLEAN invert_b = FALSE;
@@ -25,7 +30,8 @@ ISR_VECTOR(VECTOR_STAT, scanline_isr)
 //    in the same program as `stdio.h` since they install
 //    an ISR vector to the same location.
 
-void GameJohnDoeSetup(void)
+BANKREF(GameJohnDoeSetup)
+void GameJohnDoeSetup(void) BANKED
 {
     move_bkg(0,0);
     set_bkg_data(0, 79, JohnDoe_Tiles);
@@ -34,7 +40,8 @@ void GameJohnDoeSetup(void)
     fadeFromBlack(10);
 }
 
-uint8_t GameJohnDoeUpdate(void)
+BANKREF(GameJohnDoeUpdate)
+uint8_t GameJohnDoeUpdate(void) BANKED
 {
     joypadPrevious = joypadCurrent;
     joypadCurrent = joypad();

@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Tick_Map$0_0$0==.
-_Tick_Map::
-	.ds 25
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Tick_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FTick_Map$__xinit_Tick_Map$0_0$0 == .
-__xinit__Tick_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$Tick_Map$0_0$0 == .
+_Tick_Map:
 	.db #0x80	; 128
 	.db #0x83	; 131
 	.db #0x88	; 136
@@ -72,4 +68,5 @@ __xinit__Tick_Map:
 	.db #0x94	; 148
 	.db #0x90	; 144
 	.db #0x94	; 148
+	.area _INITIALIZER
 	.area _CABS (ABS)

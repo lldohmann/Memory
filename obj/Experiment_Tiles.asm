@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Experiment_Tiles$0_0$0==.
-_Experiment_Tiles::
-	.ds 480
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Experiment_Tiles::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FExperiment_Tiles$__xinit_Experiment_Tiles$0_0$0 == .
-__xinit__Experiment_Tiles:
+	.area _CODE_5
+	.area _CODE_5
+G$Experiment_Tiles$0_0$0 == .
+_Experiment_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -527,4 +523,5 @@ __xinit__Experiment_Tiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
+	.area _INITIALIZER
 	.area _CABS (ABS)

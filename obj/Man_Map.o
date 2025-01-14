@@ -1,24 +1,20 @@
 XL4
-H 9 areas 4 global symbols
+H A areas 3 global symbols
 M Man_Map
 O -msm83
 S .__.ABS. Def00000000
 A _CODE size 0 flags 0 addr 0
 A _DATA size 0 flags 0 addr 0
-A _INITIALIZED size 24 flags 0 addr 0
-S _Man_Map Def00000000
-S G$Man_Map$0_0$0 Def00000000
+A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
-A _INITIALIZER size 24 flags 0 addr 0
-S FMan_Map$__xinit_Man_Map$0_0$0 Def00000000
+A _CODE_5 size 24 flags 0 addr 0
+S _Man_Map Def00000000
+S G$Man_Map$0_0$0 Def00000000
+A _INITIALIZER size 0 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
-T 00 00 00 00
-R 00 00 02 00
-T 00 00 00 00
-R 00 00 02 00
 T 00 00 00 00
 R 00 00 07 00
 T 00 00 00 00 80 86 8B 99 95 80 81 87 8C 9A 87 90

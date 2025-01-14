@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Drunk_Map$0_0$0==.
-_Drunk_Map::
-	.ds 24
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Drunk_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FDrunk_Map$__xinit_Drunk_Map$0_0$0 == .
-__xinit__Drunk_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$Drunk_Map$0_0$0 == .
+_Drunk_Map:
 	.db #0x81	; 129
 	.db #0x87	; 135
 	.db #0x8d	; 141
@@ -71,4 +67,5 @@ __xinit__Drunk_Map:
 	.db #0x8c	; 140
 	.db #0x92	; 146
 	.db #0x97	; 151
+	.area _INITIALIZER
 	.area _CABS (ABS)

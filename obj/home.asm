@@ -44,20 +44,20 @@ _Home::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
+	.area _CODE_3
 	G$returnCollisionValue$0$0	= .
 	.globl	G$returnCollisionValue$0$0
-	C$home.c$390$0_0$2	= .
-	.globl	C$home.c$390$0_0$2
-;res\home.c:390: char returnCollisionValue(uint8_t x_pos, uint8_t y_pos)
+	C$home.c$392$0_0$2	= .
+	.globl	C$home.c$392$0_0$2
+;res\maps\home.c:392: char returnCollisionValue(uint8_t x_pos, uint8_t y_pos)
 ;	---------------------------------
 ; Function returnCollisionValue
 ; ---------------------------------
 _returnCollisionValue::
 	ld	c, a
-	C$home.c$392$1_0$2	= .
-	.globl	C$home.c$392$1_0$2
-;res\home.c:392: return HOME_COLLISION[y_pos][x_pos];
+	C$home.c$394$1_0$2	= .
+	.globl	C$home.c$394$1_0$2
+;res\maps\home.c:394: return HOME_COLLISION[y_pos][x_pos];
 	ld	d, #0x00
 	ld	l, e
 	ld	h, d
@@ -73,11 +73,11 @@ _returnCollisionValue::
 	ld	d, #0x00
 	add	hl, de
 	ld	a, (hl)
-	C$home.c$393$1_0$2	= .
-	.globl	C$home.c$393$1_0$2
-;res\home.c:393: }
-	C$home.c$393$1_0$2	= .
-	.globl	C$home.c$393$1_0$2
+	C$home.c$395$1_0$2	= .
+	.globl	C$home.c$395$1_0$2
+;res\maps\home.c:395: }
+	C$home.c$395$1_0$2	= .
+	.globl	C$home.c$395$1_0$2
 	XG$returnCollisionValue$0$0	= .
 	.globl	XG$returnCollisionValue$0$0
 	ret
@@ -713,7 +713,7 @@ _HOME_COLLISION:
 	.db #0x30	;  48	'0'
 	.db #0x30	;  48	'0'
 	.db #0x30	;  48	'0'
-	.area _CODE
+	.area _CODE_3
 	.area _INITIALIZER
 Fhome$__xinit_Home$0_0$0 == .
 __xinit__Home:

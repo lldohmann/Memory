@@ -4,10 +4,16 @@
 
 #ifndef _COREGAMELOOP
 #define _COREGAMELOOP
-void CoreGameLoopSetup(void);
 
-void set_camera(void);
+extern const uint8_t const_bank_ID_core;
+BANKREF_EXTERN(const_bank_ID_core)
 
-uint8_t CoreGameLoopUpdate(void);
+void CoreGameLoopSetup(void) BANKED;
+BANKREF_EXTERN(CoreGameLoopSetup)
 
+void set_camera(void) BANKED;
+BANKREF_EXTERN(set_camera)
+
+uint8_t CoreGameLoopUpdate(void) BANKED;
+BANKREF_EXTERN(CoreGameLoopUpdate)
 #endif

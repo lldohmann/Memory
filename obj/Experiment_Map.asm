@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Experiment_Map$0_0$0==.
-_Experiment_Map::
-	.ds 35
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Experiment_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FExperiment_Map$__xinit_Experiment_Map$0_0$0 == .
-__xinit__Experiment_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$Experiment_Map$0_0$0 == .
+_Experiment_Map:
 	.db #0x80	; 128
 	.db #0x80	; 128
 	.db #0x8c	; 140
@@ -82,4 +78,5 @@ __xinit__Experiment_Map:
 	.db #0x80	; 128
 	.db #0x97	; 151
 	.db #0x9c	; 156
+	.area _INITIALIZER
 	.area _CABS (ABS)

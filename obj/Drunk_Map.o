@@ -1,24 +1,20 @@
 XL4
-H 9 areas 4 global symbols
+H A areas 3 global symbols
 M Drunk_Map
 O -msm83
 S .__.ABS. Def00000000
 A _CODE size 0 flags 0 addr 0
 A _DATA size 0 flags 0 addr 0
-A _INITIALIZED size 18 flags 0 addr 0
-S _Drunk_Map Def00000000
-S G$Drunk_Map$0_0$0 Def00000000
+A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
-A _INITIALIZER size 18 flags 0 addr 0
-S FDrunk_Map$__xinit_Drunk_Map$0_0$0 Def00000000
+A _CODE_5 size 18 flags 0 addr 0
+S _Drunk_Map Def00000000
+S G$Drunk_Map$0_0$0 Def00000000
+A _INITIALIZER size 0 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
-T 00 00 00 00
-R 00 00 02 00
-T 00 00 00 00
-R 00 00 02 00
 T 00 00 00 00
 R 00 00 07 00
 T 00 00 00 00 81 87 8D 80 82 88 8E 93 83 89 8F 94

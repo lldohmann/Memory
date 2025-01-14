@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Battle_Map$0_0$0==.
-_Battle_Map::
-	.ds 460
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Battle_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FBattle_Map$__xinit_Battle_Map$0_0$0 == .
-__xinit__Battle_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$Battle_Map$0_0$0 == .
+_Battle_Map:
 	.db #0x2d	; 45
 	.db #0x30	; 48	'0'
 	.db #0x30	; 48	'0'
@@ -507,4 +503,5 @@ __xinit__Battle_Map:
 	.db #0x31	; 49	'1'
 	.db #0x31	; 49	'1'
 	.db #0x34	; 52	'4'
+	.area _INITIALIZER
 	.area _CABS (ABS)

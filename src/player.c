@@ -1,3 +1,5 @@
+#pragma bank 3
+
 #include <gb/gb.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -5,7 +7,7 @@
 #include <gb/metasprites.h> 
 #include "../src/player.h"
 #include "../src/common.h"
-#include "../res/home.h"
+#include "../res/maps/home.h"
 
 #pragma region InitializePlayerGraphics
 // Visual Aspects of player logic

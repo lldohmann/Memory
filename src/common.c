@@ -1,3 +1,5 @@
+#pragma bank 0
+
 #include <gb/gb.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -10,7 +12,7 @@
 uint8_t joypadPrevious = 0;
 uint8_t joypadCurrent = 0;
 int8_t index = 0;
-void performantdelay(uint8_t numloops)
+void performantdelay(uint8_t numloops) NONBANKED
 {
     for (uint8_t i = 0; i < numloops; i++)
     {
@@ -19,7 +21,7 @@ void performantdelay(uint8_t numloops)
 }
 
 // CUSTOM FUNCTION TO PRINT NUMBERS OF A SPECIFIED AMOUNT OF DIGITS
-void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits, BOOLEAN bkg)
+void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits, BOOLEAN bkg) NONBANKED
 {
     unsigned char buffer[8]={'0', '0', '0', '0', '0', '0', '0', '0'};
 
@@ -55,8 +57,8 @@ void DrawNumber(uint8_t x, uint8_t y, uint16_t number, uint8_t digits, BOOLEAN b
     }
 }
 
-void DrawText(uint8_t x, uint8_t y, unsigned char *text, BOOLEAN bkg ){
-
+void DrawText(uint8_t x, uint8_t y, unsigned char *text, BOOLEAN bkg ) NONBANKED
+{
     uint8_t i=0;
 
     // The VRAM address of the first character
@@ -97,8 +99,7 @@ void DrawText(uint8_t x, uint8_t y, unsigned char *text, BOOLEAN bkg ){
 
 }
 
-
-void fadeToBlack(uint8_t frames)
+void fadeToBlack(uint8_t frames) NONBANKED
 {
     for (uint8_t i = 0; i < 4; i++)
     {
@@ -125,7 +126,7 @@ void fadeToBlack(uint8_t frames)
     }
 }
 
-void fadeFromBlack(uint8_t frames)
+void fadeFromBlack(uint8_t frames) NONBANKED
 {
     for (uint8_t i = 0; i < 4; i++)
     {
@@ -152,7 +153,7 @@ void fadeFromBlack(uint8_t frames)
     }
 }
 
-void fadeToWhite(uint8_t frames)
+void fadeToWhite(uint8_t frames) NONBANKED
 {
     for (uint8_t i = 0; i < 5; i++)
     {
@@ -183,7 +184,7 @@ void fadeToWhite(uint8_t frames)
     }
 }
 
-void fadeFromWhite(uint8_t frames)
+void fadeFromWhite(uint8_t frames) NONBANKED
 {
     for (uint8_t i = 0; i < 4; i++)
     {
@@ -210,25 +211,25 @@ void fadeFromWhite(uint8_t frames)
     }
 }
 
-void InvertColor(void)
+void InvertColor(void) NONBANKED
 {
     BGP_REG = DMG_PALETTE(DMG_BLACK, DMG_DARK_GRAY, DMG_LITE_GRAY, DMG_WHITE);
     OBP0_REG = DMG_PALETTE(DMG_BLACK, DMG_DARK_GRAY, DMG_LITE_GRAY, DMG_WHITE);
 }
 
-void ResetColor(void)
+void ResetColor(void) NONBANKED
 {
     BGP_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
     OBP0_REG = DMG_PALETTE(DMG_WHITE, DMG_LITE_GRAY, DMG_DARK_GRAY, DMG_BLACK);
 }
 
-uint8_t RandomNumber(uint8_t min, uint8_t max)
+uint8_t RandomNumber(uint8_t min, uint8_t max) NONBANKED
 {
     // get value at memory address
     return min + (DIV_REG % (max - min)); 
 }
 
-void DrawWindow(uint8_t x, uint8_t y, uint8_t width, uint8_t height, BOOLEAN bkg)
+void DrawWindow(uint8_t x, uint8_t y, uint8_t width, uint8_t height, BOOLEAN bkg) NONBANKED
 {
     // The VRAM address of the first character
     // After setting a tile, we'll increase the VRAM address each iteration to move to the next tile

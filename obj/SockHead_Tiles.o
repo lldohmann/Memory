@@ -1,24 +1,20 @@
 XL4
-H 9 areas 4 global symbols
+H A areas 3 global symbols
 M SockHead_Tiles
 O -msm83
 S .__.ABS. Def00000000
 A _CODE size 0 flags 0 addr 0
 A _DATA size 0 flags 0 addr 0
-A _INITIALIZED size 150 flags 0 addr 0
-S _SockHead_Tiles Def00000000
-S G$SockHead_Tiles$0_0$0 Def00000000
+A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
-A _INITIALIZER size 150 flags 0 addr 0
-S FSockHead_Tiles$__xinit_SockHead_Tiles$0_0$0 Def00000000
+A _CODE_5 size 150 flags 0 addr 0
+S _SockHead_Tiles Def00000000
+S G$SockHead_Tiles$0_0$0 Def00000000
+A _INITIALIZER size 0 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
-T 00 00 00 00
-R 00 00 02 00
-T 00 00 00 00
-R 00 00 02 00
 T 00 00 00 00
 R 00 00 07 00
 T 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00

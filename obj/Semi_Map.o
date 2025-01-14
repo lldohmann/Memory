@@ -1,26 +1,27 @@
 XL4
-H 9 areas 3 global symbols
+H A areas 3 global symbols
 M Semi_Map
 O -msm83
 S .__.ABS. Def00000000
-A _CODE size 30 flags 0 addr 0
-S _Semi_Map Def00000000
-S G$Semi_Map$0_0$0 Def00000000
+A _CODE size 0 flags 0 addr 0
 A _DATA size 0 flags 0 addr 0
 A _INITIALIZED size 0 flags 0 addr 0
 A _DABS size 0 flags 8 addr 0
 A _HOME size 0 flags 0 addr 0
 A _GSINIT size 0 flags 0 addr 0
 A _GSFINAL size 0 flags 0 addr 0
+A _CODE_5 size 30 flags 0 addr 0
+S _Semi_Map Def00000000
+S G$Semi_Map$0_0$0 Def00000000
 A _INITIALIZER size 0 flags 0 addr 0
 A _CABS size 0 flags 8 addr 0
 T 00 00 00 00
-R 00 00 00 00
+R 00 00 07 00
 T 00 00 00 00 80 88 90 98 A0 A8 81 89 91 99 A1 A9
-R 00 00 00 00
+R 00 00 07 00
 T 0C 00 00 00 82 8A 92 9A A2 AA 83 8B 93 9B A3 AA
-R 00 00 00 00
+R 00 00 07 00
 T 18 00 00 00 84 8C 94 9C A4 AB 85 8D 95 9D A5 AC
-R 00 00 00 00
+R 00 00 07 00
 T 24 00 00 00 86 8E 96 9E A6 AD 87 8F 97 9F A7 AE
-R 00 00 00 00
+R 00 00 07 00

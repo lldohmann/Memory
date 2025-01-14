@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$WallyTiles$0_0$0==.
-_WallyTiles::
-	.ds 448
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _WallyTiles::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FWally_Tiles$__xinit_WallyTiles$0_0$0 == .
-__xinit__WallyTiles:
+	.area _CODE_5
+	.area _CODE_5
+G$WallyTiles$0_0$0 == .
+_WallyTiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
@@ -495,4 +491,5 @@ __xinit__WallyTiles:
 	.db #0x00	; 0
 	.db #0x00	; 0
 	.db #0x00	; 0
+	.area _INITIALIZER
 	.area _CABS (ABS)

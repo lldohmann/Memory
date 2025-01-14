@@ -22,19 +22,25 @@ void main(void)
             switch (currentGameState)
             {
             case GAMETITLE:
+                SWITCH_ROM(BANK(const_bank_ID_title));
                 GameTitleSetup();
                 break;
             case GAMEJOHNDOE:
+                SWITCH_ROM(BANK(const_bank_ID_John));
                 GameJohnDoeSetup();
                 break;
             case COREGAMELOOP:
+                SWITCH_ROM(BANK(const_bank_ID_core));
                 CoreGameLoopSetup();
                 break;
             case BESTIARY:
+                SWITCH_ROM(BANK(const_bank_ID_bestiary));
                 BestiarySetup();
                 break;
             case BATTLE:
+                SWITCH_ROM(BANK(const_bank_ID_battle));
                 BattleSetup();
+                break;
             default:
                 break;
             }

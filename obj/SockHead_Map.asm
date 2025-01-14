@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$SockHead_Map$0_0$0==.
-_SockHead_Map::
-	.ds 28
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _SockHead_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FSockHead_Map$__xinit_SockHead_Map$0_0$0 == .
-__xinit__SockHead_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$SockHead_Map$0_0$0 == .
+_SockHead_Map:
 	.db #0x80	; 128
 	.db #0x80	; 128
 	.db #0x8c	; 140
@@ -75,4 +71,5 @@ __xinit__SockHead_Map:
 	.db #0x8b	; 139
 	.db #0x92	; 146
 	.db #0x93	; 147
+	.area _INITIALIZER
 	.area _CABS (ABS)

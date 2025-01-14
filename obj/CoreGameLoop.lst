@@ -8,1132 +8,1206 @@
                                       8 ;--------------------------------------------------------
                                       9 ; Public variables in this module
                                      10 ;--------------------------------------------------------
-                                     11 	.globl _CoreGameLoopUpdate
-                                     12 	.globl _CoreGameLoopSetup
-                                     13 	.globl _set_camera
-                                     14 	.globl _DrawWindow
-                                     15 	.globl _fadeFromBlack
-                                     16 	.globl _fadeToBlack
-                                     17 	.globl _DrawText
-                                     18 	.globl _DrawNumber
-                                     19 	.globl _DrawPlayer
-                                     20 	.globl _PlayerUpdate
-                                     21 	.globl _set_sprite_data
-                                     22 	.globl _set_bkg_submap
-                                     23 	.globl _set_bkg_data
-                                     24 	.globl _wait_vbl_done
-                                     25 	.globl _joypad
-                                     26 	.globl _mouse
-                                     27 	.globl _camera_pixel_goal_y
-                                     28 	.globl _camera_pixel_goal_x
-                                     29 	.globl _redraw
-                                     30 	.globl _old_map_pos_y_tiles
-                                     31 	.globl _old_map_pos_x_tiles
-                                     32 	.globl _map_pos_y_tiles
-                                     33 	.globl _map_pos_x_tiles
-                                     34 	.globl _old_camera_y_pixels
-                                     35 	.globl _old_camera_x_pixels
-                                     36 	.globl _camera_y_pixels
-                                     37 	.globl _camera_x_pixels
-                                     38 ;--------------------------------------------------------
-                                     39 ; special function registers
-                                     40 ;--------------------------------------------------------
-                                     41 ;--------------------------------------------------------
-                                     42 ; ram data
-                                     43 ;--------------------------------------------------------
-                                     44 	.area _DATA
-                         00000000    45 G$camera_x_pixels$0_0$0==.
-    00000000                         46 _camera_x_pixels::
-    00000000                         47 	.ds 2
-                         00000002    48 G$camera_y_pixels$0_0$0==.
-    00000002                         49 _camera_y_pixels::
-    00000002                         50 	.ds 2
-                         00000004    51 G$old_camera_x_pixels$0_0$0==.
-    00000004                         52 _old_camera_x_pixels::
-    00000004                         53 	.ds 2
-                         00000006    54 G$old_camera_y_pixels$0_0$0==.
-    00000006                         55 _old_camera_y_pixels::
-    00000006                         56 	.ds 2
-                         00000008    57 G$map_pos_x_tiles$0_0$0==.
-    00000008                         58 _map_pos_x_tiles::
-    00000008                         59 	.ds 1
-                         00000009    60 G$map_pos_y_tiles$0_0$0==.
-    00000009                         61 _map_pos_y_tiles::
-    00000009                         62 	.ds 1
-                         0000000A    63 G$old_map_pos_x_tiles$0_0$0==.
-    0000000A                         64 _old_map_pos_x_tiles::
-    0000000A                         65 	.ds 1
-                         0000000B    66 G$old_map_pos_y_tiles$0_0$0==.
-    0000000B                         67 _old_map_pos_y_tiles::
-    0000000B                         68 	.ds 1
-                         0000000C    69 G$redraw$0_0$0==.
-    0000000C                         70 _redraw::
-    0000000C                         71 	.ds 1
-                         0000000D    72 G$camera_pixel_goal_x$0_0$0==.
-    0000000D                         73 _camera_pixel_goal_x::
-    0000000D                         74 	.ds 1
-                         0000000E    75 G$camera_pixel_goal_y$0_0$0==.
-    0000000E                         76 _camera_pixel_goal_y::
-    0000000E                         77 	.ds 1
-                                     78 ;--------------------------------------------------------
-                                     79 ; ram data
-                                     80 ;--------------------------------------------------------
-                                     81 	.area _INITIALIZED
-                         00000000    82 G$mouse$0_0$0==.
-    00000000                         83 _mouse::
-    00000000                         84 	.ds 12
-                                     85 ;--------------------------------------------------------
-                                     86 ; absolute external ram data
-                                     87 ;--------------------------------------------------------
-                                     88 	.area _DABS (ABS)
-                                     89 ;--------------------------------------------------------
-                                     90 ; global & static initialisations
-                                     91 ;--------------------------------------------------------
-                                     92 	.area _HOME
-                                     93 	.area _GSINIT
-                                     94 	.area _GSFINAL
-                                     95 	.area _GSINIT
-                                     96 ;--------------------------------------------------------
-                                     97 ; Home
-                                     98 ;--------------------------------------------------------
-                                     99 	.area _HOME
-                                    100 	.area _HOME
+                                     11 	.globl b_CoreGameLoopUpdate
+                                     12 	.globl _CoreGameLoopUpdate
+                                     13 	.globl b___func_CoreGameLoopUpdate
+                                     14 	.globl ___func_CoreGameLoopUpdate
+                                     15 	.globl b_CoreGameLoopSetup
+                                     16 	.globl _CoreGameLoopSetup
+                                     17 	.globl b___func_CoreGameLoopSetup
+                                     18 	.globl ___func_CoreGameLoopSetup
+                                     19 	.globl b_set_camera
+                                     20 	.globl _set_camera
+                                     21 	.globl b___func_set_camera
+                                     22 	.globl ___func_set_camera
+                                     23 	.globl b___func_const_bank_ID_core
+                                     24 	.globl ___func_const_bank_ID_core
+                                     25 	.globl _DrawWindow
+                                     26 	.globl _fadeFromBlack
+                                     27 	.globl _fadeToBlack
+                                     28 	.globl _DrawText
+                                     29 	.globl _DrawNumber
+                                     30 	.globl _DrawPlayer
+                                     31 	.globl _PlayerUpdate
+                                     32 	.globl _set_sprite_data
+                                     33 	.globl _set_bkg_submap
+                                     34 	.globl _set_bkg_data
+                                     35 	.globl _wait_vbl_done
+                                     36 	.globl _joypad
+                                     37 	.globl _mouse
+                                     38 	.globl _camera_pixel_goal_y
+                                     39 	.globl _camera_pixel_goal_x
+                                     40 	.globl _redraw
+                                     41 	.globl _old_map_pos_y_tiles
+                                     42 	.globl _old_map_pos_x_tiles
+                                     43 	.globl _map_pos_y_tiles
+                                     44 	.globl _map_pos_x_tiles
+                                     45 	.globl _old_camera_y_pixels
+                                     46 	.globl _old_camera_x_pixels
+                                     47 	.globl _camera_y_pixels
+                                     48 	.globl _camera_x_pixels
+                                     49 	.globl _const_bank_ID_core
+                                     50 ;--------------------------------------------------------
+                                     51 ; special function registers
+                                     52 ;--------------------------------------------------------
+                                     53 ;--------------------------------------------------------
+                                     54 ; ram data
+                                     55 ;--------------------------------------------------------
+                                     56 	.area _DATA
+                         00000000    57 G$camera_x_pixels$0_0$0==.
+    00000000                         58 _camera_x_pixels::
+    00000000                         59 	.ds 2
+                         00000002    60 G$camera_y_pixels$0_0$0==.
+    00000002                         61 _camera_y_pixels::
+    00000002                         62 	.ds 2
+                         00000004    63 G$old_camera_x_pixels$0_0$0==.
+    00000004                         64 _old_camera_x_pixels::
+    00000004                         65 	.ds 2
+                         00000006    66 G$old_camera_y_pixels$0_0$0==.
+    00000006                         67 _old_camera_y_pixels::
+    00000006                         68 	.ds 2
+                         00000008    69 G$map_pos_x_tiles$0_0$0==.
+    00000008                         70 _map_pos_x_tiles::
+    00000008                         71 	.ds 1
+                         00000009    72 G$map_pos_y_tiles$0_0$0==.
+    00000009                         73 _map_pos_y_tiles::
+    00000009                         74 	.ds 1
+                         0000000A    75 G$old_map_pos_x_tiles$0_0$0==.
+    0000000A                         76 _old_map_pos_x_tiles::
+    0000000A                         77 	.ds 1
+                         0000000B    78 G$old_map_pos_y_tiles$0_0$0==.
+    0000000B                         79 _old_map_pos_y_tiles::
+    0000000B                         80 	.ds 1
+                         0000000C    81 G$redraw$0_0$0==.
+    0000000C                         82 _redraw::
+    0000000C                         83 	.ds 1
+                         0000000D    84 G$camera_pixel_goal_x$0_0$0==.
+    0000000D                         85 _camera_pixel_goal_x::
+    0000000D                         86 	.ds 1
+                         0000000E    87 G$camera_pixel_goal_y$0_0$0==.
+    0000000E                         88 _camera_pixel_goal_y::
+    0000000E                         89 	.ds 1
+                                     90 ;--------------------------------------------------------
+                                     91 ; ram data
+                                     92 ;--------------------------------------------------------
+                                     93 	.area _INITIALIZED
+                         00000000    94 G$mouse$0_0$0==.
+    00000000                         95 _mouse::
+    00000000                         96 	.ds 12
+                                     97 ;--------------------------------------------------------
+                                     98 ; absolute external ram data
+                                     99 ;--------------------------------------------------------
+                                    100 	.area _DABS (ABS)
                                     101 ;--------------------------------------------------------
-                                    102 ; code
+                                    102 ; global & static initialisations
                                     103 ;--------------------------------------------------------
-                                    104 	.area _CODE
-                         00000000   105 	G$set_camera$0$0	= .
-                                    106 	.globl	G$set_camera$0$0
-                         00000000   107 	C$CoreGameLoop.c$22$0_0$146	= .
-                                    108 	.globl	C$CoreGameLoop.c$22$0_0$146
-                                    109 ;src\CoreGameLoop.c:22: void set_camera(void)
-                                    110 ;	---------------------------------
-                                    111 ; Function set_camera
-                                    112 ; ---------------------------------
-    00000000                        113 _set_camera::
-    00000000 E8 FD            [16]  114 	add	sp, #-3
-                         00000002   115 	C$CoreGameLoop.c$25$1_0$146	= .
-                                    116 	.globl	C$CoreGameLoop.c$25$1_0$146
-                                    117 ;src\CoreGameLoop.c:25: SCY_REG = camera_y_pixels; SCX_REG = camera_x_pixels;
-    00000002 FAr02r00         [16]  118 	ld	a, (#_camera_y_pixels)
-    00000005 E0r00            [12]  119 	ldh	(_SCY_REG + 0), a
-    00000007 FAr00r00         [16]  120 	ld	a, (#_camera_x_pixels)
-    0000000A E0r00            [12]  121 	ldh	(_SCX_REG + 0), a
-                         0000000C   122 	C$CoreGameLoop.c$27$1_0$146	= .
-                                    123 	.globl	C$CoreGameLoop.c$27$1_0$146
-                                    124 ;src\CoreGameLoop.c:27: map_pos_y_tiles = (uint8_t)(camera_y_pixels >> 3u);
-    0000000C 21r02r00         [12]  125 	ld	hl, #_camera_y_pixels
-    0000000F 2A               [ 8]  126 	ld	a, (hl+)
-    00000010 4F               [ 4]  127 	ld	c, a
-    00000011 46               [ 8]  128 	ld	b, (hl)
-    00000012 CB 38            [ 8]  129 	srl	b
-    00000014 CB 19            [ 8]  130 	rr	c
-    00000016 CB 38            [ 8]  131 	srl	b
-    00000018 CB 19            [ 8]  132 	rr	c
-    0000001A CB 38            [ 8]  133 	srl	b
-    0000001C CB 19            [ 8]  134 	rr	c
-    0000001E 21r09r00         [12]  135 	ld	hl, #_map_pos_y_tiles
-    00000021 71               [ 8]  136 	ld	(hl), c
-                         00000022   137 	C$CoreGameLoop.c$32$1_0$146	= .
-                                    138 	.globl	C$CoreGameLoop.c$32$1_0$146
-                                    139 ;src\CoreGameLoop.c:32: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
-    00000022 4E               [ 8]  140 	ld	c, (hl)
-                         00000023   141 	C$CoreGameLoop.c$28$1_0$146	= .
-                                    142 	.globl	C$CoreGameLoop.c$28$1_0$146
-                                    143 ;src\CoreGameLoop.c:28: if (map_pos_y_tiles != old_map_pos_y_tiles)
-    00000023 7E               [ 8]  144 	ld	a, (hl)
-    00000024 21r0Br00         [12]  145 	ld	hl, #_old_map_pos_y_tiles
-    00000027 96               [ 8]  146 	sub	a, (hl)
-    00000028 CArD2r00         [16]  147 	jp	Z,00107$
-                         0000002B   148 	C$CoreGameLoop.c$32$1_0$146	= .
-                                    149 	.globl	C$CoreGameLoop.c$32$1_0$146
-                                    150 ;src\CoreGameLoop.c:32: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
-    0000002B 21r08r00         [12]  151 	ld	hl, #_map_pos_x_tiles
-    0000002E 5E               [ 8]  152 	ld	e, (hl)
-    0000002F 16 00            [ 8]  153 	ld	d, #0x00
-    00000031 46               [ 8]  154 	ld	b, (hl)
-    00000032 7E               [ 8]  155 	ld	a, (hl)
-    00000033 F8 00            [12]  156 	ldhl	sp,	#0
-    00000035 22               [ 8]  157 	ld	(hl+), a
-    00000036 3E 31            [ 8]  158 	ld	a, #0x31
-    00000038 93               [ 4]  159 	sub	a, e
-    00000039 5F               [ 4]  160 	ld	e, a
-    0000003A 9F               [ 4]  161 	sbc	a, a
-    0000003B 92               [ 4]  162 	sub	a, d
-    0000003C 57               [ 4]  163 	ld	d, a
-    0000003D 3E 31            [ 8]  164 	ld	a, #0x31
-    0000003F 90               [ 4]  165 	sub	a, b
-    00000040 22               [ 8]  166 	ld	(hl+), a
-    00000041 07               [ 4]  167 	rlca
-    00000042 9F               [ 4]  168 	sbc	a, a
-    00000043 77               [ 8]  169 	ld	(hl), a
-    00000044 3E 15            [ 8]  170 	ld	a, #0x15
-    00000046 BB               [ 4]  171 	cp	a, e
-    00000047 3E 00            [ 8]  172 	ld	a, #0x00
-    00000049 9A               [ 4]  173 	sbc	a, d
-    0000004A 3E 00            [ 8]  174 	ld	a, #0x00
-    0000004C 17               [ 4]  175 	rla
-    0000004D 47               [ 4]  176 	ld	b, a
-                         0000004E   177 	C$CoreGameLoop.c$30$2_0$147	= .
-                                    178 	.globl	C$CoreGameLoop.c$30$2_0$147
-                                    179 ;src\CoreGameLoop.c:30: if (camera_y_pixels < old_camera_y_pixels) // if camera is moving up
-    0000004E 11r02r00         [12]  180 	ld	de, #_camera_y_pixels
-    00000051 21r06r00         [12]  181 	ld	hl, #_old_camera_y_pixels
-    00000054 1A               [ 8]  182 	ld	a, (de)
-    00000055 13               [ 8]  183 	inc	de
-    00000056 96               [ 8]  184 	sub	a, (hl)
-    00000057 23               [ 8]  185 	inc	hl
-    00000058 1A               [ 8]  186 	ld	a, (de)
-    00000059 9E               [ 8]  187 	sbc	a, (hl)
-    0000005A 30 30            [12]  188 	jr	NC, 00104$
-                                    189 ;src\CoreGameLoop.c:32: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
-    0000005C 78               [ 4]  190 	ld	a, b
-    0000005D B7               [ 4]  191 	or	a, a
-    0000005E 28 04            [12]  192 	jr	Z, 00121$
-    00000060 3E 15            [ 8]  193 	ld	a, #0x15
-    00000062 18 04            [12]  194 	jr	00122$
-    00000064                        195 00121$:
-    00000064 F8 01            [12]  196 	ldhl	sp,	#1
-    00000066 2A               [ 8]  197 	ld	a, (hl+)
-    00000067 46               [ 8]  198 	ld	b, (hl)
-    00000068                        199 00122$:
-                                    200 ;c:\gbdk\include\gb\gb.h:1303: _submap_tile_offset = base_tile;
-    00000068 21r00r00         [12]  201 	ld	hl, #__submap_tile_offset
-    0000006B 36 80            [12]  202 	ld	(hl), #0x80
-                                    203 ;c:\gbdk\include\gb\gb.h:1304: set_bkg_submap(x, y, w, h, map, map_w);
-    0000006D 26 31            [ 8]  204 	ld	h, #0x31
-                                    205 ;	spillPairReg hl
-                                    206 ;	spillPairReg hl
-    0000006F E5               [16]  207 	push	hl
-    00000070 33               [ 8]  208 	inc	sp
-    00000071 11r00r00         [12]  209 	ld	de, #_Home
-    00000074 D5               [16]  210 	push	de
-    00000075 26 01            [ 8]  211 	ld	h, #0x01
-                                    212 ;	spillPairReg hl
-                                    213 ;	spillPairReg hl
-    00000077 E5               [16]  214 	push	hl
-    00000078 33               [ 8]  215 	inc	sp
-    00000079 47               [ 4]  216 	ld	b, a
-    0000007A C5               [16]  217 	push	bc
-    0000007B F8 06            [12]  218 	ldhl	sp,	#6
-    0000007D 7E               [ 8]  219 	ld	a, (hl)
-    0000007E F5               [16]  220 	push	af
-    0000007F 33               [ 8]  221 	inc	sp
-    00000080 CDr00r00         [24]  222 	call	_set_bkg_submap
-    00000083 E8 07            [16]  223 	add	sp, #7
-                                    224 ;c:\gbdk\include\gb\gb.h:1305: _submap_tile_offset = 0;
-    00000085 21r00r00         [12]  225 	ld	hl, #__submap_tile_offset
-    00000088 36 00            [12]  226 	ld	(hl), #0x00
-                         0000008A   227 	C$CoreGameLoop.c$32$2_0$147	= .
-                                    228 	.globl	C$CoreGameLoop.c$32$2_0$147
-                                    229 ;src\CoreGameLoop.c:32: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
-    0000008A 18 3E            [12]  230 	jr	00105$
-    0000008C                        231 00104$:
-                         0000008C   232 	C$CoreGameLoop.c$36$3_0$149	= .
-                                    233 	.globl	C$CoreGameLoop.c$36$3_0$149
-                                    234 ;src\CoreGameLoop.c:36: if ((HomeHeight - 18u) > map_pos_y_tiles) // (have we touched the bottom of the map?) if not then...
-    0000008C FAr09r00         [16]  235 	ld	a, (#_map_pos_y_tiles)
-    0000008F D6 30            [ 8]  236 	sub	a, #0x30
-    00000091 30 37            [12]  237 	jr	NC, 00105$
-                                    238 ;src\CoreGameLoop.c:38: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles + 18u, MIN(21u, HomeWidth - map_pos_x_tiles), 1, Home, HomeWidth, 128);
-    00000093 11r00r00         [12]  239 	ld	de, #_Home
-    00000096 78               [ 4]  240 	ld	a, b
-    00000097 B7               [ 4]  241 	or	a, a
-    00000098 28 04            [12]  242 	jr	Z, 00123$
-    0000009A 0E 15            [ 8]  243 	ld	c, #0x15
-    0000009C 18 05            [12]  244 	jr	00124$
-    0000009E                        245 00123$:
-    0000009E F8 01            [12]  246 	ldhl	sp,	#1
-    000000A0 2A               [ 8]  247 	ld	a, (hl+)
-    000000A1 4F               [ 4]  248 	ld	c, a
-    000000A2 7E               [ 8]  249 	ld	a, (hl)
-    000000A3                        250 00124$:
-    000000A3 FAr09r00         [16]  251 	ld	a, (#_map_pos_y_tiles)
-    000000A6 C6 12            [ 8]  252 	add	a, #0x12
-                                    253 ;c:\gbdk\include\gb\gb.h:1303: _submap_tile_offset = base_tile;
-    000000A8 21r00r00         [12]  254 	ld	hl, #__submap_tile_offset
-    000000AB 36 80            [12]  255 	ld	(hl), #0x80
-                                    256 ;c:\gbdk\include\gb\gb.h:1304: set_bkg_submap(x, y, w, h, map, map_w);
-    000000AD 26 31            [ 8]  257 	ld	h, #0x31
-                                    258 ;	spillPairReg hl
-                                    259 ;	spillPairReg hl
-    000000AF E5               [16]  260 	push	hl
-    000000B0 33               [ 8]  261 	inc	sp
-    000000B1 D5               [16]  262 	push	de
-    000000B2 26 01            [ 8]  263 	ld	h, #0x01
-                                    264 ;	spillPairReg hl
-                                    265 ;	spillPairReg hl
-    000000B4 E5               [16]  266 	push	hl
-    000000B5 33               [ 8]  267 	inc	sp
-    000000B6 61               [ 4]  268 	ld	h, c
-                                    269 ;	spillPairReg hl
-                                    270 ;	spillPairReg hl
-    000000B7 E5               [16]  271 	push	hl
-    000000B8 33               [ 8]  272 	inc	sp
-    000000B9 F5               [16]  273 	push	af
-    000000BA 33               [ 8]  274 	inc	sp
-    000000BB F8 06            [12]  275 	ldhl	sp,	#6
-    000000BD 7E               [ 8]  276 	ld	a, (hl)
-    000000BE F5               [16]  277 	push	af
-    000000BF 33               [ 8]  278 	inc	sp
-    000000C0 CDr00r00         [24]  279 	call	_set_bkg_submap
-    000000C3 E8 07            [16]  280 	add	sp, #7
-                                    281 ;c:\gbdk\include\gb\gb.h:1305: _submap_tile_offset = 0;
-    000000C5 21r00r00         [12]  282 	ld	hl, #__submap_tile_offset
-    000000C8 36 00            [12]  283 	ld	(hl), #0x00
-                         000000CA   284 	C$CoreGameLoop.c$38$2_0$147	= .
-                                    285 	.globl	C$CoreGameLoop.c$38$2_0$147
-                                    286 ;src\CoreGameLoop.c:38: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles + 18u, MIN(21u, HomeWidth - map_pos_x_tiles), 1, Home, HomeWidth, 128);
-    000000CA                        287 00105$:
-                         000000CA   288 	C$CoreGameLoop.c$32$1_0$146	= .
-                                    289 	.globl	C$CoreGameLoop.c$32$1_0$146
-                                    290 ;src\CoreGameLoop.c:32: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
-    000000CA 21r09r00         [12]  291 	ld	hl, #_map_pos_y_tiles
-    000000CD 4E               [ 8]  292 	ld	c, (hl)
-                         000000CE   293 	C$CoreGameLoop.c$41$2_0$147	= .
-                                    294 	.globl	C$CoreGameLoop.c$41$2_0$147
-                                    295 ;src\CoreGameLoop.c:41: old_map_pos_y_tiles = map_pos_y_tiles;
-    000000CE 21r0Br00         [12]  296 	ld	hl, #_old_map_pos_y_tiles
-    000000D1 71               [ 8]  297 	ld	(hl), c
-    000000D2                        298 00107$:
-                         000000D2   299 	C$CoreGameLoop.c$44$1_0$146	= .
-                                    300 	.globl	C$CoreGameLoop.c$44$1_0$146
-                                    301 ;src\CoreGameLoop.c:44: map_pos_x_tiles = (uint8_t)(camera_x_pixels >> 3u);
-    000000D2 21r00r00         [12]  302 	ld	hl, #_camera_x_pixels
-    000000D5 2A               [ 8]  303 	ld	a, (hl+)
-    000000D6 47               [ 4]  304 	ld	b, a
-    000000D7 5E               [ 8]  305 	ld	e, (hl)
-    000000D8 CB 3B            [ 8]  306 	srl	e
-    000000DA CB 18            [ 8]  307 	rr	b
-    000000DC CB 3B            [ 8]  308 	srl	e
-    000000DE CB 18            [ 8]  309 	rr	b
-    000000E0 CB 3B            [ 8]  310 	srl	e
-    000000E2 CB 18            [ 8]  311 	rr	b
-    000000E4 21r08r00         [12]  312 	ld	hl, #_map_pos_x_tiles
-    000000E7 70               [ 8]  313 	ld	(hl), b
-                         000000E8   314 	C$CoreGameLoop.c$45$1_0$146	= .
-                                    315 	.globl	C$CoreGameLoop.c$45$1_0$146
-                                    316 ;src\CoreGameLoop.c:45: if (map_pos_x_tiles != old_map_pos_x_tiles)
-    000000E8 7E               [ 8]  317 	ld	a, (hl)
-    000000E9 21r0Ar00         [12]  318 	ld	hl, #_old_map_pos_x_tiles
-    000000EC 96               [ 8]  319 	sub	a, (hl)
-    000000ED CAr8Ar01         [16]  320 	jp	Z,00114$
-                         000000F0   321 	C$CoreGameLoop.c$49$1_0$146	= .
-                                    322 	.globl	C$CoreGameLoop.c$49$1_0$146
-                                    323 ;src\CoreGameLoop.c:49: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
-    000000F0 21r09r00         [12]  324 	ld	hl, #_map_pos_y_tiles
-    000000F3 5E               [ 8]  325 	ld	e, (hl)
-    000000F4 06 00            [ 8]  326 	ld	b, #0x00
-    000000F6 56               [ 8]  327 	ld	d, (hl)
-    000000F7 3E 42            [ 8]  328 	ld	a, #0x42
-    000000F9 93               [ 4]  329 	sub	a, e
-    000000FA 6F               [ 4]  330 	ld	l, a
-                                    331 ;	spillPairReg hl
-                                    332 ;	spillPairReg hl
-    000000FB 9F               [ 4]  333 	sbc	a, a
-    000000FC 90               [ 4]  334 	sub	a, b
-    000000FD 67               [ 4]  335 	ld	h, a
-                                    336 ;	spillPairReg hl
-                                    337 ;	spillPairReg hl
-    000000FE 3E 42            [ 8]  338 	ld	a, #0x42
-    00000100 92               [ 4]  339 	sub	a, d
-    00000101 5F               [ 4]  340 	ld	e, a
-    00000102 07               [ 4]  341 	rlca
-    00000103 9F               [ 4]  342 	sbc	a, a
-    00000104 57               [ 4]  343 	ld	d, a
-    00000105 3E 13            [ 8]  344 	ld	a, #0x13
-    00000107 BD               [ 4]  345 	cp	a, l
-    00000108 3E 00            [ 8]  346 	ld	a, #0x00
-    0000010A 9C               [ 4]  347 	sbc	a, h
-    0000010B 3E 00            [ 8]  348 	ld	a, #0x00
-    0000010D 17               [ 4]  349 	rla
-    0000010E 47               [ 4]  350 	ld	b, a
-                         0000010F   351 	C$CoreGameLoop.c$47$2_0$151	= .
-                                    352 	.globl	C$CoreGameLoop.c$47$2_0$151
-                                    353 ;src\CoreGameLoop.c:47: if (camera_x_pixels < old_camera_x_pixels)
-    0000010F D5               [16]  354 	push	de
-    00000110 11r00r00         [12]  355 	ld	de, #_camera_x_pixels
-    00000113 21r04r00         [12]  356 	ld	hl, #_old_camera_x_pixels
-    00000116 1A               [ 8]  357 	ld	a, (de)
-    00000117 13               [ 8]  358 	inc	de
-    00000118 96               [ 8]  359 	sub	a, (hl)
-    00000119 23               [ 8]  360 	inc	hl
-    0000011A 1A               [ 8]  361 	ld	a, (de)
-    0000011B 9E               [ 8]  362 	sbc	a, (hl)
-    0000011C D1               [12]  363 	pop	de
-    0000011D 30 2F            [12]  364 	jr	NC, 00111$
-                                    365 ;src\CoreGameLoop.c:49: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
-    0000011F 78               [ 4]  366 	ld	a, b
-    00000120 B7               [ 4]  367 	or	a, a
-    00000121 28 03            [12]  368 	jr	Z, 00125$
-    00000123 11 13 00         [12]  369 	ld	de, #0x0013
-    00000126                        370 00125$:
-    00000126 43               [ 4]  371 	ld	b, e
-    00000127 FAr08r00         [16]  372 	ld	a, (#_map_pos_x_tiles)
-                                    373 ;c:\gbdk\include\gb\gb.h:1303: _submap_tile_offset = base_tile;
-    0000012A 21r00r00         [12]  374 	ld	hl, #__submap_tile_offset
-    0000012D 36 80            [12]  375 	ld	(hl), #0x80
-                                    376 ;c:\gbdk\include\gb\gb.h:1304: set_bkg_submap(x, y, w, h, map, map_w);
-    0000012F 26 31            [ 8]  377 	ld	h, #0x31
-                                    378 ;	spillPairReg hl
-                                    379 ;	spillPairReg hl
-    00000131 E5               [16]  380 	push	hl
-    00000132 33               [ 8]  381 	inc	sp
-    00000133 11r00r00         [12]  382 	ld	de, #_Home
-    00000136 D5               [16]  383 	push	de
-    00000137 C5               [16]  384 	push	bc
-    00000138 33               [ 8]  385 	inc	sp
-    00000139 26 01            [ 8]  386 	ld	h, #0x01
-                                    387 ;	spillPairReg hl
-                                    388 ;	spillPairReg hl
-    0000013B E5               [16]  389 	push	hl
-    0000013C 33               [ 8]  390 	inc	sp
-    0000013D 61               [ 4]  391 	ld	h, c
-                                    392 ;	spillPairReg hl
-                                    393 ;	spillPairReg hl
-    0000013E E5               [16]  394 	push	hl
-    0000013F 33               [ 8]  395 	inc	sp
-    00000140 F5               [16]  396 	push	af
-    00000141 33               [ 8]  397 	inc	sp
-    00000142 CDr00r00         [24]  398 	call	_set_bkg_submap
-    00000145 E8 07            [16]  399 	add	sp, #7
-                                    400 ;c:\gbdk\include\gb\gb.h:1305: _submap_tile_offset = 0;
-    00000147 21r00r00         [12]  401 	ld	hl, #__submap_tile_offset
-    0000014A 36 00            [12]  402 	ld	(hl), #0x00
-                         0000014C   403 	C$CoreGameLoop.c$49$2_0$151	= .
-                                    404 	.globl	C$CoreGameLoop.c$49$2_0$151
-                                    405 ;src\CoreGameLoop.c:49: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
-    0000014C 18 36            [12]  406 	jr	00112$
-    0000014E                        407 00111$:
-                         0000014E   408 	C$CoreGameLoop.c$53$3_0$153	= .
-                                    409 	.globl	C$CoreGameLoop.c$53$3_0$153
-                                    410 ;src\CoreGameLoop.c:53: if ((HomeWidth - 20u) > map_pos_x_tiles)
-    0000014E FAr08r00         [16]  411 	ld	a, (#_map_pos_x_tiles)
-    00000151 D6 1D            [ 8]  412 	sub	a, #0x1d
-    00000153 30 2F            [12]  413 	jr	NC, 00112$
-                                    414 ;src\CoreGameLoop.c:55: set_bkg_based_submap(map_pos_x_tiles + 20u, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
-    00000155 78               [ 4]  415 	ld	a, b
-    00000156 B7               [ 4]  416 	or	a, a
-    00000157 28 03            [12]  417 	jr	Z, 00127$
-    00000159 11 13 00         [12]  418 	ld	de, #0x0013
-    0000015C                        419 00127$:
-    0000015C 43               [ 4]  420 	ld	b, e
-    0000015D FAr08r00         [16]  421 	ld	a, (#_map_pos_x_tiles)
-    00000160 C6 14            [ 8]  422 	add	a, #0x14
-                                    423 ;c:\gbdk\include\gb\gb.h:1303: _submap_tile_offset = base_tile;
-    00000162 21r00r00         [12]  424 	ld	hl, #__submap_tile_offset
-    00000165 36 80            [12]  425 	ld	(hl), #0x80
-                                    426 ;c:\gbdk\include\gb\gb.h:1304: set_bkg_submap(x, y, w, h, map, map_w);
-    00000167 26 31            [ 8]  427 	ld	h, #0x31
-                                    428 ;	spillPairReg hl
-                                    429 ;	spillPairReg hl
-    00000169 E5               [16]  430 	push	hl
-    0000016A 33               [ 8]  431 	inc	sp
-    0000016B 11r00r00         [12]  432 	ld	de, #_Home
-    0000016E D5               [16]  433 	push	de
-    0000016F C5               [16]  434 	push	bc
-    00000170 33               [ 8]  435 	inc	sp
-    00000171 26 01            [ 8]  436 	ld	h, #0x01
-                                    437 ;	spillPairReg hl
-                                    438 ;	spillPairReg hl
-    00000173 E5               [16]  439 	push	hl
-    00000174 33               [ 8]  440 	inc	sp
-    00000175 61               [ 4]  441 	ld	h, c
-                                    442 ;	spillPairReg hl
-                                    443 ;	spillPairReg hl
-    00000176 E5               [16]  444 	push	hl
-    00000177 33               [ 8]  445 	inc	sp
-    00000178 F5               [16]  446 	push	af
-    00000179 33               [ 8]  447 	inc	sp
-    0000017A CDr00r00         [24]  448 	call	_set_bkg_submap
-    0000017D E8 07            [16]  449 	add	sp, #7
-                                    450 ;c:\gbdk\include\gb\gb.h:1305: _submap_tile_offset = 0;
-    0000017F 21r00r00         [12]  451 	ld	hl, #__submap_tile_offset
-    00000182 36 00            [12]  452 	ld	(hl), #0x00
-                         00000184   453 	C$CoreGameLoop.c$55$2_0$151	= .
-                                    454 	.globl	C$CoreGameLoop.c$55$2_0$151
-                                    455 ;src\CoreGameLoop.c:55: set_bkg_based_submap(map_pos_x_tiles + 20u, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
-    00000184                        456 00112$:
-                         00000184   457 	C$CoreGameLoop.c$58$2_0$151	= .
-                                    458 	.globl	C$CoreGameLoop.c$58$2_0$151
-                                    459 ;src\CoreGameLoop.c:58: old_map_pos_x_tiles = map_pos_x_tiles;
-    00000184 FAr08r00         [16]  460 	ld	a, (#_map_pos_x_tiles)
-    00000187 EAr0Ar00         [16]  461 	ld	(#_old_map_pos_x_tiles),a
-    0000018A                        462 00114$:
-                         0000018A   463 	C$CoreGameLoop.c$61$1_0$146	= .
-                                    464 	.globl	C$CoreGameLoop.c$61$1_0$146
-                                    465 ;src\CoreGameLoop.c:61: old_camera_x_pixels = camera_x_pixels, old_camera_y_pixels = camera_y_pixels;
-    0000018A FAr00r00         [16]  466 	ld	a, (#_camera_x_pixels)
-    0000018D EAr04r00         [16]  467 	ld	(#_old_camera_x_pixels),a
-    00000190 FAr01r00         [16]  468 	ld	a, (#_camera_x_pixels + 1)
-    00000193 EAr05r00         [16]  469 	ld	(#_old_camera_x_pixels + 1),a
-    00000196 FAr02r00         [16]  470 	ld	a, (#_camera_y_pixels)
-    00000199 EAr06r00         [16]  471 	ld	(#_old_camera_y_pixels),a
-    0000019C FAr03r00         [16]  472 	ld	a, (#_camera_y_pixels + 1)
-    0000019F EAr07r00         [16]  473 	ld	(#_old_camera_y_pixels + 1),a
-                         000001A2   474 	C$CoreGameLoop.c$63$1_0$146	= .
-                                    475 	.globl	C$CoreGameLoop.c$63$1_0$146
-                                    476 ;src\CoreGameLoop.c:63: DrawNumber(2, 1, map_pos_x_tiles, 4, FALSE);
-    000001A2 21r08r00         [12]  477 	ld	hl, #_map_pos_x_tiles
-    000001A5 4E               [ 8]  478 	ld	c, (hl)
-    000001A6 06 00            [ 8]  479 	ld	b, #0x00
-    000001A8 21 04 00         [12]  480 	ld	hl, #0x04
-    000001AB E5               [16]  481 	push	hl
-    000001AC C5               [16]  482 	push	bc
-    000001AD 1E 01            [ 8]  483 	ld	e, #0x01
-    000001AF 3E 02            [ 8]  484 	ld	a, #0x02
-    000001B1 CDr00r00         [24]  485 	call	_DrawNumber
-                         000001B4   486 	C$CoreGameLoop.c$64$1_0$146	= .
-                                    487 	.globl	C$CoreGameLoop.c$64$1_0$146
-                                    488 ;src\CoreGameLoop.c:64: DrawText(0, 1, "X:", FALSE);
-    000001B4 AF               [ 4]  489 	xor	a, a
-    000001B5 F5               [16]  490 	push	af
-    000001B6 33               [ 8]  491 	inc	sp
-    000001B7 11rE3r01         [12]  492 	ld	de, #___str_0
-    000001BA D5               [16]  493 	push	de
-    000001BB 1E 01            [ 8]  494 	ld	e, #0x01
-    000001BD AF               [ 4]  495 	xor	a, a
-    000001BE CDr00r00         [24]  496 	call	_DrawText
-                         000001C1   497 	C$CoreGameLoop.c$65$1_0$146	= .
-                                    498 	.globl	C$CoreGameLoop.c$65$1_0$146
-                                    499 ;src\CoreGameLoop.c:65: DrawNumber(2, 3, map_pos_y_tiles, 4, FALSE);
-    000001C1 21r09r00         [12]  500 	ld	hl, #_map_pos_y_tiles
-    000001C4 4E               [ 8]  501 	ld	c, (hl)
-    000001C5 06 00            [ 8]  502 	ld	b, #0x00
-    000001C7 21 04 00         [12]  503 	ld	hl, #0x04
-    000001CA E5               [16]  504 	push	hl
-    000001CB C5               [16]  505 	push	bc
-    000001CC 1E 03            [ 8]  506 	ld	e, #0x03
-    000001CE 3E 02            [ 8]  507 	ld	a, #0x02
-    000001D0 CDr00r00         [24]  508 	call	_DrawNumber
-                         000001D3   509 	C$CoreGameLoop.c$66$1_0$146	= .
-                                    510 	.globl	C$CoreGameLoop.c$66$1_0$146
-                                    511 ;src\CoreGameLoop.c:66: DrawText(0, 3, "Y:", FALSE);
-    000001D3 AF               [ 4]  512 	xor	a, a
-    000001D4 F5               [16]  513 	push	af
-    000001D5 33               [ 8]  514 	inc	sp
-    000001D6 11rE6r01         [12]  515 	ld	de, #___str_1
-    000001D9 D5               [16]  516 	push	de
-    000001DA 1E 03            [ 8]  517 	ld	e, #0x03
-    000001DC AF               [ 4]  518 	xor	a, a
-    000001DD CDr00r00         [24]  519 	call	_DrawText
-                         000001E0   520 	C$CoreGameLoop.c$67$1_0$146	= .
-                                    521 	.globl	C$CoreGameLoop.c$67$1_0$146
-                                    522 ;src\CoreGameLoop.c:67: }
-    000001E0 E8 03            [16]  523 	add	sp, #3
-                         000001E2   524 	C$CoreGameLoop.c$67$1_0$146	= .
-                                    525 	.globl	C$CoreGameLoop.c$67$1_0$146
-                         000001E2   526 	XG$set_camera$0$0	= .
-                                    527 	.globl	XG$set_camera$0$0
-    000001E2 C9               [16]  528 	ret
-                         000001E3   529 FCoreGameLoop$__str_0$0_0$0 == .
-    000001E3                        530 ___str_0:
-    000001E3 58 3A                  531 	.ascii "X:"
-    000001E5 00                     532 	.db 0x00
-                         000001E6   533 FCoreGameLoop$__str_1$0_0$0 == .
-    000001E6                        534 ___str_1:
-    000001E6 59 3A                  535 	.ascii "Y:"
-    000001E8 00                     536 	.db 0x00
-                         000001E9   537 	G$CoreGameLoopSetup$0$0	= .
-                                    538 	.globl	G$CoreGameLoopSetup$0$0
-                         000001E9   539 	C$CoreGameLoop.c$71$1_0$168	= .
-                                    540 	.globl	C$CoreGameLoop.c$71$1_0$168
-                                    541 ;src\CoreGameLoop.c:71: void CoreGameLoopSetup(void)
-                                    542 ;	---------------------------------
-                                    543 ; Function CoreGameLoopSetup
-                                    544 ; ---------------------------------
-    000001E9                        545 _CoreGameLoopSetup::
-                         000001E9   546 	C$CoreGameLoop.c$74$1_0$168	= .
-                                    547 	.globl	C$CoreGameLoop.c$74$1_0$168
-                                    548 ;src\CoreGameLoop.c:74: map_pos_x_tiles = map_pos_y_tiles = 0;
-    000001E9 21r09r00         [12]  549 	ld	hl, #_map_pos_y_tiles
-    000001EC 36 00            [12]  550 	ld	(hl), #0x00
-    000001EE 21r08r00         [12]  551 	ld	hl, #_map_pos_x_tiles
-    000001F1 36 00            [12]  552 	ld	(hl), #0x00
-                         000001F3   553 	C$CoreGameLoop.c$75$1_0$168	= .
-                                    554 	.globl	C$CoreGameLoop.c$75$1_0$168
-                                    555 ;src\CoreGameLoop.c:75: old_map_pos_x_tiles = old_camera_y_pixels = 255; 
-    000001F3 21r0Ar00         [12]  556 	ld	hl, #_old_map_pos_x_tiles
-    000001F6 36 FF            [12]  557 	ld	(hl), #0xff
-                         000001F8   558 	C$CoreGameLoop.c$76$1_0$168	= .
-                                    559 	.globl	C$CoreGameLoop.c$76$1_0$168
-                                    560 ;src\CoreGameLoop.c:76: camera_x_pixels = 208;
-    000001F8 21r00r00         [12]  561 	ld	hl, #_camera_x_pixels
-    000001FB 3E D0            [ 8]  562 	ld	a, #0xd0
-    000001FD 22               [ 8]  563 	ld	(hl+), a
-    000001FE AF               [ 4]  564 	xor	a, a
-    000001FF 77               [ 8]  565 	ld	(hl), a
-                         00000200   566 	C$CoreGameLoop.c$77$1_0$168	= .
-                                    567 	.globl	C$CoreGameLoop.c$77$1_0$168
-                                    568 ;src\CoreGameLoop.c:77: camera_y_pixels = 96;
-    00000200 21r02r00         [12]  569 	ld	hl, #_camera_y_pixels
-    00000203 3E 60            [ 8]  570 	ld	a, #0x60
-    00000205 22               [ 8]  571 	ld	(hl+), a
-    00000206 AF               [ 4]  572 	xor	a, a
-    00000207 77               [ 8]  573 	ld	(hl), a
-                         00000208   574 	C$CoreGameLoop.c$78$1_0$168	= .
-                                    575 	.globl	C$CoreGameLoop.c$78$1_0$168
-                                    576 ;src\CoreGameLoop.c:78: old_camera_x_pixels = camera_x_pixels; old_camera_y_pixels = camera_y_pixels;
-    00000208 21r04r00         [12]  577 	ld	hl, #_old_camera_x_pixels
-    0000020B 3E D0            [ 8]  578 	ld	a, #0xd0
-    0000020D 22               [ 8]  579 	ld	(hl+), a
-    0000020E AF               [ 4]  580 	xor	a, a
-    0000020F 77               [ 8]  581 	ld	(hl), a
-    00000210 21r06r00         [12]  582 	ld	hl, #_old_camera_y_pixels
-    00000213 3E 60            [ 8]  583 	ld	a, #0x60
-    00000215 22               [ 8]  584 	ld	(hl+), a
-    00000216 AF               [ 4]  585 	xor	a, a
-    00000217 77               [ 8]  586 	ld	(hl), a
-                         00000218   587 	C$CoreGameLoop.c$79$1_0$168	= .
-                                    588 	.globl	C$CoreGameLoop.c$79$1_0$168
-                                    589 ;src\CoreGameLoop.c:79: redraw = FALSE;
-    00000218 21r0Cr00         [12]  590 	ld	hl, #_redraw
-    0000021B 36 00            [12]  591 	ld	(hl), #0x00
-                         0000021D   592 	C$CoreGameLoop.c$81$1_0$168	= .
-                                    593 	.globl	C$CoreGameLoop.c$81$1_0$168
-                                    594 ;src\CoreGameLoop.c:81: set_bkg_data(0, 53, FontTiles); // Load font and window tiles
-    0000021D 11r00r00         [12]  595 	ld	de, #_FontTiles
-    00000220 D5               [16]  596 	push	de
-    00000221 21 00 35         [12]  597 	ld	hl, #0x3500
-    00000224 E5               [16]  598 	push	hl
-    00000225 CDr00r00         [24]  599 	call	_set_bkg_data
-    00000228 E8 04            [16]  600 	add	sp, #4
-                         0000022A   601 	C$CoreGameLoop.c$82$1_0$168	= .
-                                    602 	.globl	C$CoreGameLoop.c$82$1_0$168
-                                    603 ;src\CoreGameLoop.c:82: set_bkg_data(128, 144, IndoorTiles);
-    0000022A 11r00r00         [12]  604 	ld	de, #_IndoorTiles
-    0000022D D5               [16]  605 	push	de
-    0000022E 21 80 90         [12]  606 	ld	hl, #0x9080
-    00000231 E5               [16]  607 	push	hl
-    00000232 CDr00r00         [24]  608 	call	_set_bkg_data
-    00000235 E8 04            [16]  609 	add	sp, #4
-                                    610 ;src\CoreGameLoop.c:83: set_bkg_based_submap(0, 0, 20u, 18u, Home, HomeWidth, 128);
-                                    611 ;c:\gbdk\include\gb\gb.h:1303: _submap_tile_offset = base_tile;
-    00000237 21r00r00         [12]  612 	ld	hl, #__submap_tile_offset
-    0000023A 36 80            [12]  613 	ld	(hl), #0x80
-                                    614 ;c:\gbdk\include\gb\gb.h:1304: set_bkg_submap(x, y, w, h, map, map_w);
-    0000023C 3E 31            [ 8]  615 	ld	a, #0x31
-    0000023E F5               [16]  616 	push	af
-    0000023F 33               [ 8]  617 	inc	sp
-    00000240 11r00r00         [12]  618 	ld	de, #_Home
-    00000243 D5               [16]  619 	push	de
-    00000244 21 14 12         [12]  620 	ld	hl, #0x1214
-    00000247 E5               [16]  621 	push	hl
-    00000248 AF               [ 4]  622 	xor	a, a
-    00000249 0F               [ 4]  623 	rrca
-    0000024A F5               [16]  624 	push	af
-    0000024B CDr00r00         [24]  625 	call	_set_bkg_submap
-    0000024E E8 07            [16]  626 	add	sp, #7
-                                    627 ;c:\gbdk\include\gb\gb.h:1305: _submap_tile_offset = 0;
-    00000250 21r00r00         [12]  628 	ld	hl, #__submap_tile_offset
-    00000253 36 00            [12]  629 	ld	(hl), #0x00
-                         00000255   630 	C$CoreGameLoop.c$84$1_0$168	= .
-                                    631 	.globl	C$CoreGameLoop.c$84$1_0$168
-                                    632 ;src\CoreGameLoop.c:84: set_sprite_data(0, 128, Cast_Tiles);
-    00000255 11r00r00         [12]  633 	ld	de, #_Cast_Tiles
-    00000258 D5               [16]  634 	push	de
-    00000259 21 00 80         [12]  635 	ld	hl, #0x8000
-    0000025C E5               [16]  636 	push	hl
-    0000025D CDr00r00         [24]  637 	call	_set_sprite_data
-    00000260 E8 04            [16]  638 	add	sp, #4
-                         00000262   639 	C$CoreGameLoop.c$85$1_0$168	= .
-                                    640 	.globl	C$CoreGameLoop.c$85$1_0$168
-                                    641 ;src\CoreGameLoop.c:85: SPRITES_8x16;
-    00000262 F0r00            [12]  642 	ldh	a, (_LCDC_REG + 0)
-    00000264 F6 04            [ 8]  643 	or	a, #0x04
-    00000266 E0r00            [12]  644 	ldh	(_LCDC_REG + 0), a
-                         00000268   645 	C$CoreGameLoop.c$86$1_0$168	= .
-                                    646 	.globl	C$CoreGameLoop.c$86$1_0$168
-                                    647 ;src\CoreGameLoop.c:86: SHOW_BKG;
-    00000268 F0r00            [12]  648 	ldh	a, (_LCDC_REG + 0)
-    0000026A F6 01            [ 8]  649 	or	a, #0x01
-    0000026C E0r00            [12]  650 	ldh	(_LCDC_REG + 0), a
-                         0000026E   651 	C$CoreGameLoop.c$87$1_0$168	= .
-                                    652 	.globl	C$CoreGameLoop.c$87$1_0$168
-                                    653 ;src\CoreGameLoop.c:87: SHOW_SPRITES;
-    0000026E F0r00            [12]  654 	ldh	a, (_LCDC_REG + 0)
-    00000270 F6 02            [ 8]  655 	or	a, #0x02
-    00000272 E0r00            [12]  656 	ldh	(_LCDC_REG + 0), a
-                         00000274   657 	C$CoreGameLoop.c$88$1_0$168	= .
-                                    658 	.globl	C$CoreGameLoop.c$88$1_0$168
-                                    659 ;src\CoreGameLoop.c:88: set_camera();
-    00000274 CDr00r00         [24]  660 	call	_set_camera
-                         00000277   661 	C$CoreGameLoop.c$89$1_0$168	= .
-                                    662 	.globl	C$CoreGameLoop.c$89$1_0$168
-                                    663 ;src\CoreGameLoop.c:89: fadeFromBlack(10);
-    00000277 3E 0A            [ 8]  664 	ld	a, #0x0a
-    00000279 CDr00r00         [24]  665 	call	_fadeFromBlack
-                         0000027C   666 	C$CoreGameLoop.c$90$1_0$168	= .
-                                    667 	.globl	C$CoreGameLoop.c$90$1_0$168
-                                    668 ;src\CoreGameLoop.c:90: DrawNumber(1, 1, 31, 4, FALSE);
-    0000027C 21 04 00         [12]  669 	ld	hl, #0x04
-    0000027F E5               [16]  670 	push	hl
-    00000280 11 1F 00         [12]  671 	ld	de, #0x001f
-    00000283 D5               [16]  672 	push	de
-    00000284 3E 01            [ 8]  673 	ld	a,#0x01
-    00000286 5F               [ 4]  674 	ld	e,a
-    00000287 CDr00r00         [24]  675 	call	_DrawNumber
-                         0000028A   676 	C$CoreGameLoop.c$91$1_0$168	= .
-                                    677 	.globl	C$CoreGameLoop.c$91$1_0$168
-                                    678 ;src\CoreGameLoop.c:91: DrawText(1, 3, "Window Text", FALSE);
-    0000028A AF               [ 4]  679 	xor	a, a
-    0000028B F5               [16]  680 	push	af
-    0000028C 33               [ 8]  681 	inc	sp
-    0000028D 11r99r02         [12]  682 	ld	de, #___str_2
-    00000290 D5               [16]  683 	push	de
-    00000291 1E 03            [ 8]  684 	ld	e, #0x03
-    00000293 3E 01            [ 8]  685 	ld	a, #0x01
-    00000295 CDr00r00         [24]  686 	call	_DrawText
-                         00000298   687 	C$CoreGameLoop.c$92$1_0$168	= .
-                                    688 	.globl	C$CoreGameLoop.c$92$1_0$168
-                                    689 ;src\CoreGameLoop.c:92: }
-                         00000298   690 	C$CoreGameLoop.c$92$1_0$168	= .
-                                    691 	.globl	C$CoreGameLoop.c$92$1_0$168
-                         00000298   692 	XG$CoreGameLoopSetup$0$0	= .
-                                    693 	.globl	XG$CoreGameLoopSetup$0$0
-    00000298 C9               [16]  694 	ret
-                         00000299   695 FCoreGameLoop$__str_2$0_0$0 == .
-    00000299                        696 ___str_2:
-    00000299 57 69 6E 64 6F 77 20   697 	.ascii "Window Text"
+                                    104 	.area _HOME
+                                    105 	.area _GSINIT
+                                    106 	.area _GSFINAL
+                                    107 	.area _GSINIT
+                                    108 ;--------------------------------------------------------
+                                    109 ; Home
+                                    110 ;--------------------------------------------------------
+                                    111 	.area _HOME
+                                    112 	.area _HOME
+                                    113 ;--------------------------------------------------------
+                                    114 ; code
+                                    115 ;--------------------------------------------------------
+                                    116 	.area _CODE_3
+                         00000000   117 	G$__func_const_bank_ID_core$0$0	= .
+                                    118 	.globl	G$__func_const_bank_ID_core$0$0
+                         00000000   119 	C$CoreGameLoop.c$17$0_0$146	= .
+                                    120 	.globl	C$CoreGameLoop.c$17$0_0$146
+                                    121 ;src\CoreGameLoop.c:17: BANKREF(const_bank_ID_core)
+                                    122 ;	---------------------------------
+                                    123 ; Function __func_const_bank_ID_core
+                                    124 ; ---------------------------------
+                         00000003   125 	b___func_const_bank_ID_core	= 3
+    00000000                        126 ___func_const_bank_ID_core::
+                                    127 	.local b___func_const_bank_ID_core 
+                         00000003   128 	___bank_const_bank_ID_core = b___func_const_bank_ID_core 
+                                    129 	.globl ___bank_const_bank_ID_core 
+                         00000000   130 	G$__func_set_camera$0$0	= .
+                                    131 	.globl	G$__func_set_camera$0$0
+                         00000000   132 	C$CoreGameLoop.c$28$1_0$148	= .
+                                    133 	.globl	C$CoreGameLoop.c$28$1_0$148
+                                    134 ;src\CoreGameLoop.c:28: BANKREF(set_camera)
+                                    135 ;	---------------------------------
+                                    136 ; Function __func_set_camera
+                                    137 ; ---------------------------------
+                         00000003   138 	b___func_set_camera	= 3
+    00000000                        139 ___func_set_camera::
+                                    140 	.local b___func_set_camera 
+                         00000003   141 	___bank_set_camera = b___func_set_camera 
+                                    142 	.globl ___bank_set_camera 
+                         00000000   143 	G$set_camera$0$0	= .
+                                    144 	.globl	G$set_camera$0$0
+                         00000000   145 	C$CoreGameLoop.c$29$1_0$150	= .
+                                    146 	.globl	C$CoreGameLoop.c$29$1_0$150
+                                    147 ;src\CoreGameLoop.c:29: void set_camera(void) BANKED
+                                    148 ;	---------------------------------
+                                    149 ; Function set_camera
+                                    150 ; ---------------------------------
+                         00000003   151 	b_set_camera	= 3
+    00000000                        152 _set_camera::
+    00000000 E8 FD            [16]  153 	add	sp, #-3
+                         00000002   154 	C$CoreGameLoop.c$32$1_0$150	= .
+                                    155 	.globl	C$CoreGameLoop.c$32$1_0$150
+                                    156 ;src\CoreGameLoop.c:32: SCY_REG = camera_y_pixels; SCX_REG = camera_x_pixels;
+    00000002 FAr02r00         [16]  157 	ld	a, (#_camera_y_pixels)
+    00000005 E0r00            [12]  158 	ldh	(_SCY_REG + 0), a
+    00000007 FAr00r00         [16]  159 	ld	a, (#_camera_x_pixels)
+    0000000A E0r00            [12]  160 	ldh	(_SCX_REG + 0), a
+                         0000000C   161 	C$CoreGameLoop.c$34$1_0$150	= .
+                                    162 	.globl	C$CoreGameLoop.c$34$1_0$150
+                                    163 ;src\CoreGameLoop.c:34: map_pos_y_tiles = (uint8_t)(camera_y_pixels >> 3u);
+    0000000C 21r02r00         [12]  164 	ld	hl, #_camera_y_pixels
+    0000000F 2A               [ 8]  165 	ld	a, (hl+)
+    00000010 4F               [ 4]  166 	ld	c, a
+    00000011 46               [ 8]  167 	ld	b, (hl)
+    00000012 CB 38            [ 8]  168 	srl	b
+    00000014 CB 19            [ 8]  169 	rr	c
+    00000016 CB 38            [ 8]  170 	srl	b
+    00000018 CB 19            [ 8]  171 	rr	c
+    0000001A CB 38            [ 8]  172 	srl	b
+    0000001C CB 19            [ 8]  173 	rr	c
+    0000001E 21r09r00         [12]  174 	ld	hl, #_map_pos_y_tiles
+    00000021 71               [ 8]  175 	ld	(hl), c
+                         00000022   176 	C$CoreGameLoop.c$39$1_0$150	= .
+                                    177 	.globl	C$CoreGameLoop.c$39$1_0$150
+                                    178 ;src\CoreGameLoop.c:39: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
+    00000022 4E               [ 8]  179 	ld	c, (hl)
+                         00000023   180 	C$CoreGameLoop.c$35$1_0$150	= .
+                                    181 	.globl	C$CoreGameLoop.c$35$1_0$150
+                                    182 ;src\CoreGameLoop.c:35: if (map_pos_y_tiles != old_map_pos_y_tiles)
+    00000023 7E               [ 8]  183 	ld	a, (hl)
+    00000024 21r0Br00         [12]  184 	ld	hl, #_old_map_pos_y_tiles
+    00000027 96               [ 8]  185 	sub	a, (hl)
+    00000028 CArD2r00         [16]  186 	jp	Z,00107$
+                         0000002B   187 	C$CoreGameLoop.c$39$1_0$150	= .
+                                    188 	.globl	C$CoreGameLoop.c$39$1_0$150
+                                    189 ;src\CoreGameLoop.c:39: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
+    0000002B 21r08r00         [12]  190 	ld	hl, #_map_pos_x_tiles
+    0000002E 5E               [ 8]  191 	ld	e, (hl)
+    0000002F 16 00            [ 8]  192 	ld	d, #0x00
+    00000031 46               [ 8]  193 	ld	b, (hl)
+    00000032 7E               [ 8]  194 	ld	a, (hl)
+    00000033 F8 00            [12]  195 	ldhl	sp,	#0
+    00000035 22               [ 8]  196 	ld	(hl+), a
+    00000036 3E 31            [ 8]  197 	ld	a, #0x31
+    00000038 93               [ 4]  198 	sub	a, e
+    00000039 5F               [ 4]  199 	ld	e, a
+    0000003A 9F               [ 4]  200 	sbc	a, a
+    0000003B 92               [ 4]  201 	sub	a, d
+    0000003C 57               [ 4]  202 	ld	d, a
+    0000003D 3E 31            [ 8]  203 	ld	a, #0x31
+    0000003F 90               [ 4]  204 	sub	a, b
+    00000040 22               [ 8]  205 	ld	(hl+), a
+    00000041 07               [ 4]  206 	rlca
+    00000042 9F               [ 4]  207 	sbc	a, a
+    00000043 77               [ 8]  208 	ld	(hl), a
+    00000044 3E 15            [ 8]  209 	ld	a, #0x15
+    00000046 BB               [ 4]  210 	cp	a, e
+    00000047 3E 00            [ 8]  211 	ld	a, #0x00
+    00000049 9A               [ 4]  212 	sbc	a, d
+    0000004A 3E 00            [ 8]  213 	ld	a, #0x00
+    0000004C 17               [ 4]  214 	rla
+    0000004D 47               [ 4]  215 	ld	b, a
+                         0000004E   216 	C$CoreGameLoop.c$37$2_0$151	= .
+                                    217 	.globl	C$CoreGameLoop.c$37$2_0$151
+                                    218 ;src\CoreGameLoop.c:37: if (camera_y_pixels < old_camera_y_pixels) // if camera is moving up
+    0000004E 11r02r00         [12]  219 	ld	de, #_camera_y_pixels
+    00000051 21r06r00         [12]  220 	ld	hl, #_old_camera_y_pixels
+    00000054 1A               [ 8]  221 	ld	a, (de)
+    00000055 13               [ 8]  222 	inc	de
+    00000056 96               [ 8]  223 	sub	a, (hl)
+    00000057 23               [ 8]  224 	inc	hl
+    00000058 1A               [ 8]  225 	ld	a, (de)
+    00000059 9E               [ 8]  226 	sbc	a, (hl)
+    0000005A 30 30            [12]  227 	jr	NC, 00104$
+                                    228 ;src\CoreGameLoop.c:39: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
+    0000005C 78               [ 4]  229 	ld	a, b
+    0000005D B7               [ 4]  230 	or	a, a
+    0000005E 28 04            [12]  231 	jr	Z, 00121$
+    00000060 3E 15            [ 8]  232 	ld	a, #0x15
+    00000062 18 04            [12]  233 	jr	00122$
+    00000064                        234 00121$:
+    00000064 F8 01            [12]  235 	ldhl	sp,	#1
+    00000066 2A               [ 8]  236 	ld	a, (hl+)
+    00000067 46               [ 8]  237 	ld	b, (hl)
+    00000068                        238 00122$:
+                                    239 ;c:\gbdk\include\gb\gb.h:1303: _submap_tile_offset = base_tile;
+    00000068 21r00r00         [12]  240 	ld	hl, #__submap_tile_offset
+    0000006B 36 80            [12]  241 	ld	(hl), #0x80
+                                    242 ;c:\gbdk\include\gb\gb.h:1304: set_bkg_submap(x, y, w, h, map, map_w);
+    0000006D 26 31            [ 8]  243 	ld	h, #0x31
+                                    244 ;	spillPairReg hl
+                                    245 ;	spillPairReg hl
+    0000006F E5               [16]  246 	push	hl
+    00000070 33               [ 8]  247 	inc	sp
+    00000071 11r00r00         [12]  248 	ld	de, #_Home
+    00000074 D5               [16]  249 	push	de
+    00000075 26 01            [ 8]  250 	ld	h, #0x01
+                                    251 ;	spillPairReg hl
+                                    252 ;	spillPairReg hl
+    00000077 E5               [16]  253 	push	hl
+    00000078 33               [ 8]  254 	inc	sp
+    00000079 47               [ 4]  255 	ld	b, a
+    0000007A C5               [16]  256 	push	bc
+    0000007B F8 06            [12]  257 	ldhl	sp,	#6
+    0000007D 7E               [ 8]  258 	ld	a, (hl)
+    0000007E F5               [16]  259 	push	af
+    0000007F 33               [ 8]  260 	inc	sp
+    00000080 CDr00r00         [24]  261 	call	_set_bkg_submap
+    00000083 E8 07            [16]  262 	add	sp, #7
+                                    263 ;c:\gbdk\include\gb\gb.h:1305: _submap_tile_offset = 0;
+    00000085 21r00r00         [12]  264 	ld	hl, #__submap_tile_offset
+    00000088 36 00            [12]  265 	ld	(hl), #0x00
+                         0000008A   266 	C$CoreGameLoop.c$39$2_0$151	= .
+                                    267 	.globl	C$CoreGameLoop.c$39$2_0$151
+                                    268 ;src\CoreGameLoop.c:39: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
+    0000008A 18 3E            [12]  269 	jr	00105$
+    0000008C                        270 00104$:
+                         0000008C   271 	C$CoreGameLoop.c$43$3_0$153	= .
+                                    272 	.globl	C$CoreGameLoop.c$43$3_0$153
+                                    273 ;src\CoreGameLoop.c:43: if ((HomeHeight - 18u) > map_pos_y_tiles) // (have we touched the bottom of the map?) if not then...
+    0000008C FAr09r00         [16]  274 	ld	a, (#_map_pos_y_tiles)
+    0000008F D6 30            [ 8]  275 	sub	a, #0x30
+    00000091 30 37            [12]  276 	jr	NC, 00105$
+                                    277 ;src\CoreGameLoop.c:45: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles + 18u, MIN(21u, HomeWidth - map_pos_x_tiles), 1, Home, HomeWidth, 128);
+    00000093 11r00r00         [12]  278 	ld	de, #_Home
+    00000096 78               [ 4]  279 	ld	a, b
+    00000097 B7               [ 4]  280 	or	a, a
+    00000098 28 04            [12]  281 	jr	Z, 00123$
+    0000009A 0E 15            [ 8]  282 	ld	c, #0x15
+    0000009C 18 05            [12]  283 	jr	00124$
+    0000009E                        284 00123$:
+    0000009E F8 01            [12]  285 	ldhl	sp,	#1
+    000000A0 2A               [ 8]  286 	ld	a, (hl+)
+    000000A1 4F               [ 4]  287 	ld	c, a
+    000000A2 7E               [ 8]  288 	ld	a, (hl)
+    000000A3                        289 00124$:
+    000000A3 FAr09r00         [16]  290 	ld	a, (#_map_pos_y_tiles)
+    000000A6 C6 12            [ 8]  291 	add	a, #0x12
+                                    292 ;c:\gbdk\include\gb\gb.h:1303: _submap_tile_offset = base_tile;
+    000000A8 21r00r00         [12]  293 	ld	hl, #__submap_tile_offset
+    000000AB 36 80            [12]  294 	ld	(hl), #0x80
+                                    295 ;c:\gbdk\include\gb\gb.h:1304: set_bkg_submap(x, y, w, h, map, map_w);
+    000000AD 26 31            [ 8]  296 	ld	h, #0x31
+                                    297 ;	spillPairReg hl
+                                    298 ;	spillPairReg hl
+    000000AF E5               [16]  299 	push	hl
+    000000B0 33               [ 8]  300 	inc	sp
+    000000B1 D5               [16]  301 	push	de
+    000000B2 26 01            [ 8]  302 	ld	h, #0x01
+                                    303 ;	spillPairReg hl
+                                    304 ;	spillPairReg hl
+    000000B4 E5               [16]  305 	push	hl
+    000000B5 33               [ 8]  306 	inc	sp
+    000000B6 61               [ 4]  307 	ld	h, c
+                                    308 ;	spillPairReg hl
+                                    309 ;	spillPairReg hl
+    000000B7 E5               [16]  310 	push	hl
+    000000B8 33               [ 8]  311 	inc	sp
+    000000B9 F5               [16]  312 	push	af
+    000000BA 33               [ 8]  313 	inc	sp
+    000000BB F8 06            [12]  314 	ldhl	sp,	#6
+    000000BD 7E               [ 8]  315 	ld	a, (hl)
+    000000BE F5               [16]  316 	push	af
+    000000BF 33               [ 8]  317 	inc	sp
+    000000C0 CDr00r00         [24]  318 	call	_set_bkg_submap
+    000000C3 E8 07            [16]  319 	add	sp, #7
+                                    320 ;c:\gbdk\include\gb\gb.h:1305: _submap_tile_offset = 0;
+    000000C5 21r00r00         [12]  321 	ld	hl, #__submap_tile_offset
+    000000C8 36 00            [12]  322 	ld	(hl), #0x00
+                         000000CA   323 	C$CoreGameLoop.c$45$2_0$151	= .
+                                    324 	.globl	C$CoreGameLoop.c$45$2_0$151
+                                    325 ;src\CoreGameLoop.c:45: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles + 18u, MIN(21u, HomeWidth - map_pos_x_tiles), 1, Home, HomeWidth, 128);
+    000000CA                        326 00105$:
+                         000000CA   327 	C$CoreGameLoop.c$39$1_0$150	= .
+                                    328 	.globl	C$CoreGameLoop.c$39$1_0$150
+                                    329 ;src\CoreGameLoop.c:39: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, MIN(21u, HomeWidth-map_pos_x_tiles), 1, Home, HomeWidth, 128);
+    000000CA 21r09r00         [12]  330 	ld	hl, #_map_pos_y_tiles
+    000000CD 4E               [ 8]  331 	ld	c, (hl)
+                         000000CE   332 	C$CoreGameLoop.c$48$2_0$151	= .
+                                    333 	.globl	C$CoreGameLoop.c$48$2_0$151
+                                    334 ;src\CoreGameLoop.c:48: old_map_pos_y_tiles = map_pos_y_tiles;
+    000000CE 21r0Br00         [12]  335 	ld	hl, #_old_map_pos_y_tiles
+    000000D1 71               [ 8]  336 	ld	(hl), c
+    000000D2                        337 00107$:
+                         000000D2   338 	C$CoreGameLoop.c$51$1_0$150	= .
+                                    339 	.globl	C$CoreGameLoop.c$51$1_0$150
+                                    340 ;src\CoreGameLoop.c:51: map_pos_x_tiles = (uint8_t)(camera_x_pixels >> 3u);
+    000000D2 21r00r00         [12]  341 	ld	hl, #_camera_x_pixels
+    000000D5 2A               [ 8]  342 	ld	a, (hl+)
+    000000D6 47               [ 4]  343 	ld	b, a
+    000000D7 5E               [ 8]  344 	ld	e, (hl)
+    000000D8 CB 3B            [ 8]  345 	srl	e
+    000000DA CB 18            [ 8]  346 	rr	b
+    000000DC CB 3B            [ 8]  347 	srl	e
+    000000DE CB 18            [ 8]  348 	rr	b
+    000000E0 CB 3B            [ 8]  349 	srl	e
+    000000E2 CB 18            [ 8]  350 	rr	b
+    000000E4 21r08r00         [12]  351 	ld	hl, #_map_pos_x_tiles
+    000000E7 70               [ 8]  352 	ld	(hl), b
+                         000000E8   353 	C$CoreGameLoop.c$52$1_0$150	= .
+                                    354 	.globl	C$CoreGameLoop.c$52$1_0$150
+                                    355 ;src\CoreGameLoop.c:52: if (map_pos_x_tiles != old_map_pos_x_tiles)
+    000000E8 7E               [ 8]  356 	ld	a, (hl)
+    000000E9 21r0Ar00         [12]  357 	ld	hl, #_old_map_pos_x_tiles
+    000000EC 96               [ 8]  358 	sub	a, (hl)
+    000000ED CAr8Ar01         [16]  359 	jp	Z,00114$
+                         000000F0   360 	C$CoreGameLoop.c$56$1_0$150	= .
+                                    361 	.globl	C$CoreGameLoop.c$56$1_0$150
+                                    362 ;src\CoreGameLoop.c:56: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
+    000000F0 21r09r00         [12]  363 	ld	hl, #_map_pos_y_tiles
+    000000F3 5E               [ 8]  364 	ld	e, (hl)
+    000000F4 06 00            [ 8]  365 	ld	b, #0x00
+    000000F6 56               [ 8]  366 	ld	d, (hl)
+    000000F7 3E 42            [ 8]  367 	ld	a, #0x42
+    000000F9 93               [ 4]  368 	sub	a, e
+    000000FA 6F               [ 4]  369 	ld	l, a
+                                    370 ;	spillPairReg hl
+                                    371 ;	spillPairReg hl
+    000000FB 9F               [ 4]  372 	sbc	a, a
+    000000FC 90               [ 4]  373 	sub	a, b
+    000000FD 67               [ 4]  374 	ld	h, a
+                                    375 ;	spillPairReg hl
+                                    376 ;	spillPairReg hl
+    000000FE 3E 42            [ 8]  377 	ld	a, #0x42
+    00000100 92               [ 4]  378 	sub	a, d
+    00000101 5F               [ 4]  379 	ld	e, a
+    00000102 07               [ 4]  380 	rlca
+    00000103 9F               [ 4]  381 	sbc	a, a
+    00000104 57               [ 4]  382 	ld	d, a
+    00000105 3E 13            [ 8]  383 	ld	a, #0x13
+    00000107 BD               [ 4]  384 	cp	a, l
+    00000108 3E 00            [ 8]  385 	ld	a, #0x00
+    0000010A 9C               [ 4]  386 	sbc	a, h
+    0000010B 3E 00            [ 8]  387 	ld	a, #0x00
+    0000010D 17               [ 4]  388 	rla
+    0000010E 47               [ 4]  389 	ld	b, a
+                         0000010F   390 	C$CoreGameLoop.c$54$2_0$155	= .
+                                    391 	.globl	C$CoreGameLoop.c$54$2_0$155
+                                    392 ;src\CoreGameLoop.c:54: if (camera_x_pixels < old_camera_x_pixels)
+    0000010F D5               [16]  393 	push	de
+    00000110 11r00r00         [12]  394 	ld	de, #_camera_x_pixels
+    00000113 21r04r00         [12]  395 	ld	hl, #_old_camera_x_pixels
+    00000116 1A               [ 8]  396 	ld	a, (de)
+    00000117 13               [ 8]  397 	inc	de
+    00000118 96               [ 8]  398 	sub	a, (hl)
+    00000119 23               [ 8]  399 	inc	hl
+    0000011A 1A               [ 8]  400 	ld	a, (de)
+    0000011B 9E               [ 8]  401 	sbc	a, (hl)
+    0000011C D1               [12]  402 	pop	de
+    0000011D 30 2F            [12]  403 	jr	NC, 00111$
+                                    404 ;src\CoreGameLoop.c:56: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
+    0000011F 78               [ 4]  405 	ld	a, b
+    00000120 B7               [ 4]  406 	or	a, a
+    00000121 28 03            [12]  407 	jr	Z, 00125$
+    00000123 11 13 00         [12]  408 	ld	de, #0x0013
+    00000126                        409 00125$:
+    00000126 43               [ 4]  410 	ld	b, e
+    00000127 FAr08r00         [16]  411 	ld	a, (#_map_pos_x_tiles)
+                                    412 ;c:\gbdk\include\gb\gb.h:1303: _submap_tile_offset = base_tile;
+    0000012A 21r00r00         [12]  413 	ld	hl, #__submap_tile_offset
+    0000012D 36 80            [12]  414 	ld	(hl), #0x80
+                                    415 ;c:\gbdk\include\gb\gb.h:1304: set_bkg_submap(x, y, w, h, map, map_w);
+    0000012F 26 31            [ 8]  416 	ld	h, #0x31
+                                    417 ;	spillPairReg hl
+                                    418 ;	spillPairReg hl
+    00000131 E5               [16]  419 	push	hl
+    00000132 33               [ 8]  420 	inc	sp
+    00000133 11r00r00         [12]  421 	ld	de, #_Home
+    00000136 D5               [16]  422 	push	de
+    00000137 C5               [16]  423 	push	bc
+    00000138 33               [ 8]  424 	inc	sp
+    00000139 26 01            [ 8]  425 	ld	h, #0x01
+                                    426 ;	spillPairReg hl
+                                    427 ;	spillPairReg hl
+    0000013B E5               [16]  428 	push	hl
+    0000013C 33               [ 8]  429 	inc	sp
+    0000013D 61               [ 4]  430 	ld	h, c
+                                    431 ;	spillPairReg hl
+                                    432 ;	spillPairReg hl
+    0000013E E5               [16]  433 	push	hl
+    0000013F 33               [ 8]  434 	inc	sp
+    00000140 F5               [16]  435 	push	af
+    00000141 33               [ 8]  436 	inc	sp
+    00000142 CDr00r00         [24]  437 	call	_set_bkg_submap
+    00000145 E8 07            [16]  438 	add	sp, #7
+                                    439 ;c:\gbdk\include\gb\gb.h:1305: _submap_tile_offset = 0;
+    00000147 21r00r00         [12]  440 	ld	hl, #__submap_tile_offset
+    0000014A 36 00            [12]  441 	ld	(hl), #0x00
+                         0000014C   442 	C$CoreGameLoop.c$56$2_0$155	= .
+                                    443 	.globl	C$CoreGameLoop.c$56$2_0$155
+                                    444 ;src\CoreGameLoop.c:56: set_bkg_based_submap(map_pos_x_tiles, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
+    0000014C 18 36            [12]  445 	jr	00112$
+    0000014E                        446 00111$:
+                         0000014E   447 	C$CoreGameLoop.c$60$3_0$157	= .
+                                    448 	.globl	C$CoreGameLoop.c$60$3_0$157
+                                    449 ;src\CoreGameLoop.c:60: if ((HomeWidth - 20u) > map_pos_x_tiles)
+    0000014E FAr08r00         [16]  450 	ld	a, (#_map_pos_x_tiles)
+    00000151 D6 1D            [ 8]  451 	sub	a, #0x1d
+    00000153 30 2F            [12]  452 	jr	NC, 00112$
+                                    453 ;src\CoreGameLoop.c:62: set_bkg_based_submap(map_pos_x_tiles + 20u, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
+    00000155 78               [ 4]  454 	ld	a, b
+    00000156 B7               [ 4]  455 	or	a, a
+    00000157 28 03            [12]  456 	jr	Z, 00127$
+    00000159 11 13 00         [12]  457 	ld	de, #0x0013
+    0000015C                        458 00127$:
+    0000015C 43               [ 4]  459 	ld	b, e
+    0000015D FAr08r00         [16]  460 	ld	a, (#_map_pos_x_tiles)
+    00000160 C6 14            [ 8]  461 	add	a, #0x14
+                                    462 ;c:\gbdk\include\gb\gb.h:1303: _submap_tile_offset = base_tile;
+    00000162 21r00r00         [12]  463 	ld	hl, #__submap_tile_offset
+    00000165 36 80            [12]  464 	ld	(hl), #0x80
+                                    465 ;c:\gbdk\include\gb\gb.h:1304: set_bkg_submap(x, y, w, h, map, map_w);
+    00000167 26 31            [ 8]  466 	ld	h, #0x31
+                                    467 ;	spillPairReg hl
+                                    468 ;	spillPairReg hl
+    00000169 E5               [16]  469 	push	hl
+    0000016A 33               [ 8]  470 	inc	sp
+    0000016B 11r00r00         [12]  471 	ld	de, #_Home
+    0000016E D5               [16]  472 	push	de
+    0000016F C5               [16]  473 	push	bc
+    00000170 33               [ 8]  474 	inc	sp
+    00000171 26 01            [ 8]  475 	ld	h, #0x01
+                                    476 ;	spillPairReg hl
+                                    477 ;	spillPairReg hl
+    00000173 E5               [16]  478 	push	hl
+    00000174 33               [ 8]  479 	inc	sp
+    00000175 61               [ 4]  480 	ld	h, c
+                                    481 ;	spillPairReg hl
+                                    482 ;	spillPairReg hl
+    00000176 E5               [16]  483 	push	hl
+    00000177 33               [ 8]  484 	inc	sp
+    00000178 F5               [16]  485 	push	af
+    00000179 33               [ 8]  486 	inc	sp
+    0000017A CDr00r00         [24]  487 	call	_set_bkg_submap
+    0000017D E8 07            [16]  488 	add	sp, #7
+                                    489 ;c:\gbdk\include\gb\gb.h:1305: _submap_tile_offset = 0;
+    0000017F 21r00r00         [12]  490 	ld	hl, #__submap_tile_offset
+    00000182 36 00            [12]  491 	ld	(hl), #0x00
+                         00000184   492 	C$CoreGameLoop.c$62$2_0$155	= .
+                                    493 	.globl	C$CoreGameLoop.c$62$2_0$155
+                                    494 ;src\CoreGameLoop.c:62: set_bkg_based_submap(map_pos_x_tiles + 20u, map_pos_y_tiles, 1, MIN(19u, HomeHeight - map_pos_y_tiles), Home, HomeWidth, 128);
+    00000184                        495 00112$:
+                         00000184   496 	C$CoreGameLoop.c$65$2_0$155	= .
+                                    497 	.globl	C$CoreGameLoop.c$65$2_0$155
+                                    498 ;src\CoreGameLoop.c:65: old_map_pos_x_tiles = map_pos_x_tiles;
+    00000184 FAr08r00         [16]  499 	ld	a, (#_map_pos_x_tiles)
+    00000187 EAr0Ar00         [16]  500 	ld	(#_old_map_pos_x_tiles),a
+    0000018A                        501 00114$:
+                         0000018A   502 	C$CoreGameLoop.c$68$1_0$150	= .
+                                    503 	.globl	C$CoreGameLoop.c$68$1_0$150
+                                    504 ;src\CoreGameLoop.c:68: old_camera_x_pixels = camera_x_pixels, old_camera_y_pixels = camera_y_pixels;
+    0000018A FAr00r00         [16]  505 	ld	a, (#_camera_x_pixels)
+    0000018D EAr04r00         [16]  506 	ld	(#_old_camera_x_pixels),a
+    00000190 FAr01r00         [16]  507 	ld	a, (#_camera_x_pixels + 1)
+    00000193 EAr05r00         [16]  508 	ld	(#_old_camera_x_pixels + 1),a
+    00000196 FAr02r00         [16]  509 	ld	a, (#_camera_y_pixels)
+    00000199 EAr06r00         [16]  510 	ld	(#_old_camera_y_pixels),a
+    0000019C FAr03r00         [16]  511 	ld	a, (#_camera_y_pixels + 1)
+    0000019F EAr07r00         [16]  512 	ld	(#_old_camera_y_pixels + 1),a
+                         000001A2   513 	C$CoreGameLoop.c$70$1_0$150	= .
+                                    514 	.globl	C$CoreGameLoop.c$70$1_0$150
+                                    515 ;src\CoreGameLoop.c:70: DrawNumber(2, 1, map_pos_x_tiles, 4, FALSE);
+    000001A2 21r08r00         [12]  516 	ld	hl, #_map_pos_x_tiles
+    000001A5 4E               [ 8]  517 	ld	c, (hl)
+    000001A6 06 00            [ 8]  518 	ld	b, #0x00
+    000001A8 21 04 00         [12]  519 	ld	hl, #0x04
+    000001AB E5               [16]  520 	push	hl
+    000001AC C5               [16]  521 	push	bc
+    000001AD 1E 01            [ 8]  522 	ld	e, #0x01
+    000001AF 3E 02            [ 8]  523 	ld	a, #0x02
+    000001B1 CDr00r00         [24]  524 	call	_DrawNumber
+                         000001B4   525 	C$CoreGameLoop.c$71$1_0$150	= .
+                                    526 	.globl	C$CoreGameLoop.c$71$1_0$150
+                                    527 ;src\CoreGameLoop.c:71: DrawText(0, 1, "X:", FALSE);
+    000001B4 AF               [ 4]  528 	xor	a, a
+    000001B5 F5               [16]  529 	push	af
+    000001B6 33               [ 8]  530 	inc	sp
+    000001B7 11rE4r01         [12]  531 	ld	de, #___str_0
+    000001BA D5               [16]  532 	push	de
+    000001BB 1E 01            [ 8]  533 	ld	e, #0x01
+    000001BD AF               [ 4]  534 	xor	a, a
+    000001BE CDr00r00         [24]  535 	call	_DrawText
+                         000001C1   536 	C$CoreGameLoop.c$72$1_0$150	= .
+                                    537 	.globl	C$CoreGameLoop.c$72$1_0$150
+                                    538 ;src\CoreGameLoop.c:72: DrawNumber(2, 3, map_pos_y_tiles, 4, FALSE);
+    000001C1 21r09r00         [12]  539 	ld	hl, #_map_pos_y_tiles
+    000001C4 4E               [ 8]  540 	ld	c, (hl)
+    000001C5 06 00            [ 8]  541 	ld	b, #0x00
+    000001C7 21 04 00         [12]  542 	ld	hl, #0x04
+    000001CA E5               [16]  543 	push	hl
+    000001CB C5               [16]  544 	push	bc
+    000001CC 1E 03            [ 8]  545 	ld	e, #0x03
+    000001CE 3E 02            [ 8]  546 	ld	a, #0x02
+    000001D0 CDr00r00         [24]  547 	call	_DrawNumber
+                         000001D3   548 	C$CoreGameLoop.c$73$1_0$150	= .
+                                    549 	.globl	C$CoreGameLoop.c$73$1_0$150
+                                    550 ;src\CoreGameLoop.c:73: DrawText(0, 3, "Y:", FALSE);
+    000001D3 AF               [ 4]  551 	xor	a, a
+    000001D4 F5               [16]  552 	push	af
+    000001D5 33               [ 8]  553 	inc	sp
+    000001D6 11rE7r01         [12]  554 	ld	de, #___str_1
+    000001D9 D5               [16]  555 	push	de
+    000001DA 1E 03            [ 8]  556 	ld	e, #0x03
+    000001DC AF               [ 4]  557 	xor	a, a
+    000001DD CDr00r00         [24]  558 	call	_DrawText
+                         000001E0   559 	C$CoreGameLoop.c$74$1_0$150	= .
+                                    560 	.globl	C$CoreGameLoop.c$74$1_0$150
+                                    561 ;src\CoreGameLoop.c:74: }
+    000001E0 E8 03            [16]  562 	add	sp, #3
+                         000001E2   563 	C$CoreGameLoop.c$74$1_0$150	= .
+                                    564 	.globl	C$CoreGameLoop.c$74$1_0$150
+                         000001E2   565 	XG$set_camera$0$0	= .
+                                    566 	.globl	XG$set_camera$0$0
+    000001E2 C9               [16]  567 	ret
+                         000001E3   568 G$const_bank_ID_core$0_0$0 == .
+    000001E3                        569 _const_bank_ID_core:
+    000001E3 03                     570 	.db #0x03	; 3
+                         000001E4   571 FCoreGameLoop$__str_0$0_0$0 == .
+    000001E4                        572 ___str_0:
+    000001E4 58 3A                  573 	.ascii "X:"
+    000001E6 00                     574 	.db 0x00
+                         000001E7   575 FCoreGameLoop$__str_1$0_0$0 == .
+    000001E7                        576 ___str_1:
+    000001E7 59 3A                  577 	.ascii "Y:"
+    000001E9 00                     578 	.db 0x00
+                         000001EA   579 	G$__func_CoreGameLoopSetup$0$0	= .
+                                    580 	.globl	G$__func_CoreGameLoopSetup$0$0
+                         000001EA   581 	C$CoreGameLoop.c$78$1_0$172	= .
+                                    582 	.globl	C$CoreGameLoop.c$78$1_0$172
+                                    583 ;src\CoreGameLoop.c:78: BANKREF(CoreGameLoopSetup)
+                                    584 ;	---------------------------------
+                                    585 ; Function __func_CoreGameLoopSetup
+                                    586 ; ---------------------------------
+                         00000003   587 	b___func_CoreGameLoopSetup	= 3
+    000001EA                        588 ___func_CoreGameLoopSetup::
+                                    589 	.local b___func_CoreGameLoopSetup 
+                         00000003   590 	___bank_CoreGameLoopSetup = b___func_CoreGameLoopSetup 
+                                    591 	.globl ___bank_CoreGameLoopSetup 
+                         000001EA   592 	G$CoreGameLoopSetup$0$0	= .
+                                    593 	.globl	G$CoreGameLoopSetup$0$0
+                         000001EA   594 	C$CoreGameLoop.c$79$1_0$174	= .
+                                    595 	.globl	C$CoreGameLoop.c$79$1_0$174
+                                    596 ;src\CoreGameLoop.c:79: void CoreGameLoopSetup(void) BANKED
+                                    597 ;	---------------------------------
+                                    598 ; Function CoreGameLoopSetup
+                                    599 ; ---------------------------------
+                         00000003   600 	b_CoreGameLoopSetup	= 3
+    000001EA                        601 _CoreGameLoopSetup::
+                         000001EA   602 	C$CoreGameLoop.c$82$1_0$174	= .
+                                    603 	.globl	C$CoreGameLoop.c$82$1_0$174
+                                    604 ;src\CoreGameLoop.c:82: map_pos_x_tiles = map_pos_y_tiles = 0;
+    000001EA 21r09r00         [12]  605 	ld	hl, #_map_pos_y_tiles
+    000001ED 36 00            [12]  606 	ld	(hl), #0x00
+    000001EF 21r08r00         [12]  607 	ld	hl, #_map_pos_x_tiles
+    000001F2 36 00            [12]  608 	ld	(hl), #0x00
+                         000001F4   609 	C$CoreGameLoop.c$83$1_0$174	= .
+                                    610 	.globl	C$CoreGameLoop.c$83$1_0$174
+                                    611 ;src\CoreGameLoop.c:83: old_map_pos_x_tiles = old_camera_y_pixels = 255; 
+    000001F4 21r0Ar00         [12]  612 	ld	hl, #_old_map_pos_x_tiles
+    000001F7 36 FF            [12]  613 	ld	(hl), #0xff
+                         000001F9   614 	C$CoreGameLoop.c$84$1_0$174	= .
+                                    615 	.globl	C$CoreGameLoop.c$84$1_0$174
+                                    616 ;src\CoreGameLoop.c:84: camera_x_pixels = 208;
+    000001F9 21r00r00         [12]  617 	ld	hl, #_camera_x_pixels
+    000001FC 3E D0            [ 8]  618 	ld	a, #0xd0
+    000001FE 22               [ 8]  619 	ld	(hl+), a
+    000001FF AF               [ 4]  620 	xor	a, a
+    00000200 77               [ 8]  621 	ld	(hl), a
+                         00000201   622 	C$CoreGameLoop.c$85$1_0$174	= .
+                                    623 	.globl	C$CoreGameLoop.c$85$1_0$174
+                                    624 ;src\CoreGameLoop.c:85: camera_y_pixels = 96;
+    00000201 21r02r00         [12]  625 	ld	hl, #_camera_y_pixels
+    00000204 3E 60            [ 8]  626 	ld	a, #0x60
+    00000206 22               [ 8]  627 	ld	(hl+), a
+    00000207 AF               [ 4]  628 	xor	a, a
+    00000208 77               [ 8]  629 	ld	(hl), a
+                         00000209   630 	C$CoreGameLoop.c$86$1_0$174	= .
+                                    631 	.globl	C$CoreGameLoop.c$86$1_0$174
+                                    632 ;src\CoreGameLoop.c:86: old_camera_x_pixels = camera_x_pixels; old_camera_y_pixels = camera_y_pixels;
+    00000209 21r04r00         [12]  633 	ld	hl, #_old_camera_x_pixels
+    0000020C 3E D0            [ 8]  634 	ld	a, #0xd0
+    0000020E 22               [ 8]  635 	ld	(hl+), a
+    0000020F AF               [ 4]  636 	xor	a, a
+    00000210 77               [ 8]  637 	ld	(hl), a
+    00000211 21r06r00         [12]  638 	ld	hl, #_old_camera_y_pixels
+    00000214 3E 60            [ 8]  639 	ld	a, #0x60
+    00000216 22               [ 8]  640 	ld	(hl+), a
+    00000217 AF               [ 4]  641 	xor	a, a
+    00000218 77               [ 8]  642 	ld	(hl), a
+                         00000219   643 	C$CoreGameLoop.c$87$1_0$174	= .
+                                    644 	.globl	C$CoreGameLoop.c$87$1_0$174
+                                    645 ;src\CoreGameLoop.c:87: redraw = FALSE;
+    00000219 21r0Cr00         [12]  646 	ld	hl, #_redraw
+    0000021C 36 00            [12]  647 	ld	(hl), #0x00
+                         0000021E   648 	C$CoreGameLoop.c$89$1_0$174	= .
+                                    649 	.globl	C$CoreGameLoop.c$89$1_0$174
+                                    650 ;src\CoreGameLoop.c:89: set_bkg_data(128, 144, IndoorTiles);
+    0000021E 11r00r00         [12]  651 	ld	de, #_IndoorTiles
+    00000221 D5               [16]  652 	push	de
+    00000222 21 80 90         [12]  653 	ld	hl, #0x9080
+    00000225 E5               [16]  654 	push	hl
+    00000226 CDr00r00         [24]  655 	call	_set_bkg_data
+    00000229 E8 04            [16]  656 	add	sp, #4
+                                    657 ;src\CoreGameLoop.c:90: set_bkg_based_submap(0, 0, 20u, 18u, Home, HomeWidth, 128);
+                                    658 ;c:\gbdk\include\gb\gb.h:1303: _submap_tile_offset = base_tile;
+    0000022B 21r00r00         [12]  659 	ld	hl, #__submap_tile_offset
+    0000022E 36 80            [12]  660 	ld	(hl), #0x80
+                                    661 ;c:\gbdk\include\gb\gb.h:1304: set_bkg_submap(x, y, w, h, map, map_w);
+    00000230 3E 31            [ 8]  662 	ld	a, #0x31
+    00000232 F5               [16]  663 	push	af
+    00000233 33               [ 8]  664 	inc	sp
+    00000234 11r00r00         [12]  665 	ld	de, #_Home
+    00000237 D5               [16]  666 	push	de
+    00000238 21 14 12         [12]  667 	ld	hl, #0x1214
+    0000023B E5               [16]  668 	push	hl
+    0000023C AF               [ 4]  669 	xor	a, a
+    0000023D 0F               [ 4]  670 	rrca
+    0000023E F5               [16]  671 	push	af
+    0000023F CDr00r00         [24]  672 	call	_set_bkg_submap
+    00000242 E8 07            [16]  673 	add	sp, #7
+                                    674 ;c:\gbdk\include\gb\gb.h:1305: _submap_tile_offset = 0;
+    00000244 21r00r00         [12]  675 	ld	hl, #__submap_tile_offset
+    00000247 36 00            [12]  676 	ld	(hl), #0x00
+                         00000249   677 	C$CoreGameLoop.c$91$1_0$174	= .
+                                    678 	.globl	C$CoreGameLoop.c$91$1_0$174
+                                    679 ;src\CoreGameLoop.c:91: set_sprite_data(0, 128, Cast_Tiles);
+    00000249 11r00r00         [12]  680 	ld	de, #_Cast_Tiles
+    0000024C D5               [16]  681 	push	de
+    0000024D 21 00 80         [12]  682 	ld	hl, #0x8000
+    00000250 E5               [16]  683 	push	hl
+    00000251 CDr00r00         [24]  684 	call	_set_sprite_data
+    00000254 E8 04            [16]  685 	add	sp, #4
+                         00000256   686 	C$CoreGameLoop.c$92$1_0$174	= .
+                                    687 	.globl	C$CoreGameLoop.c$92$1_0$174
+                                    688 ;src\CoreGameLoop.c:92: set_bkg_data(0, 53, FontTiles); // Load font and window tiles
+    00000256 11r00r00         [12]  689 	ld	de, #_FontTiles
+    00000259 D5               [16]  690 	push	de
+    0000025A 21 00 35         [12]  691 	ld	hl, #0x3500
+    0000025D E5               [16]  692 	push	hl
+    0000025E CDr00r00         [24]  693 	call	_set_bkg_data
+    00000261 E8 04            [16]  694 	add	sp, #4
+                         00000263   695 	C$CoreGameLoop.c$93$1_0$174	= .
+                                    696 	.globl	C$CoreGameLoop.c$93$1_0$174
+                                    697 ;src\CoreGameLoop.c:93: SPRITES_8x16;
+    00000263 F0r00            [12]  698 	ldh	a, (_LCDC_REG + 0)
+    00000265 F6 04            [ 8]  699 	or	a, #0x04
+    00000267 E0r00            [12]  700 	ldh	(_LCDC_REG + 0), a
+                         00000269   701 	C$CoreGameLoop.c$94$1_0$174	= .
+                                    702 	.globl	C$CoreGameLoop.c$94$1_0$174
+                                    703 ;src\CoreGameLoop.c:94: SHOW_BKG;
+    00000269 F0r00            [12]  704 	ldh	a, (_LCDC_REG + 0)
+    0000026B F6 01            [ 8]  705 	or	a, #0x01
+    0000026D E0r00            [12]  706 	ldh	(_LCDC_REG + 0), a
+                         0000026F   707 	C$CoreGameLoop.c$95$1_0$174	= .
+                                    708 	.globl	C$CoreGameLoop.c$95$1_0$174
+                                    709 ;src\CoreGameLoop.c:95: SHOW_SPRITES;
+    0000026F F0r00            [12]  710 	ldh	a, (_LCDC_REG + 0)
+    00000271 F6 02            [ 8]  711 	or	a, #0x02
+    00000273 E0r00            [12]  712 	ldh	(_LCDC_REG + 0), a
+                         00000275   713 	C$CoreGameLoop.c$96$1_0$174	= .
+                                    714 	.globl	C$CoreGameLoop.c$96$1_0$174
+                                    715 ;src\CoreGameLoop.c:96: set_camera();
+    00000275 1Er00            [ 8]  716 	ld	e, #b_set_camera
+    00000277 21r00r00         [12]  717 	ld	hl, #_set_camera
+    0000027A CDr00r00         [24]  718 	call	___sdcc_bcall_ehl
+                         0000027D   719 	C$CoreGameLoop.c$97$1_0$174	= .
+                                    720 	.globl	C$CoreGameLoop.c$97$1_0$174
+                                    721 ;src\CoreGameLoop.c:97: fadeFromBlack(10);
+    0000027D 3E 0A            [ 8]  722 	ld	a, #0x0a
+    0000027F CDr00r00         [24]  723 	call	_fadeFromBlack
+                         00000282   724 	C$CoreGameLoop.c$98$1_0$174	= .
+                                    725 	.globl	C$CoreGameLoop.c$98$1_0$174
+                                    726 ;src\CoreGameLoop.c:98: DrawNumber(1, 1, 31, 4, FALSE);
+    00000282 21 04 00         [12]  727 	ld	hl, #0x04
+    00000285 E5               [16]  728 	push	hl
+    00000286 11 1F 00         [12]  729 	ld	de, #0x001f
+    00000289 D5               [16]  730 	push	de
+    0000028A 3E 01            [ 8]  731 	ld	a,#0x01
+    0000028C 5F               [ 4]  732 	ld	e,a
+    0000028D CDr00r00         [24]  733 	call	_DrawNumber
+                         00000290   734 	C$CoreGameLoop.c$99$1_0$174	= .
+                                    735 	.globl	C$CoreGameLoop.c$99$1_0$174
+                                    736 ;src\CoreGameLoop.c:99: DrawText(1, 3, "Window Text", FALSE);
+    00000290 AF               [ 4]  737 	xor	a, a
+    00000291 F5               [16]  738 	push	af
+    00000292 33               [ 8]  739 	inc	sp
+    00000293 11r9Fr02         [12]  740 	ld	de, #___str_2
+    00000296 D5               [16]  741 	push	de
+    00000297 1E 03            [ 8]  742 	ld	e, #0x03
+    00000299 3E 01            [ 8]  743 	ld	a, #0x01
+    0000029B CDr00r00         [24]  744 	call	_DrawText
+                         0000029E   745 	C$CoreGameLoop.c$100$1_0$174	= .
+                                    746 	.globl	C$CoreGameLoop.c$100$1_0$174
+                                    747 ;src\CoreGameLoop.c:100: }
+                         0000029E   748 	C$CoreGameLoop.c$100$1_0$174	= .
+                                    749 	.globl	C$CoreGameLoop.c$100$1_0$174
+                         0000029E   750 	XG$CoreGameLoopSetup$0$0	= .
+                                    751 	.globl	XG$CoreGameLoopSetup$0$0
+    0000029E C9               [16]  752 	ret
+                         0000029F   753 FCoreGameLoop$__str_2$0_0$0 == .
+    0000029F                        754 ___str_2:
+    0000029F 57 69 6E 64 6F 77 20   755 	.ascii "Window Text"
              54 65 78 74
-    000002A4 00                     698 	.db 0x00
-                         000002A5   699 	G$CoreGameLoopUpdate$0$0	= .
-                                    700 	.globl	G$CoreGameLoopUpdate$0$0
-                         000002A5   701 	C$CoreGameLoop.c$96$1_0$173	= .
-                                    702 	.globl	C$CoreGameLoop.c$96$1_0$173
-                                    703 ;src\CoreGameLoop.c:96: uint8_t CoreGameLoopUpdate(void)
-                                    704 ;	---------------------------------
-                                    705 ; Function CoreGameLoopUpdate
-                                    706 ; ---------------------------------
-    000002A5                        707 _CoreGameLoopUpdate::
-                         000002A5   708 	C$CoreGameLoop.c$98$1_0$173	= .
-                                    709 	.globl	C$CoreGameLoop.c$98$1_0$173
-                                    710 ;src\CoreGameLoop.c:98: joypadCurrent = joypad();
-    000002A5 CDr00r00         [24]  711 	call	_joypad
-    000002A8 EAr00r00         [16]  712 	ld	(#_joypadCurrent),a
-                         000002AB   713 	C$CoreGameLoop.c$99$1_0$173	= .
-                                    714 	.globl	C$CoreGameLoop.c$99$1_0$173
-                                    715 ;src\CoreGameLoop.c:99: PlayerUpdate(&mouse);
-    000002AB 11r00r00         [12]  716 	ld	de, #_mouse
-    000002AE CDr00r00         [24]  717 	call	_PlayerUpdate
-                         000002B1   718 	C$CoreGameLoop.c$100$1_0$173	= .
-                                    719 	.globl	C$CoreGameLoop.c$100$1_0$173
-                                    720 ;src\CoreGameLoop.c:100: DrawPlayer(&mouse);
-    000002B1 11r00r00         [12]  721 	ld	de, #_mouse
-    000002B4 CDr00r00         [24]  722 	call	_DrawPlayer
-                         000002B7   723 	C$CoreGameLoop.c$105$1_0$173	= .
-                                    724 	.globl	C$CoreGameLoop.c$105$1_0$173
-                                    725 ;src\CoreGameLoop.c:105: if (joypadCurrent & J_UP) {
-    000002B7 21r00r00         [12]  726 	ld	hl, #_joypadCurrent
-    000002BA 4E               [ 8]  727 	ld	c, (hl)
-    000002BB CB 51            [ 8]  728 	bit	2, c
-    000002BD 28 16            [12]  729 	jr	Z, 00108$
-                         000002BF   730 	C$CoreGameLoop.c$106$2_0$175	= .
-                                    731 	.globl	C$CoreGameLoop.c$106$2_0$175
-                                    732 ;src\CoreGameLoop.c:106: if (camera_y_pixels){
-    000002BF 21r03r00         [12]  733 	ld	hl, #_camera_y_pixels + 1
-    000002C2 3A               [ 8]  734 	ld	a, (hl-)
-    000002C3 B6               [ 8]  735 	or	a, (hl)
-    000002C4 28 2A            [12]  736 	jr	Z, 00109$
-                         000002C6   737 	C$CoreGameLoop.c$107$3_0$176	= .
-                                    738 	.globl	C$CoreGameLoop.c$107$3_0$176
-                                    739 ;src\CoreGameLoop.c:107: camera_y_pixels--;
-    000002C6 2A               [ 8]  740 	ld	a, (hl+)
-    000002C7 5F               [ 4]  741 	ld	e, a
-    000002C8 3A               [ 8]  742 	ld	a, (hl-)
-    000002C9 57               [ 4]  743 	ld	d, a
-    000002CA 1B               [ 8]  744 	dec	de
-    000002CB 7B               [ 4]  745 	ld	a, e
-    000002CC 22               [ 8]  746 	ld	(hl+), a
-    000002CD 72               [ 8]  747 	ld	(hl), d
-                         000002CE   748 	C$CoreGameLoop.c$108$3_0$176	= .
-                                    749 	.globl	C$CoreGameLoop.c$108$3_0$176
-                                    750 ;src\CoreGameLoop.c:108: redraw = TRUE;
-    000002CE 21r0Cr00         [12]  751 	ld	hl, #_redraw
-    000002D1 36 01            [12]  752 	ld	(hl), #0x01
-    000002D3 18 1B            [12]  753 	jr	00109$
-    000002D5                        754 00108$:
-                         000002D5   755 	C$CoreGameLoop.c$110$1_0$173	= .
-                                    756 	.globl	C$CoreGameLoop.c$110$1_0$173
-                                    757 ;src\CoreGameLoop.c:110: } else if (joypadCurrent & J_DOWN) {
-    000002D5 CB 59            [ 8]  758 	bit	3, c
-    000002D7 28 17            [12]  759 	jr	Z, 00109$
-                         000002D9   760 	C$CoreGameLoop.c$111$2_0$177	= .
-                                    761 	.globl	C$CoreGameLoop.c$111$2_0$177
-                                    762 ;src\CoreGameLoop.c:111: if (camera_y_pixels < HomeCameraMaxY)
-    000002D9 21r02r00         [12]  763 	ld	hl, #_camera_y_pixels
-    000002DC 2A               [ 8]  764 	ld	a, (hl+)
-    000002DD 5E               [ 8]  765 	ld	e, (hl)
-    000002DE D6 80            [ 8]  766 	sub	a, #0x80
-    000002E0 7B               [ 4]  767 	ld	a, e
-    000002E1 DE 01            [ 8]  768 	sbc	a, #0x01
-    000002E3 30 0B            [12]  769 	jr	NC, 00109$
-                         000002E5   770 	C$CoreGameLoop.c$113$3_0$178	= .
-                                    771 	.globl	C$CoreGameLoop.c$113$3_0$178
-                                    772 ;src\CoreGameLoop.c:113: camera_y_pixels++;
-    000002E5 2B               [ 8]  773 	dec	hl
-    000002E6 34               [12]  774 	inc	(hl)
-    000002E7 20 02            [12]  775 	jr	NZ, 00223$
-    000002E9 23               [ 8]  776 	inc	hl
-    000002EA 34               [12]  777 	inc	(hl)
-    000002EB                        778 00223$:
-                         000002EB   779 	C$CoreGameLoop.c$114$3_0$178	= .
-                                    780 	.globl	C$CoreGameLoop.c$114$3_0$178
-                                    781 ;src\CoreGameLoop.c:114: redraw = TRUE;
-    000002EB 21r0Cr00         [12]  782 	ld	hl, #_redraw
-    000002EE 36 01            [12]  783 	ld	(hl), #0x01
-    000002F0                        784 00109$:
-                         000002F0   785 	C$CoreGameLoop.c$118$1_0$173	= .
-                                    786 	.globl	C$CoreGameLoop.c$118$1_0$173
-                                    787 ;src\CoreGameLoop.c:118: if (joypadCurrent & J_LEFT) {
-    000002F0 CB 49            [ 8]  788 	bit	1, c
-    000002F2 28 18            [12]  789 	jr	Z, 00126$
-                         000002F4   790 	C$CoreGameLoop.c$119$2_0$179	= .
-                                    791 	.globl	C$CoreGameLoop.c$119$2_0$179
-                                    792 ;src\CoreGameLoop.c:119: if (camera_x_pixels)
-    000002F4 21r01r00         [12]  793 	ld	hl, #_camera_x_pixels + 1
-    000002F7 3A               [ 8]  794 	ld	a, (hl-)
-    000002F8 B6               [ 8]  795 	or	a, (hl)
-    000002F9 CAr48r04         [16]  796 	jp	Z, 00127$
-                         000002FC   797 	C$CoreGameLoop.c$121$3_0$180	= .
-                                    798 	.globl	C$CoreGameLoop.c$121$3_0$180
-                                    799 ;src\CoreGameLoop.c:121: camera_x_pixels--;
-    000002FC 2A               [ 8]  800 	ld	a, (hl+)
-    000002FD 5F               [ 4]  801 	ld	e, a
-    000002FE 3A               [ 8]  802 	ld	a, (hl-)
-    000002FF 57               [ 4]  803 	ld	d, a
-    00000300 1B               [ 8]  804 	dec	de
-    00000301 7B               [ 4]  805 	ld	a, e
-    00000302 22               [ 8]  806 	ld	(hl+), a
-    00000303 72               [ 8]  807 	ld	(hl), d
-                         00000304   808 	C$CoreGameLoop.c$122$3_0$180	= .
-                                    809 	.globl	C$CoreGameLoop.c$122$3_0$180
-                                    810 ;src\CoreGameLoop.c:122: redraw = TRUE;
-    00000304 21r0Cr00         [12]  811 	ld	hl, #_redraw
-    00000307 36 01            [12]  812 	ld	(hl), #0x01
-    00000309 C3r48r04         [16]  813 	jp	00127$
-    0000030C                        814 00126$:
-                         0000030C   815 	C$CoreGameLoop.c$124$1_0$173	= .
-                                    816 	.globl	C$CoreGameLoop.c$124$1_0$173
-                                    817 ;src\CoreGameLoop.c:124: } else if (joypadCurrent & J_RIGHT) {
-    0000030C CB 41            [ 8]  818 	bit	0, c
-    0000030E 28 1A            [12]  819 	jr	Z, 00123$
-                         00000310   820 	C$CoreGameLoop.c$125$2_0$181	= .
-                                    821 	.globl	C$CoreGameLoop.c$125$2_0$181
-                                    822 ;src\CoreGameLoop.c:125: if (camera_x_pixels < HomeCameraMaxX)
-    00000310 21r00r00         [12]  823 	ld	hl, #_camera_x_pixels
-    00000313 2A               [ 8]  824 	ld	a, (hl+)
-    00000314 D6 E8            [ 8]  825 	sub	a, #0xe8
-    00000316 7E               [ 8]  826 	ld	a, (hl)
-    00000317 DE 00            [ 8]  827 	sbc	a, #0x00
-    00000319 D2r48r04         [16]  828 	jp	NC, 00127$
-                         0000031C   829 	C$CoreGameLoop.c$127$3_0$182	= .
-                                    830 	.globl	C$CoreGameLoop.c$127$3_0$182
-                                    831 ;src\CoreGameLoop.c:127: camera_x_pixels++;
-    0000031C 2B               [ 8]  832 	dec	hl
-    0000031D 34               [12]  833 	inc	(hl)
-    0000031E 20 02            [12]  834 	jr	NZ, 00226$
-    00000320 23               [ 8]  835 	inc	hl
-    00000321 34               [12]  836 	inc	(hl)
-    00000322                        837 00226$:
-                         00000322   838 	C$CoreGameLoop.c$128$3_0$182	= .
-                                    839 	.globl	C$CoreGameLoop.c$128$3_0$182
-                                    840 ;src\CoreGameLoop.c:128: redraw = TRUE;
-    00000322 21r0Cr00         [12]  841 	ld	hl, #_redraw
-    00000325 36 01            [12]  842 	ld	(hl), #0x01
-    00000327 C3r48r04         [16]  843 	jp	00127$
-    0000032A                        844 00123$:
-                         0000032A   845 	C$CoreGameLoop.c$130$1_0$173	= .
-                                    846 	.globl	C$CoreGameLoop.c$130$1_0$173
-                                    847 ;src\CoreGameLoop.c:130: } else if (joypadCurrent & J_SELECT) {
-    0000032A CB 71            [ 8]  848 	bit	6, c
-    0000032C 28 08            [12]  849 	jr	Z, 00120$
-                         0000032E   850 	C$CoreGameLoop.c$131$2_0$183	= .
-                                    851 	.globl	C$CoreGameLoop.c$131$2_0$183
-                                    852 ;src\CoreGameLoop.c:131: fadeToBlack(10);
-    0000032E 3E 0A            [ 8]  853 	ld	a, #0x0a
-    00000330 CDr00r00         [24]  854 	call	_fadeToBlack
-                         00000333   855 	C$CoreGameLoop.c$132$2_0$183	= .
-                                    856 	.globl	C$CoreGameLoop.c$132$2_0$183
-                                    857 ;src\CoreGameLoop.c:132: return GAMETITLE;
-    00000333 3E 01            [ 8]  858 	ld	a, #0x01
-    00000335 C9               [16]  859 	ret
-    00000336                        860 00120$:
-                         00000336   861 	C$CoreGameLoop.c$134$1_0$173	= .
-                                    862 	.globl	C$CoreGameLoop.c$134$1_0$173
-                                    863 ;src\CoreGameLoop.c:134: else if (joypadCurrent & J_B)
-    00000336 CB 69            [ 8]  864 	bit	5, c
-    00000338 28 10            [12]  865 	jr	Z, 00117$
-                         0000033A   866 	C$CoreGameLoop.c$136$2_0$184	= .
-                                    867 	.globl	C$CoreGameLoop.c$136$2_0$184
-                                    868 ;src\CoreGameLoop.c:136: set_sprite_data(0, 16, Skateboard_Tiles);
-    0000033A 11r00r00         [12]  869 	ld	de, #_Skateboard_Tiles
-    0000033D D5               [16]  870 	push	de
-    0000033E 21 00 10         [12]  871 	ld	hl, #0x1000
-    00000341 E5               [16]  872 	push	hl
-    00000342 CDr00r00         [24]  873 	call	_set_sprite_data
-    00000345 E8 04            [16]  874 	add	sp, #4
-    00000347 C3r48r04         [16]  875 	jp	00127$
-    0000034A                        876 00117$:
-                         0000034A   877 	C$CoreGameLoop.c$138$1_0$173	= .
-                                    878 	.globl	C$CoreGameLoop.c$138$1_0$173
-                                    879 ;src\CoreGameLoop.c:138: else if (joypadCurrent & J_A)
-    0000034A CB 61            [ 8]  880 	bit	4, c
-    0000034C CAr48r04         [16]  881 	jp	Z,00127$
-                         0000034F   882 	C$CoreGameLoop.c$141$2_0$185	= .
-                                    883 	.globl	C$CoreGameLoop.c$141$2_0$185
-                                    884 ;src\CoreGameLoop.c:141: DrawWindow(map_pos_x_tiles, map_pos_y_tiles, 9, 6, TRUE);
-    0000034F 21 06 01         [12]  885 	ld	hl, #0x106
-    00000352 E5               [16]  886 	push	hl
-    00000353 3E 09            [ 8]  887 	ld	a, #0x09
-    00000355 F5               [16]  888 	push	af
-    00000356 33               [ 8]  889 	inc	sp
-    00000357 21r09r00         [12]  890 	ld	hl, #_map_pos_y_tiles
-    0000035A 5E               [ 8]  891 	ld	e, (hl)
-    0000035B FAr08r00         [16]  892 	ld	a, (#_map_pos_x_tiles)
-    0000035E CDr00r00         [24]  893 	call	_DrawWindow
-                         00000361   894 	C$CoreGameLoop.c$142$2_0$185	= .
-                                    895 	.globl	C$CoreGameLoop.c$142$2_0$185
-                                    896 ;src\CoreGameLoop.c:142: DrawText(map_pos_x_tiles + 1, map_pos_y_tiles + 0, "COMMAND", TRUE);
-    00000361 21r08r00         [12]  897 	ld	hl, #_map_pos_x_tiles
-    00000364 4E               [ 8]  898 	ld	c, (hl)
-    00000365 0C               [ 4]  899 	inc	c
-    00000366 3E 01            [ 8]  900 	ld	a, #0x01
-    00000368 F5               [16]  901 	push	af
-    00000369 33               [ 8]  902 	inc	sp
-    0000036A 11r5Cr04         [12]  903 	ld	de, #___str_3
-    0000036D D5               [16]  904 	push	de
-    0000036E 21r09r00         [12]  905 	ld	hl, #_map_pos_y_tiles
-    00000371 5E               [ 8]  906 	ld	e, (hl)
-    00000372 79               [ 4]  907 	ld	a, c
-    00000373 CDr00r00         [24]  908 	call	_DrawText
-                         00000376   909 	C$CoreGameLoop.c$143$2_0$185	= .
-                                    910 	.globl	C$CoreGameLoop.c$143$2_0$185
-                                    911 ;src\CoreGameLoop.c:143: DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 1, "TALK", TRUE);
-    00000376 21r09r00         [12]  912 	ld	hl, #_map_pos_y_tiles
-    00000379 5E               [ 8]  913 	ld	e, (hl)
-    0000037A 1C               [ 4]  914 	inc	e
-    0000037B 21r08r00         [12]  915 	ld	hl, #_map_pos_x_tiles
-    0000037E 4E               [ 8]  916 	ld	c, (hl)
-    0000037F 0C               [ 4]  917 	inc	c
-    00000380 0C               [ 4]  918 	inc	c
-    00000381 3E 01            [ 8]  919 	ld	a, #0x01
-    00000383 F5               [16]  920 	push	af
-    00000384 33               [ 8]  921 	inc	sp
-    00000385 21r64r04         [12]  922 	ld	hl, #___str_4
-    00000388 E5               [16]  923 	push	hl
-    00000389 79               [ 4]  924 	ld	a, c
-    0000038A CDr00r00         [24]  925 	call	_DrawText
-                         0000038D   926 	C$CoreGameLoop.c$144$2_0$185	= .
-                                    927 	.globl	C$CoreGameLoop.c$144$2_0$185
-                                    928 ;src\CoreGameLoop.c:144: DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 2, "CHECK", TRUE);
-    0000038D 21r09r00         [12]  929 	ld	hl, #_map_pos_y_tiles
-    00000390 5E               [ 8]  930 	ld	e, (hl)
-    00000391 1C               [ 4]  931 	inc	e
-    00000392 1C               [ 4]  932 	inc	e
-    00000393 21r08r00         [12]  933 	ld	hl, #_map_pos_x_tiles
-    00000396 4E               [ 8]  934 	ld	c, (hl)
-    00000397 0C               [ 4]  935 	inc	c
-    00000398 0C               [ 4]  936 	inc	c
-    00000399 3E 01            [ 8]  937 	ld	a, #0x01
-    0000039B F5               [16]  938 	push	af
-    0000039C 33               [ 8]  939 	inc	sp
-    0000039D 21r69r04         [12]  940 	ld	hl, #___str_5
-    000003A0 E5               [16]  941 	push	hl
-    000003A1 79               [ 4]  942 	ld	a, c
-    000003A2 CDr00r00         [24]  943 	call	_DrawText
-                         000003A5   944 	C$CoreGameLoop.c$145$2_0$185	= .
-                                    945 	.globl	C$CoreGameLoop.c$145$2_0$185
-                                    946 ;src\CoreGameLoop.c:145: DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 3, "PSI", TRUE);
-    000003A5 FAr09r00         [16]  947 	ld	a, (#_map_pos_y_tiles)
-    000003A8 C6 03            [ 8]  948 	add	a, #0x03
-    000003AA 5F               [ 4]  949 	ld	e, a
-    000003AB 21r08r00         [12]  950 	ld	hl, #_map_pos_x_tiles
-    000003AE 4E               [ 8]  951 	ld	c, (hl)
-    000003AF 0C               [ 4]  952 	inc	c
-    000003B0 0C               [ 4]  953 	inc	c
-    000003B1 3E 01            [ 8]  954 	ld	a, #0x01
-    000003B3 F5               [16]  955 	push	af
-    000003B4 33               [ 8]  956 	inc	sp
-    000003B5 21r6Fr04         [12]  957 	ld	hl, #___str_6
-    000003B8 E5               [16]  958 	push	hl
-    000003B9 79               [ 4]  959 	ld	a, c
-    000003BA CDr00r00         [24]  960 	call	_DrawText
-                         000003BD   961 	C$CoreGameLoop.c$146$2_0$185	= .
-                                    962 	.globl	C$CoreGameLoop.c$146$2_0$185
-                                    963 ;src\CoreGameLoop.c:146: DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 4, "GOODS", TRUE);
-    000003BD FAr09r00         [16]  964 	ld	a, (#_map_pos_y_tiles)
-    000003C0 C6 04            [ 8]  965 	add	a, #0x04
-    000003C2 5F               [ 4]  966 	ld	e, a
-    000003C3 21r08r00         [12]  967 	ld	hl, #_map_pos_x_tiles
-    000003C6 4E               [ 8]  968 	ld	c, (hl)
-    000003C7 0C               [ 4]  969 	inc	c
-    000003C8 0C               [ 4]  970 	inc	c
-    000003C9 3E 01            [ 8]  971 	ld	a, #0x01
-    000003CB F5               [16]  972 	push	af
-    000003CC 33               [ 8]  973 	inc	sp
-    000003CD 21r73r04         [12]  974 	ld	hl, #___str_7
-    000003D0 E5               [16]  975 	push	hl
-    000003D1 79               [ 4]  976 	ld	a, c
-    000003D2 CDr00r00         [24]  977 	call	_DrawText
-                         000003D5   978 	C$CoreGameLoop.c$148$2_0$185	= .
-                                    979 	.globl	C$CoreGameLoop.c$148$2_0$185
-                                    980 ;src\CoreGameLoop.c:148: DrawWindow(map_pos_x_tiles, map_pos_y_tiles + 15, 20, 3, TRUE);
-    000003D5 FAr09r00         [16]  981 	ld	a, (#_map_pos_y_tiles)
-    000003D8 C6 0F            [ 8]  982 	add	a, #0x0f
-    000003DA 5F               [ 4]  983 	ld	e, a
-    000003DB 21 03 01         [12]  984 	ld	hl, #0x103
-    000003DE E5               [16]  985 	push	hl
-    000003DF 3E 14            [ 8]  986 	ld	a, #0x14
-    000003E1 F5               [16]  987 	push	af
-    000003E2 33               [ 8]  988 	inc	sp
-    000003E3 FAr08r00         [16]  989 	ld	a, (#_map_pos_x_tiles)
-    000003E6 CDr00r00         [24]  990 	call	_DrawWindow
-                         000003E9   991 	C$CoreGameLoop.c$149$2_0$185	= .
-                                    992 	.globl	C$CoreGameLoop.c$149$2_0$185
-                                    993 ;src\CoreGameLoop.c:149: DrawText(map_pos_x_tiles + 1, map_pos_y_tiles + 15, "NAME", TRUE);
-    000003E9 FAr09r00         [16]  994 	ld	a, (#_map_pos_y_tiles)
-    000003EC C6 0F            [ 8]  995 	add	a, #0x0f
-    000003EE 5F               [ 4]  996 	ld	e, a
-    000003EF 21r08r00         [12]  997 	ld	hl, #_map_pos_x_tiles
-    000003F2 4E               [ 8]  998 	ld	c, (hl)
-    000003F3 0C               [ 4]  999 	inc	c
-    000003F4 3E 01            [ 8] 1000 	ld	a, #0x01
-    000003F6 F5               [16] 1001 	push	af
-    000003F7 33               [ 8] 1002 	inc	sp
-    000003F8 21r79r04         [12] 1003 	ld	hl, #___str_8
-    000003FB E5               [16] 1004 	push	hl
-    000003FC 79               [ 4] 1005 	ld	a, c
-    000003FD CDr00r00         [24] 1006 	call	_DrawText
-                         00000400  1007 	C$CoreGameLoop.c$150$2_0$185	= .
-                                   1008 	.globl	C$CoreGameLoop.c$150$2_0$185
-                                   1009 ;src\CoreGameLoop.c:150: DrawText(map_pos_x_tiles + 10, map_pos_y_tiles + 15, "HP", TRUE);
-    00000400 FAr09r00         [16] 1010 	ld	a, (#_map_pos_y_tiles)
-    00000403 C6 0F            [ 8] 1011 	add	a, #0x0f
-    00000405 5F               [ 4] 1012 	ld	e, a
-    00000406 FAr08r00         [16] 1013 	ld	a, (#_map_pos_x_tiles)
-    00000409 C6 0A            [ 8] 1014 	add	a, #0x0a
-    0000040B 4F               [ 4] 1015 	ld	c, a
-    0000040C 3E 01            [ 8] 1016 	ld	a, #0x01
-    0000040E F5               [16] 1017 	push	af
-    0000040F 33               [ 8] 1018 	inc	sp
-    00000410 21r7Er04         [12] 1019 	ld	hl, #___str_9
-    00000413 E5               [16] 1020 	push	hl
-    00000414 79               [ 4] 1021 	ld	a, c
-    00000415 CDr00r00         [24] 1022 	call	_DrawText
-                         00000418  1023 	C$CoreGameLoop.c$151$2_0$185	= .
-                                   1024 	.globl	C$CoreGameLoop.c$151$2_0$185
-                                   1025 ;src\CoreGameLoop.c:151: DrawText(map_pos_x_tiles + 14, map_pos_y_tiles + 15, "MP", TRUE);
-    00000418 FAr09r00         [16] 1026 	ld	a, (#_map_pos_y_tiles)
-    0000041B C6 0F            [ 8] 1027 	add	a, #0x0f
-    0000041D 5F               [ 4] 1028 	ld	e, a
-    0000041E FAr08r00         [16] 1029 	ld	a, (#_map_pos_x_tiles)
-    00000421 C6 0E            [ 8] 1030 	add	a, #0x0e
-    00000423 4F               [ 4] 1031 	ld	c, a
-    00000424 3E 01            [ 8] 1032 	ld	a, #0x01
-    00000426 F5               [16] 1033 	push	af
-    00000427 33               [ 8] 1034 	inc	sp
-    00000428 21r81r04         [12] 1035 	ld	hl, #___str_10
-    0000042B E5               [16] 1036 	push	hl
-    0000042C 79               [ 4] 1037 	ld	a, c
-    0000042D CDr00r00         [24] 1038 	call	_DrawText
-                         00000430  1039 	C$CoreGameLoop.c$152$2_0$185	= .
-                                   1040 	.globl	C$CoreGameLoop.c$152$2_0$185
-                                   1041 ;src\CoreGameLoop.c:152: DrawText(map_pos_x_tiles + 18, map_pos_y_tiles + 15, "LV", TRUE);
-    00000430 FAr09r00         [16] 1042 	ld	a, (#_map_pos_y_tiles)
-    00000433 C6 0F            [ 8] 1043 	add	a, #0x0f
-    00000435 5F               [ 4] 1044 	ld	e, a
-    00000436 FAr08r00         [16] 1045 	ld	a, (#_map_pos_x_tiles)
-    00000439 C6 12            [ 8] 1046 	add	a, #0x12
-    0000043B 4F               [ 4] 1047 	ld	c, a
-    0000043C 3E 01            [ 8] 1048 	ld	a, #0x01
-    0000043E F5               [16] 1049 	push	af
-    0000043F 33               [ 8] 1050 	inc	sp
-    00000440 21r84r04         [12] 1051 	ld	hl, #___str_11
-    00000443 E5               [16] 1052 	push	hl
-    00000444 79               [ 4] 1053 	ld	a, c
-    00000445 CDr00r00         [24] 1054 	call	_DrawText
-    00000448                       1055 00127$:
-                         00000448  1056 	C$CoreGameLoop.c$154$1_0$173	= .
-                                   1057 	.globl	C$CoreGameLoop.c$154$1_0$173
-                                   1058 ;src\CoreGameLoop.c:154: if (redraw)
-    00000448 FAr0Cr00         [16] 1059 	ld	a, (#_redraw)
-    0000044B B7               [ 4] 1060 	or	a, a
-    0000044C 28 0B            [12] 1061 	jr	Z, 00129$
-                         0000044E  1062 	C$CoreGameLoop.c$156$2_0$186	= .
-                                   1063 	.globl	C$CoreGameLoop.c$156$2_0$186
-                                   1064 ;src\CoreGameLoop.c:156: wait_vbl_done();
-    0000044E CDr00r00         [24] 1065 	call	_wait_vbl_done
-                         00000451  1066 	C$CoreGameLoop.c$157$2_0$186	= .
-                                   1067 	.globl	C$CoreGameLoop.c$157$2_0$186
-                                   1068 ;src\CoreGameLoop.c:157: set_camera();
-    00000451 CDr00r00         [24] 1069 	call	_set_camera
-                         00000454  1070 	C$CoreGameLoop.c$158$2_0$186	= .
-                                   1071 	.globl	C$CoreGameLoop.c$158$2_0$186
-                                   1072 ;src\CoreGameLoop.c:158: redraw = FALSE;
-    00000454 21r0Cr00         [12] 1073 	ld	hl, #_redraw
-    00000457 36 00            [12] 1074 	ld	(hl), #0x00
-    00000459                       1075 00129$:
-                         00000459  1076 	C$CoreGameLoop.c$161$1_0$173	= .
-                                   1077 	.globl	C$CoreGameLoop.c$161$1_0$173
-                                   1078 ;src\CoreGameLoop.c:161: return COREGAMELOOP;
-    00000459 3E 02            [ 8] 1079 	ld	a, #0x02
-                         0000045B  1080 	C$CoreGameLoop.c$162$1_0$173	= .
-                                   1081 	.globl	C$CoreGameLoop.c$162$1_0$173
-                                   1082 ;src\CoreGameLoop.c:162: }
-                         0000045B  1083 	C$CoreGameLoop.c$162$1_0$173	= .
-                                   1084 	.globl	C$CoreGameLoop.c$162$1_0$173
-                         0000045B  1085 	XG$CoreGameLoopUpdate$0$0	= .
-                                   1086 	.globl	XG$CoreGameLoopUpdate$0$0
-    0000045B C9               [16] 1087 	ret
-                         0000045C  1088 FCoreGameLoop$__str_3$0_0$0 == .
-    0000045C                       1089 ___str_3:
-    0000045C 43 4F 4D 4D 41 4E 44  1090 	.ascii "COMMAND"
-    00000463 00                    1091 	.db 0x00
-                         00000464  1092 FCoreGameLoop$__str_4$0_0$0 == .
-    00000464                       1093 ___str_4:
-    00000464 54 41 4C 4B           1094 	.ascii "TALK"
-    00000468 00                    1095 	.db 0x00
-                         00000469  1096 FCoreGameLoop$__str_5$0_0$0 == .
-    00000469                       1097 ___str_5:
-    00000469 43 48 45 43 4B        1098 	.ascii "CHECK"
-    0000046E 00                    1099 	.db 0x00
-                         0000046F  1100 FCoreGameLoop$__str_6$0_0$0 == .
-    0000046F                       1101 ___str_6:
-    0000046F 50 53 49              1102 	.ascii "PSI"
-    00000472 00                    1103 	.db 0x00
-                         00000473  1104 FCoreGameLoop$__str_7$0_0$0 == .
-    00000473                       1105 ___str_7:
-    00000473 47 4F 4F 44 53        1106 	.ascii "GOODS"
-    00000478 00                    1107 	.db 0x00
-                         00000479  1108 FCoreGameLoop$__str_8$0_0$0 == .
-    00000479                       1109 ___str_8:
-    00000479 4E 41 4D 45           1110 	.ascii "NAME"
-    0000047D 00                    1111 	.db 0x00
-                         0000047E  1112 FCoreGameLoop$__str_9$0_0$0 == .
-    0000047E                       1113 ___str_9:
-    0000047E 48 50                 1114 	.ascii "HP"
-    00000480 00                    1115 	.db 0x00
-                         00000481  1116 FCoreGameLoop$__str_10$0_0$0 == .
-    00000481                       1117 ___str_10:
-    00000481 4D 50                 1118 	.ascii "MP"
-    00000483 00                    1119 	.db 0x00
-                         00000484  1120 FCoreGameLoop$__str_11$0_0$0 == .
-    00000484                       1121 ___str_11:
-    00000484 4C 56                 1122 	.ascii "LV"
-    00000486 00                    1123 	.db 0x00
-                                   1124 	.area _CODE
-                                   1125 	.area _INITIALIZER
-                         00000000  1126 FCoreGameLoop$__xinit_mouse$0_0$0 == .
-    00000000                       1127 __xinit__mouse:
-    00000000 58 00                 1128 	.dw #0x0058
-    00000002 60 00                 1129 	.dw #0x0060
-    00000004 00                    1130 	.db #0x00	; 0
-    00000005 00                    1131 	.db #0x00	; 0
-    00000006 03                    1132 	.db #0x03	; 3
-    00000007 00                    1133 	.db #0x00	; 0
-    00000008 00                    1134 	.db #0x00	; 0
-    00000009 00                    1135 	.db #0x00	; 0
-    0000000A 00                    1136 	.db #0x00	; 0
-    0000000B 00                    1137 	.db #0x00	; 0
-                                   1138 	.area _CABS (ABS)
+    000002AA 00                     756 	.db 0x00
+                         000002AB   757 	G$__func_CoreGameLoopUpdate$0$0	= .
+                                    758 	.globl	G$__func_CoreGameLoopUpdate$0$0
+                         000002AB   759 	C$CoreGameLoop.c$104$1_0$179	= .
+                                    760 	.globl	C$CoreGameLoop.c$104$1_0$179
+                                    761 ;src\CoreGameLoop.c:104: BANKREF(CoreGameLoopUpdate)
+                                    762 ;	---------------------------------
+                                    763 ; Function __func_CoreGameLoopUpdate
+                                    764 ; ---------------------------------
+                         00000003   765 	b___func_CoreGameLoopUpdate	= 3
+    000002AB                        766 ___func_CoreGameLoopUpdate::
+                                    767 	.local b___func_CoreGameLoopUpdate 
+                         00000003   768 	___bank_CoreGameLoopUpdate = b___func_CoreGameLoopUpdate 
+                                    769 	.globl ___bank_CoreGameLoopUpdate 
+                         000002AB   770 	G$CoreGameLoopUpdate$0$0	= .
+                                    771 	.globl	G$CoreGameLoopUpdate$0$0
+                         000002AB   772 	C$CoreGameLoop.c$105$1_0$181	= .
+                                    773 	.globl	C$CoreGameLoop.c$105$1_0$181
+                                    774 ;src\CoreGameLoop.c:105: uint8_t CoreGameLoopUpdate(void) BANKED
+                                    775 ;	---------------------------------
+                                    776 ; Function CoreGameLoopUpdate
+                                    777 ; ---------------------------------
+                         00000003   778 	b_CoreGameLoopUpdate	= 3
+    000002AB                        779 _CoreGameLoopUpdate::
+                         000002AB   780 	C$CoreGameLoop.c$107$1_0$181	= .
+                                    781 	.globl	C$CoreGameLoop.c$107$1_0$181
+                                    782 ;src\CoreGameLoop.c:107: joypadCurrent = joypad();
+    000002AB CDr00r00         [24]  783 	call	_joypad
+    000002AE EAr00r00         [16]  784 	ld	(#_joypadCurrent),a
+                         000002B1   785 	C$CoreGameLoop.c$108$1_0$181	= .
+                                    786 	.globl	C$CoreGameLoop.c$108$1_0$181
+                                    787 ;src\CoreGameLoop.c:108: PlayerUpdate(&mouse);
+    000002B1 11r00r00         [12]  788 	ld	de, #_mouse
+    000002B4 CDr00r00         [24]  789 	call	_PlayerUpdate
+                         000002B7   790 	C$CoreGameLoop.c$109$1_0$181	= .
+                                    791 	.globl	C$CoreGameLoop.c$109$1_0$181
+                                    792 ;src\CoreGameLoop.c:109: DrawPlayer(&mouse);
+    000002B7 11r00r00         [12]  793 	ld	de, #_mouse
+    000002BA CDr00r00         [24]  794 	call	_DrawPlayer
+                         000002BD   795 	C$CoreGameLoop.c$114$1_0$181	= .
+                                    796 	.globl	C$CoreGameLoop.c$114$1_0$181
+                                    797 ;src\CoreGameLoop.c:114: if (joypadCurrent & J_UP) {
+    000002BD 21r00r00         [12]  798 	ld	hl, #_joypadCurrent
+    000002C0 4E               [ 8]  799 	ld	c, (hl)
+    000002C1 CB 51            [ 8]  800 	bit	2, c
+    000002C3 28 16            [12]  801 	jr	Z, 00108$
+                         000002C5   802 	C$CoreGameLoop.c$115$2_0$183	= .
+                                    803 	.globl	C$CoreGameLoop.c$115$2_0$183
+                                    804 ;src\CoreGameLoop.c:115: if (camera_y_pixels){
+    000002C5 21r03r00         [12]  805 	ld	hl, #_camera_y_pixels + 1
+    000002C8 3A               [ 8]  806 	ld	a, (hl-)
+    000002C9 B6               [ 8]  807 	or	a, (hl)
+    000002CA 28 2A            [12]  808 	jr	Z, 00109$
+                         000002CC   809 	C$CoreGameLoop.c$116$3_0$184	= .
+                                    810 	.globl	C$CoreGameLoop.c$116$3_0$184
+                                    811 ;src\CoreGameLoop.c:116: camera_y_pixels--;
+    000002CC 2A               [ 8]  812 	ld	a, (hl+)
+    000002CD 5F               [ 4]  813 	ld	e, a
+    000002CE 3A               [ 8]  814 	ld	a, (hl-)
+    000002CF 57               [ 4]  815 	ld	d, a
+    000002D0 1B               [ 8]  816 	dec	de
+    000002D1 7B               [ 4]  817 	ld	a, e
+    000002D2 22               [ 8]  818 	ld	(hl+), a
+    000002D3 72               [ 8]  819 	ld	(hl), d
+                         000002D4   820 	C$CoreGameLoop.c$117$3_0$184	= .
+                                    821 	.globl	C$CoreGameLoop.c$117$3_0$184
+                                    822 ;src\CoreGameLoop.c:117: redraw = TRUE;
+    000002D4 21r0Cr00         [12]  823 	ld	hl, #_redraw
+    000002D7 36 01            [12]  824 	ld	(hl), #0x01
+    000002D9 18 1B            [12]  825 	jr	00109$
+    000002DB                        826 00108$:
+                         000002DB   827 	C$CoreGameLoop.c$119$1_0$181	= .
+                                    828 	.globl	C$CoreGameLoop.c$119$1_0$181
+                                    829 ;src\CoreGameLoop.c:119: } else if (joypadCurrent & J_DOWN) {
+    000002DB CB 59            [ 8]  830 	bit	3, c
+    000002DD 28 17            [12]  831 	jr	Z, 00109$
+                         000002DF   832 	C$CoreGameLoop.c$120$2_0$185	= .
+                                    833 	.globl	C$CoreGameLoop.c$120$2_0$185
+                                    834 ;src\CoreGameLoop.c:120: if (camera_y_pixels < HomeCameraMaxY)
+    000002DF 21r02r00         [12]  835 	ld	hl, #_camera_y_pixels
+    000002E2 2A               [ 8]  836 	ld	a, (hl+)
+    000002E3 5E               [ 8]  837 	ld	e, (hl)
+    000002E4 D6 80            [ 8]  838 	sub	a, #0x80
+    000002E6 7B               [ 4]  839 	ld	a, e
+    000002E7 DE 01            [ 8]  840 	sbc	a, #0x01
+    000002E9 30 0B            [12]  841 	jr	NC, 00109$
+                         000002EB   842 	C$CoreGameLoop.c$122$3_0$186	= .
+                                    843 	.globl	C$CoreGameLoop.c$122$3_0$186
+                                    844 ;src\CoreGameLoop.c:122: camera_y_pixels++;
+    000002EB 2B               [ 8]  845 	dec	hl
+    000002EC 34               [12]  846 	inc	(hl)
+    000002ED 20 02            [12]  847 	jr	NZ, 00223$
+    000002EF 23               [ 8]  848 	inc	hl
+    000002F0 34               [12]  849 	inc	(hl)
+    000002F1                        850 00223$:
+                         000002F1   851 	C$CoreGameLoop.c$123$3_0$186	= .
+                                    852 	.globl	C$CoreGameLoop.c$123$3_0$186
+                                    853 ;src\CoreGameLoop.c:123: redraw = TRUE;
+    000002F1 21r0Cr00         [12]  854 	ld	hl, #_redraw
+    000002F4 36 01            [12]  855 	ld	(hl), #0x01
+    000002F6                        856 00109$:
+                         000002F6   857 	C$CoreGameLoop.c$127$1_0$181	= .
+                                    858 	.globl	C$CoreGameLoop.c$127$1_0$181
+                                    859 ;src\CoreGameLoop.c:127: if (joypadCurrent & J_LEFT) {
+    000002F6 CB 49            [ 8]  860 	bit	1, c
+    000002F8 28 18            [12]  861 	jr	Z, 00126$
+                         000002FA   862 	C$CoreGameLoop.c$128$2_0$187	= .
+                                    863 	.globl	C$CoreGameLoop.c$128$2_0$187
+                                    864 ;src\CoreGameLoop.c:128: if (camera_x_pixels)
+    000002FA 21r01r00         [12]  865 	ld	hl, #_camera_x_pixels + 1
+    000002FD 3A               [ 8]  866 	ld	a, (hl-)
+    000002FE B6               [ 8]  867 	or	a, (hl)
+    000002FF CAr4Er04         [16]  868 	jp	Z, 00127$
+                         00000302   869 	C$CoreGameLoop.c$130$3_0$188	= .
+                                    870 	.globl	C$CoreGameLoop.c$130$3_0$188
+                                    871 ;src\CoreGameLoop.c:130: camera_x_pixels--;
+    00000302 2A               [ 8]  872 	ld	a, (hl+)
+    00000303 5F               [ 4]  873 	ld	e, a
+    00000304 3A               [ 8]  874 	ld	a, (hl-)
+    00000305 57               [ 4]  875 	ld	d, a
+    00000306 1B               [ 8]  876 	dec	de
+    00000307 7B               [ 4]  877 	ld	a, e
+    00000308 22               [ 8]  878 	ld	(hl+), a
+    00000309 72               [ 8]  879 	ld	(hl), d
+                         0000030A   880 	C$CoreGameLoop.c$131$3_0$188	= .
+                                    881 	.globl	C$CoreGameLoop.c$131$3_0$188
+                                    882 ;src\CoreGameLoop.c:131: redraw = TRUE;
+    0000030A 21r0Cr00         [12]  883 	ld	hl, #_redraw
+    0000030D 36 01            [12]  884 	ld	(hl), #0x01
+    0000030F C3r4Er04         [16]  885 	jp	00127$
+    00000312                        886 00126$:
+                         00000312   887 	C$CoreGameLoop.c$133$1_0$181	= .
+                                    888 	.globl	C$CoreGameLoop.c$133$1_0$181
+                                    889 ;src\CoreGameLoop.c:133: } else if (joypadCurrent & J_RIGHT) {
+    00000312 CB 41            [ 8]  890 	bit	0, c
+    00000314 28 1A            [12]  891 	jr	Z, 00123$
+                         00000316   892 	C$CoreGameLoop.c$134$2_0$189	= .
+                                    893 	.globl	C$CoreGameLoop.c$134$2_0$189
+                                    894 ;src\CoreGameLoop.c:134: if (camera_x_pixels < HomeCameraMaxX)
+    00000316 21r00r00         [12]  895 	ld	hl, #_camera_x_pixels
+    00000319 2A               [ 8]  896 	ld	a, (hl+)
+    0000031A D6 E8            [ 8]  897 	sub	a, #0xe8
+    0000031C 7E               [ 8]  898 	ld	a, (hl)
+    0000031D DE 00            [ 8]  899 	sbc	a, #0x00
+    0000031F D2r4Er04         [16]  900 	jp	NC, 00127$
+                         00000322   901 	C$CoreGameLoop.c$136$3_0$190	= .
+                                    902 	.globl	C$CoreGameLoop.c$136$3_0$190
+                                    903 ;src\CoreGameLoop.c:136: camera_x_pixels++;
+    00000322 2B               [ 8]  904 	dec	hl
+    00000323 34               [12]  905 	inc	(hl)
+    00000324 20 02            [12]  906 	jr	NZ, 00226$
+    00000326 23               [ 8]  907 	inc	hl
+    00000327 34               [12]  908 	inc	(hl)
+    00000328                        909 00226$:
+                         00000328   910 	C$CoreGameLoop.c$137$3_0$190	= .
+                                    911 	.globl	C$CoreGameLoop.c$137$3_0$190
+                                    912 ;src\CoreGameLoop.c:137: redraw = TRUE;
+    00000328 21r0Cr00         [12]  913 	ld	hl, #_redraw
+    0000032B 36 01            [12]  914 	ld	(hl), #0x01
+    0000032D C3r4Er04         [16]  915 	jp	00127$
+    00000330                        916 00123$:
+                         00000330   917 	C$CoreGameLoop.c$139$1_0$181	= .
+                                    918 	.globl	C$CoreGameLoop.c$139$1_0$181
+                                    919 ;src\CoreGameLoop.c:139: } else if (joypadCurrent & J_SELECT) {
+    00000330 CB 71            [ 8]  920 	bit	6, c
+    00000332 28 08            [12]  921 	jr	Z, 00120$
+                         00000334   922 	C$CoreGameLoop.c$140$2_0$191	= .
+                                    923 	.globl	C$CoreGameLoop.c$140$2_0$191
+                                    924 ;src\CoreGameLoop.c:140: fadeToBlack(10);
+    00000334 3E 0A            [ 8]  925 	ld	a, #0x0a
+    00000336 CDr00r00         [24]  926 	call	_fadeToBlack
+                         00000339   927 	C$CoreGameLoop.c$141$2_0$191	= .
+                                    928 	.globl	C$CoreGameLoop.c$141$2_0$191
+                                    929 ;src\CoreGameLoop.c:141: return GAMETITLE;
+    00000339 3E 01            [ 8]  930 	ld	a, #0x01
+    0000033B C9               [16]  931 	ret
+    0000033C                        932 00120$:
+                         0000033C   933 	C$CoreGameLoop.c$143$1_0$181	= .
+                                    934 	.globl	C$CoreGameLoop.c$143$1_0$181
+                                    935 ;src\CoreGameLoop.c:143: else if (joypadCurrent & J_B)
+    0000033C CB 69            [ 8]  936 	bit	5, c
+    0000033E 28 10            [12]  937 	jr	Z, 00117$
+                         00000340   938 	C$CoreGameLoop.c$145$2_0$192	= .
+                                    939 	.globl	C$CoreGameLoop.c$145$2_0$192
+                                    940 ;src\CoreGameLoop.c:145: set_sprite_data(0, 16, Skateboard_Tiles);
+    00000340 11r00r00         [12]  941 	ld	de, #_Skateboard_Tiles
+    00000343 D5               [16]  942 	push	de
+    00000344 21 00 10         [12]  943 	ld	hl, #0x1000
+    00000347 E5               [16]  944 	push	hl
+    00000348 CDr00r00         [24]  945 	call	_set_sprite_data
+    0000034B E8 04            [16]  946 	add	sp, #4
+    0000034D C3r4Er04         [16]  947 	jp	00127$
+    00000350                        948 00117$:
+                         00000350   949 	C$CoreGameLoop.c$147$1_0$181	= .
+                                    950 	.globl	C$CoreGameLoop.c$147$1_0$181
+                                    951 ;src\CoreGameLoop.c:147: else if (joypadCurrent & J_A)
+    00000350 CB 61            [ 8]  952 	bit	4, c
+    00000352 CAr4Er04         [16]  953 	jp	Z,00127$
+                         00000355   954 	C$CoreGameLoop.c$150$2_0$193	= .
+                                    955 	.globl	C$CoreGameLoop.c$150$2_0$193
+                                    956 ;src\CoreGameLoop.c:150: DrawWindow(map_pos_x_tiles, map_pos_y_tiles, 9, 6, TRUE);
+    00000355 21 06 01         [12]  957 	ld	hl, #0x106
+    00000358 E5               [16]  958 	push	hl
+    00000359 3E 09            [ 8]  959 	ld	a, #0x09
+    0000035B F5               [16]  960 	push	af
+    0000035C 33               [ 8]  961 	inc	sp
+    0000035D 21r09r00         [12]  962 	ld	hl, #_map_pos_y_tiles
+    00000360 5E               [ 8]  963 	ld	e, (hl)
+    00000361 FAr08r00         [16]  964 	ld	a, (#_map_pos_x_tiles)
+    00000364 CDr00r00         [24]  965 	call	_DrawWindow
+                         00000367   966 	C$CoreGameLoop.c$151$2_0$193	= .
+                                    967 	.globl	C$CoreGameLoop.c$151$2_0$193
+                                    968 ;src\CoreGameLoop.c:151: DrawText(map_pos_x_tiles + 1, map_pos_y_tiles + 0, "COMMAND", TRUE);
+    00000367 21r08r00         [12]  969 	ld	hl, #_map_pos_x_tiles
+    0000036A 4E               [ 8]  970 	ld	c, (hl)
+    0000036B 0C               [ 4]  971 	inc	c
+    0000036C 3E 01            [ 8]  972 	ld	a, #0x01
+    0000036E F5               [16]  973 	push	af
+    0000036F 33               [ 8]  974 	inc	sp
+    00000370 11r67r04         [12]  975 	ld	de, #___str_3
+    00000373 D5               [16]  976 	push	de
+    00000374 21r09r00         [12]  977 	ld	hl, #_map_pos_y_tiles
+    00000377 5E               [ 8]  978 	ld	e, (hl)
+    00000378 79               [ 4]  979 	ld	a, c
+    00000379 CDr00r00         [24]  980 	call	_DrawText
+                         0000037C   981 	C$CoreGameLoop.c$152$2_0$193	= .
+                                    982 	.globl	C$CoreGameLoop.c$152$2_0$193
+                                    983 ;src\CoreGameLoop.c:152: DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 1, "TALK", TRUE);
+    0000037C 21r09r00         [12]  984 	ld	hl, #_map_pos_y_tiles
+    0000037F 5E               [ 8]  985 	ld	e, (hl)
+    00000380 1C               [ 4]  986 	inc	e
+    00000381 21r08r00         [12]  987 	ld	hl, #_map_pos_x_tiles
+    00000384 4E               [ 8]  988 	ld	c, (hl)
+    00000385 0C               [ 4]  989 	inc	c
+    00000386 0C               [ 4]  990 	inc	c
+    00000387 3E 01            [ 8]  991 	ld	a, #0x01
+    00000389 F5               [16]  992 	push	af
+    0000038A 33               [ 8]  993 	inc	sp
+    0000038B 21r6Fr04         [12]  994 	ld	hl, #___str_4
+    0000038E E5               [16]  995 	push	hl
+    0000038F 79               [ 4]  996 	ld	a, c
+    00000390 CDr00r00         [24]  997 	call	_DrawText
+                         00000393   998 	C$CoreGameLoop.c$153$2_0$193	= .
+                                    999 	.globl	C$CoreGameLoop.c$153$2_0$193
+                                   1000 ;src\CoreGameLoop.c:153: DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 2, "CHECK", TRUE);
+    00000393 21r09r00         [12] 1001 	ld	hl, #_map_pos_y_tiles
+    00000396 5E               [ 8] 1002 	ld	e, (hl)
+    00000397 1C               [ 4] 1003 	inc	e
+    00000398 1C               [ 4] 1004 	inc	e
+    00000399 21r08r00         [12] 1005 	ld	hl, #_map_pos_x_tiles
+    0000039C 4E               [ 8] 1006 	ld	c, (hl)
+    0000039D 0C               [ 4] 1007 	inc	c
+    0000039E 0C               [ 4] 1008 	inc	c
+    0000039F 3E 01            [ 8] 1009 	ld	a, #0x01
+    000003A1 F5               [16] 1010 	push	af
+    000003A2 33               [ 8] 1011 	inc	sp
+    000003A3 21r74r04         [12] 1012 	ld	hl, #___str_5
+    000003A6 E5               [16] 1013 	push	hl
+    000003A7 79               [ 4] 1014 	ld	a, c
+    000003A8 CDr00r00         [24] 1015 	call	_DrawText
+                         000003AB  1016 	C$CoreGameLoop.c$154$2_0$193	= .
+                                   1017 	.globl	C$CoreGameLoop.c$154$2_0$193
+                                   1018 ;src\CoreGameLoop.c:154: DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 3, "PSI", TRUE);
+    000003AB FAr09r00         [16] 1019 	ld	a, (#_map_pos_y_tiles)
+    000003AE C6 03            [ 8] 1020 	add	a, #0x03
+    000003B0 5F               [ 4] 1021 	ld	e, a
+    000003B1 21r08r00         [12] 1022 	ld	hl, #_map_pos_x_tiles
+    000003B4 4E               [ 8] 1023 	ld	c, (hl)
+    000003B5 0C               [ 4] 1024 	inc	c
+    000003B6 0C               [ 4] 1025 	inc	c
+    000003B7 3E 01            [ 8] 1026 	ld	a, #0x01
+    000003B9 F5               [16] 1027 	push	af
+    000003BA 33               [ 8] 1028 	inc	sp
+    000003BB 21r7Ar04         [12] 1029 	ld	hl, #___str_6
+    000003BE E5               [16] 1030 	push	hl
+    000003BF 79               [ 4] 1031 	ld	a, c
+    000003C0 CDr00r00         [24] 1032 	call	_DrawText
+                         000003C3  1033 	C$CoreGameLoop.c$155$2_0$193	= .
+                                   1034 	.globl	C$CoreGameLoop.c$155$2_0$193
+                                   1035 ;src\CoreGameLoop.c:155: DrawText(map_pos_x_tiles + 2, map_pos_y_tiles + 4, "GOODS", TRUE);
+    000003C3 FAr09r00         [16] 1036 	ld	a, (#_map_pos_y_tiles)
+    000003C6 C6 04            [ 8] 1037 	add	a, #0x04
+    000003C8 5F               [ 4] 1038 	ld	e, a
+    000003C9 21r08r00         [12] 1039 	ld	hl, #_map_pos_x_tiles
+    000003CC 4E               [ 8] 1040 	ld	c, (hl)
+    000003CD 0C               [ 4] 1041 	inc	c
+    000003CE 0C               [ 4] 1042 	inc	c
+    000003CF 3E 01            [ 8] 1043 	ld	a, #0x01
+    000003D1 F5               [16] 1044 	push	af
+    000003D2 33               [ 8] 1045 	inc	sp
+    000003D3 21r7Er04         [12] 1046 	ld	hl, #___str_7
+    000003D6 E5               [16] 1047 	push	hl
+    000003D7 79               [ 4] 1048 	ld	a, c
+    000003D8 CDr00r00         [24] 1049 	call	_DrawText
+                         000003DB  1050 	C$CoreGameLoop.c$157$2_0$193	= .
+                                   1051 	.globl	C$CoreGameLoop.c$157$2_0$193
+                                   1052 ;src\CoreGameLoop.c:157: DrawWindow(map_pos_x_tiles, map_pos_y_tiles + 15, 20, 3, TRUE);
+    000003DB FAr09r00         [16] 1053 	ld	a, (#_map_pos_y_tiles)
+    000003DE C6 0F            [ 8] 1054 	add	a, #0x0f
+    000003E0 5F               [ 4] 1055 	ld	e, a
+    000003E1 21 03 01         [12] 1056 	ld	hl, #0x103
+    000003E4 E5               [16] 1057 	push	hl
+    000003E5 3E 14            [ 8] 1058 	ld	a, #0x14
+    000003E7 F5               [16] 1059 	push	af
+    000003E8 33               [ 8] 1060 	inc	sp
+    000003E9 FAr08r00         [16] 1061 	ld	a, (#_map_pos_x_tiles)
+    000003EC CDr00r00         [24] 1062 	call	_DrawWindow
+                         000003EF  1063 	C$CoreGameLoop.c$158$2_0$193	= .
+                                   1064 	.globl	C$CoreGameLoop.c$158$2_0$193
+                                   1065 ;src\CoreGameLoop.c:158: DrawText(map_pos_x_tiles + 1, map_pos_y_tiles + 15, "NAME", TRUE);
+    000003EF FAr09r00         [16] 1066 	ld	a, (#_map_pos_y_tiles)
+    000003F2 C6 0F            [ 8] 1067 	add	a, #0x0f
+    000003F4 5F               [ 4] 1068 	ld	e, a
+    000003F5 21r08r00         [12] 1069 	ld	hl, #_map_pos_x_tiles
+    000003F8 4E               [ 8] 1070 	ld	c, (hl)
+    000003F9 0C               [ 4] 1071 	inc	c
+    000003FA 3E 01            [ 8] 1072 	ld	a, #0x01
+    000003FC F5               [16] 1073 	push	af
+    000003FD 33               [ 8] 1074 	inc	sp
+    000003FE 21r84r04         [12] 1075 	ld	hl, #___str_8
+    00000401 E5               [16] 1076 	push	hl
+    00000402 79               [ 4] 1077 	ld	a, c
+    00000403 CDr00r00         [24] 1078 	call	_DrawText
+                         00000406  1079 	C$CoreGameLoop.c$159$2_0$193	= .
+                                   1080 	.globl	C$CoreGameLoop.c$159$2_0$193
+                                   1081 ;src\CoreGameLoop.c:159: DrawText(map_pos_x_tiles + 10, map_pos_y_tiles + 15, "HP", TRUE);
+    00000406 FAr09r00         [16] 1082 	ld	a, (#_map_pos_y_tiles)
+    00000409 C6 0F            [ 8] 1083 	add	a, #0x0f
+    0000040B 5F               [ 4] 1084 	ld	e, a
+    0000040C FAr08r00         [16] 1085 	ld	a, (#_map_pos_x_tiles)
+    0000040F C6 0A            [ 8] 1086 	add	a, #0x0a
+    00000411 4F               [ 4] 1087 	ld	c, a
+    00000412 3E 01            [ 8] 1088 	ld	a, #0x01
+    00000414 F5               [16] 1089 	push	af
+    00000415 33               [ 8] 1090 	inc	sp
+    00000416 21r89r04         [12] 1091 	ld	hl, #___str_9
+    00000419 E5               [16] 1092 	push	hl
+    0000041A 79               [ 4] 1093 	ld	a, c
+    0000041B CDr00r00         [24] 1094 	call	_DrawText
+                         0000041E  1095 	C$CoreGameLoop.c$160$2_0$193	= .
+                                   1096 	.globl	C$CoreGameLoop.c$160$2_0$193
+                                   1097 ;src\CoreGameLoop.c:160: DrawText(map_pos_x_tiles + 14, map_pos_y_tiles + 15, "MP", TRUE);
+    0000041E FAr09r00         [16] 1098 	ld	a, (#_map_pos_y_tiles)
+    00000421 C6 0F            [ 8] 1099 	add	a, #0x0f
+    00000423 5F               [ 4] 1100 	ld	e, a
+    00000424 FAr08r00         [16] 1101 	ld	a, (#_map_pos_x_tiles)
+    00000427 C6 0E            [ 8] 1102 	add	a, #0x0e
+    00000429 4F               [ 4] 1103 	ld	c, a
+    0000042A 3E 01            [ 8] 1104 	ld	a, #0x01
+    0000042C F5               [16] 1105 	push	af
+    0000042D 33               [ 8] 1106 	inc	sp
+    0000042E 21r8Cr04         [12] 1107 	ld	hl, #___str_10
+    00000431 E5               [16] 1108 	push	hl
+    00000432 79               [ 4] 1109 	ld	a, c
+    00000433 CDr00r00         [24] 1110 	call	_DrawText
+                         00000436  1111 	C$CoreGameLoop.c$161$2_0$193	= .
+                                   1112 	.globl	C$CoreGameLoop.c$161$2_0$193
+                                   1113 ;src\CoreGameLoop.c:161: DrawText(map_pos_x_tiles + 18, map_pos_y_tiles + 15, "LV", TRUE);
+    00000436 FAr09r00         [16] 1114 	ld	a, (#_map_pos_y_tiles)
+    00000439 C6 0F            [ 8] 1115 	add	a, #0x0f
+    0000043B 5F               [ 4] 1116 	ld	e, a
+    0000043C FAr08r00         [16] 1117 	ld	a, (#_map_pos_x_tiles)
+    0000043F C6 12            [ 8] 1118 	add	a, #0x12
+    00000441 4F               [ 4] 1119 	ld	c, a
+    00000442 3E 01            [ 8] 1120 	ld	a, #0x01
+    00000444 F5               [16] 1121 	push	af
+    00000445 33               [ 8] 1122 	inc	sp
+    00000446 21r8Fr04         [12] 1123 	ld	hl, #___str_11
+    00000449 E5               [16] 1124 	push	hl
+    0000044A 79               [ 4] 1125 	ld	a, c
+    0000044B CDr00r00         [24] 1126 	call	_DrawText
+    0000044E                       1127 00127$:
+                         0000044E  1128 	C$CoreGameLoop.c$163$1_0$181	= .
+                                   1129 	.globl	C$CoreGameLoop.c$163$1_0$181
+                                   1130 ;src\CoreGameLoop.c:163: if (redraw)
+    0000044E FAr0Cr00         [16] 1131 	ld	a, (#_redraw)
+    00000451 B7               [ 4] 1132 	or	a, a
+    00000452 28 10            [12] 1133 	jr	Z, 00129$
+                         00000454  1134 	C$CoreGameLoop.c$165$2_0$194	= .
+                                   1135 	.globl	C$CoreGameLoop.c$165$2_0$194
+                                   1136 ;src\CoreGameLoop.c:165: wait_vbl_done();
+    00000454 CDr00r00         [24] 1137 	call	_wait_vbl_done
+                         00000457  1138 	C$CoreGameLoop.c$166$2_0$194	= .
+                                   1139 	.globl	C$CoreGameLoop.c$166$2_0$194
+                                   1140 ;src\CoreGameLoop.c:166: set_camera();
+    00000457 1Er00            [ 8] 1141 	ld	e, #b_set_camera
+    00000459 21r00r00         [12] 1142 	ld	hl, #_set_camera
+    0000045C CDr00r00         [24] 1143 	call	___sdcc_bcall_ehl
+                         0000045F  1144 	C$CoreGameLoop.c$167$2_0$194	= .
+                                   1145 	.globl	C$CoreGameLoop.c$167$2_0$194
+                                   1146 ;src\CoreGameLoop.c:167: redraw = FALSE;
+    0000045F 21r0Cr00         [12] 1147 	ld	hl, #_redraw
+    00000462 36 00            [12] 1148 	ld	(hl), #0x00
+    00000464                       1149 00129$:
+                         00000464  1150 	C$CoreGameLoop.c$170$1_0$181	= .
+                                   1151 	.globl	C$CoreGameLoop.c$170$1_0$181
+                                   1152 ;src\CoreGameLoop.c:170: return COREGAMELOOP;
+    00000464 3E 02            [ 8] 1153 	ld	a, #0x02
+                         00000466  1154 	C$CoreGameLoop.c$171$1_0$181	= .
+                                   1155 	.globl	C$CoreGameLoop.c$171$1_0$181
+                                   1156 ;src\CoreGameLoop.c:171: }
+                         00000466  1157 	C$CoreGameLoop.c$171$1_0$181	= .
+                                   1158 	.globl	C$CoreGameLoop.c$171$1_0$181
+                         00000466  1159 	XG$CoreGameLoopUpdate$0$0	= .
+                                   1160 	.globl	XG$CoreGameLoopUpdate$0$0
+    00000466 C9               [16] 1161 	ret
+                         00000467  1162 FCoreGameLoop$__str_3$0_0$0 == .
+    00000467                       1163 ___str_3:
+    00000467 43 4F 4D 4D 41 4E 44  1164 	.ascii "COMMAND"
+    0000046E 00                    1165 	.db 0x00
+                         0000046F  1166 FCoreGameLoop$__str_4$0_0$0 == .
+    0000046F                       1167 ___str_4:
+    0000046F 54 41 4C 4B           1168 	.ascii "TALK"
+    00000473 00                    1169 	.db 0x00
+                         00000474  1170 FCoreGameLoop$__str_5$0_0$0 == .
+    00000474                       1171 ___str_5:
+    00000474 43 48 45 43 4B        1172 	.ascii "CHECK"
+    00000479 00                    1173 	.db 0x00
+                         0000047A  1174 FCoreGameLoop$__str_6$0_0$0 == .
+    0000047A                       1175 ___str_6:
+    0000047A 50 53 49              1176 	.ascii "PSI"
+    0000047D 00                    1177 	.db 0x00
+                         0000047E  1178 FCoreGameLoop$__str_7$0_0$0 == .
+    0000047E                       1179 ___str_7:
+    0000047E 47 4F 4F 44 53        1180 	.ascii "GOODS"
+    00000483 00                    1181 	.db 0x00
+                         00000484  1182 FCoreGameLoop$__str_8$0_0$0 == .
+    00000484                       1183 ___str_8:
+    00000484 4E 41 4D 45           1184 	.ascii "NAME"
+    00000488 00                    1185 	.db 0x00
+                         00000489  1186 FCoreGameLoop$__str_9$0_0$0 == .
+    00000489                       1187 ___str_9:
+    00000489 48 50                 1188 	.ascii "HP"
+    0000048B 00                    1189 	.db 0x00
+                         0000048C  1190 FCoreGameLoop$__str_10$0_0$0 == .
+    0000048C                       1191 ___str_10:
+    0000048C 4D 50                 1192 	.ascii "MP"
+    0000048E 00                    1193 	.db 0x00
+                         0000048F  1194 FCoreGameLoop$__str_11$0_0$0 == .
+    0000048F                       1195 ___str_11:
+    0000048F 4C 56                 1196 	.ascii "LV"
+    00000491 00                    1197 	.db 0x00
+                                   1198 	.area _CODE_3
+                                   1199 	.area _INITIALIZER
+                         00000000  1200 FCoreGameLoop$__xinit_mouse$0_0$0 == .
+    00000000                       1201 __xinit__mouse:
+    00000000 58 00                 1202 	.dw #0x0058
+    00000002 60 00                 1203 	.dw #0x0060
+    00000004 00                    1204 	.db #0x00	; 0
+    00000005 00                    1205 	.db #0x00	; 0
+    00000006 03                    1206 	.db #0x03	; 3
+    00000007 00                    1207 	.db #0x00	; 0
+    00000008 00                    1208 	.db #0x00	; 0
+    00000009 00                    1209 	.db #0x00	; 0
+    0000000A 00                    1210 	.db #0x00	; 0
+    0000000B 00                    1211 	.db #0x00	; 0
+                                   1212 	.area _CABS (ABS)

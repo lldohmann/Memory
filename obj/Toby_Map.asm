@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Toby_Map$0_0$0==.
-_Toby_Map::
-	.ds 28
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Toby_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FToby_Map$__xinit_Toby_Map$0_0$0 == .
-__xinit__Toby_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$Toby_Map$0_0$0 == .
+_Toby_Map:
 	.db #0x81	; 129
 	.db #0x88	; 136
 	.db #0x8f	; 143
@@ -75,4 +71,5 @@ __xinit__Toby_Map:
 	.db #0x8e	; 142
 	.db #0x95	; 149
 	.db #0x99	; 153
+	.area _INITIALIZER
 	.area _CABS (ABS)

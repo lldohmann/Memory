@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Saucer_Map$0_0$0==.
-_Saucer_Map::
-	.ds 15
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Saucer_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FSaucer_Map$__xinit_Saucer_Map$0_0$0 == .
-__xinit__Saucer_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$Saucer_Map$0_0$0 == .
+_Saucer_Map:
 	.db #0x80	; 128
 	.db #0x83	; 131
 	.db #0x86	; 134
@@ -62,4 +58,5 @@ __xinit__Saucer_Map:
 	.db #0x88	; 136
 	.db #0x8b	; 139
 	.db #0x80	; 128
+	.area _INITIALIZER
 	.area _CABS (ABS)

@@ -1,41 +1,46 @@
+#pragma bank 5
+
 #include <gb/gb.h>
 #include "../src/common.h"
-#include "../res/Battle_Map.h"
-#include "../res/Font.h"
-#include "../res/Crow_Map.h"
-#include "../res/Crow_Tiles.h"
-#include "../res/Wally_Tiles.h"
-#include "../res/Wally_Map.h"
-#include "../res/Gypsy_Tiles.h"
-#include "../res/Gypsy_Map.h"
-#include "../res/Tick_Tiles.h"
-#include "../res/Tick_Map.h"
-#include "../res/Cop_Tiles.h"
-#include "../res/Officer_Map.h"
-#include "../res/Police_Map.h"
-#include "../res/Sheriff_Map.h"
-#include "../res/Chief_Map.h"
-#include "../res/Man_Tiles.h"
-#include "../res/Man_Map.h"
-#include "../res/Car_Tiles.h"
-#include "../res/Car_Map.h"
-#include "../res/Semi_Tiles.h"
-#include "../res/Semi_Map.h"
-#include "../res/Sis_Tiles.h"
-#include "../res/BigSis_Map.h"
-#include "../res/MadSis_Map.h"
-#include "../res/Drunk_Tiles.h"
-#include "../res/Drunk_Map.h"
-#include "../res/Experiment_Tiles.h"
-#include "../res/Experiment_Map.h"
-#include "../res/Ghost_Tiles.h"
-#include "../res/Ghost_Map.h"
-#include "../res/Saucer_Tiles.h"
-#include "../res/Saucer_Map.h"
-#include "../res/SockHead_Tiles.h"
-#include "../res/SockHead_Map.h"
-#include "../res/Toby_Tiles.h"
-#include "../res/Toby_Map.h"
+#include "../res/misc/Battle_Map.h"
+#include "../res/misc/Font.h"
+#include "../res/enemies/Crow_Map.h"
+#include "../res/enemies/Crow_Tiles.h"
+#include "../res/enemies/Wally_Tiles.h"
+#include "../res/enemies/Wally_Map.h"
+#include "../res/enemies/Gypsy_Tiles.h"
+#include "../res/enemies/Gypsy_Map.h"
+#include "../res/enemies/Tick_Tiles.h"
+#include "../res/enemies/Tick_Map.h"
+#include "../res/enemies/Cop_Tiles.h"
+#include "../res/enemies/Officer_Map.h"
+#include "../res/enemies/Police_Map.h"
+#include "../res/enemies/Sheriff_Map.h"
+#include "../res/enemies/Chief_Map.h"
+#include "../res/enemies/Man_Tiles.h"
+#include "../res/enemies/Man_Map.h"
+#include "../res/enemies/Car_Tiles.h"
+#include "../res/enemies/Car_Map.h"
+#include "../res/enemies/Semi_Tiles.h"
+#include "../res/enemies/Semi_Map.h"
+#include "../res/enemies/Sis_Tiles.h"
+#include "../res/enemies/BigSis_Map.h"
+#include "../res/enemies/MadSis_Map.h"
+#include "../res/enemies/Drunk_Tiles.h"
+#include "../res/enemies/Drunk_Map.h"
+#include "../res/enemies/Experiment_Tiles.h"
+#include "../res/enemies/Experiment_Map.h"
+#include "../res/enemies/Ghost_Tiles.h"
+#include "../res/enemies/Ghost_Map.h"
+#include "../res/enemies/Saucer_Tiles.h"
+#include "../res/enemies/Saucer_Map.h"
+#include "../res/enemies/SockHead_Tiles.h"
+#include "../res/enemies/SockHead_Map.h"
+#include "../res/enemies/Toby_Tiles.h"
+#include "../res/enemies/Toby_Map.h"
+
+BANKREF(const_bank_ID_battle)
+const uint8_t const_bank_ID_battle = 5;
 
 typedef struct Cursor
 {
@@ -47,7 +52,8 @@ typedef struct Cursor
 
 struct Cursor cursor;
 
-void BattleSetup(void)
+BANKREF(BattleSetup)
+void BattleSetup(void) BANKED
 {
     move_bkg(0,0);
     set_bkg_data(0, 53, FontTiles); // Load font and window tiles
@@ -181,7 +187,8 @@ void BattleSetup(void)
     //set_sprite_prop()
 }
 
-uint8_t BattleUpdate(void)
+BANKREF(BattleUpdate)
+uint8_t BattleUpdate(void) BANKED
 {
     if (joypadCurrent & J_SELECT)
     {

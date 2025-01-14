@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Man_Map$0_0$0==.
-_Man_Map::
-	.ds 36
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Man_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FMan_Map$__xinit_Man_Map$0_0$0 == .
-__xinit__Man_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$Man_Map$0_0$0 == .
+_Man_Map:
 	.db #0x80	; 128
 	.db #0x86	; 134
 	.db #0x8b	; 139
@@ -83,4 +79,5 @@ __xinit__Man_Map:
 	.db #0x9d	; 157
 	.db #0x98	; 152
 	.db #0x94	; 148
+	.area _INITIALIZER
 	.area _CABS (ABS)

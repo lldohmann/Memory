@@ -1,6 +1,9 @@
 #ifndef _BESTIARY
 #define _BESTIARY
 
+extern const uint8_t const_bank_ID_bestiary;
+BANKREF_EXTERN(const_bank_ID_bestiary)
+
 typedef struct Enemy
 {
     char name[7];
@@ -12,7 +15,10 @@ typedef struct Enemy
     uint16_t exp;
 };
 
-void BestiarySetup(void);
-uint8_t BestiaryUpdate(void);
+void BestiarySetup(void) BANKED;
+BANKREF_EXTERN(BestiarySetup)
+
+uint8_t BestiaryUpdate(void) BANKED;
+BANKREF_EXTERN(BestiaryUpdate)
 
 #endif

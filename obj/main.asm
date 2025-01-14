@@ -10,12 +10,19 @@
 ;--------------------------------------------------------
 	.globl _main
 	.globl _BattleUpdate
+	.globl b_BattleSetup
 	.globl _BattleSetup
+	.globl b_BestiaryUpdate
 	.globl _BestiaryUpdate
+	.globl b_BestiarySetup
 	.globl _BestiarySetup
+	.globl b_GameJohnDoeUpdate
 	.globl _GameJohnDoeUpdate
+	.globl b_GameJohnDoeSetup
 	.globl _GameJohnDoeSetup
+	.globl b_CoreGameLoopUpdate
 	.globl _CoreGameLoopUpdate
+	.globl b_CoreGameLoopSetup
 	.globl _CoreGameLoopSetup
 	.globl _GameTitleUpdate
 	.globl _GameTitleSetup
@@ -84,11 +91,11 @@ _main::
 	.globl	C$main.c$21$3_0$151
 ;src\main.c:21: currentGameState = nextGameState;
 	ldhl	sp,	#0
+	ld	(hl), b
 	C$main.c$22$3_0$151	= .
 	.globl	C$main.c$22$3_0$151
 ;src\main.c:22: switch (currentGameState)
-	ld	a,b
-	ld	(hl),a
+	ld	a, b
 	dec	a
 	jr	Z, 00101$
 	ld	a,b
@@ -107,51 +114,62 @@ _main::
 00101$:
 	C$main.c$25$4_0$152	= .
 	.globl	C$main.c$25$4_0$152
-;src\main.c:25: GameTitleSetup();
+;src\main.c:25: SWITCH_ROM(BANK(const_bank_ID_title));
+	ld	a, #<(___bank_const_bank_ID_title)
+	ldh	(__current_bank + 0), a
+	ld	hl, #_rROMB0
+	ld	(hl), #<(___bank_const_bank_ID_title)
+	C$main.c$26$4_0$152	= .
+	.globl	C$main.c$26$4_0$152
+;src\main.c:26: GameTitleSetup();
 	push	bc
 	call	_GameTitleSetup
 	pop	bc
-	C$main.c$26$4_0$152	= .
-	.globl	C$main.c$26$4_0$152
-;src\main.c:26: break;
-	jr	00109$
 	C$main.c$27$4_0$152	= .
 	.globl	C$main.c$27$4_0$152
-;src\main.c:27: case GAMEJOHNDOE:
-00102$:
+;src\main.c:27: break;
+	jr	00109$
 	C$main.c$28$4_0$152	= .
 	.globl	C$main.c$28$4_0$152
-;src\main.c:28: GameJohnDoeSetup();
-	push	bc
-	call	_GameJohnDoeSetup
-	pop	bc
+;src\main.c:28: case GAMEJOHNDOE:
+00102$:
 	C$main.c$29$4_0$152	= .
 	.globl	C$main.c$29$4_0$152
-;src\main.c:29: break;
-	jr	00109$
+;src\main.c:29: SWITCH_ROM(BANK(const_bank_ID_John));
+	ld	a, #<(___bank_const_bank_ID_John)
+	ldh	(__current_bank + 0), a
+	ld	hl, #_rROMB0
+	ld	(hl), #<(___bank_const_bank_ID_John)
 	C$main.c$30$4_0$152	= .
 	.globl	C$main.c$30$4_0$152
-;src\main.c:30: case COREGAMELOOP:
-00103$:
+;src\main.c:30: GameJohnDoeSetup();
+	push	bc
+	ld	e, #b_GameJohnDoeSetup
+	ld	hl, #_GameJohnDoeSetup
+	call	___sdcc_bcall_ehl
+	pop	bc
 	C$main.c$31$4_0$152	= .
 	.globl	C$main.c$31$4_0$152
-;src\main.c:31: CoreGameLoopSetup();
-	push	bc
-	call	_CoreGameLoopSetup
-	pop	bc
+;src\main.c:31: break;
+	jr	00109$
 	C$main.c$32$4_0$152	= .
 	.globl	C$main.c$32$4_0$152
-;src\main.c:32: break;
-	jr	00109$
+;src\main.c:32: case COREGAMELOOP:
+00103$:
 	C$main.c$33$4_0$152	= .
 	.globl	C$main.c$33$4_0$152
-;src\main.c:33: case BESTIARY:
-00104$:
+;src\main.c:33: SWITCH_ROM(BANK(const_bank_ID_core));
+	ld	a, #<(___bank_const_bank_ID_core)
+	ldh	(__current_bank + 0), a
+	ld	hl, #_rROMB0
+	ld	(hl), #<(___bank_const_bank_ID_core)
 	C$main.c$34$4_0$152	= .
 	.globl	C$main.c$34$4_0$152
-;src\main.c:34: BestiarySetup();
+;src\main.c:34: CoreGameLoopSetup();
 	push	bc
-	call	_BestiarySetup
+	ld	e, #b_CoreGameLoopSetup
+	ld	hl, #_CoreGameLoopSetup
+	call	___sdcc_bcall_ehl
 	pop	bc
 	C$main.c$35$4_0$152	= .
 	.globl	C$main.c$35$4_0$152
@@ -159,21 +177,53 @@ _main::
 	jr	00109$
 	C$main.c$36$4_0$152	= .
 	.globl	C$main.c$36$4_0$152
-;src\main.c:36: case BATTLE:
-00105$:
+;src\main.c:36: case BESTIARY:
+00104$:
 	C$main.c$37$4_0$152	= .
 	.globl	C$main.c$37$4_0$152
-;src\main.c:37: BattleSetup();
+;src\main.c:37: SWITCH_ROM(BANK(const_bank_ID_bestiary));
+	ld	a, #<(___bank_const_bank_ID_bestiary)
+	ldh	(__current_bank + 0), a
+	ld	hl, #_rROMB0
+	ld	(hl), #<(___bank_const_bank_ID_bestiary)
+	C$main.c$38$4_0$152	= .
+	.globl	C$main.c$38$4_0$152
+;src\main.c:38: BestiarySetup();
 	push	bc
-	call	_BattleSetup
+	ld	e, #b_BestiarySetup
+	ld	hl, #_BestiarySetup
+	call	___sdcc_bcall_ehl
 	pop	bc
-	C$main.c$40$2_0$150	= .
-	.globl	C$main.c$40$2_0$150
-;src\main.c:40: }
+	C$main.c$39$4_0$152	= .
+	.globl	C$main.c$39$4_0$152
+;src\main.c:39: break;
+	jr	00109$
+	C$main.c$40$4_0$152	= .
+	.globl	C$main.c$40$4_0$152
+;src\main.c:40: case BATTLE:
+00105$:
+	C$main.c$41$4_0$152	= .
+	.globl	C$main.c$41$4_0$152
+;src\main.c:41: SWITCH_ROM(BANK(const_bank_ID_battle));
+	ld	a, #<(___bank_const_bank_ID_battle)
+	ldh	(__current_bank + 0), a
+	ld	hl, #_rROMB0
+	ld	(hl), #<(___bank_const_bank_ID_battle)
+	C$main.c$42$4_0$152	= .
+	.globl	C$main.c$42$4_0$152
+;src\main.c:42: BattleSetup();
+	push	bc
+	ld	e, #b_BattleSetup
+	ld	hl, #_BattleSetup
+	call	___sdcc_bcall_ehl
+	pop	bc
+	C$main.c$46$2_0$150	= .
+	.globl	C$main.c$46$2_0$150
+;src\main.c:46: }
 00109$:
-	C$main.c$47$2_0$150	= .
-	.globl	C$main.c$47$2_0$150
-;src\main.c:47: switch (currentGameState)
+	C$main.c$48$2_0$150	= .
+	.globl	C$main.c$48$2_0$150
+;src\main.c:48: switch (currentGameState)
 	ldhl	sp,	#0
 	ld	a, (hl)
 	dec	a
@@ -194,81 +244,87 @@ _main::
 	ld	a, (hl)
 	sub	a, #0x05
 	jr	Z, 00114$
-	jr	00118$
-	C$main.c$49$3_0$153	= .
-	.globl	C$main.c$49$3_0$153
-;src\main.c:49: case GAMETITLE:
-00110$:
+	jp	00118$
 	C$main.c$50$3_0$153	= .
 	.globl	C$main.c$50$3_0$153
-;src\main.c:50: nextGameState = GameTitleUpdate();
-	call	_GameTitleUpdate
-	ld	b, a
+;src\main.c:50: case GAMETITLE:
+00110$:
 	C$main.c$51$3_0$153	= .
 	.globl	C$main.c$51$3_0$153
-;src\main.c:51: break;
-	jr	00118$
+;src\main.c:51: nextGameState = GameTitleUpdate();
+	call	_GameTitleUpdate
+	ld	b, a
 	C$main.c$52$3_0$153	= .
 	.globl	C$main.c$52$3_0$153
-;src\main.c:52: case GAMEJOHNDOE:
-00111$:
+;src\main.c:52: break;
+	jp	00118$
 	C$main.c$53$3_0$153	= .
 	.globl	C$main.c$53$3_0$153
-;src\main.c:53: nextGameState = GameJohnDoeUpdate();
-	call	_GameJohnDoeUpdate
-	ld	b, a
+;src\main.c:53: case GAMEJOHNDOE:
+00111$:
 	C$main.c$54$3_0$153	= .
 	.globl	C$main.c$54$3_0$153
-;src\main.c:54: break;
-	jr	00118$
+;src\main.c:54: nextGameState = GameJohnDoeUpdate();
+	ld	e, #b_GameJohnDoeUpdate
+	ld	hl, #_GameJohnDoeUpdate
+	call	___sdcc_bcall_ehl
+	ld	b, a
 	C$main.c$55$3_0$153	= .
 	.globl	C$main.c$55$3_0$153
-;src\main.c:55: case COREGAMELOOP:
-00112$:
+;src\main.c:55: break;
+	jp	00118$
 	C$main.c$56$3_0$153	= .
 	.globl	C$main.c$56$3_0$153
-;src\main.c:56: nextGameState = CoreGameLoopUpdate();
-	call	_CoreGameLoopUpdate
-	ld	b, a
+;src\main.c:56: case COREGAMELOOP:
+00112$:
 	C$main.c$57$3_0$153	= .
 	.globl	C$main.c$57$3_0$153
-;src\main.c:57: break;
-	jr	00118$
+;src\main.c:57: nextGameState = CoreGameLoopUpdate();
+	ld	e, #b_CoreGameLoopUpdate
+	ld	hl, #_CoreGameLoopUpdate
+	call	___sdcc_bcall_ehl
+	ld	b, a
 	C$main.c$58$3_0$153	= .
 	.globl	C$main.c$58$3_0$153
-;src\main.c:58: case BESTIARY:
-00113$:
+;src\main.c:58: break;
+	jp	00118$
 	C$main.c$59$3_0$153	= .
 	.globl	C$main.c$59$3_0$153
-;src\main.c:59: nextGameState = BestiaryUpdate();
-	call	_BestiaryUpdate
-	ld	b, a
+;src\main.c:59: case BESTIARY:
+00113$:
 	C$main.c$60$3_0$153	= .
 	.globl	C$main.c$60$3_0$153
-;src\main.c:60: break;
-	jr	00118$
+;src\main.c:60: nextGameState = BestiaryUpdate();
+	ld	e, #b_BestiaryUpdate
+	ld	hl, #_BestiaryUpdate
+	call	___sdcc_bcall_ehl
+	ld	b, a
 	C$main.c$61$3_0$153	= .
 	.globl	C$main.c$61$3_0$153
-;src\main.c:61: case BATTLE:
-00114$:
+;src\main.c:61: break;
+	jp	00118$
 	C$main.c$62$3_0$153	= .
 	.globl	C$main.c$62$3_0$153
-;src\main.c:62: nextGameState = BattleUpdate();
-	call	_BattleUpdate
-	ld	b, a
+;src\main.c:62: case BATTLE:
+00114$:
 	C$main.c$63$3_0$153	= .
 	.globl	C$main.c$63$3_0$153
-;src\main.c:63: break;
+;src\main.c:63: nextGameState = BattleUpdate();
+	call	_BattleUpdate
+	ld	b, a
+	C$main.c$64$3_0$153	= .
+	.globl	C$main.c$64$3_0$153
+;src\main.c:64: break;
 	jp	00118$
-	C$main.c$66$1_0$149	= .
-	.globl	C$main.c$66$1_0$149
-;src\main.c:66: }
-	C$main.c$73$1_0$149	= .
-	.globl	C$main.c$73$1_0$149
-;src\main.c:73: }
+	C$main.c$67$1_0$149	= .
+	.globl	C$main.c$67$1_0$149
+;src\main.c:67: }
+	C$main.c$69$1_0$149	= .
+	.globl	C$main.c$69$1_0$149
+;src\main.c:69: }
 	inc	sp
-	C$main.c$73$1_0$149	= .
-	.globl	C$main.c$73$1_0$149
+	C$main.c$69$1_0$149	= .
+	.globl	C$main.c$69$1_0$149
 	XG$main$0$0	= .
 	.globl	XG$main$0$0
 	ret

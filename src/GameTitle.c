@@ -1,10 +1,16 @@
+#pragma bank 1
+
 #include <gb/gb.h>
 #include <gb/metasprites.h>
 #include "../src/common.h"
-#include "../res/Title_Tiles.h"
-#include "../res/Globe_Tiles.h"
-#include "../res/Title_Map.h"
+#include "../res/misc/Title_Tiles.h"
+#include "../res/sprites/Globe_Tiles.h"
+#include "../res/misc/Title_Map.h"
 
+BANKREF(const_bank_ID_title)
+const uint8_t const_bank_ID_title = 1;
+
+#pragma region InitializeGlobeGraphics
 // Building the globe meta sprite
 const metasprite_t globe1[] = {
     {.dy=0, .dx=0, .dtile=0, .props=0},
@@ -83,12 +89,14 @@ const metasprite_t globe7[] = {
     {.dy=16, .dx=0, .dtile=110, .props=0},
     METASPR_TERM
 };
+#pragma endregion InitializeGlobeGraphics
 
 const metasprite_t* const globe_metasprites[7] = {
     globe1, globe2, globe3, globe4, globe5, globe6, globe7
 };
 
-void GameTitleSetup(void)
+BANKREF(GameTitleSetup)
+void GameTitleSetup(void) BANKED
 {
     move_bkg(0,0);
     BGP_REG = DMG_PALETTE(DMG_DARK_GRAY, DMG_BLACK, DMG_BLACK, DMG_BLACK);
@@ -105,7 +113,9 @@ void GameTitleSetup(void)
 
 uint8_t timer = 0;
 uint8_t frame = 0;
-uint8_t GameTitleUpdate(void)
+
+BANKREF(GameTitleUpdate)
+uint8_t GameTitleUpdate(void) BANKED
 {
     joypadPrevious = joypadCurrent;
     joypadCurrent = joypad();

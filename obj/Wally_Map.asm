@@ -20,9 +20,6 @@
 ; ram data
 ;--------------------------------------------------------
 	.area _INITIALIZED
-G$Wally_Map$0_0$0==.
-_Wally_Map::
-	.ds 30
 ;--------------------------------------------------------
 ; absolute external ram data
 ;--------------------------------------------------------
@@ -42,11 +39,10 @@ _Wally_Map::
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
-	.area _CODE
-	.area _CODE
-	.area _INITIALIZER
-FWally_Map$__xinit_Wally_Map$0_0$0 == .
-__xinit__Wally_Map:
+	.area _CODE_5
+	.area _CODE_5
+G$Wally_Map$0_0$0 == .
+_Wally_Map:
 	.db #0x80	; 128
 	.db #0x86	; 134
 	.db #0x8c	; 140
@@ -77,4 +73,5 @@ __xinit__Wally_Map:
 	.db #0x91	; 145
 	.db #0x9c	; 156
 	.db #0x9c	; 156
+	.area _INITIALIZER
 	.area _CABS (ABS)
